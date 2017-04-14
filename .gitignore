@@ -77,3 +77,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+src/.vscode/.browse.VC.db
+src/.vscode/.BROWSE.VC.DB-shm
+src/.vscode/launch.json
+*.DB-wal
