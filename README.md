@@ -10,10 +10,10 @@ Also library implements easy raw access to 'resources' of Photon Widget and the 
 
 instead of this:
 ```
-PtWidget_t *widget = widget;
+PtWidget_t *label = widget;
 PtArg_t arg;
-PtSetArg( &arg, _arg, 0, 0 );
-PtGetResources( widget, 1, &arg );
+PtSetArg( &arg, Pt_ARG_TEXT_STRING, 0, 0 );
+PtGetResources( label, 1, &arg );
 const char *text = (const char *)(arg.value);
 ```
 
