@@ -1,0 +1,183 @@
+#ifndef PT_CONTAINER_H
+#define PT_CONTAINER_H
+
+#include <photon/PtContainer.h>
+#include <photon/PtFillLayout.h>
+
+#include "./Basic.h"
+
+
+namespace PhWidgets
+{
+		
+	class Container:
+		public Basic
+	{
+	public:
+
+		struct ThisArgs
+		{
+			
+			struct ArgLong
+			{
+				enum eArgLong
+				{
+					container_flags = Pt_ARG_CONTAINER_FLAGS
+				};
+			};
+			
+			struct ArgInt
+			{
+				enum eArgInt
+				{
+					layout_type = Pt_ARG_LAYOUT_TYPE
+				};
+			};
+			
+			struct ArgBool
+			{
+				enum eArgBool
+				{
+					cursor_override = Pt_ARG_CURSOR_OVERRIDE
+				};
+			};
+
+			
+			struct ArgPFillLayoutInfo
+			{
+				enum eArgPFillLayoutInfo
+				{
+					fill_layout_info = Pt_ARG_FILL_LAYOUT_INFO
+				};
+			};
+			
+			struct ArgPGridLayoutInfo
+			{
+				enum eArgPGridLayoutInfo
+				{
+					grid_layout_info = Pt_ARG_GRID_LAYOUT_INFO
+				};
+			};
+			
+			struct ArgPLayoutDefinition
+			{
+				enum eArgPLayoutDefinition
+				{
+					layout = Pt_ARG_LAYOUT
+				};
+			};
+			
+			struct ArgPVoid
+			{
+				enum eArgPVoid
+				{
+					layout_info = Pt_ARG_LAYOUT_INFO
+				};
+			};
+			
+			struct ArgPRowLayoutInfo
+			{
+				enum eArgPRowLayoutInfo
+				{
+					row_layout_info = Pt_ARG_ROW_LAYOUT_INFO
+				};
+			};
+
+									
+			struct ArgPChar
+			{
+				enum eArgPChar
+				{
+					title = Pt_ARG_TITLE,
+					title_font = Pt_ARG_TITLE_FONT
+				};
+			};	
+			
+		};
+
+			
+		struct ArgLong:
+			public ArgumentsEx<Basic::ArgLong>,
+			public ThisArgs::ArgLong
+		{
+			using Basic::ArgLong::eArgLong;
+			using ThisArgs::ArgLong::eArgLong;
+		};
+		
+		struct ArgInt:
+			public ThisArgs::ArgInt,
+			public ThisArgs::ArgBool
+		{
+		};
+		
+		struct ArgPFillLayoutInfo:
+			public ThisArgs::ArgPFillLayoutInfo
+		{
+		};
+		
+		struct ArgPGridLayoutInfo:
+			public ThisArgs::ArgPGridLayoutInfo
+		{
+		};
+		
+		struct ArgPLayoutDefinition:
+			public ThisArgs::ArgPLayoutDefinition
+		{
+		};
+		
+		struct ArgPVoid:
+			public ArgumentsEx<Basic::ArgPVoid>,
+			public ThisArgs::ArgPVoid
+		{
+		};	
+		
+		struct ArgPRowLayoutInfo:
+			public ThisArgs::ArgPRowLayoutInfo
+		{
+		};
+
+
+		struct ArgPChar:
+			public ArgumentsEx<Basic::ArgPChar>,
+			public ThisArgs::ArgPChar
+		{
+		};	
+
+		struct Arguments:
+			public ArgLong,
+			public ArgInt,
+			public ArgPFillLayoutInfo,
+			public ArgPGridLayoutInfo,
+			public ArgPLayoutDefinition,
+			public ArgPVoid,
+			public ArgPRowLayoutInfo,
+			public ArgPChar,
+			public Basic::Arguments
+		{
+		};
+
+	protected:
+		virtual void check();
+						
+	public:
+		Container(int abn);
+		Container(PtWidget_t *wdg);
+		
+		
+	};
+	
+	INIT_WIDGET_RESOURCE0(Container::ThisArgs::ArgPChar::eArgPChar, String);
+	INIT_WIDGET_RESOURCE0(Container::ThisArgs::ArgBool::eArgBool, Boolean);
+
+	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgInt::eArgInt, int, Scalar);
+	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPFillLayoutInfo::eArgPFillLayoutInfo, PtFillLayoutInfo_t, Struct);
+	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPGridLayoutInfo::eArgPGridLayoutInfo, PtGridLayoutInfo_t, Struct);
+	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPLayoutDefinition::eArgPLayoutDefinition, PtLayoutDefinition_t, Struct);
+	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPRowLayoutInfo::eArgPRowLayoutInfo, PtRowLayoutInfo_t, Struct);
+	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPVoid::eArgPVoid, void*, Struct);
+	
+	INIT_WIDGET_RESOURCE2(Container::ThisArgs::ArgLong::eArgLong, long, long, Flag);
+}
+
+
+#endif
