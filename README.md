@@ -21,3 +21,8 @@ just write this:
 ```
 std::string text = label.Caption; //thats it!
 ```
+
+or in case you need a raw access to resource:
+```
+const char *text = label.argument.resource[Label::Arguments::text_string].get();
+```
