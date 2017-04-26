@@ -85,7 +85,7 @@ void Widget::check()
 Widget::Widget(int abn):
 	_abn(abn),
 	_widget(nullptr),
-	argument(this),
+	resource(this),
 	//properties:
 	Enabled(this),
 	Width(this),
@@ -104,7 +104,7 @@ Widget::Widget(int abn):
 Widget::Widget(PtWidget_t* wdg):
 	_abn(-1), 
 	_widget(wdg),
-	argument(this),
+	resource(this),
 	//properties:
 	Enabled(this),
 	Width(this),
@@ -152,7 +152,7 @@ Widget::Widget(PtWidget_t* wdg):
 Widget::Widget(const Widget &rhs):
 	_abn(ApName(rhs.widget())),
 	_widget(nullptr),
-	argument(this),
+	resource(this),
 	//properties:
 	Enabled(this),
 	Width(this),
@@ -207,72 +207,72 @@ Widget::operator const PtWidget_t*() const
 //for properties:
 void Widget::setEnabled(bool val)
 {
-	argument.resource[Arguments::flags].set(Pt_BLOCKED | Pt_GHOST, !val);
+	resource.argument[Arguments::flags].set(Pt_BLOCKED | Pt_GHOST, !val);
 }
 
 bool Widget::getEnabled() const
 {
-	return argument.resource[Arguments::flags].get(Pt_BLOCKED);
+	return resource.argument[Arguments::flags].get(Pt_BLOCKED);
 }
 
 void Widget::setWidth(unsigned short val)
 {
-	argument.resource[Arguments::width].set(val);
+	resource.argument[Arguments::width].set(val);
 }
 
 unsigned short Widget::getWidth() const
 {
-	return argument.resource[Arguments::width].get();
+	return resource.argument[Arguments::width].get();
 }
 
 void Widget::setHeight(unsigned short val)
 {
-	argument.resource[Arguments::height].set(val);
+	resource.argument[Arguments::height].set(val);
 }
 
 unsigned short Widget::getHeight() const
 {
-	return argument.resource[Arguments::height].get();
+	return resource.argument[Arguments::height].get();
 }
 
 void Widget::setDim(PhDim_t val)
 {
-	argument.resource[Arguments::dim].set(val);
+	resource.argument[Arguments::dim].set(val);
 }
 
 PhDim_t Widget::getDim() const
 {
-	return argument.resource[Arguments::dim].get();
+	return resource.argument[Arguments::dim].get();
 }
 
 void Widget::setBevelWidth(unsigned short val)
 {
-	argument.resource[Arguments::bevel_width].set(val);
+	resource.argument[Arguments::bevel_width].set(val);
 }
 
 unsigned short Widget::getBevelWidth() const
 {
-	return argument.resource[Arguments::bevel_width].get();
+	return resource.argument[Arguments::bevel_width].get();
 }
 
 void Widget::setHelpTopic(std::string val)
 {
-	argument.resource[Arguments::help_topic].set(val.c_str());
+	resource.argument[Arguments::help_topic].set(val.c_str());
 }
 
 std::string Widget::getHelpTopic() const
 {
-	return argument.resource[Arguments::help_topic].get();
+	return resource.argument[Arguments::help_topic].get();
 }
 
 void Widget::setLocation(PhPoint_t val)
 {
-	argument.resource[Arguments::pos].set(val);
+	resource.argument[Arguments::pos].set(val);
 }
 
 PhPoint_t Widget::getLocation() const
 {
-	return argument.resource[Arguments::pos].get();
+	return resource.argument[Arguments::pos].get();
 }
 
 

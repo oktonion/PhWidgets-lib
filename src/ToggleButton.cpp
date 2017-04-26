@@ -35,25 +35,25 @@ ToggleButton::ToggleButton(const ToggleButton &rhs):
 void ToggleButton::Check(bool val)
 {
 	if(val)
-		argument.resource[Arguments::flags].set(Pt_SET, true);
+		resource.argument[Arguments::flags].set(Pt_SET, true);
 }
 
 void ToggleButton::Uncheck(bool val)
 {
 	if(val)
-		argument.resource[Arguments::flags].set(Pt_SET, false);
+		resource.argument[Arguments::flags].set(Pt_SET, false);
 }
 
 void ToggleButton::setChecked(bool val)
 {
 	if(val)
-		argument.resource[Arguments::flags].set(Pt_SET, Pt_SET);
+		resource.argument[Arguments::flags].set(Pt_SET, Pt_SET);
 	else
-		argument.resource[Arguments::flags].set(0x0, Pt_SET);
+		resource.argument[Arguments::flags].set(0x0, Pt_SET);
 }
 
 bool ToggleButton::getChecked() const
 {
-	return argument.resource[Arguments::flags].get(Pt_SET);
+	return resource.argument[Arguments::flags].get(Pt_SET);
 }
 

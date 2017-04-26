@@ -246,11 +246,11 @@ namespace PhWidgets
 		{
 		};
 
-		class WidgetArgumentsBase
+		class WidgetResourcesSingleton
 		{
 			class WidgetResources
 			{
-				friend class WidgetArgumentsBase;
+				friend class WidgetResourcesSingleton;
 
 				template<typename ArgT>
 				class WidgetResourceBase
@@ -480,16 +480,18 @@ namespace PhWidgets
 				
 			};
 			
-		WidgetArgumentsBase(const WidgetArgumentsBase &rhs);
+		WidgetResourcesSingleton(const WidgetResourcesSingleton &rhs);
 
 		//protected:
 		public:
 
-			WidgetArgumentsBase(Widget *widget):
-				resource(WidgetResources(widget))
+			WidgetResourcesSingleton(Widget *widget):
+				argument(WidgetResources(widget)),
+				callback(WidgetResources(widget))
 			{}
 
-			WidgetResources resource;
+			WidgetResources argument;
+			WidgetResources callback;
 		};
 	
 		PtWidget_t *widget() const;
@@ -542,7 +544,7 @@ namespace PhWidgets
 		operator PtWidget_t*();
 		operator const PtWidget_t*() const;
 
-		WidgetArgumentsBase argument;
+		WidgetResourcesSingleton resource;
 	
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled> Enabled;
 		property<unsigned short>::bind<Widget, &Widget::getWidth, &Widget::setWidth> Width;
@@ -557,7 +559,7 @@ namespace PhWidgets
 
 #define INIT_WIDGET_RESOURCE_Alloc(ArgT)\
 	template<>\
-	class Widget::WidgetArgumentsBase::WidgetResources::WidgetResource<ArgT>:\
+	class Widget::WidgetResourcesSingleton::WidgetResources::WidgetResource<ArgT>:\
 		private WidgetResourceBase<ArgT>\
 	{\
 		friend class WidgetResources;\
@@ -594,7 +596,7 @@ namespace PhWidgets
 
 #define INIT_WIDGET_RESOURCE_Color(ArgT, T1)\
 	template<>\
-	class Widget::WidgetArgumentsBase::WidgetResources::WidgetResource<ArgT>:\
+	class Widget::WidgetResourcesSingleton::WidgetResources::WidgetResource<ArgT>:\
 		private WidgetResourceBase<ArgT>\
 	{\
 		friend class WidgetResources;\
@@ -632,7 +634,7 @@ namespace detail
 
 #define INIT_WIDGET_RESOURCE_Flag(ArgT, T1, T2)\
 	template<>\
-	class Widget::WidgetArgumentsBase::WidgetResources::WidgetResource<ArgT>:\
+	class Widget::WidgetResourcesSingleton::WidgetResources::WidgetResource<ArgT>:\
 		private WidgetResourceBase<ArgT>\
 	{\
 		friend class WidgetResources;\
@@ -674,7 +676,7 @@ namespace detail
 
 #define INIT_WIDGET_RESOURCE_Scalar(ArgT, T1)\
 	template<>\
-	class Widget::WidgetArgumentsBase::WidgetResources::WidgetResource<ArgT>:\
+	class Widget::WidgetResourcesSingleton::WidgetResources::WidgetResource<ArgT>:\
 		private WidgetResourceBase<ArgT>\
 	{\
 		friend class WidgetResources;\
@@ -704,7 +706,7 @@ namespace detail
 
 #define INIT_WIDGET_RESOURCE_String(ArgT)\
 	template<>\
-	class Widget::WidgetArgumentsBase::WidgetResources::WidgetResource<ArgT>:\
+	class Widget::WidgetResourcesSingleton::WidgetResources::WidgetResource<ArgT>:\
 		private WidgetResourceBase<ArgT>\
 	{\
 		friend class WidgetResources;\
@@ -733,7 +735,7 @@ namespace detail
 	
 #define INIT_WIDGET_RESOURCE_Struct(ArgT, T1)\
 	template<>\
-	class Widget::WidgetArgumentsBase::WidgetResources::WidgetResource<ArgT>:\
+	class Widget::WidgetResourcesSingleton::WidgetResources::WidgetResource<ArgT>:\
 		private WidgetResourceBase<ArgT>\
 	{\
 		friend class WidgetResources;\

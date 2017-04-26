@@ -37,20 +37,20 @@ Basic::Basic(const Basic &rhs):
 
 void Basic::setColor(PgColor_t val)
 {
-	argument.resource[Arguments::color].set(val);
+	resource.argument[Arguments::color].set(val);
 }
 
 PgColor_t Basic::getColor() const
 {
-	return argument.resource[Arguments::color].get();
+	return resource.argument[Arguments::color].get();
 }
 
 void Basic::setFillColor(PgColor_t val)
 {
-	argument.resource[Arguments::fill_color].set(val);
+	resource.argument[Arguments::fill_color].set(val);
 }
 
 PgColor_t Basic::getFillColor() const
 {
-	return argument.resource[Arguments::fill_color].get();
+	return resource.argument[Arguments::fill_color].get();
 }
