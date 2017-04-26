@@ -248,208 +248,199 @@ namespace PhWidgets
 
 		class WidgetResourcesSingleton
 		{
-			class WidgetResources
+			template<typename ArgT>
+			class WidgetResourceBase
 			{
-				friend class WidgetResourcesSingleton;
+			protected:
 
-				template<typename ArgT>
-				class WidgetResourceBase
+				ArgT _arg;
+				Widget *_rwidget;
+
+				WidgetResourceBase(Widget *widget, ArgT arg) :
+					_arg(arg),
+					_rwidget(widget)
+				{}
+
+				inline int setScalar(const void *scval)
 				{
-					protected:
+					return PtSetResource(_rwidget->widget(), _arg, scval, 0);
+				}
 
-					ArgT _arg;
-					Widget *_rwidget;
+				inline int setColor(const void *color)
+				{
+					return setScalar(color);
+				}
 
-					WidgetResourceBase(Widget *widget, ArgT arg):
-						_arg(arg),
-						_rwidget(widget)
-					{}
+				inline int setString(const char *str)
+				{
+					return setScalar(str);
+				}
 
-					inline int setScalar(const void *scval)
-					{
-						return PtSetResource(_rwidget->widget(), _arg, scval, 0);
-					}
+				/*inline int setString(const wchar_t *str)
+				{
+				return PtSetResource(widget(), _arg, str, wcslen(str));
+				}*/
 
-					inline int setColor(const void *color)
-					{
-						return setScalar(color);
-					}
+				inline int setAlloc(const void **pdata, size_t size)//pointer to data and size of data
+				{
+					return PtSetResource(_rwidget->widget(), _arg, pdata, size);
+				}
 
-					inline int setString(const char *str)
-					{
-						return setScalar(str);
-					}
+				inline int setImage(const void **pimage)
+				{
+					return setAlloc(pimage, 0);
+				}
 
-					/*inline int setString(const wchar_t *str)
-					{
-						return PtSetResource(widget(), _arg, str, wcslen(str));
-					}*/
+				template<typename T, size_t count>
+				inline int setArray(T(&arr)[count])
+				{
+					return PtSetResource(_rwidget->widget(), _arg, arr, count);
+				}
 
-					inline int setAlloc(const void **pdata, size_t size)//pointer to data and size of data
-					{
-						return PtSetResource(_rwidget->widget(), _arg, pdata, size);
-					}
+				inline int setArray(const void *parr, size_t count)
+				{
+					return PtSetResource(_rwidget->widget(), _arg, parr, count);
+				}
 
-					inline int setImage(const void **pimage)
-					{
-						return setAlloc(pimage, 0);
-					}
+				inline int setFlag(long flag, long bits)
+				{
+					return PtSetResource(_rwidget->widget(), _arg, bits, flag);
+				}
 
-					template<typename T, size_t count>
-					inline int setArray(T(&arr)[count])
-					{
-						return PtSetResource(_rwidget->widget(), _arg, arr, count);
-					}
+				inline int setFlag(long flag, bool on)
+				{
+					return PtSetResource(_rwidget->widget(), _arg, on ? Pt_TRUE : Pt_FALSE, flag);
+				}
 
-					inline int setArray(const void *parr, size_t count)
-					{
-						return PtSetResource(_rwidget->widget(), _arg, parr, count);
-					}
+				inline int setPointer(const void *p)
+				{
+					return setScalar(p);
+				}
 
-					inline int setFlag(long flag, long bits)
-					{
-						return PtSetResource(_rwidget->widget(), _arg, bits, flag);
-					}
+				inline int setLink(const void *parr, size_t num)
+				{
+					return PtSetResource(_rwidget->widget(), _arg, parr, num);
+				}
 
-					inline int setFlag(long flag, bool on)
-					{
-						return PtSetResource(_rwidget->widget(), _arg, on ? Pt_TRUE : Pt_FALSE, flag);
-					}
+				inline int setStruct(const void *pdata)
+				{
+					return setPointer(pdata);
+				}
 
-					inline int setPointer(const void *p)
-					{
-						return setScalar(p);
-					}
+				inline int setBoolean(bool val)
+				{
+					return PtSetResource(_rwidget->widget(), _arg, val ? 1 : 0, 0);
+				}
 
-					inline int setLink(const void *parr, size_t num)
-					{
-						return PtSetResource(_rwidget->widget(), _arg, parr, num);
-					}
+				template<typename T>
+				inline T getScalar() const
+				{
+					PtArg_t arg;
 
-					inline int setStruct(const void *pdata)
-					{
-						return setPointer(pdata);
-					}
+					PtSetArg(&arg, _arg, 0, 0);
+					PtGetResources(_rwidget->widget(), 1, &arg);
 
-					inline int setBoolean(bool val)
-					{
-						return PtSetResource(_rwidget->widget(), _arg, val? 1 : 0, 0);
-					}
+					return static_cast<T>(arg.value);
+				}
 
-					template<typename T>
-					inline T getScalar() const
-					{
-						PtArg_t arg;
+				template<typename T>
+				inline T getString() const
+				{
+					PtArg_t arg;
 
-    					PtSetArg( &arg, _arg, 0, 0 );
-    					PtGetResources( _rwidget->widget(), 1, &arg );
+					PtSetArg(&arg, _arg, 0, 0);
+					PtGetResources(_rwidget->widget(), 1, &arg);
 
-    					return static_cast<T>(arg.value);
-					}
+					return static_cast<T>(reinterpret_cast<char*>(arg.value));
+				}
 
-					template<typename T>
-					inline T getString() const
-					{
-						PtArg_t arg;
+				inline bool getBoolean() const
+				{
+					PtArg_t arg;
 
-    					PtSetArg( &arg, _arg, 0, 0 );
-    					PtGetResources( _rwidget->widget(), 1, &arg );
+					PtSetArg(&arg, _arg, 0, 0);
+					PtGetResources(_rwidget->widget(), 1, &arg);
 
-    					return static_cast<T>(reinterpret_cast<char*>(arg.value));
-					}
-
-					inline bool getBoolean() const
-					{
-						PtArg_t arg;
-
-    					PtSetArg( &arg, _arg, 0, 0 );
-    					PtGetResources( _rwidget->widget(), 1, &arg );
-
-    					return (arg.value != 0);
-					}
-					
-
-					template<typename T>
-					inline T* getStruct() const
-					{
-						T *p = nullptr;
-						PtArg_t arg;
-
-    					PtSetArg( &arg, _arg, &p, 0 );
-    					PtGetResources( _rwidget->widget(), 1, &arg );
-
-    					return p;
-					}					
+					return (arg.value != 0);
+				}
 
 
-					template<typename T>
-					inline T* getAlloc() const
-					{
-						T *p = nullptr;
-						PtArg_t arg;
+				template<typename T>
+				inline T* getStruct() const
+				{
+					T *p = nullptr;
+					PtArg_t arg;
 
-    					PtSetArg( &arg, _arg, &p, 0 );
-    					PtGetResources( _rwidget->widget(), 1, &arg );
+					PtSetArg(&arg, _arg, &p, 0);
+					PtGetResources(_rwidget->widget(), 1, &arg);
 
-    					return p;
-					}
+					return p;
+				}
 
 
-				public:
-			
-					~WidgetResourceBase()
-					{}
-				};
-				
-				
+				template<typename T>
+				inline T* getAlloc() const
+				{
+					T *p = nullptr;
+					PtArg_t arg;
+
+					PtSetArg(&arg, _arg, &p, 0);
+					PtGetResources(_rwidget->widget(), 1, &arg);
+
+					return p;
+				}
+
+
+			public:
+
+				~WidgetResourceBase()
+				{}
+			};
+
+			class WidgetArguments
+			{
+				friend class WidgetResourcesSingleton;			
 
 				template<typename ArgT>
-				class WidgetResource:
+				class WidgetArgument:
 					private WidgetResourceBase<ArgT>
 				{
-					friend class WidgetResources;
+					friend class WidgetArguments;
 
-					WidgetResource(Widget *widget, ArgT arg):
+					WidgetArgument(Widget *widget, ArgT arg):
 						WidgetResourceBase<ArgT>(widget, arg)
 					{}
 					
-					WidgetResource(const WidgetResource &rhs):
+					WidgetArgument(const WidgetArgument &rhs):
 						WidgetResourceBase<ArgT>(rhs._widget, rhs._arg)
 					{}
 
 
 				public:
 			
-					~WidgetResource()
+					~WidgetArgument()
 					{}
-
-
-					template<typename T>
-					inline int set(T);
-
-					template<typename A1, typename A2>
-					inline int set(A1, A2);
 
 				};
 
-				template<typename ArgT>
-				static std::map<ArgT, WidgetResource <ArgT> >  &_resources()
+				/*template<typename ArgT>
+				static std::map<ArgT, WidgetArgument <ArgT> >  &_resources()
 				{
-					static std::map<ArgT, WidgetResource <ArgT> >  resources;
+					static std::map<ArgT, WidgetArgument <ArgT> >  resources;
 					
 					return resources;
-				}
+				}*/
 
 				
 
 				Widget *_widget;//pointer to parent widget!!!
 
-				WidgetResources(Widget *widget):
+				WidgetArguments(Widget *widget):
 					_widget(widget) 
 				{
 				}
 				
-				~WidgetResources() 
+				~WidgetArguments() 
 				{
 				}
 								
@@ -458,13 +449,13 @@ namespace PhWidgets
 
 				/*
 				template<typename ArgT>
-				WidgetResource<ArgT> &operator [](const ArgT indx) const
+				WidgetArgument<ArgT> &operator [](const ArgT indx) const
 				{
-					static std::map<ArgT, WidgetResource <ArgT> >  &resources = _resources<ArgT>();
+					static std::map<ArgT, WidgetArgument <ArgT> >  &resources = _resources<ArgT>();
 
 					if(resources.find(indx) == resources.end())
 					{
-						resources.insert(std::make_pair(indx, WidgetResource <ArgT> ( _widget, indx )));
+						resources.insert(std::make_pair(indx, WidgetArgument <ArgT> ( _widget, indx )));
 					}
 
 					return resources.find(indx)->second;
@@ -472,12 +463,64 @@ namespace PhWidgets
 				*/
 				
 				template<typename ArgT>
-				WidgetResource<ArgT> operator [](const ArgT indx) const
+				WidgetArgument<ArgT> operator [](const ArgT indx) const
 				{
-					return WidgetResource <ArgT> ( _widget, indx );
+					return WidgetArgument <ArgT> ( _widget, indx );
 				}
 
 				
+			};
+
+			class WidgetCallbacks
+			{
+				friend class WidgetResourcesSingleton;
+
+				template<typename ArgT>
+				class WidgetCallback :
+					private WidgetResourceBase<ArgT>
+				{
+					friend class WidgetArguments;
+
+					WidgetCallback(Widget *widget, ArgT arg) :
+						WidgetResourceBase<ArgT>(widget, arg)
+					{}
+
+					WidgetCallback(const WidgetCallback &rhs) :
+						WidgetResourceBase<ArgT>(rhs._widget, rhs._arg)
+					{}
+
+
+				public:
+
+					~WidgetCallback()
+					{}
+
+				};
+
+
+
+				Widget *_widget;//pointer to parent widget!!!
+
+				WidgetCallbacks(Widget *widget) :
+					_widget(widget)
+				{
+				}
+
+				~WidgetCallbacks()
+				{
+				}
+
+
+			public:
+
+
+				template<typename ArgT>
+				WidgetCallback<ArgT> operator [](const ArgT indx) const
+				{
+					return WidgetCallback <ArgT>(_widget, indx);
+				}
+
+
 			};
 			
 		WidgetResourcesSingleton(const WidgetResourcesSingleton &rhs);
@@ -486,12 +529,12 @@ namespace PhWidgets
 		public:
 
 			WidgetResourcesSingleton(Widget *widget):
-				argument(WidgetResources(widget)),
-				callback(WidgetResources(widget))
+				argument(WidgetArguments(widget)),
+				callback(WidgetCallbacks(widget))
 			{}
 
-			WidgetResources argument;
-			WidgetResources callback;
+			WidgetArguments argument;
+			WidgetCallbacks callback;
 		};
 	
 		PtWidget_t *widget() const;
@@ -559,18 +602,18 @@ namespace PhWidgets
 
 #define INIT_WIDGET_RESOURCE_Alloc(ArgT)\
 	template<>\
-	class Widget::WidgetResourcesSingleton::WidgetResources::WidgetResource<ArgT>:\
+	class Widget::WidgetResourcesSingleton::WidgetArguments::WidgetArgument<ArgT>:\
 		private WidgetResourceBase<ArgT>\
 	{\
-		friend class WidgetResources;\
+		friend class WidgetArguments;\
 \
-		WidgetResource(Widget *widget, ArgT arg):\
+		WidgetArgument(Widget *widget, ArgT arg):\
 			WidgetResourceBase<ArgT>(widget, arg)\
 		{}\
 \
 	public:\
 \
-		~WidgetResource()\
+		~WidgetArgument()\
 		{}\
 \
 \
@@ -596,18 +639,18 @@ namespace PhWidgets
 
 #define INIT_WIDGET_RESOURCE_Color(ArgT, T1)\
 	template<>\
-	class Widget::WidgetResourcesSingleton::WidgetResources::WidgetResource<ArgT>:\
+	class Widget::WidgetResourcesSingleton::WidgetArguments::WidgetArgument<ArgT>:\
 		private WidgetResourceBase<ArgT>\
 	{\
-		friend class WidgetResources;\
+		friend class WidgetArguments;\
 \
-		WidgetResource(Widget *widget, ArgT arg):\
+		WidgetArgument(Widget *widget, ArgT arg):\
 			WidgetResourceBase<ArgT>(widget, arg)\
 		{}\
 \
 	public:\
 \
-		~WidgetResource()\
+		~WidgetArgument()\
 		{}\
 \
 \
@@ -634,18 +677,18 @@ namespace detail
 
 #define INIT_WIDGET_RESOURCE_Flag(ArgT, T1, T2)\
 	template<>\
-	class Widget::WidgetResourcesSingleton::WidgetResources::WidgetResource<ArgT>:\
+	class Widget::WidgetResourcesSingleton::WidgetArguments::WidgetArgument<ArgT>:\
 		private WidgetResourceBase<ArgT>\
 	{\
-		friend class WidgetResources;\
+		friend class WidgetArguments;\
 \
-		WidgetResource(Widget *widget, ArgT arg):\
+		WidgetArgument(Widget *widget, ArgT arg):\
 			WidgetResourceBase<ArgT>(widget, arg)\
 		{}\
 \
 	public:\
 \
-		~WidgetResource()\
+		~WidgetArgument()\
 		{}\
 \
 \
@@ -676,18 +719,18 @@ namespace detail
 
 #define INIT_WIDGET_RESOURCE_Scalar(ArgT, T1)\
 	template<>\
-	class Widget::WidgetResourcesSingleton::WidgetResources::WidgetResource<ArgT>:\
+	class Widget::WidgetResourcesSingleton::WidgetArguments::WidgetArgument<ArgT>:\
 		private WidgetResourceBase<ArgT>\
 	{\
-		friend class WidgetResources;\
+		friend class WidgetArguments;\
 \
-		WidgetResource(Widget *widget, ArgT arg):\
+		WidgetArgument(Widget *widget, ArgT arg):\
 			WidgetResourceBase<ArgT>(widget, arg)\
 		{}\
 \
 	public:\
 \
-		~WidgetResource()\
+		~WidgetArgument()\
 		{}\
 \
 \
@@ -706,18 +749,18 @@ namespace detail
 
 #define INIT_WIDGET_RESOURCE_String(ArgT)\
 	template<>\
-	class Widget::WidgetResourcesSingleton::WidgetResources::WidgetResource<ArgT>:\
+	class Widget::WidgetResourcesSingleton::WidgetArguments::WidgetArgument<ArgT>:\
 		private WidgetResourceBase<ArgT>\
 	{\
-		friend class WidgetResources;\
+		friend class WidgetArguments;\
 \
-		WidgetResource(Widget *widget, ArgT arg):\
+		WidgetArgument(Widget *widget, ArgT arg):\
 			WidgetResourceBase<ArgT>(widget, arg)\
 		{}\
 \
 	public:\
 \
-		~WidgetResource()\
+		~WidgetArgument()\
 		{}\
 \
 \
@@ -735,12 +778,12 @@ namespace detail
 	
 #define INIT_WIDGET_RESOURCE_Struct(ArgT, T1)\
 	template<>\
-	class Widget::WidgetResourcesSingleton::WidgetResources::WidgetResource<ArgT>:\
+	class Widget::WidgetResourcesSingleton::WidgetArguments::WidgetArgument<ArgT>:\
 		private WidgetResourceBase<ArgT>\
 	{\
-		friend class WidgetResources;\
+		friend class WidgetArguments;\
 \
-		WidgetResource(Widget *widget, ArgT arg):\
+		WidgetArgument(Widget *widget, ArgT arg):\
 			WidgetResourceBase<ArgT>(widget, arg)\
 		{}\
 		template<typename T> struct remove_p {typedef T type;};\
@@ -751,7 +794,7 @@ namespace detail
 \
 	public:\
 \
-		~WidgetResource()\
+		~WidgetArgument()\
 		{}\
 \
 \
