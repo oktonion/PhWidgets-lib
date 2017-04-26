@@ -25,5 +25,5 @@ std::string text = label.Caption; //thats it!
 or in case you need a raw access to resource:
 ```
  // you can use Pt_ARG_TEXT_STRING instead of Label::Arguments::text_string btw
-const char *text = label.argument.resource[Label::Arguments::text_string].get(); //a little bit excessive syntax, so may change
+const char *text = label.resource.argument[Label::Arguments::text_string].get(); //a little bit excessive syntax, so may change
 ```
