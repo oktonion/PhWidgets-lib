@@ -143,6 +143,41 @@ namespace PhWidgets
 			};
 		};
 
+		struct ThisCallbacks
+		{
+			struct RawCallback
+			{
+				enum eRawCallback
+				{
+					filter = Pt_CB_FILTER,
+					raw = Pt_CB_RAW
+
+				};
+			};
+
+			struct Callback
+			{
+				enum eCallback
+				{
+					blocked = Pt_CB_BLOCKED, 
+					destroyed = Pt_CB_DESTROYED,
+					dnd = Pt_CB_DND,
+					is_destroyed = Pt_CB_IS_DESTROYED,
+					outbound = Pt_CB_OUTBOUND,
+					realized = Pt_CB_REALIZED,
+					unrealized = Pt_CB_UNREALIZED
+				};
+			};
+
+			struct HotkeyCallback
+			{
+				enum eHotkeyCallback
+				{
+					hotkey = Pt_CB_HOTKEY
+				};
+			};
+		};
+
 		struct ArgArea:
 			public ThisArgs::ArgArea
 		{
@@ -212,6 +247,21 @@ namespace PhWidgets
 			public ThisArgs::ArgDim
 		{
 		};
+
+		struct RawCallback:
+			public ThisCallbacks::RawCallback
+		{
+		};
+
+		struct Callback:
+			public ThisCallbacks::Callback
+		{
+		};
+
+		struct HotkeyCallback:
+			public ThisCallbacks::HotkeyCallback
+		{
+		};
 	
 		struct Arguments:
 			public ArgArea,
@@ -229,6 +279,110 @@ namespace PhWidgets
 			public ArgUnsignedShort,
 			public ArgDim
 		{
+		};
+
+		struct Callbacks :
+			public RawCallback,
+			public Callback,
+			public HotkeyCallback
+		{
+		};
+
+		struct Events
+		{
+			enum eEvents
+			{
+
+				boundary = Ph_EV_BOUNDARY,//Emitted when the pointer crosses region boundaries.
+				press = Ph_EV_BUT_PRESS,//Emitted when the user presses a button on a pointing device.
+				release = Ph_EV_BUT_RELEASE,//Emitted when the user releases a pointing-device button.
+				repeat = Ph_EV_BUT_REPEAT,//Emitted when the user presses an auto-repeating button on a pointing device.
+				dndrop = Ph_EV_DNDROP,//These events are emitted during a drag-and-drop operation.
+				drag = Ph_EV_DRAG,//Used by an application to initiate drag events, to determine their completion, and to indicate intermediate drag-motion events.
+				draw = Ph_EV_DRAW,//Emitted by the Pg functions when applications perform draw operations.
+				expose = Ph_EV_EXPOSE,//Emitted by the Photon Manager on behalf of a region being moved, resized, or removed from the event space.
+				info = Ph_EV_INFO,//All regions must always be transparent to Ph_EV_INFO events. They are emitted by applications or service providers to disseminate information or respond to requests.
+				key = Ph_EV_KEY,//Emitted when a key state changes (for example, the user presses or releases a key).
+				button = Ph_EV_PTR_MOTION_BUTTON,//Emitted when the user moves the pointing device while pressing a button.
+				nobutton = Ph_EV_PTR_MOTION_NOBUTTON,//Emitted when the user moves the pointing device without pressing a button.
+				raw = Ph_EV_RAW,//These are raw, unfocused events that the Photon server handles. 
+				service = Ph_EV_SERVICE,//These events may be emitted by applications requesting services or providing information to services, other applications that provide some kind of service in a Photon system.
+				system = Ph_EV_SYSTEM,//Are emitted when Photon or a service wants to inform applications of changes in the system.
+				timer = Ph_EV_TIMER,//Emitted by an application directly to the Device region to request a reciprocal event after a specific amount of time has elapsed (arm a timer).
+				user = Ph_EV_USER,//A custom event type that your application can use to interact with other applications. 
+				wm = Ph_EV_WM//Both the Window Manager and applications can emit this event. The Window Manager emits this event when an application has asked to be notified. An application can emit this event to communicate to the Window Manager regarding windows. 
+
+			};
+		};
+
+		struct Hotkeys
+		{
+			enum eHotkeys
+			{
+				Left = Pk_Left,
+				BackSpace = Pk_BackSpace,
+				Tab = Pk_Tab,
+				Return = Pk_Return,
+				Escape = Pk_Escape,
+				Home = Pk_Home,
+				Up = Pk_Up,
+				Right = Pk_Right,
+				Down = Pk_Down,
+				Pg_Up = Pk_Pg_Up,
+				Pg_Down = Pk_Pg_Down,
+				End = Pk_End,
+				Insert = Pk_Insert,
+				Delete = Pk_Delete,
+				Menu = Pk_Menu,
+				F1 = Pk_F1,
+				F2 = Pk_F2,
+				F3 = Pk_F3,
+				F4 = Pk_F4,
+				F5 = Pk_F5,
+				F6 = Pk_F6,
+				F7 = Pk_F7,
+				F8 = Pk_F8,
+				F9 = Pk_F9,
+				F10 = Pk_F10,
+				F11 = Pk_F11,
+				F12 = Pk_F12,
+				F13 = Pk_F13,
+				F14 = Pk_F14,
+				F15 = Pk_F15,
+				F16 = Pk_F16,
+				F17 = Pk_F17,
+				F18 = Pk_F18,
+				F19 = Pk_F19,
+				F20 = Pk_F20,
+				F21 = Pk_F21,
+				F22 = Pk_F22,
+				F23 = Pk_F23,
+				F24 = Pk_F24,
+				F25 = Pk_F25,
+				F26 = Pk_F26,
+				F27 = Pk_F27,
+				F28 = Pk_F28,
+				F29 = Pk_F29,
+				F30 = Pk_F30,
+				F31 = Pk_F31,
+				F32 = Pk_F32,
+				F33 = Pk_F33,
+				F34 = Pk_F34,
+				F35 = Pk_F35
+			};
+			
+			
+		};
+
+		struct KeyModes
+		{
+			enum eKeyModes
+			{
+				Shift = Pk_KM_Shift,
+				Ctrl = Pk_KM_Ctrl,
+				Alt = Pk_KM_Alt,
+				none = 0
+			};
 		};
 
 				
@@ -317,11 +471,6 @@ namespace PhWidgets
 					return setScalar(p);
 				}
 
-				inline int setLink(const void *parr, size_t num)
-				{
-					return PtSetResource(_rwidget->widget(), _arg, parr, num);
-				}
-
 				inline int setStruct(const void *pdata)
 				{
 					return setPointer(pdata);
@@ -331,6 +480,48 @@ namespace PhWidgets
 				{
 					return PtSetResource(_rwidget->widget(), _arg, val ? 1 : 0, 0);
 				}
+
+				template<size_t count>
+				inline void addLink(PtCallback_t const (&callbacks)[count])
+				{
+					PtAddCallbacks(_rwidget->widget(), _arg, callbacks, count);
+				}
+
+				inline void addLink(PtCallback_t callback)
+				{
+					PtCallback_t callbacks[] = { callback };
+
+					addLink(callbacks);
+				}
+
+				inline void addLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
+				{
+					PtAddCallback(_rwidget->widget(), _arg, callback, data);
+				}
+
+				template<size_t count>
+				inline void addLink(PtRawCallback_t const (&callbacks)[count])
+				{
+					PtAddEventHandlers(_rwidget->widget(), callbacks, count);
+				}
+
+				inline void addLink(PtRawCallback_t callback)
+				{
+					PtRawCallback_t callbacks[] = { callback };
+
+					addLink(callbacks);
+				}
+
+				inline void addLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Events::eEvents event, void *data = nullptr)
+				{
+					PtAddEventHandler(_rwidget->widget(), event, callback, data);
+				}
+
+				inline void addLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Hotkeys::eHotkeys hotkey, KeyModes::eKeyModes keymode = KeyModes::none, bool chained = false, void *data = nullptr)
+				{
+					PtAddHotkeyHandler(_rwidget->widget(), hotkey, keymode, chained ? Pt_HOTKEY_CHAINED : 0, data, callback);
+				}
+
 
 				template<typename T>
 				inline T getScalar() const
@@ -600,6 +791,7 @@ namespace PhWidgets
 
 #define INIT_DISABLED ;
 
+
 #define INIT_WIDGET_RESOURCE_Alloc(ArgT)\
 	template<>\
 	class Widget::WidgetResourcesSingleton::WidgetArguments::WidgetArgument<ArgT>:\
@@ -713,7 +905,92 @@ namespace detail
 
 #define INIT_WIDGET_RESOURCE_Function(ArgT) INIT_DISABLED
 #define INIT_WIDGET_RESOURCE_Image(ArgT) INIT_DISABLED
-#define INIT_WIDGET_RESOURCE_Link(ArgT) INIT_DISABLED
+
+#define INIT_WIDGET_RESOURCE_Link_PtCallback_t(ArgT)\
+	template<>\
+	class Widget::WidgetResourcesSingleton::WidgetCallbacks::WidgetCallback<ArgT>:\
+		private WidgetResourceBase<ArgT>\
+	{\
+		friend class WidgetCallbacks;\
+\
+		WidgetCallback(Widget *widget, ArgT arg):\
+			WidgetResourceBase<ArgT>(widget, arg)\
+		{}\
+\
+	public:\
+\
+		~WidgetCallback()\
+		{}\
+\
+\
+		inline void add(PtCallback_t callback)\
+		{\
+			addLink(callback);\
+		}\
+\
+		inline void add(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)\
+		{\
+			addLink(callback, data);\
+		}\
+\
+	};
+
+#define INIT_WIDGET_RESOURCE_Link_PtRawCallback_t(ArgT)\
+	template<>\
+	class Widget::WidgetResourcesSingleton::WidgetCallbacks::WidgetCallback<ArgT>:\
+		private WidgetResourceBase<ArgT>\
+	{\
+		friend class WidgetCallbacks;\
+\
+		WidgetCallback(Widget *widget, ArgT arg):\
+			WidgetResourceBase<ArgT>(widget, arg)\
+		{}\
+\
+	public:\
+\
+		~WidgetCallback()\
+		{}\
+\
+\
+		inline void add(PtRawCallback_t callback)\
+		{\
+			addLink(callback);\
+		}\
+\
+		inline void add(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Widget::Events::eEvents event, void *data = nullptr)\
+		{\
+			addLink(callback, event, data);\
+		}\
+\
+	};
+
+#define INIT_WIDGET_RESOURCE_Link_PtHotkeyCallback_t(ArgT)\
+	template<>\
+	class Widget::WidgetResourcesSingleton::WidgetCallbacks::WidgetCallback<ArgT>:\
+		private WidgetResourceBase<ArgT>\
+	{\
+		friend class WidgetCallbacks;\
+\
+		WidgetCallback(Widget *widget, ArgT arg):\
+			WidgetResourceBase<ArgT>(widget, arg)\
+		{}\
+\
+	public:\
+\
+		~WidgetCallback()\
+		{}\
+\
+\
+		inline void add(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Widget::Hotkeys::eHotkeys hotkey, Widget::KeyModes::eKeyModes keymode = Widget::KeyModes::none)\
+		{\
+			addLink(callback, hotkey, keymode);\
+		}\
+\
+	};
+
+#define INIT_WIDGET_RESOURCE_Link(ArgT, T1) INIT_WIDGET_RESOURCE_Link_##T1(ArgT)
+
+
 #define INIT_WIDGET_RESOURCE_Pointer(ArgT) INIT_DISABLED
 
 
@@ -836,10 +1113,14 @@ namespace detail
 	INIT_WIDGET_RESOURCE1(Widget::ThisArgs::ArgRect::eArgRect, PhRect_t, Struct);
 	INIT_WIDGET_RESOURCE1(Widget::ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short, Scalar);
 	INIT_WIDGET_RESOURCE1(Widget::ThisArgs::ArgDim::eArgDim, PhDim_t, Struct);
+	INIT_WIDGET_RESOURCE1(Widget::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
+	INIT_WIDGET_RESOURCE1(Widget::ThisCallbacks::RawCallback::eRawCallback, PtRawCallback_t, Link);
+	INIT_WIDGET_RESOURCE1(Widget::ThisCallbacks::HotkeyCallback::eHotkeyCallback, PtHotkeyCallback_t, Link);
 
 	INIT_WIDGET_RESOURCE2(Widget::ThisArgs::ArgLong::eArgLong, long, long, Flag);
 	INIT_WIDGET_RESOURCE2(Widget::ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long, unsigned long, Flag);
 	INIT_WIDGET_RESOURCE2(Widget::ThisArgs::ArgUnsigned::eArgUnsigned, unsigned, unsigned, Flag);
+
 }//namespace PhWidgets
 
 
