@@ -12,14 +12,17 @@
 #include "./service/mystd/my_exception.h"
 #include "./service/code_extensions.h"
 #include "./service/property.hpp"
+#include "./service/event.hpp"
 
 namespace PhWidgets
 {
 	using namespace cppproperties;
+	using namespace cppevents;
 	
 	class Widget
 	{
 	public:
+		typedef int(*callback_t)(PtWidget_t *, void *, PtCallbackInfo_t *);
 	
 		struct ThisArgs
 		{
@@ -494,7 +497,7 @@ namespace PhWidgets
 					addLink(callbacks);
 				}
 
-				inline void addLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
+				inline void addLink(Widget::callback_t callback, void *data = nullptr)
 				{
 					PtAddCallback(_rwidget->widget(), _arg, callback, data);
 				}
@@ -512,12 +515,12 @@ namespace PhWidgets
 					addLink(callbacks);
 				}
 
-				inline void addLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Events::eEvents event, void *data = nullptr)
+				inline void addLink(Widget::callback_t callback, Events::eEvents event, void *data = nullptr)
 				{
 					PtAddEventHandler(_rwidget->widget(), event, callback, data);
 				}
 
-				inline void addLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Hotkeys::eHotkeys hotkey, KeyModes::eKeyModes keymode = KeyModes::none, bool chained = false, void *data = nullptr)
+				inline void addLink(Widget::callback_t callback, Hotkeys::eHotkeys hotkey, KeyModes::eKeyModes keymode = KeyModes::none, bool chained = false, void *data = nullptr)
 				{
 					PtAddHotkeyHandler(_rwidget->widget(), hotkey, keymode, chained ? Pt_HOTKEY_CHAINED : 0, data, callback);
 				}
@@ -752,6 +755,14 @@ namespace PhWidgets
 		
 		void setLocation(PhPoint_t);
 		PhPoint_t getLocation() const;
+
+		void addDestroyedCallback(callback_t callback);
+		void addBlockedCallback(callback_t callback);
+		void addDNDCallback(callback_t callback);
+		void addIsDestroyedCallback(callback_t callback);
+		void addOutboundCallback(callback_t callback);
+		void addRealizedCallback(callback_t callback);
+		void addUnrealizedCallback(callback_t callback);
 						
 	public:
 		
@@ -780,13 +791,21 @@ namespace PhWidgets
 
 		WidgetResourcesSingleton resource;
 	
-		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled> Enabled;
-		property<unsigned short>::bind<Widget, &Widget::getWidth, &Widget::setWidth> Width;
-		property<unsigned short>::bind<Widget, &Widget::getHeight, &Widget::setHeight> Height;
-		property<PhDim_t>::bind<Widget, &Widget::getDim, &Widget::setDim> Size;
-		property<unsigned short>::bind<Widget, &Widget::getBevelWidth, &Widget::setBevelWidth> BevelWidth;
-		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic> HelpTopic;
-		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation> Location;
+		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>					Enabled;
+		property<unsigned short>::bind<Widget, &Widget::getWidth, &Widget::setWidth>			Width;
+		property<unsigned short>::bind<Widget, &Widget::getHeight, &Widget::setHeight>			Height;
+		property<PhDim_t>::bind<Widget, &Widget::getDim, &Widget::setDim>						Size;
+		property<unsigned short>::bind<Widget, &Widget::getBevelWidth, &Widget::setBevelWidth>	BevelWidth;
+		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>		HelpTopic;
+		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation>			Location;
+
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addDestroyedCallback>	Destroyed;
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addBlockedCallback>		Blocked;
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addDNDCallback>			DND;
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addIsDestroyedCallback> IsDestroyed;
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addOutboundCallback>	Outbound;
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addRealizedCallback>	Realized;
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addUnrealizedCallback>	Unrealized;
 	};
 
 #define INIT_DISABLED ;
@@ -928,7 +947,7 @@ namespace detail
 			addLink(callback);\
 		}\
 \
-		inline void add(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)\
+		inline void add(Widget::callback_t callback, void *data = nullptr)\
 		{\
 			addLink(callback, data);\
 		}\
@@ -957,7 +976,7 @@ namespace detail
 			addLink(callback);\
 		}\
 \
-		inline void add(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Widget::Events::eEvents event, void *data = nullptr)\
+		inline void add(Widget::callback_t callback, Widget::Events::eEvents event, void *data = nullptr)\
 		{\
 			addLink(callback, event, data);\
 		}\
@@ -981,7 +1000,7 @@ namespace detail
 		{}\
 \
 \
-		inline void add(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Widget::Hotkeys::eHotkeys hotkey, Widget::KeyModes::eKeyModes keymode = Widget::KeyModes::none)\
+		inline void add(Widget::callback_t callback, Widget::Hotkeys::eHotkeys hotkey, Widget::KeyModes::eKeyModes keymode = Widget::KeyModes::none)\
 		{\
 			addLink(callback, hotkey, keymode);\
 		}\

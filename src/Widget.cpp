@@ -93,7 +93,15 @@ Widget::Widget(int abn):
 	Size(this),
 	BevelWidth(this),
 	HelpTopic(this),
-	Location(this)
+	Location(this),
+	//callbacks:
+	Destroyed(this),
+	Blocked(this),
+	DND(this),
+	IsDestroyed(this),
+	Outbound(this),
+	Realized(this),
+	Unrealized(this)
 
 {
 	if(abn < 0)
@@ -112,7 +120,15 @@ Widget::Widget(PtWidget_t* wdg):
 	Size(this),
 	BevelWidth(this),
 	HelpTopic(this),
-	Location(this)
+	Location(this),
+	//callbacks:
+	Destroyed(this),
+	Blocked(this),
+	DND(this),
+	IsDestroyed(this),
+	Outbound(this),
+	Realized(this),
+	Unrealized(this)
 
 {
 	if(nullptr == wdg)
@@ -160,7 +176,15 @@ Widget::Widget(const Widget &rhs):
 	Size(this),
 	BevelWidth(this),
 	HelpTopic(this),
-	Location(this)
+	Location(this),
+	//callbacks:
+	Destroyed(this),
+	Blocked(this),
+	DND(this),
+	IsDestroyed(this),
+	Outbound(this),
+	Realized(this),
+	Unrealized(this)
 {
 }
 
@@ -273,6 +297,41 @@ void Widget::setLocation(PhPoint_t val)
 PhPoint_t Widget::getLocation() const
 {
 	return resource.argument[Arguments::pos].get();
+}
+
+void PhWidgets::Widget::addDestroyedCallback(Widget::callback_t callback)
+{
+	resource.callback[Callbacks::destroyed].add(callback);
+}
+
+void PhWidgets::Widget::addBlockedCallback(Widget::callback_t callback)
+{
+	resource.callback[Callbacks::blocked].add(callback);
+}
+
+void PhWidgets::Widget::addDNDCallback(Widget::callback_t callback)
+{
+	resource.callback[Callbacks::dnd].add(callback);
+}
+
+void PhWidgets::Widget::addIsDestroyedCallback(Widget::callback_t callback)
+{
+	resource.callback[Callbacks::is_destroyed].add(callback);
+}
+
+void PhWidgets::Widget::addOutboundCallback(Widget::callback_t callback)
+{
+	resource.callback[Callbacks::outbound].add(callback);
+}
+
+void PhWidgets::Widget::addRealizedCallback(Widget::callback_t callback)
+{
+	resource.callback[Callbacks::realized].add(callback);
+}
+
+void PhWidgets::Widget::addUnrealizedCallback(Widget::callback_t callback)
+{
+	resource.callback[Callbacks::unrealized].add(callback);
 }
 
 
