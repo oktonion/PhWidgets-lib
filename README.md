@@ -27,3 +27,27 @@ or in case you need a raw access to resource:
  // you can use Pt_ARG_TEXT_STRING instead of Label::Arguments::text_string btw
 const char *text = label.resource.argument[Label::Arguments::text_string].get(); //a little bit excessive syntax, so may change
 ```
+
+for callbacks instead of:
+```
+int push_button_cb( PtWidget_t *, void *, PtCallbackInfo_t *);
+
+PtCallback_t callbacks[] = { {push_button_cb, NULL} };
+PtWidget_t *button = widget;
+PtAddCallbacks(button, Pt_CB_ACTIVATE, callbacks, 1);
+```
+
+just write that:
+```
+int push_button_cb( PtWidget_t *, void *, PtCallbackInfo_t *);
+
+button.Activate += push_button_cb; //simple as that!
+```
+
+or in case you need a raw access to callback:
+```
+int push_button_cb( PtWidget_t *, void *, PtCallbackInfo_t *);
+
+ // you can use Pt_CB_ACTIVATE instead of Button::Callbacks::activate btw
+button.resource.callback[Button::Callbacks::activate].add(push_button_cb); //a little bit excessive syntax, so may change
+```
