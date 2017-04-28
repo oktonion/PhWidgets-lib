@@ -29,7 +29,7 @@ label.Caption = "test text"; //thats it!
 
 or in case you need a raw access to resource:
 ```
-const char *text = label.resource.argument[Label::Arguments::text_string].get(); //a little bit excessive syntax, so may change
+const char *text = label.resource.argument[Label::Arguments::text_string].get();
 
 label.resource.argument[Label::Arguments::text_string].set("test text");
 ```
@@ -54,5 +54,5 @@ or in case you need a raw access to callback:
 ```
 int push_button_cb( PtWidget_t *, void *, PtCallbackInfo_t *);//callback is defined somewhere
 
-button.resource.callback[Button::Callbacks::activate].add(push_button_cb); //a little bit excessive syntax, so may change
+button.resource.callback[Button::Callbacks::activate].add(push_button_cb);
 ```
