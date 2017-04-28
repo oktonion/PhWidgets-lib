@@ -24,7 +24,6 @@ std::string text = label.Caption; //thats it!
 
 or in case you need a raw access to resource:
 ```
- // you can use Pt_ARG_TEXT_STRING instead of Label::Arguments::text_string btw
 const char *text = label.resource.argument[Label::Arguments::text_string].get(); //a little bit excessive syntax, so may change
 ```
 
@@ -48,6 +47,5 @@ or in case you need a raw access to callback:
 ```
 int push_button_cb( PtWidget_t *, void *, PtCallbackInfo_t *);
 
- // you can use Pt_CB_ACTIVATE instead of Button::Callbacks::activate btw
 button.resource.callback[Button::Callbacks::activate].add(push_button_cb); //a little bit excessive syntax, so may change
 ```
