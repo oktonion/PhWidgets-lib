@@ -30,6 +30,8 @@ label.Caption = "test text"; //thats it!
 or in case you need a raw access to resource:
 ```
 const char *text = label.resource.argument[Label::Arguments::text_string].get(); //a little bit excessive syntax, so may change
+
+label.resource.argument[Label::Arguments::text_string].set("test text");
 ```
 
 for callbacks instead of:
