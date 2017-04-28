@@ -29,7 +29,7 @@ const char *text = label.resource.argument[Label::Arguments::text_string].get();
 
 for callbacks instead of:
 ```
-int push_button_cb( PtWidget_t *, void *, PtCallbackInfo_t *);
+int push_button_cb( PtWidget_t *, void *, PtCallbackInfo_t *);//callback is defined somewhere
 
 PtCallback_t callbacks[] = { {push_button_cb, NULL} };
 PtWidget_t *button = widget;
@@ -38,14 +38,14 @@ PtAddCallbacks(button, Pt_CB_ACTIVATE, callbacks, 1);
 
 just write that:
 ```
-int push_button_cb( PtWidget_t *, void *, PtCallbackInfo_t *);
+int push_button_cb( PtWidget_t *, void *, PtCallbackInfo_t *);//callback is defined somewhere
 
 button.Activate += push_button_cb; //simple as that!
 ```
 
 or in case you need a raw access to callback:
 ```
-int push_button_cb( PtWidget_t *, void *, PtCallbackInfo_t *);
+int push_button_cb( PtWidget_t *, void *, PtCallbackInfo_t *);//callback is defined somewhere
 
 button.resource.callback[Button::Callbacks::activate].add(push_button_cb); //a little bit excessive syntax, so may change
 ```
