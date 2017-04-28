@@ -15,11 +15,16 @@ PtArg_t arg;
 PtSetArg( &arg, Pt_ARG_TEXT_STRING, 0, 0 );
 PtGetResources( label, 1, &arg );
 const char *text = (const char *)(arg.value);
+
+const char *input_text = "test text";
+PtSetResource(label, Pt_ARG_TEXT_STRING, input_text, 0);
 ```
 
 just write this:
 ```
 std::string text = label.Caption; //thats it!
+
+label.Caption = "test text"; //thats it!
 ```
 
 or in case you need a raw access to resource:
