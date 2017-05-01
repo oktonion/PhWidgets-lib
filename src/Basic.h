@@ -85,6 +85,23 @@ namespace PhWidgets
 			};	
 		};
 
+		struct ThisCallbacks
+		{
+			struct Callback
+			{
+				enum eCallback
+				{
+					activate = Pt_CB_ACTIVATE,
+					arm = Pt_CB_ARM,
+					disarm = Pt_CB_DISARM,
+					got_focus = Pt_CB_GOT_FOCUS,
+					lost_focus = Pt_CB_LOST_FOCUS,
+					menu = Pt_CB_MENU,
+					repeat = Pt_CB_REPEAT
+				};
+			};
+		};
+
 		struct ArgUnsignedShort:
 			public ArgumentsEx<Widget::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort
@@ -132,6 +149,12 @@ namespace PhWidgets
 			using ThisArgs::ArgPChar::eArgPChar;
 		};	
 
+		struct Callback:
+			public ArgumentsEx<ThisCallbacks::Callback>,
+			public Widget::Callback
+		{
+		};
+
 		struct Arguments:
 			public ArgUnsignedShort,
 			public ArgUnsignedLong,
@@ -144,6 +167,12 @@ namespace PhWidgets
 		{
 		};
 
+		struct Callbacks :
+			public Callback,
+			public Widget::Callbacks
+		{
+		};
+
 	protected:
 		virtual void check();
 
@@ -152,6 +181,14 @@ namespace PhWidgets
 
 		void setFillColor(PgColor_t);
 		PgColor_t getFillColor() const;
+
+		void addActivateCallback(callback_t callback);
+		void addArmCallback(callback_t callback);
+		void addDisarmCallback(callback_t callback);
+		void addGotFocusCallback(callback_t callback);
+		void addLostFocusCallback(callback_t callback);
+		void addMenuCallback(callback_t callback);
+		void addRepeatCallback(callback_t callback);
 						
 	public:
 		Basic(int abn);
@@ -161,6 +198,14 @@ namespace PhWidgets
 		
 		property<PgColor_t>::bind<Basic, &Basic::getColor, &Basic::setColor> Color;
 		property<PgColor_t>::bind<Basic, &Basic::getFillColor, &Basic::setFillColor> FillColor;
+
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Basic, &Basic::addActivateCallback>		Activate;
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Basic, &Basic::addArmCallback>			Arm;
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Basic, &Basic::addDisarmCallback>		Disarm;
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Basic, &Basic::addGotFocusCallback>		GotFocus;
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Basic, &Basic::addLostFocusCallback>		LostFocus;
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Basic, &Basic::addMenuCallback>			Menu;
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Basic, &Basic::addRepeatCallback>		Repeat;
 	};
 		
 	
@@ -170,6 +215,7 @@ namespace PhWidgets
 	INIT_WIDGET_RESOURCE1(Basic::ThisArgs::ArgColor::eArgColor, PgColor_t, Color);
 	INIT_WIDGET_RESOURCE1(Basic::ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short, Scalar);
 	INIT_WIDGET_RESOURCE1(Basic::ThisArgs::ArgChar::eArgChar, char, Scalar);
+	INIT_WIDGET_RESOURCE1(Basic::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 
 	INIT_WIDGET_RESOURCE2(Basic::ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long, unsigned long, Flag);
 
