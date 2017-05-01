@@ -13,24 +13,51 @@ void Basic::check()
 
 Basic::Basic(int abn):
 	Widget(abn),
+	//properties:
 	Color(this),
-	FillColor(this)
+	FillColor(this),
+	//callbacks:
+	Activate(this),
+	Arm(this),
+	Disarm(this),
+	GotFocus(this),
+	LostFocus(this),
+	Menu(this),
+	Repeat(this)
 {
 	check();
 }
 
 Basic::Basic(PtWidget_t *wdg):
 	Widget(wdg),
+	//properties:
 	Color(this),
-	FillColor(this)
+	FillColor(this),
+	//callbacks:
+	Activate(this),
+	Arm(this),
+	Disarm(this),
+	GotFocus(this),
+	LostFocus(this),
+	Menu(this),
+	Repeat(this)
 {
 	check();
 }
 
 Basic::Basic(const Basic &rhs):
 	Widget(rhs),
+	//properties:
 	Color(this),
-	FillColor(this)
+	FillColor(this),
+	//callbacks:
+	Activate(this),
+	Arm(this),
+	Disarm(this),
+	GotFocus(this),
+	LostFocus(this),
+	Menu(this),
+	Repeat(this)
 {
 
 }
@@ -53,4 +80,39 @@ void Basic::setFillColor(PgColor_t val)
 PgColor_t Basic::getFillColor() const
 {
 	return resource.argument[Arguments::fill_color].get();
+}
+
+void PhWidgets::Basic::addActivateCallback(Widget::callback_t callback)
+{
+	resource.callback[Callbacks::activate].add(callback);
+}
+
+void PhWidgets::Basic::addArmCallback(Widget::callback_t callback)
+{
+	resource.callback[Callbacks::arm].add(callback);
+}
+
+void PhWidgets::Basic::addDisarmCallback(Widget::callback_t callback)
+{
+	resource.callback[Callbacks::disarm].add(callback);
+}
+
+void PhWidgets::Basic::addGotFocusCallback(Widget::callback_t callback)
+{
+	resource.callback[Callbacks::got_focus].add(callback);
+}
+
+void PhWidgets::Basic::addLostFocusCallback(Widget::callback_t callback)
+{
+	resource.callback[Callbacks::lost_focus].add(callback);
+}
+
+void PhWidgets::Basic::addMenuCallback(Widget::callback_t callback)
+{
+	resource.callback[Callbacks::menu].add(callback);
+}
+
+void PhWidgets::Basic::addRepeatCallback(Widget::callback_t callback)
+{
+	resource.callback[Callbacks::repeat].add(callback);
 }
