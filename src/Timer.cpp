@@ -17,24 +17,33 @@ void Timer::check()
 
 Timer::Timer(int abn):
 	Widget(abn),
+	//properties:
 	Initial(this),
-	Interval(this)
+	Interval(this),
+	//callbacks:
+	Activate(this)
 {
 	check();
 }
 
 Timer::Timer(PtWidget_t *wdg):
 	Widget(wdg),
+	//properties:
 	Initial(this),
-	Interval(this)
+	Interval(this),
+	//callbacks:
+	Activate(this)
 {
 	check();
 }
 
 Timer::Timer(const Timer &rhs):
 	Widget(rhs),
+	//properties:
 	Initial(this),
-	Interval(this)
+	Interval(this),
+	//callbacks:
+	Activate(this)
 {
 
 }
@@ -57,4 +66,9 @@ void Timer::setRepeat(unsigned long val)
 unsigned long Timer::getRepeat() const
 {
 	return resource.argument[Arguments::timer_repeat].get();
+}
+
+void PhWidgets::Timer::addActivateCallback(Widget::callback_t callback)
+{
+	resource.callback[Timer::Callbacks::timer_activate].add(callback);
 }
