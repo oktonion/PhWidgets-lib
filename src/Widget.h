@@ -657,7 +657,7 @@ namespace PhWidgets
 				*/
 				
 				template<typename ArgT>
-				WidgetArgument<ArgT> operator [](const ArgT indx) const
+				inline WidgetArgument<ArgT> operator [](const ArgT indx) const
 				{
 					return WidgetArgument <ArgT> ( _widget, indx );
 				}
@@ -709,7 +709,7 @@ namespace PhWidgets
 
 
 				template<typename ArgT>
-				WidgetCallback<ArgT> operator [](const ArgT indx) const
+				inline WidgetCallback<ArgT> operator [](const ArgT indx) const
 				{
 					return WidgetCallback <ArgT>(_widget, indx);
 				}
@@ -801,7 +801,7 @@ namespace PhWidgets
 
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addDestroyedCallback>	Destroyed;
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addBlockedCallback>		Blocked;
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addDNDCallback>			DND;
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addDNDCallback>			DragAndDrop;
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addIsDestroyedCallback> IsDestroyed;
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addOutboundCallback>	Outbound;
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addRealizedCallback>	Realized;

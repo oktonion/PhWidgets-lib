@@ -97,7 +97,7 @@ Widget::Widget(int abn):
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
-	DND(this),
+	DragAndDrop(this),
 	IsDestroyed(this),
 	Outbound(this),
 	Realized(this),
@@ -124,7 +124,7 @@ Widget::Widget(PtWidget_t* wdg):
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
-	DND(this),
+	DragAndDrop(this),
 	IsDestroyed(this),
 	Outbound(this),
 	Realized(this),
@@ -180,7 +180,7 @@ Widget::Widget(const Widget &rhs):
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
-	DND(this),
+	DragAndDrop(this),
 	IsDestroyed(this),
 	Outbound(this),
 	Realized(this),
