@@ -85,6 +85,23 @@ namespace PhWidgets
 			};	
 		};
 
+		struct ThisCallbacks
+		{
+			struct Callback
+			{
+				enum eCallback
+				{
+					activate = Pt_CB_ACTIVATE,
+					arm = Pt_CB_ARM,
+					disarm = Pt_CB_DISARM,
+					got_focus = Pt_CB_GOT_FOCUS,
+					lost_focus = Pt_CB_LOST_FOCUS,
+					menu = Pt_CB_MENU,
+					repeat = Pt_CB_REPEAT
+				};
+			};
+		};
+
 		struct ArgUnsignedShort:
 			public ArgumentsEx<Widget::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort
@@ -132,6 +149,12 @@ namespace PhWidgets
 			using ThisArgs::ArgPChar::eArgPChar;
 		};	
 
+		struct Callback:
+			public ArgumentsEx<ThisCallbacks::Callback>,
+			public Widget::Callback
+		{
+		};
+
 		struct Arguments:
 			public ArgUnsignedShort,
 			public ArgUnsignedLong,
@@ -141,6 +164,12 @@ namespace PhWidgets
 			public ArgUnsignedChar,
 			public ArgPChar,
 			public Widget::Arguments
+		{
+		};
+
+		struct Callbacks :
+			public Callback,
+			public Widget::Callbacks
 		{
 		};
 
@@ -170,6 +199,7 @@ namespace PhWidgets
 	INIT_WIDGET_RESOURCE1(Basic::ThisArgs::ArgColor::eArgColor, PgColor_t, Color);
 	INIT_WIDGET_RESOURCE1(Basic::ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short, Scalar);
 	INIT_WIDGET_RESOURCE1(Basic::ThisArgs::ArgChar::eArgChar, char, Scalar);
+	INIT_WIDGET_RESOURCE1(Basic::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 
 	INIT_WIDGET_RESOURCE2(Basic::ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long, unsigned long, Flag);
 
