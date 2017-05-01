@@ -36,21 +36,21 @@ Label::Label(const Label &rhs):
 
 std::string Label::getCaption() const
 {
-	return argument.resource[Arguments::text_string].get();
+	return resource.argument[Arguments::text_string].get();
 }
 
 void Label::setCaption(std::string caption)
 {
-	argument.resource[Arguments::text_string].set(caption.c_str());
+	resource.argument[Arguments::text_string].set(caption.c_str());
 }
 
 void Label::setBalloonColor(PgColor_t val)
 {
-	argument.resource[Arguments::balloon_color].set(val);
+	resource.argument[Arguments::balloon_color].set(val);
 }
 
 PgColor_t Label::getBalloonColor() const
 {
-	return argument.resource[Arguments::balloon_color].get();
+	return resource.argument[Arguments::balloon_color].get();
 }
 

@@ -34,10 +34,10 @@ Button::Button(const Button &rhs):
 
 void Button::setArmColor(PgColor_t val)
 {
-	argument.resource[Arguments::arm_color].set(val);
+	resource.argument[Arguments::arm_color].set(val);
 }
 
 PgColor_t Button::getArmColor() const
 {
-	return argument.resource[Arguments::arm_color].get();
+	return resource.argument[Arguments::arm_color].get();
 }

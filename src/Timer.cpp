@@ -41,20 +41,20 @@ Timer::Timer(const Timer &rhs):
 
 void Timer::setInitial(unsigned long val)
 {
-	argument.resource[Arguments::timer_initial].set(val);
+	resource.argument[Arguments::timer_initial].set(val);
 }
 
 unsigned long Timer::getInitial() const
 {
-	return argument.resource[Arguments::timer_initial].get();
+	return resource.argument[Arguments::timer_initial].get();
 }
 
 void Timer::setRepeat(unsigned long val)
 {
-	argument.resource[Arguments::timer_repeat].set(val);
+	resource.argument[Arguments::timer_repeat].set(val);
 }
 
 unsigned long Timer::getRepeat() const
 {
-	return argument.resource[Arguments::timer_repeat].get();
+	return resource.argument[Arguments::timer_repeat].get();
 }

@@ -42,33 +42,33 @@ NumericInteger::NumericInteger(const NumericInteger &rhs):
 
 int NumericInteger::getValue() const
 {
-	return argument.resource[Arguments::numeric_value].get();
+	return resource.argument[Arguments::numeric_value].get();
 }
 
 void NumericInteger::setValue(int val)
 {
-	argument.resource[Arguments::numeric_value].set(val);
+	resource.argument[Arguments::numeric_value].set(val);
 }
 
 int NumericInteger::getMaxValue() const
 {
-	return argument.resource[Arguments::numeric_max].get();
+	return resource.argument[Arguments::numeric_max].get();
 }
 
 void NumericInteger::setMaxValue(int val)
 {
-	argument.resource[Arguments::numeric_max].set(val);
+	resource.argument[Arguments::numeric_max].set(val);
 }
 
 
 int NumericInteger::getMinValue() const
 {
-	return argument.resource[Arguments::numeric_min].get();
+	return resource.argument[Arguments::numeric_min].get();
 }
 
 void NumericInteger::setMinValue(int val)
 {
-	argument.resource[Arguments::numeric_min].set(val);
+	resource.argument[Arguments::numeric_min].set(val);
 }
 
 

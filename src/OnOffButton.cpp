@@ -34,22 +34,22 @@ OnOffButton::OnOffButton(const OnOffButton &rhs):
 void OnOffButton::Check(bool val)
 {
 	if(val)
-		argument.resource[Arguments::onoff_state].set(true);
+		resource.argument[Arguments::onoff_state].set(true);
 }
 
 void OnOffButton::Uncheck(bool val)
 {
 	if(val)
-		argument.resource[Arguments::onoff_state].set(false);
+		resource.argument[Arguments::onoff_state].set(false);
 }
 
 void OnOffButton::setChecked(bool val)
 {
-	argument.resource[Arguments::onoff_state].set(val);
+	resource.argument[Arguments::onoff_state].set(val);
 }
 
 bool OnOffButton::getChecked() const
 {
-	return argument.resource[Arguments::onoff_state].get();
+	return resource.argument[Arguments::onoff_state].get();
 }
 
