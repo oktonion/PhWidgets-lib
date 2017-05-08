@@ -13,9 +13,12 @@ void NumericInteger::check()
 
 NumericInteger::NumericInteger(int abn):
 	Numeric(abn),
+	//properties:
 	Value(this),
 	MaxValue(this),
-	MinValue(this)
+	MinValue(this),
+	//callbacks:
+	NumericChanged(this)
 	
 {
 	check();
@@ -23,9 +26,12 @@ NumericInteger::NumericInteger(int abn):
 
 NumericInteger::NumericInteger(PtWidget_t *wdg):
 	Numeric(wdg),
+	//properties:
 	Value(this),
 	MaxValue(this),
-	MinValue(this)
+	MinValue(this),
+	//callbacks:
+	NumericChanged(this)
 
 {
 	check();
@@ -33,9 +39,12 @@ NumericInteger::NumericInteger(PtWidget_t *wdg):
 
 NumericInteger::NumericInteger(const NumericInteger &rhs):
 	Numeric(rhs),
+	//properties:
 	Value(this),
 	MaxValue(this),
-	MinValue(this)
+	MinValue(this),
+	//callbacks:
+	NumericChanged(this)
 
 {
 }
@@ -69,6 +78,11 @@ int NumericInteger::getMinValue() const
 void NumericInteger::setMinValue(int val)
 {
 	resource.argument[Arguments::numeric_min].set(val);
+}
+
+void PhWidgets::NumericInteger::addNumericChangedCallback(callback_t callback)
+{
+	resource.callback[ThisCallbacks::Callback::numeric_changed].add(callback);
 }
 
 

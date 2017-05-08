@@ -13,9 +13,12 @@ void NumericFloat::check()
 
 NumericFloat::NumericFloat(int abn):
 	Numeric(abn),
+	//properties:
 	Value(this),
 	MaxValue(this),
-	MinValue(this)
+	MinValue(this),
+	//callbacks:
+	NumericChanged(this)
 
 {
 	check();
@@ -23,9 +26,12 @@ NumericFloat::NumericFloat(int abn):
 
 NumericFloat::NumericFloat(PtWidget_t *wdg):
 	Numeric(wdg),
+	//properties:
 	Value(this),
 	MaxValue(this),
-	MinValue(this)
+	MinValue(this),
+	//callbacks:
+	NumericChanged(this)
 
 {
 	check();
@@ -33,10 +39,12 @@ NumericFloat::NumericFloat(PtWidget_t *wdg):
 
 NumericFloat::NumericFloat(const NumericFloat &rhs):
 	Numeric(rhs),
+	//properties:
 	Value(this),
 	MaxValue(this),
-	MinValue(this)
-
+	MinValue(this),
+	//callbacks:
+	NumericChanged(this)
 {
 }
 
@@ -68,6 +76,11 @@ double NumericFloat::getMinValue() const
 void NumericFloat::setMinValue(double val)
 {
 	resource.argument[Arguments::numeric_min].set(&val);
+}
+
+void PhWidgets::NumericFloat::addNumericChangedCallback(callback_t callback)
+{
+	resource.callback[ThisCallbacks::Callback::numeric_changed].add(callback);
 }
 
 

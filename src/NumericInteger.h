@@ -28,9 +28,26 @@ namespace PhWidgets
 			};
 
 		};
+
+		struct ThisCallbacks
+		{
+			struct Callback
+			{
+				enum eCallback
+				{
+					numeric_changed = Pt_CB_NUMERIC_CHANGED
+				};
+			};
+		};
 		
 		struct ArgInt:
 			public ThisArgs::ArgInt
+		{
+		};
+
+		struct Callback :
+			public ArgumentsEx<ThisCallbacks::Callback>,
+			public Numeric::Callback
 		{
 		};
 
@@ -38,6 +55,12 @@ namespace PhWidgets
 		struct Arguments:
 			public ArgInt,
 			public Numeric::Arguments
+		{
+		};
+
+		struct Callbacks :
+			public Callback,
+			public Numeric::Callbacks
 		{
 		};
 
@@ -54,6 +77,7 @@ namespace PhWidgets
 		int getMinValue() const;
 		void setMinValue(int);
 
+		void addNumericChangedCallback(callback_t callback);
 						
 	public:
 		NumericInteger(int abn);
@@ -64,10 +88,14 @@ namespace PhWidgets
 		property<int>::bind<NumericInteger, &NumericInteger::getValue, &NumericInteger::setValue> Value;
 		property<int>::bind<NumericInteger, &NumericInteger::getMaxValue, &NumericInteger::setMaxValue> MaxValue;
 		property<int>::bind<NumericInteger, &NumericInteger::getMinValue, &NumericInteger::setMinValue> MinValue;
+
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<NumericInteger, &NumericInteger::addNumericChangedCallback>		NumericChanged;
 	};
 	
 	
 	INIT_WIDGET_RESOURCE1(NumericInteger::ThisArgs::ArgInt::eArgInt, int, Scalar);
+
+	INIT_WIDGET_RESOURCE1(NumericInteger::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 		
 }
 

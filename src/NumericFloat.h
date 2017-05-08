@@ -37,6 +37,17 @@ namespace PhWidgets
 
 
 		};
+
+		struct ThisCallbacks
+		{
+			struct Callback
+			{
+				enum eCallback
+				{
+					numeric_changed = Pt_CB_NUMERIC_CHANGED
+				};
+			};
+		};
 		
 		struct ArgInt:
 			public ThisArgs::ArgInt
@@ -48,12 +59,24 @@ namespace PhWidgets
 		{
 		};
 
+		struct Callback :
+			public ArgumentsEx<ThisCallbacks::Callback>,
+			public Numeric::Callback
+		{
+		};
+
 
 			
 		struct Arguments:
 			public ArgInt,
 			public ArgDoubleP,
 			public Numeric::Arguments
+		{
+		};
+
+		struct Callbacks :
+			public Callback,
+			public Numeric::Callbacks
 		{
 		};
 
@@ -69,6 +92,8 @@ namespace PhWidgets
 		
 		double getMinValue() const;
 		void setMinValue(double val);
+
+		void addNumericChangedCallback(callback_t callback);
 						
 	public:
 		NumericFloat(int abn);
@@ -79,10 +104,13 @@ namespace PhWidgets
 		property<double>::bind<NumericFloat, &NumericFloat::getValue, &NumericFloat::setValue> Value;
 		property<double>::bind<NumericFloat, &NumericFloat::getMaxValue, &NumericFloat::setMaxValue> MaxValue;
 		property<double>::bind<NumericFloat, &NumericFloat::getMinValue, &NumericFloat::setMinValue> MinValue;
+
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<NumericFloat, &NumericFloat::addNumericChangedCallback>		NumericChanged;
 		
 	};
 	
 	INIT_WIDGET_RESOURCE1(NumericFloat::ThisArgs::ArgDoubleP::eArgDoubleP, double*, Struct);
+	INIT_WIDGET_RESOURCE1(NumericFloat::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 	
 	INIT_WIDGET_RESOURCE1(NumericFloat::ThisArgs::ArgInt::eArgInt, int, Scalar);
 
