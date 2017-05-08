@@ -735,6 +735,7 @@ namespace PhWidgets
 		virtual void check();
 		
 		//for properties:
+
 		void setEnabled(bool);
 		bool getEnabled() const;
 		
@@ -861,6 +862,8 @@ namespace PhWidgets
 \
 	public:\
 \
+		typedef T1 argument_t;\
+\
 		~WidgetArgument()\
 		{}\
 \
@@ -898,6 +901,8 @@ namespace detail
 		{}\
 \
 	public:\
+\
+		typedef T1 argument_t;\
 \
 		~WidgetArgument()\
 		{}\
@@ -938,6 +943,8 @@ namespace detail
 \
 	public:\
 \
+		typedef PtCallback_t callback_t;\
+\
 		~WidgetCallback()\
 		{}\
 \
@@ -967,6 +974,8 @@ namespace detail
 \
 	public:\
 \
+		typedef PtRawCallback_t callback_t;\
+\
 		~WidgetCallback()\
 		{}\
 \
@@ -995,6 +1004,8 @@ namespace detail
 		{}\
 \
 	public:\
+\
+		typedef PtHotkeyCallback_t callback_t;\
 \
 		~WidgetCallback()\
 		{}\
@@ -1026,6 +1037,8 @@ namespace detail
 \
 	public:\
 \
+		typedef T1 argument_t;\
+\
 		~WidgetArgument()\
 		{}\
 \
@@ -1042,7 +1055,6 @@ namespace detail
 		}\
 	};
 
-
 #define INIT_WIDGET_RESOURCE_String(ArgT)\
 	template<>\
 	class Widget::WidgetResourcesSingleton::WidgetArguments::WidgetArgument<ArgT>:\
@@ -1055,6 +1067,8 @@ namespace detail
 		{}\
 \
 	public:\
+\
+		typedef const char * argument_t;\
 \
 		~WidgetArgument()\
 		{}\
@@ -1089,6 +1103,8 @@ namespace detail
 		inline T1* get(T1 &ptr) {return &ptr;}\
 \
 	public:\
+\
+		typedef T1 argument_t;\
 \
 		~WidgetArgument()\
 		{}\
