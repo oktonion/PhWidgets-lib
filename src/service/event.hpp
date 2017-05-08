@@ -82,6 +82,7 @@ namespace cppevents
 				remove(value);
 			}
 
+
 		private:
 			ParentT *_obj;
 

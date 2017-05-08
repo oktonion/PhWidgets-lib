@@ -8,6 +8,7 @@
 
 #include <map>
 #include <string>
+#include <list>
 
 #include "./service/mystd/my_exception.h"
 #include "./service/code_extensions.h"
@@ -584,6 +585,15 @@ namespace PhWidgets
 					return p;
 				}
 
+				inline PtCallbackList_t *getLink() const
+				{
+					PtCallbackList_t *cl;
+
+					cl = reinterpret_cast<PtCallbackList_t *>(PtGetCallbackList(_rwidget->widget(), _arg));
+
+					return cl;
+				}
+
 
 			public:
 
@@ -807,6 +817,8 @@ namespace PhWidgets
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addOutboundCallback>	Outbound;
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addRealizedCallback>	Realized;
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addUnrealizedCallback>	Unrealized;
+
+		void OnDestroyed(void *data, PtCallbackInfo_t *info);
 	};
 
 #define INIT_DISABLED ;
@@ -914,13 +926,13 @@ namespace detail
 			return setFlag(flag, static_cast<typename detail::mask_type<A2>::type>(mask));\
 		}\
 \
-		inline T1 get() const\
+		inline T1 get()\
 		{\
 			return getScalar<T1>();\
 		}\
 \
 		template<typename A1>\
-		inline bool get(A1 flag) const\
+		inline bool get(A1 flag)\
 		{\
 			return ((get() & flag) == flag);\
 		}\
@@ -959,6 +971,10 @@ namespace detail
 			addLink(callback, data);\
 		}\
 \
+		inline const PtCallbackList_t* get()\
+		{\
+			return getLink();\
+		}\
 	};
 
 #define INIT_WIDGET_RESOURCE_Link_PtRawCallback_t(ArgT)\
@@ -990,6 +1006,10 @@ namespace detail
 			addLink(callback, event, data);\
 		}\
 \
+		inline const PtCallbackList_t* get()\
+		{\
+			return getLink();\
+		}\
 	};
 
 #define INIT_WIDGET_RESOURCE_Link_PtHotkeyCallback_t(ArgT)\
@@ -1016,6 +1036,10 @@ namespace detail
 			addLink(callback, hotkey, keymode);\
 		}\
 \
+		inline const PtCallbackList_t* get()\
+		{\
+			return getLink();\
+		}\
 	};
 
 #define INIT_WIDGET_RESOURCE_Link(ArgT, T1) INIT_WIDGET_RESOURCE_Link_##T1(ArgT)

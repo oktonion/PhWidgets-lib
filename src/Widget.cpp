@@ -218,14 +218,26 @@ bool Widget::operator<(const Widget &rhs)
 
 
 
-Widget::operator PtWidget_t*()
-{
-	return widget();
-}
+
 
 Widget::operator const PtWidget_t*() const
 {
 	return widget();
+}
+
+void Widget::OnDestroyed(void * data, PtCallbackInfo_t * info)
+{
+	const PtCallbackList_t *cl = resource.callback[Callbacks::destroyed].get();
+
+	if (nullptr == cl)
+		return;
+
+	PtWidget_t *w = widget();
+
+	for (; cl; cl = cl->next)
+	{
+		cl->cb.event_f(w, data, info);
+	}
 }
 
 //for properties:
@@ -336,3 +348,7 @@ void PhWidgets::Widget::addUnrealizedCallback(Widget::callback_t callback)
 
 
 
+Widget::operator PtWidget_t*()
+{
+	return widget();
+}
