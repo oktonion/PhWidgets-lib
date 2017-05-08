@@ -27,9 +27,30 @@ namespace PhWidgets
 			};
 
 		};
+
+		struct ThisCallbacks
+		{
+			struct Callback
+			{
+				enum eCallback
+				{
+					modify_notify = Pt_CB_MODIFY_NOTIFY,
+					modify_verify = Pt_CB_MODIFY_VERIFY,
+					motion_notify = Pt_CB_MOTION_NOTIFY,
+					motion_verify = Pt_CB_MOTION_VERIFY,
+					text_changed = Pt_CB_TEXT_CHANGED
+				};
+			};
+		};
 		
 		struct ArgComplex:
 			public ThisArgs::ArgComplex
+		{
+		};
+
+		struct Callback :
+			public ArgumentsEx<ThisCallbacks::Callback>,
+			public Label::Callback
 		{
 		};
 
@@ -39,10 +60,15 @@ namespace PhWidgets
 			public Label::Arguments
 		{
 		};
+
+		struct Callbacks :
+			public Callback,
+			public Label::Callbacks
+		{
+		};
 		
 	protected:
 		virtual void check();
-
 						
 	public:
 		Text(int abn);
@@ -50,6 +76,7 @@ namespace PhWidgets
 	};
 	
 	INIT_WIDGET_RESOURCE1(Text::ThisArgs::ArgComplex::eArgComplex, PtTextControl_t, Struct);
+	INIT_WIDGET_RESOURCE1(Text::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 }
 
 

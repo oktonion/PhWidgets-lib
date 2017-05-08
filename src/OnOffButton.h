@@ -41,10 +41,22 @@ namespace PhWidgets
 		{
 		};
 
+		struct Callback :
+			public ArgumentsEx<ThisCallbacks::Callback>,
+			public Button::Callback
+		{
+		};
+
 
 		struct Arguments:
 			public Button::Arguments,
 			public ArgBool
+		{
+		};
+
+		struct Callbacks :
+			public Callback,
+			public Button::Callbacks
 		{
 		};
 		
