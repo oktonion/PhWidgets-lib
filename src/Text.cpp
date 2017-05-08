@@ -11,14 +11,38 @@ void Text::check()
 
 
 Text::Text(int abn):
-	Label(abn)
+	Label(abn),
+	//callbacks:
+	ModifyNotify(this),
+	ModifyVerify(this),
+	MotionNotify(this),
+	MotionVerify(this),
+	TextChanged(this)
+
 {
 	check();
 }
 
 Text::Text(PtWidget_t *wdg):
-	Label(wdg)
+	Label(wdg),
+	//callbacks:
+	ModifyNotify(this),
+	ModifyVerify(this),
+	MotionNotify(this),
+	MotionVerify(this),
+	TextChanged(this)
 {
 	check();
+}
+
+PhWidgets::Text::Text(const Text & rhs):
+	Label(rhs),
+	//callbacks:
+	ModifyNotify(this),
+	ModifyVerify(this),
+	MotionNotify(this),
+	MotionVerify(this),
+	TextChanged(this)
+{
 }
 
