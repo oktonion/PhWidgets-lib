@@ -95,6 +95,20 @@ namespace PhWidgets
 			
 		};
 
+		struct ThisCallbacks
+		{
+			struct Callback
+			{
+				enum eCallback
+				{
+					child_added_removed = Pt_CB_CHILD_ADDED_REMOVED,
+					child_getting_focus = Pt_CB_CHILD_GETTING_FOCUS,
+					child_losing_focus = Pt_CB_CHILD_LOSING_FOCUS,
+					layout = Pt_CB_LAYOUT,
+					resize = Pt_CB_RESIZE
+				};
+			};
+		};
 			
 		struct ArgLong:
 			public ArgumentsEx<Basic::ArgLong>,
@@ -143,6 +157,12 @@ namespace PhWidgets
 		{
 		};	
 
+		struct Callback:
+			public ArgumentsEx<ThisCallbacks::Callback>,
+			public Basic::Callback
+		{
+		};
+
 		struct Arguments:
 			public ArgLong,
 			public ArgInt,
@@ -153,6 +173,12 @@ namespace PhWidgets
 			public ArgPRowLayoutInfo,
 			public ArgPChar,
 			public Basic::Arguments
+		{
+		};
+
+		struct Callbacks :
+			public Callback,
+			public Basic::Callbacks
 		{
 		};
 
@@ -175,6 +201,7 @@ namespace PhWidgets
 	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPLayoutDefinition::eArgPLayoutDefinition, PtLayoutDefinition_t, Struct);
 	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPRowLayoutInfo::eArgPRowLayoutInfo, PtRowLayoutInfo_t, Struct);
 	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPVoid::eArgPVoid, void*, Struct);
+	INIT_WIDGET_RESOURCE1(Container::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 	
 	INIT_WIDGET_RESOURCE2(Container::ThisArgs::ArgLong::eArgLong, long, long, Flag);
 }
