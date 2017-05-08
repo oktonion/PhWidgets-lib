@@ -12,21 +12,30 @@ void OnOffButton::check()
 
 OnOffButton::OnOffButton(int abn):
 	Button(abn),
-	Checked(this)
+	//properties:
+	Checked(this),
+	//callbacks:
+	NewValue(this)
 {
 	check();
 }
 
 OnOffButton::OnOffButton(PtWidget_t *wdg):
 	Button(wdg),
-	Checked(this)
+	//properties:
+	Checked(this),
+	//callbacks:
+	NewValue(this)
 {
 	check();
 }
 
 OnOffButton::OnOffButton(const OnOffButton &rhs):
 	Button(rhs),
-	Checked(this)
+	//properties:
+	Checked(this),
+	//callbacks:
+	NewValue(this)
 {
 	check();
 }
@@ -51,5 +60,10 @@ void OnOffButton::setChecked(bool val)
 bool OnOffButton::getChecked() const
 {
 	return resource.argument[Arguments::onoff_state].get();
+}
+
+void PhWidgets::OnOffButton::addNewValueCallback(callback_t callback)
+{
+	resource.callback[ThisCallbacks::Callback::new_value].add(callback);
 }
 
