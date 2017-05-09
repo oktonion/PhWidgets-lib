@@ -225,7 +225,7 @@ Widget::operator const PtWidget_t*() const
 	return widget();
 }
 
-inline void Widget::onEvent(const PtCallbackList_t *cl, void * data, PtCallbackInfo_t * info)
+void Widget::onEvent(const PtCallbackList_t *cl, void * data, PtCallbackInfo_t * info)
 {
 
 	if (nullptr == cl)
