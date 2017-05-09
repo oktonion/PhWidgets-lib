@@ -774,6 +774,8 @@ namespace PhWidgets
 		void addOutboundCallback(callback_t callback);
 		void addRealizedCallback(callback_t callback);
 		void addUnrealizedCallback(callback_t callback);
+
+		void onEvent(const PtCallbackList_t *cl, void * data, PtCallbackInfo_t * info);
 						
 	public:
 		
@@ -812,13 +814,19 @@ namespace PhWidgets
 
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addDestroyedCallback>	Destroyed;
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addBlockedCallback>		Blocked;
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addDNDCallback>			DragAndDrop;
+		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addDNDCallback>			DragDrop;
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addIsDestroyedCallback> IsDestroyed;
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addOutboundCallback>	Outbound;
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addRealizedCallback>	Realized;
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addUnrealizedCallback>	Unrealized;
 
 		void OnDestroyed(void *data, PtCallbackInfo_t *info);
+		void OnBlocked(void *data, PtCallbackInfo_t *info);
+		void OnDragDrop(void *data, PtCallbackInfo_t *info);
+		void OnOutbound(void *data, PtCallbackInfo_t *info);
+		void OnRealized(void *data, PtCallbackInfo_t *info);
+		void OnUnrealized(void *data, PtCallbackInfo_t *info);
+
 	};
 
 #define INIT_DISABLED ;

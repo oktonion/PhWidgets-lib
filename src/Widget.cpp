@@ -97,7 +97,7 @@ Widget::Widget(int abn):
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
-	DragAndDrop(this),
+	DragDrop(this),
 	IsDestroyed(this),
 	Outbound(this),
 	Realized(this),
@@ -124,7 +124,7 @@ Widget::Widget(PtWidget_t* wdg):
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
-	DragAndDrop(this),
+	DragDrop(this),
 	IsDestroyed(this),
 	Outbound(this),
 	Realized(this),
@@ -180,7 +180,7 @@ Widget::Widget(const Widget &rhs):
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
-	DragAndDrop(this),
+	DragDrop(this),
 	IsDestroyed(this),
 	Outbound(this),
 	Realized(this),
@@ -225,9 +225,8 @@ Widget::operator const PtWidget_t*() const
 	return widget();
 }
 
-void Widget::OnDestroyed(void * data, PtCallbackInfo_t * info)
+inline void Widget::onEvent(const PtCallbackList_t *cl, void * data, PtCallbackInfo_t * info)
 {
-	const PtCallbackList_t *cl = resource.callback[Callbacks::destroyed].get();
 
 	if (nullptr == cl)
 		return;
@@ -238,6 +237,36 @@ void Widget::OnDestroyed(void * data, PtCallbackInfo_t * info)
 	{
 		cl->cb.event_f(w, data, info);
 	}
+}
+
+void Widget::OnDestroyed(void * data, PtCallbackInfo_t * info)
+{
+	onEvent( resource.callback[Callback::destroyed].get(), data, info);
+}
+
+void PhWidgets::Widget::OnBlocked(void * data, PtCallbackInfo_t * info)
+{
+	onEvent(resource.callback[Callback::blocked].get(), data, info);
+}
+
+void PhWidgets::Widget::OnDragDrop(void * data, PtCallbackInfo_t * info)
+{
+	onEvent(resource.callback[Callback::dnd].get(), data, info);
+}
+
+void PhWidgets::Widget::OnOutbound(void * data, PtCallbackInfo_t * info)
+{
+	onEvent(resource.callback[Callback::outbound].get(), data, info);
+}
+
+void PhWidgets::Widget::OnRealized(void * data, PtCallbackInfo_t * info)
+{
+	onEvent(resource.callback[Callback::realized].get(), data, info);
+}
+
+void PhWidgets::Widget::OnUnrealized(void * data, PtCallbackInfo_t * info)
+{
+	onEvent(resource.callback[Callback::unrealized].get(), data, info);
 }
 
 //for properties:
