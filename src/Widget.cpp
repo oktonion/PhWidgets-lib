@@ -234,7 +234,7 @@ void Widget::onEvent(const PtCallbackList_t *cl, void * data, PtCallbackInfo_t *
 
 	for (; cl; cl = cl->next)
 	{
-		cl->cb.event_f(w, data, info);
+		//cl->cb.event_f(w, data, info); need new implementation
 	}
 }
 
