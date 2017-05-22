@@ -11,7 +11,7 @@
 #include <list>
 
 #include "./service/mystd/my_exception.h"
-#include "./service/code_extensions.h"
+#include "./service/stdex/stdex.h"
 #include "./service/property.hpp"
 #include "./service/event.hpp"
 

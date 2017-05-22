@@ -9,7 +9,6 @@
 
 #include "./service/PhWidgetsFunc.h"
 #include "./service/mystd/my_exception.h"
-#include "./service/mystd/my_basic_string.h"
 #include "./service/PhWidgetsTypes.h"
 
 

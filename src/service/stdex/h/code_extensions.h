@@ -10,7 +10,7 @@
 //#define STDEX_FORCE_CPP11_TYPES_SUPPORT //uncomment to force support of char16_t and char32_t in C++03
 
 // Any compiler claiming C++11 supports, Visual C++ 2015 and Clang version supporting constexp
-#if (__cplusplus >= 201103L || _MSC_VER >= 1900 || __has_feature(cxx_constexpr)) // C++ 11 implementation
+#if __cplusplus >= 201103L || _MSC_VER >= 1900 || __has_feature(cxx_constexpr) // C++ 11 implementation
 #define STDEX_HAS_CPP11_SUPPORT
 #define STDEX_HAS_CPP11_TYPES_SUPPORT
 	namespace detail
@@ -24,19 +24,16 @@
 	#define countof(arr) detail::my_countof(arr)
 	#define STATIC_ASSERT(expression, message) static_assert(expression, #message)
 #else //no C++11 support
-	#ifdef _MSC_VER
-		#define STDEX_MSC_COMPILER_VERSION _MSC_VER
-	#else
-		#define STDEX_MSC_COMPILER_VERSION 0
-	#endif
-	#if (STDEX_MSC_COMPILER_VERSION < 1800)
-
+	#if (!defined(_MSC_VER) || _MSC_VER < 1800)
 
 	class nullptr_t
 	{
 	private:
 		void *_padding;
 		struct _nat { int _for_bool_; };
+
+		template<typename T>
+		struct identity { typedef T type; };
 
 	public:
 		nullptr_t() : _padding(0) { }
@@ -57,121 +54,92 @@
 		}*/
 
 		template<typename T>
-		inline bool operator==(T *val) { return val == static_cast<T*>(*this); }
+		inline bool operator==(T *val) { return equal(val); }
 
 		template<typename T>
-		inline bool operator!=(T *val) { return val != static_cast<T*>(*this); }
+		inline bool operator!=(T *val) { return !equal(val); }
 
 		template<typename T>
-		inline bool operator<(T *val) { return val != static_cast<T*>(*this); }
+		inline bool operator<(T *val) { return less(val); }
 
 		template<typename T>
-		inline bool operator<=(T *val) { return val == static_cast<T*>(*this); }
+		inline bool operator<=(T *val) { return less_equal(val); }
 
 		template<typename T>
-		inline bool operator>(T *val) { return false; }
+		inline bool operator>(T *val) { return false; }//nullptr always less or equal (can't be greater than)
 
 		template<typename T>
-		inline bool operator>=(T *val) { return val == static_cast<T*>(*this); }
-
-
-		template<typename T>
-		inline bool operator==(T val) { return val == 0; }
-
-		template<typename T>
-		inline bool operator!=(T val) { return val != 0; }
-
-		template<typename T>
-		inline bool operator<(T val) { return val != 0; }
-
-		template<typename T>
-		inline bool operator<=(T val) { return val == 0; }
-
-		template<typename T>
-		inline bool operator>(T val) { return false; }
-
-		template<typename T>
-		inline bool operator>=(T val) { return val == 0; }
+		inline bool operator>=(T *val) { return greater_equal(val); }
 
 		//friends:
 		template<typename T>
-		friend inline bool operator==(T *val, nullptr_t np) { return val == static_cast<T*>(np); }
+		friend inline bool operator==(T *val, nullptr_t np) { return equal(val, np); }
 
 		template<typename T>
-		friend inline bool operator!=(T *val, nullptr_t np) { return val != static_cast<T*>(np); }
+		friend inline bool operator!=(T *val, nullptr_t np) { return !equal(val, np); }
 
 		template<typename T>
-		friend inline bool operator<(T *val, nullptr_t np) { return false; }
+		friend inline bool operator<(T *val, nullptr_t np) { return false; }//value is always more or equal (can't be less than)
 
 		template<typename T>
-		friend inline bool operator<=(T *val, nullptr_t np) { return val == static_cast<T*>(np); }
+		friend inline bool operator<=(T *val, nullptr_t np) { return less_equal(val, np); }
 
 		template<typename T>
-		friend inline bool operator>(T *val, nullptr_t np) { return val != static_cast<T*>(np); }
+		friend inline bool operator>(T *val, nullptr_t np) { return greater(val, np); }
 
 		template<typename T>
-		friend inline bool operator>=(T *val, nullptr_t np) { return val == static_cast<T*>(np); }
+		friend inline bool operator>=(T *val, nullptr_t np) { return greater_equal(val, np); }
 
+private: //template overloads
+		
+		
+		template<typename T>
+		inline bool equal(T *val) { return val == static_cast<T*>(*this); }
+
+		inline bool equal(nullptr_t) { return true; }
 
 		template<typename T>
-		friend inline bool operator==(T val, nullptr_t np) { return val == 0; }
+		inline bool less(T *val) { return static_cast<T*>(*this) < val; }
+
+		inline bool less(nullptr_t) { return false; }
 
 		template<typename T>
-		friend inline bool operator!=(T val, nullptr_t np) { return val != 0; }
+		inline bool less_equal(T *val) { return  static_cast<T*>(*this) <= val; }
+
+		inline bool less_equal(nullptr_t) { return true; }
 
 		template<typename T>
-		friend inline bool operator<(T val, nullptr_t np) { return false; }
+		inline bool greater_equal(T *val) { return static_cast<T*>(*this) >= val; }
+
+		inline bool greater_equal(nullptr_t) { return true; }
+
+		//friends:
+		template<typename T>
+		static inline bool equal(T *val, nullptr_t np) { return val == static_cast<T*>(np); }
+		
+		static inline bool equal(nullptr_t, nullptr_t np) { return true; }
 
 		template<typename T>
-		friend inline bool operator<=(T val, nullptr_t np) { return val == 0; }
+		static inline bool less_equal(T *val, nullptr_t np) { return val <= static_cast<T*>(np); }
+		
+		static inline bool less_equal(nullptr_t, nullptr_t) { return true; }
 
 		template<typename T>
-		friend inline bool operator>(T val, nullptr_t np) { return val != 0; }
+		static inline bool greater(T *val, nullptr_t np) { return val > static_cast<T*>(np); }
+		
+		static inline bool greater(nullptr_t, nullptr_t) { return false; }
 
 		template<typename T>
-		friend inline bool operator>=(T val, nullptr_t np) { return val == 0; }
-
+		static inline bool greater_equal(T *val, nullptr_t np) { return val >= static_cast<T*>(np); }
+		
+		static inline bool greater_equal(nullptr_t, nullptr_t) { return true; }
 	};
+	
+	
 
-	//nullptr_t specialization:
-
-	template<>
-	inline bool nullptr_t::operator==(nullptr_t) { return true; }
-
-	template<>
-	inline bool nullptr_t::operator!=(nullptr_t) { return false; }
-
-	template<>
-	inline bool nullptr_t::operator<(nullptr_t) { return false; }
-
-	template<>
-	inline bool nullptr_t::operator<=(nullptr_t) { return true; }
-
-	template<>
-	inline bool nullptr_t::operator>(nullptr_t) { return false; }
-
-	template<>
-	inline bool nullptr_t::operator>=(nullptr_t) { return true; }
-
-	template<>
-	inline bool operator==(nullptr_t, nullptr_t) { return true; }
-
-	template<>
-	inline bool operator!=(nullptr_t, nullptr_t) { return false; }
-
-	template<>
-	inline bool operator<(nullptr_t, nullptr_t) { return false; }
-
-	template<>
-	inline bool operator<=(nullptr_t, nullptr_t) { return true; }
-
-	template<>
-	inline bool operator>(nullptr_t, nullptr_t) { return false; }
-
-	template<>
-	inline bool operator>=(nullptr_t, nullptr_t) { return true; }
 
 #define nullptr nullptr_t(0)
+
 	namespace detail {
 
 		template <bool>
@@ -293,19 +261,19 @@
 	#include "types_ex.h"
 			template<> struct is_integral<char16_t> : public true_type {};
 			template<> struct is_integral<char32_t> : public true_type {};
+			template<> struct is_integral<int64_t> : public true_type {};
+			template<> struct is_integral<uint64_t> : public true_type {};
 #endif
 
 			template<> struct is_integral<unsigned char> : public true_type {};
 			template<> struct is_integral<unsigned short int> : public true_type {};
 			template<> struct is_integral<unsigned int> : public true_type {};
 			template<> struct is_integral<unsigned long int> : public true_type {};
-			template<> struct is_integral<unsigned long long int> : public true_type {};
 
 			template<> struct is_integral<signed char> : public true_type {};
 			template<> struct is_integral<short int> : public true_type {};
 			template<> struct is_integral<int> : public true_type {};
 			template<> struct is_integral<long int> : public true_type {};
-			template<> struct is_integral<long long int> : public true_type {};
 		}
 
 		
@@ -324,18 +292,30 @@
 			{
 			};
 
+			template<typename T>
+			struct SignedComparer
+			{
+				static const bool value = T(-1) < T(0);
+			};
+
+			template<typename T>
+			struct UnsignedComparer
+			{
+				static const bool value = T(0) < T(-1);
+			};
+
 			template<>
 			struct SignUnsignChooser<true>//integral
 			{
 			  template<class T>
 			  struct Signed :
-					 public Cat_base<(typename remove_cv<T>::type)(-1) < (typename remove_cv<T>::type)(0)>
+					 public Cat_base<SignedComparer<typename remove_cv<T>::type>::value>
 			  {
 			  };
 
 			  template<class T>
 			  struct Unsigned:
-					 public Cat_base<(typename remove_cv<T>::type)(0) < (typename remove_cv<T>::type)(-1)>
+					 public Cat_base<UnsignedComparer<typename remove_cv<T>::type>::value>
 			  {
 			  };
 			};
@@ -420,58 +400,8 @@
 		{	// determine whether T is an unsigned type
 			static const bool value = detail::SignUnsignChooser<is_integral<T>::value>::template Unsigned<T>::value;
 		};
-
-		template<class T>
-		struct is_void
-			: false_type
-		{	// determine whether T is void
-		};
-
-		template<>
-		struct is_void<void>
-			: true_type
-		{	// determine whether T is void
-		};
-
-		template<class T>
-		struct is_lvalue_reference
-			: false_type
-		{	// determine whether T is an lvalue reference
-		};
-
-		template<class T>
-		struct is_lvalue_reference<T&>
-			: true_type
-		{	// determine whether T is an lvalue reference
-		};
-
-		template<class T>
-		struct is_reference
-			: Cat_base<is_lvalue_reference<T>::value
-			>//|| is_rvalue_reference<_Ty>::value>
-		{	// determine whether T is a reference
-		};
-
-		/*template<class T>
-		struct remove_reference
-		{	// remove reference
-			typedef T type;
-		};
-
-		template<class T>
-		struct remove_reference<T&>
-		{	// remove reference
-			typedef T type;
-		};
-
-		template<class T>
-		struct remove_reference<T&&>
-		{	// remove rvalue reference
-			typedef T type;
-		};*/
 	}
 	#endif
-	#undef STDEX_MSC_COMPILER_VERSION
 
 	#if _MSC_VER // Visual C++ fallback
 		#define countof(arr) _countof(arr)
