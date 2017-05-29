@@ -31,6 +31,24 @@ std::vector< std::set<PtWidget_t*> > &ABN()
 	return widgets;
 }
 
+std::set<PtWidget_t*> &ValidWidgets()
+{
+	static std::set<PtWidget_t*> valid_w;
+	
+	return valid_w;
+}
+
+int RemoveValidWidget(PtWidget_t *wdg, void *, PtCallbackInfo_t *)
+{
+	ValidWidgets().erase(wdg);
+	
+	return (Pt_CONTINUE);
+}
+
+void AddDestroyedLink(PtWidget_t *wdg, Widget::callback_t callback)
+{
+	PtAddCallback(wdg, Widget::Callbacks::destroyed, callback, nullptr);
+}
 
 PtWidget_t *Widget::widget() const
 {
@@ -49,13 +67,22 @@ PtWidget_t *Widget::widget() const
 
 	if(nullptr == wdg || _widget != wdg)
 	{
-		if(nullptr != _widget)
+		if(nullptr != _widget && ValidWidgets().end() != ValidWidgets().find(_widget))
 		{
 			PtWidget_t *instance = ApGetInstance(_widget);
-			
+				
 			if(nullptr != instance)
 			{
-				wdg = ApGetWidgetPtr(instance, ApName(_widget));
+				int ap_name = ApName(_widget);
+				
+				if(-1 != ap_name)
+				{
+					wdg = ApGetWidgetPtr(instance, ap_name);
+				}
+				else
+				{
+					wdg = ApGetWidgetPtr(instance, _abn);
+				}
 			}
 		}
 
@@ -70,6 +97,13 @@ PtWidget_t *Widget::widget() const
 	
 	abns[_abn].insert(wdg);
 	abws[wdg] = _abn;
+	
+	if(ValidWidgets().end() == ValidWidgets().find(_widget))
+	{
+		ValidWidgets().insert(_widget);
+	
+		AddDestroyedLink(_widget, &RemoveValidWidget);
+	}
 	
 	return wdg;
 }
@@ -162,6 +196,14 @@ Widget::Widget(PtWidget_t* wdg):
 	{
 		_abn = ApName(_widget);
 	}
+	
+	if(ValidWidgets().end() == ValidWidgets().find(_widget))
+	{
+		ValidWidgets().insert(_widget);
+	
+		AddDestroyedLink(_widget, &RemoveValidWidget);
+	}
+
 }
 
 Widget::Widget(const Widget &rhs):
