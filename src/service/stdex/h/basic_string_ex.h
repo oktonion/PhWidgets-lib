@@ -146,10 +146,10 @@ namespace std
 		return buf;
 	}
 
-	inline std::string to_string(unsigned int value)
+	inline std::string to_string(unsigned long value)
 	{
 		static char buf[30];
-		sprintf(buf, "%ul", value);
+		sprintf(buf, "%lu", value);
 
 		return buf;
 	}

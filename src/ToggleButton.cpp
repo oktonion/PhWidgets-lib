@@ -46,10 +46,9 @@ void ToggleButton::Uncheck(bool val)
 
 void ToggleButton::setChecked(bool val)
 {
-	if(val)
-		resource.argument[Arguments::flags].set(Pt_SET, Pt_SET);
-	else
-		resource.argument[Arguments::flags].set(0x0, Pt_SET);
+
+	resource.argument[Arguments::flags].set(Pt_SET, val);
+
 }
 
 bool ToggleButton::getChecked() const
