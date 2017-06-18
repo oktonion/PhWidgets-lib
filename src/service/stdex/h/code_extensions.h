@@ -211,9 +211,21 @@ private: //template overloads
 		};
 
 		template<class T>
+		struct remove_const<const T>
+		{	// remove top level const qualifier
+			typedef T type;
+		};
+
+		template<class T>
 		struct remove_const<const T *>
 		{	// remove top level const qualifier
 			typedef T *type;
+		};
+
+		template<class T>
+		struct remove_const<const volatile T>
+		{	// remove top level const qualifier
+			typedef volatile T type;
 		};
 
 		template<class T>
@@ -225,6 +237,12 @@ private: //template overloads
 		// TEMPLATE CLASS remove_volatile
 		template<class T>
 		struct remove_volatile
+		{	// remove top level volatile qualifier
+			typedef T type;
+		};
+
+		template<class T>
+		struct remove_volatile<volatile T>
 		{	// remove top level volatile qualifier
 			typedef T type;
 		};
@@ -277,13 +295,11 @@ private: //template overloads
 		}
 
 		
-		template <class T> struct is_floating_point : public detail::is_floating_point<typename remove_cv<T>::type> {};
+		template <class T> 
+		struct is_floating_point : public detail::is_floating_point<typename remove_cv<T>::type> {};
 		
 		template <class T>
-		struct is_integral:
-			   public true_type
-		{
-		};
+		struct is_integral : public detail::is_integral<typename remove_cv<T>::type> {};
 		
 		namespace detail
 		{
