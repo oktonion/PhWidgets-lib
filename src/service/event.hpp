@@ -42,103 +42,71 @@ namespace cppevents
 			public get_parent_func<void, void>
 		{
 		};
+
+		template<class freedelegate_t>
+		struct event_base
+		{
+			template<class ParentT, typename detail::get_parent_func<freedelegate_t, ParentT>::adder_t Adder, typename detail::get_parent_func<freedelegate_t, ParentT>::remover_t Remover = detail::get_parent_func<freedelegate_t, ParentT>::default_remover()>
+			class bind
+			{
+				typedef typename detail::get_parent_func<freedelegate_t, ParentT>::value_t value_t;
+
+			public:
+				bind(ParentT *parent) :
+					_obj(parent)
+				{}
+
+				inline void add(value_t value)
+				{
+					(_obj->*Adder)(value);
+				}
+
+				inline void remove(value_t value)
+				{
+					(_obj->*Remover)(value);
+				}
+
+				inline void operator+=(value_t value)
+				{
+					add(value);
+				}
+
+				inline void operator-=(value_t value)
+				{
+					remove(value);
+				}
+
+
+			private:
+				ParentT *_obj;
+
+				bind(const bind &rhs);
+
+				inline bind &operator=(value_t);
+				inline bind &operator=(bind const &);
+			};
+		};
+
+		template <class ReturnT, class Param1T, class Param2T, class Param3T, class Param4T, class Param5T, class Param6T, class Param7T, class Param8T>
+		struct get_event_delegate;
+
+		template <>
+		struct get_event_delegate<void, void, void, void, void, void, void, void, void>
+		{
+			typedef void(*freedelegate_t)(void);
+		};
+
+		template <class ReturnT, class Param1T, class Param2T, class Param3T>
+		struct get_event_delegate<ReturnT, Param1T, Param2T, Param3T, void, void, void, void, void>
+		{
+			typedef ReturnT(*freedelegate_t)(Param1T, Param2T, Param3T);
+		};
 	}
 
 	template <class ReturnT = void, class Param1T = void, class Param2T = void, class Param3T = void, class Param4T = void, class Param5T = void, class Param6T = void, class Param7T = void, class Param8T = void>
-	class event;
-
-	template <>
-	class event<void, void, void, void, void, void, void, void, void>
+	class event:
+		public detail::event_base<typename detail::get_event_delegate<ReturnT, Param1T, Param2T, Param3T, Param4T, Param5T, Param6T, Param7T, Param8T>::freedelegate_t>
 	{
-		typedef void(*freedelegate_t)(void);
-	public:
-		template<class ParentT, typename detail::get_parent_func<freedelegate_t, ParentT>::adder_t Adder, typename detail::get_parent_func<freedelegate_t, ParentT>::remover_t Remover = detail::get_parent_func<freedelegate_t, ParentT>::default_remover()>
-		class bind
-		{
-			typedef typename detail::get_parent_func<freedelegate_t, ParentT>::value_t value_t;
-
-		public:
-			bind(ParentT *parent) :
-				_obj(parent)
-			{}
-
-			inline void add(value_t value)
-			{
-				(_obj->*Adder)(value);
-			}
-
-			inline void remove(value_t value)
-			{
-				(_obj->*Remover)(value);
-			}
-
-			inline void operator+=(value_t value)
-			{
-				add(value);
-			}
-
-			inline void operator-=(value_t value)
-			{
-				remove(value);
-			}
-
-
-		private:
-			ParentT *_obj;
-
-			bind(const bind &rhs);
-
-			inline bind &operator=(value_t);
-			inline bind &operator=(bind const &);
-		};
-	private:
-
-	};
-
-	template <class ReturnT, class Param1T, class Param2T, class Param3T>
-	class event<ReturnT, Param1T, Param2T, Param3T, void, void, void, void, void>
-	{
-		typedef ReturnT(*freedelegate_t)(Param1T, Param2T, Param3T);
-	public:
-		template<class ParentT, typename detail::get_parent_func<freedelegate_t, ParentT>::adder_t Adder, typename detail::get_parent_func<freedelegate_t, ParentT>::remover_t Remover = detail::get_parent_func<freedelegate_t, ParentT>::default_remover()>
-		class bind
-		{
-			typedef typename detail::get_parent_func<freedelegate_t, ParentT>::value_t value_t;
-
-		public:
-			bind(ParentT *parent) :
-				_obj(parent)
-			{}
-
-			inline void add(value_t value)
-			{
-				(_obj->*Adder)(value);
-			}
-
-			inline void remove(value_t value)
-			{
-				(_obj->*Remover)(value);
-			}
-
-			inline void operator+=(value_t value)
-			{
-				add(value);
-			}
-
-			inline void operator-=(value_t value)
-			{
-				remove(value);
-			}
-
-		private:
-			ParentT *_obj;
-
-			bind(const bind &rhs);
-
-			inline bind &operator=(value_t);
-			inline bind &operator=(bind const &);
-		};
-	private:
 
 	};
 
