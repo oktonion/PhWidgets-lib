@@ -266,7 +266,7 @@ Widget::operator const PtWidget_t*() const
 	return widget();
 }
 
-void Widget::onEvent(const PtCallbackList_t *cl, void * data, PtCallbackInfo_t * info)
+void Widget::onEvent(const PtCallbackList_t *cl, PtCallbackInfo_t * info)
 {
 
 	if (nullptr == cl)
@@ -274,38 +274,35 @@ void Widget::onEvent(const PtCallbackList_t *cl, void * data, PtCallbackInfo_t *
 
 	PtWidget_t *w = widget();
 
-	for (; cl; cl = cl->next)
-	{
-		//cl->cb.event_f(w, data, info); need new implementation
-	}
+	PtInvokeCallbackList(cl, w, info);
 }
 
-void Widget::OnDestroyed(void * data, PtCallbackInfo_t * info)
+void Widget::OnDestroyed( PtCallbackInfo_t * info)
 {
 	onEvent( resource.callback[Callback::destroyed].get(), data, info);
 }
 
-void PhWidgets::Widget::OnBlocked(void * data, PtCallbackInfo_t * info)
+void PhWidgets::Widget::OnBlocked( PtCallbackInfo_t * info)
 {
 	onEvent(resource.callback[Callback::blocked].get(), data, info);
 }
 
-void PhWidgets::Widget::OnDragDrop(void * data, PtCallbackInfo_t * info)
+void PhWidgets::Widget::OnDragDrop( PtCallbackInfo_t * info)
 {
 	onEvent(resource.callback[Callback::dnd].get(), data, info);
 }
 
-void PhWidgets::Widget::OnOutbound(void * data, PtCallbackInfo_t * info)
+void PhWidgets::Widget::OnOutbound( PtCallbackInfo_t * info)
 {
 	onEvent(resource.callback[Callback::outbound].get(), data, info);
 }
 
-void PhWidgets::Widget::OnRealized(void * data, PtCallbackInfo_t * info)
+void PhWidgets::Widget::OnRealized( PtCallbackInfo_t * info)
 {
 	onEvent(resource.callback[Callback::realized].get(), data, info);
 }
 
-void PhWidgets::Widget::OnUnrealized(void * data, PtCallbackInfo_t * info)
+void PhWidgets::Widget::OnUnrealized( PtCallbackInfo_t * info)
 {
 	onEvent(resource.callback[Callback::unrealized].get(), data, info);
 }

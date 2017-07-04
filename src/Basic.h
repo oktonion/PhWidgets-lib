@@ -207,13 +207,13 @@ namespace PhWidgets
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Basic, &Basic::addMenuCallback>			Menu;
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Basic, &Basic::addRepeatCallback>		Repeat;
 
-		void OnActivated(void *data, PtCallbackInfo_t *info);
-		void OnArmed(void *data, PtCallbackInfo_t *info);
-		void OnDisarmed(void *data, PtCallbackInfo_t *info);
-		void OnGotFocused(void *data, PtCallbackInfo_t *info);
-		void OnLostFocus(void *data, PtCallbackInfo_t *info);
-		void OnMenu(void *data, PtCallbackInfo_t *info);
-		void OnRepeat(void *data, PtCallbackInfo_t *info);
+		void OnActivated(PtCallbackInfo_t *info);
+		void OnArmed(PtCallbackInfo_t *info);
+		void OnDisarmed(PtCallbackInfo_t *info);
+		void OnGotFocused(PtCallbackInfo_t *info);
+		void OnLostFocus(PtCallbackInfo_t *info);
+		void OnMenu(PtCallbackInfo_t *info);
+		void OnRepeat(PtCallbackInfo_t *info);
 	};		  
 		
 	

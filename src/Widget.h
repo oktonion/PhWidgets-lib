@@ -775,7 +775,7 @@ namespace PhWidgets
 		void addRealizedCallback(callback_t callback);
 		void addUnrealizedCallback(callback_t callback);
 
-		void onEvent(const PtCallbackList_t *cl, void * data, PtCallbackInfo_t * info);
+		void onEvent(const PtCallbackList_t *cl, PtCallbackInfo_t * info);
 						
 	public:
 		
@@ -820,12 +820,12 @@ namespace PhWidgets
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addRealizedCallback>	Realized;
 		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addUnrealizedCallback>	Unrealized;
 
-		void OnDestroyed(void *data, PtCallbackInfo_t *info);
-		void OnBlocked(void *data, PtCallbackInfo_t *info);
-		void OnDragDrop(void *data, PtCallbackInfo_t *info);
-		void OnOutbound(void *data, PtCallbackInfo_t *info);
-		void OnRealized(void *data, PtCallbackInfo_t *info);
-		void OnUnrealized(void *data, PtCallbackInfo_t *info);
+		void OnDestroyed(PtCallbackInfo_t *info);
+		void OnBlocked(PtCallbackInfo_t *info);
+		void OnDragDrop(PtCallbackInfo_t *info);
+		void OnOutbound(PtCallbackInfo_t *info);
+		void OnRealized(PtCallbackInfo_t *info);
+		void OnUnrealized(PtCallbackInfo_t *info);
 
 	};
 

@@ -81,3 +81,6 @@ src/.vscode/.browse.VC.db
 src/.vscode/.BROWSE.VC.DB-shm
 src/.vscode/launch.json
 *.DB-wal
+
+# Visual Studio Code files
+*.vscode*
