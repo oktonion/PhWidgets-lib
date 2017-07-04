@@ -119,35 +119,35 @@ void PhWidgets::Basic::addRepeatCallback(Widget::callback_t callback)
 
 void PhWidgets::Basic::OnActivated(PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::activate].get(), data, info);
+	onEvent(resource.callback[Callback::activate].get(), info);
 }
 
 void PhWidgets::Basic::OnArmed(PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::arm].get(), data, info);
+	onEvent(resource.callback[Callback::arm].get(), info);
 }
 
 void PhWidgets::Basic::OnDisarmed(PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::disarm].get(), data, info);
+	onEvent(resource.callback[Callback::disarm].get(), info);
 }
 
 void PhWidgets::Basic::OnGotFocused(PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::got_focus].get(), data, info);
+	onEvent(resource.callback[Callback::got_focus].get(), info);
 }
 
 void PhWidgets::Basic::OnLostFocus(PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::lost_focus].get(), data, info);
+	onEvent(resource.callback[Callback::lost_focus].get(), info);
 }
 
 void PhWidgets::Basic::OnMenu(PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::menu].get(), data, info);
+	onEvent(resource.callback[Callback::menu].get(), info);
 }
 
 void PhWidgets::Basic::OnRepeat(PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::repeat].get(), data, info);
+	onEvent(resource.callback[Callback::repeat].get(), info);
 }
