@@ -94,6 +94,13 @@ namespace phevents
 
 			static std::set<callback_container> &repo() { static std::set<callback_container> repo; return repo; }
 
+			static int proxy_call(PtWidgetT *p1, void *p2, PtCallbackInfo_t *p3)
+			{
+				callback_container &cbc = *reinterpret_cast<callback_container*>(p2);
+
+				return cbc(p1, 0, p3);
+			}
+
 		public:
 			bind(ParentT *parent) :
 				_obj(parent)
@@ -115,14 +122,22 @@ namespace phevents
 				std::pair<std::set<callback_container>::iterator, bool> res = repo().insert(callback_container(value));
 
 				PtCallback_t proxy;
-				proxy.event_f = 
-				(_obj->*Adder)(value);
+				proxy.event_f = &bind::proxy_call;
+				proxy.data = &(*(res.first));
+
+				(_obj->*Adder)(proxy);
 			}
 
 			template<class Param1T, class Param2T, class Param3T>
 			inline void remove(int(*value)(Param1T, Param2T, Param3T))
 			{
-				(_obj->*Remover)(value);
+				std::pair<std::set<callback_container>::iterator, bool> res = repo().insert(callback_container(value));
+
+				PtCallback_t proxy;
+				proxy.event_f = &bind::proxy_call;
+				proxy.data = &(*(res.first));
+
+				(_obj->*Remover)(proxy);
 			}
 
 			inline void operator+=(value_t value)
