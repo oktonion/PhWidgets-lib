@@ -498,7 +498,7 @@ namespace PhWidgets
 					addLink(callbacks);
 				}
 
-				inline void addLink(Widget::callback_t callback, void *data = nullptr)
+				inline void addLink(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), void *data = nullptr)
 				{
 					PtAddCallback(_rwidget->widget(), _arg, callback, data);
 				}
@@ -516,12 +516,12 @@ namespace PhWidgets
 					addLink(callbacks);
 				}
 
-				inline void addLink(Widget::callback_t callback, Events::eEvents event, void *data = nullptr)
+				inline void addLink(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), Events::eEvents event, void *data = nullptr)
 				{
 					PtAddEventHandler(_rwidget->widget(), event, callback, data);
 				}
 
-				inline void addLink(Widget::callback_t callback, Hotkeys::eHotkeys hotkey, KeyModes::eKeyModes keymode = KeyModes::none, bool chained = false, void *data = nullptr)
+				inline void addLink(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), Hotkeys::eHotkeys hotkey, KeyModes::eKeyModes keymode = KeyModes::none, bool chained = false, void *data = nullptr)
 				{
 					PtAddHotkeyHandler(_rwidget->widget(), hotkey, keymode, chained ? Pt_HOTKEY_CHAINED : 0, data, callback);
 				}
@@ -974,7 +974,7 @@ namespace detail
 			addLink(callback);\
 		}\
 \
-		inline void add(Widget::callback_t callback, void *data = nullptr)\
+		inline void add(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), void *data = nullptr)\
 		{\
 			addLink(callback, data);\
 		}\
@@ -1009,7 +1009,7 @@ namespace detail
 			addLink(callback);\
 		}\
 \
-		inline void add(Widget::callback_t callback, Widget::Events::eEvents event, void *data = nullptr)\
+		inline void add(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), Widget::Events::eEvents event, void *data = nullptr)\
 		{\
 			addLink(callback, event, data);\
 		}\
@@ -1039,7 +1039,7 @@ namespace detail
 		{}\
 \
 \
-		inline void add(Widget::callback_t callback, Widget::Hotkeys::eHotkeys hotkey, Widget::KeyModes::eKeyModes keymode = Widget::KeyModes::none)\
+		inline void add(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), Widget::Hotkeys::eHotkeys hotkey, Widget::KeyModes::eKeyModes keymode = Widget::KeyModes::none)\
 		{\
 			addLink(callback, hotkey, keymode);\
 		}\

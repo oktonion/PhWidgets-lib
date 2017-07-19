@@ -45,7 +45,7 @@ int RemoveValidWidget(PtWidget_t *wdg, void *, PtCallbackInfo_t *)
 	return (Pt_CONTINUE);
 }
 
-void AddDestroyedLink(PtWidget_t *wdg, Widget::callback_t callback)
+void AddDestroyedLink(PtWidget_t *wdg, int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ))
 {
 	PtAddCallback(wdg, Widget::Callbacks::destroyed, callback, nullptr);
 }
