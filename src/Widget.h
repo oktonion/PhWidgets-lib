@@ -775,7 +775,7 @@ namespace PhWidgets
 		void addRealizedCallback(callback_t callback);
 		void addUnrealizedCallback(callback_t callback);
 
-		void onEvent(const PtCallbackList_t *cl, PtCallbackInfo_t * info);
+		void onEvent(PtCallbackList_t *cl, PtCallbackInfo_t * info);
 						
 	public:
 		
@@ -979,7 +979,7 @@ namespace detail
 			addLink(callback, data);\
 		}\
 \
-		inline const PtCallbackList_t* get()\
+		inline PtCallbackList_t* get()\
 		{\
 			return getLink();\
 		}\
@@ -1014,7 +1014,7 @@ namespace detail
 			addLink(callback, event, data);\
 		}\
 \
-		inline const PtCallbackList_t* get()\
+		inline PtCallbackList_t* get()\
 		{\
 			return getLink();\
 		}\
@@ -1044,7 +1044,7 @@ namespace detail
 			addLink(callback, hotkey, keymode);\
 		}\
 \
-		inline const PtCallbackList_t* get()\
+		inline PtCallbackList_t* get()\
 		{\
 			return getLink();\
 		}\

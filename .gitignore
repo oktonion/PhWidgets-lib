@@ -84,3 +84,7 @@ src/.vscode/launch.json
 
 # Visual Studio Code files
 *.vscode*
+
+# old library
+/old/*
+/slib/*
