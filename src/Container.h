@@ -197,11 +197,11 @@ namespace PhWidgets
 
 		Container(const Container &rhs);
 		
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Container, &Container::addChildAddedRemovedCallback>		ChildAddedRemoved;
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Container, &Container::addChildGettingFocusCallback>		ChildGettingFocus;
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Container, &Container::addChildLosingFocusCallback>		ChildLosingFocus;
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Container, &Container::addLayoutChangedCallback>			LayoutChanged;
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Container, &Container::addResizeCallback>				Resize;
+		phevent::bind<Container, &Container::addChildAddedRemovedCallback>		ChildAddedRemoved;
+		phevent::bind<Container, &Container::addChildGettingFocusCallback>		ChildGettingFocus;
+		phevent::bind<Container, &Container::addChildLosingFocusCallback>		ChildLosingFocus;
+		phevent::bind<Container, &Container::addLayoutChangedCallback>			LayoutChanged;
+		phevent::bind<Container, &Container::addResizeCallback>				Resize;
 	};
 	
 	INIT_WIDGET_RESOURCE0(Container::ThisArgs::ArgPChar::eArgPChar, String);

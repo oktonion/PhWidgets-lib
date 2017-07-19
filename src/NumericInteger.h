@@ -89,7 +89,7 @@ namespace PhWidgets
 		property<int>::bind<NumericInteger, &NumericInteger::getMaxValue, &NumericInteger::setMaxValue> MaxValue;
 		property<int>::bind<NumericInteger, &NumericInteger::getMinValue, &NumericInteger::setMinValue> MinValue;
 
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<NumericInteger, &NumericInteger::addNumericChangedCallback>		NumericChanged;
+		phevent::bind<NumericInteger, &NumericInteger::addNumericChangedCallback>		NumericChanged;
 	};
 	
 	

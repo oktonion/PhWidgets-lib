@@ -79,11 +79,11 @@ namespace PhWidgets
 
 		Text(const Text &rhs);
 
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Text, &Text::addCallback<Callbacks::modify_notify> >		ModifyNotify;
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Text, &Text::addCallback<Callbacks::modify_verify> >		ModifyVerify;
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Text, &Text::addCallback<Callbacks::motion_notify> >		MotionNotify;
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Text, &Text::addCallback<Callbacks::motion_verify> >		MotionVerify;
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Text, &Text::addCallback<Callbacks::text_changed> >		TextChanged;
+		phevent::bind<Text, &Text::addCallback<Callbacks::modify_notify> >		ModifyNotify;
+		phevent::bind<Text, &Text::addCallback<Callbacks::modify_verify> >		ModifyVerify;
+		phevent::bind<Text, &Text::addCallback<Callbacks::motion_notify> >		MotionNotify;
+		phevent::bind<Text, &Text::addCallback<Callbacks::motion_verify> >		MotionVerify;
+		phevent::bind<Text, &Text::addCallback<Callbacks::text_changed> >		TextChanged;
 	};
 	
 	INIT_WIDGET_RESOURCE1(Text::ThisArgs::ArgComplex::eArgComplex, PtTextControl_t, Struct);

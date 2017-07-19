@@ -79,7 +79,7 @@ namespace PhWidgets
 		
 		property<bool>::bind<OnOffButton, &OnOffButton::getChecked, &OnOffButton::setChecked> Checked;
 
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<OnOffButton, &OnOffButton::addNewValueCallback>		NewValue;
+		phevent::bind<OnOffButton, &OnOffButton::addNewValueCallback>		NewValue;
 	};
 	
 	

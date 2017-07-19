@@ -94,7 +94,7 @@ namespace PhWidgets
 		property<unsigned long>::bind<Timer, &Timer::getRepeat, &Timer::setRepeat> Interval;
 		Widget::Enabled;
 
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Timer, &Timer::addActivateCallback>		Activate;
+		phevent::bind<Timer, &Timer::addActivateCallback>		Activate;
 	};
 	
 	INIT_WIDGET_RESOURCE1(Timer::ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long, Scalar);

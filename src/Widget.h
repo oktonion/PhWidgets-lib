@@ -13,17 +13,17 @@
 #include "./service/mystd/my_exception.h"
 #include "./service/stdex/stdex.h"
 #include "./service/property.hpp"
-#include "./service/event.hpp"
+#include "./service/phevent.hpp"
 
 namespace PhWidgets
 {
 	using namespace cppproperties;
-	using namespace cppevents;
+	using namespace phevents;
 	
 	class Widget
 	{
 	public:
-		typedef int(*callback_t)(PtWidget_t *, void *, PtCallbackInfo_t *);
+		typedef phevent::ph_callback_t callback_t;
 	
 		struct ThisArgs
 		{
@@ -812,13 +812,13 @@ namespace PhWidgets
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>		HelpTopic;
 		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation>			Location;
 
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addDestroyedCallback>	Destroyed;
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addBlockedCallback>		Blocked;
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addDNDCallback>			DragDrop;
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addIsDestroyedCallback> IsDestroyed;
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addOutboundCallback>	Outbound;
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addRealizedCallback>	Realized;
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<Widget, &Widget::addUnrealizedCallback>	Unrealized;
+		phevent::bind<Widget, &Widget::addDestroyedCallback>	Destroyed;
+		phevent::bind<Widget, &Widget::addBlockedCallback>		Blocked;
+		phevent::bind<Widget, &Widget::addDNDCallback>			DragDrop;
+		phevent::bind<Widget, &Widget::addIsDestroyedCallback> IsDestroyed;
+		phevent::bind<Widget, &Widget::addOutboundCallback>	Outbound;
+		phevent::bind<Widget, &Widget::addRealizedCallback>	Realized;
+		phevent::bind<Widget, &Widget::addUnrealizedCallback>	Unrealized;
 
 		void OnDestroyed(PtCallbackInfo_t *info);
 		void OnBlocked(PtCallbackInfo_t *info);

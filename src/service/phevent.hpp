@@ -1,9 +1,9 @@
-#ifndef CPP_EVENT_HPP
-#define CPP_EVENT_HPP
+#ifndef PH_EVENT_HPP
+#define PH_EVENT_HPP
 
-#include <map>
+#include <photon/PtWidget.h>
 
-namespace cppevents
+namespace phevents
 {
 	namespace detail
 	{
@@ -46,19 +46,14 @@ namespace cppevents
 		};
 	}
 
-	template <class ReturnT = void, class Param1T = void, class Param2T = void, class Param3T = void, class Param4T = void, class Param5T = void, class Param6T = void, class Param7T = void, class Param8T = void>
-	class event;
-
-	template <class ReturnT, class Param1T, class Param2T, class Param3T>
-	class event<ReturnT, Param1T, Param2T, Param3T, void, void, void, void, void>
+	struct phevent
 	{
-		typedef ReturnT(*free_function_t)(Param1T, Param2T, Param3T);
-	public:
-	
-		template<class ParentT, typename detail::get_parent_func<free_function_t, ParentT>::adder_t Adder, typename detail::get_parent_func<free_function_t, ParentT>::remover_t Remover = detail::get_parent_func<free_function_t, ParentT>::default_remover()>
+		typedef int(*ph_callback_t)(PtWidget_t *, void *, PtCallbackInfo_t *);
+
+		template<class ParentT, typename detail::get_parent_func<ph_callback_t, ParentT>::adder_t Adder, typename detail::get_parent_func<ph_callback_t, ParentT>::remover_t Remover = detail::get_parent_func<ph_callback_t, ParentT>::default_remover()>
 		class bind
 		{
-			typedef typename detail::get_parent_func<free_function_t, ParentT>::value_t value_t;
+			typedef typename detail::get_parent_func<ph_callback_t, ParentT>::value_t value_t;
 
 		public:
 			bind(ParentT *parent) :
@@ -74,6 +69,7 @@ namespace cppevents
 			{
 				(_obj->*Remover)(value);
 			}
+			
 
 			inline void operator+=(value_t value)
 			{

@@ -105,7 +105,7 @@ namespace PhWidgets
 		property<double>::bind<NumericFloat, &NumericFloat::getMaxValue, &NumericFloat::setMaxValue> MaxValue;
 		property<double>::bind<NumericFloat, &NumericFloat::getMinValue, &NumericFloat::setMinValue> MinValue;
 
-		event<int, PtWidget_t *, void *, PtCallbackInfo_t *>::bind<NumericFloat, &NumericFloat::addNumericChangedCallback>		NumericChanged;
+		phevent::bind<NumericFloat, &NumericFloat::addNumericChangedCallback>		NumericChanged;
 		
 	};
 	
