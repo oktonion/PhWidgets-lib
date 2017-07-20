@@ -94,7 +94,7 @@ namespace phevents
 
 			static std::set<callback_container> &repo() { static std::set<callback_container> repo; return repo; }
 
-			static int proxy_call(PtWidgetT *p1, void *p2, PtCallbackInfo_t *p3)
+			static int proxy_call(PtWidget_t *p1, void *p2, PtCallbackInfo_t *p3)
 			{
 				callback_container &cbc = *reinterpret_cast<callback_container*>(p2);
 
@@ -119,7 +119,7 @@ namespace phevents
 			template<class Param1T, class Param2T, class Param3T>
 			inline void add(int(*value)(Param1T, Param2T, Param3T))
 			{
-				std::pair<std::set<callback_container>::iterator, bool> res = repo().insert(callback_container(value));
+				std::pair<typename std::set<callback_container>::iterator, bool> res = repo().insert(callback_container(value));
 
 				PtCallback_t proxy;
 				proxy.event_f = &bind::proxy_call;
@@ -131,7 +131,7 @@ namespace phevents
 			template<class Param1T, class Param2T, class Param3T>
 			inline void remove(int(*value)(Param1T, Param2T, Param3T))
 			{
-				std::pair<std::set<callback_container>::iterator, bool> res = repo().insert(callback_container(value));
+				std::pair<typename std::set<callback_container>::iterator, bool> res = repo().insert(callback_container(value));
 
 				PtCallback_t proxy;
 				proxy.event_f = &bind::proxy_call;
