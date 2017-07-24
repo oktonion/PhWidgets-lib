@@ -84,7 +84,7 @@ namespace phevents
 				template<class Param1T, class Param2T, class Param3T>
 				static int proxy_call(const callback_container *container, PtWidget_t *p1, void *p2, PtCallbackInfo_t *p3) 
 				{ 
-					return reinterpret_cast<int(*)(Param1T, Param2T, Param3T)>(container->_callback)(p1, p2, p3); 
+					return reinterpret_cast<int(*)(Param1T, Param2T, Param3T)>(container->_callback)(p1, reinterpret_cast<Param2T>(p2), p3); 
 				}
 			};
 
@@ -125,7 +125,7 @@ namespace phevents
 			
 			static int proxy_call(PtWidget_t *p1, void *p2, PtCallbackInfo_t *p3)
 			{
-				cb_with_data &cbwd = *reinterpret_cast<cb_with_data*>(p2);
+				const cb_with_data &cbwd = *reinterpret_cast<const cb_with_data*>(p2);
 
 				cb_data_repo_t::iterator it = repo().find(cbwd);
 
@@ -146,7 +146,7 @@ namespace phevents
 				std::pair<cb_data_repo_t::iterator, bool> res = repo().insert(cb_with_data(value));
 
 				_callback.event_f = &proxy_call;
-				_callback.data = &(*(res.first));
+				_callback.data = const_cast<cb_with_data*>(&(*(res.first)));
 			}
 
 			template<class Param1T, class Param2T, class Param3T>
@@ -155,7 +155,7 @@ namespace phevents
 				std::pair<cb_data_repo_t::iterator, bool> res = repo().insert(cb_with_data(value, data));
 
 				_callback.event_f = &proxy_call;
-				_callback.data = &(*(res.first));
+				_callback.data = const_cast<cb_with_data*>(&(*(res.first)));
 			}
 
 			~ph_callback_t()

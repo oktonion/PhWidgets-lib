@@ -90,6 +90,14 @@ namespace PhWidgets
 
 		Timer(const Timer &rhs);
 
+		Timer &operator=(const Timer &rhs);
+		using Widget::operator=;
+		using Widget::operator==;
+		using Widget::operator<;
+
+		using Widget::operator PtWidget_t*;
+		using Widget::operator const PtWidget_t*;
+
 		property<unsigned long>::bind<Timer, &Timer::getInitial, &Timer::setInitial> Initial;
 		property<unsigned long>::bind<Timer, &Timer::getRepeat, &Timer::setRepeat> Interval;
 		Widget::Enabled;

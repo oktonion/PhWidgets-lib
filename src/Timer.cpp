@@ -48,6 +48,13 @@ Timer::Timer(const Timer &rhs):
 
 }
 
+Timer &Timer::operator=(const Timer &rhs)
+{
+	static_cast<Widget&>(*this) = static_cast<const Widget&>(rhs);
+	
+	return *this;
+}
+
 void Timer::setInitial(unsigned long val)
 {
 	resource.argument[Arguments::timer_initial].set(val);
