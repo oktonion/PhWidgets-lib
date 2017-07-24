@@ -28,7 +28,13 @@ ToggleButton::ToggleButton(const ToggleButton &rhs):
 	Button(rhs),
 	Checked(this)
 {
-	check();
+}
+
+ToggleButton &ToggleButton::operator=(const ToggleButton &rhs)
+{
+	static_cast<Button&>(*this) = static_cast<const Button&>(rhs);
+	
+	return *this;
 }
 
 

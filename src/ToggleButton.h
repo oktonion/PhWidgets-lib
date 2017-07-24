@@ -69,6 +69,8 @@ namespace PhWidgets
 		ToggleButton(PtWidget_t *wdg);
 		
 		ToggleButton(const ToggleButton&);
+
+		ToggleButton &operator=(const ToggleButton &rhs);
 		
 		void Check(bool val);
 		void Uncheck(bool val);

@@ -83,6 +83,8 @@ namespace PhWidgets
 
 		Button(const Button &rhs);
 
+		Button &operator=(const Button &rhs);
+
 		property<PgColor_t>::bind<Button, &Button::getArmColor, &Button::setArmColor> ArmColor;
 	};
 	

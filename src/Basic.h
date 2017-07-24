@@ -195,6 +195,8 @@ namespace PhWidgets
 		Basic(PtWidget_t *wdg);
 		
 		Basic(const Basic &rhs);
+
+		Basic &operator=(const Basic &rhs);
 		
 		property<PgColor_t>::bind<Basic, &Basic::getColor, &Basic::setColor> Color;
 		property<PgColor_t>::bind<Basic, &Basic::getFillColor, &Basic::setFillColor> FillColor;

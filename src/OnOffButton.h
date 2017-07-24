@@ -73,6 +73,8 @@ namespace PhWidgets
 		OnOffButton(PtWidget_t* wdg);
 		
 		OnOffButton(const OnOffButton&);
+
+		OnOffButton &operator=(const OnOffButton &rhs);
 		
 		void Check(bool val);
 		void Uncheck(bool val);

@@ -46,6 +46,13 @@ PhWidgets::Container::Container(const Container & rhs):
 {
 }
 
+Container &Container::operator=(const Container &rhs)
+{
+	static_cast<Basic&>(*this) = static_cast<const Basic&>(rhs);
+	
+	return *this;
+}
+
 void PhWidgets::Container::addChildAddedRemovedCallback(callback_t callback)
 {
 	resource.callback[ThisCallbacks::Callback::child_added_removed].add(callback);

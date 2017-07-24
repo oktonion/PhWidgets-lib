@@ -34,6 +34,13 @@ Label::Label(const Label &rhs):
 	
 }
 
+Label &Label::operator=(const Label &rhs)
+{
+	static_cast<Basic&>(*this) = static_cast<const Basic&>(rhs);
+	
+	return *this;
+}
+
 std::string Label::getCaption() const
 {
 	return resource.argument[Arguments::text_string].get();

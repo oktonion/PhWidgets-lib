@@ -49,6 +49,13 @@ NumericInteger::NumericInteger(const NumericInteger &rhs):
 {
 }
 
+NumericInteger &NumericInteger::operator=(const NumericInteger &rhs)
+{
+	static_cast<Numeric&>(*this) = static_cast<const Numeric&>(rhs);
+	
+	return *this;
+}
+
 int NumericInteger::getValue() const
 {
 	return resource.argument[Arguments::numeric_value].get();

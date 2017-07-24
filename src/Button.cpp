@@ -32,6 +32,13 @@ Button::Button(const Button &rhs):
 
 }
 
+Button &Button::operator=(const Button &rhs)
+{
+	static_cast<Label&>(*this) = static_cast<const Label&>(rhs);
+	
+	return *this;
+}
+
 void Button::setArmColor(PgColor_t val)
 {
 	resource.argument[Arguments::arm_color].set(val);

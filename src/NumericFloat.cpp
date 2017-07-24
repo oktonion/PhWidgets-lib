@@ -48,6 +48,13 @@ NumericFloat::NumericFloat(const NumericFloat &rhs):
 {
 }
 
+NumericFloat &NumericFloat::operator=(const NumericFloat &rhs)
+{
+	static_cast<Numeric&>(*this) = static_cast<const Numeric&>(rhs);
+	
+	return *this;
+}
+
 double NumericFloat::getValue() const
 {
 	return *(resource.argument[Arguments::numeric_value].get());

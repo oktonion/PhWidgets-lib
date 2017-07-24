@@ -79,6 +79,8 @@ namespace PhWidgets
 
 		Text(const Text &rhs);
 
+		Text &operator=(const Text &rhs);
+
 		phevent::bind<Text, &Text::addCallback<Callbacks::modify_notify> >		ModifyNotify;
 		phevent::bind<Text, &Text::addCallback<Callbacks::modify_verify> >		ModifyVerify;
 		phevent::bind<Text, &Text::addCallback<Callbacks::motion_notify> >		MotionNotify;

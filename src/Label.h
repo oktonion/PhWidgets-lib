@@ -201,6 +201,8 @@ namespace PhWidgets
 		Label(PtWidget_t *wdg);
 		
 		Label(const Label&);
+
+		Label &operator=(const Label &rhs);
 		
 		property<std::string>::bind<Label, &Label::getCaption, &Label::setCaption> Caption;
 		property<PgColor_t>::bind<Label, &Label::getBalloonColor, &Label::setBalloonColor> BalloonColor;

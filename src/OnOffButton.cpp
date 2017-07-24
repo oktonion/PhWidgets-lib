@@ -37,7 +37,13 @@ OnOffButton::OnOffButton(const OnOffButton &rhs):
 	//callbacks:
 	NewValue(this)
 {
-	check();
+}
+
+OnOffButton &OnOffButton::operator=(const OnOffButton &rhs)
+{
+	static_cast<Button&>(*this) = static_cast<const Button&>(rhs);
+	
+	return *this;
 }
 
 void OnOffButton::Check(bool val)

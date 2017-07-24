@@ -46,3 +46,10 @@ PhWidgets::Text::Text(const Text & rhs):
 {
 }
 
+Text &Text::operator=(const Text &rhs)
+{
+	static_cast<Label&>(*this) = static_cast<const Label&>(rhs);
+	
+	return *this;
+}
+

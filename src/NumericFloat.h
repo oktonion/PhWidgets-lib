@@ -100,6 +100,8 @@ namespace PhWidgets
 		NumericFloat(PtWidget_t *wdg);
 		
 		NumericFloat(const NumericFloat&);
+
+		NumericFloat &operator=(const NumericFloat &rhs);
 		
 		property<double>::bind<NumericFloat, &NumericFloat::getValue, &NumericFloat::setValue> Value;
 		property<double>::bind<NumericFloat, &NumericFloat::getMaxValue, &NumericFloat::setMaxValue> MaxValue;

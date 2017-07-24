@@ -84,6 +84,8 @@ namespace PhWidgets
 		NumericInteger(PtWidget_t *wdg);
 		
 		NumericInteger(const NumericInteger&);
+
+		NumericInteger &operator=(const NumericInteger &rhs);
 		
 		property<int>::bind<NumericInteger, &NumericInteger::getValue, &NumericInteger::setValue> Value;
 		property<int>::bind<NumericInteger, &NumericInteger::getMaxValue, &NumericInteger::setMaxValue> MaxValue;

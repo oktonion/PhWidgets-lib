@@ -62,6 +62,13 @@ Basic::Basic(const Basic &rhs):
 
 }
 
+Basic &Basic::operator=(const Basic &rhs)
+{
+	static_cast<Widget&>(*this) = static_cast<const Widget&>(rhs);
+	
+	return *this;
+}
+
 void Basic::setColor(PgColor_t val)
 {
 	resource.argument[Arguments::color].set(val);

@@ -45,7 +45,6 @@ Timer::Timer(const Timer &rhs):
 	//callbacks:
 	Activate(this)
 {
-
 }
 
 Timer &Timer::operator=(const Timer &rhs)

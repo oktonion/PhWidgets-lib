@@ -196,6 +196,8 @@ namespace PhWidgets
 		Container(PtWidget_t *wdg);
 
 		Container(const Container &rhs);
+
+		Container &operator=(const Container &rhs);
 		
 		phevent::bind<Container, &Container::addChildAddedRemovedCallback>		ChildAddedRemoved;
 		phevent::bind<Container, &Container::addChildGettingFocusCallback>		ChildGettingFocus;
