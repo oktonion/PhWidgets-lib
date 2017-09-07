@@ -2,7 +2,7 @@
 ### lightweight fast C++ interface library for QNX Photon microGUI
 
 
-PhWidgets is a C++ library interface for the QNX Photon Widgets. 
+PhWidgets is a C++ library interface for the QNX Photon Application Builder Widgets. Full support of PhAB for QNX 6.
 
 All classes of the library provide simple and convenient access to 'resources' of corresponding Photon Widgets as 'properties' with minimum or no overhead. 
 
