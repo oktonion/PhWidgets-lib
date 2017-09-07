@@ -1,5 +1,5 @@
 # PhWidgets-lib
-### lightweight fast C++ interface library for QNX Photon GUI
+### lightweight fast C++ interface library for QNX Photon microGUI
 
 
 PhWidgets is a C++ library interface for the QNX Photon Widgets. 
