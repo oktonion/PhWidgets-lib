@@ -95,6 +95,8 @@ namespace PhWidgets
 
 		using Widget::operator PtWidget_t*;
 		using Widget::operator const PtWidget_t*;
+		
+		Widget::resource;
 
 		property<unsigned long>::bind<Timer, &Timer::getInitial, &Timer::setInitial> Initial;
 		property<unsigned long>::bind<Timer, &Timer::getRepeat, &Timer::setRepeat> Interval;

@@ -20,13 +20,13 @@ namespace PhWidgets
 {
 	using namespace cppproperties;
 	using namespace phevents;
-	
+		
 	class Widget
 	{
 	public:
 		typedef phevent::ph_callback_t callback_t;
-
-		template<class ParentT, ParentT::Callbacks::eCallback callback>
+		
+		template<class ParentT, typename ParentT::ThisCallbacks::Callback::eCallback callback>
 		class phwidgets_event
 		{
 			typedef phevent::ph_callback_t value_t;
@@ -66,7 +66,8 @@ namespace PhWidgets
 			inline phwidgets_event &operator=(phwidgets_event const &);
 		};
 
-		template<class ParentT, ParentT::Callbacks::eRawCallback callback>
+
+		/*template<class ParentT, ParentT::Callbacks::eRawCallback callback>
 		class phwidgets_event
 		{
 			typedef phevent::ph_callback_t value_t;
@@ -104,7 +105,7 @@ namespace PhWidgets
 
 			inline phwidgets_event &operator=(value_t);
 			inline phwidgets_event &operator=(phwidgets_event const &);
-		};
+		};*/
 	
 		struct ThisArgs
 		{

@@ -373,6 +373,7 @@ void Widget::setLocation(PhPoint_t val)
 	resource.argument[Arguments::pos].set(val);
 }
 
+
 PhPoint_t Widget::getLocation() const
 {
 	return resource.argument[Arguments::pos].get();
