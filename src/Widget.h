@@ -611,14 +611,14 @@ namespace PhWidgets
 				template<size_t count>
 				inline void removeLink(PtCallback_t const (&callbacks)[count])
 				{
-					PtRemoveCallback(_rwidget->widget(), _arg, callbacks, count);
+					PtRemoveCallbacks(_rwidget->widget(), _arg, callbacks, count);
 				}
 
 				inline void removeLink(PtCallback_t callback)
 				{
 					PtCallback_t callbacks[] = { callback };
 
-					addLink(callbacks);
+					removeLink(callbacks);
 				}
 
 				inline void removeLink(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), void *data = nullptr)
@@ -629,14 +629,14 @@ namespace PhWidgets
 				template<size_t count>
 				inline void removeLink(PtRawCallback_t const (&callbacks)[count])
 				{
-					PtRemoveEventHandler(_rwidget->widget(), callbacks, count);
+					PtRemoveEventHandlers(_rwidget->widget(), callbacks, count);
 				}
 
 				inline void removeLink(PtRawCallback_t callback)
 				{
 					PtRawCallback_t callbacks[] = { callback };
 
-					addLink(callbacks);
+					removeLink(callbacks);
 				}
 
 				inline void removeLink(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), Events::eEvents event, void *data = nullptr)
