@@ -608,6 +608,46 @@ namespace PhWidgets
 					PtAddHotkeyHandler(_rwidget->widget(), hotkey, keymode, chained ? Pt_HOTKEY_CHAINED : 0, data, callback);
 				}
 
+				template<size_t count>
+				inline void removeLink(PtCallback_t const (&callbacks)[count])
+				{
+					PtRemoveCallback(_rwidget->widget(), _arg, callbacks, count);
+				}
+
+				inline void removeLink(PtCallback_t callback)
+				{
+					PtCallback_t callbacks[] = { callback };
+
+					addLink(callbacks);
+				}
+
+				inline void removeLink(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), void *data = nullptr)
+				{
+					PtRemoveCallback(_rwidget->widget(), _arg, callback, data);
+				}		
+
+				template<size_t count>
+				inline void removeLink(PtRawCallback_t const (&callbacks)[count])
+				{
+					PtRemoveEventHandler(_rwidget->widget(), callbacks, count);
+				}
+
+				inline void removeLink(PtRawCallback_t callback)
+				{
+					PtRawCallback_t callbacks[] = { callback };
+
+					addLink(callbacks);
+				}
+
+				inline void removeLink(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), Events::eEvents event, void *data = nullptr)
+				{
+					PtRemoveEventHandler(_rwidget->widget(), event, callback, data);
+				}
+
+				inline void removeLink(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), Hotkeys::eHotkeys hotkey, KeyModes::eKeyModes keymode = KeyModes::none, bool chained = false, void *data = nullptr)
+				{
+					PtRemoveHotkeyHandler(_rwidget->widget(), hotkey, keymode, chained ? Pt_HOTKEY_CHAINED : 0, data, callback);
+				}
 
 				template<typename T>
 				inline T getScalar() const
@@ -1043,6 +1083,16 @@ namespace detail
 			addLink(callback, data);\
 		}\
 \
+		inline void remove(PtCallback_t callback)\
+		{\
+			removeLink(callback);\
+		}\
+\
+		inline void remove(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), void *data = nullptr)\
+		{\
+			removeLink(callback, data);\
+		}\
+\
 		inline PtCallbackList_t* get()\
 		{\
 			return getLink();\
@@ -1078,6 +1128,16 @@ namespace detail
 			addLink(callback, event, data);\
 		}\
 \
+		inline void remove(PtRawCallback_t callback)\
+		{\
+			removeLink(callback);\
+		}\
+\
+		inline void remove(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), Widget::Events::eEvents event, void *data = nullptr)\
+		{\
+			removeLink(callback, event, data);\
+		}\
+\
 		inline PtCallbackList_t* get()\
 		{\
 			return getLink();\
@@ -1106,6 +1166,11 @@ namespace detail
 		inline void add(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), Widget::Hotkeys::eHotkeys hotkey, Widget::KeyModes::eKeyModes keymode = Widget::KeyModes::none)\
 		{\
 			addLink(callback, hotkey, keymode);\
+		}\
+\
+		inline void remove(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), Widget::Hotkeys::eHotkeys hotkey, Widget::KeyModes::eKeyModes keymode = Widget::KeyModes::none)\
+		{\
+			removeLink(callback, hotkey, keymode);\
 		}\
 \
 		inline PtCallbackList_t* get()\

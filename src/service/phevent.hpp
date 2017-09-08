@@ -75,7 +75,15 @@ namespace phevents
 					return _proxy_call(this, p1, p2, p3);
 				}
 
-				inline bool operator<(const callback_container &rhs) const { return (_callback < rhs._callback || _proxy_call < rhs._proxy_call); }
+				inline bool operator<(const callback_container &rhs) const 
+				{ 
+					if(std::less<callback_t>()(_callback, rhs._callback))
+						return true;
+					if(std::less<callback_proxy_t>()(_proxy_call, rhs._proxy_call))
+						return true;
+
+					return false;
+				}
 
 			private:
 				callback_t _callback;
@@ -110,7 +118,15 @@ namespace phevents
 					return (*callback)(p1, data, p3);
 				}
 
-				inline bool operator<(const cb_with_data &rhs) const { return callback < rhs.callback || data < rhs.data; }
+				inline bool operator<(const cb_with_data &rhs) const 
+				{ 
+					if(std::less<const callback_container*>()(callback, rhs.callback))
+						return true;
+					if(std::less<void*>()(data, rhs.data))
+						return true;
+
+					return false;
+				}
 
 			private:
 				const callback_container *callback;

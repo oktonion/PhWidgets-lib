@@ -104,7 +104,7 @@ PtWidget_t *Widget::widget() const
 	
 		AddDestroyedLink(_widget, &RemoveValidWidget);
 	}
-	
+
 	return wdg;
 }
 
@@ -253,7 +253,7 @@ bool Widget::operator<(const Widget &rhs)
 	if(&rhs == this)
 		return false;
 	
-	return widget() < rhs.widget();
+	return std::less<PtWidget_t*>()(widget(), rhs.widget());
 }
 
 
