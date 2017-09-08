@@ -87,10 +87,5 @@ void NumericInteger::setMinValue(int val)
 	resource.argument[Arguments::numeric_min].set(val);
 }
 
-void PhWidgets::NumericInteger::addNumericChangedCallback(callback_t callback)
-{
-	resource.callback[ThisCallbacks::Callback::numeric_changed].add(callback);
-}
-
 
 

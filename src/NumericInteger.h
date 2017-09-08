@@ -76,8 +76,6 @@ namespace PhWidgets
 
 		int getMinValue() const;
 		void setMinValue(int);
-
-		void addNumericChangedCallback(callback_t callback);
 						
 	public:
 		NumericInteger(int abn);
@@ -91,7 +89,7 @@ namespace PhWidgets
 		property<int>::bind<NumericInteger, &NumericInteger::getMaxValue, &NumericInteger::setMaxValue> MaxValue;
 		property<int>::bind<NumericInteger, &NumericInteger::getMinValue, &NumericInteger::setMinValue> MinValue;
 
-		phevent::bind<NumericInteger, &NumericInteger::addNumericChangedCallback>		NumericChanged;
+		phwidgets_event<NumericInteger, NumericInteger::Callbacks::numeric_changed>		NumericChanged;
 	};
 	
 	

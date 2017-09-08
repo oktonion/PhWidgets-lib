@@ -81,8 +81,6 @@ namespace PhWidgets
 
 		void setRepeat(unsigned long);    
 		unsigned long getRepeat() const;
-
-		void addActivateCallback(callback_t callback);
 						
 	public:
 		Timer(int abn);
@@ -102,7 +100,7 @@ namespace PhWidgets
 		property<unsigned long>::bind<Timer, &Timer::getRepeat, &Timer::setRepeat> Interval;
 		Widget::Enabled;
 
-		phevent::bind<Timer, &Timer::addActivateCallback>		Activate;
+		phwidgets_event<Timer, Timer::Callbacks::timer_activate>		Activate;
 	};
 	
 	INIT_WIDGET_RESOURCE1(Timer::ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long, Scalar);

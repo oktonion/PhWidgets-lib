@@ -93,7 +93,6 @@ namespace PhWidgets
 		double getMinValue() const;
 		void setMinValue(double val);
 
-		void addNumericChangedCallback(callback_t callback);
 						
 	public:
 		NumericFloat(int abn);
@@ -107,7 +106,7 @@ namespace PhWidgets
 		property<double>::bind<NumericFloat, &NumericFloat::getMaxValue, &NumericFloat::setMaxValue> MaxValue;
 		property<double>::bind<NumericFloat, &NumericFloat::getMinValue, &NumericFloat::setMinValue> MinValue;
 
-		phevent::bind<NumericFloat, &NumericFloat::addNumericChangedCallback>		NumericChanged;
+		phwidgets_event<NumericFloat, NumericFloat::Callbacks::numeric_changed>		NumericChanged;
 		
 	};
 	

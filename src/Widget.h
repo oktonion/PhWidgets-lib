@@ -5,6 +5,7 @@
 #include <photon/PtContainer.h>
 #include <photon/PtGridLayout.h>
 #include <photon/PtRowLayout.h>
+#include <photon/PhT.h>
 
 #include <map>
 #include <string>
@@ -24,6 +25,86 @@ namespace PhWidgets
 	{
 	public:
 		typedef phevent::ph_callback_t callback_t;
+
+		template<class ParentT, ParentT::Callbacks::eCallback callback>
+		class phwidgets_event
+		{
+			typedef phevent::ph_callback_t value_t;
+
+		public:
+			phwidgets_event(ParentT *parent) :
+				_obj(parent)
+			{}
+
+			inline void add(value_t value)
+			{
+				_obj->resource.callback[callback].add(value);
+			}
+
+			inline void remove(value_t value)
+			{
+				_obj->resource.callback[callback].remove(value);
+			}
+
+			inline void operator+=(value_t value)
+			{
+				add(value);
+			}
+
+			inline void operator-=(value_t value)
+			{
+				remove(value);
+			}
+
+
+		private:
+			ParentT *_obj;
+
+			phwidgets_event(const phwidgets_event &rhs);
+
+			inline phwidgets_event &operator=(value_t);
+			inline phwidgets_event &operator=(phwidgets_event const &);
+		};
+
+		template<class ParentT, ParentT::Callbacks::eRawCallback callback>
+		class phwidgets_event
+		{
+			typedef phevent::ph_callback_t value_t;
+
+		public:
+			phwidgets_event(ParentT *parent) :
+				_obj(parent)
+			{}
+
+			inline void add(value_t value)
+			{
+				_obj->resource.callback[callback].add(value);
+			}
+
+			inline void remove(value_t value)
+			{
+				_obj->resource.callback[callback].remove(value);
+			}
+
+			inline void operator+=(value_t value)
+			{
+				add(value);
+			}
+
+			inline void operator-=(value_t value)
+			{
+				remove(value);
+			}
+
+
+		private:
+			ParentT *_obj;
+
+			phwidgets_event(const phwidgets_event &rhs);
+
+			inline phwidgets_event &operator=(value_t);
+			inline phwidgets_event &operator=(phwidgets_event const &);
+		};
 	
 		struct ThisArgs
 		{
@@ -767,14 +848,6 @@ namespace PhWidgets
 		void setLocation(PhPoint_t);
 		PhPoint_t getLocation() const;
 
-		void addDestroyedCallback(callback_t callback);
-		void addBlockedCallback(callback_t callback);
-		void addDNDCallback(callback_t callback);
-		void addIsDestroyedCallback(callback_t callback);
-		void addOutboundCallback(callback_t callback);
-		void addRealizedCallback(callback_t callback);
-		void addUnrealizedCallback(callback_t callback);
-
 		void onEvent(PtCallbackList_t *cl, PtCallbackInfo_t * info);
 						
 	public:
@@ -786,17 +859,7 @@ namespace PhWidgets
 		
 		Widget &operator=(const Widget &rhs);
 		bool operator==(const Widget &rhs);
-		bool operator<(const Widget &rhs);
-		
-		template<typename T, typename A1>
-		inline int SetResource(T res, A1);
-		
-		template<typename T, typename A1, typename A2>
-		inline int SetResource(T, A1, A2);
-		
-		template<typename T, typename A1, typename A2, typename A3>
-		inline int SetResource(T, A1, A2, A3);
-
+		bool operator<(const Widget &rhs);	
 
 				
 		operator PtWidget_t*();
@@ -812,13 +875,13 @@ namespace PhWidgets
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>		HelpTopic;
 		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation>			Location;
 
-		phevent::bind<Widget, &Widget::addDestroyedCallback>	Destroyed;
-		phevent::bind<Widget, &Widget::addBlockedCallback>		Blocked;
-		phevent::bind<Widget, &Widget::addDNDCallback>			DragDrop;
-		phevent::bind<Widget, &Widget::addIsDestroyedCallback> IsDestroyed;
-		phevent::bind<Widget, &Widget::addOutboundCallback>	Outbound;
-		phevent::bind<Widget, &Widget::addRealizedCallback>	Realized;
-		phevent::bind<Widget, &Widget::addUnrealizedCallback>	Unrealized;
+		phwidgets_event<Widget, Widget::Callbacks::destroyed>		Destroyed;
+		phwidgets_event<Widget, Widget::Callbacks::blocked>			Blocked;
+		phwidgets_event<Widget, Widget::Callbacks::dnd>				DragDrop;
+		phwidgets_event<Widget, Widget::Callbacks::is_destroyed>	IsDestroyed;
+		phwidgets_event<Widget, Widget::Callbacks::outbound>		Outbound;
+		phwidgets_event<Widget, Widget::Callbacks::realized>		Realized;
+		phwidgets_event<Widget, Widget::Callbacks::unrealized>		Unrealized;
 
 		void OnDestroyed(PtCallbackInfo_t *info);
 		void OnBlocked(PtCallbackInfo_t *info);

@@ -181,14 +181,6 @@ namespace PhWidgets
 
 		void setFillColor(PgColor_t);
 		PgColor_t getFillColor() const;
-
-		void addActivateCallback(callback_t callback);
-		void addArmCallback(callback_t callback);
-		void addDisarmCallback(callback_t callback);
-		void addGotFocusCallback(callback_t callback);
-		void addLostFocusCallback(callback_t callback);
-		void addMenuCallback(callback_t callback);
-		void addRepeatCallback(callback_t callback);
 						
 	public:
 		Basic(int abn);
@@ -201,13 +193,13 @@ namespace PhWidgets
 		property<PgColor_t>::bind<Basic, &Basic::getColor, &Basic::setColor> Color;
 		property<PgColor_t>::bind<Basic, &Basic::getFillColor, &Basic::setFillColor> FillColor;
 
-		phevent::bind<Basic, &Basic::addActivateCallback>		Activate;
-		phevent::bind<Basic, &Basic::addArmCallback>			Arm;
-		phevent::bind<Basic, &Basic::addDisarmCallback>		Disarm;
-		phevent::bind<Basic, &Basic::addGotFocusCallback>		GotFocus;
-		phevent::bind<Basic, &Basic::addLostFocusCallback>		LostFocus;
-		phevent::bind<Basic, &Basic::addMenuCallback>			Menu;
-		phevent::bind<Basic, &Basic::addRepeatCallback>		Repeat;
+		phwidgets_event<Basic, Basic::Callbacks::activate>		Activate;
+		phwidgets_event<Basic, Basic::Callbacks::arm>			Arm;
+		phwidgets_event<Basic, Basic::Callbacks::disarm>		Disarm;
+		phwidgets_event<Basic, Basic::Callbacks::got_focus>		GotFocus;
+		phwidgets_event<Basic, Basic::Callbacks::lost_focus>	LostFocus;
+		phwidgets_event<Basic, Basic::Callbacks::menu>			Menu;
+		phwidgets_event<Basic, Basic::Callbacks::repeat>		Repeat;
 
 		void OnActivated(PtCallbackInfo_t *info);
 		void OnArmed(PtCallbackInfo_t *info);

@@ -85,10 +85,5 @@ void NumericFloat::setMinValue(double val)
 	resource.argument[Arguments::numeric_min].set(&val);
 }
 
-void PhWidgets::NumericFloat::addNumericChangedCallback(callback_t callback)
-{
-	resource.callback[ThisCallbacks::Callback::numeric_changed].add(callback);
-}
-
 
 

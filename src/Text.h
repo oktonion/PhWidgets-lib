@@ -69,9 +69,6 @@ namespace PhWidgets
 		
 	protected:
 		virtual void check();
-
-		template<ThisCallbacks::Callback::eCallback ID>
-		void addCallback(callback_t callback);
 						
 	public:
 		Text(int abn);
@@ -81,22 +78,16 @@ namespace PhWidgets
 
 		Text &operator=(const Text &rhs);
 
-		phevent::bind<Text, &Text::addCallback<Callbacks::modify_notify> >		ModifyNotify;
-		phevent::bind<Text, &Text::addCallback<Callbacks::modify_verify> >		ModifyVerify;
-		phevent::bind<Text, &Text::addCallback<Callbacks::motion_notify> >		MotionNotify;
-		phevent::bind<Text, &Text::addCallback<Callbacks::motion_verify> >		MotionVerify;
-		phevent::bind<Text, &Text::addCallback<Callbacks::text_changed> >		TextChanged;
+		phwidgets_event<Text, Text::Callbacks::modify_notify>	ModifyNotify;
+		phwidgets_event<Text, Text::Callbacks::modify_verify>	ModifyVerify;
+		phwidgets_event<Text, Text::Callbacks::motion_notify>	MotionNotify;
+		phwidgets_event<Text, Text::Callbacks::motion_verify>	MotionVerify;
+		phwidgets_event<Text, Text::Callbacks::text_changed> 	TextChanged;
 	};
 	
 	INIT_WIDGET_RESOURCE1(Text::ThisArgs::ArgComplex::eArgComplex, PtTextControl_t, Struct);
 	INIT_WIDGET_RESOURCE1(Text::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 
-
-	template<Text::ThisCallbacks::Callback::eCallback ID>
-	inline void Text::addCallback(callback_t callback)
-	{
-		resource.callback[ID].add(callback);
-	}
 }
 
 

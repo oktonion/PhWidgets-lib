@@ -184,12 +184,6 @@ namespace PhWidgets
 
 	protected:
 		virtual void check();
-
-		void addChildAddedRemovedCallback(callback_t callback);
-		void addChildGettingFocusCallback(callback_t callback);
-		void addChildLosingFocusCallback(callback_t callback);
-		void addLayoutChangedCallback(callback_t callback);
-		void addResizeCallback(callback_t callback);
 						
 	public:
 		Container(int abn);
@@ -199,11 +193,11 @@ namespace PhWidgets
 
 		Container &operator=(const Container &rhs);
 		
-		phevent::bind<Container, &Container::addChildAddedRemovedCallback>		ChildAddedRemoved;
-		phevent::bind<Container, &Container::addChildGettingFocusCallback>		ChildGettingFocus;
-		phevent::bind<Container, &Container::addChildLosingFocusCallback>		ChildLosingFocus;
-		phevent::bind<Container, &Container::addLayoutChangedCallback>			LayoutChanged;
-		phevent::bind<Container, &Container::addResizeCallback>				Resize;
+		phwidgets_event<Container, Container::Callbacks::child_added_removed>	ChildAddedRemoved;
+		phwidgets_event<Container, Container::Callbacks::child_getting_focus>	ChildGettingFocus;
+		phwidgets_event<Container, Container::Callbacks::child_losing_focus>	ChildLosingFocus;
+		phwidgets_event<Container, Container::Callbacks::layout>				LayoutChanged;
+		phwidgets_event<Container, Container::Callbacks::resize>				Resize;
 	};
 	
 	INIT_WIDGET_RESOURCE0(Container::ThisArgs::ArgPChar::eArgPChar, String);

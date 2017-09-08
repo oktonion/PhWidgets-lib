@@ -68,8 +68,3 @@ bool OnOffButton::getChecked() const
 	return resource.argument[Arguments::onoff_state].get();
 }
 
-void PhWidgets::OnOffButton::addNewValueCallback(callback_t callback)
-{
-	resource.callback[ThisCallbacks::Callback::new_value].add(callback);
-}
-

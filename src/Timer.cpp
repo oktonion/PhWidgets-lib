@@ -73,8 +73,3 @@ unsigned long Timer::getRepeat() const
 {
 	return resource.argument[Arguments::timer_repeat].get();
 }
-
-void PhWidgets::Timer::addActivateCallback(Widget::callback_t callback)
-{
-	resource.callback[Timer::Callbacks::timer_activate].add(callback);
-}

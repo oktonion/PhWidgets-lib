@@ -65,8 +65,6 @@ namespace PhWidgets
 		
 		void setChecked(bool val);
 		bool getChecked() const;
-
-		void addNewValueCallback(callback_t callback);
 						
 	public:
 		OnOffButton(int abn);
@@ -81,7 +79,7 @@ namespace PhWidgets
 		
 		property<bool>::bind<OnOffButton, &OnOffButton::getChecked, &OnOffButton::setChecked> Checked;
 
-		phevent::bind<OnOffButton, &OnOffButton::addNewValueCallback>		NewValue;
+		phwidgets_event<OnOffButton, OnOffButton::Callbacks::new_value>		NewValue;
 	};
 	
 	

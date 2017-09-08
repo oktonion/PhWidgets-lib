@@ -53,29 +53,4 @@ Container &Container::operator=(const Container &rhs)
 	return *this;
 }
 
-void PhWidgets::Container::addChildAddedRemovedCallback(callback_t callback)
-{
-	resource.callback[ThisCallbacks::Callback::child_added_removed].add(callback);
-}
-
-void PhWidgets::Container::addChildGettingFocusCallback(callback_t callback)
-{
-	resource.callback[ThisCallbacks::Callback::child_getting_focus].add(callback);
-}
-
-void PhWidgets::Container::addChildLosingFocusCallback(callback_t callback)
-{
-	resource.callback[ThisCallbacks::Callback::child_losing_focus].add(callback);
-}
-
-void PhWidgets::Container::addLayoutChangedCallback(callback_t callback)
-{
-	resource.callback[ThisCallbacks::Callback::layout].add(callback);
-}
-
-void PhWidgets::Container::addResizeCallback(callback_t callback)
-{
-	resource.callback[ThisCallbacks::Callback::resize].add(callback);
-}
-
 
