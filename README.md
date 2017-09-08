@@ -63,5 +63,6 @@ To build lib execute '.makelib.sh' - directory slib will contain your library wi
 # Install
 - To install lib to PhAB project simply call '.exportlib.sh' with path to your project directory as 1st parameter. 
 - To install manually copy 'include' directory and 'AbWidgetsWrap.cpp' to your PhAB project destination ('AbWidgetsWrap.cpp' **should be** in the same dir as PhAB project headers 'ablibs.h' and 'abimport.h' to be compiled). Place library 'libphwidgets.a' where you store the lib-files (f.e. '$ProjectDir\x86\o\' and '$ProjectDir\x86\o-g\' for x86 platform). 
+
 **Do not forget to include 'libphwidgets.a' to your project build!**
 
