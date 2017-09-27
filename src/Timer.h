@@ -103,6 +103,8 @@ namespace PhWidgets
 		Widget::Enabled;
 
 		phwidgets_event<Timer, Timer::Callbacks::timer_activate>		Activate;
+
+		void OnActivate(PtCallbackInfo_t *info);
 	};
 	
 	INIT_WIDGET_RESOURCE1(Timer::ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long, Scalar);

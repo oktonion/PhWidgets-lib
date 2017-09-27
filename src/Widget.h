@@ -1,11 +1,11 @@
 #ifndef PT_WIDGET_H
 #define PT_WIDGET_H
 
+#include <photon/PhT.h>
 #include <photon/PtWidget.h>
 #include <photon/PtContainer.h>
 #include <photon/PtGridLayout.h>
 #include <photon/PtRowLayout.h>
-#include <photon/PhT.h>
 
 #include <map>
 #include <string>

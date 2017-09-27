@@ -73,3 +73,8 @@ unsigned long Timer::getRepeat() const
 {
 	return resource.argument[Arguments::timer_repeat].get();
 }
+
+void Timer::OnActivate(PtCallbackInfo_t *info)
+{
+	onEvent(resource.callback[Callback::timer_activate].get(), info);
+}
