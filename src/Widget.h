@@ -16,6 +16,12 @@
 #include "./service/property.hpp"
 #include "./service/phevent.hpp"
 
+//typedef Ph_rect PhRect_t;
+
+#ifndef __QNXNTO__
+	typedef struct Ph_rect   PhRect_t;
+#endif
+
 namespace PhWidgets
 {
 	using namespace cppproperties;
