@@ -29,7 +29,8 @@ namespace PhWidgets
 	using namespace cppproperties;
 	using namespace phevents;
 		
-	class Widget
+	class Widget:
+		detail::IPtWidget
 	{
 	public:
 		typedef phevent::ph_callback_t callback_t;
@@ -402,11 +403,15 @@ namespace PhWidgets
 		class WidgetArguments :
 			detail::WidgetArguments
 		{
-			inline detail::WidgetArgument<ThisArgs::ArgPChar::eArgPChar> operator [](const ThisArgs::ArgPChar::eArgPChar indx) const
+			friend class WidgetResourcesSingleton;
+
+		public:
+			inline detail::WidgetArgument<ThisArgs::ArgPChar::eArgPChar, WidgetResourceGroupType::string_type, void> operator [](const ThisArgs::ArgPChar::eArgPChar indx) const
 			{
-				return resource(indx);
+				return resource<ThisArgs::ArgPChar::eArgPChar, WidgetResourceGroupType::string_type, void>(indx);
 			}
 
+		protected:
 			WidgetArguments(Widget *widget) :
 				detail::WidgetArguments(widget)
 			{
@@ -417,35 +422,40 @@ namespace PhWidgets
 			}
 		};
 
-		class WidgetLinks :
-			detail::WidgetLinks
+		class WidgetCallbacks :
+			detail::WidgetCallbacks
 		{
-			inline detail::WidgetLink<ThisArgs::ArgPChar::eArgPChar> operator [](const ThisArgs::ArgPChar::eArgPChar indx) const
+			friend class WidgetResourcesSingleton;
+
+		public:
+			inline detail::WidgetCallback<ThisCallbacks::Callback::eCallback, WidgetResourceGroupType::callback_type> operator [](const ThisCallbacks::Callback::eCallback indx) const
 			{
-				return resource(indx);
+				return resource<ThisCallbacks::Callback::eCallback, WidgetResourceGroupType::callback_type>(indx);
 			}
 
-			WidgetLinks(Widget *widget) :
-				detail::WidgetLinks(widget)
+		protected:
+			WidgetCallbacks(Widget *widget) :
+				detail::WidgetCallbacks(widget)
 			{
 			}
 
-			~WidgetLinks()
+			~WidgetCallbacks()
 			{
 			}
 		};
 
+		template<class ArgumentsT, class CallbacksT>
 		class WidgetResourcesSingleton
 		{	
 		public:
 
 			WidgetResourcesSingleton(Widget *widget):
-				argument(WidgetArguments(widget)),
-				callback(WidgetLinks(widget))
+				argument(widget),
+				callback(widget)
 			{}
 
-			WidgetArguments argument;
-			WidgetLinks callback;
+			ArgumentsT argument;
+			CallbacksT callback;
 
 		private:
 			WidgetResourcesSingleton(const WidgetResourcesSingleton &rhs);
@@ -495,7 +505,7 @@ namespace PhWidgets
 		operator PtWidget_t*();
 		operator const PtWidget_t*() const;
 
-		WidgetResourcesSingleton resource;
+		WidgetResourcesSingleton<WidgetArguments, WidgetCallbacks> resource;
 	
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>					Enabled;
 		property<unsigned short>::bind<Widget, &Widget::getWidth, &Widget::setWidth>			Width;
@@ -906,12 +916,6 @@ namespace detail
 	INIT_WIDGET_RESOURCE2(Widget::ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long, unsigned long, Flag);
 	INIT_WIDGET_RESOURCE2(Widget::ThisArgs::ArgUnsigned::eArgUnsigned, unsigned, unsigned, Flag);
 
-
-	template<>
-	struct ArgumentID<PhWidgets::Widget::ThisArgs::ArgPChar::eArgPChar> // each class should overload this for it's arguments
-	{
-		static const PhWidgets::WidgetArgumentID::eWidgetArgumentID id = PhWidgets::WidgetArgumentID::arg_id_string;
-	};
 
 }//namespace PhWidgets
 

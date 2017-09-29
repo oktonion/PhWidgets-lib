@@ -8,40 +8,59 @@
 
 namespace PhWidgets
 {
-	struct WidgetResourceID
+	struct WidgetResourceGroupType
 	{
-		enum WidgetArgumentID {
-			arg_id_alloc,
-			arg_id_array,
-			arg_id_boolean,
-			arg_id_color,
-			arg_id_complex,
-			arg_id_flag,
-			arg_id_function,
-			arg_id_image,
-			arg_id_pointer,
-			arg_id_scalar,
-			arg_id_string,
-			arg_id_struct,
-			arg_id_unknown
+		struct unknown_type;
+
+		struct WidgetArgumentGroupType
+		{
+			struct alloc_type;
+			struct array_type;
+			struct boolean_type;
+			struct color_type;
+			struct complex_type;
+			struct flag_type;
+			struct function_type;
+			struct image_type;
+			struct pointer_type;
+			struct scalar_type;
+			struct string_type;
+			struct struct_type;
 		};
 
-		enum WidgetLinkID {
-			link_id_callback,
-			link_id_raw,
-			link_id_hotkey
+		struct WidgetCallbackGroupType
+		{
+			struct callback_type;
+			struct raw_type;
+			struct hotkey_type;
 		};
-	};
 
-	template<class ResT>
-	struct ResourceID // each class should overload this for it's resources
-	{
-		static const WidgetResourceID::WidgetArgumentID id = WidgetResourceID::arg_id_unknown;
+
+		typedef WidgetArgumentGroupType::alloc_type			alloc_type;
+		typedef WidgetArgumentGroupType::array_type			array_type;
+		typedef WidgetArgumentGroupType::boolean_type		boolean_type;
+		typedef WidgetArgumentGroupType::color_type			color_type;
+		typedef WidgetArgumentGroupType::complex_type		complex_type;
+		typedef WidgetArgumentGroupType::flag_type			flag_type;
+		typedef WidgetArgumentGroupType::function_type		function_type;
+		typedef WidgetArgumentGroupType::image_type			image_type;
+		typedef WidgetArgumentGroupType::pointer_type		pointer_type;
+		typedef WidgetArgumentGroupType::scalar_type		scalar_type;
+		typedef WidgetArgumentGroupType::string_type		string_type;
+		typedef WidgetArgumentGroupType::struct_type		struct_type;
+
+		typedef WidgetCallbackGroupType::callback_type		callback_type;
+		typedef WidgetCallbackGroupType::raw_type			callback_raw_type;
+		typedef WidgetCallbackGroupType::hotkey_type		callback_hotkey_type;
 	};
 
 	namespace detail
 	{
-		class Widget;
+		
+		class IPtWidget
+		{
+			virtual PtWidget_t *widget() const = 0;
+		};
 
 		template<typename ArgT>
 		class WidgetResourceBase
@@ -49,9 +68,9 @@ namespace PhWidgets
 		protected:
 
 			ArgT _arg;
-			Widget *_rwidget;
+			IPtWidget *_rwidget;
 
-			WidgetResourceBase(Widget *widget, ArgT arg) :
+			WidgetResourceBase(IPtIPtWidget *widget, ArgT arg) :
 				_arg(arg),
 				_rwidget(widget)
 			{}
@@ -278,24 +297,25 @@ namespace PhWidgets
 			{}
 		};
 
-		template<typename ArgT, WidgetResourceID::WidgetArgumentID ID = ResourceID<ArgT>::id>
-		class WidgetArgument :
+		template<typename ArgT, class ResourceGroupT, class ResourceT>
+		struct WidgetArgument :
 			private WidgetResourceBase<ArgT>
 		{
+			typedef WidgetResourceGroupType::unknown_type resource_group_type;
+
 			// not impelemented
 		};
 
-		template<typename ArgT>
-		class WidgetArgument<ArgT, arg_id_alloc> :
+		template<typename ArgT>//const void * always
+		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::alloc_type, const void *> :
 			private WidgetResourceBase<ArgT>
 		{
-			friend class WidgetArguments;
+			typedef WidgetResourceGroupType::WidgetArgumentGroupType::alloc_type resource_group_type;
+			typedef const void * resource_type;
 
-			WidgetArgument(Widget *widget, ArgT arg) :
+			WidgetArgument(IPtWidget *widget, ArgT arg) :
 				WidgetResourceBase<ArgT>(widget, arg)
 			{}
-
-		public:
 
 			~WidgetArgument()
 			{}
@@ -318,33 +338,68 @@ namespace PhWidgets
 
 		};
 
-		template<typename ArgT>
-		class WidgetArgument<ArgT, WidgetResourceID::arg_id_array> :
+		template<typename ArgT>//const void * always
+		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::alloc_type, void> :
 			private WidgetResourceBase<ArgT>
 		{
-			// not impelemented
-		};
+			typedef WidgetResourceGroupType::WidgetArgumentGroupType::alloc_type resource_group_type;
+			typedef const void * resource_type;
 
-		template<typename ArgT>
-		class WidgetArgument<ArgT, WidgetResourceID::arg_id_boolean> :
-			private WidgetResourceBase<ArgT>
-		{
-			// not impelemented
-		};
-
-		template<typename ArgT>
-		class WidgetArgument<ArgT, WidgetResourceID::arg_id_color> :
-			private WidgetResourceBase<ArgT>
-		{
-			friend class WidgetArguments;
-
-			WidgetArgument(Widget *widget, ArgT arg) :
+			WidgetArgument(IPtWidget *widget, ArgT arg) :
 				WidgetResourceBase<ArgT>(widget, arg)
 			{}
 
-		public:
+			~WidgetArgument()
+			{}
 
-			typedef T1 argument_t;
+
+			inline int set(const void *pdata, size_t size)
+			{
+				return setAlloc(&pdata, size);
+			}
+
+			inline int set(const void *pdata)
+			{
+				return setPointer(pdata);
+			}
+
+			inline const void* get()
+			{
+				return getAlloc<const void*>();
+			}
+
+		};
+
+		template<typename ArgT, class ResourceT>
+		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::array_type, ResourceT> :
+			private WidgetResourceBase<ArgT>
+		{
+			typedef WidgetResourceGroupType::WidgetArgumentGroupType::array_type resource_group_type;
+			typedef ResourceT resource_type;
+
+			// not impelemented
+		};
+
+		template<typename ArgT, class ResourceT>
+		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::boolean_type, ResourceT> :
+			private WidgetResourceBase<ArgT>
+		{
+			typedef WidgetResourceGroupType::WidgetArgumentGroupType::boolean_type resource_group_type;
+			typedef ResourceT resource_type;
+
+			// not impelemented
+		};
+
+		template<typename ArgT, class ResourceT>
+		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::color_type, ResourceT> :
+			private WidgetResourceBase<ArgT>
+		{
+			typedef WidgetResourceGroupType::WidgetArgumentGroupType::color_type resource_group_type;
+			typedef ResourceT resource_type;
+
+			WidgetArgument(IPtWidget *widget, ArgT arg) :
+				WidgetResourceBase<ArgT>(widget, arg)
+			{}
 
 			~WidgetArgument()
 			{}
@@ -356,39 +411,39 @@ namespace PhWidgets
 				return setColor(reinterpret_cast<const void*>(static_cast<PgColor_t>(color)));
 			}
 
-			inline T1 get()
+			inline resource_type get()
 			{
 				return getScalar<PgColor_t>();
 			}
 
 		};
 
-		template<typename ArgT>
-		class WidgetArgument<ArgT, WidgetResourceID::arg_id_complex> :
+		template<typename ArgT, class ResourceT>
+		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::complex_type, ResourceT> :
 			private WidgetResourceBase<ArgT>
 		{
+			typedef WidgetResourceGroupType::WidgetArgumentGroupType::complex_type resource_group_type;
+			typedef ResourceT resource_type;
+
 			// not impelemented
 		};
 
-		namespace detail
+		namespace flag_detail
 		{
 			template<typename T> struct mask_type { typedef long type; };
 			template<> struct mask_type<bool> { typedef bool type; };
 		}
 
-		template<typename ArgT>
-		class WidgetArgument<ArgT, WidgetResourceID::arg_id_flag> :
+		template<typename ArgT, class ResourceT>
+		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::flag_type, ResourceT> :
 			private WidgetResourceBase<ArgT>
 		{
-			friend class WidgetArguments;
+			typedef WidgetResourceGroupType::WidgetArgumentGroupType::flag_type resource_group_type;
+			typedef ResourceT resource_type;
 
-			WidgetArgument(Widget *widget, ArgT arg) :
+			WidgetArgument(IPtWidget *widget, ArgT arg) :
 				WidgetResourceBase<ArgT>(widget, arg)
 			{}
-
-		public:
-
-			typedef T1 argument_t;
 
 			~WidgetArgument()
 			{}
@@ -397,12 +452,12 @@ namespace PhWidgets
 			template<typename A1, typename A2>
 			inline int set(A1 flag, A2 mask)
 			{
-				return setFlag(flag, static_cast<typename detail::mask_type<A2>::type>(mask));
+				return setFlag(flag, static_cast<typename flag_detail::mask_type<A2>::type>(mask));
 			}
 
-			inline T1 get()
+			inline resource_type get()
 			{
-				return getScalar<T1>();
+				return getScalar<resource_type>();
 			}
 
 			template<typename A1>
@@ -413,40 +468,46 @@ namespace PhWidgets
 
 		};
 
-		template<typename ArgT>
-		class WidgetArgument<ArgT, WidgetResourceID::arg_id_function> :
+		template<typename ArgT, class ResourceT>
+		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::function_type, ResourceT> :
 			private WidgetResourceBase<ArgT>
 		{
+			typedef WidgetResourceGroupType::WidgetArgumentGroupType::function_type resource_group_type;
+			typedef ResourceT resource_type;
+
 			// not impelemented
 		};
 
-		template<typename ArgT>
-		class WidgetArgument<ArgT, WidgetResourceID::arg_id_image> :
+		template<typename ArgT, class ResourceT>
+		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::image_type, ResourceT> :
 			private WidgetResourceBase<ArgT>
 		{
+			typedef WidgetResourceGroupType::WidgetArgumentGroupType::image_type resource_group_type;
+			typedef ResourceT resource_type;
+
 			// not impelemented
 		};
 
-		template<typename ArgT>
-		class WidgetArgument<ArgT, WidgetResourceID::arg_id_pointer> :
+		template<typename ArgT, class ResourceT>
+		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::pointer_type, ResourceT> :
 			private WidgetResourceBase<ArgT>
 		{
+			typedef WidgetResourceGroupType::WidgetArgumentGroupType::pointer_type resource_group_type;
+			typedef ResourceT resource_type;
+
 			// not impelemented
 		};
 
-		template<typename ArgT>
-		class WidgetArgument<ArgT, WidgetResourceID::arg_id_scalar> :
+		template<typename ArgT, class ResourceT>
+		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::scalar_type, ResourceT> :
 			private WidgetResourceBase<ArgT>
 		{
-			friend class WidgetArguments;
+			typedef WidgetResourceGroupType::WidgetArgumentGroupType::scalar_type resource_group_type;
+			typedef ResourceT resource_type;
 
-			WidgetArgument(Widget *widget, ArgT arg) :
+			WidgetArgument(IPtWidget *widget, ArgT arg) :
 				WidgetResourceBase<ArgT>(widget, arg)
 			{}
-
-		public:
-
-			typedef T1 argument_t;
 
 			~WidgetArgument()
 			{}
@@ -455,26 +516,25 @@ namespace PhWidgets
 			template<typename T>
 			inline int set(T value)
 			{
-				return setScalar(reinterpret_cast<const void*>(static_cast<T1>(value)));
+				return setScalar(reinterpret_cast<const void*>(static_cast<resource_type>(value)));
 			}
 
-			inline T1 get()
+			inline resource_type get()
 			{
-				return getScalar<T1>();
+				return getScalar<resource_type>();
 			}
 		};
 
-		template<typename ArgT>
-		class WidgetArgument<ArgT, WidgetResourceID::arg_id_string> :
+		template<typename ArgT>//const char * always
+		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::string_type, const char *> :
 			private WidgetResourceBase<ArgT>
 		{
-			friend class WidgetArguments;
+			typedef WidgetResourceGroupType::WidgetArgumentGroupType::string_type resource_group_type;
+			typedef const char * resource_type;
 
-			WidgetArgument(Widget *widget, ArgT arg) :
+			WidgetArgument(IPtWidget *widget, ArgT arg) :
 				WidgetResourceBase<ArgT>(widget, arg)
 			{}
-
-		public:
 
 			typedef const char * argument_t;
 
@@ -494,24 +554,50 @@ namespace PhWidgets
 
 		};
 
-		template<typename ArgT>
-		class WidgetArgument<ArgT, WidgetResourceID::arg_id_struct> :
+		template<typename ArgT>//const char * always
+		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::string_type, void> :
 			private WidgetResourceBase<ArgT>
 		{
-			friend class WidgetArguments;
+			typedef WidgetResourceGroupType::WidgetArgumentGroupType::string_type resource_group_type;
+			typedef const char * resource_type;
 
-			WidgetArgument(Widget *widget, ArgT arg) :
+			WidgetArgument(IPtWidget *widget, ArgT arg) :
 				WidgetResourceBase<ArgT>(widget, arg)
 			{}
+
+			typedef const char * argument_t;
+
+			~WidgetArgument()
+			{}
+
+
+			inline int set(const char *str)
+			{
+				return setString(str);
+			}
+
+			inline const char* get()
+			{
+				return getString<const char*>();
+			}
+
+		};
+
+		template<typename ArgT, class ResourceT>
+		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::struct_type, ResourceT> :
+			private WidgetResourceBase<ArgT>
+		{
+		private:
 			template<typename T> struct remove_p { typedef T type; };
 			template<typename T> struct remove_p<T*> { typedef T type; };
 
-			inline T1* get(T1 *&ptr) { return ptr; }
-			inline T1* get(T1 &ptr) { return &ptr; }
-
 		public:
+			typedef WidgetResourceGroupType::WidgetArgumentGroupType::struct_type resource_group_type;
+			typedef ResourceT resource_type;
 
-			typedef T1 argument_t;
+			WidgetArgument(IPtWidget *widget, ArgT arg) :
+				WidgetResourceBase<ArgT>(widget, arg)
+			{}
 
 			~WidgetArgument()
 			{}
@@ -520,21 +606,26 @@ namespace PhWidgets
 			template<typename T>
 			inline int set(const T &value)
 			{
-				return setStruct(reinterpret_cast<const void*>(&static_cast<const T1&>(value)));
+				return setStruct(reinterpret_cast<const void*>(&static_cast<const resource_type&>(value)));
 			}
 
 			template<typename T>
 			inline int set(T *value)
 			{
-				return setStruct(reinterpret_cast<const void*>(static_cast<const T1>(value)));
+				return setStruct(reinterpret_cast<const void*>(static_cast<const resource_type>(value)));
 			}
 
 			inline T1 get()
 			{
-				typedef remove_p<T1>::type ret_t;
+				typedef remove_p<resource_type>::type ret_t;
 				ret_t *ptr = getStruct<ret_t>();
 				return *get(ptr);
 			}
+
+		private:
+
+			inline resource_type* get(resource_type *&ptr) { return ptr; }
+			inline resource_type* get(resource_type &ptr) { return &ptr; }
 		};
 
 		class WidgetArguments
@@ -572,9 +663,9 @@ namespace PhWidgets
 				return WidgetArgument <ArgT> ( _widget, indx );
 			}*/
 
-			Widget *_widget; // pointer to parent widget!!!
+			IPtWidget *_widget; // pointer to parent widget!!!
 
-			WidgetArguments(Widget *widget) :
+			WidgetArguments(IPtWidget *widget) :
 				_widget(widget)
 			{
 			}
@@ -583,39 +674,38 @@ namespace PhWidgets
 			{
 			}
 
-			template<class ArgT>
-			inline WidgetArgument<ArgT> resource(const ArgT indx) const
+			template<class ArgT, class ResourceGroupT, class ResourceT>
+			inline WidgetArgument<ArgT, ResourceGroupT, ResourceT> resource(const ArgT indx) const
 			{
-				return WidgetArgument <ArgT>(_widget, indx);
+				return WidgetArgument <ArgT, ResourceGroupT, ResourceT>(_widget, indx);
 			}
 		};
 
-		template<typename LinkT, WidgetResourceID::WidgetLinkID ID = ResourceID<LinkT>::id>
-		class WidgetLink :
-			private WidgetResourceBase<ArgT>
+		template<typename LinkT, class ResourceGroupT>
+		struct WidgetCallback :
+			private WidgetResourceBase<LinkT>
 		{
+			typedef WidgetResourceGroupType::unknown_type resource_group_type;
+
 			// not impelemented
 		};
 
 		template<typename LinkT>
-		class WidgetLink<LinkT, WidgetResourceID::link_id_callback> :
-			private WidgetResourceBase<ArgT>
+		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::callback_type> :
+			private WidgetResourceBase<LinkT>
 		{
-			friend class WidgetLinks; 
-				
-			WidgetCallback(Widget *widget, ArgT arg) :
-				WidgetResourceBase<ArgT>(widget, arg)
+			typedef WidgetResourceGroupType::WidgetCallbackGroupType::callback_type resource_group_type;
+			typedef PtCallback_t resource_t;
+
+			WidgetCallback(IPtWidget *widget, LinkT arg) :
+				WidgetResourceBase<LinkT>(widget, arg)
 			{}
-				
-		public:
-				
-			typedef PtCallback_t callback_t; 
 				
 			~WidgetCallback()
 			{}
 				
 				
-			inline void add(PtCallback_t callback)
+			inline void add(resource_t callback)
 			{
 				addLink(callback); 
 			}
@@ -625,7 +715,7 @@ namespace PhWidgets
 				addLink(callback, data); 
 			}
 				
-			inline void remove(PtCallback_t callback)
+			inline void remove(resource_t callback)
 			{
 				removeLink(callback); 
 			}
@@ -642,18 +732,16 @@ namespace PhWidgets
 		};
 
 		template<typename LinkT>
-		class WidgetLink<LinkT, WidgetResourceID::link_id_raw> :
-			private WidgetResourceBase<ArgT>
+		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::raw_type> :
+			private WidgetResourceBase<LinkT>
 		{
-			friend class WidgetLinks; 
-				
-			WidgetCallback(Widget *widget, ArgT arg) :
-				WidgetResourceBase<ArgT>(widget, arg)
+			typedef WidgetResourceGroupType::WidgetCallbackGroupType::raw_type resource_group_type;
+			typedef PtRawCallback_t resource_t;
+
+			WidgetCallback(IPtWidget *widget, LinkT arg) :
+				WidgetResourceBase<LinkT>(widget, arg)
 			{}
-				
-		public:
-				
-			typedef PtRawCallback_t callback_t; 
+			
 				
 			~WidgetCallback()
 			{}
@@ -686,18 +774,15 @@ namespace PhWidgets
 		};
 
 		template<typename LinkT>
-		class WidgetLink<LinkT, WidgetResourceID::link_id_hotkey> :
-			private WidgetResourceBase<ArgT>
+		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type> :
+			private WidgetResourceBase<LinkT>
 		{
-			friend class WidgetLinks; 
-				
-			WidgetCallback(Widget *widget, ArgT arg) :
-				WidgetResourceBase<ArgT>(widget, arg)
+			typedef WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type resource_group_type;
+			typedef PtHotkeyCallback_t resource_t;
+
+			WidgetCallback(IPtWidget *widget, LinkT arg) :
+				WidgetResourceBase<LinkT>(widget, arg)
 			{}
-				
-		public:
-				
-			typedef PtHotkeyCallback_t callback_t; 
 				
 			~WidgetCallback()
 			{}
@@ -719,30 +804,31 @@ namespace PhWidgets
 			}
 		};
 
-		class WidgetLinks
+		class WidgetCallbacks
 		{
 
 		protected:
 
-			Widget *_widget; // pointer to parent widget!!!
+			IPtWidget *_widget; // pointer to parent widget!!!
 
-			WidgetLinks(Widget *widget) :
+			WidgetCallbacks(IPtWidget *widget) :
 				_widget(widget)
 			{
 			}
 
-			~WidgetLinks()
+			~WidgetCallbacks()
 			{
 			}
 
-			template<class LinkT>
-			inline WidgetLink<LinkT> resource(const LinkT indx) const
+			template<class LinkT, class ResourceT>
+			inline WidgetCallback<LinkT, ResourceT> resource(const LinkT indx) const
 			{
-				return WidgetArgument <LinkT>(_widget, indx);
+				return WidgetCallback <LinkT, ResourceT>(_widget, indx);
 			}
 
 		};
 	}
+
 }
 
 #endif // WIDGET_RESOURCE_HPP
