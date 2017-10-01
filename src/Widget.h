@@ -24,6 +24,51 @@
 	typedef struct Ph_rect   PhRect_t;
 #endif
 
+
+#define DEFINE_ARGUMENT_OPERATOR(ArgT, ResourceGroupT, ResourceT)\
+	detail::DefineArgument<ArgT, WidgetResourceGroupType::##ResourceGroupT, ResourceT>
+
+#define DEFINE_CALLBACK_OPERATOR(LinkT, ResourceGroupT)\
+	detail::DefineCallback<LinkT, WidgetResourceGroupType::##ResourceGroupT>
+
+#define INIT_DISABLED ;
+
+
+#define DEFINE_OPERATOR_Alloc(ArgT) DEFINE_ARGUMENT_OPERATOR(ThisArgs::##ArgT##::e##ArgT, alloc_type, void)
+
+#define DEFINE_OPERATOR_Array(ArgT) INIT_DISABLED
+#define DEFINE_OPERATOR_Boolean(ArgT) INIT_DISABLED
+
+#define DEFINE_OPERATOR_Color(ArgT, T1) DEFINE_ARGUMENT_OPERATOR(ThisArgs::##ArgT##::e##ArgT, color_type, T1)
+
+#define DEFINE_OPERATOR_Complex(ArgT) INIT_DISABLED
+
+#define DEFINE_OPERATOR_Flag(ArgT, T1) DEFINE_ARGUMENT_OPERATOR(ThisArgs::##ArgT##::e##ArgT, color_type, T1)
+
+#define DEFINE_OPERATOR_Function(ArgT) INIT_DISABLED
+#define DEFINE_OPERATOR_Image(ArgT) INIT_DISABLED
+
+#define DEFINE_OPERATOR_Link_PtCallback_t(LinkT) DEFINE_CALLBACK_OPERATOR(ThisCallbacks::##LinkT##::e##LinkT, callback_type)
+
+#define DEFINE_OPERATOR_Link_PtRawCallback_t(LinkT) DEFINE_CALLBACK_OPERATOR(ThisCallbacks::##LinkT##::e##LinkT, callback_raw_type)
+
+#define DEFINE_OPERATOR_Link_PtHotkeyCallback_t(LinkT) DEFINE_CALLBACK_OPERATOR(ThisCallbacks::##LinkT##::e##LinkT, callback_hotkey_type)
+
+#define DEFINE_OPERATOR_Link(LinkT, T1) DEFINE_OPERATOR_Link_##T1(LinkT)
+
+
+#define DEFINE_OPERATOR_Pointer(ArgT) INIT_DISABLED
+
+
+#define DEFINE_OPERATOR_Scalar(ArgT, T1) DEFINE_ARGUMENT_OPERATOR(ThisArgs::##ArgT##::e##ArgT, scalar_type, T1)
+
+#define DEFINE_OPERATOR_String(ArgT) DEFINE_ARGUMENT_OPERATOR(ThisArgs::##ArgT##::e##ArgT, string_type, void)
+
+#define DEFINE_OPERATOR_Struct(ArgT, T1) DEFINE_ARGUMENT_OPERATOR(ThisArgs::##ArgT##::e##ArgT, struct_type, T1)
+
+#define DEFINE_OPERATOR0(ArgT, PtType) DEFINE_OPERATOR_##PtType(ArgT)
+#define DEFINE_OPERATOR1(ArgT, T1, PtType) DEFINE_OPERATOR_##PtType(ArgT, T1)
+
 namespace PhWidgets
 {
 	using namespace cppproperties;
@@ -401,15 +446,24 @@ namespace PhWidgets
 		};
 
 		class WidgetArguments :
-			detail::WidgetArguments
+			public detail::WidgetArguments,
+			DEFINE_OPERATOR0(ArgPChar, String),
+			DEFINE_OPERATOR0(ArgPVoid, Alloc),
+			DEFINE_OPERATOR1(ArgColor, PgColor_t, Color),
+			DEFINE_OPERATOR1(ArgPCursorDef, PhCursorDef_t, Struct),
+			DEFINE_OPERATOR1(ArgPGridLayoutData, PtGridLayoutData_t, Struct),
+			DEFINE_OPERATOR1(ArgPoint, PhPoint_t, Struct),
+			DEFINE_OPERATOR1(ArgPRowLayoutData, PtRowLayoutData_t, Struct),
+			DEFINE_OPERATOR1(ArgArea, PhArea_t, Struct),
+			DEFINE_OPERATOR1(ArgRect, PhRect_t, Struct),
+			DEFINE_OPERATOR1(ArgUnsignedShort, unsigned short, Scalar),
+			DEFINE_OPERATOR1(ArgDim, PhDim_t, Struct),
+			DEFINE_OPERATOR1(ArgLong, long, Flag),
+			DEFINE_OPERATOR1(ArgUnsignedLong, unsigned long, Flag),
+			DEFINE_OPERATOR1(ArgUnsigned, unsigned, Flag)
 		{
+			template<class ArgumentsT, class CallbacksT>
 			friend class WidgetResourcesSingleton;
-
-		public:
-			inline detail::WidgetArgument<ThisArgs::ArgPChar::eArgPChar, WidgetResourceGroupType::string_type, void> operator [](const ThisArgs::ArgPChar::eArgPChar indx) const
-			{
-				return resource<ThisArgs::ArgPChar::eArgPChar, WidgetResourceGroupType::string_type, void>(indx);
-			}
 
 		protected:
 			WidgetArguments(Widget *widget) :
@@ -423,15 +477,13 @@ namespace PhWidgets
 		};
 
 		class WidgetCallbacks :
-			detail::WidgetCallbacks
+			public detail::WidgetCallbacks,
+			DEFINE_OPERATOR1(Callback, PtCallback_t, Link),
+			DEFINE_OPERATOR1(RawCallback, PtRawCallback_t, Link),
+			DEFINE_OPERATOR1(HotkeyCallback, PtHotkeyCallback_t, Link)
 		{
+			template<class ArgumentsT, class CallbacksT>
 			friend class WidgetResourcesSingleton;
-
-		public:
-			inline detail::WidgetCallback<ThisCallbacks::Callback::eCallback, WidgetResourceGroupType::callback_type> operator [](const ThisCallbacks::Callback::eCallback indx) const
-			{
-				return resource<ThisCallbacks::Callback::eCallback, WidgetResourceGroupType::callback_type>(indx);
-			}
 
 		protected:
 			WidgetCallbacks(Widget *widget) :
@@ -531,390 +583,6 @@ namespace PhWidgets
 		void OnUnrealized(PtCallbackInfo_t *info);
 
 	};
-
-#define INIT_DISABLED ;
-
-
-#define INIT_WIDGET_RESOURCE_Alloc(ArgT)\
-	template<>\
-	class Widget::WidgetResourcesSingleton::WidgetArguments::WidgetArgument<ArgT>:\
-		private WidgetResourceBase<ArgT>\
-	{\
-		friend class WidgetArguments;\
-\
-		WidgetArgument(Widget *widget, ArgT arg):\
-			WidgetResourceBase<ArgT>(widget, arg)\
-		{}\
-\
-	public:\
-\
-		~WidgetArgument()\
-		{}\
-\
-\
-		inline int set(const void *pdata, size_t size)\
-		{\
-			return setAlloc(&pdata, size);\
-		}\
-\
-		inline int set(const void *pdata)\
-		{\
-			return setPointer(pdata);\
-		}\
-\
-		inline const void* get()\
-		{\
-			return getAlloc<const void*>();\
-		}\
-\
-	};
-
-#define INIT_WIDGET_RESOURCE_Array(ArgT) INIT_DISABLED
-#define INIT_WIDGET_RESOURCE_Boolean(ArgT) INIT_DISABLED
-
-#define INIT_WIDGET_RESOURCE_Color(ArgT, T1)\
-	template<>\
-	class Widget::WidgetResourcesSingleton::WidgetArguments::WidgetArgument<ArgT>:\
-		private WidgetResourceBase<ArgT>\
-	{\
-		friend class WidgetArguments;\
-\
-		WidgetArgument(Widget *widget, ArgT arg):\
-			WidgetResourceBase<ArgT>(widget, arg)\
-		{}\
-\
-	public:\
-\
-		typedef T1 argument_t;\
-\
-		~WidgetArgument()\
-		{}\
-\
-\
-		template<typename T>\
-		inline int set(T color)\
-		{\
-			return setColor(reinterpret_cast<const void*>(static_cast<PgColor_t>(color)));\
-		}\
-\
-		inline T1 get()\
-		{\
-			return getScalar<PgColor_t>();\
-		}\
-\
-	};
-	
-#define INIT_WIDGET_RESOURCE_Complex(ArgT) INIT_DISABLED
-
-namespace detail
-{
-	template<typename T> struct mask_type {typedef long type;};
-	template<> struct mask_type<bool> {typedef bool type;};
-}
-
-#define INIT_WIDGET_RESOURCE_Flag(ArgT, T1, T2)\
-	template<>\
-	class Widget::WidgetResourcesSingleton::WidgetArguments::WidgetArgument<ArgT>:\
-		private WidgetResourceBase<ArgT>\
-	{\
-		friend class WidgetArguments;\
-\
-		WidgetArgument(Widget *widget, ArgT arg):\
-			WidgetResourceBase<ArgT>(widget, arg)\
-		{}\
-\
-	public:\
-\
-		typedef T1 argument_t;\
-\
-		~WidgetArgument()\
-		{}\
-\
-\
-		template<typename A1, typename A2>\
-		inline int set(A1 flag, A2 mask)\
-		{\
-			return setFlag(flag, static_cast<typename detail::mask_type<A2>::type>(mask));\
-		}\
-\
-		inline T1 get()\
-		{\
-			return getScalar<T1>();\
-		}\
-\
-		template<typename A1>\
-		inline bool get(A1 flag)\
-		{\
-			return ((get() & flag) == flag);\
-		}\
-\
-	};
-
-#define INIT_WIDGET_RESOURCE_Function(ArgT) INIT_DISABLED
-#define INIT_WIDGET_RESOURCE_Image(ArgT) INIT_DISABLED
-
-#define INIT_WIDGET_RESOURCE_Link_PtCallback_t(ArgT)\
-	template<>\
-	class Widget::WidgetResourcesSingleton::WidgetCallbacks::WidgetCallback<ArgT>:\
-		private WidgetResourceBase<ArgT>\
-	{\
-		friend class WidgetCallbacks;\
-\
-		WidgetCallback(Widget *widget, ArgT arg):\
-			WidgetResourceBase<ArgT>(widget, arg)\
-		{}\
-\
-	public:\
-\
-		typedef PtCallback_t callback_t;\
-\
-		~WidgetCallback()\
-		{}\
-\
-\
-		inline void add(PtCallback_t callback)\
-		{\
-			addLink(callback);\
-		}\
-\
-		inline void add(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), void *data = nullptr)\
-		{\
-			addLink(callback, data);\
-		}\
-\
-		inline void remove(PtCallback_t callback)\
-		{\
-			removeLink(callback);\
-		}\
-\
-		inline void remove(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), void *data = nullptr)\
-		{\
-			removeLink(callback, data);\
-		}\
-\
-		inline PtCallbackList_t* get()\
-		{\
-			return getLink();\
-		}\
-	};
-
-#define INIT_WIDGET_RESOURCE_Link_PtRawCallback_t(ArgT)\
-	template<>\
-	class Widget::WidgetResourcesSingleton::WidgetCallbacks::WidgetCallback<ArgT>:\
-		private WidgetResourceBase<ArgT>\
-	{\
-		friend class WidgetCallbacks;\
-\
-		WidgetCallback(Widget *widget, ArgT arg):\
-			WidgetResourceBase<ArgT>(widget, arg)\
-		{}\
-\
-	public:\
-\
-		typedef PtRawCallback_t callback_t;\
-\
-		~WidgetCallback()\
-		{}\
-\
-\
-		inline void add(PtRawCallback_t callback)\
-		{\
-			addLink(callback);\
-		}\
-\
-		inline void add(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), Widget::Events::eEvents event, void *data = nullptr)\
-		{\
-			addLink(callback, event, data);\
-		}\
-\
-		inline void remove(PtRawCallback_t callback)\
-		{\
-			removeLink(callback);\
-		}\
-\
-		inline void remove(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), Widget::Events::eEvents event, void *data = nullptr)\
-		{\
-			removeLink(callback, event, data);\
-		}\
-\
-		inline PtCallbackList_t* get()\
-		{\
-			return getLink();\
-		}\
-	};
-
-#define INIT_WIDGET_RESOURCE_Link_PtHotkeyCallback_t(ArgT)\
-	template<>\
-	class Widget::WidgetResourcesSingleton::WidgetCallbacks::WidgetCallback<ArgT>:\
-		private WidgetResourceBase<ArgT>\
-	{\
-		friend class WidgetCallbacks;\
-\
-		WidgetCallback(Widget *widget, ArgT arg):\
-			WidgetResourceBase<ArgT>(widget, arg)\
-		{}\
-\
-	public:\
-\
-		typedef PtHotkeyCallback_t callback_t;\
-\
-		~WidgetCallback()\
-		{}\
-\
-\
-		inline void add(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), Widget::Hotkeys::eHotkeys hotkey, Widget::KeyModes::eKeyModes keymode = Widget::KeyModes::none)\
-		{\
-			addLink(callback, hotkey, keymode);\
-		}\
-\
-		inline void remove(int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ), Widget::Hotkeys::eHotkeys hotkey, Widget::KeyModes::eKeyModes keymode = Widget::KeyModes::none)\
-		{\
-			removeLink(callback, hotkey, keymode);\
-		}\
-\
-		inline PtCallbackList_t* get()\
-		{\
-			return getLink();\
-		}\
-	};
-
-#define INIT_WIDGET_RESOURCE_Link(ArgT, T1) INIT_WIDGET_RESOURCE_Link_##T1(ArgT)
-
-
-#define INIT_WIDGET_RESOURCE_Pointer(ArgT) INIT_DISABLED
-
-
-#define INIT_WIDGET_RESOURCE_Scalar(ArgT, T1)\
-	template<>\
-	class Widget::WidgetResourcesSingleton::WidgetArguments::WidgetArgument<ArgT>:\
-		private WidgetResourceBase<ArgT>\
-	{\
-		friend class WidgetArguments;\
-\
-		WidgetArgument(Widget *widget, ArgT arg):\
-			WidgetResourceBase<ArgT>(widget, arg)\
-		{}\
-\
-	public:\
-\
-		typedef T1 argument_t;\
-\
-		~WidgetArgument()\
-		{}\
-\
-\
-		template<typename T>\
-		inline int set(T value)\
-		{\
-			return setScalar(reinterpret_cast<const void*>(static_cast<T1>(value)));\
-		}\
-\
-		inline T1 get()\
-		{\
-			return getScalar<T1>();\
-		}\
-	};
-
-#define INIT_WIDGET_RESOURCE_String(ArgT)\
-	template<>\
-	class Widget::WidgetResourcesSingleton::WidgetArguments::WidgetArgument<ArgT>:\
-		private WidgetResourceBase<ArgT>\
-	{\
-		friend class WidgetArguments;\
-\
-		WidgetArgument(Widget *widget, ArgT arg):\
-			WidgetResourceBase<ArgT>(widget, arg)\
-		{}\
-\
-	public:\
-\
-		typedef const char * argument_t;\
-\
-		~WidgetArgument()\
-		{}\
-\
-\
-		inline int set(const char *str)\
-		{\
-			return setString(str);\
-		}\
-\
-		inline const char* get()\
-		{\
-			return getString<const char*>();\
-		}\
-\
-	};
-	
-#define INIT_WIDGET_RESOURCE_Struct(ArgT, T1)\
-	template<>\
-	class Widget::WidgetResourcesSingleton::WidgetArguments::WidgetArgument<ArgT>:\
-		private WidgetResourceBase<ArgT>\
-	{\
-		friend class WidgetArguments;\
-\
-		WidgetArgument(Widget *widget, ArgT arg):\
-			WidgetResourceBase<ArgT>(widget, arg)\
-		{}\
-		template<typename T> struct remove_p {typedef T type;};\
-		template<typename T> struct remove_p<T*> {typedef T type;};\
-\
-		inline T1* get(T1 *&ptr) {return ptr;}\
-		inline T1* get(T1 &ptr) {return &ptr;}\
-\
-	public:\
-\
-		typedef T1 argument_t;\
-\
-		~WidgetArgument()\
-		{}\
-\
-\
-		template<typename T>\
-		inline int set(const T &value)\
-		{\
-			return setStruct(reinterpret_cast<const void*>(&static_cast<const T1&>(value)));\
-		}\
-\
-		template<typename T>\
-		inline int set(T *value)\
-		{\
-			return setStruct(reinterpret_cast<const void*>(static_cast<const T1>(value)));\
-		}\
-\
-		inline T1 get()\
-		{\
-			typedef remove_p<T1>::type ret_t;\
-			ret_t *ptr = getStruct<ret_t>();\
-			return *get(ptr);\
-		}\
-	};
-
-
-
-	#define INIT_WIDGET_RESOURCE0(ArgT, PtType) INIT_WIDGET_RESOURCE_##PtType(ArgT)
-	#define INIT_WIDGET_RESOURCE1(ArgT, T1, PtType) INIT_WIDGET_RESOURCE_##PtType(ArgT, T1)
-	#define INIT_WIDGET_RESOURCE2(ArgT, T1, T2, PtType) INIT_WIDGET_RESOURCE_##PtType(ArgT, T1, T2)
-
-	INIT_WIDGET_RESOURCE0(Widget::ThisArgs::ArgPChar::eArgPChar, String);
-	INIT_WIDGET_RESOURCE0(Widget::ThisArgs::ArgPVoid::eArgPVoid, Alloc);
-
-	INIT_WIDGET_RESOURCE1(Widget::ThisArgs::ArgColor::eArgColor, PgColor_t, Color);
-	INIT_WIDGET_RESOURCE1(Widget::ThisArgs::ArgPCursorDef::eArgPCursorDef, PhCursorDef_t, Struct);
-	INIT_WIDGET_RESOURCE1(Widget::ThisArgs::ArgPGridLayoutData::eArgPGridLayoutData, PtGridLayoutData_t, Struct);
-	INIT_WIDGET_RESOURCE1(Widget::ThisArgs::ArgPoint::eArgPoint, PhPoint_t, Struct);
-	INIT_WIDGET_RESOURCE1(Widget::ThisArgs::ArgPRowLayoutData::eArgPRowLayoutData, PtRowLayoutData_t, Struct);
-	INIT_WIDGET_RESOURCE1(Widget::ThisArgs::ArgArea::eArgArea, PhArea_t, Struct);
-	INIT_WIDGET_RESOURCE1(Widget::ThisArgs::ArgRect::eArgRect, PhRect_t, Struct);
-	INIT_WIDGET_RESOURCE1(Widget::ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short, Scalar);
-	INIT_WIDGET_RESOURCE1(Widget::ThisArgs::ArgDim::eArgDim, PhDim_t, Struct);
-	INIT_WIDGET_RESOURCE1(Widget::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
-	INIT_WIDGET_RESOURCE1(Widget::ThisCallbacks::RawCallback::eRawCallback, PtRawCallback_t, Link);
-	INIT_WIDGET_RESOURCE1(Widget::ThisCallbacks::HotkeyCallback::eHotkeyCallback, PtHotkeyCallback_t, Link);
-
-	INIT_WIDGET_RESOURCE2(Widget::ThisArgs::ArgLong::eArgLong, long, long, Flag);
-	INIT_WIDGET_RESOURCE2(Widget::ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long, unsigned long, Flag);
-	INIT_WIDGET_RESOURCE2(Widget::ThisArgs::ArgUnsigned::eArgUnsigned, unsigned, unsigned, Flag);
 
 
 }//namespace PhWidgets

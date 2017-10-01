@@ -79,11 +79,11 @@ namespace PhWidgets
 		
 	};
 	
-	INIT_WIDGET_RESOURCE0(Numeric::ThisArgs::ArgPChar::eArgPChar, String);
+	DEFINE_OPERATOR0(Numeric::ThisArgs::ArgPChar::eArgPChar, String);
 	
-	INIT_WIDGET_RESOURCE1(Numeric::ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short, Scalar);
+	DEFINE_OPERATOR1(Numeric::ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short, Scalar);
 	
-	INIT_WIDGET_RESOURCE2(Numeric::ThisArgs::ArgUnsignedShortFlag::eArgUnsignedShortFlag, unsigned short, unsigned short, Flag);
+	DEFINE_OPERATOR2(Numeric::ThisArgs::ArgUnsignedShortFlag::eArgUnsignedShortFlag, unsigned short, unsigned short, Flag);
 }
 
 

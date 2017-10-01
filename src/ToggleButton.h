@@ -79,9 +79,9 @@ namespace PhWidgets
 	};
 	
 
-	INIT_WIDGET_RESOURCE1(ToggleButton::ThisArgs::ArgColor::eArgColor, PgColor_t, Color);
+	DEFINE_OPERATOR1(ToggleButton::ThisArgs::ArgColor::eArgColor, PgColor_t, Color);
 	
-	INIT_WIDGET_RESOURCE1(ToggleButton::ThisArgs::ArgUnsignedChar::eArgUnsignedChar, unsigned char, Scalar);
+	DEFINE_OPERATOR1(ToggleButton::ThisArgs::ArgUnsignedChar::eArgUnsignedChar, unsigned char, Scalar);
 	
 }
 

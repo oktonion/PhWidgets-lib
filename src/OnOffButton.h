@@ -84,9 +84,9 @@ namespace PhWidgets
 	
 	
 	
-	INIT_WIDGET_RESOURCE1(OnOffButton::ThisArgs::ArgBool::eArgBool, bool, Scalar);
+	DEFINE_OPERATOR1(OnOffButton::ThisArgs::ArgBool::eArgBool, bool, Scalar);
 
-	INIT_WIDGET_RESOURCE1(OnOffButton::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
+	DEFINE_OPERATOR1(OnOffButton::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 
 }
 

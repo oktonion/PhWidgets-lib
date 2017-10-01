@@ -89,10 +89,10 @@ namespace PhWidgets
 	};
 	
 	
-	INIT_WIDGET_RESOURCE0(Button::ThisArgs::ArgPImage::eArgPImage, Image);
+	DEFINE_OPERATOR0(Button::ThisArgs::ArgPImage::eArgPImage, Image);
 	
-	INIT_WIDGET_RESOURCE1(Button::ThisArgs::ArgColor::eArgColor, PgColor_t, Color);
-	INIT_WIDGET_RESOURCE1(Button::ThisArgs::ArgUnsignedChar::eArgUnsignedChar, unsigned char, Scalar);
+	DEFINE_OPERATOR1(Button::ThisArgs::ArgColor::eArgColor, PgColor_t, Color);
+	DEFINE_OPERATOR1(Button::ThisArgs::ArgUnsignedChar::eArgUnsignedChar, unsigned char, Scalar);
 
 }
 

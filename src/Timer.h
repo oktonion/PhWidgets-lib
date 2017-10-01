@@ -107,8 +107,8 @@ namespace PhWidgets
 		void OnActivate(PtCallbackInfo_t *info);
 	};
 	
-	INIT_WIDGET_RESOURCE1(Timer::ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long, Scalar);
-	INIT_WIDGET_RESOURCE1(Timer::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
+	DEFINE_OPERATOR1(Timer::ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long, Scalar);
+	DEFINE_OPERATOR1(Timer::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 }
 
 #endif

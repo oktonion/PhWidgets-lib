@@ -200,18 +200,18 @@ namespace PhWidgets
 		phwidgets_event<Container, Container::Callbacks::resize>				Resize;
 	};
 	
-	INIT_WIDGET_RESOURCE0(Container::ThisArgs::ArgPChar::eArgPChar, String);
-	INIT_WIDGET_RESOURCE0(Container::ThisArgs::ArgBool::eArgBool, Boolean);
+	DEFINE_OPERATOR0(Container::ThisArgs::ArgPChar::eArgPChar, String);
+	DEFINE_OPERATOR0(Container::ThisArgs::ArgBool::eArgBool, Boolean);
 
-	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgInt::eArgInt, int, Scalar);
-	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPFillLayoutInfo::eArgPFillLayoutInfo, PtFillLayoutInfo_t, Struct);
-	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPGridLayoutInfo::eArgPGridLayoutInfo, PtGridLayoutInfo_t, Struct);
-	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPLayoutDefinition::eArgPLayoutDefinition, PtLayoutDefinition_t, Struct);
-	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPRowLayoutInfo::eArgPRowLayoutInfo, PtRowLayoutInfo_t, Struct);
-	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPVoid::eArgPVoid, void*, Struct);
-	INIT_WIDGET_RESOURCE1(Container::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
+	DEFINE_OPERATOR1(Container::ThisArgs::ArgInt::eArgInt, int, Scalar);
+	DEFINE_OPERATOR1(Container::ThisArgs::ArgPFillLayoutInfo::eArgPFillLayoutInfo, PtFillLayoutInfo_t, Struct);
+	DEFINE_OPERATOR1(Container::ThisArgs::ArgPGridLayoutInfo::eArgPGridLayoutInfo, PtGridLayoutInfo_t, Struct);
+	DEFINE_OPERATOR1(Container::ThisArgs::ArgPLayoutDefinition::eArgPLayoutDefinition, PtLayoutDefinition_t, Struct);
+	DEFINE_OPERATOR1(Container::ThisArgs::ArgPRowLayoutInfo::eArgPRowLayoutInfo, PtRowLayoutInfo_t, Struct);
+	DEFINE_OPERATOR1(Container::ThisArgs::ArgPVoid::eArgPVoid, void*, Struct);
+	DEFINE_OPERATOR1(Container::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 	
-	INIT_WIDGET_RESOURCE2(Container::ThisArgs::ArgLong::eArgLong, long, long, Flag);
+	DEFINE_OPERATOR2(Container::ThisArgs::ArgLong::eArgLong, long, long, Flag);
 }
 
 

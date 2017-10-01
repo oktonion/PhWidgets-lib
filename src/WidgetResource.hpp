@@ -681,7 +681,7 @@ namespace PhWidgets
 			}
 		};
 
-		template<typename LinkT, class ResourceGroupT>
+		template<typename LinkT, class ResourceGroupT, class ResourceT = void>
 		struct WidgetCallback :
 			private WidgetResourceBase<LinkT>
 		{
@@ -691,7 +691,7 @@ namespace PhWidgets
 		};
 
 		template<typename LinkT>
-		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::callback_type> :
+		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::callback_type, PtCallback_t> :
 			private WidgetResourceBase<LinkT>
 		{
 			typedef WidgetResourceGroupType::WidgetCallbackGroupType::callback_type resource_group_type;
@@ -732,7 +732,48 @@ namespace PhWidgets
 		};
 
 		template<typename LinkT>
-		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::raw_type> :
+		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::callback_type, void> :
+			private WidgetResourceBase<LinkT>
+		{
+			typedef WidgetResourceGroupType::WidgetCallbackGroupType::callback_type resource_group_type;
+			typedef PtCallback_t resource_t;
+
+			WidgetCallback(IPtWidget *widget, LinkT arg) :
+				WidgetResourceBase<LinkT>(widget, arg)
+			{}
+
+			~WidgetCallback()
+			{}
+
+
+			inline void add(resource_t callback)
+			{
+				addLink(callback);
+			}
+
+			inline void add(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
+			{
+				addLink(callback, data);
+			}
+
+			inline void remove(resource_t callback)
+			{
+				removeLink(callback);
+			}
+
+			inline void remove(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
+			{
+				removeLink(callback, data);
+			}
+
+			inline PtCallbackList_t* get()
+			{
+				return getLink();
+			}
+		};
+
+		template<typename LinkT>
+		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::raw_type, PtRawCallback_t> :
 			private WidgetResourceBase<LinkT>
 		{
 			typedef WidgetResourceGroupType::WidgetCallbackGroupType::raw_type resource_group_type;
@@ -774,7 +815,49 @@ namespace PhWidgets
 		};
 
 		template<typename LinkT>
-		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type> :
+		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::raw_type, void> :
+			private WidgetResourceBase<LinkT>
+		{
+			typedef WidgetResourceGroupType::WidgetCallbackGroupType::raw_type resource_group_type;
+			typedef PtRawCallback_t resource_t;
+
+			WidgetCallback(IPtWidget *widget, LinkT arg) :
+				WidgetResourceBase<LinkT>(widget, arg)
+			{}
+
+
+			~WidgetCallback()
+			{}
+
+
+			inline void add(PtRawCallback_t callback)
+			{
+				addLink(callback);
+			}
+
+			inline void add(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Events::eEvents event, void *data = nullptr)
+			{
+				addLink(callback, event, data);
+			}
+
+			inline void remove(PtRawCallback_t callback)
+			{
+				removeLink(callback);
+			}
+
+			inline void remove(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Events::eEvents event, void *data = nullptr)
+			{
+				removeLink(callback, event, data);
+			}
+
+			inline PtCallbackList_t* get()
+			{
+				return getLink();
+			}
+		};
+
+		template<typename LinkT>
+		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type, PtHotkeyCallback_t> :
 			private WidgetResourceBase<LinkT>
 		{
 			typedef WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type resource_group_type;
@@ -804,6 +887,37 @@ namespace PhWidgets
 			}
 		};
 
+		template<typename LinkT>
+		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type, void> :
+			private WidgetResourceBase<LinkT>
+		{
+			typedef WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type resource_group_type;
+			typedef PtHotkeyCallback_t resource_t;
+
+			WidgetCallback(IPtWidget *widget, LinkT arg) :
+				WidgetResourceBase<LinkT>(widget, arg)
+			{}
+
+			~WidgetCallback()
+			{}
+
+
+			inline void add(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Hotkeys::eHotkeys hotkey, KeyModes::eKeyModes keymode = KeyModes::none)
+			{
+				addLink(callback, hotkey, keymode);
+			}
+
+			inline void remove(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Hotkeys::eHotkeys hotkey, KeyModes::eKeyModes keymode = KeyModes::none)
+			{
+				removeLink(callback, hotkey, keymode);
+			}
+
+			inline PtCallbackList_t* get()
+			{
+				return getLink();
+			}
+		};
+
 		class WidgetCallbacks
 		{
 
@@ -827,8 +941,63 @@ namespace PhWidgets
 			}
 
 		};
-	}
 
+		template<class ArgT, class ResourceGroupT, class ResourceT>
+		struct DefineArgument
+		{
+			inline WidgetArgument<ArgT, ResourceGroupT, ResourceT> operator [](const ArgT indx) const
+			{
+				return static_cast<WidgetArguments>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
+			}
+		};
+
+		template<class LinkT, class ResourceGroupT>
+		struct DefineCallback
+		{
+			inline WidgetCallback<LinkT, ResourceGroupT> operator [](const LinkT indx) const
+			{
+				return static_cast<WidgetArguments>(this)->resource<LinkT, ResourceGroupT>(indx);
+			}
+		};
+
+		template<class>
+		struct Void
+		{};
+
+		template<template<class> class TemplateT>
+		struct Test
+		{
+			template<template<class> class TemplateT1>
+			struct Test1:
+				Test<TemplateT1>
+			{};
+		};
+
+
+		Test<Void>::Test1<Void>::Test1<Void>::Test1<Void>;
+
+
+		template<class ArgT, class ResourceGroupT, class ResourceT>
+		struct DefineResourceType
+		{
+			typedef DefineArgument<ArgT, ResourceGroupT, ResourceT> type;
+		};
+
+		template<class ArgT, class ResourceGroupT, class ResourceT>
+		struct DefineResourceSingleton
+		{
+			typedef DefineResourceSingleton<ArgT, ResourceGroupT, ResourceT> type;
+
+			template<class ArgT1, class ResourceGroupT1, class ResourceT1>
+			struct DefineResourceSingleton1 :
+				type
+			{
+				typedef DefineResourceSingleton1<ArgT1, ResourceGroupT1, ResourceT1> type;
+			};
+		};
+
+
+	}
 }
 
 #endif // WIDGET_RESOURCE_HPP

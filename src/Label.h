@@ -210,13 +210,13 @@ namespace PhWidgets
 	
 	//TODO:: add more macro for all resources:
 	
-	INIT_WIDGET_RESOURCE0(Label::ThisArgs::ArgPChar::eArgPChar, String);
+	DEFINE_OPERATOR0(Label::ThisArgs::ArgPChar::eArgPChar, String);
 
-	INIT_WIDGET_RESOURCE1(Label::ThisArgs::ArgColor::eArgColor, PgColor_t, Color);
-	INIT_WIDGET_RESOURCE1(Label::ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short, Scalar);
-	INIT_WIDGET_RESOURCE1(Label::ThisArgs::ArgShort::eArgShort, short, Scalar);
-	INIT_WIDGET_RESOURCE1(Label::ThisArgs::ArgSignedShort::eArgSignedShort, signed short, Scalar);
-	INIT_WIDGET_RESOURCE1(Label::ThisArgs::ArgUnsignedChar::eArgUnsignedChar, unsigned char, Scalar);
+	DEFINE_OPERATOR1(Label::ThisArgs::ArgColor::eArgColor, PgColor_t, Color);
+	DEFINE_OPERATOR1(Label::ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short, Scalar);
+	DEFINE_OPERATOR1(Label::ThisArgs::ArgShort::eArgShort, short, Scalar);
+	DEFINE_OPERATOR1(Label::ThisArgs::ArgSignedShort::eArgSignedShort, signed short, Scalar);
+	DEFINE_OPERATOR1(Label::ThisArgs::ArgUnsignedChar::eArgUnsignedChar, unsigned char, Scalar);
 
 }
 

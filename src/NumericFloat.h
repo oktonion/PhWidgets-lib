@@ -110,10 +110,10 @@ namespace PhWidgets
 		
 	};
 	
-	INIT_WIDGET_RESOURCE1(NumericFloat::ThisArgs::ArgDoubleP::eArgDoubleP, double*, Struct);
-	INIT_WIDGET_RESOURCE1(NumericFloat::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
+	DEFINE_OPERATOR1(NumericFloat::ThisArgs::ArgDoubleP::eArgDoubleP, double*, Struct);
+	DEFINE_OPERATOR1(NumericFloat::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 	
-	INIT_WIDGET_RESOURCE1(NumericFloat::ThisArgs::ArgInt::eArgInt, int, Scalar);
+	DEFINE_OPERATOR1(NumericFloat::ThisArgs::ArgInt::eArgInt, int, Scalar);
 
 }
 

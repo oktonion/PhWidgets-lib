@@ -174,6 +174,51 @@ namespace PhWidgets
 		};
 
 	protected:
+		class WidgetArguments :
+			public Widget::WidgetArguments
+		{
+			template<class ArgumentsT, class CallbacksT>
+			friend class WidgetResourcesSingleton;
+
+		public:
+			DEFINE_OPERATOR0(ArgPChar, String)
+			//DEFINE_OPERATOR0(Basic::ThisArgs::ArgPVoid::eArgPVoid, Alloc);
+
+			DEFINE_OPERATOR1(ArgColor, PgColor_t, Color)
+			DEFINE_OPERATOR1(ArgUnsignedShort, unsigned short, Scalar)
+			DEFINE_OPERATOR1(ArgChar, char, Scalar)
+			DEFINE_OPERATOR1(ArgUnsignedLong, unsigned long, Flag)
+
+		protected:
+			WidgetArguments(Widget *widget) :
+				Widget::WidgetArguments(widget)
+			{
+			}
+
+			~WidgetArguments()
+			{
+			}
+		};
+
+		class WidgetCallbacks :
+			public Widget::WidgetCallbacks
+		{
+			template<class ArgumentsT, class CallbacksT>
+			friend class WidgetResourcesSingleton;
+
+		public:
+			DEFINE_OPERATOR1(Callback, PtCallback_t, Link)
+
+		protected:
+			WidgetCallbacks(Widget *widget) :
+				Widget::WidgetCallbacks(widget)
+			{
+			}
+
+			~WidgetCallbacks()
+			{
+			}
+		};
 		virtual void check();
 
 		void setColor(PgColor_t);
@@ -189,6 +234,8 @@ namespace PhWidgets
 		Basic(const Basic &rhs);
 
 		Basic &operator=(const Basic &rhs);
+
+		WidgetResourcesSingleton<WidgetArguments, WidgetCallbacks> resource;
 		
 		property<PgColor_t>::bind<Basic, &Basic::getColor, &Basic::setColor> Color;
 		property<PgColor_t>::bind<Basic, &Basic::getFillColor, &Basic::setFillColor> FillColor;
@@ -209,17 +256,6 @@ namespace PhWidgets
 		void OnMenu(PtCallbackInfo_t *info);
 		void OnRepeat(PtCallbackInfo_t *info);
 	};		  
-		
-	
-	INIT_WIDGET_RESOURCE0(Basic::ThisArgs::ArgPChar::eArgPChar, String);
-	//INIT_WIDGET_RESOURCE0(Basic::ThisArgs::ArgPVoid::eArgPVoid, Alloc);
-
-	INIT_WIDGET_RESOURCE1(Basic::ThisArgs::ArgColor::eArgColor, PgColor_t, Color);
-	INIT_WIDGET_RESOURCE1(Basic::ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short, Scalar);
-	INIT_WIDGET_RESOURCE1(Basic::ThisArgs::ArgChar::eArgChar, char, Scalar);
-	INIT_WIDGET_RESOURCE1(Basic::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
-
-	INIT_WIDGET_RESOURCE2(Basic::ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long, unsigned long, Flag);
 
 
 	

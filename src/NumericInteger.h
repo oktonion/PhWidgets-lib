@@ -93,9 +93,9 @@ namespace PhWidgets
 	};
 	
 	
-	INIT_WIDGET_RESOURCE1(NumericInteger::ThisArgs::ArgInt::eArgInt, int, Scalar);
+	DEFINE_OPERATOR1(NumericInteger::ThisArgs::ArgInt::eArgInt, int, Scalar);
 
-	INIT_WIDGET_RESOURCE1(NumericInteger::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
+	DEFINE_OPERATOR1(NumericInteger::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 		
 }
 

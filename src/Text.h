@@ -85,8 +85,8 @@ namespace PhWidgets
 		phwidgets_event<Text, Text::Callbacks::text_changed> 	TextChanged;
 	};
 	
-	INIT_WIDGET_RESOURCE1(Text::ThisArgs::ArgComplex::eArgComplex, PtTextControl_t, Struct);
-	INIT_WIDGET_RESOURCE1(Text::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
+	DEFINE_OPERATOR1(Text::ThisArgs::ArgComplex::eArgComplex, PtTextControl_t, Struct);
+	DEFINE_OPERATOR1(Text::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 
 }
 
