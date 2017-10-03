@@ -960,21 +960,50 @@ namespace PhWidgets
 			}
 		};
 
-		template<class>
 		struct Void
-		{};
-
-		template<template<class> class TemplateT>
-		struct Test
 		{
-			template<template<class> class TemplateT1>
-			struct Test1:
-				Test<TemplateT1>
-			{};
+			void func() {}
 		};
 
+		namespace detail
+		{
+			template<class PrevT>
+			struct Next;
+		}
 
-		Test<Void>::Test1<Void>::Test1<Void>::Test1<Void>;
+		namespace original
+		{
+			template<class PrevT, class T>
+			struct To
+			{
+				struct Type :
+					PrevT
+				{
+					using PrevT::func;
+
+					void func(T&) {}
+				};
+
+				typedef detail::Next<Type> Next;
+			};
+		}
+
+		namespace detail
+		{
+			template<class PrevT>
+			struct Next
+			{
+				template<class T>
+				struct To :
+					original::To<PrevT, T>
+				{
+
+				};
+			};
+		}
+
+
+		original::To<Void, int>::Next::To<bool>::Next::To<float>::Next::To<double>::Type t;
 
 
 		template<class ArgT, class ResourceGroupT, class ResourceT>
