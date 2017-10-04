@@ -1045,15 +1045,61 @@ namespace PhWidgets
 
 		};
 
-
-		template<class ArgumentsT, class CallbacksT>
-		struct DefineResourcesSingleton
+		namespace def_orig
 		{
-			def_callback::op<Callbacks::eCallback>::
-			def_string::op<Arguments::ePConstChar>::
-				singleton_type;
+			template<class PrevT, class LinkT, class ResourceT>
+			struct Callback
+			{
+				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
+				typedef typename PrevT::WidgetArguments prev_widget_arguments_type;
+
+				struct type
+				{
+					struct WidgetCallbacks:
+						public prev_widget_callbacks_type
+
+					{
+						using prev_widget_callbacks_type::operator [];
+
+						inline WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::callback_type> operator [](const LinkT indx) const
+						{
+							return static_cast<const WidgetArguments*>(this)->resource<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::callback_type>(indx);
+						}
+					};
+
+					typedef prev_widget_arguments_type WidgetArguments;
+				};
+
+				typedef def_help::Define<type> Define;
+			};
+		}
+
+		namespace def_help
+		{
+			template<class PrevT>
+			struct Define
+			{
+				template<class ArgT, class ResourceT>
+				struct Callback :
+					def_orig::Callback<PrevT, ArgT, ResourceT>
+				{
+
+				};
+			};
+		}
+
+
+		template<class PrevT>
+		struct DefineResourcesSingleton:
+			public def_help::Define<PrevT>
+		{
+
 
 		};
+
+		def_callback::op<Callbacks::eCallback>::
+			def_string::op<Arguments::ePConstChar>::
+			singleton_type;
 
 
 	}
