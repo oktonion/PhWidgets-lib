@@ -370,9 +370,15 @@ namespace PhWidgets
 
 		};
 
+		class NotImplemented
+		{
+			NotImplemented();
+			~NotImplemented();
+		};
+
 		template<typename ArgT, class ResourceT>
 		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::array_type, ResourceT> :
-			private WidgetResourceBase<ArgT>
+			private NotImplemented//WidgetResourceBase<ArgT>
 		{
 			typedef WidgetResourceGroupType::WidgetArgumentGroupType::array_type resource_group_type;
 			typedef ResourceT resource_type;
@@ -382,7 +388,7 @@ namespace PhWidgets
 
 		template<typename ArgT, class ResourceT>
 		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::boolean_type, ResourceT> :
-			private WidgetResourceBase<ArgT>
+			private NotImplemented//WidgetResourceBase<ArgT>
 		{
 			typedef WidgetResourceGroupType::WidgetArgumentGroupType::boolean_type resource_group_type;
 			typedef ResourceT resource_type;
@@ -420,7 +426,7 @@ namespace PhWidgets
 
 		template<typename ArgT, class ResourceT>
 		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::complex_type, ResourceT> :
-			private WidgetResourceBase<ArgT>
+			private NotImplemented//WidgetResourceBase<ArgT>
 		{
 			typedef WidgetResourceGroupType::WidgetArgumentGroupType::complex_type resource_group_type;
 			typedef ResourceT resource_type;
@@ -470,7 +476,7 @@ namespace PhWidgets
 
 		template<typename ArgT, class ResourceT>
 		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::function_type, ResourceT> :
-			private WidgetResourceBase<ArgT>
+			private NotImplemented//WidgetResourceBase<ArgT>
 		{
 			typedef WidgetResourceGroupType::WidgetArgumentGroupType::function_type resource_group_type;
 			typedef ResourceT resource_type;
@@ -480,7 +486,7 @@ namespace PhWidgets
 
 		template<typename ArgT, class ResourceT>
 		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::image_type, ResourceT> :
-			private WidgetResourceBase<ArgT>
+			private NotImplemented//WidgetResourceBase<ArgT>
 		{
 			typedef WidgetResourceGroupType::WidgetArgumentGroupType::image_type resource_group_type;
 			typedef ResourceT resource_type;
@@ -490,7 +496,7 @@ namespace PhWidgets
 
 		template<typename ArgT, class ResourceT>
 		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::pointer_type, ResourceT> :
-			private WidgetResourceBase<ArgT>
+			private NotImplemented//WidgetResourceBase<ArgT>
 		{
 			typedef WidgetResourceGroupType::WidgetArgumentGroupType::pointer_type resource_group_type;
 			typedef ResourceT resource_type;
@@ -628,7 +634,7 @@ namespace PhWidgets
 			inline resource_type* get(resource_type &ptr) { return &ptr; }
 		};
 
-		class WidgetArguments
+		class WidgetArgumentsBase
 		{
 			//friend class WidgetResourcesSingleton;			
 
@@ -665,12 +671,12 @@ namespace PhWidgets
 
 			IPtWidget *_widget; // pointer to parent widget!!!
 
-			WidgetArguments(IPtWidget *widget) :
+			WidgetArgumentsBase(IPtWidget *widget) :
 				_widget(widget)
 			{
 			}
 
-			~WidgetArguments()
+			~WidgetArgumentsBase()
 			{
 			}
 
@@ -683,7 +689,7 @@ namespace PhWidgets
 
 		template<typename LinkT, class ResourceGroupT, class ResourceT = void>
 		struct WidgetCallback :
-			private WidgetResourceBase<LinkT>
+			private NotImplemented//WidgetResourceBase<LinkT>
 		{
 			typedef WidgetResourceGroupType::unknown_type resource_group_type;
 
@@ -691,11 +697,11 @@ namespace PhWidgets
 		};
 
 		template<typename LinkT>
-		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::callback_type, PtCallback_t> :
+		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::callback_type, PtCallback_t*> :
 			private WidgetResourceBase<LinkT>
 		{
 			typedef WidgetResourceGroupType::WidgetCallbackGroupType::callback_type resource_group_type;
-			typedef PtCallback_t resource_t;
+			typedef PtCallback_t* resource_type;
 
 			WidgetCallback(IPtWidget *widget, LinkT arg) :
 				WidgetResourceBase<LinkT>(widget, arg)
@@ -705,7 +711,7 @@ namespace PhWidgets
 			{}
 				
 				
-			inline void add(resource_t callback)
+			inline void add(resource_type callback)
 			{
 				addLink(callback); 
 			}
@@ -715,7 +721,7 @@ namespace PhWidgets
 				addLink(callback, data); 
 			}
 				
-			inline void remove(resource_t callback)
+			inline void remove(resource_type callback)
 			{
 				removeLink(callback); 
 			}
@@ -736,7 +742,7 @@ namespace PhWidgets
 			private WidgetResourceBase<LinkT>
 		{
 			typedef WidgetResourceGroupType::WidgetCallbackGroupType::callback_type resource_group_type;
-			typedef PtCallback_t resource_t;
+			typedef PtCallback_t* resource_type;
 
 			WidgetCallback(IPtWidget *widget, LinkT arg) :
 				WidgetResourceBase<LinkT>(widget, arg)
@@ -746,7 +752,7 @@ namespace PhWidgets
 			{}
 
 
-			inline void add(resource_t callback)
+			inline void add(resource_type callback)
 			{
 				addLink(callback);
 			}
@@ -756,7 +762,7 @@ namespace PhWidgets
 				addLink(callback, data);
 			}
 
-			inline void remove(resource_t callback)
+			inline void remove(resource_type callback)
 			{
 				removeLink(callback);
 			}
@@ -773,11 +779,11 @@ namespace PhWidgets
 		};
 
 		template<typename LinkT>
-		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::raw_type, PtRawCallback_t> :
+		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::raw_type, PtRawCallback_t*> :
 			private WidgetResourceBase<LinkT>
 		{
 			typedef WidgetResourceGroupType::WidgetCallbackGroupType::raw_type resource_group_type;
-			typedef PtRawCallback_t resource_t;
+			typedef PtRawCallback_t* resource_type;
 
 			WidgetCallback(IPtWidget *widget, LinkT arg) :
 				WidgetResourceBase<LinkT>(widget, arg)
@@ -788,7 +794,7 @@ namespace PhWidgets
 			{}
 				
 				
-			inline void add(PtRawCallback_t callback)
+			inline void add(resource_type callback)
 			{
 				addLink(callback); 
 			}
@@ -798,7 +804,7 @@ namespace PhWidgets
 				addLink(callback, event, data); 
 			}
 				
-			inline void remove(PtRawCallback_t callback)
+			inline void remove(resource_type callback)
 			{
 				removeLink(callback); 
 			}
@@ -819,7 +825,7 @@ namespace PhWidgets
 			private WidgetResourceBase<LinkT>
 		{
 			typedef WidgetResourceGroupType::WidgetCallbackGroupType::raw_type resource_group_type;
-			typedef PtRawCallback_t resource_t;
+			typedef PtRawCallback_t* resource_type;
 
 			WidgetCallback(IPtWidget *widget, LinkT arg) :
 				WidgetResourceBase<LinkT>(widget, arg)
@@ -830,7 +836,7 @@ namespace PhWidgets
 			{}
 
 
-			inline void add(PtRawCallback_t callback)
+			inline void add(resource_type callback)
 			{
 				addLink(callback);
 			}
@@ -840,7 +846,7 @@ namespace PhWidgets
 				addLink(callback, event, data);
 			}
 
-			inline void remove(PtRawCallback_t callback)
+			inline void remove(resource_type callback)
 			{
 				removeLink(callback);
 			}
@@ -857,11 +863,11 @@ namespace PhWidgets
 		};
 
 		template<typename LinkT>
-		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type, PtHotkeyCallback_t> :
+		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type, PtHotkeyCallback_t*> :
 			private WidgetResourceBase<LinkT>
 		{
 			typedef WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type resource_group_type;
-			typedef PtHotkeyCallback_t resource_t;
+			typedef PtHotkeyCallback_t* resource_type;
 
 			WidgetCallback(IPtWidget *widget, LinkT arg) :
 				WidgetResourceBase<LinkT>(widget, arg)
@@ -892,7 +898,7 @@ namespace PhWidgets
 			private WidgetResourceBase<LinkT>
 		{
 			typedef WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type resource_group_type;
-			typedef PtHotkeyCallback_t resource_t;
+			typedef PtHotkeyCallback_t* resource_type;
 
 			WidgetCallback(IPtWidget *widget, LinkT arg) :
 				WidgetResourceBase<LinkT>(widget, arg)
@@ -918,19 +924,19 @@ namespace PhWidgets
 			}
 		};
 
-		class WidgetCallbacks
+		class WidgetCallbacksBase
 		{
 
 		protected:
 
 			IPtWidget *_widget; // pointer to parent widget!!!
 
-			WidgetCallbacks(IPtWidget *widget) :
+			WidgetCallbacksBase(IPtWidget *widget) :
 				_widget(widget)
 			{
 			}
 
-			~WidgetCallbacks()
+			~WidgetCallbacksBase()
 			{
 			}
 
@@ -946,161 +952,415 @@ namespace PhWidgets
 		{
 		};
 
-		namespace detail
+		namespace def_orig
 		{
-			template<class PrevT>
-			struct Next;
-		}
-
-		namespace original
-		{
-			template<class PrevT, class ArgT, class ResourceGroupT, class ResourceT>
-			struct To
+			template< class WidgetArgumentsT, class WidgetCallbacksT, class LinkT, class ResourceGroupT >
+			struct LinkType
 			{
-				struct type :
-					PrevT
+				struct WidgetCallbacks :
+					public WidgetCallbacksT
+
 				{
-					using PrevT::operator [];
+					using WidgetCallbacksT::operator [];
+
+					inline WidgetCallback<LinkT, ResourceGroupT> operator [](const LinkT indx) const
+					{
+						return static_cast<const WidgetCallbacksBase*>(this)->resource<LinkT, ResourceGroupT>(indx);
+					}
+				};
+
+				typedef WidgetArgumentsT WidgetArguments;
+
+				WidgetArguments argument;
+				WidgetCallbacks callback;
+			};
+
+			template< class WidgetArgumentsT, class LinkT, class ResourceGroupT >
+			struct LinkType<WidgetArgumentsT, Void, LinkT, ResourceGroupT>
+			{
+				struct WidgetCallbacks
+				{
+
+					inline WidgetCallback<LinkT, ResourceGroupT> operator [](const LinkT indx) const
+					{
+						return static_cast<const WidgetCallbacksBase*>(this)->resource<LinkT, ResourceGroupT>(indx);
+					}
+				};
+
+				typedef WidgetArgumentsT WidgetArguments;
+
+				WidgetArguments argument;
+				WidgetCallbacks callback;
+			};
+
+			template< class WidgetCallbacksT, class LinkT, class ResourceGroupT >
+			struct LinkType<Void, WidgetCallbacksT, LinkT, ResourceGroupT>
+			{
+				struct WidgetCallbacks :
+					public WidgetCallbacksT
+
+				{
+					using WidgetCallbacksT::operator [];
+
+					inline WidgetCallback<LinkT, ResourceGroupT> operator [](const LinkT indx) const
+					{
+						return static_cast<const WidgetCallbacksBase*>(this)->resource<LinkT, ResourceGroupT>(indx);
+					}
+				};
+
+				typedef Void WidgetArguments;
+
+				WidgetCallbacks callback;
+			};
+
+			template< class LinkT, class ResourceGroupT >
+			struct LinkType<Void, Void, LinkT, ResourceGroupT>
+			{
+				struct WidgetCallbacks
+				{
+
+					inline WidgetCallback<LinkT, ResourceGroupT> operator [](const LinkT indx) const
+					{
+						return static_cast<const WidgetCallbacksBase*>(this)->resource<LinkT, ResourceGroupT>(indx);
+					}
+				};
+
+				typedef Void WidgetArguments;
+
+				WidgetCallbacks callback;
+			};
+
+
+
+			template< class WidgetArgumentsT, class WidgetCallbacksT, class ArgT, class ResourceGroupT, class ResourceT >
+			struct ArgumentType
+			{
+				struct WidgetArguments :
+					public WidgetArgumentsT
+
+				{
+					using WidgetArgumentsT::operator [];
 
 					inline WidgetArgument<ArgT, ResourceGroupT, ResourceT> operator [](const ArgT indx) const
 					{
-						return static_cast<const WidgetArguments*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
+						return static_cast<const WidgetArgumentsBase*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
 					}
 				};
 
-				typedef detail::Next<type> Next;
+				typedef WidgetCallbacksT WidgetCallbacks;
+
+				WidgetArguments argument;
+				WidgetCallbacks callback;
 			};
 
-			template<class PrevT, class LinkT, class ResourceT>
-			struct To<PrevT, LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::callback_type, ResourceT>
+			template< class WidgetCallbacksT, class ArgT, class ResourceGroupT, class ResourceT >
+			struct ArgumentType<Void, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT>
 			{
-				struct type :
-					PrevT
+				struct WidgetArguments
 				{
-					using PrevT::operator [];
-
-					inline WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::callback_type> operator [](const LinkT indx) const
+					inline WidgetArgument<ArgT, ResourceGroupT, ResourceT> operator [](const ArgT indx) const
 					{
-						return static_cast<const WidgetArguments*>(this)->resource<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::callback_type>(indx);
+						return static_cast<const WidgetArgumentsBase*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
 					}
 				};
 
-				typedef detail::Next<type> Next;
+				typedef WidgetCallbacksT WidgetCallbacks;
+
+				WidgetArguments argument;
+				WidgetCallbacks callback;
 			};
 
-			template<class PrevT, class LinkT, class ResourceT>
-			struct To<PrevT, LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type, ResourceT>
+			template< class WidgetArgumentsT, class ArgT, class ResourceGroupT, class ResourceT >
+			struct ArgumentType<WidgetArgumentsT, Void, ArgT, ResourceGroupT, ResourceT>
 			{
-				struct type :
-					PrevT
-				{
-					using PrevT::operator [];
+				struct WidgetArguments :
+					public WidgetArgumentsT
 
-					inline WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type> operator [](const LinkT indx) const
+				{
+					using WidgetArgumentsT::operator [];
+
+					inline WidgetArgument<ArgT, ResourceGroupT, ResourceT> operator [](const ArgT indx) const
 					{
-						return static_cast<const WidgetArguments*>(this)->resource<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type>(indx);
+						return static_cast<const WidgetArgumentsBase*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
 					}
 				};
 
-				typedef detail::Next<type> Next;
+				typedef Void WidgetCallbacks;
+
+				WidgetArguments argument;
 			};
 
-			template<class PrevT, class LinkT, class ResourceT>
-			struct To<PrevT, LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::raw_type, ResourceT>
+			template< class ArgT, class ResourceGroupT, class ResourceT >
+			struct ArgumentType<Void, Void, ArgT, ResourceGroupT, ResourceT>
 			{
-				struct type :
-					PrevT
+				struct WidgetArguments
 				{
-					using PrevT::operator [];
-
-					inline WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::raw_type> operator [](const LinkT indx) const
+					inline WidgetArgument<ArgT, ResourceGroupT, ResourceT> operator [](const ArgT indx) const
 					{
-						return static_cast<const WidgetArguments*>(this)->resource<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::raw_type>(indx);
+						return static_cast<const WidgetArgumentsBase*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
 					}
 				};
 
-				typedef detail::Next<type> Next;
+				typedef Void WidgetCallbacks;
+
+				WidgetArguments argument;
 			};
 
-		}
 
-		namespace detail
-		{
-			template<class PrevT>
-			struct Next
-			{
-				template<class ArgT, class ResourceGroupT, class ResourceT>
-				struct To :
-					original::To<PrevT, ArgT, ResourceGroupT, ResourceT>
-				{
-
-				};
-			};
-		}
-
-		template<class PrevT, class ArgT, class RusourceGroupT, class ResourceT>
-		struct ResourceFrom:
-			original::To<PrevT, ArgT, RusourceGroupT, ResourceT>
-		{
-
-		};
-
-		namespace def_orig
-		{
 			template<class PrevT, class LinkT, class ResourceT>
-			struct Callback
+			struct Link;
+
+			template<class PrevT, class LinkT>
+			struct Link<PrevT, LinkT, PtCallback_t*>
 			{
 				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
 				typedef typename PrevT::WidgetArguments prev_widget_arguments_type;
+				typedef WidgetResourceGroupType::WidgetCallbackGroupType::callback_type resource_group_type;
 
-				struct type
-				{
-					struct WidgetCallbacks:
-						public prev_widget_callbacks_type
+				typedef LinkType<prev_widget_arguments_type, prev_widget_callbacks_type, LinkT, resource_group_type> resource_type;
+				typedef def_help::Define<resource_type> Define;
+			};
 
-					{
-						using prev_widget_callbacks_type::operator [];
+			template<class PrevT, class LinkT>
+			struct Link<PrevT, LinkT, PtRawCallback_t*>
+			{
+				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
+				typedef typename PrevT::WidgetArguments prev_widget_arguments_type;
+				typedef WidgetResourceGroupType::WidgetCallbackGroupType::raw_type resource_group_type;
 
-						inline WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::callback_type> operator [](const LinkT indx) const
-						{
-							return static_cast<const WidgetArguments*>(this)->resource<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::callback_type>(indx);
-						}
-					};
+				typedef LinkType<prev_widget_arguments_type, prev_widget_callbacks_type, LinkT, resource_group_type> resource_type;
+				typedef def_help::Define<resource_type> Define;
+			};
 
-					typedef prev_widget_arguments_type WidgetArguments;
-				};
+			template<class PrevT, class LinkT>
+			struct Link<PrevT, LinkT, PtHotkeyCallback_t*>
+			{
+				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
+				typedef typename PrevT::WidgetArguments prev_widget_arguments_type;
+				typedef WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type resource_group_type;
 
-				typedef def_help::Define<type> Define;
+				typedef LinkType<prev_widget_arguments_type, prev_widget_callbacks_type, LinkT, resource_group_type> resource_type;
+				typedef def_help::Define<resource_type> Define;
+			};
+
+
+			template<class PrevT, class LinkT, class ResourceT>
+			struct Alloc
+			{
+				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
+				typedef typename PrevT::WidgetArguments prev_widget_arguments_type;
+				typedef WidgetResourceGroupType::WidgetArgumentGroupType::alloc_type resource_group_type;
+
+				typedef ArgumentType<prev_widget_arguments_type, prev_widget_callbacks_type, LinkT, resource_group_type, ResourceT> resource_type;
+				typedef def_help::Define<resource_type> Define;
+			};
+
+			template<class PrevT, class LinkT, class ResourceT>
+			struct Array
+			{
+				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
+				typedef typename PrevT::WidgetArguments prev_widget_arguments_type;
+				typedef WidgetResourceGroupType::WidgetArgumentGroupType::array_type resource_group_type;
+
+				typedef ArgumentType<prev_widget_arguments_type, prev_widget_callbacks_type, LinkT, resource_group_type, ResourceT> resource_type;
+				typedef def_help::Define<resource_type> Define;
+			};
+
+			template<class PrevT, class LinkT, class ResourceT>
+			struct Boolean
+			{
+				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
+				typedef typename PrevT::WidgetArguments prev_widget_arguments_type;
+				typedef WidgetResourceGroupType::WidgetArgumentGroupType::boolean_type resource_group_type;
+
+				typedef ArgumentType<prev_widget_arguments_type, prev_widget_callbacks_type, LinkT, resource_group_type, ResourceT> resource_type;
+				typedef def_help::Define<resource_type> Define;
+			};
+
+			template<class PrevT, class LinkT, class ResourceT>
+			struct Color
+			{
+				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
+				typedef typename PrevT::WidgetArguments prev_widget_arguments_type;
+				typedef WidgetResourceGroupType::WidgetArgumentGroupType::color_type resource_group_type;
+
+				typedef ArgumentType<prev_widget_arguments_type, prev_widget_callbacks_type, LinkT, resource_group_type, ResourceT> resource_type;
+				typedef def_help::Define<resource_type> Define;
+			};
+
+			template<class PrevT, class LinkT, class ResourceT>
+			struct Complex
+			{
+				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
+				typedef typename PrevT::WidgetArguments prev_widget_arguments_type;
+				typedef WidgetResourceGroupType::WidgetArgumentGroupType::complex_type resource_group_type;
+
+				typedef ArgumentType<prev_widget_arguments_type, prev_widget_callbacks_type, LinkT, resource_group_type, ResourceT> resource_type;
+				typedef def_help::Define<resource_type> Define;
+			};
+
+			template<class PrevT, class LinkT, class ResourceT>
+			struct Flag
+			{
+				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
+				typedef typename PrevT::WidgetArguments prev_widget_arguments_type;
+				typedef WidgetResourceGroupType::WidgetArgumentGroupType::flag_type resource_group_type;
+
+				typedef ArgumentType<prev_widget_arguments_type, prev_widget_callbacks_type, LinkT, resource_group_type, ResourceT> resource_type;
+				typedef def_help::Define<resource_type> Define;
+			};
+
+			template<class PrevT, class LinkT, class ResourceT>
+			struct Function
+			{
+				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
+				typedef typename PrevT::WidgetArguments prev_widget_arguments_type;
+				typedef WidgetResourceGroupType::WidgetArgumentGroupType::function_type resource_group_type;
+
+				typedef ArgumentType<prev_widget_arguments_type, prev_widget_callbacks_type, LinkT, resource_group_type, ResourceT> resource_type;
+				typedef def_help::Define<resource_type> Define;
+			};
+
+			template<class PrevT, class LinkT, class ResourceT>
+			struct Image
+			{
+				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
+				typedef typename PrevT::WidgetArguments prev_widget_arguments_type;
+				typedef WidgetResourceGroupType::WidgetArgumentGroupType::image_type resource_group_type;
+
+				typedef ArgumentType<prev_widget_arguments_type, prev_widget_callbacks_type, LinkT, resource_group_type, ResourceT> resource_type;
+				typedef def_help::Define<resource_type> Define;
+			};
+
+			template<class PrevT, class LinkT, class ResourceT>
+			struct Pointer
+			{
+				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
+				typedef typename PrevT::WidgetArguments prev_widget_arguments_type;
+				typedef WidgetResourceGroupType::WidgetArgumentGroupType::pointer_type resource_group_type;
+
+				typedef ArgumentType<prev_widget_arguments_type, prev_widget_callbacks_type, LinkT, resource_group_type, ResourceT> resource_type;
+				typedef def_help::Define<resource_type> Define;
+			};
+
+			template<class PrevT, class LinkT, class ResourceT>
+			struct Scalar
+			{
+				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
+				typedef typename PrevT::WidgetArguments prev_widget_arguments_type;
+				typedef WidgetResourceGroupType::WidgetArgumentGroupType::scalar_type resource_group_type;
+
+				typedef ArgumentType<prev_widget_arguments_type, prev_widget_callbacks_type, LinkT, resource_group_type, ResourceT> resource_type;
+				typedef def_help::Define<resource_type> Define;
+			};
+
+			template<class PrevT, class LinkT, class ResourceT>
+			struct String
+			{
+				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
+				typedef typename PrevT::WidgetArguments prev_widget_arguments_type;
+				typedef WidgetResourceGroupType::WidgetArgumentGroupType::string_type resource_group_type;
+
+				typedef ArgumentType<prev_widget_arguments_type, prev_widget_callbacks_type, LinkT, resource_group_type, ResourceT> resource_type;
+				typedef def_help::Define<resource_type> Define;
+			};
+
+			template<class PrevT, class LinkT, class ResourceT>
+			struct Struct
+			{
+				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
+				typedef typename PrevT::WidgetArguments prev_widget_arguments_type;
+				typedef WidgetResourceGroupType::WidgetArgumentGroupType::struct_type resource_group_type;
+
+				typedef ArgumentType<prev_widget_arguments_type, prev_widget_callbacks_type, LinkT, resource_group_type, ResourceT> resource_type;
+				typedef def_help::Define<resource_type> Define;
 			};
 		}
 
 		namespace def_help
 		{
+			struct VoidPrevType
+			{
+				typedef Void WidgetCallbacks;
+				typedef Void WidgetArguments;
+			};
+
 			template<class PrevT>
 			struct Define
 			{
-				template<class ArgT, class ResourceT>
-				struct Callback :
-					def_orig::Callback<PrevT, ArgT, ResourceT>
-				{
+				template<class LinkT, class ResourceT>
+				struct Link : def_orig::Link<PrevT, LinkT, ResourceT> {};
 
-				};
+				template<class ArgT, class ResourceT>
+				struct Alloc : def_orig::Alloc<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Array : def_orig::Array<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Boolean : def_orig::Boolean<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Color : def_orig::Color<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Complex : def_orig::Complex<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Flag : def_orig::Flag<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Function : def_orig::Function<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Image : def_orig::Image<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Pointer : def_orig::Pointer<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Scalar : def_orig::Scalar<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct String : def_orig::String<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Struct : def_orig::Struct<PrevT, ArgT, ResourceT> {};
 			};
 		}
 
 
-		template<class PrevT>
-		struct DefineResourcesSingleton:
-			public def_help::Define<PrevT>
+		template<class PrevT = Void>
+		struct ResourceFrom
 		{
-
+			struct Define:
+				def_help::Define<PrevT>
+			{};
 
 		};
 
-		def_callback::op<Callbacks::eCallback>::
-			def_string::op<Arguments::ePConstChar>::
-			singleton_type;
+		template<>
+		struct ResourceFrom<Void>
+		{
+			struct Define :
+				def_help::Define<def_help::VoidPrevType>
+			{};
 
+		};
+
+		void test_func()
+		{
+			ResourceFrom<>::
+				Define::Link<int, PtCallback_t*>::
+				Define::Link<float, PtCallback_t*>::
+				Define::Scalar<int, float>::
+			resource_type t;
+
+			t.callback.operator[](0.f);
+			t.argument.operator[](10).set("f");
+		}
+
+		
 
 	}
 }
