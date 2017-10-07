@@ -410,11 +410,35 @@ namespace PhWidgets
 			~WidgetArgument()
 			{}
 
-
-			template<typename T>
-			inline int set(T color)
+			inline int set(resource_type color)
 			{
-				return setColor(reinterpret_cast<const void*>(static_cast<PgColor_t>(color)));
+				return setColor(color);
+			}
+
+			inline resource_type get()
+			{
+				return getScalar<PgColor_t>();
+			}
+
+		};
+
+		template<typename ArgT>
+		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::color_type, void> :
+			private WidgetResourceBase<ArgT>
+		{
+			typedef WidgetResourceGroupType::WidgetArgumentGroupType::color_type resource_group_type;
+			typedef PgColor_t resource_type;
+
+			WidgetArgument(IPtWidget *widget, ArgT arg) :
+				WidgetResourceBase<ArgT>(widget, arg)
+			{}
+
+			~WidgetArgument()
+			{}
+
+			inline int set(resource_type color)
+			{
+				return setColor(color);
 			}
 
 			inline resource_type get()
@@ -634,7 +658,7 @@ namespace PhWidgets
 			inline resource_type* get(resource_type &ptr) { return &ptr; }
 		};
 
-		class WidgetArgumentsBase
+		struct WidgetArgumentsBase
 		{
 			//friend class WidgetResourcesSingleton;			
 
@@ -924,7 +948,7 @@ namespace PhWidgets
 			}
 		};
 
-		class WidgetCallbacksBase
+		struct WidgetCallbacksBase
 		{
 
 		protected:
@@ -948,10 +972,6 @@ namespace PhWidgets
 
 		};
 
-		struct Void
-		{
-		};
-
 		namespace def_orig
 		{
 			template< class WidgetArgumentsT, class WidgetCallbacksT, class LinkT, class ResourceGroupT >
@@ -967,23 +987,22 @@ namespace PhWidgets
 					{
 						return static_cast<const WidgetCallbacksBase*>(this)->resource<LinkT, ResourceGroupT>(indx);
 					}
-				};
 
-				typedef WidgetArgumentsT WidgetArguments;
+				protected:
 
-				WidgetArguments argument;
-				WidgetCallbacks callback;
-			};
 
-			template< class WidgetArgumentsT, class LinkT, class ResourceGroupT >
-			struct LinkType<WidgetArgumentsT, Void, LinkT, ResourceGroupT>
-			{
-				struct WidgetCallbacks
-				{
+					friend class LinkType<WidgetArgumentsT, WidgetCallbacksT, LinkT, ResourceGroupT>;
 
-					inline WidgetCallback<LinkT, ResourceGroupT> operator [](const LinkT indx) const
+					template<class, class, class, class, class>
+					friend class ArgumentType;
+
+					WidgetCallbacks(IPtWidget *widget) :
+						WidgetCallbacksT(widget)
 					{
-						return static_cast<const WidgetCallbacksBase*>(this)->resource<LinkT, ResourceGroupT>(indx);
+					}
+
+					~WidgetCallbacks()
+					{
 					}
 				};
 
@@ -991,10 +1010,63 @@ namespace PhWidgets
 
 				WidgetArguments argument;
 				WidgetCallbacks callback;
+
+				LinkType(IPtWidget *widget) :
+					argument(widget),
+					callback(widget)
+				{}
+
+
+			private:
+				LinkType(const LinkType&);
+			};
+
+			template< class WidgetArgumentsT, class LinkT, class ResourceGroupT >
+			struct LinkType<WidgetArgumentsT, WidgetCallbacksBase, LinkT, ResourceGroupT>
+			{
+				struct WidgetCallbacks:
+					private WidgetCallbacksBase
+				{
+
+					inline WidgetCallback<LinkT, ResourceGroupT> operator [](const LinkT indx) const
+					{
+						return static_cast<const WidgetCallbacksBase*>(this)->resource<LinkT, ResourceGroupT>(indx);
+					}
+
+				protected:
+
+					friend class LinkType<WidgetArgumentsT, WidgetCallbacksBase, LinkT, ResourceGroupT>;
+
+					template<class, class, class, class, class>
+					friend class ArgumentType;
+
+					WidgetCallbacks(IPtWidget *widget) :
+						WidgetCallbacksBase(widget)
+					{
+					}
+
+					~WidgetCallbacks()
+					{
+					}
+				};
+
+				typedef WidgetArgumentsT WidgetArguments;
+
+				WidgetArguments argument;
+				WidgetCallbacks callback;
+
+				LinkType(IPtWidget *widget) :
+					argument(widget),
+					callback(widget)
+				{}
+
+
+			private:
+				LinkType(const LinkType&);
 			};
 
 			template< class WidgetCallbacksT, class LinkT, class ResourceGroupT >
-			struct LinkType<Void, WidgetCallbacksT, LinkT, ResourceGroupT>
+			struct LinkType<WidgetArgumentsBase, WidgetCallbacksT, LinkT, ResourceGroupT>
 			{
 				struct WidgetCallbacks :
 					public WidgetCallbacksT
@@ -1006,28 +1078,77 @@ namespace PhWidgets
 					{
 						return static_cast<const WidgetCallbacksBase*>(this)->resource<LinkT, ResourceGroupT>(indx);
 					}
+
+				protected:
+
+					friend class LinkType<WidgetArgumentsBase, WidgetCallbacksT, LinkT, ResourceGroupT>;
+
+					template<class, class, class, class, class>
+					friend class ArgumentType;
+
+					WidgetCallbacks(IPtWidget *widget) :
+						WidgetCallbacksT(widget)
+					{
+					}
+
+					~WidgetCallbacks()
+					{
+					}
 				};
 
-				typedef Void WidgetArguments;
+				typedef WidgetArgumentsBase WidgetArguments;
 
 				WidgetCallbacks callback;
+
+				LinkType(IPtWidget *widget) :
+					callback(widget)
+				{}
+
+
+			private:
+				LinkType(const LinkType&);
 			};
 
 			template< class LinkT, class ResourceGroupT >
-			struct LinkType<Void, Void, LinkT, ResourceGroupT>
+			struct LinkType<WidgetArgumentsBase, WidgetCallbacksBase, LinkT, ResourceGroupT>
 			{
-				struct WidgetCallbacks
+				struct WidgetCallbacks:
+					private WidgetCallbacksBase
 				{
 
 					inline WidgetCallback<LinkT, ResourceGroupT> operator [](const LinkT indx) const
 					{
 						return static_cast<const WidgetCallbacksBase*>(this)->resource<LinkT, ResourceGroupT>(indx);
 					}
+
+				protected:
+
+					friend class LinkType<WidgetArgumentsBase, WidgetCallbacksBase, LinkT, ResourceGroupT>;
+
+					template<class, class, class, class, class>
+					friend class ArgumentType;
+
+					WidgetCallbacks(IPtWidget *widget) :
+						WidgetCallbacksBase(widget)
+					{
+					}
+
+					~WidgetCallbacks()
+					{
+					}
 				};
 
-				typedef Void WidgetArguments;
+				typedef WidgetArgumentsBase WidgetArguments;
 
 				WidgetCallbacks callback;
+
+				LinkType(IPtWidget *widget) :
+					callback(widget)
+				{}
+
+
+			private:
+				LinkType(const LinkType&);
 			};
 
 
@@ -1045,22 +1166,21 @@ namespace PhWidgets
 					{
 						return static_cast<const WidgetArgumentsBase*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
 					}
-				};
 
-				typedef WidgetCallbacksT WidgetCallbacks;
+				protected:
 
-				WidgetArguments argument;
-				WidgetCallbacks callback;
-			};
+					friend class ArgumentType<WidgetArgumentsT, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT>;
 
-			template< class WidgetCallbacksT, class ArgT, class ResourceGroupT, class ResourceT >
-			struct ArgumentType<Void, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT>
-			{
-				struct WidgetArguments
-				{
-					inline WidgetArgument<ArgT, ResourceGroupT, ResourceT> operator [](const ArgT indx) const
+					template<class, class, class, class>
+					friend class LinkType;
+
+					WidgetArguments(IPtWidget *widget) :
+						WidgetArgumentsT(widget)
 					{
-						return static_cast<const WidgetArgumentsBase*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
+					}
+
+					~WidgetArguments()
+					{
 					}
 				};
 
@@ -1068,10 +1188,62 @@ namespace PhWidgets
 
 				WidgetArguments argument;
 				WidgetCallbacks callback;
+
+				ArgumentType(IPtWidget *widget) :
+					argument(widget),
+					callback(widget)
+				{}
+
+
+			private:
+				ArgumentType(const ArgumentType&);
+			};
+
+			template< class WidgetCallbacksT, class ArgT, class ResourceGroupT, class ResourceT >
+			struct ArgumentType<WidgetArgumentsBase, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT>
+			{
+				struct WidgetArguments:
+					private WidgetArgumentsBase
+				{
+					inline WidgetArgument<ArgT, ResourceGroupT, ResourceT> operator [](const ArgT indx) const
+					{
+						return static_cast<const WidgetArgumentsBase*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
+					}
+
+				protected:
+
+					friend class ArgumentType<WidgetArgumentsBase, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT>;
+
+					template<class, class, class, class>
+					friend class LinkType;
+
+					WidgetArguments(IPtWidget *widget) :
+						WidgetArgumentsBase(widget)
+					{
+					}
+
+					~WidgetArguments()
+					{
+					}
+				};
+
+				typedef WidgetCallbacksT WidgetCallbacks;
+
+				WidgetArguments argument;
+				WidgetCallbacks callback;
+
+				ArgumentType(IPtWidget *widget) :
+					argument(widget),
+					callback(widget)
+				{}
+
+
+			private:
+				ArgumentType(const ArgumentType&);
 			};
 
 			template< class WidgetArgumentsT, class ArgT, class ResourceGroupT, class ResourceT >
-			struct ArgumentType<WidgetArgumentsT, Void, ArgT, ResourceGroupT, ResourceT>
+			struct ArgumentType<WidgetArgumentsT, WidgetCallbacksBase, ArgT, ResourceGroupT, ResourceT>
 			{
 				struct WidgetArguments :
 					public WidgetArgumentsT
@@ -1083,27 +1255,76 @@ namespace PhWidgets
 					{
 						return static_cast<const WidgetArgumentsBase*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
 					}
+
+				protected:
+
+					friend class ArgumentType<WidgetArgumentsT, WidgetCallbacksBase, ArgT, ResourceGroupT, ResourceT>;
+
+					template<class, class, class, class>
+					friend class LinkType;
+
+					WidgetArguments(IPtWidget *widget) :
+						WidgetArgumentsT(widget)
+					{
+					}
+
+					~WidgetArguments()
+					{
+					}
 				};
 
-				typedef Void WidgetCallbacks;
+				typedef WidgetCallbacksBase WidgetCallbacks;
 
 				WidgetArguments argument;
+
+				ArgumentType(IPtWidget *widget) :
+					argument(widget)
+				{}
+
+
+			private:
+				ArgumentType(const ArgumentType&);
 			};
 
 			template< class ArgT, class ResourceGroupT, class ResourceT >
-			struct ArgumentType<Void, Void, ArgT, ResourceGroupT, ResourceT>
+			struct ArgumentType<WidgetArgumentsBase, WidgetCallbacksBase, ArgT, ResourceGroupT, ResourceT>
 			{
-				struct WidgetArguments
+				struct WidgetArguments:
+					private WidgetArgumentsBase
 				{
 					inline WidgetArgument<ArgT, ResourceGroupT, ResourceT> operator [](const ArgT indx) const
 					{
 						return static_cast<const WidgetArgumentsBase*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
 					}
+
+				protected:
+
+					friend class ArgumentType<WidgetArgumentsBase, WidgetCallbacksBase, ArgT, ResourceGroupT, ResourceT>;
+
+					template<class, class, class, class>
+					friend class LinkType;
+
+					WidgetArguments(IPtWidget *widget) :
+						WidgetArgumentsBase(widget)
+					{
+					}
+
+					~WidgetArguments()
+					{
+					}
 				};
 
-				typedef Void WidgetCallbacks;
+				typedef WidgetCallbacksBase WidgetCallbacks;
 
 				WidgetArguments argument;
+
+				ArgumentType(IPtWidget *widget) :
+					argument(widget)
+				{}
+
+
+			private:
+				ArgumentType(const ArgumentType&);
 			};
 
 
@@ -1144,7 +1365,7 @@ namespace PhWidgets
 			};
 
 
-			template<class PrevT, class LinkT, class ResourceT>
+			template<class PrevT, class LinkT, class ResourceT = void>
 			struct Alloc
 			{
 				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
@@ -1177,7 +1398,7 @@ namespace PhWidgets
 				typedef def_help::Define<resource_type> Define;
 			};
 
-			template<class PrevT, class LinkT, class ResourceT>
+			template<class PrevT, class LinkT, class ResourceT = void>
 			struct Color
 			{
 				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
@@ -1254,7 +1475,7 @@ namespace PhWidgets
 				typedef def_help::Define<resource_type> Define;
 			};
 
-			template<class PrevT, class LinkT, class ResourceT>
+			template<class PrevT, class LinkT, class ResourceT = void>
 			struct String
 			{
 				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
@@ -1279,10 +1500,10 @@ namespace PhWidgets
 
 		namespace def_help
 		{
-			struct VoidPrevType
+			struct BasePrevType
 			{
-				typedef Void WidgetCallbacks;
-				typedef Void WidgetArguments;
+				typedef WidgetCallbacksBase WidgetCallbacks;
+				typedef WidgetArgumentsBase WidgetArguments;
 			};
 
 			template<class PrevT>
@@ -1291,7 +1512,7 @@ namespace PhWidgets
 				template<class LinkT, class ResourceT>
 				struct Link : def_orig::Link<PrevT, LinkT, ResourceT> {};
 
-				template<class ArgT, class ResourceT>
+				template<class ArgT, class ResourceT = void>
 				struct Alloc : def_orig::Alloc<PrevT, ArgT, ResourceT> {};
 
 				template<class ArgT, class ResourceT>
@@ -1300,7 +1521,7 @@ namespace PhWidgets
 				template<class ArgT, class ResourceT>
 				struct Boolean : def_orig::Boolean<PrevT, ArgT, ResourceT> {};
 
-				template<class ArgT, class ResourceT>
+				template<class ArgT, class ResourceT = void>
 				struct Color : def_orig::Color<PrevT, ArgT, ResourceT> {};
 
 				template<class ArgT, class ResourceT>
@@ -1321,7 +1542,7 @@ namespace PhWidgets
 				template<class ArgT, class ResourceT>
 				struct Scalar : def_orig::Scalar<PrevT, ArgT, ResourceT> {};
 
-				template<class ArgT, class ResourceT>
+				template<class ArgT, class ResourceT = void>
 				struct String : def_orig::String<PrevT, ArgT, ResourceT> {};
 
 				template<class ArgT, class ResourceT>
@@ -1330,39 +1551,18 @@ namespace PhWidgets
 		}
 
 
-		template<class PrevT = Void>
-		struct ResourceFrom
-		{
-			struct Define:
-				def_help::Define<PrevT>
-			{};
-
-		};
-
-		template<>
-		struct ResourceFrom<Void>
-		{
-			struct Define :
-				def_help::Define<def_help::VoidPrevType>
-			{};
-
-		};
-
-		void test_func()
-		{
-			ResourceFrom<>::
-				Define::Link<int, PtCallback_t*>::
-				Define::Link<float, PtCallback_t*>::
-				Define::Scalar<int, float>::
-			resource_type t;
-
-			t.callback.operator[](0.f);
-			t.argument.operator[](10).set("f");
-		}
-
 		
 
 	}
+
+	template<class PrevT = detail::def_help::BasePrevType>
+	struct ResourceFrom
+	{
+		struct Define :
+			detail::def_help::Define<PrevT>
+		{};
+
+	};
 }
 
 #endif // WIDGET_RESOURCE_HPP

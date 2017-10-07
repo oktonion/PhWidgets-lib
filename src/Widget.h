@@ -24,51 +24,6 @@
 	typedef struct Ph_rect   PhRect_t;
 #endif
 
-
-#define DEFINE_ARGUMENT_OPERATOR(ArgT, ResourceGroupT, ResourceT)\
-	detail::DefineArgument<ArgT, WidgetResourceGroupType::##ResourceGroupT, ResourceT>
-
-#define DEFINE_CALLBACK_OPERATOR(LinkT, ResourceGroupT)\
-	detail::DefineCallback<LinkT, WidgetResourceGroupType::##ResourceGroupT>
-
-#define INIT_DISABLED ;
-
-
-#define DEFINE_OPERATOR_Alloc(ArgT) DEFINE_ARGUMENT_OPERATOR(ThisArgs::##ArgT##::e##ArgT, alloc_type, void)
-
-#define DEFINE_OPERATOR_Array(ArgT) INIT_DISABLED
-#define DEFINE_OPERATOR_Boolean(ArgT) INIT_DISABLED
-
-#define DEFINE_OPERATOR_Color(ArgT, T1) DEFINE_ARGUMENT_OPERATOR(ThisArgs::##ArgT##::e##ArgT, color_type, T1)
-
-#define DEFINE_OPERATOR_Complex(ArgT) INIT_DISABLED
-
-#define DEFINE_OPERATOR_Flag(ArgT, T1) DEFINE_ARGUMENT_OPERATOR(ThisArgs::##ArgT##::e##ArgT, color_type, T1)
-
-#define DEFINE_OPERATOR_Function(ArgT) INIT_DISABLED
-#define DEFINE_OPERATOR_Image(ArgT) INIT_DISABLED
-
-#define DEFINE_OPERATOR_Link_PtCallback_t(LinkT) DEFINE_CALLBACK_OPERATOR(ThisCallbacks::##LinkT##::e##LinkT, callback_type)
-
-#define DEFINE_OPERATOR_Link_PtRawCallback_t(LinkT) DEFINE_CALLBACK_OPERATOR(ThisCallbacks::##LinkT##::e##LinkT, callback_raw_type)
-
-#define DEFINE_OPERATOR_Link_PtHotkeyCallback_t(LinkT) DEFINE_CALLBACK_OPERATOR(ThisCallbacks::##LinkT##::e##LinkT, callback_hotkey_type)
-
-#define DEFINE_OPERATOR_Link(LinkT, T1) DEFINE_OPERATOR_Link_##T1(LinkT)
-
-
-#define DEFINE_OPERATOR_Pointer(ArgT) INIT_DISABLED
-
-
-#define DEFINE_OPERATOR_Scalar(ArgT, T1) DEFINE_ARGUMENT_OPERATOR(ThisArgs::##ArgT##::e##ArgT, scalar_type, T1)
-
-#define DEFINE_OPERATOR_String(ArgT) DEFINE_ARGUMENT_OPERATOR(ThisArgs::##ArgT##::e##ArgT, string_type, void)
-
-#define DEFINE_OPERATOR_Struct(ArgT, T1) DEFINE_ARGUMENT_OPERATOR(ThisArgs::##ArgT##::e##ArgT, struct_type, T1)
-
-#define DEFINE_OPERATOR0(ArgT, PtType) DEFINE_OPERATOR_##PtType(ArgT)
-#define DEFINE_OPERATOR1(ArgT, T1, PtType) DEFINE_OPERATOR_##PtType(ArgT, T1)
-
 namespace PhWidgets
 {
 	using namespace cppproperties;
@@ -445,74 +400,27 @@ namespace PhWidgets
 		{
 		};
 
-		class WidgetArguments :
-			public detail::WidgetArguments,
-			DEFINE_OPERATOR0(ArgPChar, String),
-			DEFINE_OPERATOR0(ArgPVoid, Alloc),
-			DEFINE_OPERATOR1(ArgColor, PgColor_t, Color),
-			DEFINE_OPERATOR1(ArgPCursorDef, PhCursorDef_t, Struct),
-			DEFINE_OPERATOR1(ArgPGridLayoutData, PtGridLayoutData_t, Struct),
-			DEFINE_OPERATOR1(ArgPoint, PhPoint_t, Struct),
-			DEFINE_OPERATOR1(ArgPRowLayoutData, PtRowLayoutData_t, Struct),
-			DEFINE_OPERATOR1(ArgArea, PhArea_t, Struct),
-			DEFINE_OPERATOR1(ArgRect, PhRect_t, Struct),
-			DEFINE_OPERATOR1(ArgUnsignedShort, unsigned short, Scalar),
-			DEFINE_OPERATOR1(ArgDim, PhDim_t, Struct),
-			DEFINE_OPERATOR1(ArgLong, long, Flag),
-			DEFINE_OPERATOR1(ArgUnsignedLong, unsigned long, Flag),
-			DEFINE_OPERATOR1(ArgUnsigned, unsigned, Flag)
-		{
-			template<class ArgumentsT, class CallbacksT>
-			friend class WidgetResourcesSingleton;
+		typedef ResourceFrom<>::
+			Define::String<ArgPChar::eArgPChar>::
+			Define::Alloc<ArgPVoid::eArgPVoid>::
+			Define::Color<ArgColor::eArgColor>::
+			Define::Struct<ArgPCursorDef::eArgPCursorDef, PhCursorDef_t>::
+			Define::Struct<ArgPGridLayoutData::eArgPGridLayoutData, PtGridLayoutData_t>::
+			Define::Struct<ArgPoint::eArgPoint, PhPoint_t>::
+			Define::Struct<ArgPRowLayoutData::eArgPRowLayoutData, PtRowLayoutData_t>::
+			Define::Struct<ArgArea::eArgArea, PhArea_t>::
+			Define::Struct<ArgRect::eArgRect, PhRect_t>::
+			Define::Scalar<ArgUnsignedShort::eArgUnsignedShort, unsigned short>::
+			Define::Struct<ArgDim::eArgDim, PhDim_t>::
+			Define::Flag<ArgLong::eArgLong, long>::
+			Define::Flag<ArgUnsignedLong::eArgUnsignedLong, unsigned long>::
+			Define::Flag<ArgUnsigned::eArgUnsigned, unsigned>::
 
-		protected:
-			WidgetArguments(Widget *widget) :
-				detail::WidgetArguments(widget)
-			{
-			}
+			Define::Link<Callback::eCallback, PtCallback_t*>::
+			Define::Link<RawCallback::eRawCallback, PtRawCallback_t*>::
+			Define::Link<HotkeyCallback::eHotkeyCallback, PtHotkeyCallback_t*>::
 
-			~WidgetArguments()
-			{
-			}
-		};
-
-		class WidgetCallbacks :
-			public detail::WidgetCallbacks,
-			DEFINE_OPERATOR1(Callback, PtCallback_t, Link),
-			DEFINE_OPERATOR1(RawCallback, PtRawCallback_t, Link),
-			DEFINE_OPERATOR1(HotkeyCallback, PtHotkeyCallback_t, Link)
-		{
-			template<class ArgumentsT, class CallbacksT>
-			friend class WidgetResourcesSingleton;
-
-		protected:
-			WidgetCallbacks(Widget *widget) :
-				detail::WidgetCallbacks(widget)
-			{
-			}
-
-			~WidgetCallbacks()
-			{
-			}
-		};
-
-		template<class ArgumentsT, class CallbacksT>
-		class WidgetResourcesSingleton
-		{	
-		public:
-
-			WidgetResourcesSingleton(Widget *widget):
-				argument(widget),
-				callback(widget)
-			{}
-
-			ArgumentsT argument;
-			CallbacksT callback;
-
-		private:
-			WidgetResourcesSingleton(const WidgetResourcesSingleton &rhs);
-				
-		};
+		resource_type WidgetResourcesSingleton;
 	
 		PtWidget_t *widget() const;
 		virtual void check();
@@ -557,7 +465,7 @@ namespace PhWidgets
 		operator PtWidget_t*();
 		operator const PtWidget_t*() const;
 
-		WidgetResourcesSingleton<WidgetArguments, WidgetCallbacks> resource;
+		WidgetResourcesSingleton resource;
 	
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>					Enabled;
 		property<unsigned short>::bind<Widget, &Widget::getWidth, &Widget::setWidth>			Width;

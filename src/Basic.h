@@ -106,7 +106,6 @@ namespace PhWidgets
 			public ArgumentsEx<Widget::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort
 		{
-			using Widget::ArgUnsignedShort::eArgUnsignedShort;
 			using ThisArgs::ArgUnsignedShort::eArgUnsignedShort;
 		};
 			
@@ -114,7 +113,6 @@ namespace PhWidgets
 			public ArgumentsEx<Widget::ArgUnsignedLong>,
 			public ThisArgs::ArgUnsignedLong
 		{
-			using Widget::ArgUnsignedLong::eArgUnsignedLong;
 			using ThisArgs::ArgUnsignedLong::eArgUnsignedLong;
 		};
 
@@ -122,7 +120,6 @@ namespace PhWidgets
 			public ArgumentsEx<Widget::ArgColor>,
 			public ThisArgs::ArgColor
 		{
-			using Widget::ArgColor::eArgColor;
 			using ThisArgs::ArgColor::eArgColor;
 		};
 
@@ -145,7 +142,6 @@ namespace PhWidgets
 			public ArgumentsEx<Widget::ArgPChar>,
 			public ThisArgs::ArgPChar
 		{
-			using Widget::ArgPChar::eArgPChar;
 			using ThisArgs::ArgPChar::eArgPChar;
 		};	
 
@@ -153,6 +149,7 @@ namespace PhWidgets
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Widget::Callback
 		{
+			using ThisCallbacks::Callback::eCallback;
 		};
 
 		struct Arguments:
@@ -174,51 +171,20 @@ namespace PhWidgets
 		};
 
 	protected:
-		class WidgetArguments :
-			public Widget::WidgetArguments
-		{
-			template<class ArgumentsT, class CallbacksT>
-			friend class WidgetResourcesSingleton;
 
-		public:
-			DEFINE_OPERATOR0(ArgPChar, String)
-			//DEFINE_OPERATOR0(Basic::ThisArgs::ArgPVoid::eArgPVoid, Alloc);
+		typedef ResourceFrom<Widget::WidgetResourcesSingleton>::
+			Define::String<ArgPChar::eArgPChar>::
+			Define::Color<ArgColor::eArgColor>::
+			Define::Scalar<ArgUnsignedShort::eArgUnsignedShort, unsigned short>::
+			Define::Scalar<ArgChar::eArgChar, char>::
+			Define::Flag<ArgLong::eArgLong, long>::
+			Define::Flag<ArgUnsignedLong::eArgUnsignedLong, unsigned long>::
+			Define::Flag<ArgUnsigned::eArgUnsigned, unsigned>::
 
-			DEFINE_OPERATOR1(ArgColor, PgColor_t, Color)
-			DEFINE_OPERATOR1(ArgUnsignedShort, unsigned short, Scalar)
-			DEFINE_OPERATOR1(ArgChar, char, Scalar)
-			DEFINE_OPERATOR1(ArgUnsignedLong, unsigned long, Flag)
+			Define::Link<Callback::eCallback, PtCallback_t*>::
 
-		protected:
-			WidgetArguments(Widget *widget) :
-				Widget::WidgetArguments(widget)
-			{
-			}
+		resource_type WidgetResourcesSingleton;
 
-			~WidgetArguments()
-			{
-			}
-		};
-
-		class WidgetCallbacks :
-			public Widget::WidgetCallbacks
-		{
-			template<class ArgumentsT, class CallbacksT>
-			friend class WidgetResourcesSingleton;
-
-		public:
-			DEFINE_OPERATOR1(Callback, PtCallback_t, Link)
-
-		protected:
-			WidgetCallbacks(Widget *widget) :
-				Widget::WidgetCallbacks(widget)
-			{
-			}
-
-			~WidgetCallbacks()
-			{
-			}
-		};
 		virtual void check();
 
 		void setColor(PgColor_t);
@@ -235,7 +201,7 @@ namespace PhWidgets
 
 		Basic &operator=(const Basic &rhs);
 
-		WidgetResourcesSingleton<WidgetArguments, WidgetCallbacks> resource;
+		WidgetResourcesSingleton resource;
 		
 		property<PgColor_t>::bind<Basic, &Basic::getColor, &Basic::setColor> Color;
 		property<PgColor_t>::bind<Basic, &Basic::getFillColor, &Basic::setFillColor> FillColor;
