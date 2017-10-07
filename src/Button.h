@@ -76,8 +76,8 @@ namespace PhWidgets
 	protected:
 		typedef ResourceFrom<Label::WidgetResourcesSingleton>::
 			//Define::Image<ArgPImage::eArgPImage>:: // not implemented
-			Define::Color<ArgColor::eArgColor>::
-			Define::Scalar<ArgUnsignedChar::eArgUnsignedChar, unsigned char>::
+			Define::Color<ThisArgs::ArgColor::eArgColor>::
+			Define::Scalar<ThisArgs::ArgUnsignedChar::eArgUnsignedChar, unsigned char>::
 
 		resource_type WidgetResourcesSingleton;
 

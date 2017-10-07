@@ -63,9 +63,9 @@ namespace PhWidgets
 		
 	protected:
 		typedef ResourceFrom<Button::WidgetResourcesSingleton>::
-			Define::Scalar<ArgBool::eArgBool, bool>::
+			Define::Scalar<ThisArgs::ArgBool::eArgBool, bool>::
 
-			Define::Link<Callback::eCallback, PtCallback_t*>::
+			Define::Link<ThisCallbacks::Callback::eCallback, PtCallback_t*>::
 
 		resource_type WidgetResourcesSingleton;
 

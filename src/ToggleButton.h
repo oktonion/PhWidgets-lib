@@ -40,7 +40,7 @@ namespace PhWidgets
 			public ArgumentsEx<Button::ArgUnsignedChar>,
 			public ThisArgs::ArgUnsignedChar
 		{
-			using Button::ArgUnsignedChar::eArgUnsignedChar;
+			using ThisArgs::ArgUnsignedChar::eArgUnsignedChar;
 		};
 
 			
@@ -49,7 +49,7 @@ namespace PhWidgets
 			public ArgumentsEx<Button::ArgColor>,
 			public ThisArgs::ArgColor
 		{
-			using Button::ArgColor::eArgColor;
+			using ThisArgs::ArgColor::eArgColor;
 		};
 
 		struct Arguments:
@@ -64,8 +64,8 @@ namespace PhWidgets
 	
 	protected:
 		typedef ResourceFrom<Button::WidgetResourcesSingleton>::
-			Define::Scalar<ArgUnsignedChar::eArgUnsignedChar, unsigned char>::
-			Define::Color<ArgColor::eArgColor>::
+			Define::Scalar<ThisArgs::ArgUnsignedChar::eArgUnsignedChar, unsigned char>::
+			Define::Color<ThisArgs::ArgColor::eArgColor>::
 
 		resource_type WidgetResourcesSingleton;
 

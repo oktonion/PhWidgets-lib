@@ -72,9 +72,9 @@ namespace PhWidgets
 		};
 
 		typedef ResourceFrom<Compound::WidgetResourcesSingleton>::
-			Define::String<ArgPChar::eArgPChar>::
-			Define::Scalar<ArgUnsignedShort::eArgUnsignedShort, unsigned short>::
-			Define::Flag<ArgUnsignedShort::eArgUnsignedShortFlag, unsigned short>::
+			Define::String<ThisArgs::ArgPChar::eArgPChar>::
+			Define::Scalar<ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short>::
+			Define::Flag<ThisArgs::ArgUnsignedShortFlag::eArgUnsignedShortFlag, unsigned short>::
 
 		resource_type WidgetResourcesSingleton;
 

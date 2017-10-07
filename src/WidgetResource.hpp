@@ -2,7 +2,9 @@
 #define WIDGET_RESOURCE_HPP
 
 #include <photon/PhT.h>
+#include <photon/PtWidget.h>
 
+#include "./service/stdex/stdex.h"
 #include "./WidgetEvents.h"
 #include "./WidgetKeys.h"
 
@@ -59,6 +61,7 @@ namespace PhWidgets
 		
 		class IPtWidget
 		{
+		public:
 			virtual PtWidget_t *widget() const = 0;
 		};
 
@@ -70,7 +73,7 @@ namespace PhWidgets
 			ArgT _arg;
 			IPtWidget *_rwidget;
 
-			WidgetResourceBase(IPtIPtWidget *widget, ArgT arg) :
+			WidgetResourceBase(IPtWidget *widget, ArgT arg) :
 				_arg(arg),
 				_rwidget(widget)
 			{}
@@ -80,9 +83,9 @@ namespace PhWidgets
 				return PtSetResource(_rwidget->widget(), _arg, scval, 0);
 			}
 
-			inline int setColor(const void *color)
+			inline int setColor(PgColor_t color)
 			{
-				return setScalar(color);
+				return setScalar(reinterpret_cast<const void*>(color));
 			}
 
 			inline int setString(const char *str)
@@ -323,17 +326,18 @@ namespace PhWidgets
 
 			inline int set(const void *pdata, size_t size)
 			{
-				return setAlloc(&pdata, size);
+				return this->setAlloc(&pdata, size);
 			}
 
 			inline int set(const void *pdata)
 			{
-				return setPointer(pdata);
+				return this->setPointer(pdata);
 			}
 
-			inline const void* get()
+			inline const void* get() const
 			{
-				return getAlloc<const void*>();
+				//return this->getAlloc<const void>();
+				return nullptr;
 			}
 
 		};
@@ -355,17 +359,18 @@ namespace PhWidgets
 
 			inline int set(const void *pdata, size_t size)
 			{
-				return setAlloc(&pdata, size);
+				return this->setAlloc(&pdata, size);
 			}
 
 			inline int set(const void *pdata)
 			{
-				return setPointer(pdata);
+				return this->setPointer(pdata);
 			}
 
-			inline const void* get()
+			inline const void* get() const
 			{
-				return getAlloc<const void*>();
+				//return this->getAlloc<const void>();
+				return nullptr;
 			}
 
 		};
@@ -412,12 +417,13 @@ namespace PhWidgets
 
 			inline int set(resource_type color)
 			{
-				return setColor(color);
+				return this->setColor(color);
 			}
 
-			inline resource_type get()
+			inline resource_type get() const
 			{
-				return getScalar<PgColor_t>();
+				//return this->getScalar<PgColor_t>();
+				return resource_type();
 			}
 
 		};
@@ -438,12 +444,13 @@ namespace PhWidgets
 
 			inline int set(resource_type color)
 			{
-				return setColor(color);
+				return this->setColor(color);
 			}
 
-			inline resource_type get()
+			inline resource_type get() const
 			{
-				return getScalar<PgColor_t>();
+				//return this->getScalar<PgColor_t>();
+				return resource_type();
 			}
 
 		};
@@ -482,16 +489,17 @@ namespace PhWidgets
 			template<typename A1, typename A2>
 			inline int set(A1 flag, A2 mask)
 			{
-				return setFlag(flag, static_cast<typename flag_detail::mask_type<A2>::type>(mask));
+				return this->setFlag(flag, static_cast<typename flag_detail::mask_type<A2>::type>(mask));
 			}
 
-			inline resource_type get()
+			inline resource_type get() const
 			{
-				return getScalar<resource_type>();
+				//return this->getScalar<resource_type>();
+				return resource_type();
 			}
 
 			template<typename A1>
-			inline bool get(A1 flag)
+			inline bool get(A1 flag) const
 			{
 				return ((get() & flag) == flag);
 			}
@@ -546,12 +554,13 @@ namespace PhWidgets
 			template<typename T>
 			inline int set(T value)
 			{
-				return setScalar(reinterpret_cast<const void*>(static_cast<resource_type>(value)));
+				return this->setScalar(reinterpret_cast<const void*>(static_cast<resource_type>(value)));
 			}
 
-			inline resource_type get()
+			inline resource_type get() const
 			{
-				return getScalar<resource_type>();
+				//return this->getScalar<resource_type>();
+				return resource_type();
 			}
 		};
 
@@ -574,12 +583,13 @@ namespace PhWidgets
 
 			inline int set(const char *str)
 			{
-				return setString(str);
+				return this->setString(str);
 			}
 
-			inline const char* get()
+			inline const char* get() const
 			{
-				return getString<const char*>();
+				//return this->getString<const char*>();
+				return nullptr;
 			}
 
 		};
@@ -603,12 +613,13 @@ namespace PhWidgets
 
 			inline int set(const char *str)
 			{
-				return setString(str);
+				return this->setString(str);
 			}
 
-			inline const char* get()
+			inline const char* get() const
 			{
-				return getString<const char*>();
+				//return this->getString<const char*>();
+				return nullptr;
 			}
 
 		};
@@ -636,20 +647,23 @@ namespace PhWidgets
 			template<typename T>
 			inline int set(const T &value)
 			{
-				return setStruct(reinterpret_cast<const void*>(&static_cast<const resource_type&>(value)));
+				return this->setStruct(reinterpret_cast<const void*>(&static_cast<const resource_type&>(value)));
 			}
 
 			template<typename T>
 			inline int set(T *value)
 			{
-				return setStruct(reinterpret_cast<const void*>(static_cast<const resource_type>(value)));
+				return this->setStruct(reinterpret_cast<const void*>(static_cast<const resource_type>(value)));
 			}
 
-			inline T1 get()
+			inline resource_type get() const
 			{
-				typedef remove_p<resource_type>::type ret_t;
-				ret_t *ptr = getStruct<ret_t>();
-				return *get(ptr);
+				//typedef remove_p<resource_type>::type ret_t;
+				
+				//ret_t *ptr = this->getStruct<ret_t>();
+				//return *get(ptr);
+				
+				return resource_type();
 			}
 
 		private:
@@ -704,6 +718,8 @@ namespace PhWidgets
 			{
 			}
 
+		public:
+
 			template<class ArgT, class ResourceGroupT, class ResourceT>
 			inline WidgetArgument<ArgT, ResourceGroupT, ResourceT> resource(const ArgT indx) const
 			{
@@ -737,27 +753,27 @@ namespace PhWidgets
 				
 			inline void add(resource_type callback)
 			{
-				addLink(callback); 
+				this->addLink(callback); 
 			}
 				
 			inline void add(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
 			{
-				addLink(callback, data); 
+				this->addLink(callback, data); 
 			}
 				
 			inline void remove(resource_type callback)
 			{
-				removeLink(callback); 
+				this->removeLink(callback); 
 			}
 				
 			inline void remove(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
 			{
-				removeLink(callback, data); 
+				this->removeLink(callback, data); 
 			}
 				
-			inline PtCallbackList_t* get()
+			inline PtCallbackList_t* get() const
 			{
-				return getLink(); 
+				return this->getLink(); 
 			}
 		};
 
@@ -778,27 +794,27 @@ namespace PhWidgets
 
 			inline void add(resource_type callback)
 			{
-				addLink(callback);
+				this->addLink(callback);
 			}
 
 			inline void add(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
 			{
-				addLink(callback, data);
+				this->addLink(callback, data);
 			}
 
 			inline void remove(resource_type callback)
 			{
-				removeLink(callback);
+				this->removeLink(callback);
 			}
 
 			inline void remove(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
 			{
-				removeLink(callback, data);
+				this->removeLink(callback, data);
 			}
 
-			inline PtCallbackList_t* get()
+			inline PtCallbackList_t* get() const
 			{
-				return getLink();
+				return this->getLink();
 			}
 		};
 
@@ -820,27 +836,27 @@ namespace PhWidgets
 				
 			inline void add(resource_type callback)
 			{
-				addLink(callback); 
+				this->addLink(callback); 
 			}
 				
 			inline void add(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Events::eEvents event, void *data = nullptr)
 			{
-				addLink(callback, event, data); 
+				this->addLink(callback, event, data); 
 			}
 				
 			inline void remove(resource_type callback)
 			{
-				removeLink(callback); 
+				this->removeLink(callback); 
 			}
 				
 			inline void remove(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Events::eEvents event, void *data = nullptr)
 			{
-				removeLink(callback, event, data); 
+				this->removeLink(callback, event, data); 
 			}
 				
-			inline PtCallbackList_t* get()
+			inline PtCallbackList_t* get() const
 			{
-				return getLink(); 
+				return this->getLink(); 
 			}
 		};
 
@@ -862,27 +878,27 @@ namespace PhWidgets
 
 			inline void add(resource_type callback)
 			{
-				addLink(callback);
+				this->addLink(callback);
 			}
 
 			inline void add(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Events::eEvents event, void *data = nullptr)
 			{
-				addLink(callback, event, data);
+				this->addLink(callback, event, data);
 			}
 
 			inline void remove(resource_type callback)
 			{
-				removeLink(callback);
+				this->removeLink(callback);
 			}
 
 			inline void remove(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Events::eEvents event, void *data = nullptr)
 			{
-				removeLink(callback, event, data);
+				this->removeLink(callback, event, data);
 			}
 
-			inline PtCallbackList_t* get()
+			inline PtCallbackList_t* get() const
 			{
-				return getLink();
+				return this->getLink();
 			}
 		};
 
@@ -903,17 +919,17 @@ namespace PhWidgets
 				
 			inline void add(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Hotkeys::eHotkeys hotkey, KeyModes::eKeyModes keymode = KeyModes::none)
 			{
-				addLink(callback, hotkey, keymode); 
+				this->addLink(callback, hotkey, keymode); 
 			}
 				
 			inline void remove(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Hotkeys::eHotkeys hotkey, KeyModes::eKeyModes keymode = KeyModes::none)
 			{
-				removeLink(callback, hotkey, keymode); 
+				this->removeLink(callback, hotkey, keymode); 
 			}
 				
-			inline PtCallbackList_t* get()
+			inline PtCallbackList_t* get() const
 			{
-				return getLink(); 
+				return this->getLink(); 
 			}
 		};
 
@@ -934,17 +950,17 @@ namespace PhWidgets
 
 			inline void add(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Hotkeys::eHotkeys hotkey, KeyModes::eKeyModes keymode = KeyModes::none)
 			{
-				addLink(callback, hotkey, keymode);
+				this->addLink(callback, hotkey, keymode);
 			}
 
 			inline void remove(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Hotkeys::eHotkeys hotkey, KeyModes::eKeyModes keymode = KeyModes::none)
 			{
-				removeLink(callback, hotkey, keymode);
+				this->removeLink(callback, hotkey, keymode);
 			}
 
-			inline PtCallbackList_t* get()
+			inline PtCallbackList_t* get() const
 			{
-				return getLink();
+				return this->getLink();
 			}
 		};
 
@@ -963,7 +979,8 @@ namespace PhWidgets
 			~WidgetCallbacksBase()
 			{
 			}
-
+		
+		public:
 			template<class LinkT, class ResourceT>
 			inline WidgetCallback<LinkT, ResourceT> resource(const LinkT indx) const
 			{
@@ -971,6 +988,60 @@ namespace PhWidgets
 			}
 
 		};
+		
+		
+		namespace def_help
+		{
+			struct BasePrevType
+			{
+				typedef WidgetCallbacksBase WidgetCallbacks;
+				typedef WidgetArgumentsBase WidgetArguments;
+			};
+
+
+			template<class PrevT>
+			struct Define
+			/*{
+				template<class LinkT, class ResourceT>
+				struct Link : def_orig::Link<PrevT, LinkT, ResourceT> {};
+
+				template<class ArgT, class ResourceT = void>
+				struct Alloc : def_orig::Alloc<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Array : def_orig::Array<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Boolean : def_orig::Boolean<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT = void>
+				struct Color : def_orig::Color<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Complex : def_orig::Complex<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Flag : def_orig::Flag<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Function : def_orig::Function<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Image : def_orig::Image<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Pointer : def_orig::Pointer<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Scalar : def_orig::Scalar<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT = void>
+				struct String : def_orig::String<PrevT, ArgT, ResourceT> {};
+
+				template<class ArgT, class ResourceT>
+				struct Struct : def_orig::Struct<PrevT, ArgT, ResourceT> {};
+			}*/;
+		}
 
 		namespace def_orig
 		{
@@ -985,7 +1056,9 @@ namespace PhWidgets
 
 					inline WidgetCallback<LinkT, ResourceGroupT> operator [](const LinkT indx) const
 					{
-						return static_cast<const WidgetCallbacksBase*>(this)->resource<LinkT, ResourceGroupT>(indx);
+						typedef WidgetCallbacksBase Base; 
+						
+						return static_cast<const Base*>(this)->resource<LinkT, ResourceGroupT>(indx);
 					}
 
 				protected:
@@ -1025,12 +1098,14 @@ namespace PhWidgets
 			struct LinkType<WidgetArgumentsT, WidgetCallbacksBase, LinkT, ResourceGroupT>
 			{
 				struct WidgetCallbacks:
-					private WidgetCallbacksBase
+					protected WidgetCallbacksBase
 				{
 
 					inline WidgetCallback<LinkT, ResourceGroupT> operator [](const LinkT indx) const
 					{
-						return static_cast<const WidgetCallbacksBase*>(this)->resource<LinkT, ResourceGroupT>(indx);
+						typedef WidgetCallbacksBase Base; 
+						
+						return static_cast<const Base*>(this)->resource<LinkT, ResourceGroupT>(indx);
 					}
 
 				protected:
@@ -1076,7 +1151,9 @@ namespace PhWidgets
 
 					inline WidgetCallback<LinkT, ResourceGroupT> operator [](const LinkT indx) const
 					{
-						return static_cast<const WidgetCallbacksBase*>(this)->resource<LinkT, ResourceGroupT>(indx);
+						typedef WidgetCallbacksBase Base; 
+						
+						return static_cast<const Base*>(this)->resource<LinkT, ResourceGroupT>(indx);
 					}
 
 				protected:
@@ -1113,12 +1190,14 @@ namespace PhWidgets
 			struct LinkType<WidgetArgumentsBase, WidgetCallbacksBase, LinkT, ResourceGroupT>
 			{
 				struct WidgetCallbacks:
-					private WidgetCallbacksBase
+					protected WidgetCallbacksBase
 				{
 
 					inline WidgetCallback<LinkT, ResourceGroupT> operator [](const LinkT indx) const
 					{
-						return static_cast<const WidgetCallbacksBase*>(this)->resource<LinkT, ResourceGroupT>(indx);
+						typedef WidgetCallbacksBase Base; 
+						
+						return static_cast<const Base*>(this)->resource<LinkT, ResourceGroupT>(indx);
 					}
 
 				protected:
@@ -1164,7 +1243,9 @@ namespace PhWidgets
 
 					inline WidgetArgument<ArgT, ResourceGroupT, ResourceT> operator [](const ArgT indx) const
 					{
-						return static_cast<const WidgetArgumentsBase*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
+						typedef WidgetArgumentsBase Base; 
+						
+						return static_cast<const Base*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
 					}
 
 				protected:
@@ -1203,11 +1284,13 @@ namespace PhWidgets
 			struct ArgumentType<WidgetArgumentsBase, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT>
 			{
 				struct WidgetArguments:
-					private WidgetArgumentsBase
+					protected WidgetArgumentsBase
 				{
 					inline WidgetArgument<ArgT, ResourceGroupT, ResourceT> operator [](const ArgT indx) const
 					{
-						return static_cast<const WidgetArgumentsBase*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
+						typedef WidgetArgumentsBase Base; 
+						
+						return static_cast<const Base*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
 					}
 
 				protected:
@@ -1253,7 +1336,9 @@ namespace PhWidgets
 
 					inline WidgetArgument<ArgT, ResourceGroupT, ResourceT> operator [](const ArgT indx) const
 					{
-						return static_cast<const WidgetArgumentsBase*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
+						typedef WidgetArgumentsBase Base; 
+						
+						return static_cast<const Base*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
 					}
 
 				protected:
@@ -1290,11 +1375,13 @@ namespace PhWidgets
 			struct ArgumentType<WidgetArgumentsBase, WidgetCallbacksBase, ArgT, ResourceGroupT, ResourceT>
 			{
 				struct WidgetArguments:
-					private WidgetArgumentsBase
+					protected WidgetArgumentsBase
 				{
 					inline WidgetArgument<ArgT, ResourceGroupT, ResourceT> operator [](const ArgT indx) const
 					{
-						return static_cast<const WidgetArgumentsBase*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
+						typedef WidgetArgumentsBase Base; 
+						
+						return static_cast<const Base*>(this)->resource<ArgT, ResourceGroupT, ResourceT>(indx);
 					}
 
 				protected:
@@ -1500,12 +1587,6 @@ namespace PhWidgets
 
 		namespace def_help
 		{
-			struct BasePrevType
-			{
-				typedef WidgetCallbacksBase WidgetCallbacks;
-				typedef WidgetArgumentsBase WidgetArguments;
-			};
-
 			template<class PrevT>
 			struct Define
 			{

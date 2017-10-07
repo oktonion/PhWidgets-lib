@@ -70,9 +70,9 @@ namespace PhWidgets
 		
 	protected:
 		typedef ResourceFrom<Label::WidgetResourcesSingleton>::
-			Define::Struct<ArgComplex::eArgComplex, PtTextControl_t>::
+			Define::Struct<ThisArgs::ArgComplex::eArgComplex, PtTextControl_t>::
 
-			Define::Link<Callback::eCallback, PtCallback_t*>::
+			Define::Link<ThisCallbacks::Callback::eCallback, PtCallback_t*>::
 
 		resource_type WidgetResourcesSingleton;
 

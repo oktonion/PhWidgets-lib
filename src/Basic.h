@@ -173,15 +173,15 @@ namespace PhWidgets
 	protected:
 
 		typedef ResourceFrom<Widget::WidgetResourcesSingleton>::
-			Define::String<ArgPChar::eArgPChar>::
-			Define::Color<ArgColor::eArgColor>::
-			Define::Scalar<ArgUnsignedShort::eArgUnsignedShort, unsigned short>::
-			Define::Scalar<ArgChar::eArgChar, char>::
-			Define::Flag<ArgLong::eArgLong, long>::
-			Define::Flag<ArgUnsignedLong::eArgUnsignedLong, unsigned long>::
-			Define::Flag<ArgUnsigned::eArgUnsigned, unsigned>::
+			Define::String<ThisArgs::ArgPChar::eArgPChar>::
+			Define::Color<ThisArgs::ArgColor::eArgColor>::
+			Define::Scalar<ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short>::
+			Define::Scalar<ThisArgs::ArgChar::eArgChar, char>::
+			//Define::Flag<ThisArgs::ArgLong::eArgLong, long>::
+			Define::Flag<ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long>::
+			//Define::Flag<ThisArgs::ArgUnsigned::eArgUnsigned, unsigned>::
 
-			Define::Link<Callback::eCallback, PtCallback_t*>::
+			Define::Link<ThisCallbacks::Callback::eCallback, PtCallback_t*>::
 
 		resource_type WidgetResourcesSingleton;
 

@@ -76,9 +76,9 @@ namespace PhWidgets
 		
 	protected:
 		typedef ResourceFrom<Widget::WidgetResourcesSingleton>::
-			Define::Scalar<ArgUnsignedLong::eArgUnsignedLong, unsigned long>::
+			Define::Scalar<ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long>::
 
-			Define::Link<Callback::eCallback, PtCallback_t*>::
+			Define::Link<ThisCallbacks::Callback::eCallback, PtCallback_t*>::
 
 		resource_type WidgetResourcesSingleton;
 

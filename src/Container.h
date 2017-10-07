@@ -186,17 +186,17 @@ namespace PhWidgets
 
 	protected:
 		typedef ResourceFrom<Basic::WidgetResourcesSingleton>::
-			Define::String<ArgPChar::eArgPChar>::
-			//Define::Boolean<ArgInt::eArgBool, bool>:: // not implemented
-			Define::Scalar<ArgInt::eArgInt, int>::
-			Define::Struct<ArgPFillLayoutInfo::eArgPFillLayoutInfo, PtFillLayoutInfo_t>::
-			Define::Struct<ArgPGridLayoutInfo::eArgPGridLayoutInfo, PtGridLayoutInfo_t>::
-			Define::Struct<ArgPLayoutDefinition::eArgPLayoutDefinition, PtLayoutDefinition_t>::
-			Define::Struct<ArgPRowLayoutInfo::eArgPRowLayoutInfo, PtRowLayoutInfo_t>::
-			Define::Struct<ArgPVoid::eArgPVoid, void*>::
-			Define::Flag<ArgLong::eArgLong, long>::
+			Define::String<ThisArgs::ArgPChar::eArgPChar>::
+			//Define::Boolean<ThisArgs::ArgInt::eArgBool, bool>:: // not implemented
+			Define::Scalar<ThisArgs::ArgInt::eArgInt, int>::
+			Define::Struct<ThisArgs::ArgPFillLayoutInfo::eArgPFillLayoutInfo, PtFillLayoutInfo_t>::
+			Define::Struct<ThisArgs::ArgPGridLayoutInfo::eArgPGridLayoutInfo, PtGridLayoutInfo_t>::
+			Define::Struct<ThisArgs::ArgPLayoutDefinition::eArgPLayoutDefinition, PtLayoutDefinition_t>::
+			Define::Struct<ThisArgs::ArgPRowLayoutInfo::eArgPRowLayoutInfo, PtRowLayoutInfo_t>::
+			Define::Struct<ThisArgs::ArgPVoid::eArgPVoid, void*>::
+			Define::Flag<ThisArgs::ArgLong::eArgLong, long>::
 
-			Define::Link<Callback::eCallback, PtCallback_t*>::
+			Define::Link<ThisCallbacks::Callback::eCallback, PtCallback_t*>::
 
 		resource_type WidgetResourcesSingleton;
 

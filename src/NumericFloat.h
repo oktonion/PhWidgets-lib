@@ -84,10 +84,10 @@ namespace PhWidgets
 
 	protected:
 		typedef ResourceFrom<Numeric::WidgetResourcesSingleton>::
-			Define::Struct<ArgDoubleP::eArgDoubleP, double*>::
-			Define::Scalar<ArgInt::eArgInt, int>::
+			Define::Struct<ThisArgs::ArgDoubleP::eArgDoubleP, double*>::
+			Define::Scalar<ThisArgs::ArgInt::eArgInt, int>::
 			
-			Define::Link<Callback::eCallback, PtCallback_t*>::
+			Define::Link<ThisCallbacks::Callback::eCallback, PtCallback_t*>::
 
 		resource_type WidgetResourcesSingleton;
 

@@ -195,12 +195,12 @@ namespace PhWidgets
 	protected:
 
 		typedef ResourceFrom<Basic::WidgetResourcesSingleton>::
-			Define::String<ArgPChar::eArgPChar>::
-			Define::Color<ArgColor::eArgColor>::
-			Define::Scalar<ArgUnsignedShort::eArgUnsignedShort, unsigned short>::
-			Define::Scalar<ArgShort::eArgShort, short>::
-			Define::Scalar<ArgSignedShort::eArgSignedShort, signed short>::
-			Define::Scalar<ArgUnsignedChar::eArgUnsignedChar, unsigned char>::
+			Define::String<ThisArgs::ArgPChar::eArgPChar>::
+			Define::Color<ThisArgs::ArgColor::eArgColor>::
+			Define::Scalar<ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short>::
+			Define::Scalar<ThisArgs::ArgShort::eArgShort, short>::
+			Define::Scalar<ThisArgs::ArgSignedShort::eArgSignedShort, signed short>::
+			Define::Scalar<ThisArgs::ArgUnsignedChar::eArgUnsignedChar, unsigned char>::
 
 		resource_type WidgetResourcesSingleton;
 
