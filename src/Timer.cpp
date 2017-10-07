@@ -15,8 +15,9 @@ void Timer::check()
 }
 
 
-Timer::Timer(int abn):
+Timer::Timer(int abn) :
 	Widget(abn),
+	resource(this),
 	//properties:
 	Initial(this),
 	Interval(this),
@@ -28,6 +29,7 @@ Timer::Timer(int abn):
 
 Timer::Timer(PtWidget_t *wdg):
 	Widget(wdg),
+	resource(this),
 	//properties:
 	Initial(this),
 	Interval(this),
@@ -39,6 +41,7 @@ Timer::Timer(PtWidget_t *wdg):
 
 Timer::Timer(const Timer &rhs):
 	Widget(rhs),
+	resource(this),
 	//properties:
 	Initial(this),
 	Interval(this),

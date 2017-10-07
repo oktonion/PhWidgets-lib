@@ -12,6 +12,7 @@ void OnOffButton::check()
 
 OnOffButton::OnOffButton(int abn):
 	Button(abn),
+	resource(this),
 	//properties:
 	Checked(this),
 	//callbacks:
@@ -22,6 +23,7 @@ OnOffButton::OnOffButton(int abn):
 
 OnOffButton::OnOffButton(PtWidget_t *wdg):
 	Button(wdg),
+	resource(this),
 	//properties:
 	Checked(this),
 	//callbacks:
@@ -32,6 +34,7 @@ OnOffButton::OnOffButton(PtWidget_t *wdg):
 
 OnOffButton::OnOffButton(const OnOffButton &rhs):
 	Button(rhs),
+	resource(this),
 	//properties:
 	Checked(this),
 	//callbacks:

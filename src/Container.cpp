@@ -13,6 +13,7 @@ void Container::check()
 
 Container::Container(int abn):
 	Basic(abn),
+	resource(this),
 	//callbacks:
 	ChildAddedRemoved(this),
 	ChildGettingFocus(this),
@@ -25,6 +26,7 @@ Container::Container(int abn):
 
 Container::Container(PtWidget_t *wdg):
 	Basic(wdg),
+	resource(this),
 	//callbacks:
 	ChildAddedRemoved(this),
 	ChildGettingFocus(this),
@@ -37,6 +39,7 @@ Container::Container(PtWidget_t *wdg):
 
 PhWidgets::Container::Container(const Container & rhs):
 	Basic(rhs),
+	resource(this),
 	//callbacks:
 	ChildAddedRemoved(this),
 	ChildGettingFocus(this),

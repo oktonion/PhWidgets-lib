@@ -12,6 +12,7 @@ void Label::check()
 
 Label::Label(int abn):
 	Basic(abn),
+	resource(this),
 	Caption(this),
 	BalloonColor(this)
 {
@@ -20,6 +21,7 @@ Label::Label(int abn):
 
 Label::Label(PtWidget_t *wdg):
 	Basic(wdg),
+	resource(this),
 	Caption(this),
 	BalloonColor(this)
 {
@@ -28,6 +30,7 @@ Label::Label(PtWidget_t *wdg):
 
 Label::Label(const Label &rhs):
 	Basic(rhs),
+	resource(this),
 	Caption(this),
 	BalloonColor(this)
 {

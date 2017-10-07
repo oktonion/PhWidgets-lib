@@ -46,18 +46,21 @@ namespace PhWidgets
 			public ArgumentsEx<Label::ArgColor>,
 			public ThisArgs::ArgColor
 		{
+			using ThisArgs::ArgColor::eArgColor;
 		};
 		
 		struct ArgUnsignedChar:
 			public ArgumentsEx<Label::ArgUnsignedChar>,
 			public ThisArgs::ArgUnsignedChar
 		{
+			using ThisArgs::ArgUnsignedChar::eArgUnsignedChar;
 		};
 		
 		struct ArgPImage:
 			public ArgumentsEx<Label::ArgPImage>,
 			public ThisArgs::ArgPImage
 		{
+			using ThisArgs::ArgPImage::eArgPImage;
 		};
 
 
@@ -71,6 +74,13 @@ namespace PhWidgets
 		};
 	
 	protected:
+		typedef ResourceFrom<Label::WidgetResourcesSingleton>::
+			//Define::Image<ArgPImage::eArgPImage>:: // not implemented
+			Define::Color<ArgColor::eArgColor>::
+			Define::Scalar<ArgUnsignedChar::eArgUnsignedChar, unsigned char>::
+
+		resource_type WidgetResourcesSingleton;
+
 		virtual void check();
 
 		void setArmColor(PgColor_t);
@@ -78,6 +88,8 @@ namespace PhWidgets
 
 						
 	public:
+		WidgetResourcesSingleton resource;
+
 		Button(int abn);
 		Button(PtWidget_t *wdg);
 
@@ -87,12 +99,6 @@ namespace PhWidgets
 
 		property<PgColor_t>::bind<Button, &Button::getArmColor, &Button::setArmColor> ArmColor;
 	};
-	
-	
-	DEFINE_OPERATOR0(Button::ThisArgs::ArgPImage::eArgPImage, Image);
-	
-	DEFINE_OPERATOR1(Button::ThisArgs::ArgColor::eArgColor, PgColor_t, Color);
-	DEFINE_OPERATOR1(Button::ThisArgs::ArgUnsignedChar::eArgUnsignedChar, unsigned char, Scalar);
 
 }
 

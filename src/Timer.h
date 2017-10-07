@@ -57,6 +57,7 @@ namespace PhWidgets
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Widget::Callback
 		{
+			using ThisCallbacks::Callback::eCallback;
 		};
 		
 		struct Arguments:
@@ -74,6 +75,13 @@ namespace PhWidgets
 
 		
 	protected:
+		typedef ResourceFrom<Widget::WidgetResourcesSingleton>::
+			Define::Scalar<ArgUnsignedLong::eArgUnsignedLong, unsigned long>::
+
+			Define::Link<Callback::eCallback, PtCallback_t*>::
+
+		resource_type WidgetResourcesSingleton;
+
 		virtual void check();
 
 		void setInitial(unsigned long);    
@@ -83,6 +91,8 @@ namespace PhWidgets
 		unsigned long getRepeat() const;
 						
 	public:
+		WidgetResourcesSingleton resource;
+
 		Timer(int abn);
 		Timer(PtWidget_t *wdg);
 
@@ -95,8 +105,6 @@ namespace PhWidgets
 
 		using Widget::operator PtWidget_t*;
 		using Widget::operator const PtWidget_t*;
-		
-		Widget::resource;
 
 		property<unsigned long>::bind<Timer, &Timer::getInitial, &Timer::setInitial> Initial;
 		property<unsigned long>::bind<Timer, &Timer::getRepeat, &Timer::setRepeat> Interval;
@@ -106,9 +114,6 @@ namespace PhWidgets
 
 		void OnActivate(PtCallbackInfo_t *info);
 	};
-	
-	DEFINE_OPERATOR1(Timer::ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long, Scalar);
-	DEFINE_OPERATOR1(Timer::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 }
 
 #endif

@@ -30,7 +30,7 @@ namespace PhWidgets
 	using namespace phevents;
 		
 	class Widget:
-		detail::IPtWidget
+		protected detail::IPtWidget
 	{
 	public:
 		typedef phevent::ph_callback_t callback_t;

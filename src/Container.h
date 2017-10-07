@@ -114,7 +114,6 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgLong>,
 			public ThisArgs::ArgLong
 		{
-			using Basic::ArgLong::eArgLong;
 			using ThisArgs::ArgLong::eArgLong;
 		};
 		
@@ -143,6 +142,7 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgPVoid>,
 			public ThisArgs::ArgPVoid
 		{
+			using ThisArgs::ArgPVoid::eArgPVoid;
 		};	
 		
 		struct ArgPRowLayoutInfo:
@@ -155,12 +155,14 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgPChar>,
 			public ThisArgs::ArgPChar
 		{
+			using ThisArgs::ArgPChar::eArgPChar;
 		};	
 
 		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Basic::Callback
 		{
+			using ThisCallbacks::Callback::eCallback;
 		};
 
 		struct Arguments:
@@ -183,9 +185,26 @@ namespace PhWidgets
 		};
 
 	protected:
+		typedef ResourceFrom<Basic::WidgetResourcesSingleton>::
+			Define::String<ArgPChar::eArgPChar>::
+			//Define::Boolean<ArgInt::eArgBool, bool>:: // not implemented
+			Define::Scalar<ArgInt::eArgInt, int>::
+			Define::Struct<ArgPFillLayoutInfo::eArgPFillLayoutInfo, PtFillLayoutInfo_t>::
+			Define::Struct<ArgPGridLayoutInfo::eArgPGridLayoutInfo, PtGridLayoutInfo_t>::
+			Define::Struct<ArgPLayoutDefinition::eArgPLayoutDefinition, PtLayoutDefinition_t>::
+			Define::Struct<ArgPRowLayoutInfo::eArgPRowLayoutInfo, PtRowLayoutInfo_t>::
+			Define::Struct<ArgPVoid::eArgPVoid, void*>::
+			Define::Flag<ArgLong::eArgLong, long>::
+
+			Define::Link<Callback::eCallback, PtCallback_t*>::
+
+		resource_type WidgetResourcesSingleton;
+
 		virtual void check();
 						
 	public:
+		WidgetResourcesSingleton resource;
+
 		Container(int abn);
 		Container(PtWidget_t *wdg);
 
@@ -199,19 +218,6 @@ namespace PhWidgets
 		phwidgets_event<Container, Container::Callbacks::layout>				LayoutChanged;
 		phwidgets_event<Container, Container::Callbacks::resize>				Resize;
 	};
-	
-	DEFINE_OPERATOR0(Container::ThisArgs::ArgPChar::eArgPChar, String);
-	DEFINE_OPERATOR0(Container::ThisArgs::ArgBool::eArgBool, Boolean);
-
-	DEFINE_OPERATOR1(Container::ThisArgs::ArgInt::eArgInt, int, Scalar);
-	DEFINE_OPERATOR1(Container::ThisArgs::ArgPFillLayoutInfo::eArgPFillLayoutInfo, PtFillLayoutInfo_t, Struct);
-	DEFINE_OPERATOR1(Container::ThisArgs::ArgPGridLayoutInfo::eArgPGridLayoutInfo, PtGridLayoutInfo_t, Struct);
-	DEFINE_OPERATOR1(Container::ThisArgs::ArgPLayoutDefinition::eArgPLayoutDefinition, PtLayoutDefinition_t, Struct);
-	DEFINE_OPERATOR1(Container::ThisArgs::ArgPRowLayoutInfo::eArgPRowLayoutInfo, PtRowLayoutInfo_t, Struct);
-	DEFINE_OPERATOR1(Container::ThisArgs::ArgPVoid::eArgPVoid, void*, Struct);
-	DEFINE_OPERATOR1(Container::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
-	
-	DEFINE_OPERATOR2(Container::ThisArgs::ArgLong::eArgLong, long, long, Flag);
 }
 
 
