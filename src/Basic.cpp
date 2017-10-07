@@ -13,6 +13,7 @@ void Basic::check()
 
 Basic::Basic(int abn):
 	Widget(abn),
+	resource(this),
 	//properties:
 	Color(this),
 	FillColor(this),
@@ -30,6 +31,7 @@ Basic::Basic(int abn):
 
 Basic::Basic(PtWidget_t *wdg):
 	Widget(wdg),
+	resource(this),
 	//properties:
 	Color(this),
 	FillColor(this),
@@ -47,6 +49,7 @@ Basic::Basic(PtWidget_t *wdg):
 
 Basic::Basic(const Basic &rhs):
 	Widget(rhs),
+	resource(this),
 	//properties:
 	Color(this),
 	FillColor(this),

@@ -49,6 +49,7 @@ namespace PhWidgets
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Numeric::Callback
 		{
+			using ThisCallbacks::Callback::eCallback;
 		};
 
 			
@@ -66,6 +67,13 @@ namespace PhWidgets
 
 
 	protected:
+		typedef ResourceFrom<Numeric::WidgetResourcesSingleton>::
+			Define::Scalar<ThisArgs::ArgInt::eArgInt, int>::
+
+			Define::Link<ThisCallbacks::Callback::eCallback, PtCallback_t*>::
+
+		resource_type WidgetResourcesSingleton;
+
 		virtual void check();
 		
 		int getValue() const;
@@ -78,6 +86,8 @@ namespace PhWidgets
 		void setMinValue(int);
 						
 	public:
+		WidgetResourcesSingleton resource;
+
 		NumericInteger(int abn);
 		NumericInteger(PtWidget_t *wdg);
 		
@@ -92,10 +102,6 @@ namespace PhWidgets
 		phwidgets_event<NumericInteger, NumericInteger::Callbacks::numeric_changed>		NumericChanged;
 	};
 	
-	
-	INIT_WIDGET_RESOURCE1(NumericInteger::ThisArgs::ArgInt::eArgInt, int, Scalar);
-
-	INIT_WIDGET_RESOURCE1(NumericInteger::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 		
 }
 

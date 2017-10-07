@@ -13,6 +13,7 @@ void NumericFloat::check()
 
 NumericFloat::NumericFloat(int abn):
 	Numeric(abn),
+	resource(this),
 	//properties:
 	Value(this),
 	MaxValue(this),
@@ -26,6 +27,7 @@ NumericFloat::NumericFloat(int abn):
 
 NumericFloat::NumericFloat(PtWidget_t *wdg):
 	Numeric(wdg),
+	resource(this),
 	//properties:
 	Value(this),
 	MaxValue(this),
@@ -39,6 +41,7 @@ NumericFloat::NumericFloat(PtWidget_t *wdg):
 
 NumericFloat::NumericFloat(const NumericFloat &rhs):
 	Numeric(rhs),
+	resource(this),
 	//properties:
 	Value(this),
 	MaxValue(this),

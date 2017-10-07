@@ -40,6 +40,7 @@ namespace PhWidgets
 			public ArgumentsEx<Button::ArgUnsignedChar>,
 			public ThisArgs::ArgUnsignedChar
 		{
+			using ThisArgs::ArgUnsignedChar::eArgUnsignedChar;
 		};
 
 			
@@ -48,6 +49,7 @@ namespace PhWidgets
 			public ArgumentsEx<Button::ArgColor>,
 			public ThisArgs::ArgColor
 		{
+			using ThisArgs::ArgColor::eArgColor;
 		};
 
 		struct Arguments:
@@ -61,10 +63,18 @@ namespace PhWidgets
 		bool getChecked() const;
 	
 	protected:
+		typedef ResourceFrom<Button::WidgetResourcesSingleton>::
+			Define::Scalar<ThisArgs::ArgUnsignedChar::eArgUnsignedChar, unsigned char>::
+			Define::Color<ThisArgs::ArgColor::eArgColor>::
+
+		resource_type WidgetResourcesSingleton;
+
 		virtual void check();
 
 						
 	public:
+		WidgetResourcesSingleton resource;
+
 		ToggleButton(int abn);
 		ToggleButton(PtWidget_t *wdg);
 		
@@ -77,11 +87,6 @@ namespace PhWidgets
 				
 		property<bool>::bind<ToggleButton, &ToggleButton::getChecked, &ToggleButton::setChecked> Checked;
 	};
-	
-
-	INIT_WIDGET_RESOURCE1(ToggleButton::ThisArgs::ArgColor::eArgColor, PgColor_t, Color);
-	
-	INIT_WIDGET_RESOURCE1(ToggleButton::ThisArgs::ArgUnsignedChar::eArgUnsignedChar, unsigned char, Scalar);
 	
 }
 

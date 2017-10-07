@@ -63,6 +63,7 @@ namespace PhWidgets
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Numeric::Callback
 		{
+			using ThisCallbacks::Callback::eCallback;
 		};
 
 
@@ -82,6 +83,14 @@ namespace PhWidgets
 
 
 	protected:
+		typedef ResourceFrom<Numeric::WidgetResourcesSingleton>::
+			Define::Struct<ThisArgs::ArgDoubleP::eArgDoubleP, double*>::
+			Define::Scalar<ThisArgs::ArgInt::eArgInt, int>::
+			
+			Define::Link<ThisCallbacks::Callback::eCallback, PtCallback_t*>::
+
+		resource_type WidgetResourcesSingleton;
+
 		virtual void check();
 		
 		double getValue() const;
@@ -95,6 +104,8 @@ namespace PhWidgets
 
 						
 	public:
+		WidgetResourcesSingleton resource;
+
 		NumericFloat(int abn);
 		NumericFloat(PtWidget_t *wdg);
 		
@@ -109,11 +120,6 @@ namespace PhWidgets
 		phwidgets_event<NumericFloat, NumericFloat::Callbacks::numeric_changed>		NumericChanged;
 		
 	};
-	
-	INIT_WIDGET_RESOURCE1(NumericFloat::ThisArgs::ArgDoubleP::eArgDoubleP, double*, Struct);
-	INIT_WIDGET_RESOURCE1(NumericFloat::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
-	
-	INIT_WIDGET_RESOURCE1(NumericFloat::ThisArgs::ArgInt::eArgInt, int, Scalar);
 
 }
 

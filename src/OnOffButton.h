@@ -45,6 +45,7 @@ namespace PhWidgets
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Button::Callback
 		{
+			using ThisCallbacks::Callback::eCallback;
 		};
 
 
@@ -61,12 +62,21 @@ namespace PhWidgets
 		};
 		
 	protected:
+		typedef ResourceFrom<Button::WidgetResourcesSingleton>::
+			Define::Scalar<ThisArgs::ArgBool::eArgBool, bool>::
+
+			Define::Link<ThisCallbacks::Callback::eCallback, PtCallback_t*>::
+
+		resource_type WidgetResourcesSingleton;
+
 		virtual void check();
 		
 		void setChecked(bool val);
 		bool getChecked() const;
 						
 	public:
+		WidgetResourcesSingleton resource;
+
 		OnOffButton(int abn);
 		OnOffButton(PtWidget_t* wdg);
 		
@@ -81,12 +91,6 @@ namespace PhWidgets
 
 		phwidgets_event<OnOffButton, OnOffButton::Callbacks::new_value>		NewValue;
 	};
-	
-	
-	
-	INIT_WIDGET_RESOURCE1(OnOffButton::ThisArgs::ArgBool::eArgBool, bool, Scalar);
-
-	INIT_WIDGET_RESOURCE1(OnOffButton::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 
 }
 

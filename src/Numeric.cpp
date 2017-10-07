@@ -12,15 +12,23 @@ void Numeric::check()
 
 
 Numeric::Numeric(int abn):
-	Compound(abn)
+	Compound(abn),
+	resource(this)
 {
 	check();
 }
 
 Numeric::Numeric(PtWidget_t *wdg):
-	Compound(wdg)
+	Compound(wdg),
+	resource(this)
 {
 	check();
+}
+
+PhWidgets::Numeric::Numeric(const Numeric & rhs) :
+	Compound(rhs),
+	resource(this)
+{
 }
 
 

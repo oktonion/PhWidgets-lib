@@ -114,7 +114,6 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgLong>,
 			public ThisArgs::ArgLong
 		{
-			using Basic::ArgLong::eArgLong;
 			using ThisArgs::ArgLong::eArgLong;
 		};
 		
@@ -143,6 +142,7 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgPVoid>,
 			public ThisArgs::ArgPVoid
 		{
+			using ThisArgs::ArgPVoid::eArgPVoid;
 		};	
 		
 		struct ArgPRowLayoutInfo:
@@ -155,12 +155,14 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgPChar>,
 			public ThisArgs::ArgPChar
 		{
+			using ThisArgs::ArgPChar::eArgPChar;
 		};	
 
 		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Basic::Callback
 		{
+			using ThisCallbacks::Callback::eCallback;
 		};
 
 		struct Arguments:
@@ -183,9 +185,26 @@ namespace PhWidgets
 		};
 
 	protected:
+		typedef ResourceFrom<Basic::WidgetResourcesSingleton>::
+			Define::String<ThisArgs::ArgPChar::eArgPChar>::
+			//Define::Boolean<ThisArgs::ArgInt::eArgBool, bool>:: // not implemented
+			Define::Scalar<ThisArgs::ArgInt::eArgInt, int>::
+			Define::Struct<ThisArgs::ArgPFillLayoutInfo::eArgPFillLayoutInfo, PtFillLayoutInfo_t>::
+			Define::Struct<ThisArgs::ArgPGridLayoutInfo::eArgPGridLayoutInfo, PtGridLayoutInfo_t>::
+			Define::Struct<ThisArgs::ArgPLayoutDefinition::eArgPLayoutDefinition, PtLayoutDefinition_t>::
+			Define::Struct<ThisArgs::ArgPRowLayoutInfo::eArgPRowLayoutInfo, PtRowLayoutInfo_t>::
+			Define::Struct<ThisArgs::ArgPVoid::eArgPVoid, void*>::
+			Define::Flag<ThisArgs::ArgLong::eArgLong, long>::
+
+			Define::Link<ThisCallbacks::Callback::eCallback, PtCallback_t*>::
+
+		resource_type WidgetResourcesSingleton;
+
 		virtual void check();
 						
 	public:
+		WidgetResourcesSingleton resource;
+
 		Container(int abn);
 		Container(PtWidget_t *wdg);
 
@@ -199,19 +218,6 @@ namespace PhWidgets
 		phwidgets_event<Container, Container::Callbacks::layout>				LayoutChanged;
 		phwidgets_event<Container, Container::Callbacks::resize>				Resize;
 	};
-	
-	INIT_WIDGET_RESOURCE0(Container::ThisArgs::ArgPChar::eArgPChar, String);
-	INIT_WIDGET_RESOURCE0(Container::ThisArgs::ArgBool::eArgBool, Boolean);
-
-	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgInt::eArgInt, int, Scalar);
-	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPFillLayoutInfo::eArgPFillLayoutInfo, PtFillLayoutInfo_t, Struct);
-	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPGridLayoutInfo::eArgPGridLayoutInfo, PtGridLayoutInfo_t, Struct);
-	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPLayoutDefinition::eArgPLayoutDefinition, PtLayoutDefinition_t, Struct);
-	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPRowLayoutInfo::eArgPRowLayoutInfo, PtRowLayoutInfo_t, Struct);
-	INIT_WIDGET_RESOURCE1(Container::ThisArgs::ArgPVoid::eArgPVoid, void*, Struct);
-	INIT_WIDGET_RESOURCE1(Container::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
-	
-	INIT_WIDGET_RESOURCE2(Container::ThisArgs::ArgLong::eArgLong, long, long, Flag);
 }
 
 

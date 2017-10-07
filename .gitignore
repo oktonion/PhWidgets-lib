@@ -88,3 +88,4 @@ src/.vscode/launch.json
 # old library
 /old/*
 /slib/*
+*.tar

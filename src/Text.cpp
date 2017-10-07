@@ -12,6 +12,7 @@ void Text::check()
 
 Text::Text(int abn):
 	Label(abn),
+	resource(this),
 	//callbacks:
 	ModifyNotify(this),
 	ModifyVerify(this),
@@ -25,6 +26,7 @@ Text::Text(int abn):
 
 Text::Text(PtWidget_t *wdg):
 	Label(wdg),
+	resource(this),
 	//callbacks:
 	ModifyNotify(this),
 	ModifyVerify(this),
@@ -37,6 +39,7 @@ Text::Text(PtWidget_t *wdg):
 
 PhWidgets::Text::Text(const Text & rhs):
 	Label(rhs),
+	resource(this),
 	//callbacks:
 	ModifyNotify(this),
 	ModifyVerify(this),

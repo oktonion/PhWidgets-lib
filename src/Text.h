@@ -52,6 +52,7 @@ namespace PhWidgets
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Label::Callback
 		{
+			using ThisCallbacks::Callback::eCallback;
 		};
 
 		
@@ -68,9 +69,18 @@ namespace PhWidgets
 		};
 		
 	protected:
+		typedef ResourceFrom<Label::WidgetResourcesSingleton>::
+			Define::Struct<ThisArgs::ArgComplex::eArgComplex, PtTextControl_t>::
+
+			Define::Link<ThisCallbacks::Callback::eCallback, PtCallback_t*>::
+
+		resource_type WidgetResourcesSingleton;
+
 		virtual void check();
 						
 	public:
+		WidgetResourcesSingleton resource;
+
 		Text(int abn);
 		Text(PtWidget_t *wdg);
 
@@ -84,9 +94,6 @@ namespace PhWidgets
 		phwidgets_event<Text, Text::Callbacks::motion_verify>	MotionVerify;
 		phwidgets_event<Text, Text::Callbacks::text_changed> 	TextChanged;
 	};
-	
-	INIT_WIDGET_RESOURCE1(Text::ThisArgs::ArgComplex::eArgComplex, PtTextControl_t, Struct);
-	INIT_WIDGET_RESOURCE1(Text::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
 
 }
 

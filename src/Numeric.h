@@ -52,6 +52,7 @@ namespace PhWidgets
 			public ThisArgs::ArgUnsignedShort,
 			public ThisArgs::ArgUnsignedShortFlag
 		{
+			using ThisArgs::ArgUnsignedShort::eArgUnsignedShort;
 		};
 
 			
@@ -60,6 +61,7 @@ namespace PhWidgets
 			public ArgumentsEx<Compound::ArgPChar>,
 			public ThisArgs::ArgPChar
 		{
+			using ThisArgs::ArgPChar::eArgPChar;
 		};	
 
 		struct Arguments:
@@ -69,21 +71,26 @@ namespace PhWidgets
 		{
 		};
 
+		typedef ResourceFrom<Compound::WidgetResourcesSingleton>::
+			Define::String<ThisArgs::ArgPChar::eArgPChar>::
+			Define::Scalar<ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short>::
+			Define::Flag<ThisArgs::ArgUnsignedShortFlag::eArgUnsignedShortFlag, unsigned short>::
+
+		resource_type WidgetResourcesSingleton;
+
 	protected:
 		virtual void check();
 						
 	public:
+		WidgetResourcesSingleton resource;
+
 		Numeric(int abn);
 		Numeric(PtWidget_t *wdg);
 		
+		Numeric(const Numeric &rhs);
 		
 	};
 	
-	INIT_WIDGET_RESOURCE0(Numeric::ThisArgs::ArgPChar::eArgPChar, String);
-	
-	INIT_WIDGET_RESOURCE1(Numeric::ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short, Scalar);
-	
-	INIT_WIDGET_RESOURCE2(Numeric::ThisArgs::ArgUnsignedShortFlag::eArgUnsignedShortFlag, unsigned short, unsigned short, Flag);
 }
 
 

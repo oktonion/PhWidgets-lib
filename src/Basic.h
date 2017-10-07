@@ -106,7 +106,6 @@ namespace PhWidgets
 			public ArgumentsEx<Widget::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort
 		{
-			using Widget::ArgUnsignedShort::eArgUnsignedShort;
 			using ThisArgs::ArgUnsignedShort::eArgUnsignedShort;
 		};
 			
@@ -114,7 +113,6 @@ namespace PhWidgets
 			public ArgumentsEx<Widget::ArgUnsignedLong>,
 			public ThisArgs::ArgUnsignedLong
 		{
-			using Widget::ArgUnsignedLong::eArgUnsignedLong;
 			using ThisArgs::ArgUnsignedLong::eArgUnsignedLong;
 		};
 
@@ -122,7 +120,6 @@ namespace PhWidgets
 			public ArgumentsEx<Widget::ArgColor>,
 			public ThisArgs::ArgColor
 		{
-			using Widget::ArgColor::eArgColor;
 			using ThisArgs::ArgColor::eArgColor;
 		};
 
@@ -145,7 +142,6 @@ namespace PhWidgets
 			public ArgumentsEx<Widget::ArgPChar>,
 			public ThisArgs::ArgPChar
 		{
-			using Widget::ArgPChar::eArgPChar;
 			using ThisArgs::ArgPChar::eArgPChar;
 		};	
 
@@ -153,6 +149,7 @@ namespace PhWidgets
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Widget::Callback
 		{
+			using ThisCallbacks::Callback::eCallback;
 		};
 
 		struct Arguments:
@@ -174,6 +171,20 @@ namespace PhWidgets
 		};
 
 	protected:
+
+		typedef ResourceFrom<Widget::WidgetResourcesSingleton>::
+			Define::String<ThisArgs::ArgPChar::eArgPChar>::
+			Define::Color<ThisArgs::ArgColor::eArgColor>::
+			Define::Scalar<ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short>::
+			Define::Scalar<ThisArgs::ArgChar::eArgChar, char>::
+			//Define::Flag<ThisArgs::ArgLong::eArgLong, long>::
+			Define::Flag<ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long>::
+			//Define::Flag<ThisArgs::ArgUnsigned::eArgUnsigned, unsigned>::
+
+			Define::Link<ThisCallbacks::Callback::eCallback, PtCallback_t*>::
+
+		resource_type WidgetResourcesSingleton;
+
 		virtual void check();
 
 		void setColor(PgColor_t);
@@ -189,6 +200,8 @@ namespace PhWidgets
 		Basic(const Basic &rhs);
 
 		Basic &operator=(const Basic &rhs);
+
+		WidgetResourcesSingleton resource;
 		
 		property<PgColor_t>::bind<Basic, &Basic::getColor, &Basic::setColor> Color;
 		property<PgColor_t>::bind<Basic, &Basic::getFillColor, &Basic::setFillColor> FillColor;
@@ -209,17 +222,6 @@ namespace PhWidgets
 		void OnMenu(PtCallbackInfo_t *info);
 		void OnRepeat(PtCallbackInfo_t *info);
 	};		  
-		
-	
-	INIT_WIDGET_RESOURCE0(Basic::ThisArgs::ArgPChar::eArgPChar, String);
-	//INIT_WIDGET_RESOURCE0(Basic::ThisArgs::ArgPVoid::eArgPVoid, Alloc);
-
-	INIT_WIDGET_RESOURCE1(Basic::ThisArgs::ArgColor::eArgColor, PgColor_t, Color);
-	INIT_WIDGET_RESOURCE1(Basic::ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short, Scalar);
-	INIT_WIDGET_RESOURCE1(Basic::ThisArgs::ArgChar::eArgChar, char, Scalar);
-	INIT_WIDGET_RESOURCE1(Basic::ThisCallbacks::Callback::eCallback, PtCallback_t, Link);
-
-	INIT_WIDGET_RESOURCE2(Basic::ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long, unsigned long, Flag);
 
 
 	

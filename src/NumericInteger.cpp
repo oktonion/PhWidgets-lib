@@ -13,6 +13,7 @@ void NumericInteger::check()
 
 NumericInteger::NumericInteger(int abn):
 	Numeric(abn),
+	resource(this),
 	//properties:
 	Value(this),
 	MaxValue(this),
@@ -26,6 +27,7 @@ NumericInteger::NumericInteger(int abn):
 
 NumericInteger::NumericInteger(PtWidget_t *wdg):
 	Numeric(wdg),
+	resource(this),
 	//properties:
 	Value(this),
 	MaxValue(this),
@@ -39,6 +41,7 @@ NumericInteger::NumericInteger(PtWidget_t *wdg):
 
 NumericInteger::NumericInteger(const NumericInteger &rhs):
 	Numeric(rhs),
+	resource(this),
 	//properties:
 	Value(this),
 	MaxValue(this),

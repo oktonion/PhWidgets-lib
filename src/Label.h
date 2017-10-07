@@ -118,12 +118,14 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgPChar>,
 			public ThisArgs::ArgPChar
 		{
+			using ThisArgs::ArgPChar::eArgPChar;
 		};	
 			
 		struct ArgColor:
 			public ArgumentsEx<Basic::ArgColor>,
 			public ThisArgs::ArgColor
 		{
+			using ThisArgs::ArgColor::eArgColor;
 		};
 
 		struct ArgShort:
@@ -135,6 +137,7 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort
 		{
+			using ThisArgs::ArgUnsignedShort::eArgUnsignedShort;
 		};	
 
 		struct ArgSignedShort:
@@ -146,6 +149,7 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgUnsignedChar>,
 			public ThisArgs::ArgUnsignedChar
 		{
+			using ThisArgs::ArgUnsignedChar::eArgUnsignedChar;
 		};
 
 		struct ArgPWidget:
@@ -157,6 +161,7 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgChar>,
 			public ThisArgs::ArgChar
 		{
+			using ThisArgs::ArgChar::eArgChar;
 		};	
 
 		struct ArgPImage:
@@ -188,6 +193,17 @@ namespace PhWidgets
 		};
 		
 	protected:
+
+		typedef ResourceFrom<Basic::WidgetResourcesSingleton>::
+			Define::String<ThisArgs::ArgPChar::eArgPChar>::
+			Define::Color<ThisArgs::ArgColor::eArgColor>::
+			Define::Scalar<ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short>::
+			Define::Scalar<ThisArgs::ArgShort::eArgShort, short>::
+			Define::Scalar<ThisArgs::ArgSignedShort::eArgSignedShort, signed short>::
+			Define::Scalar<ThisArgs::ArgUnsignedChar::eArgUnsignedChar, unsigned char>::
+
+		resource_type WidgetResourcesSingleton;
+
 		std::string getCaption() const;
 		void setCaption(std::string caption);
 
@@ -197,6 +213,8 @@ namespace PhWidgets
 		virtual void check();
 						
 	public:
+		WidgetResourcesSingleton resource;
+
 		Label(int abn);
 		Label(PtWidget_t *wdg);
 		
@@ -207,16 +225,6 @@ namespace PhWidgets
 		property<std::string>::bind<Label, &Label::getCaption, &Label::setCaption> Caption;
 		property<PgColor_t>::bind<Label, &Label::getBalloonColor, &Label::setBalloonColor> BalloonColor;
 	};
-	
-	//TODO:: add more macro for all resources:
-	
-	INIT_WIDGET_RESOURCE0(Label::ThisArgs::ArgPChar::eArgPChar, String);
-
-	INIT_WIDGET_RESOURCE1(Label::ThisArgs::ArgColor::eArgColor, PgColor_t, Color);
-	INIT_WIDGET_RESOURCE1(Label::ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short, Scalar);
-	INIT_WIDGET_RESOURCE1(Label::ThisArgs::ArgShort::eArgShort, short, Scalar);
-	INIT_WIDGET_RESOURCE1(Label::ThisArgs::ArgSignedShort::eArgSignedShort, signed short, Scalar);
-	INIT_WIDGET_RESOURCE1(Label::ThisArgs::ArgUnsignedChar::eArgUnsignedChar, unsigned char, Scalar);
 
 }
 

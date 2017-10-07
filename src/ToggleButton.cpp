@@ -12,6 +12,8 @@ void ToggleButton::check()
 
 ToggleButton::ToggleButton(int abn):
 	Button(abn),
+	resource(this),
+	//properties:
 	Checked(this)
 {
 	check();
@@ -19,6 +21,8 @@ ToggleButton::ToggleButton(int abn):
 
 ToggleButton::ToggleButton(PtWidget_t *wdg):
 	Button(wdg),
+	resource(this),
+	//properties:
 	Checked(this)
 {
 	check();
@@ -26,6 +30,8 @@ ToggleButton::ToggleButton(PtWidget_t *wdg):
 
 ToggleButton::ToggleButton(const ToggleButton &rhs):
 	Button(rhs),
+	resource(this),
+	//properties:
 	Checked(this)
 {
 }
