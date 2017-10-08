@@ -1,0 +1,27 @@
+var namespace_ph_widgets_1_1detail_1_1def__orig =
+[
+    [ "Alloc", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_alloc.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_alloc" ],
+    [ "ArgumentType", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type" ],
+    [ "ArgumentType< WidgetArgumentsBase, WidgetCallbacksBase, ArgT, ResourceGroupT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widg6fafa92cbb3989ed930b8d17340074de.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widg6fafa92cbb3989ed930b8d17340074de" ],
+    [ "ArgumentType< WidgetArgumentsBase, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widg40cb6ccdccec5f64d7436e231476e97f.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widg40cb6ccdccec5f64d7436e231476e97f" ],
+    [ "ArgumentType< WidgetArgumentsT, WidgetCallbacksBase, ArgT, ResourceGroupT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_803c6284125ac9bcba823854ea95d06e.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_803c6284125ac9bcba823854ea95d06e" ],
+    [ "Array", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_array.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_array" ],
+    [ "Boolean", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_boolean.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_boolean" ],
+    [ "Color", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_color.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_color" ],
+    [ "Complex", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_complex.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_complex" ],
+    [ "Flag", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_flag.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_flag" ],
+    [ "Function", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_function.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_function" ],
+    [ "Image", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_image.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_image" ],
+    [ "Link", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link.html", null ],
+    [ "Link< PrevT, LinkT, PtCallback_t * >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_3_01_prev_t_00_01_link_t_00_01_pt_callback__t_01_5_01_4.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_3_01_prev_t_00_01_link_t_00_01_pt_callback__t_01_5_01_4" ],
+    [ "Link< PrevT, LinkT, PtHotkeyCallback_t * >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_3_01_prev_t_00_01_link_t_00_01_pt_hotkey_callback__t_01_5_01_4.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_3_01_prev_t_00_01_link_t_00_01_pt_hotkey_callback__t_01_5_01_4" ],
+    [ "Link< PrevT, LinkT, PtRawCallback_t * >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_3_01_prev_t_00_01_link_t_00_01_pt_raw_callback__t_01_5_01_4.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_3_01_prev_t_00_01_link_t_00_01_pt_raw_callback__t_01_5_01_4" ],
+    [ "LinkType", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type" ],
+    [ "LinkType< WidgetArgumentsBase, WidgetCallbacksBase, LinkT, ResourceGroupT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_c3387fdfd257cc209ad0c0e6cd239e80f.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_c3387fdfd257cc209ad0c0e6cd239e80f" ],
+    [ "LinkType< WidgetArgumentsBase, WidgetCallbacksT, LinkT, ResourceGroupT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_cc6ce6455c1710d72b36c9458b2baa93c.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_cc6ce6455c1710d72b36c9458b2baa93c" ],
+    [ "LinkType< WidgetArgumentsT, WidgetCallbacksBase, LinkT, ResourceGroupT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_t_00_01_widget_call63468fa0532b349c0ab1ec21657547b1.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_t_00_01_widget_call63468fa0532b349c0ab1ec21657547b1" ],
+    [ "Pointer", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_pointer.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_pointer" ],
+    [ "Scalar", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar" ],
+    [ "String", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_string.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_string" ],
+    [ "Struct", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_struct.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_struct" ]
+];
