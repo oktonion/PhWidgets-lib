@@ -1,0 +1,10 @@
+var struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_39c58aa89427d15b16ff56b24b470e39 =
+[
+    [ "resource_group_type", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_39c58aa89427d15b16ff56b24b470e39.html#a904492fa153868b9f2473bf6ace0b9e0", null ],
+    [ "resource_type", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_39c58aa89427d15b16ff56b24b470e39.html#a8e5afcef52a9e67fa6409c38a4489b67", null ],
+    [ "WidgetArgument", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_39c58aa89427d15b16ff56b24b470e39.html#aedc76c9df579d251a4503ebc650b2021", null ],
+    [ "~WidgetArgument", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_39c58aa89427d15b16ff56b24b470e39.html#a5bedd9e1cb622f911e50f2af59ae7d1d", null ],
+    [ "get", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_39c58aa89427d15b16ff56b24b470e39.html#a557e43279ea84ded7ab4114ef5f58ca6", null ],
+    [ "set", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_39c58aa89427d15b16ff56b24b470e39.html#a143990eba40bf040f31abe6be1b7c362", null ],
+    [ "set", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_39c58aa89427d15b16ff56b24b470e39.html#ab5be268842c71070b9f1227c6821d890", null ]
+];

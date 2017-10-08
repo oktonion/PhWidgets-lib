@@ -1,0 +1,9 @@
+var struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_3d695d9ea7cf46c9f1c7ad6a7017d30b =
+[
+    [ "resource_group_type", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_3d695d9ea7cf46c9f1c7ad6a7017d30b.html#a51d20585aed54cd10ed0d7454892da87", null ],
+    [ "resource_type", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_3d695d9ea7cf46c9f1c7ad6a7017d30b.html#ad49370bafa09e6cf229ac03dd2c3d301", null ],
+    [ "WidgetArgument", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_3d695d9ea7cf46c9f1c7ad6a7017d30b.html#a0c01bd773388d8266a5a3d0b372fbdea", null ],
+    [ "~WidgetArgument", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_3d695d9ea7cf46c9f1c7ad6a7017d30b.html#ab4dca8409e0c37d69983a5a5af83dbfb", null ],
+    [ "get", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_3d695d9ea7cf46c9f1c7ad6a7017d30b.html#ae68a83241c2c9b0bad1f9c96d81bee11", null ],
+    [ "set", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_3d695d9ea7cf46c9f1c7ad6a7017d30b.html#a5523a90628b80ce9c5ed1a08ba2165e2", null ]
+];
