@@ -1,11 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea82934d51ae874215997937a9f42b5ad5":[2,0,3,6,0,35],
-"struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea855c2973f18c3f9c87281db35dd40f3f":[2,0,3,6,0,12],
-"struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea85b00b65d6fdb6a3aa2c89a3a69ea28b":[2,0,3,6,0,25],
-"struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea85d109ee50a8dab82699662373d78ec6":[2,0,3,6,0,23],
-"struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea87a886267d6575a13539280be1abc8f9":[2,0,3,6,0,0],
-"struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea90f59b6d72b44cb9a678ebf56c90704b":[2,0,3,6,0,7],
 "struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea978098dd4c3b5dacc91961941596a235":[2,0,3,6,0,39],
 "struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9a8d96a51eabb4df4d5dabd02ed31116":[2,0,3,6,0,30],
 "struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9b3d8a54fff613b3fcd6bfb991f8f5d4":[2,0,3,6,0,17],
@@ -249,5 +243,11 @@ var NAVTREEINDEX3 =
 "struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned.html#af75694a26884be6ee17b25092bdeee97":[2,0,3,17,21,11,0],
 "struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned.html#af75694a26884be6ee17b25092bdeee97af295089e84aca61976551c830529ad24":[2,0,3,17,21,11,0,0],
 "struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_long.html":[2,0,3,17,21,12],
-"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_long.html#a5c7282f5d354a28095034d98fe154c61":[2,0,3,17,21,12,0]
+"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_long.html#a5c7282f5d354a28095034d98fe154c61":[2,0,3,17,21,12,0],
+"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_long.html#a5c7282f5d354a28095034d98fe154c61adc0f579b53a0b8ff0bf20c77dd53c367":[2,0,3,17,21,12,0,0],
+"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short.html":[2,0,3,17,21,13],
+"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short.html#add5b33bf072e087e634112b4e5e471d3":[2,0,3,17,21,13,0],
+"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short.html#add5b33bf072e087e634112b4e5e471d3a39ca1eb07ee4ba368c8120035c36d4d8":[2,0,3,17,21,13,0,1],
+"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short.html#add5b33bf072e087e634112b4e5e471d3a3ae0bfd42e3e277c5e7412983049973e":[2,0,3,17,21,13,0,3],
+"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short.html#add5b33bf072e087e634112b4e5e471d3a70382a2a911f1900197e28ac280b77fb":[2,0,3,17,21,13,0,0]
 };

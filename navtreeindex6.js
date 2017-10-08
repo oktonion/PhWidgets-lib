@@ -1,11 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"structstd_1_1remove__cv.html":[2,0,4,22],
-"structstd_1_1remove__cv.html#ad9de4689d41155d6c2076e3a64124f54":[2,0,4,22,0],
-"structstd_1_1remove__reference.html":[2,0,4,23],
-"structstd_1_1remove__reference.html#add4d26d22b13a80b031aa55524a2fc32":[2,0,4,23,0],
-"structstd_1_1remove__reference_3_01_t_01_6_01_4.html":[2,0,4,24],
-"structstd_1_1remove__reference_3_01_t_01_6_01_4.html#ab1b7e1075debba22311f4dd395ac751e":[2,0,4,24,0],
 "structstd_1_1remove__volatile.html":[2,0,4,25],
 "structstd_1_1remove__volatile.html#ae9d9715edf7210d739c26a15bee20877":[2,0,4,25,0],
 "structstd_1_1remove__volatile_3_01volatile_01_t_01_4.html":[2,0,4,27],
@@ -76,13 +70,13 @@ var NAVTREEINDEX6 =
 "structstdex_1_1type__zero_3_01const_01_t[_n]_4.html#ae6be17d741eb788d3ecd803e86dc46be":[2,0,5,1,0],
 "structstdex_1_1type__zero_3_01const_01_t[_n]_4.html#af4dfac9ee512e2f0c4edc95aa2c3115b":[2,0,5,1,28],
 "structstdex_1_1type__zero_3_01const_01_t[_n]_4.html#afda4ddab0bcc18db60eb5ac4bbf345bb":[2,0,5,1,22],
-"type__zero_8hpp.html":[3,0,1,0,1,0,2],
-"type__zero_8hpp_source.html":[3,0,1,0,1,0,2],
-"types__ex_8h.html":[3,0,1,0,1,0,3],
-"types__ex_8h.html#a0c8186d9b9b7880309c27230bbb5e69d":[3,0,1,0,1,0,3,0],
-"types__ex_8h.html#a1d183b1acbf09843e693cd3b1169ccd0":[3,0,1,0,1,0,3,2],
-"types__ex_8h.html#a741b65e518a6f59e09f994590403fa38":[3,0,1,0,1,0,3,4],
-"types__ex_8h.html#aa1ba02159bc6b01c29d7b5554111a700":[3,0,1,0,1,0,3,3],
-"types__ex_8h.html#adfeea7eff00c71b5df129625fba09842":[3,0,1,0,1,0,3,1],
-"types__ex_8h_source.html":[3,0,1,0,1,0,3]
+"type__zero_8hpp.html":[3,0,34],
+"type__zero_8hpp_source.html":[3,0,34],
+"types__ex_8h.html":[3,0,35],
+"types__ex_8h.html#a0c8186d9b9b7880309c27230bbb5e69d":[3,0,35,0],
+"types__ex_8h.html#a1d183b1acbf09843e693cd3b1169ccd0":[3,0,35,2],
+"types__ex_8h.html#a741b65e518a6f59e09f994590403fa38":[3,0,35,4],
+"types__ex_8h.html#aa1ba02159bc6b01c29d7b5554111a700":[3,0,35,3],
+"types__ex_8h.html#adfeea7eff00c71b5df129625fba09842":[3,0,35,1],
+"types__ex_8h_source.html":[3,0,35]
 };

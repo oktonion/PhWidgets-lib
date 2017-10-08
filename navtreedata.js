@@ -24,7 +24,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "PhWidgets library", "index.html", [
-    [ "PhWidgets-lib", "md__c_1__users__alex__documents__git_hub__ph_widgets-lib__r_e_a_d_m_e.html", null ],
+    [ "PhWidgets-lib", "md__ph_widgets-lib__r_e_a_d_m_e.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -63,11 +63,11 @@ var NAVTREEINDEX =
 [
 "_ab_widgets_wrap_8cpp.html",
 "class_ph_widgets_1_1_timer.html#abf12700ce1b3c3eeb82df192c29901c2",
-"functions_func_b.html",
-"struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea82934d51ae874215997937a9f42b5ad5",
-"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_long.html#a5c7282f5d354a28095034d98fe154c61adc0f579b53a0b8ff0bf20c77dd53c367",
-"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html#abb07ca0fc23051ed36b18f92b806230c",
-"structstd_1_1remove__cv.html"
+"functions_func_n.html",
+"struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea978098dd4c3b5dacc91961941596a235",
+"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short.html#add5b33bf072e087e634112b4e5e471d3a80bd0fd5f6ab528673b88aa678836b67",
+"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_803c6284125ac9bcba823854ea95d06e.html#a2647c499ebb6025d5145c6693446d865",
+"structstd_1_1remove__volatile.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

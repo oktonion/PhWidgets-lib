@@ -1,11 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_long.html#a5c7282f5d354a28095034d98fe154c61adc0f579b53a0b8ff0bf20c77dd53c367":[2,0,3,17,21,12,0,0],
-"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short.html":[2,0,3,17,21,13],
-"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short.html#add5b33bf072e087e634112b4e5e471d3":[2,0,3,17,21,13,0],
-"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short.html#add5b33bf072e087e634112b4e5e471d3a39ca1eb07ee4ba368c8120035c36d4d8":[2,0,3,17,21,13,0,1],
-"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short.html#add5b33bf072e087e634112b4e5e471d3a3ae0bfd42e3e277c5e7412983049973e":[2,0,3,17,21,13,0,3],
-"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short.html#add5b33bf072e087e634112b4e5e471d3a70382a2a911f1900197e28ac280b77fb":[2,0,3,17,21,13,0,0],
 "struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short.html#add5b33bf072e087e634112b4e5e471d3a80bd0fd5f6ab528673b88aa678836b67":[2,0,3,17,21,13,0,2],
 "struct_ph_widgets_1_1_widget_1_1_this_callbacks.html":[2,0,3,17,22],
 "struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html":[2,0,3,17,22,0],
@@ -249,5 +243,11 @@ var NAVTREEINDEX4 =
 "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgc6fd5e59211b6fa2d966187a810f6c6f.html#abb07ca0fc23051ed36b18f92b806230c":[2,0,3,0,1,2,0,4],
 "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgc6fd5e59211b6fa2d966187a810f6c6f.html#add0da69b7ec9a113a851010e985d9b20":[2,0,3,0,1,2,0,3],
 "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html":[2,0,3,0,1,3,0],
-"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html#a88f681de7058a51f555f7d29e7396905":[2,0,3,0,1,3,0,3]
+"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html#a88f681de7058a51f555f7d29e7396905":[2,0,3,0,1,3,0,3],
+"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html#abb07ca0fc23051ed36b18f92b806230c":[2,0,3,0,1,3,0,4],
+"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html#ac8987fa48bdcbd5d514e5fbd6810feb7":[2,0,3,0,1,3,0,1],
+"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html#add6619e1ede19c517249573de31f59d5":[2,0,3,0,1,3,0,0],
+"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html#af9ba85a380e68b01238a9f2e0454876f":[2,0,3,0,1,3,0,2],
+"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_803c6284125ac9bcba823854ea95d06e.html":[2,0,3,0,1,4],
+"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_803c6284125ac9bcba823854ea95d06e.html#a255792b0d728239879c21d8ed3453b39":[2,0,3,0,1,4,3]
 };

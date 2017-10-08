@@ -1,11 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html#abb07ca0fc23051ed36b18f92b806230c":[2,0,3,0,1,3,0,4],
-"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html#ac8987fa48bdcbd5d514e5fbd6810feb7":[2,0,3,0,1,3,0,1],
-"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html#add6619e1ede19c517249573de31f59d5":[2,0,3,0,1,3,0,0],
-"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html#af9ba85a380e68b01238a9f2e0454876f":[2,0,3,0,1,3,0,2],
-"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_803c6284125ac9bcba823854ea95d06e.html":[2,0,3,0,1,4],
-"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_803c6284125ac9bcba823854ea95d06e.html#a255792b0d728239879c21d8ed3453b39":[2,0,3,0,1,4,3],
 "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_803c6284125ac9bcba823854ea95d06e.html#a2647c499ebb6025d5145c6693446d865":[2,0,3,0,1,4,2],
 "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_803c6284125ac9bcba823854ea95d06e.html#a7303ad5538c4e11b666b9e6f977fbf84":[2,0,3,0,1,4,1],
 "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_d9b21dad9111c8d13df8d04bb7cec99c.html":[2,0,3,0,1,4,0],
@@ -249,5 +243,11 @@ var NAVTREEINDEX5 =
 "structstd_1_1remove__const_3_01const_01volatile_01_t_01_4.html":[2,0,4,21],
 "structstd_1_1remove__const_3_01const_01volatile_01_t_01_4.html#a9b4eabe86c48846416af6ae469fc15d5":[2,0,4,21,0],
 "structstd_1_1remove__const_3_01const_01volatile_01_t_01_5_01_4.html":[2,0,4,20],
-"structstd_1_1remove__const_3_01const_01volatile_01_t_01_5_01_4.html#ac49b591bf052cd81d2c67ddf2a9d6f87":[2,0,4,20,0]
+"structstd_1_1remove__const_3_01const_01volatile_01_t_01_5_01_4.html#ac49b591bf052cd81d2c67ddf2a9d6f87":[2,0,4,20,0],
+"structstd_1_1remove__cv.html":[2,0,4,22],
+"structstd_1_1remove__cv.html#ad9de4689d41155d6c2076e3a64124f54":[2,0,4,22,0],
+"structstd_1_1remove__reference.html":[2,0,4,23],
+"structstd_1_1remove__reference.html#add4d26d22b13a80b031aa55524a2fc32":[2,0,4,23,0],
+"structstd_1_1remove__reference_3_01_t_01_6_01_4.html":[2,0,4,24],
+"structstd_1_1remove__reference_3_01_t_01_6_01_4.html#ab1b7e1075debba22311f4dd395ac751e":[2,0,4,24,0]
 };

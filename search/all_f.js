@@ -5,7 +5,7 @@ var searchData=
   ['detail',['detail',['../namespacephevents_1_1detail.html',1,'phevents::detail'],['../namespace_ph_widgets_1_1detail.html',1,'PhWidgets::detail']]],
   ['flag_5fdetail',['flag_detail',['../namespace_ph_widgets_1_1detail_1_1flag__detail.html',1,'PhWidgets::detail']]],
   ['internal',['internal',['../namespace_ph_widgets_1_1internal.html',1,'PhWidgets']]],
-  ['phwidgets_2dlib',['PhWidgets-lib',['../md__c_1__users__alex__documents__git_hub__ph_widgets-lib__r_e_a_d_m_e.html',1,'']]],
+  ['phwidgets_2dlib',['PhWidgets-lib',['../md__ph_widgets-lib__r_e_a_d_m_e.html',1,'']]],
   ['parent_5ft',['parent_t',['../structphevents_1_1detail_1_1get__parent__func.html#a83bf202f729de61e4b68c3482a5052c6',1,'phevents::detail::get_parent_func::parent_t()'],['../structphevents_1_1detail_1_1get__parent__func_3_01void_00_01void_01_4.html#aabc6f29dc4704a835d2f805482a06f5e',1,'phevents::detail::get_parent_func&lt; void, void &gt;::parent_t()'],['../structcppproperties_1_1detail_1_1get__parent__func.html#a8c94fd58356cd515a949296646f961fb',1,'cppproperties::detail::get_parent_func::parent_t()'],['../structcppproperties_1_1detail_1_1get__parent__func_3_01void_00_01void_01_4.html#adeed85fbcc1a37ee442fffc65423fc76',1,'cppproperties::detail::get_parent_func&lt; void, void &gt;::parent_t()']]],
   ['pg_5fdown',['Pg_Down',['../struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eabb1201a3f17e4a955cebf87387336431',1,'PhWidgets::Hotkeys']]],
   ['pg_5fup',['Pg_Up',['../struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea48d1dc824092012686281ad3e49e32da',1,'PhWidgets::Hotkeys']]],
