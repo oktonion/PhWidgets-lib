@@ -10,14 +10,7 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(initResizable);
-/* @license-end */</script>
+
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -67,23 +60,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('struct_ph_widgets_1_1_events.html','');});
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -98,6 +74,11 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_events.html','')
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_ph_widgets.html">PhWidgets</a></li><li class="navelem"><a class="el" href="struct_ph_widgets_1_1_events.html">Events</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">PhWidgets::Events Member List</div>  </div>
@@ -106,38 +87,34 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_events.html','')
 
 <p>This is the complete list of members for <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>boundary</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>button</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>dndrop</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>drag</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>draw</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>eEvents</b> enum name (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>expose</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>info</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>key</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>nobutton</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>press</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>raw</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>release</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>repeat</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>service</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>system</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>timer</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>user</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>wm</b> enum value (defined in <a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a>)</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23dae5db6235e85073976ff5fdb7cf37f17e">boundary</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da5cbbac4489642a8ba55321fe46bc3bc5">button</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da9b80a98c606616a5625f7cd20e0d8995">dndrop</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23dabcf543e438c9bdf0da39aacb9819514a">drag</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23dabf33b34ceefb4f3d37fc312624bc8111">draw</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23d">eEvents</a> enum name</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da561b6f7811377be39cbb7be46ffd64cc">expose</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da507f8830d5b3db50b7ee23ccd635002b">info</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23daa03e09fd0f1c8dbd81093563f33e4473">key</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da30078794ac5d92c517c6c4f40d49d5ad">nobutton</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23dad4b4fc956565cfcaa99b68f68eb7ef96">press</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da595d1bb46d1a5c8048e28aed6af1f622">raw</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da9078b14da6fff13b34ecaa6ea9446ff6">release</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da217b0f678e82929988cee9ed0d55d66b">repeat</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23dad3a5b81a9924b468f8e9718f542de9d6">service</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da56db0b1d26be6531da1e7461856100c9">system</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da9e027f20e099cf7a6ccf5bdc7baba715">timer</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da6e76a3dd4209716845af531e844a869d">user</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da6481578b9738a301f4e1974931de076b">wm</a> enum value</td><td class="entry"><a class="el" href="struct_ph_widgets_1_1_events.html">PhWidgets::Events</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
 
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
-  </ul>
-</div>
 
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
 
 </body>
 </html>

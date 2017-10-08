@@ -10,14 +10,7 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(initResizable);
-/* @license-end */</script>
+
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -67,23 +60,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_scalar.html','');});
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -98,6 +74,11 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1detail_1_1def__he
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_ph_widgets.html">PhWidgets</a></li><li class="navelem"><a class="el" href="namespace_ph_widgets_1_1detail.html">detail</a></li><li class="navelem"><a class="el" href="namespace_ph_widgets_1_1detail_1_1def__help.html">def_help</a></li><li class="navelem"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__help_1_1_define.html">Define</a></li><li class="navelem"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_scalar.html">Scalar</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_scalar-members.html">List of all members</a>  </div>
@@ -105,6 +86,8 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1detail_1_1def__he
 <div class="title">PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Scalar&lt; ArgT, ResourceT &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Scalar&lt; ArgT, ResourceT &gt;:</div>
 <div class="dyncontent">
@@ -118,38 +101,36 @@ Inheritance diagram for PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Scal
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar"><td colspan="2" onclick="javascript:toggleInherit('pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar.html">PhWidgets::detail::def_orig::Scalar&lt; PrevT, ArgT, ResourceT &gt;</a></td></tr>
-<tr class="memitem:abc0cf4f0261d579066a4b2befde07783 inherit pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar"><td class="memItemLeft" align="right" valign="top"><a id="abc0cf4f0261d579066a4b2befde07783"></a>
-typedef PrevT::WidgetCallbacks&#160;</td><td class="memItemRight" valign="bottom"><b>prev_widget_callbacks_type</b></td></tr>
+<tr class="memitem:abc0cf4f0261d579066a4b2befde07783 inherit pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar"><td class="memItemLeft" align="right" valign="top">typedef PrevT::WidgetCallbacks&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar.html#abc0cf4f0261d579066a4b2befde07783">prev_widget_callbacks_type</a></td></tr>
 <tr class="separator:abc0cf4f0261d579066a4b2befde07783 inherit pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a529fa8f587b103a3db61278830e33f08 inherit pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar"><td class="memItemLeft" align="right" valign="top"><a id="a529fa8f587b103a3db61278830e33f08"></a>
-typedef PrevT::WidgetArguments&#160;</td><td class="memItemRight" valign="bottom"><b>prev_widget_arguments_type</b></td></tr>
+<tr class="memitem:a529fa8f587b103a3db61278830e33f08 inherit pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar"><td class="memItemLeft" align="right" valign="top">typedef PrevT::WidgetArguments&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar.html#a529fa8f587b103a3db61278830e33f08">prev_widget_arguments_type</a></td></tr>
 <tr class="separator:a529fa8f587b103a3db61278830e33f08 inherit pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20dc6f86cf40cfb3f36b7882219b76a3 inherit pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar"><td class="memItemLeft" align="right" valign="top"><a id="a20dc6f86cf40cfb3f36b7882219b76a3"></a>
-typedef WidgetResourceGroupType::WidgetArgumentGroupType::scalar_type&#160;</td><td class="memItemRight" valign="bottom"><b>resource_group_type</b></td></tr>
+<tr class="memitem:a20dc6f86cf40cfb3f36b7882219b76a3 inherit pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar"><td class="memItemLeft" align="right" valign="top">typedef WidgetResourceGroupType::WidgetArgumentGroupType::scalar_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar.html#a20dc6f86cf40cfb3f36b7882219b76a3">resource_group_type</a></td></tr>
 <tr class="separator:a20dc6f86cf40cfb3f36b7882219b76a3 inherit pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8f35436ea84c088f4065bff849a223f inherit pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar"><td class="memItemLeft" align="right" valign="top"><a id="ab8f35436ea84c088f4065bff849a223f"></a>
-typedef <a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type.html">ArgumentType</a>&lt; prev_widget_arguments_type, prev_widget_callbacks_type, ArgT, resource_group_type, ResourceT &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>resource_type</b></td></tr>
+<tr class="memitem:ab8f35436ea84c088f4065bff849a223f inherit pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type.html">ArgumentType</a>&lt; <a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar.html#a529fa8f587b103a3db61278830e33f08">prev_widget_arguments_type</a>, <a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar.html#abc0cf4f0261d579066a4b2befde07783">prev_widget_callbacks_type</a>, ArgT, <a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar.html#a20dc6f86cf40cfb3f36b7882219b76a3">resource_group_type</a>, ResourceT &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar.html#ab8f35436ea84c088f4065bff849a223f">resource_type</a></td></tr>
 <tr class="separator:ab8f35436ea84c088f4065bff849a223f inherit pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14b646a4da9227d9db4eae077d718b1f inherit pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar"><td class="memItemLeft" align="right" valign="top"><a id="a14b646a4da9227d9db4eae077d718b1f"></a>
-typedef <a class="el" href="struct_ph_widgets_1_1detail_1_1def__help_1_1_define.html">def_help::Define</a>&lt; <a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type.html">resource_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Define</b></td></tr>
+<tr class="memitem:a14b646a4da9227d9db4eae077d718b1f inherit pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="struct_ph_widgets_1_1detail_1_1def__help_1_1_define.html">def_help::Define</a>&lt; <a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar.html#ab8f35436ea84c088f4065bff849a223f">resource_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar.html#a14b646a4da9227d9db4eae077d718b1f">Define</a></td></tr>
 <tr class="separator:a14b646a4da9227d9db4eae077d718b1f inherit pub_types_struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class PrevT&gt;<br />
+template&lt;class ArgT, class ResourceT&gt;<br />
+struct PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Scalar&lt; ArgT, ResourceT &gt;</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="_widget_resource_8hpp_source.html#l01624">1624</a> of file <a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>.</p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>C:/Users/Alex/Documents/GitHub/PhWidgets-lib/src/<a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
 
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><b>PhWidgets</b></li><li class="navelem"><b>detail</b></li><li class="navelem"><b>def_help</b></li><li class="navelem"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__help_1_1_define.html">Define</a></li><li class="navelem"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_scalar.html">Scalar</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
-  </ul>
-</div>
 
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
 
 </body>
 </html>

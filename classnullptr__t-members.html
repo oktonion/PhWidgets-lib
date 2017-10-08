@@ -10,14 +10,7 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(initResizable);
-/* @license-end */</script>
+
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -67,23 +60,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('classnullptr__t.html','');});
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -98,6 +74,7 @@ $(document).ready(function(){initNavTree('classnullptr__t.html','');});
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">nullptr_t Member List</div>  </div>
@@ -106,34 +83,30 @@ $(document).ready(function(){initNavTree('classnullptr__t.html','');});
 
 <p>This is the complete list of members for <a class="el" href="classnullptr__t.html">nullptr_t</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>nullptr_t</b>() (defined in <a class="el" href="classnullptr__t.html">nullptr_t</a>)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>nullptr_t</b>(int _nat::*) (defined in <a class="el" href="classnullptr__t.html">nullptr_t</a>)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator T*</b>() const (defined in <a class="el" href="classnullptr__t.html">nullptr_t</a>)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator!=</b>(T *val) (defined in <a class="el" href="classnullptr__t.html">nullptr_t</a>)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator!=</b> (defined in <a class="el" href="classnullptr__t.html">nullptr_t</a>)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator&lt;</b>(T *val) (defined in <a class="el" href="classnullptr__t.html">nullptr_t</a>)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator&lt;</b> (defined in <a class="el" href="classnullptr__t.html">nullptr_t</a>)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator&lt;=</b>(T *val) (defined in <a class="el" href="classnullptr__t.html">nullptr_t</a>)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator&lt;=</b> (defined in <a class="el" href="classnullptr__t.html">nullptr_t</a>)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator==</b>(T *val) (defined in <a class="el" href="classnullptr__t.html">nullptr_t</a>)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator==</b> (defined in <a class="el" href="classnullptr__t.html">nullptr_t</a>)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator&gt;</b>(T *val) (defined in <a class="el" href="classnullptr__t.html">nullptr_t</a>)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator&gt;</b> (defined in <a class="el" href="classnullptr__t.html">nullptr_t</a>)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator&gt;=</b>(T *val) (defined in <a class="el" href="classnullptr__t.html">nullptr_t</a>)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator&gt;=</b> (defined in <a class="el" href="classnullptr__t.html">nullptr_t</a>)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classnullptr__t.html#a08684df054c0beb6acd14771d8ac8a07">nullptr_t</a>()</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classnullptr__t.html#a224d9118ab330ed48cfb9a804716f07e">nullptr_t</a>(int _nat::*)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classnullptr__t.html#a4a43f40c1672fc0de4c148de15269a36">operator T*</a>() const</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classnullptr__t.html#acd3f71cde244a1aa63d76efda8d3f5fa">operator!=</a>(T *val)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classnullptr__t.html#a41709aaf816e3e4014643ad536810167">operator!=</a>(T *val, nullptr_t np)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classnullptr__t.html#a77e352f10b7dc034e23a7e3257db9e11">operator&lt;</a>(T *val)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classnullptr__t.html#a6b894302d6e9c4cdcbb66f086d1456f3">operator&lt;</a>(T *val, nullptr_t np)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classnullptr__t.html#a8f2b75d100be5dae2be5046392a8cd91">operator&lt;=</a>(T *val)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classnullptr__t.html#a875ed0d3ed19dd5cabd6a660f3fb612c">operator&lt;=</a>(T *val, nullptr_t np)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classnullptr__t.html#a5d8ec8fe113739354fc00e9c681e1441">operator==</a>(T *val)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classnullptr__t.html#a9fc16d78b02a864e10488dade89f8ea5">operator==</a>(T *val, nullptr_t np)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classnullptr__t.html#a1f667ff8e66586337c7bd36d7c57230a">operator&gt;</a>(T *val)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classnullptr__t.html#aa2063cd88316ea1fb57549da91148b2f">operator&gt;</a>(T *val, nullptr_t np)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classnullptr__t.html#ac2403d51e15713a5c54a3d8d70d2702c">operator&gt;=</a>(T *val)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classnullptr__t.html#a0a240e165251a30886eacf2e4e74705b">operator&gt;=</a>(T *val, nullptr_t np)</td><td class="entry"><a class="el" href="classnullptr__t.html">nullptr_t</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
 </table></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
 
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
-  </ul>
-</div>
 
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
 
 </body>
 </html>

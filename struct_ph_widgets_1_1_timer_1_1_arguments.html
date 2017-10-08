@@ -10,14 +10,7 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(initResizable);
-/* @license-end */</script>
+
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -67,23 +60,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('struct_ph_widgets_1_1_timer_1_1_arguments.html','');});
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -98,6 +74,11 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_timer_1_1_argume
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_ph_widgets.html">PhWidgets</a></li><li class="navelem"><a class="el" href="class_ph_widgets_1_1_timer.html">Timer</a></li><li class="navelem"><a class="el" href="struct_ph_widgets_1_1_timer_1_1_arguments.html">Arguments</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="struct_ph_widgets_1_1_timer_1_1_arguments-members.html">List of all members</a>  </div>
@@ -105,6 +86,8 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_timer_1_1_argume
 <div class="title">PhWidgets::Timer::Arguments Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_timer_8h_source.html">Timer.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PhWidgets::Timer::Arguments:</div>
 <div class="dyncontent">
@@ -122,41 +105,37 @@ Inheritance diagram for PhWidgets::Timer::Arguments:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_types_struct_ph_widgets_1_1_timer_1_1_this_args_1_1_arg_unsigned_long"><td colspan="2" onclick="javascript:toggleInherit('pub_types_struct_ph_widgets_1_1_timer_1_1_this_args_1_1_arg_unsigned_long')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="struct_ph_widgets_1_1_timer_1_1_this_args_1_1_arg_unsigned_long.html">PhWidgets::Timer::ThisArgs::ArgUnsignedLong</a></td></tr>
-<tr class="memitem:aaa6a80096307e60b1384a7b4c72c460c inherit pub_types_struct_ph_widgets_1_1_timer_1_1_this_args_1_1_arg_unsigned_long"><td class="memItemLeft" align="right" valign="top"><a id="aaa6a80096307e60b1384a7b4c72c460c"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>eArgUnsignedLong</b> { <b>timer_initial</b> = Pt_ARG_TIMER_INITIAL, 
-<b>timer_repeat</b> = Pt_ARG_TIMER_REPEAT
+<tr class="memitem:aaa6a80096307e60b1384a7b4c72c460c inherit pub_types_struct_ph_widgets_1_1_timer_1_1_this_args_1_1_arg_unsigned_long"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_timer_1_1_this_args_1_1_arg_unsigned_long.html#aaa6a80096307e60b1384a7b4c72c460c">eArgUnsignedLong</a> { <a class="el" href="struct_ph_widgets_1_1_timer_1_1_this_args_1_1_arg_unsigned_long.html#aaa6a80096307e60b1384a7b4c72c460ca1307c34cdc6f546afeb00db13dac7060">timer_initial</a> = Pt_ARG_TIMER_INITIAL, 
+<a class="el" href="struct_ph_widgets_1_1_timer_1_1_this_args_1_1_arg_unsigned_long.html#aaa6a80096307e60b1384a7b4c72c460ca4d8b7776c7e9a13a5e19fee07ac10d0f">timer_repeat</a> = Pt_ARG_TIMER_REPEAT
  }</td></tr>
 <tr class="separator:aaa6a80096307e60b1384a7b4c72c460c inherit pub_types_struct_ph_widgets_1_1_timer_1_1_this_args_1_1_arg_unsigned_long"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_long"><td colspan="2" onclick="javascript:toggleInherit('pub_types_struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_long')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_long.html">PhWidgets::Widget::ThisArgs::ArgLong</a></td></tr>
-<tr class="memitem:a4deba655c8d3dc2d794aabd716c15d25 inherit pub_types_struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_long"><td class="memItemLeft" align="right" valign="top"><a id="a4deba655c8d3dc2d794aabd716c15d25"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>eArgLong</b> { <b>flags</b> = Pt_ARG_FLAGS
+<tr class="memitem:a4deba655c8d3dc2d794aabd716c15d25 inherit pub_types_struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_long"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_long.html#a4deba655c8d3dc2d794aabd716c15d25">eArgLong</a> { <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_long.html#a4deba655c8d3dc2d794aabd716c15d25adaf477f74ebe062cc2d6db6ce66d053c">flags</a> = Pt_ARG_FLAGS
  }</td></tr>
 <tr class="separator:a4deba655c8d3dc2d794aabd716c15d25 inherit pub_types_struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_long"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_attribs_struct_ph_widgets_1_1_timer_1_1_arg_p_void"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_struct_ph_widgets_1_1_timer_1_1_arg_p_void')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="struct_ph_widgets_1_1_timer_1_1_arg_p_void.html">PhWidgets::Timer::ArgPVoid</a></td></tr>
-<tr class="memitem:a01f922e6466e525f77fc6341bbe6f36d inherit pub_static_attribs_struct_ph_widgets_1_1_timer_1_1_arg_p_void"><td class="memItemLeft" align="right" valign="top"><a id="a01f922e6466e525f77fc6341bbe6f36d"></a>
-static const Widget::ArgPVoid::eArgPVoid&#160;</td><td class="memItemRight" valign="bottom"><b>pointer</b> = Widget::ArgPVoid::pointer</td></tr>
+<tr class="memitem:a01f922e6466e525f77fc6341bbe6f36d inherit pub_static_attribs_struct_ph_widgets_1_1_timer_1_1_arg_p_void"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_void.html#aab59819c4a5047b0216bc9f72f821a17">Widget::ArgPVoid::eArgPVoid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_timer_1_1_arg_p_void.html#a01f922e6466e525f77fc6341bbe6f36d">pointer</a> = Widget::ArgPVoid::pointer</td></tr>
 <tr class="separator:a01f922e6466e525f77fc6341bbe6f36d inherit pub_static_attribs_struct_ph_widgets_1_1_timer_1_1_arg_p_void"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe78019e096284cfb087cc83a71a902b inherit pub_static_attribs_struct_ph_widgets_1_1_timer_1_1_arg_p_void"><td class="memItemLeft" align="right" valign="top"><a id="abe78019e096284cfb087cc83a71a902b"></a>
-static const Widget::ArgPVoid::eArgPVoid&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> = Widget::ArgPVoid::data</td></tr>
+<tr class="memitem:abe78019e096284cfb087cc83a71a902b inherit pub_static_attribs_struct_ph_widgets_1_1_timer_1_1_arg_p_void"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_void.html#aab59819c4a5047b0216bc9f72f821a17">Widget::ArgPVoid::eArgPVoid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_timer_1_1_arg_p_void.html#abe78019e096284cfb087cc83a71a902b">data</a> = Widget::ArgPVoid::data</td></tr>
 <tr class="separator:abe78019e096284cfb087cc83a71a902b inherit pub_static_attribs_struct_ph_widgets_1_1_timer_1_1_arg_p_void"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d3b4fa110f894154a8ffb8996d5fd09 inherit pub_static_attribs_struct_ph_widgets_1_1_timer_1_1_arg_p_void"><td class="memItemLeft" align="right" valign="top"><a id="a9d3b4fa110f894154a8ffb8996d5fd09"></a>
-static const Widget::ArgPVoid::eArgPVoid&#160;</td><td class="memItemRight" valign="bottom"><b>user_data</b> = Widget::ArgPVoid::user_data</td></tr>
+<tr class="memitem:a9d3b4fa110f894154a8ffb8996d5fd09 inherit pub_static_attribs_struct_ph_widgets_1_1_timer_1_1_arg_p_void"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_void.html#aab59819c4a5047b0216bc9f72f821a17">Widget::ArgPVoid::eArgPVoid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_timer_1_1_arg_p_void.html#a9d3b4fa110f894154a8ffb8996d5fd09">user_data</a> = Widget::ArgPVoid::user_data</td></tr>
 <tr class="separator:a9d3b4fa110f894154a8ffb8996d5fd09 inherit pub_static_attribs_struct_ph_widgets_1_1_timer_1_1_arg_p_void"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_timer_8h_source.html#l00063">63</a> of file <a class="el" href="_timer_8h_source.html">Timer.h</a>.</p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>C:/Users/Alex/Documents/GitHub/PhWidgets-lib/src/<a class="el" href="_timer_8h_source.html">Timer.h</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
 
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><b>PhWidgets</b></li><li class="navelem"><a class="el" href="class_ph_widgets_1_1_timer.html">Timer</a></li><li class="navelem"><a class="el" href="struct_ph_widgets_1_1_timer_1_1_arguments.html">Arguments</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
-  </ul>
-</div>
 
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
 
 </body>
 </html>

@@ -10,14 +10,7 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(initResizable);
-/* @license-end */</script>
+
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -67,23 +60,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_019ceba6ac52d1f2d858a60e422e8bf1.html','');});
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -98,6 +74,11 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1detail_1_1_widget
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_ph_widgets.html">PhWidgets</a></li><li class="navelem"><a class="el" href="namespace_ph_widgets_1_1detail.html">detail</a></li><li class="navelem"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_019ceba6ac52d1f2d858a60e422e8bf1.html">WidgetArgument&lt; ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::flag_type, ResourceT &gt;</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
@@ -107,6 +88,8 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1detail_1_1_widget
 <div class="title">PhWidgets::detail::WidgetArgument&lt; ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::flag_type, ResourceT &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PhWidgets::detail::WidgetArgument&lt; ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::flag_type, ResourceT &gt;:</div>
 <div class="dyncontent">
@@ -119,46 +102,255 @@ Inheritance diagram for PhWidgets::detail::WidgetArgument&lt; ArgT, WidgetResour
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a3ea222885ef5746a56ec5ae8fa49cf66"><td class="memItemLeft" align="right" valign="top"><a id="a3ea222885ef5746a56ec5ae8fa49cf66"></a>
-typedef WidgetResourceGroupType::WidgetArgumentGroupType::flag_type&#160;</td><td class="memItemRight" valign="bottom"><b>resource_group_type</b></td></tr>
+<tr class="memitem:a3ea222885ef5746a56ec5ae8fa49cf66"><td class="memItemLeft" align="right" valign="top">typedef WidgetResourceGroupType::WidgetArgumentGroupType::flag_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_019ceba6ac52d1f2d858a60e422e8bf1.html#a3ea222885ef5746a56ec5ae8fa49cf66">resource_group_type</a></td></tr>
 <tr class="separator:a3ea222885ef5746a56ec5ae8fa49cf66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa576c7cf3c002126e1afde8ea5a0711f"><td class="memItemLeft" align="right" valign="top"><a id="aa576c7cf3c002126e1afde8ea5a0711f"></a>
-typedef ResourceT&#160;</td><td class="memItemRight" valign="bottom"><b>resource_type</b></td></tr>
+<tr class="memitem:aa576c7cf3c002126e1afde8ea5a0711f"><td class="memItemLeft" align="right" valign="top">typedef ResourceT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_019ceba6ac52d1f2d858a60e422e8bf1.html#aa576c7cf3c002126e1afde8ea5a0711f">resource_type</a></td></tr>
 <tr class="separator:aa576c7cf3c002126e1afde8ea5a0711f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1e3aabf59b2d455da183e7d856cf4af3"><td class="memItemLeft" align="right" valign="top"><a id="a1e3aabf59b2d455da183e7d856cf4af3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>WidgetArgument</b> (<a class="el" href="class_ph_widgets_1_1detail_1_1_i_pt_widget.html">IPtWidget</a> *widget, ArgT arg)</td></tr>
+<tr class="memitem:a1e3aabf59b2d455da183e7d856cf4af3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_019ceba6ac52d1f2d858a60e422e8bf1.html#a1e3aabf59b2d455da183e7d856cf4af3">WidgetArgument</a> (<a class="el" href="class_ph_widgets_1_1detail_1_1_i_pt_widget.html">IPtWidget</a> *widget, ArgT arg)</td></tr>
 <tr class="separator:a1e3aabf59b2d455da183e7d856cf4af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab52cbd3e04676fea577744d7cfe58c32"><td class="memTemplParams" colspan="2"><a id="ab52cbd3e04676fea577744d7cfe58c32"></a>
-template&lt;typename A1 , typename A2 &gt; </td></tr>
-<tr class="memitem:ab52cbd3e04676fea577744d7cfe58c32"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><b>set</b> (A1 flag, A2 mask)</td></tr>
+<tr class="memitem:ac7654c78052bc42a37793bfe457a837c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_019ceba6ac52d1f2d858a60e422e8bf1.html#ac7654c78052bc42a37793bfe457a837c">~WidgetArgument</a> ()</td></tr>
+<tr class="separator:ac7654c78052bc42a37793bfe457a837c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab52cbd3e04676fea577744d7cfe58c32"><td class="memTemplParams" colspan="2">template&lt;typename A1 , typename A2 &gt; </td></tr>
+<tr class="memitem:ab52cbd3e04676fea577744d7cfe58c32"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_019ceba6ac52d1f2d858a60e422e8bf1.html#ab52cbd3e04676fea577744d7cfe58c32">set</a> (A1 flag, A2 mask)</td></tr>
 <tr class="separator:ab52cbd3e04676fea577744d7cfe58c32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47c81fcda5002813956dd6bfc4797500"><td class="memItemLeft" align="right" valign="top"><a id="a47c81fcda5002813956dd6bfc4797500"></a>
-resource_type&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> () const</td></tr>
+<tr class="memitem:a47c81fcda5002813956dd6bfc4797500"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_019ceba6ac52d1f2d858a60e422e8bf1.html#aa576c7cf3c002126e1afde8ea5a0711f">resource_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_019ceba6ac52d1f2d858a60e422e8bf1.html#a47c81fcda5002813956dd6bfc4797500">get</a> () const</td></tr>
 <tr class="separator:a47c81fcda5002813956dd6bfc4797500"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a520ac28865b3b494548d0656ad9583"><td class="memTemplParams" colspan="2"><a id="a5a520ac28865b3b494548d0656ad9583"></a>
-template&lt;typename A1 &gt; </td></tr>
-<tr class="memitem:a5a520ac28865b3b494548d0656ad9583"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get</b> (A1 flag) const</td></tr>
+<tr class="memitem:a5a520ac28865b3b494548d0656ad9583"><td class="memTemplParams" colspan="2">template&lt;typename A1 &gt; </td></tr>
+<tr class="memitem:a5a520ac28865b3b494548d0656ad9583"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_019ceba6ac52d1f2d858a60e422e8bf1.html#a5a520ac28865b3b494548d0656ad9583">get</a> (A1 flag) const</td></tr>
 <tr class="separator:a5a520ac28865b3b494548d0656ad9583"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename ArgT, class ResourceT&gt;<br />
+struct PhWidgets::detail::WidgetArgument&lt; ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::flag_type, ResourceT &gt;</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="_widget_resource_8hpp_source.html#l00475">475</a> of file <a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a3ea222885ef5746a56ec5ae8fa49cf66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ea222885ef5746a56ec5ae8fa49cf66">&#9670;&nbsp;</a></span>resource_group_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ArgT , class ResourceT &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef WidgetResourceGroupType::WidgetArgumentGroupType::flag_type <a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument.html">PhWidgets::detail::WidgetArgument</a>&lt; ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::flag_type, ResourceT &gt;::<a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_019ceba6ac52d1f2d858a60e422e8bf1.html#a3ea222885ef5746a56ec5ae8fa49cf66">resource_group_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_widget_resource_8hpp_source.html#l00478">478</a> of file <a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa576c7cf3c002126e1afde8ea5a0711f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa576c7cf3c002126e1afde8ea5a0711f">&#9670;&nbsp;</a></span>resource_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ArgT , class ResourceT &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef ResourceT <a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument.html">PhWidgets::detail::WidgetArgument</a>&lt; ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::flag_type, ResourceT &gt;::<a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_019ceba6ac52d1f2d858a60e422e8bf1.html#aa576c7cf3c002126e1afde8ea5a0711f">resource_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_widget_resource_8hpp_source.html#l00479">479</a> of file <a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1e3aabf59b2d455da183e7d856cf4af3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e3aabf59b2d455da183e7d856cf4af3">&#9670;&nbsp;</a></span>WidgetArgument()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ArgT , class ResourceT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument.html">PhWidgets::detail::WidgetArgument</a>&lt; ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::flag_type, ResourceT &gt;::<a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument.html">WidgetArgument</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_ph_widgets_1_1detail_1_1_i_pt_widget.html">IPtWidget</a> *&#160;</td>
+          <td class="paramname"><em>widget</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ArgT&#160;</td>
+          <td class="paramname"><em>arg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_widget_resource_8hpp_source.html#l00481">481</a> of file <a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ac7654c78052bc42a37793bfe457a837c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7654c78052bc42a37793bfe457a837c">&#9670;&nbsp;</a></span>~WidgetArgument()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ArgT , class ResourceT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument.html">PhWidgets::detail::WidgetArgument</a>&lt; ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::flag_type, ResourceT &gt;::~<a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument.html">WidgetArgument</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_widget_resource_8hpp_source.html#l00485">485</a> of file <a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a47c81fcda5002813956dd6bfc4797500"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47c81fcda5002813956dd6bfc4797500">&#9670;&nbsp;</a></span>get() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ArgT , class ResourceT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_019ceba6ac52d1f2d858a60e422e8bf1.html#aa576c7cf3c002126e1afde8ea5a0711f">resource_type</a> <a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument.html">PhWidgets::detail::WidgetArgument</a>&lt; ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::flag_type, ResourceT &gt;::get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_widget_resource_8hpp_source.html#l00495">495</a> of file <a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a5a520ac28865b3b494548d0656ad9583"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a520ac28865b3b494548d0656ad9583">&#9670;&nbsp;</a></span>get() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ArgT , class ResourceT &gt; </div>
+<div class="memtemplate">
+template&lt;typename A1 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument.html">PhWidgets::detail::WidgetArgument</a>&lt; ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::flag_type, ResourceT &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">A1&#160;</td>
+          <td class="paramname"><em>flag</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_widget_resource_8hpp_source.html#l00502">502</a> of file <a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab52cbd3e04676fea577744d7cfe58c32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab52cbd3e04676fea577744d7cfe58c32">&#9670;&nbsp;</a></span>set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ArgT , class ResourceT &gt; </div>
+<div class="memtemplate">
+template&lt;typename A1 , typename A2 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument.html">PhWidgets::detail::WidgetArgument</a>&lt; ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::flag_type, ResourceT &gt;::set </td>
+          <td>(</td>
+          <td class="paramtype">A1&#160;</td>
+          <td class="paramname"><em>flag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">A2&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_widget_resource_8hpp_source.html#l00490">490</a> of file <a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>C:/Users/Alex/Documents/GitHub/PhWidgets-lib/src/<a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
 
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><b>PhWidgets</b></li><li class="navelem"><b>detail</b></li><li class="navelem"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_019ceba6ac52d1f2d858a60e422e8bf1.html">WidgetArgument&lt; ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::flag_type, ResourceT &gt;</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
-  </ul>
-</div>
 
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
 
 </body>
 </html>

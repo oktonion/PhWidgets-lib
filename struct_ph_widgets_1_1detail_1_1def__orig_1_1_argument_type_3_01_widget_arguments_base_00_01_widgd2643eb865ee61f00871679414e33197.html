@@ -10,14 +10,7 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(initResizable);
-/* @license-end */</script>
+
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -67,23 +60,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html','');});
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -98,6 +74,11 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1detail_1_1def__or
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_ph_widgets.html">PhWidgets</a></li><li class="navelem"><a class="el" href="namespace_ph_widgets_1_1detail.html">detail</a></li><li class="navelem"><a class="el" href="namespace_ph_widgets_1_1detail_1_1def__orig.html">def_orig</a></li><li class="navelem"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widg40cb6ccdccec5f64d7436e231476e97f.html">ArgumentType&lt; WidgetArgumentsBase, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT &gt;</a></li><li class="navelem"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html">WidgetArguments</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -108,6 +89,8 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1detail_1_1def__or
 <div class="title">PhWidgets::detail::def_orig::ArgumentType&lt; WidgetArgumentsBase, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT &gt;::WidgetArguments Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PhWidgets::detail::def_orig::ArgumentType&lt; WidgetArgumentsBase, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT &gt;::WidgetArguments:</div>
 <div class="dyncontent">
@@ -120,57 +103,202 @@ Inheritance diagram for PhWidgets::detail::def_orig::ArgumentType&lt; WidgetArgu
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af9ba85a380e68b01238a9f2e0454876f"><td class="memItemLeft" align="right" valign="top"><a id="af9ba85a380e68b01238a9f2e0454876f"></a>
-<a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument.html">WidgetArgument</a>&lt; ArgT, ResourceGroupT, ResourceT &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (const ArgT indx) const</td></tr>
+<tr class="memitem:af9ba85a380e68b01238a9f2e0454876f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument.html">WidgetArgument</a>&lt; ArgT, ResourceGroupT, ResourceT &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html#af9ba85a380e68b01238a9f2e0454876f">operator[]</a> (const ArgT indx) const</td></tr>
 <tr class="separator:af9ba85a380e68b01238a9f2e0454876f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:add6619e1ede19c517249573de31f59d5"><td class="memItemLeft" align="right" valign="top"><a id="add6619e1ede19c517249573de31f59d5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>WidgetArguments</b> (<a class="el" href="class_ph_widgets_1_1detail_1_1_i_pt_widget.html">IPtWidget</a> *widget)</td></tr>
+<tr class="memitem:add6619e1ede19c517249573de31f59d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html#add6619e1ede19c517249573de31f59d5">WidgetArguments</a> (<a class="el" href="class_ph_widgets_1_1detail_1_1_i_pt_widget.html">IPtWidget</a> *widget)</td></tr>
 <tr class="separator:add6619e1ede19c517249573de31f59d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8987fa48bdcbd5d514e5fbd6810feb7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html#ac8987fa48bdcbd5d514e5fbd6810feb7">~WidgetArguments</a> ()</td></tr>
+<tr class="separator:ac8987fa48bdcbd5d514e5fbd6810feb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_struct_ph_widgets_1_1detail_1_1_widget_arguments_base"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_struct_ph_widgets_1_1detail_1_1_widget_arguments_base')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_arguments_base.html">PhWidgets::detail::WidgetArgumentsBase</a></td></tr>
-<tr class="memitem:ac636f695bb13f89489427eafe3fe9c77 inherit pro_methods_struct_ph_widgets_1_1detail_1_1_widget_arguments_base"><td class="memItemLeft" align="right" valign="top"><a id="ac636f695bb13f89489427eafe3fe9c77"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>WidgetArgumentsBase</b> (<a class="el" href="class_ph_widgets_1_1detail_1_1_i_pt_widget.html">IPtWidget</a> *widget)</td></tr>
+<tr class="memitem:ac636f695bb13f89489427eafe3fe9c77 inherit pro_methods_struct_ph_widgets_1_1detail_1_1_widget_arguments_base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_arguments_base.html#ac636f695bb13f89489427eafe3fe9c77">WidgetArgumentsBase</a> (<a class="el" href="class_ph_widgets_1_1detail_1_1_i_pt_widget.html">IPtWidget</a> *widget)</td></tr>
 <tr class="separator:ac636f695bb13f89489427eafe3fe9c77 inherit pro_methods_struct_ph_widgets_1_1detail_1_1_widget_arguments_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2407178b46e9b6b2f390654a85730df2 inherit pro_methods_struct_ph_widgets_1_1detail_1_1_widget_arguments_base"><td class="memTemplParams" colspan="2"><a id="a2407178b46e9b6b2f390654a85730df2"></a>
-template&lt;class ArgT , class ResourceGroupT , class ResourceT &gt; </td></tr>
-<tr class="memitem:a2407178b46e9b6b2f390654a85730df2 inherit pro_methods_struct_ph_widgets_1_1detail_1_1_widget_arguments_base"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument.html">WidgetArgument</a>&lt; ArgT, ResourceGroupT, ResourceT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>resource</b> (const ArgT indx) const</td></tr>
+<tr class="memitem:ab7def5c42a57fd02e2be4ce3e4ebf837 inherit pro_methods_struct_ph_widgets_1_1detail_1_1_widget_arguments_base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_arguments_base.html#ab7def5c42a57fd02e2be4ce3e4ebf837">~WidgetArgumentsBase</a> ()</td></tr>
+<tr class="separator:ab7def5c42a57fd02e2be4ce3e4ebf837 inherit pro_methods_struct_ph_widgets_1_1detail_1_1_widget_arguments_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2407178b46e9b6b2f390654a85730df2 inherit pro_methods_struct_ph_widgets_1_1detail_1_1_widget_arguments_base"><td class="memTemplParams" colspan="2">template&lt;class ArgT , class ResourceGroupT , class ResourceT &gt; </td></tr>
+<tr class="memitem:a2407178b46e9b6b2f390654a85730df2 inherit pro_methods_struct_ph_widgets_1_1detail_1_1_widget_arguments_base"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument.html">WidgetArgument</a>&lt; ArgT, ResourceGroupT, ResourceT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_arguments_base.html#a2407178b46e9b6b2f390654a85730df2">resource</a> (const ArgT indx) const</td></tr>
 <tr class="separator:a2407178b46e9b6b2f390654a85730df2 inherit pro_methods_struct_ph_widgets_1_1detail_1_1_widget_arguments_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a88f681de7058a51f555f7d29e7396905"><td class="memItemLeft" align="right" valign="top"><a id="a88f681de7058a51f555f7d29e7396905"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>ArgumentType&lt; WidgetArgumentsBase, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT &gt;</b></td></tr>
+<tr class="memitem:a88f681de7058a51f555f7d29e7396905"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html#a88f681de7058a51f555f7d29e7396905">ArgumentType&lt; WidgetArgumentsBase, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT &gt;</a></td></tr>
 <tr class="separator:a88f681de7058a51f555f7d29e7396905"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb07ca0fc23051ed36b18f92b806230c"><td class="memTemplParams" colspan="2"><a id="abb07ca0fc23051ed36b18f92b806230c"></a>
-template&lt;class , class , class , class &gt; </td></tr>
-<tr class="memitem:abb07ca0fc23051ed36b18f92b806230c"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><b>LinkType</b></td></tr>
+<tr class="memitem:abb07ca0fc23051ed36b18f92b806230c"><td class="memTemplParams" colspan="2">template&lt;class , class , class , class &gt; </td></tr>
+<tr class="memitem:abb07ca0fc23051ed36b18f92b806230c"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html#abb07ca0fc23051ed36b18f92b806230c">LinkType</a></td></tr>
 <tr class="separator:abb07ca0fc23051ed36b18f92b806230c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_struct_ph_widgets_1_1detail_1_1_widget_arguments_base"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_struct_ph_widgets_1_1detail_1_1_widget_arguments_base')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_arguments_base.html">PhWidgets::detail::WidgetArgumentsBase</a></td></tr>
-<tr class="memitem:ab90efec0ce0a6368b49dd902506a3246 inherit pro_attribs_struct_ph_widgets_1_1detail_1_1_widget_arguments_base"><td class="memItemLeft" align="right" valign="top"><a id="ab90efec0ce0a6368b49dd902506a3246"></a>
-<a class="el" href="class_ph_widgets_1_1detail_1_1_i_pt_widget.html">IPtWidget</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_widget</b></td></tr>
+<tr class="memitem:ab90efec0ce0a6368b49dd902506a3246 inherit pro_attribs_struct_ph_widgets_1_1detail_1_1_widget_arguments_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ph_widgets_1_1detail_1_1_i_pt_widget.html">IPtWidget</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_arguments_base.html#ab90efec0ce0a6368b49dd902506a3246">_widget</a></td></tr>
 <tr class="separator:ab90efec0ce0a6368b49dd902506a3246 inherit pro_attribs_struct_ph_widgets_1_1detail_1_1_widget_arguments_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class WidgetCallbacksT, class ArgT, class ResourceGroupT, class ResourceT&gt;<br />
+struct PhWidgets::detail::def_orig::ArgumentType&lt; WidgetArgumentsBase, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT &gt;::WidgetArguments</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="_widget_resource_8hpp_source.html#l01286">1286</a> of file <a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="add6619e1ede19c517249573de31f59d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add6619e1ede19c517249573de31f59d5">&#9670;&nbsp;</a></span>WidgetArguments()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class WidgetCallbacksT , class ArgT , class ResourceGroupT , class ResourceT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type.html">PhWidgets::detail::def_orig::ArgumentType</a>&lt; <a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_arguments_base.html">WidgetArgumentsBase</a>, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT &gt;::WidgetArguments::WidgetArguments </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_ph_widgets_1_1detail_1_1_i_pt_widget.html">IPtWidget</a> *&#160;</td>
+          <td class="paramname"><em>widget</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_widget_resource_8hpp_source.html#l01303">1303</a> of file <a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ac8987fa48bdcbd5d514e5fbd6810feb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8987fa48bdcbd5d514e5fbd6810feb7">&#9670;&nbsp;</a></span>~WidgetArguments()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class WidgetCallbacksT , class ArgT , class ResourceGroupT , class ResourceT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type.html">PhWidgets::detail::def_orig::ArgumentType</a>&lt; <a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_arguments_base.html">WidgetArgumentsBase</a>, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT &gt;::WidgetArguments::~WidgetArguments </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_widget_resource_8hpp_source.html#l01308">1308</a> of file <a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af9ba85a380e68b01238a9f2e0454876f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9ba85a380e68b01238a9f2e0454876f">&#9670;&nbsp;</a></span>operator[]()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class WidgetCallbacksT , class ArgT , class ResourceGroupT , class ResourceT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_argument.html">WidgetArgument</a>&lt;ArgT, ResourceGroupT, ResourceT&gt; <a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type.html">PhWidgets::detail::def_orig::ArgumentType</a>&lt; <a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_arguments_base.html">WidgetArgumentsBase</a>, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT &gt;::WidgetArguments::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const ArgT&#160;</td>
+          <td class="paramname"><em>indx</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_widget_resource_8hpp_source.html#l01289">1289</a> of file <a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a88f681de7058a51f555f7d29e7396905"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88f681de7058a51f555f7d29e7396905">&#9670;&nbsp;</a></span>ArgumentType&lt; WidgetArgumentsBase, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT &gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class WidgetCallbacksT , class ArgT , class ResourceGroupT , class ResourceT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type.html">ArgumentType</a>&lt; <a class="el" href="struct_ph_widgets_1_1detail_1_1_widget_arguments_base.html">WidgetArgumentsBase</a>, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_widget_resource_8hpp_source.html#l01298">1298</a> of file <a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>.</p>
+
+</div>
+</div>
+<a id="abb07ca0fc23051ed36b18f92b806230c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb07ca0fc23051ed36b18f92b806230c">&#9670;&nbsp;</a></span>LinkType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class WidgetCallbacksT , class ArgT , class ResourceGroupT , class ResourceT &gt; </div>
+<div class="memtemplate">
+template&lt;class , class , class , class &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type.html">LinkType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_widget_resource_8hpp_source.html#l01301">1301</a> of file <a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>C:/Users/Alex/Documents/GitHub/PhWidgets-lib/src/<a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
 
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><b>PhWidgets</b></li><li class="navelem"><b>detail</b></li><li class="navelem"><b>def_orig</b></li><li class="navelem"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widg40cb6ccdccec5f64d7436e231476e97f.html">ArgumentType&lt; WidgetArgumentsBase, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT &gt;</a></li><li class="navelem"><a class="el" href="struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html">WidgetArguments</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
-  </ul>
-</div>
 
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
 
 </body>
 </html>

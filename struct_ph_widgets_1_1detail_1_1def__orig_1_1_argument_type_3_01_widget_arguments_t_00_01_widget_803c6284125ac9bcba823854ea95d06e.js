@@ -1,7 +1,0 @@
-var struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_803c6284125ac9bcba823854ea95d06e =
-[
-    [ "WidgetArguments", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_d9b21dad9111c8d13df8d04bb7cec99c.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_d9b21dad9111c8d13df8d04bb7cec99c" ],
-    [ "WidgetCallbacks", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_803c6284125ac9bcba823854ea95d06e.html#a7303ad5538c4e11b666b9e6f977fbf84", null ],
-    [ "ArgumentType", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_803c6284125ac9bcba823854ea95d06e.html#a2647c499ebb6025d5145c6693446d865", null ],
-    [ "argument", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_803c6284125ac9bcba823854ea95d06e.html#a255792b0d728239879c21d8ed3453b39", null ]
-];

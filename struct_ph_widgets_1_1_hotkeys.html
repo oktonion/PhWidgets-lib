@@ -10,14 +10,7 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(initResizable);
-/* @license-end */</script>
+
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -67,23 +60,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('struct_ph_widgets_1_1_hotkeys.html','');});
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -98,6 +74,11 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_hotkeys.html',''
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_ph_widgets.html">PhWidgets</a></li><li class="navelem"><a class="el" href="struct_ph_widgets_1_1_hotkeys.html">Hotkeys</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
@@ -106,92 +87,162 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_hotkeys.html',''
 <div class="title">PhWidgets::Hotkeys Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_widget_keys_8h_source.html">WidgetKeys.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ae32768126b19c5dd67c8616ceefaf30e"><td class="memItemLeft" align="right" valign="top"><a id="ae32768126b19c5dd67c8616ceefaf30e"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>eHotkeys</b> { <br />
-&#160;&#160;<b>Left</b> = Pk_Left, 
-<b>BackSpace</b> = Pk_BackSpace, 
-<b>Tab</b> = Pk_Tab, 
-<b>Return</b> = Pk_Return, 
+<tr class="memitem:ae32768126b19c5dd67c8616ceefaf30e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30e">eHotkeys</a> { <br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea87a886267d6575a13539280be1abc8f9">Left</a> = Pk_Left, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eadfad8197e55313dcd365abb0007b708f">BackSpace</a> = Pk_BackSpace, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea14d70e37768fe3280ffc7f4f1227c4ea">Tab</a> = Pk_Tab, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea48199308bcdcf4aa386a493585b8c518">Return</a> = Pk_Return, 
 <br />
-&#160;&#160;<b>Escape</b> = Pk_Escape, 
-<b>Home</b> = Pk_Home, 
-<b>Up</b> = Pk_Up, 
-<b>Right</b> = Pk_Right, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea653eb63997affe2a695c55add694a517">Escape</a> = Pk_Escape, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea3968b5bc78c116cc1c66138e46a5b177">Home</a> = Pk_Home, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea55399728a9d73d9907ff94af73514a7b">Up</a> = Pk_Up, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea90f59b6d72b44cb9a678ebf56c90704b">Right</a> = Pk_Right, 
 <br />
-&#160;&#160;<b>Down</b> = Pk_Down, 
-<b>Pg_Up</b> = Pk_Pg_Up, 
-<b>Pg_Down</b> = Pk_Pg_Down, 
-<b>End</b> = Pk_End, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea0c80adfa6a5062a7761cf41de0b4ee7e">Down</a> = Pk_Down, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea48d1dc824092012686281ad3e49e32da">Pg_Up</a> = Pk_Pg_Up, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eabb1201a3f17e4a955cebf87387336431">Pg_Down</a> = Pk_Pg_Down, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea4f38331a6fff668b58cb4372cba3a41c">End</a> = Pk_End, 
 <br />
-&#160;&#160;<b>Insert</b> = Pk_Insert, 
-<b>Delete</b> = Pk_Delete, 
-<b>Menu</b> = Pk_Menu, 
-<b>F1</b> = Pk_F1, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea855c2973f18c3f9c87281db35dd40f3f">Insert</a> = Pk_Insert, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea503fd63e9f4de43a41fee371e2f0cb52">Delete</a> = Pk_Delete, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ead5390ab57eb39272ed14c233eb148797">Menu</a> = Pk_Menu, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea803f69100188696bd7346023548d0ca7">F1</a> = Pk_F1, 
 <br />
-&#160;&#160;<b>F2</b> = Pk_F2, 
-<b>F3</b> = Pk_F3, 
-<b>F4</b> = Pk_F4, 
-<b>F5</b> = Pk_F5, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eabaa854b17e431a79f396962a8625af62">F2</a> = Pk_F2, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9b3d8a54fff613b3fcd6bfb991f8f5d4">F3</a> = Pk_F3, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eac085a11ed828fc6182aaab2c6e90efcf">F4</a> = Pk_F4, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea69df71a6f24e7d0fadc06ae305bb08a3">F5</a> = Pk_F5, 
 <br />
-&#160;&#160;<b>F6</b> = Pk_F6, 
-<b>F7</b> = Pk_F7, 
-<b>F8</b> = Pk_F8, 
-<b>F9</b> = Pk_F9, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea315325537a6254f97ca34149fd39dd87">F6</a> = Pk_F6, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea2693d5bb4f58c2f7423b237b45fc389b">F7</a> = Pk_F7, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea6abce9f29cab5a007a7ac225af5cf9a1">F8</a> = Pk_F8, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea85d109ee50a8dab82699662373d78ec6">F9</a> = Pk_F9, 
 <br />
-&#160;&#160;<b>F10</b> = Pk_F10, 
-<b>F11</b> = Pk_F11, 
-<b>F12</b> = Pk_F12, 
-<b>F13</b> = Pk_F13, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eab40a9acb72bf863d775b7198a986cf50">F10</a> = Pk_F10, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea85b00b65d6fdb6a3aa2c89a3a69ea28b">F11</a> = Pk_F11, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaf3c13c6ab9e51d333cdf5852b92696ce">F12</a> = Pk_F12, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea0a310c753e790bee6a147d827030a511">F13</a> = Pk_F13, 
 <br />
-&#160;&#160;<b>F14</b> = Pk_F14, 
-<b>F15</b> = Pk_F15, 
-<b>F16</b> = Pk_F16, 
-<b>F17</b> = Pk_F17, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea566a5f3a87586080e8b1673c98d0d372">F14</a> = Pk_F14, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea1fabe87f2b296d8e6c88e5ef307d7479">F15</a> = Pk_F15, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9a8d96a51eabb4df4d5dabd02ed31116">F16</a> = Pk_F16, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea393a952968581bb2e382550bc605ff2d">F17</a> = Pk_F17, 
 <br />
-&#160;&#160;<b>F18</b> = Pk_F18, 
-<b>F19</b> = Pk_F19, 
-<b>F20</b> = Pk_F20, 
-<b>F21</b> = Pk_F21, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9d2293932188334c07159853c21e362d">F18</a> = Pk_F18, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea61f686ec429ca6efa434b6e6464b8503">F19</a> = Pk_F19, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea38560707ffec213cc0e6e2edc72a0f7c">F20</a> = Pk_F20, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea82934d51ae874215997937a9f42b5ad5">F21</a> = Pk_F21, 
 <br />
-&#160;&#160;<b>F22</b> = Pk_F22, 
-<b>F23</b> = Pk_F23, 
-<b>F24</b> = Pk_F24, 
-<b>F25</b> = Pk_F25, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea09326359288af9a249196c2c5e2d799a">F22</a> = Pk_F22, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea4c615437341f9ec11a8187c7a6557ef1">F23</a> = Pk_F23, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea64f99524f46b22e5070d7b742ca59b5e">F24</a> = Pk_F24, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea978098dd4c3b5dacc91961941596a235">F25</a> = Pk_F25, 
 <br />
-&#160;&#160;<b>F26</b> = Pk_F26, 
-<b>F27</b> = Pk_F27, 
-<b>F28</b> = Pk_F28, 
-<b>F29</b> = Pk_F29, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaefa6d497e1e7423f3cc3d7981957e095">F26</a> = Pk_F26, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea12bc1fdbf6c3a851ece6f67a65cfe3c1">F27</a> = Pk_F27, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea6ad84fa685de1d02387b2259bf4f7bc7">F28</a> = Pk_F28, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea6082fa44e9126a59730510108fc60830">F29</a> = Pk_F29, 
 <br />
-&#160;&#160;<b>F30</b> = Pk_F30, 
-<b>F31</b> = Pk_F31, 
-<b>F32</b> = Pk_F32, 
-<b>F33</b> = Pk_F33, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea5100dc03513c90a0c9fc9a8cf7c30bb7">F30</a> = Pk_F30, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eabd8ab1bb04c195b068d957e2fa7687e9">F31</a> = Pk_F31, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaee202c400604f94fc89d040891ee4c8a">F32</a> = Pk_F32, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea799a3d95249161f4141b80a0491dc505">F33</a> = Pk_F33, 
 <br />
-&#160;&#160;<b>F34</b> = Pk_F34, 
-<b>F35</b> = Pk_F35
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eabeff9439a3570febf1f517c953a28cc6">F34</a> = Pk_F34, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eadde296b09db866cca811b00a5368a9d8">F35</a> = Pk_F35
 <br />
  }</td></tr>
 <tr class="separator:ae32768126b19c5dd67c8616ceefaf30e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_widget_keys_8h_source.html#l00009">9</a> of file <a class="el" href="_widget_keys_8h_source.html">WidgetKeys.h</a>.</p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="ae32768126b19c5dd67c8616ceefaf30e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae32768126b19c5dd67c8616ceefaf30e">&#9670;&nbsp;</a></span>eHotkeys</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30e">PhWidgets::Hotkeys::eHotkeys</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea87a886267d6575a13539280be1abc8f9"></a>Left&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eadfad8197e55313dcd365abb0007b708f"></a>BackSpace&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea14d70e37768fe3280ffc7f4f1227c4ea"></a>Tab&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea48199308bcdcf4aa386a493585b8c518"></a>Return&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea653eb63997affe2a695c55add694a517"></a>Escape&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea3968b5bc78c116cc1c66138e46a5b177"></a>Home&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea55399728a9d73d9907ff94af73514a7b"></a>Up&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea90f59b6d72b44cb9a678ebf56c90704b"></a>Right&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea0c80adfa6a5062a7761cf41de0b4ee7e"></a>Down&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea48d1dc824092012686281ad3e49e32da"></a>Pg_Up&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eabb1201a3f17e4a955cebf87387336431"></a>Pg_Down&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea4f38331a6fff668b58cb4372cba3a41c"></a>End&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea855c2973f18c3f9c87281db35dd40f3f"></a>Insert&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea503fd63e9f4de43a41fee371e2f0cb52"></a>Delete&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ead5390ab57eb39272ed14c233eb148797"></a>Menu&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea803f69100188696bd7346023548d0ca7"></a>F1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eabaa854b17e431a79f396962a8625af62"></a>F2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea9b3d8a54fff613b3fcd6bfb991f8f5d4"></a>F3&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eac085a11ed828fc6182aaab2c6e90efcf"></a>F4&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea69df71a6f24e7d0fadc06ae305bb08a3"></a>F5&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea315325537a6254f97ca34149fd39dd87"></a>F6&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea2693d5bb4f58c2f7423b237b45fc389b"></a>F7&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea6abce9f29cab5a007a7ac225af5cf9a1"></a>F8&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea85d109ee50a8dab82699662373d78ec6"></a>F9&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eab40a9acb72bf863d775b7198a986cf50"></a>F10&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea85b00b65d6fdb6a3aa2c89a3a69ea28b"></a>F11&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaf3c13c6ab9e51d333cdf5852b92696ce"></a>F12&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea0a310c753e790bee6a147d827030a511"></a>F13&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea566a5f3a87586080e8b1673c98d0d372"></a>F14&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea1fabe87f2b296d8e6c88e5ef307d7479"></a>F15&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea9a8d96a51eabb4df4d5dabd02ed31116"></a>F16&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea393a952968581bb2e382550bc605ff2d"></a>F17&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea9d2293932188334c07159853c21e362d"></a>F18&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea61f686ec429ca6efa434b6e6464b8503"></a>F19&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea38560707ffec213cc0e6e2edc72a0f7c"></a>F20&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea82934d51ae874215997937a9f42b5ad5"></a>F21&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea09326359288af9a249196c2c5e2d799a"></a>F22&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea4c615437341f9ec11a8187c7a6557ef1"></a>F23&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea64f99524f46b22e5070d7b742ca59b5e"></a>F24&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea978098dd4c3b5dacc91961941596a235"></a>F25&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaefa6d497e1e7423f3cc3d7981957e095"></a>F26&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea12bc1fdbf6c3a851ece6f67a65cfe3c1"></a>F27&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea6ad84fa685de1d02387b2259bf4f7bc7"></a>F28&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea6082fa44e9126a59730510108fc60830"></a>F29&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea5100dc03513c90a0c9fc9a8cf7c30bb7"></a>F30&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eabd8ab1bb04c195b068d957e2fa7687e9"></a>F31&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaee202c400604f94fc89d040891ee4c8a"></a>F32&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea799a3d95249161f4141b80a0491dc505"></a>F33&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eabeff9439a3570febf1f517c953a28cc6"></a>F34&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eadde296b09db866cca811b00a5368a9d8"></a>F35&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_widget_keys_8h_source.html#l00011">11</a> of file <a class="el" href="_widget_keys_8h_source.html">WidgetKeys.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>C:/Users/Alex/Documents/GitHub/PhWidgets-lib/src/<a class="el" href="_widget_keys_8h_source.html">WidgetKeys.h</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
 
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><b>PhWidgets</b></li><li class="navelem"><a class="el" href="struct_ph_widgets_1_1_hotkeys.html">Hotkeys</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
-  </ul>
-</div>
 
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
 
 </body>
 </html>
