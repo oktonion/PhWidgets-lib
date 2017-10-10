@@ -33,8 +33,11 @@ namespace PhWidgets
 		protected detail::IPtWidget
 	{
 	public:
-		typedef phevent::ph_callback_t callback_t;
+		typedef phevent::ph_callback_t callback_t;//!< An event handler that is raised when an \link Widget::phwidgets_event event \endlink occur.
 		
+		//! An event, which raise a notification to registered subscribers (event handlers) that something of interest has occurred.
+
+		//! Event handlers must be Widget::callback_t type or convertable to it.
 		template<class ParentT, typename ParentT::ThisCallbacks::Callback::eCallback callback>
 		class phwidgets_event
 		{
