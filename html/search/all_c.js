@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['margin_5fbotton',['margin_botton',['../struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_unsigned_short.html#ac8c9b5511b6a68ffa42940b26181430eaad5f9ea12424e91b732d5a0b3d14f2c1',1,'PhWidgets::Label::ThisArgs::ArgUnsignedShort']]],
+  ['margin_5fheight',['margin_height',['../struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_unsigned_short.html#ad32c6140df7c7d3a31dd990957bd7559a4a7dbc749ff289169f6a81970b72dbeb',1,'PhWidgets::Basic::ThisArgs::ArgUnsignedShort']]],
+  ['margin_5fleft',['margin_left',['../struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_unsigned_short.html#ac8c9b5511b6a68ffa42940b26181430ea710ce70fd00b95ca43b2feefb1d7c53c',1,'PhWidgets::Label::ThisArgs::ArgUnsignedShort']]],
+  ['margin_5fright',['margin_right',['../struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_unsigned_short.html#ac8c9b5511b6a68ffa42940b26181430ea492b1b9847c77b9d7b2e75d7df21d775',1,'PhWidgets::Label::ThisArgs::ArgUnsignedShort']]],
+  ['margin_5ftop',['margin_top',['../struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_unsigned_short.html#ac8c9b5511b6a68ffa42940b26181430ea24307d9a60378ab9966295dc2396dc85',1,'PhWidgets::Label::ThisArgs::ArgUnsignedShort']]],
+  ['margin_5fwidth',['margin_width',['../struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_unsigned_short.html#ad32c6140df7c7d3a31dd990957bd7559a67c66a1e292c373a5fb1d37dcaeb13f2',1,'PhWidgets::Basic::ThisArgs::ArgUnsignedShort']]],
+  ['mask_5ftype',['mask_type',['../struct_ph_widgets_1_1detail_1_1flag__detail_1_1mask__type.html',1,'PhWidgets::detail::flag_detail']]],
+  ['mask_5ftype_3c_20bool_20_3e',['mask_type&lt; bool &gt;',['../struct_ph_widgets_1_1detail_1_1flag__detail_1_1mask__type_3_01bool_01_4.html',1,'PhWidgets::detail::flag_detail']]],
+  ['max_5fdim',['max_dim',['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_dim.html#a996bffa203dcfffe5cf6db42ac70bdcca7b230c121452d2ca405a37490adb27be',1,'PhWidgets::Widget::ThisArgs::ArgDim']]],
+  ['maxvalue',['MaxValue',['../class_ph_widgets_1_1_numeric_float.html#a5f5a9e7c4d04dcc9e4909a6fe65e0725',1,'PhWidgets::NumericFloat::MaxValue()'],['../class_ph_widgets_1_1_numeric_integer.html#ab2c0c995d7488e509cfc860f1386e9fd',1,'PhWidgets::NumericInteger::MaxValue()']]],
+  ['menu',['menu',['../struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a15a23da437c3f58b1a22e92c482c3f66',1,'PhWidgets::Basic::ThisCallbacks::Callback::menu()'],['../class_ph_widgets_1_1_basic.html#a5bbdea02779187578568b058de460302',1,'PhWidgets::Basic::Menu()'],['../struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ead5390ab57eb39272ed14c233eb148797',1,'PhWidgets::Hotkeys::Menu()']]],
+  ['min_5fdim',['min_dim',['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_dim.html#a996bffa203dcfffe5cf6db42ac70bdcca4141cb60dc506e768ec4e1d9171c11d3',1,'PhWidgets::Widget::ThisArgs::ArgDim']]],
+  ['minus',['minus',['../structstd_1_1details_1_1minus.html',1,'std::details']]],
+  ['minus_3c_20false_20_3e',['minus&lt; false &gt;',['../structstd_1_1details_1_1minus_3_01false_01_4.html',1,'std::details']]],
+  ['minus_3c_20true_20_3e',['minus&lt; true &gt;',['../structstd_1_1details_1_1minus_3_01true_01_4.html',1,'std::details']]],
+  ['minvalue',['MinValue',['../class_ph_widgets_1_1_numeric_float.html#a28bbfb2b2773f9888b4e6fb476ad0ece',1,'PhWidgets::NumericFloat::MinValue()'],['../class_ph_widgets_1_1_numeric_integer.html#a30ff385b8085b86eaa7221c469903fb7',1,'PhWidgets::NumericInteger::MinValue()']]],
+  ['modify_5fnotify',['modify_notify',['../struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7ab9ae2eb228fdbf72c87a03f727b8ab74',1,'PhWidgets::Text::ThisCallbacks::Callback']]],
+  ['modify_5fverify',['modify_verify',['../struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7af89118c8741cbd3f975fed2f37aaedc7',1,'PhWidgets::Text::ThisCallbacks::Callback']]],
+  ['modifynotify',['ModifyNotify',['../class_ph_widgets_1_1_text.html#a55e993e017eb2c51773fe97cd5a09b0b',1,'PhWidgets::Text']]],
+  ['modifyverify',['ModifyVerify',['../class_ph_widgets_1_1_text.html#abba2e3590f6bb1ae92428633a65ccb49',1,'PhWidgets::Text']]],
+  ['motion_5fnotify',['motion_notify',['../struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7ac73921a0f4e72903230653ac3b189579',1,'PhWidgets::Text::ThisCallbacks::Callback']]],
+  ['motion_5fverify',['motion_verify',['../struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a34043759fda2bc5428e9ba5895cd63ca',1,'PhWidgets::Text::ThisCallbacks::Callback']]],
+  ['motionnotify',['MotionNotify',['../class_ph_widgets_1_1_text.html#aa96f7b44f5ae553d1cd710f2ba634905',1,'PhWidgets::Text']]],
+  ['motionverify',['MotionVerify',['../class_ph_widgets_1_1_text.html#ae8fa5432d4ee6e0fdd7d9e86bac0000f',1,'PhWidgets::Text']]],
+  ['my_5fexception_2eh',['my_exception.h',['../my__exception_8h.html',1,'']]]
+];
