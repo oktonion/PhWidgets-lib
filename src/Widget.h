@@ -122,7 +122,7 @@ namespace PhWidgets
 			{
 				enum eArgArea
 				{			
-					area = Pt_ARG_AREA //A PhArea_t structure (see the Photon Library Reference) that contains the x, y, height, and width values for the widget. 
+					area = Pt_ARG_AREA //!< A PhArea_t structure (see the Photon Library Reference) that contains the x, y, height, and width values for the widget. 
 				};
 			};
 			
@@ -130,7 +130,7 @@ namespace PhWidgets
 			{
 				enum eArgUnsigned
 				{
-					anchor_flags = Pt_ARG_ANCHOR_FLAGS //This resource specifies how the widget is anchored to its parent
+					anchor_flags = Pt_ARG_ANCHOR_FLAGS //!< This resource specifies how the widget is anchored to its parent
 				};
 			};
 			
@@ -138,10 +138,10 @@ namespace PhWidgets
 			{
 				enum eArgUnsignedShort
 				{
-					bevel_width = Pt_ARG_BEVEL_WIDTH, //The width of the widget's bevel if the widget is highlighted and is to draw a bevel
-					cursor_type = Pt_ARG_CURSOR_TYPE, //The type of cursor
-					height = Pt_ARG_HEIGHT,
-					width = Pt_ARG_WIDTH
+					bevel_width = Pt_ARG_BEVEL_WIDTH, //!< The width of the widget's bevel if the widget is highlighted and is to draw a bevel
+					cursor_type = Pt_ARG_CURSOR_TYPE, //!< The type of cursor
+					height = Pt_ARG_HEIGHT, //!< The height of the widget.
+					width = Pt_ARG_WIDTH //!< The width of the widget.
 				};
 			};
 			
@@ -149,7 +149,8 @@ namespace PhWidgets
 			{
 				enum eArgUnsignedLong
 				{
-					eflags = Pt_ARG_EFLAGS
+					eflags = Pt_ARG_EFLAGS //!< Extended flags inherited by all widgets:
+										   //!< Documentation in progress...
 				};
 			};
 			
@@ -157,7 +158,9 @@ namespace PhWidgets
 			{
 				enum eArgLong
 				{
-					flags = Pt_ARG_FLAGS
+					flags = Pt_ARG_FLAGS, //!< Common flags used by all widgets. Except for those indicated as read-only, these flags are all read/write. 
+					resize_flags = Pt_ARG_RESIZE_FLAGS //!< Controls a widget's resize policy in both the x and y directions.
+													   //!< Documentation in progress...
 				};
 			};
 
@@ -165,7 +168,10 @@ namespace PhWidgets
 			{
 				enum eArgPChar
 				{
-					help_topic = Pt_ARG_HELP_TOPIC
+					help_topic = Pt_ARG_HELP_TOPIC //!< The meaning of this resource depends on the bits set in Pt_ARG_EFLAGS:
+												   //!< If Pt_INTERNAL_HELP isn't set, Pt_ARG_HELP_TOPIC is used to set the topic position within the HTML help file.
+												   //!< If Pt_INTERNAL_HELP is set, Pt_ARG_HELP_TOPIC is the help information to be displayed.
+
 				};
 			};
 			
@@ -173,10 +179,11 @@ namespace PhWidgets
 			{
 				enum eArgPVoid
 				{
-					pointer = Pt_ARG_POINTER,
-					layout_data = Pt_ARG_LAYOUT_DATA,
-					data = Pt_ARG_DATA, //This resource is used internally by PhAB applications as well as by compound widgets
-					user_data = Pt_ARG_USER_DATA
+					pointer = Pt_ARG_POINTER, //!< A pointer to any data that you want to associate with the widget.
+					layout_data = Pt_ARG_LAYOUT_DATA, //!< This resource provides a convenient method to get or set either of the Pt_ARG_*_LAYOUT_DATA resources.
+													  //!< Documentation in progress...
+					data = Pt_ARG_DATA, //!< This resource is used internally by PhAB applications as well as by compound widgets
+					user_data = Pt_ARG_USER_DATA //!< Data that you want to store in the widget's internal memory.
 				};
 			};
 
@@ -184,8 +191,8 @@ namespace PhWidgets
 			{
 				enum eArgRect
 				{
-					enchor_offsets = Pt_ARG_ANCHOR_OFFSETS, //The four values in this PhRect_t structure (see the Photon Library Reference) determine the anchor offsets of each of the widget's sides. (An anchor offset is the distance between the anchoring side of the parent and corresponding side of the child.) 
-					extent = Pt_ARG_EXTENT
+					enchor_offsets = Pt_ARG_ANCHOR_OFFSETS, //!< The four values in this PhRect_t structure (see the Photon Library Reference) determine the anchor offsets of each of the widget's sides. (An anchor offset is the distance between the anchoring side of the parent and corresponding side of the child.) 
+					extent = Pt_ARG_EXTENT //!< A PhRect_t structure that contains the extent of the widget, a rectangle that specifies the upper-left and lower-right corners of the widget.
 				};
 			};
 			
@@ -193,7 +200,7 @@ namespace PhWidgets
 			{
 				enum eArgColor
 				{
-					cursor_color = Pt_ARG_CURSOR_COLOR //The color of the pointer when it's inside the widget
+					cursor_color = Pt_ARG_CURSOR_COLOR //!< The color of the pointer when it's inside the widget
 				};	
 			};
 			
@@ -201,7 +208,7 @@ namespace PhWidgets
 			{
 				enum eArgPCursorDef
 				{
-					bitmap_cursor = Pt_ARG_BITMAP_CURSOR //Defines bitmaps for the cursor when the cursor type (Pt_ARG_CURSOR_TYPE) is set to Ph_CURSOR_BITMAP. 
+					bitmap_cursor = Pt_ARG_BITMAP_CURSOR //!< Defines bitmaps for the cursor when the cursor type (Pt_ARG_CURSOR_TYPE) is set to Ph_CURSOR_BITMAP. 
 				};
 			};
 			
@@ -209,7 +216,8 @@ namespace PhWidgets
 			{
 				enum eArgPGridLayoutData
 				{
-					grid_layout_data = Pt_ARG_GRID_LAYOUT_DATA
+					grid_layout_data = Pt_ARG_GRID_LAYOUT_DATA //!< A PtGridLayoutData_t structure that defines additional layout data for the widget when its container widget uses a PtGridLayout type layout. 
+															   //!< Documentation in progress...
 				};
 			};
 			
@@ -217,7 +225,7 @@ namespace PhWidgets
 			{
 				enum eArgPoint
 				{
-					pos = Pt_ARG_POS
+					pos = Pt_ARG_POS //!< A PhPoint_t structure that stores the x and y coordinates for the widget.
 				};
 			};
 
@@ -225,7 +233,7 @@ namespace PhWidgets
 			{
 				enum eArgPRowLayoutData
 				{
-					row_layout_data = Pt_ARG_ROW_LAYOUT_DATA
+					row_layout_data = Pt_ARG_ROW_LAYOUT_DATA //!< A PtRowLayoutData_t structure that defines additional layout data for the widget when its container widget uses a PtRowLayout type layout. 
 				};
 			};
 
@@ -233,7 +241,9 @@ namespace PhWidgets
 			{
 				enum eArgDim
 				{
-					dim = Pt_ARG_DIM //A PhDim_t structure (see the Photon Library Reference) that defines the height and width values for the widget
+					dim = Pt_ARG_DIM, //!< A PhDim_t structure (see the Photon Library Reference) that defines the height and width values for the widget
+					max_dim = Pt_ARG_MAXIMUM_DIM, //!< A PhDim_t structure (see the Photon Library Reference) that defines the maximum size that a widget can be.
+					min_dim = Pt_ARG_MINIMUM_DIM //!< A PhDim_t structure (see the Photon Library Reference) that defines the minimum size that a widget can be.
 				};
 			};
 		};
@@ -244,8 +254,12 @@ namespace PhWidgets
 			{
 				enum eRawCallback
 				{
-					filter = Pt_CB_FILTER,
-					raw = Pt_CB_RAW
+					filter = Pt_CB_FILTER, //!< A list of raw callbacks invoked when an event that matches the provided event mask is to be passed to the widget. 
+										   //!< These callbacks are invoked before the event is processed by the widget. Contrast this resource with 'Widget::Callbacks::raw'.
+										   //!< Documentation in progress...
+
+					raw = Pt_CB_RAW //!< A list of PtRawCallback_t structures that defines the raw callbacks that the widget invokes if the event it receives matches the event mask provided in the PtRawCallback_t structure.
+									//!< Documentation in progress...
 
 				};
 			};
@@ -254,13 +268,30 @@ namespace PhWidgets
 			{
 				enum eCallback
 				{
-					blocked = Pt_CB_BLOCKED, 
-					destroyed = Pt_CB_DESTROYED,
-					dnd = Pt_CB_DND,
-					is_destroyed = Pt_CB_IS_DESTROYED,
-					outbound = Pt_CB_OUTBOUND,
-					realized = Pt_CB_REALIZED,
-					unrealized = Pt_CB_UNREALIZED
+					blocked = Pt_CB_BLOCKED, //!< A list of PtCallback_t structures that define the callbacks that the widget invokes whenever it must ignore an event due to being blocked.
+											 //!< Documentation in progress...
+
+					destroyed = Pt_CB_DESTROYED, //!< A list of PtCallback_t structures that define the callbacks invoked when the widget is marked for destruction and is no longer visible. 
+												 //!< You can use these callbacks, for example, to adjust the appearance of the widgets around the one being destroyed.
+												 //!< In contrast, the 'Widget::Callbacks::is_destroyed' callbacks are invoked when the widget's resources are actually being released.
+												 //!< Documentation in progress...
+
+					dnd = Pt_CB_DND, //!< A list of PtCallback_t structures that define the callbacks called when a drag-and-drop ('Events::dndrop') event is received.
+									 //!< Documentation in progress...
+
+					is_destroyed = Pt_CB_IS_DESTROYED, //!< A list of PtCallback_t structures that define the callbacks invoked when the widget's resources are being released. 
+													   //!< You'll find this resource useful for cleaning up variables or memory associated with the widget. 
+													   //!< Documentation in progress...
+
+					outbound = Pt_CB_OUTBOUND, //!< A list of PtCallback_t structures that define the callbacks invoked when you press the pointer button on the widget and then move out of the "hot spot" with the button still depressed. 
+											   //!< This callback is particularly useful for initiating drag or drag-and-drop operations.
+											   //!< Documentation in progress...
+
+					realized = Pt_CB_REALIZED, //!< A list of PtCallback_t structures that define the callbacks that the widget invokes whenever it is realized. 
+											   //!< Documentation in progress...
+
+					unrealized = Pt_CB_UNREALIZED //!< A list of PtCallback_t structures that define the callbacks that the widget invokes whenever it's unrealized. 
+												  //!< Documentation in progress...
 				};
 			};
 
@@ -268,6 +299,12 @@ namespace PhWidgets
 			{
 				enum eHotkeyCallback
 				{
+					//! A list of PtHotkeyCallback_t structures. 
+					
+					//! If the widget receives a key event that matches a structure's key cap and key modifiers, the widget calls the function specified in that structure. 
+					//! If a function isn't specified, the widget invokes its 'Basic::Callbacks::activate' callback list with a reason_subtype of 'Widget::Callbacks::hotkey'. 
+					//! \remark A hotkey isn't invoked if any ancestor of the widget that owns it is blocked.
+					//! Documentation in progress...
 					hotkey = Pt_CB_HOTKEY
 				};
 			};
