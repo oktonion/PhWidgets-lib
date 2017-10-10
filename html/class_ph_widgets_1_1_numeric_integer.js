@@ -4,11 +4,22 @@ var class_ph_widgets_1_1_numeric_integer =
     [ "Arguments", "struct_ph_widgets_1_1_numeric_integer_1_1_arguments.html", null ],
     [ "Callback", "struct_ph_widgets_1_1_numeric_integer_1_1_callback.html", null ],
     [ "Callbacks", "struct_ph_widgets_1_1_numeric_integer_1_1_callbacks.html", null ],
-    [ "ThisArgs", "struct_ph_widgets_1_1_numeric_integer_1_1_this_args.html", [
-      [ "ArgInt", "struct_ph_widgets_1_1_numeric_integer_1_1_this_args_1_1_arg_int.html", "struct_ph_widgets_1_1_numeric_integer_1_1_this_args_1_1_arg_int" ]
+    [ "ThisArgs", "class_ph_widgets_1_1_numeric_integer.html#struct_ph_widgets_1_1_numeric_integer_1_1_this_args", [
+      [ "ArgInt", "struct_ph_widgets_1_1_numeric_integer_1_1_this_args_1_1_arg_int.html", [
+        [ "eArgInt", "struct_ph_widgets_1_1_numeric_integer_1_1_this_args_1_1_arg_int.html#a76cd7469e6a08d24b0acf100e62200c4", [
+          [ "numeric_increment", "struct_ph_widgets_1_1_numeric_integer_1_1_this_args_1_1_arg_int.html#a76cd7469e6a08d24b0acf100e62200c4a98b21e42ae8ab78ff07a62917a434e1d", null ],
+          [ "numeric_max", "struct_ph_widgets_1_1_numeric_integer_1_1_this_args_1_1_arg_int.html#a76cd7469e6a08d24b0acf100e62200c4a24032ba71cb5b8d484acd36a0e5c5fc4", null ],
+          [ "numeric_min", "struct_ph_widgets_1_1_numeric_integer_1_1_this_args_1_1_arg_int.html#a76cd7469e6a08d24b0acf100e62200c4a77d57cb94d09d1a0dd18d73ea2299619", null ],
+          [ "numeric_value", "struct_ph_widgets_1_1_numeric_integer_1_1_this_args_1_1_arg_int.html#a76cd7469e6a08d24b0acf100e62200c4a29873f650f66381b238e6b83dd8e32e4", null ]
+        ] ]
+      ] ]
     ] ],
-    [ "ThisCallbacks", "struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks.html", [
-      [ "Callback", "struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks_1_1_callback.html", "struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks_1_1_callback" ]
+    [ "ThisCallbacks", "class_ph_widgets_1_1_numeric_integer.html#struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks", [
+      [ "Callback", "struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks_1_1_callback.html", [
+        [ "eCallback", "struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks_1_1_callback.html#a369b056bc0ed3d8318b49624dc0b41c9", [
+          [ "numeric_changed", "struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks_1_1_callback.html#a369b056bc0ed3d8318b49624dc0b41c9ad97ba624cb2da74735d9d50e4fdc54c6", null ]
+        ] ]
+      ] ]
     ] ],
     [ "WidgetResourcesSingleton", "class_ph_widgets_1_1_numeric_integer.html#a628d3fb7b78d60e692cff03722b9a23b", null ],
     [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer.html#ae47ad276a9a9c73694ab198cc1644cc2", null ],

@@ -1,6 +1,6 @@
 var namespace_ph_widgets_1_1detail_1_1def__help =
 [
-    [ "BasePrevType", "struct_ph_widgets_1_1detail_1_1def__help_1_1_base_prev_type.html", "struct_ph_widgets_1_1detail_1_1def__help_1_1_base_prev_type" ],
+    [ "BasePrevType", "namespace_ph_widgets_1_1detail_1_1def__help.html#struct_ph_widgets_1_1detail_1_1def__help_1_1_base_prev_type", "namespace_ph_widgets_1_1detail_1_1def__help_struct_ph_widgets_1_1detail_1_1def__help_1_1_base_prev_type_dup" ],
     [ "Define", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define.html", [
       [ "Alloc", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_alloc.html", null ],
       [ "Array", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_array.html", null ],

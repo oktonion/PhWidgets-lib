@@ -3,9 +3,17 @@ var class_ph_widgets_1_1_toggle_button =
     [ "ArgColor", "struct_ph_widgets_1_1_toggle_button_1_1_arg_color.html", null ],
     [ "Arguments", "struct_ph_widgets_1_1_toggle_button_1_1_arguments.html", null ],
     [ "ArgUnsignedChar", "struct_ph_widgets_1_1_toggle_button_1_1_arg_unsigned_char.html", null ],
-    [ "ThisArgs", "struct_ph_widgets_1_1_toggle_button_1_1_this_args.html", [
-      [ "ArgColor", "struct_ph_widgets_1_1_toggle_button_1_1_this_args_1_1_arg_color.html", "struct_ph_widgets_1_1_toggle_button_1_1_this_args_1_1_arg_color" ],
-      [ "ArgUnsignedChar", "struct_ph_widgets_1_1_toggle_button_1_1_this_args_1_1_arg_unsigned_char.html", "struct_ph_widgets_1_1_toggle_button_1_1_this_args_1_1_arg_unsigned_char" ]
+    [ "ThisArgs", "class_ph_widgets_1_1_toggle_button.html#struct_ph_widgets_1_1_toggle_button_1_1_this_args", [
+      [ "ArgColor", "struct_ph_widgets_1_1_toggle_button_1_1_this_args_1_1_arg_color.html", [
+        [ "eArgColor", "struct_ph_widgets_1_1_toggle_button_1_1_this_args_1_1_arg_color.html#a02ace93b181afe8d02e30c42b453fb1c", [
+          [ "indicator_color", "struct_ph_widgets_1_1_toggle_button_1_1_this_args_1_1_arg_color.html#a02ace93b181afe8d02e30c42b453fb1ca3b0fcd77d25fd7481c4e8c9d921a9adc", null ]
+        ] ]
+      ] ],
+      [ "ArgUnsignedChar", "struct_ph_widgets_1_1_toggle_button_1_1_this_args_1_1_arg_unsigned_char.html", [
+        [ "eArgUnsignedChar", "struct_ph_widgets_1_1_toggle_button_1_1_this_args_1_1_arg_unsigned_char.html#a3b5a3390b624aa865e148114705e0473", [
+          [ "indicator_type", "struct_ph_widgets_1_1_toggle_button_1_1_this_args_1_1_arg_unsigned_char.html#a3b5a3390b624aa865e148114705e0473acfa9d2ec431703b58b17cb7791a4a37e", null ]
+        ] ]
+      ] ]
     ] ],
     [ "WidgetResourcesSingleton", "class_ph_widgets_1_1_toggle_button.html#a122b13169b3a362ba25034d6feb6524d", null ],
     [ "ToggleButton", "class_ph_widgets_1_1_toggle_button.html#ade5f044f36463abd180bcab40c039aae", null ],

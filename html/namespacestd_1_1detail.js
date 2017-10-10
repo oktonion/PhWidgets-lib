@@ -17,12 +17,12 @@ var namespacestd_1_1detail =
     [ "is_integral< unsigned short int >", "structstd_1_1detail_1_1is__integral_3_01unsigned_01short_01int_01_4.html", null ],
     [ "is_integral< wchar_t >", "structstd_1_1detail_1_1is__integral_3_01wchar__t_01_4.html", null ],
     [ "SignedComparer", "structstd_1_1detail_1_1_signed_comparer.html", null ],
-    [ "SignUnsignChooser", "structstd_1_1detail_1_1_sign_unsign_chooser.html", null ],
-    [ "SignUnsignChooser< false >", "structstd_1_1detail_1_1_sign_unsign_chooser_3_01false_01_4.html", [
+    [ "SignUnsignChooser", "namespacestd_1_1detail.html#structstd_1_1detail_1_1_sign_unsign_chooser", null ],
+    [ "SignUnsignChooser< false >", "namespacestd_1_1detail.html#structstd_1_1detail_1_1_sign_unsign_chooser_3_01false_01_4", [
       [ "Signed", "structstd_1_1detail_1_1_sign_unsign_chooser_3_01false_01_4_1_1_signed.html", null ],
       [ "Unsigned", "structstd_1_1detail_1_1_sign_unsign_chooser_3_01false_01_4_1_1_unsigned.html", null ]
     ] ],
-    [ "SignUnsignChooser< true >", "structstd_1_1detail_1_1_sign_unsign_chooser_3_01true_01_4.html", [
+    [ "SignUnsignChooser< true >", "namespacestd_1_1detail.html#structstd_1_1detail_1_1_sign_unsign_chooser_3_01true_01_4", [
       [ "Signed", "structstd_1_1detail_1_1_sign_unsign_chooser_3_01true_01_4_1_1_signed.html", null ],
       [ "Unsigned", "structstd_1_1detail_1_1_sign_unsign_chooser_3_01true_01_4_1_1_unsigned.html", null ]
     ] ],

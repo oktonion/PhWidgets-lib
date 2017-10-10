@@ -4,11 +4,19 @@ var class_ph_widgets_1_1_on_off_button =
     [ "Arguments", "struct_ph_widgets_1_1_on_off_button_1_1_arguments.html", null ],
     [ "Callback", "struct_ph_widgets_1_1_on_off_button_1_1_callback.html", null ],
     [ "Callbacks", "struct_ph_widgets_1_1_on_off_button_1_1_callbacks.html", null ],
-    [ "ThisArgs", "struct_ph_widgets_1_1_on_off_button_1_1_this_args.html", [
-      [ "ArgBool", "struct_ph_widgets_1_1_on_off_button_1_1_this_args_1_1_arg_bool.html", "struct_ph_widgets_1_1_on_off_button_1_1_this_args_1_1_arg_bool" ]
+    [ "ThisArgs", "class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_args", [
+      [ "ArgBool", "struct_ph_widgets_1_1_on_off_button_1_1_this_args_1_1_arg_bool.html", [
+        [ "eArgBool", "struct_ph_widgets_1_1_on_off_button_1_1_this_args_1_1_arg_bool.html#a0d9b175f0bd34776e4593795178e6f14", [
+          [ "onoff_state", "struct_ph_widgets_1_1_on_off_button_1_1_this_args_1_1_arg_bool.html#a0d9b175f0bd34776e4593795178e6f14a11d5cfae1798ac3bf6c7cb0eb64ec9b9", null ]
+        ] ]
+      ] ]
     ] ],
-    [ "ThisCallbacks", "struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks.html", [
-      [ "Callback", "struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks_1_1_callback.html", "struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks_1_1_callback" ]
+    [ "ThisCallbacks", "class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks", [
+      [ "Callback", "struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks_1_1_callback.html", [
+        [ "eCallback", "struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks_1_1_callback.html#ad21c295e59c1ec66db0f6266d52651f6", [
+          [ "new_value", "struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks_1_1_callback.html#ad21c295e59c1ec66db0f6266d52651f6a7b7a27ed8a185245caf4ef8bcab494e8", null ]
+        ] ]
+      ] ]
     ] ],
     [ "WidgetResourcesSingleton", "class_ph_widgets_1_1_on_off_button.html#a0ca7fb1e966c18e4e414d434a2077aac", null ],
     [ "OnOffButton", "class_ph_widgets_1_1_on_off_button.html#a0fb4a3d66dab458ee8505e65aa54f9d1", null ],

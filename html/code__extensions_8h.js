@@ -1,9 +1,9 @@
 var code__extensions_8h =
 [
     [ "nullptr_t", "classnullptr__t.html", "classnullptr__t" ],
-    [ "StaticAssertion", "structdetail_1_1_static_assertion.html", null ],
-    [ "StaticAssertion< true >", "structdetail_1_1_static_assertion_3_01true_01_4.html", null ],
-    [ "StaticAssertionTest", "structdetail_1_1_static_assertion_test.html", null ],
+    [ "StaticAssertion", "namespacedetail.html#structdetail_1_1_static_assertion", null ],
+    [ "StaticAssertion< true >", "namespacedetail.html#structdetail_1_1_static_assertion_3_01true_01_4", null ],
+    [ "StaticAssertionTest", "namespacedetail.html#structdetail_1_1_static_assertion_test", null ],
     [ "integral_constant", "structstd_1_1integral__constant.html", "structstd_1_1integral__constant" ],
     [ "bool_constant", "structstd_1_1bool__constant.html", null ],
     [ "Cat_base", "structstd_1_1_cat__base.html", null ],
@@ -34,16 +34,16 @@ var code__extensions_8h =
     [ "is_integral< long int >", "structstd_1_1detail_1_1is__integral_3_01long_01int_01_4.html", null ],
     [ "is_floating_point", "structstd_1_1is__floating__point.html", null ],
     [ "is_integral", "structstd_1_1is__integral.html", null ],
-    [ "SignUnsignChooser", "structstd_1_1detail_1_1_sign_unsign_chooser.html", null ],
+    [ "SignUnsignChooser", "namespacestd_1_1detail.html#structstd_1_1detail_1_1_sign_unsign_chooser", null ],
     [ "SignedComparer", "structstd_1_1detail_1_1_signed_comparer.html", null ],
     [ "UnsignedComparer", "structstd_1_1detail_1_1_unsigned_comparer.html", null ],
-    [ "SignUnsignChooser< true >", "structstd_1_1detail_1_1_sign_unsign_chooser_3_01true_01_4.html", [
+    [ "SignUnsignChooser< true >", "namespacestd_1_1detail.html#structstd_1_1detail_1_1_sign_unsign_chooser_3_01true_01_4", [
       [ "Signed", "structstd_1_1detail_1_1_sign_unsign_chooser_3_01true_01_4_1_1_signed.html", null ],
       [ "Unsigned", "structstd_1_1detail_1_1_sign_unsign_chooser_3_01true_01_4_1_1_unsigned.html", null ]
     ] ],
     [ "Signed", "structstd_1_1detail_1_1_sign_unsign_chooser_3_01true_01_4_1_1_signed.html", null ],
     [ "Unsigned", "structstd_1_1detail_1_1_sign_unsign_chooser_3_01true_01_4_1_1_unsigned.html", null ],
-    [ "SignUnsignChooser< false >", "structstd_1_1detail_1_1_sign_unsign_chooser_3_01false_01_4.html", [
+    [ "SignUnsignChooser< false >", "namespacestd_1_1detail.html#structstd_1_1detail_1_1_sign_unsign_chooser_3_01false_01_4", [
       [ "Signed", "structstd_1_1detail_1_1_sign_unsign_chooser_3_01false_01_4_1_1_signed.html", null ],
       [ "Unsigned", "structstd_1_1detail_1_1_sign_unsign_chooser_3_01false_01_4_1_1_unsigned.html", null ]
     ] ],

@@ -28,8 +28,7 @@ var NAVTREE =
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ]
+        [ "Functions", "namespacemembers_func.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -60,13 +59,14 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_basic_8cpp.html",
-"class_ph_widgets_1_1_toggle_button.html",
-"functions_func_w.html",
-"struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eac085a11ed828fc6182aaab2c6e90efcf",
-"struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcacbb485027a5cdae14cf85a687d4cf31c",
-"struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_d9b21dad9111c8d13df8d04bb7cec99c.html#abb07ca0fc23051ed36b18f92b806230c",
-"structstdex_1_1type__zero.html"
+".html",
+"class_ph_widgets_1_1_text.html#a335ff77915730438c7dcd9ac9b55d42d",
+"functions_enum.html",
+"struct_ph_widgets_1_1_basic_1_1_arguments.html",
+"struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9d2293932188334c07159853c21e362d",
+"struct_ph_widgets_1_1_timer_1_1_this_callbacks_1_1_callback.html#a317633362850afe4a0827f51e58c4bbb",
+"struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_e8129a316a0ef7204b9a8ee724c64fd9.html#acda11e44a7ac0e9b8f2bf8f902b93a07",
+"structstd_1_1is__const_3_01const_01_t_01_5_01_4.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

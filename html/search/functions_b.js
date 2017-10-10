@@ -28,11 +28,11 @@ var searchData=
   ['setstruct',['setStruct',['../class_ph_widgets_1_1detail_1_1_widget_resource_base.html#a9e93ae08c288365694d6982baa9e4f2f',1,'PhWidgets::detail::WidgetResourceBase']]],
   ['setvalue',['setValue',['../class_ph_widgets_1_1_numeric_float.html#a28f05c748c61758eb69c15dab3bcb8e3',1,'PhWidgets::NumericFloat::setValue()'],['../class_ph_widgets_1_1_numeric_integer.html#a75826e802cf83e8b51690f222079f2ec',1,'PhWidgets::NumericInteger::setValue()']]],
   ['setwidth',['setWidth',['../class_ph_widgets_1_1_widget.html#a5e015124ee8cb4c467969ee8c141ba04',1,'PhWidgets::Widget']]],
-  ['stod',['stod',['../namespacestd.html#a8a6b94d6070cab519ef43f03c2edc76f',1,'std']]],
-  ['stof',['stof',['../namespacestd.html#a9beabee3656ccd250ed660c36bd70d4b',1,'std']]],
-  ['stoi',['stoi',['../namespacestd.html#a29009a945042e51adbe46663cefc2993',1,'std']]],
-  ['stol',['stol',['../namespacestd.html#a73671304466ec77efeac5409862199c8',1,'std']]],
-  ['stold',['stold',['../namespacestd.html#a8b8ae775ca6d71995e0b74e5503d9cd3',1,'std']]],
-  ['stot',['stot',['../namespacestd.html#a8ee94287df3282d8a5798d78a7804f91',1,'std::stot(const char *s, int base=10)'],['../namespacestd.html#a1bcd2fd56e6e6e7d5c3713407eafee94',1,'std::stot(const std::string &amp;s, int base=10)']]],
-  ['stoul',['stoul',['../namespacestd.html#ad4e86cb4cbcd5413db7c7b5af721f713',1,'std']]]
+  ['stod',['stod',['../basic__string__ex_8h.html#a8a6b94d6070cab519ef43f03c2edc76f',1,'std']]],
+  ['stof',['stof',['../basic__string__ex_8h.html#a9beabee3656ccd250ed660c36bd70d4b',1,'std']]],
+  ['stoi',['stoi',['../basic__string__ex_8h.html#a29009a945042e51adbe46663cefc2993',1,'std']]],
+  ['stol',['stol',['../basic__string__ex_8h.html#a73671304466ec77efeac5409862199c8',1,'std']]],
+  ['stold',['stold',['../basic__string__ex_8h.html#a8b8ae775ca6d71995e0b74e5503d9cd3',1,'std']]],
+  ['stot',['stot',['../basic__string__ex_8h.html#a8ee94287df3282d8a5798d78a7804f91',1,'std::stot(const char *s, int base=10)'],['../basic__string__ex_8h.html#a1bcd2fd56e6e6e7d5c3713407eafee94',1,'std::stot(const std::string &amp;s, int base=10)']]],
+  ['stoul',['stoul',['../basic__string__ex_8h.html#ad4e86cb4cbcd5413db7c7b5af721f713',1,'std']]]
 ];

@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['image',['Image',['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_image.html',1,'PhWidgets::detail::def_orig::Image&lt; PrevT, LinkT, ResourceT &gt;'],['../struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_image.html',1,'PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Image&lt; ArgT, ResourceT &gt;']]],
-  ['image_3c_20prevt_2c_20argt_2c_20resourcet_20_3e',['Image&lt; PrevT, ArgT, ResourceT &gt;',['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_image.html',1,'PhWidgets::detail::def_orig']]],
+  ['image',['Image',['../namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_image',1,'PhWidgets::detail::def_orig::Image&lt; PrevT, LinkT, ResourceT &gt;'],['../struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_image.html',1,'PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Image&lt; ArgT, ResourceT &gt;']]],
+  ['image_3c_20prevt_2c_20argt_2c_20resourcet_20_3e',['Image&lt; PrevT, ArgT, ResourceT &gt;',['../namespace_ph_widgets_1_1detail_1_1def__orig.html',1,'PhWidgets::detail::def_orig']]],
   ['image_5fspacing',['image_spacing',['../struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_int.html#ab1a05ad6bb8c23f933945c728efcb4d9abf4f1c7d73763c8f8789a66802ca2992',1,'PhWidgets::Label::ThisArgs::ArgInt']]],
-  ['image_5ftype',['image_type',['../struct_ph_widgets_1_1_widget_resource_group_type.html#a8cc5e66d52ae756b36fc793ad7ed1e5b',1,'PhWidgets::WidgetResourceGroupType']]],
+  ['image_5ftype',['image_type',['../namespace_ph_widgets.html#a8cc5e66d52ae756b36fc793ad7ed1e5b',1,'PhWidgets::WidgetResourceGroupType']]],
   ['indicator_5fcolor',['indicator_color',['../struct_ph_widgets_1_1_toggle_button_1_1_this_args_1_1_arg_color.html#a02ace93b181afe8d02e30c42b453fb1ca3b0fcd77d25fd7481c4e8c9d921a9adc',1,'PhWidgets::ToggleButton::ThisArgs::ArgColor']]],
   ['indicator_5ftype',['indicator_type',['../struct_ph_widgets_1_1_toggle_button_1_1_this_args_1_1_arg_unsigned_char.html#a3b5a3390b624aa865e148114705e0473acfa9d2ec431703b58b17cb7791a4a37e',1,'PhWidgets::ToggleButton::ThisArgs::ArgUnsignedChar']]],
   ['info',['info',['../struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da507f8830d5b3db50b7ee23ccd635002b',1,'PhWidgets::Events']]],
@@ -23,7 +23,7 @@ var searchData=
   ['is_5ffloating_5fpoint_3c_20float_20_3e',['is_floating_point&lt; float &gt;',['../structstd_1_1detail_1_1is__floating__point_3_01float_01_4.html',1,'std::detail']]],
   ['is_5ffloating_5fpoint_3c_20long_20double_20_3e',['is_floating_point&lt; long double &gt;',['../structstd_1_1detail_1_1is__floating__point_3_01long_01double_01_4.html',1,'std::detail']]],
   ['is_5ffloating_5fpoint_3c_20remove_5fcv_3c_20t_20_3e_3a_3atype_20_3e',['is_floating_point&lt; remove_cv&lt; T &gt;::type &gt;',['../structstd_1_1detail_1_1is__floating__point.html',1,'std::detail']]],
-  ['is_5fintegral',['is_integral',['../structstd_1_1is__integral.html',1,'std::is_integral&lt; T &gt;'],['../structstd_1_1detail_1_1is__integral.html',1,'std::detail::is_integral&lt; T &gt;']]],
+  ['is_5fintegral',['is_integral',['../structstd_1_1detail_1_1is__integral.html',1,'std::detail::is_integral&lt; T &gt;'],['../structstd_1_1is__integral.html',1,'std::is_integral&lt; T &gt;']]],
   ['is_5fintegral_3c_20bool_20_3e',['is_integral&lt; bool &gt;',['../structstd_1_1detail_1_1is__integral_3_01bool_01_4.html',1,'std::detail']]],
   ['is_5fintegral_3c_20char_20_3e',['is_integral&lt; char &gt;',['../structstd_1_1detail_1_1is__integral_3_01char_01_4.html',1,'std::detail']]],
   ['is_5fintegral_3c_20int_20_3e',['is_integral&lt; int &gt;',['../structstd_1_1detail_1_1is__integral_3_01int_01_4.html',1,'std::detail']]],

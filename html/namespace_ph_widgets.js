@@ -13,12 +13,12 @@ var namespace_ph_widgets =
     [ "NumericFloat", "class_ph_widgets_1_1_numeric_float.html", "class_ph_widgets_1_1_numeric_float" ],
     [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer.html", "class_ph_widgets_1_1_numeric_integer" ],
     [ "OnOffButton", "class_ph_widgets_1_1_on_off_button.html", "class_ph_widgets_1_1_on_off_button" ],
-    [ "ResourceFrom", "struct_ph_widgets_1_1_resource_from.html", [
+    [ "ResourceFrom", "namespace_ph_widgets.html#struct_ph_widgets_1_1_resource_from", [
       [ "Define", "struct_ph_widgets_1_1_resource_from_1_1_define.html", null ]
     ] ],
     [ "Text", "class_ph_widgets_1_1_text.html", "class_ph_widgets_1_1_text" ],
     [ "Timer", "class_ph_widgets_1_1_timer.html", "class_ph_widgets_1_1_timer" ],
     [ "ToggleButton", "class_ph_widgets_1_1_toggle_button.html", "class_ph_widgets_1_1_toggle_button" ],
     [ "Widget", "class_ph_widgets_1_1_widget.html", "class_ph_widgets_1_1_widget" ],
-    [ "WidgetResourceGroupType", "struct_ph_widgets_1_1_widget_resource_group_type.html", "struct_ph_widgets_1_1_widget_resource_group_type" ]
+    [ "WidgetResourceGroupType", "namespace_ph_widgets.html#struct_ph_widgets_1_1_widget_resource_group_type", "namespace_ph_widgets_struct_ph_widgets_1_1_widget_resource_group_type_dup" ]
 ];

@@ -1,6 +1,6 @@
 var basic__string__ex_8h =
 [
-    [ "minus", "structstd_1_1details_1_1minus.html", null ],
+    [ "minus", "namespacestd_1_1details.html#structstd_1_1details_1_1minus", null ],
     [ "minus< true >", "structstd_1_1details_1_1minus_3_01true_01_4.html", null ],
     [ "minus< false >", "structstd_1_1details_1_1minus_3_01false_01_4.html", null ],
     [ "stod", "basic__string__ex_8h.html#a8a6b94d6070cab519ef43f03c2edc76f", null ],

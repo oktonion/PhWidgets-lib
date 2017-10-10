@@ -1,5 +1,5 @@
 var namespace_ph_widgets_1_1detail_1_1flag__detail =
 [
-    [ "mask_type", "struct_ph_widgets_1_1detail_1_1flag__detail_1_1mask__type.html", "struct_ph_widgets_1_1detail_1_1flag__detail_1_1mask__type" ],
-    [ "mask_type< bool >", "struct_ph_widgets_1_1detail_1_1flag__detail_1_1mask__type_3_01bool_01_4.html", "struct_ph_widgets_1_1detail_1_1flag__detail_1_1mask__type_3_01bool_01_4" ]
+    [ "mask_type", "namespace_ph_widgets_1_1detail_1_1flag__detail.html#struct_ph_widgets_1_1detail_1_1flag__detail_1_1mask__type", "namespace_ph_widgets_1_1detail_1_1flag__detail_struct_ph_widgets_1_1detail_1_1flag__detail_1_1mask__type_dup" ],
+    [ "mask_type< bool >", "namespace_ph_widgets_1_1detail_1_1flag__detail.html#struct_ph_widgets_1_1detail_1_1flag__detail_1_1mask__type_3_01bool_01_4", "namespace_ph_widgets_1_1detail_1_1flag__detail_struct_ph_widgets_1_1detail_1_1flag__detail_1_1mask__type_3_01bool_01_4_dup" ]
 ];

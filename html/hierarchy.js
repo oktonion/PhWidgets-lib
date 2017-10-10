@@ -1,7 +1,7 @@
 var hierarchy =
 [
-    [ "PhWidgets::detail::def_orig::Alloc< PrevT, LinkT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_alloc.html", null ],
-    [ "PhWidgets::detail::def_orig::Alloc< PrevT, ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_alloc.html", [
+    [ "PhWidgets::detail::def_orig::Alloc< PrevT, LinkT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_alloc", null ],
+    [ "PhWidgets::detail::def_orig::Alloc< PrevT, ArgT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html", [
       [ "PhWidgets::detail::def_help::Define< PrevT >::Alloc< ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_alloc.html", null ]
     ] ],
     [ "PhWidgets::Widget::ThisArgs::ArgArea", "struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_area.html", [
@@ -47,14 +47,14 @@ var hierarchy =
         [ "PhWidgets::Label::Arguments", "struct_ph_widgets_1_1_label_1_1_arguments.html", null ]
       ] ]
     ] ],
-    [ "PhWidgets::Button::ThisArgs::ArgColor", "struct_ph_widgets_1_1_button_1_1_this_args_1_1_arg_color.html", [
-      [ "PhWidgets::Button::ArgColor", "struct_ph_widgets_1_1_button_1_1_arg_color.html", [
-        [ "PhWidgets::Button::Arguments", "struct_ph_widgets_1_1_button_1_1_arguments.html", null ]
-      ] ]
-    ] ],
     [ "PhWidgets::Basic::ThisArgs::ArgColor", "struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_color.html", [
       [ "PhWidgets::Basic::ArgColor", "struct_ph_widgets_1_1_basic_1_1_arg_color.html", [
         [ "PhWidgets::Basic::Arguments", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+      ] ]
+    ] ],
+    [ "PhWidgets::Button::ThisArgs::ArgColor", "struct_ph_widgets_1_1_button_1_1_this_args_1_1_arg_color.html", [
+      [ "PhWidgets::Button::ArgColor", "struct_ph_widgets_1_1_button_1_1_arg_color.html", [
+        [ "PhWidgets::Button::Arguments", "struct_ph_widgets_1_1_button_1_1_arguments.html", null ]
       ] ]
     ] ],
     [ "PhWidgets::ToggleButton::ThisArgs::ArgColor", "struct_ph_widgets_1_1_toggle_button_1_1_this_args_1_1_arg_color.html", [
@@ -62,14 +62,14 @@ var hierarchy =
         [ "PhWidgets::ToggleButton::Arguments", "struct_ph_widgets_1_1_toggle_button_1_1_arguments.html", null ]
       ] ]
     ] ],
-    [ "PhWidgets::Label::ThisArgs::ArgColor", "struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_color.html", [
-      [ "PhWidgets::Label::ArgColor", "struct_ph_widgets_1_1_label_1_1_arg_color.html", [
-        [ "PhWidgets::Label::Arguments", "struct_ph_widgets_1_1_label_1_1_arguments.html", null ]
-      ] ]
-    ] ],
     [ "PhWidgets::Widget::ThisArgs::ArgColor", "struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_color.html", [
       [ "PhWidgets::Widget::ArgColor", "struct_ph_widgets_1_1_widget_1_1_arg_color.html", [
         [ "PhWidgets::Widget::Arguments", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+      ] ]
+    ] ],
+    [ "PhWidgets::Label::ThisArgs::ArgColor", "struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_color.html", [
+      [ "PhWidgets::Label::ArgColor", "struct_ph_widgets_1_1_label_1_1_arg_color.html", [
+        [ "PhWidgets::Label::Arguments", "struct_ph_widgets_1_1_label_1_1_arguments.html", null ]
       ] ]
     ] ],
     [ "PhWidgets::Text::ThisArgs::ArgComplex", "struct_ph_widgets_1_1_text_1_1_this_args_1_1_arg_complex.html", [
@@ -126,14 +126,14 @@ var hierarchy =
         [ "PhWidgets::Basic::Arguments", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
       ] ]
     ] ],
-    [ "PhWidgets::Numeric::ThisArgs::ArgPChar", "struct_ph_widgets_1_1_numeric_1_1_this_args_1_1_arg_p_char.html", [
-      [ "PhWidgets::Numeric::ArgPChar", "struct_ph_widgets_1_1_numeric_1_1_arg_p_char.html", [
-        [ "PhWidgets::Numeric::Arguments", "struct_ph_widgets_1_1_numeric_1_1_arguments.html", null ]
-      ] ]
-    ] ],
     [ "PhWidgets::Container::ThisArgs::ArgPChar", "struct_ph_widgets_1_1_container_1_1_this_args_1_1_arg_p_char.html", [
       [ "PhWidgets::Container::ArgPChar", "struct_ph_widgets_1_1_container_1_1_arg_p_char.html", [
         [ "PhWidgets::Container::Arguments", "struct_ph_widgets_1_1_container_1_1_arguments.html", null ]
+      ] ]
+    ] ],
+    [ "PhWidgets::Widget::ThisArgs::ArgPChar", "struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_char.html", [
+      [ "PhWidgets::Widget::ArgPChar", "struct_ph_widgets_1_1_widget_1_1_arg_p_char.html", [
+        [ "PhWidgets::Widget::Arguments", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
       ] ]
     ] ],
     [ "PhWidgets::Label::ThisArgs::ArgPChar", "struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_p_char.html", [
@@ -141,9 +141,9 @@ var hierarchy =
         [ "PhWidgets::Label::Arguments", "struct_ph_widgets_1_1_label_1_1_arguments.html", null ]
       ] ]
     ] ],
-    [ "PhWidgets::Widget::ThisArgs::ArgPChar", "struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_char.html", [
-      [ "PhWidgets::Widget::ArgPChar", "struct_ph_widgets_1_1_widget_1_1_arg_p_char.html", [
-        [ "PhWidgets::Widget::Arguments", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    [ "PhWidgets::Numeric::ThisArgs::ArgPChar", "struct_ph_widgets_1_1_numeric_1_1_this_args_1_1_arg_p_char.html", [
+      [ "PhWidgets::Numeric::ArgPChar", "struct_ph_widgets_1_1_numeric_1_1_arg_p_char.html", [
+        [ "PhWidgets::Numeric::Arguments", "struct_ph_widgets_1_1_numeric_1_1_arguments.html", null ]
       ] ]
     ] ],
     [ "PhWidgets::Widget::ThisArgs::ArgPCursorDef", "struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_cursor_def.html", [
@@ -166,14 +166,14 @@ var hierarchy =
         [ "PhWidgets::Container::Arguments", "struct_ph_widgets_1_1_container_1_1_arguments.html", null ]
       ] ]
     ] ],
-    [ "PhWidgets::Label::ThisArgs::ArgPImage", "struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_p_image.html", [
-      [ "PhWidgets::Label::ArgPImage", "struct_ph_widgets_1_1_label_1_1_arg_p_image.html", [
-        [ "PhWidgets::Label::Arguments", "struct_ph_widgets_1_1_label_1_1_arguments.html", null ]
-      ] ]
-    ] ],
     [ "PhWidgets::Button::ThisArgs::ArgPImage", "struct_ph_widgets_1_1_button_1_1_this_args_1_1_arg_p_image.html", [
       [ "PhWidgets::Button::ArgPImage", "struct_ph_widgets_1_1_button_1_1_arg_p_image.html", [
         [ "PhWidgets::Button::Arguments", "struct_ph_widgets_1_1_button_1_1_arguments.html", null ]
+      ] ]
+    ] ],
+    [ "PhWidgets::Label::ThisArgs::ArgPImage", "struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_p_image.html", [
+      [ "PhWidgets::Label::ArgPImage", "struct_ph_widgets_1_1_label_1_1_arg_p_image.html", [
+        [ "PhWidgets::Label::Arguments", "struct_ph_widgets_1_1_label_1_1_arguments.html", null ]
       ] ]
     ] ],
     [ "PhWidgets::Container::ThisArgs::ArgPLayoutDefinition", "struct_ph_widgets_1_1_container_1_1_this_args_1_1_arg_p_layout_definition.html", [
@@ -291,16 +291,16 @@ var hierarchy =
         [ "PhWidgets::Basic::Arguments", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
       ] ]
     ] ],
-    [ "PhWidgets::Label::ThisArgs::ArgUnsignedChar", "struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_unsigned_char.html", [
-      [ "PhWidgets::Label::ArgUnsignedChar", "struct_ph_widgets_1_1_label_1_1_arg_unsigned_char.html", [
-        [ "PhWidgets::Label::Arguments", "struct_ph_widgets_1_1_label_1_1_arguments.html", null ]
-      ] ]
-    ] ],
     [ "PhWidgets::Button::ThisArgs::ArgUnsignedChar", "struct_ph_widgets_1_1_button_1_1_this_args_1_1_arg_unsigned_char.html", [
       [ "PhWidgets::Button::ArgUnsignedChar", "struct_ph_widgets_1_1_button_1_1_arg_unsigned_char.html", null ]
     ] ],
     [ "PhWidgets::ToggleButton::ThisArgs::ArgUnsignedChar", "struct_ph_widgets_1_1_toggle_button_1_1_this_args_1_1_arg_unsigned_char.html", [
       [ "PhWidgets::ToggleButton::ArgUnsignedChar", "struct_ph_widgets_1_1_toggle_button_1_1_arg_unsigned_char.html", null ]
+    ] ],
+    [ "PhWidgets::Label::ThisArgs::ArgUnsignedChar", "struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_unsigned_char.html", [
+      [ "PhWidgets::Label::ArgUnsignedChar", "struct_ph_widgets_1_1_label_1_1_arg_unsigned_char.html", [
+        [ "PhWidgets::Label::Arguments", "struct_ph_widgets_1_1_label_1_1_arguments.html", null ]
+      ] ]
     ] ],
     [ "PhWidgets::Basic::ThisArgs::ArgUnsignedLong", "struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_unsigned_long.html", [
       [ "PhWidgets::Basic::ArgUnsignedLong", "struct_ph_widgets_1_1_basic_1_1_arg_unsigned_long.html", null ]
@@ -320,9 +320,6 @@ var hierarchy =
         [ "PhWidgets::Basic::Arguments", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
       ] ]
     ] ],
-    [ "PhWidgets::Numeric::ThisArgs::ArgUnsignedShort", "struct_ph_widgets_1_1_numeric_1_1_this_args_1_1_arg_unsigned_short.html", [
-      [ "PhWidgets::Numeric::ArgUnsignedShort", "struct_ph_widgets_1_1_numeric_1_1_arg_unsigned_short.html", null ]
-    ] ],
     [ "PhWidgets::Widget::ThisArgs::ArgUnsignedShort", "struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short.html", [
       [ "PhWidgets::Widget::ArgUnsignedShort", "struct_ph_widgets_1_1_widget_1_1_arg_unsigned_short.html", [
         [ "PhWidgets::Widget::Arguments", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
@@ -333,22 +330,36 @@ var hierarchy =
         [ "PhWidgets::Label::Arguments", "struct_ph_widgets_1_1_label_1_1_arguments.html", null ]
       ] ]
     ] ],
+    [ "PhWidgets::Numeric::ThisArgs::ArgUnsignedShort", "struct_ph_widgets_1_1_numeric_1_1_this_args_1_1_arg_unsigned_short.html", [
+      [ "PhWidgets::Numeric::ArgUnsignedShort", "struct_ph_widgets_1_1_numeric_1_1_arg_unsigned_short.html", null ]
+    ] ],
     [ "PhWidgets::Numeric::ThisArgs::ArgUnsignedShortFlag", "struct_ph_widgets_1_1_numeric_1_1_this_args_1_1_arg_unsigned_short_flag.html", [
       [ "PhWidgets::Numeric::ArgUnsignedShort", "struct_ph_widgets_1_1_numeric_1_1_arg_unsigned_short.html", null ]
     ] ],
-    [ "PhWidgets::detail::def_orig::Array< PrevT, LinkT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_array.html", null ],
-    [ "PhWidgets::detail::def_orig::Array< PrevT, ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_array.html", [
+    [ "PhWidgets::detail::def_orig::Array< PrevT, LinkT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_array", null ],
+    [ "PhWidgets::detail::def_orig::Array< PrevT, ArgT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html", [
       [ "PhWidgets::detail::def_help::Define< PrevT >::Array< ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_array.html", null ]
     ] ],
-    [ "PhWidgets::detail::def_help::BasePrevType", "struct_ph_widgets_1_1detail_1_1def__help_1_1_base_prev_type.html", null ],
+    [ "PhWidgets::detail::def_help::BasePrevType", "namespace_ph_widgets_1_1detail_1_1def__help.html#struct_ph_widgets_1_1detail_1_1def__help_1_1_base_prev_type", null ],
+    [ "phevents::phevent::bind< ParentT, Adder, Remover >", "classphevents_1_1phevent_1_1bind.html", null ],
     [ "cppproperties::property< ValueT, detail::property_flag::ro >::bind< ParentT, Getter >", "classcppproperties_1_1property_3_01_value_t_00_01detail_1_1property__flag_1_1ro_01_4_1_1bind.html", null ],
     [ "cppproperties::property< ValueT, detail::property_flag::rw >::bind< ParentT, Getter, Setter >", "classcppproperties_1_1property_3_01_value_t_00_01detail_1_1property__flag_1_1rw_01_4_1_1bind.html", null ],
     [ "cppproperties::property< ValueT, detail::property_flag::wo >::bind< ParentT, Setter >", "classcppproperties_1_1property_3_01_value_t_00_01detail_1_1property__flag_1_1wo_01_4_1_1bind.html", null ],
-    [ "phevents::phevent::bind< ParentT, Adder, Remover >", "classphevents_1_1phevent_1_1bind.html", null ],
-    [ "PhWidgets::detail::def_orig::Boolean< PrevT, LinkT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_boolean.html", null ],
-    [ "PhWidgets::detail::def_orig::Boolean< PrevT, ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_boolean.html", [
+    [ "PhWidgets::detail::def_orig::Boolean< PrevT, LinkT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_boolean", null ],
+    [ "PhWidgets::detail::def_orig::Boolean< PrevT, ArgT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html", [
       [ "PhWidgets::detail::def_help::Define< PrevT >::Boolean< ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_boolean.html", null ]
     ] ],
+    [ "Callback", null, [
+      [ "PhWidgets::NumericFloat::Callback", "struct_ph_widgets_1_1_numeric_float_1_1_callback.html", null ],
+      [ "PhWidgets::NumericInteger::Callback", "struct_ph_widgets_1_1_numeric_integer_1_1_callback.html", null ]
+    ] ],
+    [ "Callback", null, [
+      [ "PhWidgets::OnOffButton::Callback", "struct_ph_widgets_1_1_on_off_button_1_1_callback.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::ThisCallbacks::Callback", "struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html", null ],
+    [ "PhWidgets::Text::ThisCallbacks::Callback", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html", null ],
+    [ "PhWidgets::Timer::ThisCallbacks::Callback", "struct_ph_widgets_1_1_timer_1_1_this_callbacks_1_1_callback.html", null ],
+    [ "PhWidgets::Container::ThisCallbacks::Callback", "struct_ph_widgets_1_1_container_1_1_this_callbacks_1_1_callback.html", null ],
     [ "PhWidgets::Widget::ThisCallbacks::Callback", "struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html", [
       [ "PhWidgets::Widget::Callback", "struct_ph_widgets_1_1_widget_1_1_callback.html", [
         [ "PhWidgets::Basic::Callback", "struct_ph_widgets_1_1_basic_1_1_callback.html", null ],
@@ -359,32 +370,21 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
-    [ "PhWidgets::Container::ThisCallbacks::Callback", "struct_ph_widgets_1_1_container_1_1_this_callbacks_1_1_callback.html", null ],
-    [ "PhWidgets::Basic::ThisCallbacks::Callback", "struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html", null ],
     [ "PhWidgets::NumericFloat::ThisCallbacks::Callback", "struct_ph_widgets_1_1_numeric_float_1_1_this_callbacks_1_1_callback.html", null ],
     [ "PhWidgets::NumericInteger::ThisCallbacks::Callback", "struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks_1_1_callback.html", null ],
-    [ "Callback", null, [
-      [ "PhWidgets::OnOffButton::Callback", "struct_ph_widgets_1_1_on_off_button_1_1_callback.html", null ]
-    ] ],
-    [ "Callback", null, [
-      [ "PhWidgets::NumericFloat::Callback", "struct_ph_widgets_1_1_numeric_float_1_1_callback.html", null ],
-      [ "PhWidgets::NumericInteger::Callback", "struct_ph_widgets_1_1_numeric_integer_1_1_callback.html", null ]
-    ] ],
-    [ "PhWidgets::Text::ThisCallbacks::Callback", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html", null ],
     [ "PhWidgets::OnOffButton::ThisCallbacks::Callback", "struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks_1_1_callback.html", null ],
-    [ "PhWidgets::Timer::ThisCallbacks::Callback", "struct_ph_widgets_1_1_timer_1_1_this_callbacks_1_1_callback.html", null ],
-    [ "Callbacks", null, [
-      [ "PhWidgets::NumericInteger::Callbacks", "struct_ph_widgets_1_1_numeric_integer_1_1_callbacks.html", null ]
-    ] ],
     [ "Callbacks", null, [
       [ "PhWidgets::Text::Callbacks", "struct_ph_widgets_1_1_text_1_1_callbacks.html", null ]
     ] ],
-    [ "PhWidgets::detail::def_orig::Color< PrevT, LinkT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_color.html", null ],
-    [ "PhWidgets::detail::def_orig::Color< PrevT, ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_color.html", [
+    [ "Callbacks", null, [
+      [ "PhWidgets::NumericInteger::Callbacks", "struct_ph_widgets_1_1_numeric_integer_1_1_callbacks.html", null ]
+    ] ],
+    [ "PhWidgets::detail::def_orig::Color< PrevT, LinkT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_color", null ],
+    [ "PhWidgets::detail::def_orig::Color< PrevT, ArgT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html", [
       [ "PhWidgets::detail::def_help::Define< PrevT >::Color< ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_color.html", null ]
     ] ],
-    [ "PhWidgets::detail::def_orig::Complex< PrevT, LinkT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_complex.html", null ],
-    [ "PhWidgets::detail::def_orig::Complex< PrevT, ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_complex.html", [
+    [ "PhWidgets::detail::def_orig::Complex< PrevT, LinkT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_complex", null ],
+    [ "PhWidgets::detail::def_orig::Complex< PrevT, ArgT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html", [
       [ "PhWidgets::detail::def_help::Define< PrevT >::Complex< ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_complex.html", null ]
     ] ],
     [ "PhWidgets::detail::def_help::Define< PrevT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define.html", [
@@ -393,11 +393,11 @@ var hierarchy =
     [ "std::enable_if< bool, T >", "structstd_1_1enable__if.html", null ],
     [ "std::enable_if< true, T >", "structstd_1_1enable__if_3_01true_00_01_t_01_4.html", null ],
     [ "PhWidgets::Events", "struct_ph_widgets_1_1_events.html", null ],
-    [ "exception", null, [
+    [ "std::exception", null, [
       [ "std::mystd::exception", "classstd_1_1mystd_1_1exception.html", null ]
     ] ],
-    [ "PhWidgets::detail::def_orig::Flag< PrevT, LinkT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_flag.html", null ],
-    [ "PhWidgets::detail::def_orig::Flag< PrevT, ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_flag.html", [
+    [ "PhWidgets::detail::def_orig::Flag< PrevT, LinkT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_flag", null ],
+    [ "PhWidgets::detail::def_orig::Flag< PrevT, ArgT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html", [
       [ "PhWidgets::detail::def_help::Define< PrevT >::Flag< ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_flag.html", null ]
     ] ],
     [ "cppproperties::detail::flag_chooser_helper< ValueT, CValueT >", "structcppproperties_1_1detail_1_1flag__chooser__helper.html", null ],
@@ -407,9 +407,9 @@ var hierarchy =
     ] ],
     [ "cppproperties::detail::flag_chooser_helper< ValueT, ValueT >", "structcppproperties_1_1detail_1_1flag__chooser__helper_3_01_value_t_00_01_value_t_01_4.html", null ],
     [ "cppproperties::detail::flag_chooser_helper< ValueT, void >", "structcppproperties_1_1detail_1_1flag__chooser__helper_3_01_value_t_00_01void_01_4.html", null ],
-    [ "cppproperties::detail::flag_chooser_helper< void, void >", "structcppproperties_1_1detail_1_1flag__chooser__helper_3_01void_00_01void_01_4.html", null ],
-    [ "PhWidgets::detail::def_orig::Function< PrevT, LinkT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_function.html", null ],
-    [ "PhWidgets::detail::def_orig::Function< PrevT, ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_function.html", [
+    [ "cppproperties::detail::flag_chooser_helper< void, void >", "namespacecppproperties_1_1detail.html#structcppproperties_1_1detail_1_1flag__chooser__helper_3_01void_00_01void_01_4", null ],
+    [ "PhWidgets::detail::def_orig::Function< PrevT, LinkT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_function", null ],
+    [ "PhWidgets::detail::def_orig::Function< PrevT, ArgT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html", [
       [ "PhWidgets::detail::def_help::Define< PrevT >::Function< ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_function.html", null ]
     ] ],
     [ "cppproperties::detail::get_parent_func< ValueT, ParentT >", "structcppproperties_1_1detail_1_1get__parent__func.html", null ],
@@ -428,8 +428,8 @@ var hierarchy =
       ] ]
     ] ],
     [ "PhWidgets::Hotkeys", "struct_ph_widgets_1_1_hotkeys.html", null ],
-    [ "PhWidgets::detail::def_orig::Image< PrevT, LinkT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_image.html", null ],
-    [ "PhWidgets::detail::def_orig::Image< PrevT, ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_image.html", [
+    [ "PhWidgets::detail::def_orig::Image< PrevT, LinkT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_image", null ],
+    [ "PhWidgets::detail::def_orig::Image< PrevT, ArgT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html", [
       [ "PhWidgets::detail::def_help::Define< PrevT >::Image< ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_image.html", null ]
     ] ],
     [ "std::integral_constant< T, Val >", "structstd_1_1integral__constant.html", [
@@ -502,16 +502,16 @@ var hierarchy =
     [ "PhWidgets::detail::def_orig::Link< PrevT, LinkT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link.html", [
       [ "PhWidgets::detail::def_help::Define< PrevT >::Link< LinkT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_link.html", null ]
     ] ],
-    [ "PhWidgets::detail::def_orig::Link< PrevT, LinkT, PtCallback_t * >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_3_01_prev_t_00_01_link_t_00_01_pt_callback__t_01_5_01_4.html", null ],
-    [ "PhWidgets::detail::def_orig::Link< PrevT, LinkT, PtHotkeyCallback_t * >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_3_01_prev_t_00_01_link_t_00_01_pt_hotkey_callback__t_01_5_01_4.html", null ],
-    [ "PhWidgets::detail::def_orig::Link< PrevT, LinkT, PtRawCallback_t * >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_3_01_prev_t_00_01_link_t_00_01_pt_raw_callback__t_01_5_01_4.html", null ],
+    [ "PhWidgets::detail::def_orig::Link< PrevT, LinkT, PtCallback_t * >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_3_01_prev_t_00_01_link_t_00_01_pt_callback__t_01_5_01_4", null ],
+    [ "PhWidgets::detail::def_orig::Link< PrevT, LinkT, PtHotkeyCallback_t * >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_3_01_prev_t_00_01_link_t_00_01_pt_hotkey_callback__t_01_5_01_4", null ],
+    [ "PhWidgets::detail::def_orig::Link< PrevT, LinkT, PtRawCallback_t * >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_3_01_prev_t_00_01_link_t_00_01_pt_raw_callback__t_01_5_01_4", null ],
     [ "PhWidgets::detail::def_orig::LinkType< WidgetArgumentsT, WidgetCallbacksT, LinkT, ResourceGroupT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type.html", null ],
     [ "PhWidgets::detail::def_orig::LinkType< WidgetArgumentsBase, WidgetCallbacksBase, LinkT, ResourceGroupT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_c3387fdfd257cc209ad0c0e6cd239e80f.html", null ],
     [ "PhWidgets::detail::def_orig::LinkType< WidgetArgumentsBase, WidgetCallbacksT, LinkT, ResourceGroupT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_cc6ce6455c1710d72b36c9458b2baa93c.html", null ],
     [ "PhWidgets::detail::def_orig::LinkType< WidgetArgumentsT, WidgetCallbacksBase, LinkT, ResourceGroupT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_t_00_01_widget_call63468fa0532b349c0ab1ec21657547b1.html", null ],
-    [ "PhWidgets::detail::flag_detail::mask_type< T >", "struct_ph_widgets_1_1detail_1_1flag__detail_1_1mask__type.html", null ],
-    [ "PhWidgets::detail::flag_detail::mask_type< bool >", "struct_ph_widgets_1_1detail_1_1flag__detail_1_1mask__type_3_01bool_01_4.html", null ],
-    [ "std::details::minus< bool >", "structstd_1_1details_1_1minus.html", null ],
+    [ "PhWidgets::detail::flag_detail::mask_type< T >", "namespace_ph_widgets_1_1detail_1_1flag__detail.html#struct_ph_widgets_1_1detail_1_1flag__detail_1_1mask__type", null ],
+    [ "PhWidgets::detail::flag_detail::mask_type< bool >", "namespace_ph_widgets_1_1detail_1_1flag__detail.html#struct_ph_widgets_1_1detail_1_1flag__detail_1_1mask__type_3_01bool_01_4", null ],
+    [ "std::details::minus< bool >", "namespacestd_1_1details.html#structstd_1_1details_1_1minus", null ],
     [ "std::details::minus< false >", "structstd_1_1details_1_1minus_3_01false_01_4.html", null ],
     [ "std::details::minus< true >", "structstd_1_1details_1_1minus_3_01true_01_4.html", null ],
     [ "PhWidgets::detail::NotImplemented", "class_ph_widgets_1_1detail_1_1_not_implemented.html", [
@@ -537,7 +537,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "phevents::phevent::ph_callback_t", "classphevents_1_1phevent_1_1ph__callback__t.html", null ],
-    [ "phevents::phevent", "classphevents_1_1phevent.html", null ],
+    [ "phevents::phevent", "namespacephevents.html#classphevents_1_1phevent", null ],
     [ "PhWidgets::Widget::phwidgets_event< ParentT, callback >", "class_ph_widgets_1_1_widget_1_1phwidgets__event.html", null ],
     [ "PhWidgets::Widget::phwidgets_event< PhWidgets::Widget, Widget::Callbacks::blocked >", "class_ph_widgets_1_1_widget_1_1phwidgets__event.html", null ],
     [ "PhWidgets::Widget::phwidgets_event< PhWidgets::Widget, Widget::Callbacks::destroyed >", "class_ph_widgets_1_1_widget_1_1phwidgets__event.html", null ],
@@ -546,20 +546,20 @@ var hierarchy =
     [ "PhWidgets::Widget::phwidgets_event< PhWidgets::Widget, Widget::Callbacks::outbound >", "class_ph_widgets_1_1_widget_1_1phwidgets__event.html", null ],
     [ "PhWidgets::Widget::phwidgets_event< PhWidgets::Widget, Widget::Callbacks::realized >", "class_ph_widgets_1_1_widget_1_1phwidgets__event.html", null ],
     [ "PhWidgets::Widget::phwidgets_event< PhWidgets::Widget, Widget::Callbacks::unrealized >", "class_ph_widgets_1_1_widget_1_1phwidgets__event.html", null ],
-    [ "PhWidgets::detail::def_orig::Pointer< PrevT, LinkT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_pointer.html", null ],
-    [ "PhWidgets::detail::def_orig::Pointer< PrevT, ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_pointer.html", [
+    [ "PhWidgets::detail::def_orig::Pointer< PrevT, LinkT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_pointer", null ],
+    [ "PhWidgets::detail::def_orig::Pointer< PrevT, ArgT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html", [
       [ "PhWidgets::detail::def_help::Define< PrevT >::Pointer< ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_pointer.html", null ]
     ] ],
-    [ "cppproperties::property< ValueT, Flag >", "classcppproperties_1_1property.html", null ],
-    [ "cppproperties::property< bool >", "classcppproperties_1_1property.html", null ],
-    [ "cppproperties::property< double >", "classcppproperties_1_1property.html", null ],
-    [ "cppproperties::property< int >", "classcppproperties_1_1property.html", null ],
-    [ "cppproperties::property< PgColor_t >", "classcppproperties_1_1property.html", null ],
-    [ "cppproperties::property< PhDim_t >", "classcppproperties_1_1property.html", null ],
-    [ "cppproperties::property< PhPoint_t >", "classcppproperties_1_1property.html", null ],
-    [ "cppproperties::property< std::string >", "classcppproperties_1_1property.html", null ],
-    [ "cppproperties::property< unsigned long >", "classcppproperties_1_1property.html", null ],
-    [ "cppproperties::property< unsigned short >", "classcppproperties_1_1property.html", null ],
+    [ "cppproperties::property< ValueT, Flag >", "namespacecppproperties.html#classcppproperties_1_1property", null ],
+    [ "cppproperties::property< bool >", "namespacecppproperties.html#namespacecppproperties", null ],
+    [ "cppproperties::property< double >", "namespacecppproperties.html#namespacecppproperties", null ],
+    [ "cppproperties::property< int >", "namespacecppproperties.html#namespacecppproperties", null ],
+    [ "cppproperties::property< PgColor_t >", "namespacecppproperties.html#namespacecppproperties", null ],
+    [ "cppproperties::property< PhDim_t >", "namespacecppproperties.html#namespacecppproperties", null ],
+    [ "cppproperties::property< PhPoint_t >", "namespacecppproperties.html#namespacecppproperties", null ],
+    [ "cppproperties::property< std::string >", "namespacecppproperties.html#namespacecppproperties", null ],
+    [ "cppproperties::property< unsigned long >", "namespacecppproperties.html#namespacecppproperties", null ],
+    [ "cppproperties::property< unsigned short >", "namespacecppproperties.html#namespacecppproperties", null ],
     [ "cppproperties::property< ValueT, detail::property_flag::ro >", "classcppproperties_1_1property_3_01_value_t_00_01detail_1_1property__flag_1_1ro_01_4.html", null ],
     [ "cppproperties::property< ValueT, detail::property_flag::rw >", "classcppproperties_1_1property_3_01_value_t_00_01detail_1_1property__flag_1_1rw_01_4.html", null ],
     [ "cppproperties::property< ValueT, detail::property_flag::wo >", "classcppproperties_1_1property_3_01_value_t_00_01detail_1_1property__flag_1_1wo_01_4.html", null ],
@@ -573,76 +573,76 @@ var hierarchy =
         [ "PhWidgets::Widget::Callbacks", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", null ]
       ] ]
     ] ],
-    [ "cppproperties::detail::remove_const< T >", "structcppproperties_1_1detail_1_1remove__const.html", null ],
+    [ "cppproperties::detail::remove_const< T >", "namespacecppproperties_1_1detail.html#structcppproperties_1_1detail_1_1remove__const", null ],
     [ "std::remove_const< T >", "structstd_1_1remove__const.html", null ],
     [ "std::remove_const< const T * >", "structstd_1_1remove__const_3_01const_01_t_01_5_01_4.html", null ],
-    [ "cppproperties::detail::remove_const< const T >", "structcppproperties_1_1detail_1_1remove__const_3_01const_01_t_01_4.html", null ],
     [ "std::remove_const< const T >", "structstd_1_1remove__const_3_01const_01_t_01_4.html", null ],
+    [ "cppproperties::detail::remove_const< const T >", "namespacecppproperties_1_1detail.html#structcppproperties_1_1detail_1_1remove__const_3_01const_01_t_01_4", null ],
     [ "std::remove_const< const volatile T * >", "structstd_1_1remove__const_3_01const_01volatile_01_t_01_5_01_4.html", null ],
     [ "std::remove_const< const volatile T >", "structstd_1_1remove__const_3_01const_01volatile_01_t_01_4.html", null ],
     [ "std::remove_cv< T >", "structstd_1_1remove__cv.html", null ],
-    [ "cppproperties::detail::remove_reference< T >", "structcppproperties_1_1detail_1_1remove__reference.html", null ],
+    [ "cppproperties::detail::remove_reference< T >", "namespacecppproperties_1_1detail.html#structcppproperties_1_1detail_1_1remove__reference", null ],
     [ "std::remove_reference< T >", "structstd_1_1remove__reference.html", null ],
     [ "std::remove_reference< T & >", "structstd_1_1remove__reference_3_01_t_01_6_01_4.html", null ],
-    [ "cppproperties::detail::remove_reference< T & >", "structcppproperties_1_1detail_1_1remove__reference_3_01_t_01_6_01_4.html", null ],
+    [ "cppproperties::detail::remove_reference< T & >", "namespacecppproperties_1_1detail.html#structcppproperties_1_1detail_1_1remove__reference_3_01_t_01_6_01_4", null ],
     [ "std::remove_volatile< T >", "structstd_1_1remove__volatile.html", null ],
     [ "std::remove_volatile< volatile T * >", "structstd_1_1remove__volatile_3_01volatile_01_t_01_5_01_4.html", null ],
     [ "std::remove_volatile< volatile T >", "structstd_1_1remove__volatile_3_01volatile_01_t_01_4.html", null ],
-    [ "PhWidgets::ResourceFrom< PrevT >", "struct_ph_widgets_1_1_resource_from.html", null ],
-    [ "PhWidgets::ResourceFrom< Basic::WidgetResourcesSingleton >", "struct_ph_widgets_1_1_resource_from.html", null ],
-    [ "PhWidgets::ResourceFrom< Button::WidgetResourcesSingleton >", "struct_ph_widgets_1_1_resource_from.html", null ],
-    [ "PhWidgets::ResourceFrom< Compound::WidgetResourcesSingleton >", "struct_ph_widgets_1_1_resource_from.html", null ],
-    [ "PhWidgets::ResourceFrom< Label::WidgetResourcesSingleton >", "struct_ph_widgets_1_1_resource_from.html", null ],
-    [ "PhWidgets::ResourceFrom< Numeric::WidgetResourcesSingleton >", "struct_ph_widgets_1_1_resource_from.html", null ],
-    [ "PhWidgets::ResourceFrom< Widget::WidgetResourcesSingleton >", "struct_ph_widgets_1_1_resource_from.html", null ],
-    [ "PhWidgets::detail::def_orig::Scalar< PrevT, LinkT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar.html", null ],
-    [ "PhWidgets::detail::def_orig::Scalar< PrevT, ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar.html", [
+    [ "PhWidgets::ResourceFrom< PrevT >", "namespace_ph_widgets.html#struct_ph_widgets_1_1_resource_from", null ],
+    [ "PhWidgets::ResourceFrom< Basic::WidgetResourcesSingleton >", "namespace_ph_widgets.html#namespace_ph_widgets", null ],
+    [ "PhWidgets::ResourceFrom< Button::WidgetResourcesSingleton >", "namespace_ph_widgets.html#namespace_ph_widgets", null ],
+    [ "PhWidgets::ResourceFrom< Compound::WidgetResourcesSingleton >", "namespace_ph_widgets.html#namespace_ph_widgets", null ],
+    [ "PhWidgets::ResourceFrom< Label::WidgetResourcesSingleton >", "namespace_ph_widgets.html#namespace_ph_widgets", null ],
+    [ "PhWidgets::ResourceFrom< Numeric::WidgetResourcesSingleton >", "namespace_ph_widgets.html#namespace_ph_widgets", null ],
+    [ "PhWidgets::ResourceFrom< Widget::WidgetResourcesSingleton >", "namespace_ph_widgets.html#namespace_ph_widgets", null ],
+    [ "PhWidgets::detail::def_orig::Scalar< PrevT, LinkT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_scalar", null ],
+    [ "PhWidgets::detail::def_orig::Scalar< PrevT, ArgT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html", [
       [ "PhWidgets::detail::def_help::Define< PrevT >::Scalar< ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_scalar.html", null ]
     ] ],
     [ "std::detail::SignedComparer< T >", "structstd_1_1detail_1_1_signed_comparer.html", null ],
-    [ "std::detail::SignUnsignChooser< bool >", "structstd_1_1detail_1_1_sign_unsign_chooser.html", null ],
-    [ "std::detail::SignUnsignChooser< false >", "structstd_1_1detail_1_1_sign_unsign_chooser_3_01false_01_4.html", null ],
-    [ "std::detail::SignUnsignChooser< true >", "structstd_1_1detail_1_1_sign_unsign_chooser_3_01true_01_4.html", null ],
-    [ "detail::StaticAssertion< bool >", "structdetail_1_1_static_assertion.html", null ],
-    [ "detail::StaticAssertion< true >", "structdetail_1_1_static_assertion_3_01true_01_4.html", null ],
-    [ "detail::StaticAssertionTest< i >", "structdetail_1_1_static_assertion_test.html", null ],
-    [ "PhWidgets::detail::def_orig::String< PrevT, LinkT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_string.html", null ],
-    [ "PhWidgets::detail::def_orig::String< PrevT, ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_string.html", [
+    [ "std::detail::SignUnsignChooser< bool >", "namespacestd_1_1detail.html#structstd_1_1detail_1_1_sign_unsign_chooser", null ],
+    [ "std::detail::SignUnsignChooser< false >", "namespacestd_1_1detail.html#structstd_1_1detail_1_1_sign_unsign_chooser_3_01false_01_4", null ],
+    [ "std::detail::SignUnsignChooser< true >", "namespacestd_1_1detail.html#structstd_1_1detail_1_1_sign_unsign_chooser_3_01true_01_4", null ],
+    [ "detail::StaticAssertion< bool >", "namespacedetail.html#structdetail_1_1_static_assertion", null ],
+    [ "detail::StaticAssertion< true >", "namespacedetail.html#structdetail_1_1_static_assertion_3_01true_01_4", null ],
+    [ "detail::StaticAssertionTest< i >", "namespacedetail.html#structdetail_1_1_static_assertion_test", null ],
+    [ "PhWidgets::detail::def_orig::String< PrevT, LinkT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_string", null ],
+    [ "PhWidgets::detail::def_orig::String< PrevT, ArgT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html", [
       [ "PhWidgets::detail::def_help::Define< PrevT >::String< ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_string.html", null ]
     ] ],
-    [ "PhWidgets::detail::def_orig::Struct< PrevT, LinkT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_struct.html", null ],
-    [ "PhWidgets::detail::def_orig::Struct< PrevT, ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_struct.html", [
+    [ "PhWidgets::detail::def_orig::Struct< PrevT, LinkT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_struct", null ],
+    [ "PhWidgets::detail::def_orig::Struct< PrevT, ArgT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html", [
       [ "PhWidgets::detail::def_help::Define< PrevT >::Struct< ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_struct.html", null ]
     ] ],
     [ "T", null, [
       [ "stdex::type_zero< T >", "structstdex_1_1type__zero.html", null ]
     ] ],
-    [ "PhWidgets::Label::ThisArgs", "struct_ph_widgets_1_1_label_1_1_this_args.html", null ],
-    [ "PhWidgets::Button::ThisArgs", "struct_ph_widgets_1_1_button_1_1_this_args.html", null ],
-    [ "PhWidgets::Timer::ThisArgs", "struct_ph_widgets_1_1_timer_1_1_this_args.html", null ],
-    [ "PhWidgets::Widget::ThisArgs", "struct_ph_widgets_1_1_widget_1_1_this_args.html", null ],
-    [ "PhWidgets::Basic::ThisArgs", "struct_ph_widgets_1_1_basic_1_1_this_args.html", null ],
-    [ "PhWidgets::NumericInteger::ThisArgs", "struct_ph_widgets_1_1_numeric_integer_1_1_this_args.html", null ],
-    [ "PhWidgets::NumericFloat::ThisArgs", "struct_ph_widgets_1_1_numeric_float_1_1_this_args.html", null ],
-    [ "PhWidgets::OnOffButton::ThisArgs", "struct_ph_widgets_1_1_on_off_button_1_1_this_args.html", null ],
-    [ "PhWidgets::Container::ThisArgs", "struct_ph_widgets_1_1_container_1_1_this_args.html", null ],
-    [ "PhWidgets::Text::ThisArgs", "struct_ph_widgets_1_1_text_1_1_this_args.html", null ],
-    [ "PhWidgets::ToggleButton::ThisArgs", "struct_ph_widgets_1_1_toggle_button_1_1_this_args.html", null ],
-    [ "PhWidgets::Numeric::ThisArgs", "struct_ph_widgets_1_1_numeric_1_1_this_args.html", null ],
-    [ "PhWidgets::Basic::ThisCallbacks", "struct_ph_widgets_1_1_basic_1_1_this_callbacks.html", null ],
-    [ "PhWidgets::NumericFloat::ThisCallbacks", "struct_ph_widgets_1_1_numeric_float_1_1_this_callbacks.html", null ],
-    [ "PhWidgets::Timer::ThisCallbacks", "struct_ph_widgets_1_1_timer_1_1_this_callbacks.html", null ],
-    [ "PhWidgets::Text::ThisCallbacks", "struct_ph_widgets_1_1_text_1_1_this_callbacks.html", null ],
-    [ "PhWidgets::OnOffButton::ThisCallbacks", "struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks.html", null ],
-    [ "PhWidgets::Widget::ThisCallbacks", "struct_ph_widgets_1_1_widget_1_1_this_callbacks.html", null ],
-    [ "PhWidgets::Container::ThisCallbacks", "struct_ph_widgets_1_1_container_1_1_this_callbacks.html", null ],
-    [ "PhWidgets::NumericInteger::ThisCallbacks", "struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks.html", null ],
+    [ "PhWidgets::NumericFloat::ThisArgs", "class_ph_widgets_1_1_numeric_float.html#struct_ph_widgets_1_1_numeric_float_1_1_this_args", null ],
+    [ "PhWidgets::Label::ThisArgs", "class_ph_widgets_1_1_label.html#struct_ph_widgets_1_1_label_1_1_this_args", null ],
+    [ "PhWidgets::OnOffButton::ThisArgs", "class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_args", null ],
+    [ "PhWidgets::Button::ThisArgs", "class_ph_widgets_1_1_button.html#struct_ph_widgets_1_1_button_1_1_this_args", null ],
+    [ "PhWidgets::Text::ThisArgs", "class_ph_widgets_1_1_text.html#struct_ph_widgets_1_1_text_1_1_this_args", null ],
+    [ "PhWidgets::Timer::ThisArgs", "class_ph_widgets_1_1_timer.html#struct_ph_widgets_1_1_timer_1_1_this_args", null ],
+    [ "PhWidgets::ToggleButton::ThisArgs", "class_ph_widgets_1_1_toggle_button.html#struct_ph_widgets_1_1_toggle_button_1_1_this_args", null ],
+    [ "PhWidgets::Numeric::ThisArgs", "class_ph_widgets_1_1_numeric.html#struct_ph_widgets_1_1_numeric_1_1_this_args", null ],
+    [ "PhWidgets::Basic::ThisArgs", "class_ph_widgets_1_1_basic.html#struct_ph_widgets_1_1_basic_1_1_this_args", null ],
+    [ "PhWidgets::NumericInteger::ThisArgs", "class_ph_widgets_1_1_numeric_integer.html#struct_ph_widgets_1_1_numeric_integer_1_1_this_args", null ],
+    [ "PhWidgets::Widget::ThisArgs", "class_ph_widgets_1_1_widget.html#struct_ph_widgets_1_1_widget_1_1_this_args", null ],
+    [ "PhWidgets::Container::ThisArgs", "class_ph_widgets_1_1_container.html#struct_ph_widgets_1_1_container_1_1_this_args", null ],
+    [ "PhWidgets::Text::ThisCallbacks", "class_ph_widgets_1_1_text.html#struct_ph_widgets_1_1_text_1_1_this_callbacks", null ],
+    [ "PhWidgets::Timer::ThisCallbacks", "class_ph_widgets_1_1_timer.html#struct_ph_widgets_1_1_timer_1_1_this_callbacks", null ],
+    [ "PhWidgets::Widget::ThisCallbacks", "class_ph_widgets_1_1_widget.html#struct_ph_widgets_1_1_widget_1_1_this_callbacks", null ],
+    [ "PhWidgets::OnOffButton::ThisCallbacks", "class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks", null ],
+    [ "PhWidgets::NumericFloat::ThisCallbacks", "class_ph_widgets_1_1_numeric_float.html#struct_ph_widgets_1_1_numeric_float_1_1_this_callbacks", null ],
+    [ "PhWidgets::Container::ThisCallbacks", "class_ph_widgets_1_1_container.html#struct_ph_widgets_1_1_container_1_1_this_callbacks", null ],
+    [ "PhWidgets::Basic::ThisCallbacks", "class_ph_widgets_1_1_basic.html#struct_ph_widgets_1_1_basic_1_1_this_callbacks", null ],
+    [ "PhWidgets::NumericInteger::ThisCallbacks", "class_ph_widgets_1_1_numeric_integer.html#struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks", null ],
     [ "stdex::type_zero< const T[N]>", "structstdex_1_1type__zero_3_01const_01_t[_n]_4.html", null ],
     [ "stdex::type_zero< T[N]>", "structstdex_1_1type__zero_3_01_t[_n]_4.html", null ],
     [ "std::detail::UnsignedComparer< T >", "structstd_1_1detail_1_1_unsigned_comparer.html", null ],
-    [ "cppproperties::detail::Void", "structcppproperties_1_1detail_1_1_void.html", null ],
-    [ "phevents::detail::Void", "structphevents_1_1detail_1_1_void.html", null ],
-    [ "PhWidgets::WidgetResourceGroupType::WidgetArgumentGroupType", "struct_ph_widgets_1_1_widget_resource_group_type_1_1_widget_argument_group_type.html", null ],
+    [ "phevents::detail::Void", "namespacephevents_1_1detail.html#structphevents_1_1detail_1_1_void", null ],
+    [ "cppproperties::detail::Void", "namespacecppproperties_1_1detail.html#structcppproperties_1_1detail_1_1_void", null ],
+    [ "PhWidgets::WidgetResourceGroupType::WidgetArgumentGroupType", "namespace_ph_widgets.html#struct_ph_widgets_1_1_widget_resource_group_type_1_1_widget_argument_group_type", null ],
     [ "PhWidgets::detail::WidgetArgumentsBase", "struct_ph_widgets_1_1detail_1_1_widget_arguments_base.html", [
       [ "PhWidgets::detail::def_orig::ArgumentType< WidgetArgumentsBase, WidgetCallbacksBase, ArgT, ResourceGroupT, ResourceT >::WidgetArguments", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgc6fd5e59211b6fa2d966187a810f6c6f.html", null ],
       [ "PhWidgets::detail::def_orig::ArgumentType< WidgetArgumentsBase, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT >::WidgetArguments", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html", null ]
@@ -651,7 +651,7 @@ var hierarchy =
       [ "PhWidgets::detail::def_orig::ArgumentType< WidgetArgumentsT, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT >::WidgetArguments", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_1_1_widget_arguments.html", null ],
       [ "PhWidgets::detail::def_orig::ArgumentType< WidgetArgumentsT, WidgetCallbacksBase, ArgT, ResourceGroupT, ResourceT >::WidgetArguments", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_t_00_01_widget_d9b21dad9111c8d13df8d04bb7cec99c.html", null ]
     ] ],
-    [ "PhWidgets::WidgetResourceGroupType::WidgetCallbackGroupType", "struct_ph_widgets_1_1_widget_resource_group_type_1_1_widget_callback_group_type.html", null ],
+    [ "PhWidgets::WidgetResourceGroupType::WidgetCallbackGroupType", "namespace_ph_widgets.html#struct_ph_widgets_1_1_widget_resource_group_type_1_1_widget_callback_group_type", null ],
     [ "PhWidgets::detail::WidgetCallbacksBase", "struct_ph_widgets_1_1detail_1_1_widget_callbacks_base.html", [
       [ "PhWidgets::detail::def_orig::LinkType< WidgetArgumentsBase, WidgetCallbacksBase, LinkT, ResourceGroupT >::WidgetCallbacks", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_ce3bdc1b28da7f82591fac42471b82b23.html", null ],
       [ "PhWidgets::detail::def_orig::LinkType< WidgetArgumentsT, WidgetCallbacksBase, LinkT, ResourceGroupT >::WidgetCallbacks", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_t_00_01_widget_call05c03cac697cf061c6a1db489f2ad145.html", null ]
@@ -680,5 +680,5 @@ var hierarchy =
       [ "PhWidgets::detail::WidgetCallback< LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::raw_type, PtRawCallback_t * >", "struct_ph_widgets_1_1detail_1_1_widget_callback_3_01_link_t_00_01_widget_resource_group_type_1_100401ca8bf15aa45ee8a3d96f21ad055.html", null ],
       [ "PhWidgets::detail::WidgetCallback< LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::raw_type, void >", "struct_ph_widgets_1_1detail_1_1_widget_callback_3_01_link_t_00_01_widget_resource_group_type_1_16a6610de6e6c94ed030911cef2b9365b.html", null ]
     ] ],
-    [ "PhWidgets::WidgetResourceGroupType", "struct_ph_widgets_1_1_widget_resource_group_type.html", null ]
+    [ "PhWidgets::WidgetResourceGroupType", "namespace_ph_widgets.html#struct_ph_widgets_1_1_widget_resource_group_type", null ]
 ];
