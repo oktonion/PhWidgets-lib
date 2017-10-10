@@ -172,8 +172,8 @@ namespace PhWidgets
 				enum eArgPChar
 				{
 					help_topic = Pt_ARG_HELP_TOPIC //!< The meaning of this resource depends on the bits set in Pt_ARG_EFLAGS:
-												   //!< If Pt_INTERNAL_HELP isn't set, Pt_ARG_HELP_TOPIC is used to set the topic position within the HTML help file.
-												   //!< If Pt_INTERNAL_HELP is set, Pt_ARG_HELP_TOPIC is the help information to be displayed.
+												   //!< If Pt_INTERNAL_HELP isn't set, Widget::ArgPChar::help_topic is used to set the topic position within the HTML help file.
+												   //!< If Pt_INTERNAL_HELP is set, Widget::ArgPChar::help_topic is the help information to be displayed.
 
 				};
 			};
