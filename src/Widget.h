@@ -255,7 +255,7 @@ namespace PhWidgets
 				enum eRawCallback
 				{
 					filter = Pt_CB_FILTER, //!< A list of raw callbacks invoked when an event that matches the provided event mask is to be passed to the widget. 
-										   //!< These callbacks are invoked before the event is processed by the widget. Contrast this resource with 'Widget::Callbacks::raw'.
+										   //!< These callbacks are invoked before the event is processed by the widget. Contrast this resource with Widget::Callbacks::raw.
 										   //!< Documentation in progress...
 
 					raw = Pt_CB_RAW //!< A list of PtRawCallback_t structures that defines the raw callbacks that the widget invokes if the event it receives matches the event mask provided in the PtRawCallback_t structure.
@@ -273,10 +273,10 @@ namespace PhWidgets
 
 					destroyed = Pt_CB_DESTROYED, //!< A list of PtCallback_t structures that define the callbacks invoked when the widget is marked for destruction and is no longer visible. 
 												 //!< You can use these callbacks, for example, to adjust the appearance of the widgets around the one being destroyed.
-												 //!< In contrast, the 'Widget::Callbacks::is_destroyed' callbacks are invoked when the widget's resources are actually being released.
+												 //!< In contrast, the Widget::Callbacks::is_destroyed callbacks are invoked when the widget's resources are actually being released.
 												 //!< Documentation in progress...
 
-					dnd = Pt_CB_DND, //!< A list of PtCallback_t structures that define the callbacks called when a drag-and-drop ('Events::dndrop') event is received.
+					dnd = Pt_CB_DND, //!< A list of PtCallback_t structures that define the callbacks called when a drag-and-drop (Events::dndrop) event is received.
 									 //!< Documentation in progress...
 
 					is_destroyed = Pt_CB_IS_DESTROYED, //!< A list of PtCallback_t structures that define the callbacks invoked when the widget's resources are being released. 
@@ -302,7 +302,7 @@ namespace PhWidgets
 					//! A list of PtHotkeyCallback_t structures. 
 					
 					//! If the widget receives a key event that matches a structure's key cap and key modifiers, the widget calls the function specified in that structure. 
-					//! If a function isn't specified, the widget invokes its 'Basic::Callbacks::activate' callback list with a reason_subtype of 'Widget::Callbacks::hotkey'. 
+					//! If a function isn't specified, the widget invokes its Basic::Callbacks::activate callback list with a reason_subtype of Widget::Callbacks::hotkey. 
 					//! \remark A hotkey isn't invoked if any ancestor of the widget that owns it is blocked.
 					//! Documentation in progress...
 					hotkey = Pt_CB_HOTKEY
@@ -488,44 +488,68 @@ namespace PhWidgets
 		void onEvent(PtCallbackList_t *cl, PtCallbackInfo_t * info);
 						
 	public:
-		
-		Widget(int abn);
-		Widget(PtWidget_t *wdg);
-		
-		Widget(const Widget &rhs);
-		
-		Widget &operator=(const Widget &rhs);
-		bool operator==(const Widget &rhs);
-		bool operator<(const Widget &rhs);	
+		//! (constructor)
 
-				
+		//! Constructs a Widget by ID.
+		Widget(int abn/**< [in] - ID given by PhAB to widget (like 'ABN_WIDIGET_NAME'). */);
+
+		//! (constructor)
+
+		//! Constructs a Widget by pointer to widget.
+		Widget(PtWidget_t *wdg /**< [in] - pointer to Photon widget. */);
+		
+		//! (copy constructor)
+
+		//! Constructs a Widget by copy.
+		Widget(const Widget &rhs /**< [in] - another Widget to be used as source to initialize the elements of the container with. */);
+		
+		//! Assigns value in Widget
+
+		//! Replaces the contents of the Widget.
+		Widget &operator=(const Widget &rhs/**< [in] - another Widget to use as data source. */);
+
+		//! Compares Widgets
+
+		//! Compares the Widgets by their Photon widget pointers. 
+		bool operator==(const Widget &rhs/**< [in] - Widgets whose contents to compare . */);
+
+		//! Compares Widgets
+
+		//! Compares the Widgets by their Photon widget pointers. 
+		bool operator<(const Widget &rhs/**< [in] - Widgets whose contents to compare . */);
+
+		
+		//! Converts Widget to Photon widget pointer
 		operator PtWidget_t*();
+
+		//! Converts Widget to constant Photon widget pointer
 		operator const PtWidget_t*() const;
 
+		//! Resources of the Widget
 		WidgetResourcesSingleton resource;
 	
-		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>					Enabled;
-		property<unsigned short>::bind<Widget, &Widget::getWidth, &Widget::setWidth>			Width;
-		property<unsigned short>::bind<Widget, &Widget::getHeight, &Widget::setHeight>			Height;
-		property<PhDim_t>::bind<Widget, &Widget::getDim, &Widget::setDim>						Size;
-		property<unsigned short>::bind<Widget, &Widget::getBevelWidth, &Widget::setBevelWidth>	BevelWidth;
-		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>		HelpTopic;
-		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation>			Location;
+		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>					Enabled;//!< Gets or sets a value indicating whether the widget can respond to user interaction.
+		property<unsigned short>::bind<Widget, &Widget::getWidth, &Widget::setWidth>			Width;//!< Gets or sets the width of the widget.
+		property<unsigned short>::bind<Widget, &Widget::getHeight, &Widget::setHeight>			Height;//!< Gets or sets the hight of the widget.
+		property<PhDim_t>::bind<Widget, &Widget::getDim, &Widget::setDim>						Size;//!< Gets or sets the size of the widget.
+		property<unsigned short>::bind<Widget, &Widget::getBevelWidth, &Widget::setBevelWidth>	BevelWidth;//!< Gets or sets the bevel width of the widget.
+		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>		HelpTopic;//!< Gets or sets the help topic of the widget.
+		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation>			Location;//!< Gets or sets the location of the widget.
 
-		phwidgets_event<Widget, Widget::Callbacks::destroyed>		Destroyed;
-		phwidgets_event<Widget, Widget::Callbacks::blocked>			Blocked;
-		phwidgets_event<Widget, Widget::Callbacks::dnd>				DragDrop;
-		phwidgets_event<Widget, Widget::Callbacks::is_destroyed>	IsDestroyed;
-		phwidgets_event<Widget, Widget::Callbacks::outbound>		Outbound;
-		phwidgets_event<Widget, Widget::Callbacks::realized>		Realized;
-		phwidgets_event<Widget, Widget::Callbacks::unrealized>		Unrealized;
+		phwidgets_event<Widget, Widget::Callbacks::destroyed>		Destroyed;//!< Occurs when the widget is destroyed.
+		phwidgets_event<Widget, Widget::Callbacks::blocked>			Blocked;//!< Occurs when the widget is blocked.
+		phwidgets_event<Widget, Widget::Callbacks::dnd>				DragDrop;//!< Occurs when a drag-and-drop operation is completed.
+		phwidgets_event<Widget, Widget::Callbacks::is_destroyed>	IsDestroyed;//!< Occurs when the widget's resources are being released.
+		phwidgets_event<Widget, Widget::Callbacks::outbound>		Outbound;//!< Occurs when you press the pointer button on the widget and then move out of the "hot spot" with the button still depressed.
+		phwidgets_event<Widget, Widget::Callbacks::realized>		Realized;//!<  Occurs when the widget is realized.
+		phwidgets_event<Widget, Widget::Callbacks::unrealized>		Unrealized;//!<  Occurs when the widget is unrealized.
 
-		void OnDestroyed(PtCallbackInfo_t *info);
-		void OnBlocked(PtCallbackInfo_t *info);
-		void OnDragDrop(PtCallbackInfo_t *info);
-		void OnOutbound(PtCallbackInfo_t *info);
-		void OnRealized(PtCallbackInfo_t *info);
-		void OnUnrealized(PtCallbackInfo_t *info);
+		void OnDestroyed(PtCallbackInfo_t *info);//!< Raises the Widget::Destroyed event.
+		void OnBlocked(PtCallbackInfo_t *info);//!< Raises the Widget::Blocked event.
+		void OnDragDrop(PtCallbackInfo_t *info);//!< Raises the Widget::DragDrop event.
+		void OnOutbound(PtCallbackInfo_t *info);//!< Raises the Widget::Outbound event.
+		void OnRealized(PtCallbackInfo_t *info);//!< Raises the Widget::Realized event.
+		void OnUnrealized(PtCallbackInfo_t *info);//!< Raises the Widget::Unrealized event.
 
 	};
 

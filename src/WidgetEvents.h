@@ -18,7 +18,7 @@ namespace PhWidgets
 			drag = Ph_EV_DRAG,//!< Used by an application to initiate drag events, to determine their completion, and to indicate intermediate drag-motion events.
 			draw = Ph_EV_DRAW,//!< Emitted by the Pg functions when applications perform draw operations.
 			expose = Ph_EV_EXPOSE,//!< Emitted by the Photon Manager on behalf of a region being moved, resized, or removed from the event space.
-			info = Ph_EV_INFO,//!< All regions must always be transparent to Ph_EV_INFO events. They are emitted by applications or service providers to disseminate information or respond to requests.
+			info = Ph_EV_INFO,//!< All regions must always be transparent to 'Events::info' events. They are emitted by applications or service providers to disseminate information or respond to requests.
 			key = Ph_EV_KEY,//!< Emitted when a key state changes (for example, the user presses or releases a key).
 			button = Ph_EV_PTR_MOTION_BUTTON,//!< Emitted when the user moves the pointing device while pressing a button.
 			nobutton = Ph_EV_PTR_MOTION_NOBUTTON,//!< Emitted when the user moves the pointing device without pressing a button.
