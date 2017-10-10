@@ -133,7 +133,7 @@ namespace PhWidgets
 			{
 				enum eArgUnsigned
 				{
-					anchor_flags = Pt_ARG_ANCHOR_FLAGS //!< This resource specifies how the widget is anchored to its parent
+					anchor_flags = Pt_ARG_ANCHOR_FLAGS //!< This resource specifies how the widget is anchored to its parent.
 				};
 			};
 			
@@ -141,8 +141,8 @@ namespace PhWidgets
 			{
 				enum eArgUnsignedShort
 				{
-					bevel_width = Pt_ARG_BEVEL_WIDTH, //!< The width of the widget's bevel if the widget is highlighted and is to draw a bevel
-					cursor_type = Pt_ARG_CURSOR_TYPE, //!< The type of cursor
+					bevel_width = Pt_ARG_BEVEL_WIDTH, //!< The width of the widget's bevel if the widget is highlighted and is to draw a bevel.
+					cursor_type = Pt_ARG_CURSOR_TYPE, //!< The type of cursor.
 					height = Pt_ARG_HEIGHT, //!< The height of the widget.
 					width = Pt_ARG_WIDTH //!< The width of the widget.
 				};
@@ -185,7 +185,7 @@ namespace PhWidgets
 					pointer = Pt_ARG_POINTER, //!< A pointer to any data that you want to associate with the widget.
 					layout_data = Pt_ARG_LAYOUT_DATA, //!< This resource provides a convenient method to get or set either of the Pt_ARG_*_LAYOUT_DATA resources.
 													  //!< Documentation in progress...
-					data = Pt_ARG_DATA, //!< This resource is used internally by PhAB applications as well as by compound widgets
+					data = Pt_ARG_DATA, //!< This resource is used internally by PhAB applications as well as by compound widgets.
 					user_data = Pt_ARG_USER_DATA //!< Data that you want to store in the widget's internal memory.
 				};
 			};
@@ -203,7 +203,7 @@ namespace PhWidgets
 			{
 				enum eArgColor
 				{
-					cursor_color = Pt_ARG_CURSOR_COLOR //!< The color of the pointer when it's inside the widget
+					cursor_color = Pt_ARG_CURSOR_COLOR //!< The color of the pointer when it's inside the widget.
 				};	
 			};
 			
@@ -244,7 +244,7 @@ namespace PhWidgets
 			{
 				enum eArgDim
 				{
-					dim = Pt_ARG_DIM, //!< A PhDim_t structure (see the Photon Library Reference) that defines the height and width values for the widget
+					dim = Pt_ARG_DIM, //!< A PhDim_t structure (see the Photon Library Reference) that defines the height and width values for the widget.
 					max_dim = Pt_ARG_MAXIMUM_DIM, //!< A PhDim_t structure (see the Photon Library Reference) that defines the maximum size that a widget can be.
 					min_dim = Pt_ARG_MINIMUM_DIM //!< A PhDim_t structure (see the Photon Library Reference) that defines the minimum size that a widget can be.
 				};
