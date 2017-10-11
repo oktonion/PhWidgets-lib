@@ -79,5 +79,5 @@ unsigned long Timer::getRepeat() const
 
 void Timer::OnActivate(PtCallbackInfo_t *info)
 {
-	onEvent(resource.callback[Callback::timer_activate].get(), info);
+	resource.callback[Callback::timer_activate].raise(info);
 }

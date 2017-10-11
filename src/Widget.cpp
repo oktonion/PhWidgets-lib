@@ -266,45 +266,34 @@ Widget::operator const PtWidget_t*() const
 	return widget();
 }
 
-void Widget::onEvent(PtCallbackList_t *cl, PtCallbackInfo_t * info)
-{
-
-	if (nullptr == cl)
-		return;
-
-	PtWidget_t *w = widget();
-
-	PtInvokeCallbackList(cl, w, info);
-}
-
 void Widget::OnDestroyed( PtCallbackInfo_t * info)
 {
-	onEvent( resource.callback[Callback::destroyed].get(), info);
+	resource.callback[Callback::destroyed].raise(info);
 }
 
 void PhWidgets::Widget::OnBlocked( PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::blocked].get(), info);
+	resource.callback[Callback::blocked].raise(info);
 }
 
 void PhWidgets::Widget::OnDragDrop( PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::dnd].get(), info);
+	resource.callback[Callback::dnd].raise(info);
 }
 
 void PhWidgets::Widget::OnOutbound( PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::outbound].get(), info);
+	resource.callback[Callback::outbound].raise(info);
 }
 
 void PhWidgets::Widget::OnRealized( PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::realized].get(), info);
+	resource.callback[Callback::realized].raise(info);
 }
 
 void PhWidgets::Widget::OnUnrealized( PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::unrealized].get(), info);
+	resource.callback[Callback::unrealized].raise(info);
 }
 
 //for properties:

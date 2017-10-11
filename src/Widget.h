@@ -38,34 +38,53 @@ namespace PhWidgets
 		//! An event, which raise a notification to registered subscribers (event handlers) that something of interest has occurred.
 
 		//! Event handlers must be Widget::callback_t type or convertable to it.
-		template<class ParentT, typename ParentT::ThisCallbacks::Callback::eCallback callback>
+		template<class ParentT, typename ParentT::ThisCallbacks::Callback::eCallback CallbackID>
 		class phwidgets_event
 		{
-			typedef phevent::ph_callback_t value_t;
-
+			
 		public:
 			phwidgets_event(ParentT *parent) :
 				_obj(parent)
 			{}
 
-			inline void add(value_t value)
+			//! add an event handler
+			inline void add(callback_t value)
 			{
-				_obj->resource.callback[callback].add(value);
+				_obj->resource.callback[CallbackID].add(value);
 			}
 
-			inline void remove(value_t value)
+			//! remove an event handler
+			inline void remove(callback_t value)
 			{
-				_obj->resource.callback[callback].remove(value);
+				_obj->resource.callback[CallbackID].remove(value);
 			}
 
-			inline void operator+=(value_t value)
+			//! raise an event
+
+			//! invokes all event handlers that are subscribed to this event
+			inline void raise(PtCallbackInfo_t * info) const
+			{
+				_ob->resource.callback[CallbackID].raise(info);
+			}
+
+			//! add an event handler
+			inline void operator+=(callback_t value)
 			{
 				add(value);
 			}
 
-			inline void operator-=(value_t value)
+			//! remove an event handler
+			inline void operator-=(callback_t value)
 			{
 				remove(value);
+			}
+
+			//! raise an event
+
+			//! invokes all event handlers that are subscribed to this event
+			inline void operator()(PtCallbackInfo_t * info) const
+			{
+				raise(info);
 			}
 
 
@@ -487,8 +506,6 @@ namespace PhWidgets
 		
 		void setLocation(PhPoint_t);
 		PhPoint_t getLocation() const;
-
-		void onEvent(PtCallbackList_t *cl, PtCallbackInfo_t * info);
 						
 	public:
 		//! (constructor)

@@ -293,6 +293,18 @@ namespace PhWidgets
 				return cl;
 			}
 
+			inline void emitLink(PtCallbackInfo_t *info) const
+			{
+				PtCallbackList_t *cl = this->getLink();
+
+				if (nullptr == cl)
+					return;
+
+				PtWidget_t *w = _rwidget->widget();
+
+				PtInvokeCallbackList(cl, w, info);
+			}
+
 
 		public:
 
@@ -775,6 +787,11 @@ namespace PhWidgets
 			{
 				return this->getLink(); 
 			}
+
+			inline void raise(PtCallbackInfo_t * info) const
+			{
+				this->emitLink(info);
+			}
 		};
 
 		template<typename LinkT>
@@ -815,6 +832,11 @@ namespace PhWidgets
 			inline PtCallbackList_t* get() const
 			{
 				return this->getLink();
+			}
+
+			inline void raise(PtCallbackInfo_t * info) const
+			{
+				this->emitLink(info);
 			}
 		};
 
@@ -858,6 +880,11 @@ namespace PhWidgets
 			{
 				return this->getLink(); 
 			}
+
+			inline void raise(PtCallbackInfo_t * info) const
+			{
+				this->emitLink(info);
+			}
 		};
 
 		template<typename LinkT>
@@ -900,6 +927,11 @@ namespace PhWidgets
 			{
 				return this->getLink();
 			}
+
+			inline void raise(PtCallbackInfo_t * info) const
+			{
+				this->emitLink(info);
+			}
 		};
 
 		template<typename LinkT>
@@ -931,6 +963,11 @@ namespace PhWidgets
 			{
 				return this->getLink(); 
 			}
+
+			inline void raise(PtCallbackInfo_t * info) const
+			{
+				this->emitLink(info);
+			}
 		};
 
 		template<typename LinkT>
@@ -961,6 +998,11 @@ namespace PhWidgets
 			inline PtCallbackList_t* get() const
 			{
 				return this->getLink();
+			}
+
+			inline void raise(PtCallbackInfo_t * info) const
+			{
+				this->emitLink(info);
 			}
 		};
 

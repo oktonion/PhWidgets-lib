@@ -94,35 +94,35 @@ PgColor_t Basic::getFillColor() const
 
 void PhWidgets::Basic::OnActivated(PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::activate].get(), info);
+	resource.callback[Callback::activate].raise(info);
 }
 
 void PhWidgets::Basic::OnArmed(PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::arm].get(), info);
+	resource.callback[Callback::arm].raise(info);
 }
 
 void PhWidgets::Basic::OnDisarmed(PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::disarm].get(), info);
+	resource.callback[Callback::disarm].raise(info);
 }
 
 void PhWidgets::Basic::OnGotFocused(PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::got_focus].get(), info);
+	resource.callback[Callback::got_focus].raise(info);
 }
 
 void PhWidgets::Basic::OnLostFocus(PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::lost_focus].get(), info);
+	resource.callback[Callback::lost_focus].raise(info);
 }
 
 void PhWidgets::Basic::OnMenu(PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::menu].get(), info);
+	resource.callback[Callback::menu].raise(info);
 }
 
 void PhWidgets::Basic::OnRepeat(PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::repeat].get(), info);
+	resource.callback[Callback::repeat].raise(info);
 }
