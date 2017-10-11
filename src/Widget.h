@@ -13,7 +13,7 @@
 
 #include "./service/mystd/my_exception.h"
 #include "./service/stdex/stdex.h"
-#include "./service/property.hpp"
+#include "./service/phproperty.hpp"
 #include "./service/phevent.hpp"
 
 #include "./WidgetResource.hpp"
@@ -33,6 +33,8 @@ namespace PhWidgets
 		protected detail::IPtWidget
 	{
 	public:
+
+		
 		typedef phevent::ph_callback_t callback_t;//!< An event handler that is raised when an \link Widget::phwidgets_event event \endlink occur.
 		
 		//! An event, which raise a notification to registered subscribers (event handlers) that something of interest has occurred.
@@ -506,6 +508,18 @@ namespace PhWidgets
 		
 		void setLocation(PhPoint_t);
 		PhPoint_t getLocation() const;
+
+		template<class ReturnT, class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
+		ReturnT getArgument() const
+		{
+			return static_cast<const WidgetClassT*>(this)->resource[ArgumentID].get();
+		}
+
+		template<class ValueT, class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
+		void setArgument(ValueT val)
+		{
+			static_cast<const WidgetClassT*>(this)->resource[ArgumentID].set(val);
+		}
 						
 	public:
 		//! (constructor)
@@ -549,7 +563,7 @@ namespace PhWidgets
 		WidgetResourcesSingleton resource;
 	
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>					Enabled;//!< Gets or sets a value indicating whether the widget can respond to user interaction.
-		property<unsigned short>::bind<Widget, &Widget::getWidth, &Widget::setWidth>			Width;//!< Gets or sets the width of the widget.
+		//property<unsigned short>::bind<Widget, &Widget::getWidth, &Widget::setWidth>			Width;//!< Gets or sets the width of the widget.
 		property<unsigned short>::bind<Widget, &Widget::getHeight, &Widget::setHeight>			Height;//!< Gets or sets the hight of the widget.
 		property<PhDim_t>::bind<Widget, &Widget::getDim, &Widget::setDim>						Size;//!< Gets or sets the size of the widget.
 		property<unsigned short>::bind<Widget, &Widget::getBevelWidth, &Widget::setBevelWidth>	BevelWidth;//!< Gets or sets the bevel width of the widget.
@@ -570,6 +584,8 @@ namespace PhWidgets
 		void OnOutbound(PtCallbackInfo_t *info);//!< Raises the Widget::Outbound event.
 		void OnRealized(PtCallbackInfo_t *info);//!< Raises the Widget::Realized event.
 		void OnUnrealized(PtCallbackInfo_t *info);//!< Raises the Widget::Unrealized event.
+
+		phwidgets_property<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width> Width;
 
 	};
 
