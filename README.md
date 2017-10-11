@@ -8,6 +8,13 @@ All classes of the library provide simple and convenient access to 'resources' o
 
 Also library implements easy raw access to 'resources' of Photon Widget and the Widget itself, its callbacks, etc as well. The classes of the library itself are lightweight proxies for standart C-functions of Photon Library (like PtSetResource, PtGetResource, ...). Use of the hierarchy of classes constructs userfriendly interface with less ways for "shooting yourself in the foot".
 
+Now if you have a pointer to standart Photon widget (PtWidget_t*) or it's ABN_ id then with this library widgets are now simple and convenient, just do:
+```
+PtWidget_t *label_widget;
+
+PhWidgets::Label label(label_widget);// from now on you could manage 'label_widget' with this object 'label'
+```
+
 instead of this:
 ```
 PtWidget_t *label = widget;
