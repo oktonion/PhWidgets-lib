@@ -40,14 +40,18 @@ namespace PhWidgets
 	{
 		typedef cppproperties::property<ValueT, cppproperties::detail::property_flag::ro> cpp_property_t;
 
+		template<class WidgetClassT, typename cppproperties::detail::get_parent_func<ValueT, WidgetClassT>::getter_t Getter>
+		struct bind_internal:
+			public cpp_property_t::template bind<WidgetClassT, Getter>
+		{
+		};
+
 	public:
 		template<class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
 		class bind:
-			public cpp_property_t::bind<WidgetClassT, &(WidgetClassT::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>) >
+			public bind_internal<WidgetClassT, &(WidgetClassT::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>) >
 		{
-
-		public:
-			typedef cpp_property_t::bind<WidgetClassT, &(WidgetClassT::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>) > cpp_bind_t;
+			typedef bind_internal<WidgetClassT, &(WidgetClassT::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>) > cpp_bind_t;
 
 		public:
 			bind(WidgetClassT *parent) :
@@ -63,21 +67,19 @@ namespace PhWidgets
 	{
 		typedef cppproperties::property<ValueT, cppproperties::detail::property_flag::rw> cpp_property_t;
 
-		
-
 	public:
 
 		template<class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
 		class bind:
-			public cpp_property_t::bind<
+			public cpp_property_t::template bind<
 							WidgetClassT, 
-							&(WidgetClassT::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>),
-							&(WidgetClassT::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>) >
+							&(WidgetClassT::template getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>),
+							&(WidgetClassT::template setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>) >
 		{
-			typedef cpp_property_t::bind<
+			typedef cpp_property_t::template bind<
 							WidgetClassT,
-							&(WidgetClassT::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>),
-							&(WidgetClassT::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>)>
+							&(WidgetClassT::template getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>),
+							&(WidgetClassT::template setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>)>
 			cpp_bind_t;
 
 		public:
@@ -97,13 +99,13 @@ namespace PhWidgets
 
 		template<class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
 		class bind:
-			public cpp_property_t::bind<
+			public cpp_property_t::template bind<
 			WidgetClassT,
-			&(WidgetClassT::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>) >
+			&(WidgetClassT::template setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>) >
 		{
-			typedef cpp_property_t::bind<
+			typedef cpp_property_t::template bind<
 				WidgetClassT,
-				&(WidgetClassT::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>) >
+				&(WidgetClassT::template setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>) >
 			cpp_bind_t;
 
 		public:
