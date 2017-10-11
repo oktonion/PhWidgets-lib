@@ -64,7 +64,7 @@ namespace PhWidgets
 			//! invokes all event handlers that are subscribed to this event
 			inline void raise(PtCallbackInfo_t * info) const
 			{
-				_ob->resource.callback[CallbackID].raise(info);
+				_obj->resource.callback[CallbackID].raise(info);
 			}
 
 			//! add an event handler
