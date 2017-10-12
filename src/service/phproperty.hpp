@@ -10,14 +10,13 @@ namespace PhWidgets
 		template<class ReturnT, class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
 		ReturnT getArgument() const
 		{
-			return ReturnT();
-			//return static_cast<const WidgetClassT*>(this)->resource[ArgumentID].get();
+			return static_cast<const WidgetClassT*>(this)->resource.argument[ArgumentID].get();
 		}
 
 		template<class ValueT, class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
 		void setArgument(ValueT val)
 		{
-			//static_cast<const WidgetClassT*>(this)->resource[ArgumentID].set(val);
+			static_cast<const WidgetClassT*>(this)->resource.argument[ArgumentID].set(val);
 		}
 	};
 

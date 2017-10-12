@@ -94,7 +94,7 @@ namespace PhWidgets
 		phwidgets_event<Text, Text::Callbacks::motion_verify>	MotionVerify;
 		phwidgets_event<Text, Text::Callbacks::text_changed> 	TextChanged;
 	};
-
+	
 }
 
 

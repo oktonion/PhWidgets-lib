@@ -33,6 +33,8 @@ namespace PhWidgets
 		protected detail::IPtWidget,
 		public IPhWidgetsProperty
 	{
+		using IPhWidgetsProperty::setArgument;
+		using IPhWidgetsProperty::getArgument;
 	public:
 
 		
@@ -577,7 +579,8 @@ namespace PhWidgets
 		phwidgets_property<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width> Width;
 
 	};
-
+	
+	
 
 }//namespace PhWidgets
 
