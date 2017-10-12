@@ -7,17 +7,17 @@ namespace PhWidgets
 {
 	struct IPhWidgetsProperty
 	{
-	protected:
 		template<class ReturnT, class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
 		ReturnT getArgument() const
 		{
-			return static_cast<const WidgetClassT*>(this)->resource[ArgumentID].get();
+			return ReturnT();
+			//return static_cast<const WidgetClassT*>(this)->resource[ArgumentID].get();
 		}
 
 		template<class ValueT, class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
 		void setArgument(ValueT val)
 		{
-			static_cast<const WidgetClassT*>(this)->resource[ArgumentID].set(val);
+			//static_cast<const WidgetClassT*>(this)->resource[ArgumentID].set(val);
 		}
 	};
 
@@ -70,12 +70,12 @@ namespace PhWidgets
 		class bind :
 			public bind_internal<
 				IPhWidgetsProperty, 
-				&(IPhWidgetsProperty::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>) 
+				&IPhWidgetsProperty::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>
 			>
 		{
 			typedef bind_internal<
 				IPhWidgetsProperty, 
-				&(IPhWidgetsProperty::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>) 
+				&IPhWidgetsProperty::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID> 
 			> cpp_bind_t;
 
 		public:
@@ -107,14 +107,14 @@ namespace PhWidgets
 		class bind :
 			public bind_internal<
 				IPhWidgetsProperty, 
-				&(IPhWidgetsProperty::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>),
-				&(IPhWidgetsProperty::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>)
+				&IPhWidgetsProperty::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>,
+				&IPhWidgetsProperty::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>
 			>
 		{
 			typedef bind_internal<
 				IPhWidgetsProperty,
-				&(IPhWidgetsProperty::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>),
-				&(IPhWidgetsProperty::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>)
+				&IPhWidgetsProperty::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>,
+				&IPhWidgetsProperty::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>
 			> cpp_bind_t;
 
 		public:
@@ -145,12 +145,12 @@ namespace PhWidgets
 		class bind :
 			public bind_internal<
 				IPhWidgetsProperty, 
-				&(IPhWidgetsProperty::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>) 
+				&IPhWidgetsProperty::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>
 			>
 		{
 			typedef bind_internal<
 				IPhWidgetsProperty, 
-				&(IPhWidgetsProperty::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>)
+				&IPhWidgetsProperty::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>
 			> cpp_bind_t;
 
 		public:

@@ -96,7 +96,7 @@ namespace PhWidgets
 
 			phwidgets_event(const phwidgets_event &rhs);
 
-			inline phwidgets_event &operator=(value_t);
+			inline phwidgets_event &operator=(callback_t);
 			inline phwidgets_event &operator=(phwidgets_event const &);
 		};
 
