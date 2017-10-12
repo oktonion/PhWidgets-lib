@@ -30,7 +30,8 @@ namespace PhWidgets
 	using namespace phevents;
 		
 	class Widget:
-		protected detail::IPtWidget
+		protected detail::IPtWidget,
+		public IPhWidgetsProperty
 	{
 	public:
 
@@ -508,18 +509,6 @@ namespace PhWidgets
 		
 		void setLocation(PhPoint_t);
 		PhPoint_t getLocation() const;
-
-		template<class ReturnT, class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
-		ReturnT getArgument() const
-		{
-			return static_cast<const WidgetClassT*>(this)->resource[ArgumentID].get();
-		}
-
-		template<class ValueT, class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
-		void setArgument(ValueT val)
-		{
-			static_cast<const WidgetClassT*>(this)->resource[ArgumentID].set(val);
-		}
 						
 	public:
 		//! (constructor)
