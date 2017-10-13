@@ -554,7 +554,7 @@ namespace PhWidgets
 		WidgetResourcesSingleton resource;
 	
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>					Enabled;//!< Gets or sets a value indicating whether the widget can respond to user interaction.
-		//property<unsigned short>::bind<Widget, &Widget::getWidth, &Widget::setWidth>			Width;//!< Gets or sets the width of the widget.
+		phwidgets_property<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width> Width;//!< Gets or sets the width of the widget.
 		property<unsigned short>::bind<Widget, &Widget::getHeight, &Widget::setHeight>			Height;//!< Gets or sets the hight of the widget.
 		property<PhDim_t>::bind<Widget, &Widget::getDim, &Widget::setDim>						Size;//!< Gets or sets the size of the widget.
 		property<unsigned short>::bind<Widget, &Widget::getBevelWidth, &Widget::setBevelWidth>	BevelWidth;//!< Gets or sets the bevel width of the widget.
@@ -576,7 +576,7 @@ namespace PhWidgets
 		void OnRealized(PtCallbackInfo_t *info);//!< Raises the Widget::Realized event.
 		void OnUnrealized(PtCallbackInfo_t *info);//!< Raises the Widget::Unrealized event.
 
-		phwidgets_property<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width> Width;
+		
 
 	};
 	

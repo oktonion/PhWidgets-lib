@@ -8,13 +8,13 @@ namespace PhWidgets
 	struct IPhWidgetsProperty
 	{
 		template<class ReturnT, class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
-		ReturnT getArgument() const
+		inline ReturnT getArgument() const
 		{
 			return static_cast<const WidgetClassT*>(this)->resource.argument[ArgumentID].get();
 		}
 
 		template<class ValueT, class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
-		void setArgument(ValueT val)
+		inline void setArgument(ValueT val)
 		{
 			static_cast<const WidgetClassT*>(this)->resource.argument[ArgumentID].set(val);
 		}
@@ -62,6 +62,10 @@ namespace PhWidgets
 			bind_internal(WidgetClassT *parent) :
 				cpp_property_t::template bind<WidgetClassT, Getter>(parent)
 			{}
+
+		private:
+			inline bind_internal &operator=(ValueT const &);
+			inline bind_internal &operator=(bind_internal const &);
 		};
 
 	public:
@@ -82,6 +86,9 @@ namespace PhWidgets
 				cpp_bind_t(parent)
 			{}
 
+		private:
+			inline bind &operator=(ValueT const &);
+			inline bind &operator=(bind const &);
 		};
 	};
 
@@ -98,6 +105,8 @@ namespace PhWidgets
 			bind_internal(WidgetClassT *parent) :
 				cpp_property_t::template bind<WidgetClassT, Getter, Setter>(parent)
 			{}
+
+			using cpp_property_t::template bind<WidgetClassT, Getter, Setter>::operator=;
 		};
 
 	public:
@@ -120,7 +129,8 @@ namespace PhWidgets
 			bind(WidgetClassT *parent) :
 				cpp_bind_t(parent)
 			{}
-
+			
+			using cpp_bind_t::operator=;
 		};
 
 	};
@@ -137,6 +147,8 @@ namespace PhWidgets
 			bind_internal(WidgetClassT *parent) :
 				cpp_property_t::template bind<WidgetClassT, Setter>(parent)
 			{}
+			
+			using cpp_property_t::template bind<WidgetClassT, Setter>::operator=;
 		};
 
 	public:
@@ -156,7 +168,8 @@ namespace PhWidgets
 			bind(WidgetClassT *parent) :
 				cpp_bind_t(parent)
 			{}
-
+			
+			using cpp_bind_t::operator=;
 		};
 
 	};	
