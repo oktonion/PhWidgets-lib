@@ -33,8 +33,6 @@ namespace PhWidgets
 		protected detail::IPtWidget,
 		public IPhWidgetsProperty
 	{
-		using IPhWidgetsProperty::setArgument;
-		using IPhWidgetsProperty::getArgument;
 	public:
 
 		
@@ -455,6 +453,8 @@ namespace PhWidgets
 		int _abn;
 		mutable PtWidget_t *_widget;
 		
+		using IPhWidgetsProperty::setArgument;
+		using IPhWidgetsProperty::getArgument;
 		
 	protected:
 
