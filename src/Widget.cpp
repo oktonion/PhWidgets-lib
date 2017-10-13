@@ -296,6 +296,11 @@ void PhWidgets::Widget::OnUnrealized( PtCallbackInfo_t * info)
 	resource.callback[Callback::unrealized].raise(info);
 }
 
+Widget::operator PtWidget_t*()
+{
+	return widget();
+}
+
 //for properties:
 void Widget::setEnabled(bool val)
 {
@@ -305,72 +310,4 @@ void Widget::setEnabled(bool val)
 bool Widget::getEnabled() const
 {
 	return resource.argument[Arguments::flags].get(Pt_BLOCKED);
-}
-
-void Widget::setWidth(unsigned short val)
-{
-	resource.argument[Arguments::width].set(val);
-}
-
-unsigned short Widget::getWidth() const
-{
-	return resource.argument[Arguments::width].get();
-}
-
-void Widget::setHeight(unsigned short val)
-{
-	resource.argument[Arguments::height].set(val);
-}
-
-unsigned short Widget::getHeight() const
-{
-	return resource.argument[Arguments::height].get();
-}
-
-void Widget::setDim(PhDim_t val)
-{
-	resource.argument[Arguments::dim].set(val);
-}
-
-PhDim_t Widget::getDim() const
-{
-	return resource.argument[Arguments::dim].get();
-}
-
-void Widget::setBevelWidth(unsigned short val)
-{
-	resource.argument[Arguments::bevel_width].set(val);
-}
-
-unsigned short Widget::getBevelWidth() const
-{
-	return resource.argument[Arguments::bevel_width].get();
-}
-
-void Widget::setHelpTopic(std::string val)
-{
-	resource.argument[Arguments::help_topic].set(val.c_str());
-}
-
-std::string Widget::getHelpTopic() const
-{
-	return resource.argument[Arguments::help_topic].get();
-}
-
-void Widget::setLocation(PhPoint_t val)
-{
-	resource.argument[Arguments::pos].set(val);
-}
-
-
-PhPoint_t Widget::getLocation() const
-{
-	return resource.argument[Arguments::pos].get();
-}
-
-
-
-Widget::operator PtWidget_t*()
-{
-	return widget();
 }
