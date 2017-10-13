@@ -311,3 +311,13 @@ bool Widget::getEnabled() const
 {
 	return resource.argument[Arguments::flags].get(Pt_BLOCKED);
 }
+
+void PhWidgets::Widget::setHelpTopic(std::string val)
+{
+	resource.argument[Arguments::help_topic].set(val.c_str());
+}
+
+std::string PhWidgets::Widget::getHelpTopic() const
+{
+	return resource.argument[Arguments::help_topic].get();
+}

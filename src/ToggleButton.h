@@ -82,8 +82,8 @@ namespace PhWidgets
 
 		ToggleButton &operator=(const ToggleButton &rhs);
 		
-		void Check(bool val);
-		void Uncheck(bool val);
+		void Check(bool val = true);
+		void Uncheck(bool val = true);
 				
 		property<bool>::bind<ToggleButton, &ToggleButton::getChecked, &ToggleButton::setChecked> Checked;
 	};

@@ -207,9 +207,6 @@ namespace PhWidgets
 		std::string getCaption() const;
 		void setCaption(std::string caption);
 
-		void setBalloonColor(PgColor_t);
-		PgColor_t getBalloonColor() const;
-
 		virtual void check();
 						
 	public:
@@ -223,7 +220,8 @@ namespace PhWidgets
 		Label &operator=(const Label &rhs);
 		
 		property<std::string>::bind<Label, &Label::getCaption, &Label::setCaption> Caption;
-		property<PgColor_t>::bind<Label, &Label::getBalloonColor, &Label::setBalloonColor> BalloonColor;
+
+		phproperty<PgColor_t>::bind<Label, ArgColor::eArgColor, Arguments::balloon_color> BalloonColor;
 	};
 
 }

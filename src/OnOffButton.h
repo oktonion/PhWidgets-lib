@@ -70,9 +70,6 @@ namespace PhWidgets
 		resource_type WidgetResourcesSingleton;
 
 		virtual void check();
-		
-		void setChecked(bool val);
-		bool getChecked() const;
 						
 	public:
 		WidgetResourcesSingleton resource;
@@ -84,10 +81,10 @@ namespace PhWidgets
 
 		OnOffButton &operator=(const OnOffButton &rhs);
 		
-		void Check(bool val);
-		void Uncheck(bool val);
+		void Check(bool val = true);
+		void Uncheck(bool val = true);
 		
-		property<bool>::bind<OnOffButton, &OnOffButton::getChecked, &OnOffButton::setChecked> Checked;
+		phproperty<bool>::bind<OnOffButton, ArgBool::eArgBool, Arguments::onoff_state> Checked;
 
 		phwidgets_event<OnOffButton, OnOffButton::Callbacks::new_value>		NewValue;
 	};

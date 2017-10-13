@@ -72,26 +72,6 @@ Basic &Basic::operator=(const Basic &rhs)
 	return *this;
 }
 
-void Basic::setColor(PgColor_t val)
-{
-	resource.argument[Arguments::color].set(val);
-}
-
-PgColor_t Basic::getColor() const
-{
-	return resource.argument[Arguments::color].get();
-}
-
-void Basic::setFillColor(PgColor_t val)
-{
-	resource.argument[Arguments::fill_color].set(val);
-}
-
-PgColor_t Basic::getFillColor() const
-{
-	return resource.argument[Arguments::fill_color].get();
-}
-
 void PhWidgets::Basic::OnActivated(PtCallbackInfo_t * info)
 {
 	resource.callback[Callback::activate].raise(info);

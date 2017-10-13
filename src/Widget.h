@@ -493,6 +493,9 @@ namespace PhWidgets
 
 		void setEnabled(bool);
 		bool getEnabled() const;
+
+		void setHelpTopic(std::string);
+		std::string getHelpTopic() const;
 						
 	public:
 		//! (constructor)
@@ -536,12 +539,12 @@ namespace PhWidgets
 		WidgetResourcesSingleton resource;
 	
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled; //!< Gets or sets a value indicating whether the widget can respond to user interaction.
+		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.
 
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width>		Width; //!< Gets or sets the width of the widget.
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::height>		Height; //!< Gets or sets the hight of the widget.
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::bevel_width>	BevelWidth; //!< Gets or sets the bevel width of the widget.
 		phproperty<PhDim_t>::bind<Widget, Arguments::eArgDim, Arguments::dim>							Size; //!< Gets or sets the size of the widget.
-		phproperty<std::string>::bind<Widget, Arguments::eArgPChar, Arguments::help_topic>				HelpTopic; //!< Gets or sets the help topic of the widget.
 		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos>						Location; //!< Gets or sets the position of the widget.
 
 		phwidgets_event<Widget, Widget::Callbacks::destroyed>		Destroyed; //!< Occurs when the widget is destroyed.

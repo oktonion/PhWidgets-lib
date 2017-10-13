@@ -186,12 +186,6 @@ namespace PhWidgets
 		resource_type WidgetResourcesSingleton;
 
 		virtual void check();
-
-		void setColor(PgColor_t);
-		PgColor_t getColor() const;
-
-		void setFillColor(PgColor_t);
-		PgColor_t getFillColor() const;
 						
 	public:
 		Basic(int abn);
@@ -203,8 +197,8 @@ namespace PhWidgets
 
 		WidgetResourcesSingleton resource;
 		
-		property<PgColor_t>::bind<Basic, &Basic::getColor, &Basic::setColor> Color;
-		property<PgColor_t>::bind<Basic, &Basic::getFillColor, &Basic::setFillColor> FillColor;
+		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::color> Color;
+		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::fill_color> FillColor;
 
 		phwidgets_event<Basic, Basic::Callbacks::activate>		Activate;
 		phwidgets_event<Basic, Basic::Callbacks::arm>			Arm;

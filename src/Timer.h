@@ -83,12 +83,6 @@ namespace PhWidgets
 		resource_type WidgetResourcesSingleton;
 
 		virtual void check();
-
-		void setInitial(unsigned long);    
-		unsigned long getInitial() const;
-
-		void setRepeat(unsigned long);    
-		unsigned long getRepeat() const;
 						
 	public:
 		WidgetResourcesSingleton resource;
@@ -106,8 +100,8 @@ namespace PhWidgets
 		using Widget::operator PtWidget_t*;
 		using Widget::operator const PtWidget_t*;
 
-		property<unsigned long>::bind<Timer, &Timer::getInitial, &Timer::setInitial> Initial;
-		property<unsigned long>::bind<Timer, &Timer::getRepeat, &Timer::setRepeat> Interval;
+		phproperty<unsigned long>::bind<Timer, ArgUnsignedLong::eArgUnsignedLong, Arguments::timer_initial> Initial;
+		phproperty<unsigned long>::bind<Timer, ArgUnsignedLong::eArgUnsignedLong, Arguments::timer_repeat> Interval;
 		Widget::Enabled;
 
 		phwidgets_event<Timer, Timer::Callbacks::timer_activate>		Activate;

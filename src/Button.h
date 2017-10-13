@@ -83,9 +83,6 @@ namespace PhWidgets
 
 		virtual void check();
 
-		void setArmColor(PgColor_t);
-		PgColor_t getArmColor() const;
-
 						
 	public:
 		WidgetResourcesSingleton resource;
@@ -97,7 +94,7 @@ namespace PhWidgets
 
 		Button &operator=(const Button &rhs);
 
-		property<PgColor_t>::bind<Button, &Button::getArmColor, &Button::setArmColor> ArmColor;
+		phproperty<PgColor_t>::bind<Button, ArgColor::eArgColor, Arguments::arm_color> ArmColor;
 	};
 
 }
