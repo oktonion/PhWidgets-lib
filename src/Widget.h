@@ -535,29 +535,29 @@ namespace PhWidgets
 		//! Resources of the Widget
 		WidgetResourcesSingleton resource;
 	
-		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled;//!< Gets or sets a value indicating whether the widget can respond to user interaction.
+		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled; //!< Gets or sets a value indicating whether the widget can respond to user interaction.
 
-		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width>		Width;//!< Gets or sets the width of the widget.
-		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::height>		Height;//!< Gets or sets the hight of the widget.
-		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::bevel_width>	BevelWidth;//!< Gets or sets the bevel width of the widget.
-		phproperty<PhDim_t>::bind<Widget, Arguments::eArgDim, Arguments::dim>							Size;//!< Gets or sets the size of the widget.
-		phproperty<std::string>::bind<Widget, Arguments::eArgPChar, Arguments::help_topic>				HelpTopic;//!< Gets or sets the help topic of the widget.
-		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos>						Location;//!< Gets or sets the position of the widget.
+		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width>		Width; //!< Gets or sets the width of the widget.
+		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::height>		Height; //!< Gets or sets the hight of the widget.
+		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::bevel_width>	BevelWidth; //!< Gets or sets the bevel width of the widget.
+		phproperty<PhDim_t>::bind<Widget, Arguments::eArgDim, Arguments::dim>							Size; //!< Gets or sets the size of the widget.
+		phproperty<std::string>::bind<Widget, Arguments::eArgPChar, Arguments::help_topic>				HelpTopic; //!< Gets or sets the help topic of the widget.
+		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos>						Location; //!< Gets or sets the position of the widget.
 
-		phwidgets_event<Widget, Widget::Callbacks::destroyed>		Destroyed;//!< Occurs when the widget is destroyed.
-		phwidgets_event<Widget, Widget::Callbacks::blocked>			Blocked;//!< Occurs when the widget is blocked.
-		phwidgets_event<Widget, Widget::Callbacks::dnd>				DragDrop;//!< Occurs when a drag-and-drop operation is completed.
-		phwidgets_event<Widget, Widget::Callbacks::is_destroyed>	IsDestroyed;//!< Occurs when the widget's resources are being released.
-		phwidgets_event<Widget, Widget::Callbacks::outbound>		Outbound;//!< Occurs when you press the pointer button on the widget and then move out of the "hot spot" with the button still depressed.
-		phwidgets_event<Widget, Widget::Callbacks::realized>		Realized;//!<  Occurs when the widget is realized.
-		phwidgets_event<Widget, Widget::Callbacks::unrealized>		Unrealized;//!<  Occurs when the widget is unrealized.
+		phwidgets_event<Widget, Widget::Callbacks::destroyed>		Destroyed; //!< Occurs when the widget is destroyed.
+		phwidgets_event<Widget, Widget::Callbacks::blocked>			Blocked; //!< Occurs when the widget is blocked.
+		phwidgets_event<Widget, Widget::Callbacks::dnd>				DragDrop; //!< Occurs when a drag-and-drop operation is completed.
+		phwidgets_event<Widget, Widget::Callbacks::is_destroyed>	IsDestroyed; //!< Occurs when the widget's resources are being released.
+		phwidgets_event<Widget, Widget::Callbacks::outbound>		Outbound; //!< Occurs when you press the pointer button on the widget and then move out of the "hot spot" with the button still depressed.
+		phwidgets_event<Widget, Widget::Callbacks::realized>		Realized; //!<  Occurs when the widget is realized.
+		phwidgets_event<Widget, Widget::Callbacks::unrealized>		Unrealized; //!<  Occurs when the widget is unrealized.
 
-		void OnDestroyed(PtCallbackInfo_t *info);//!< Raises the Widget::Destroyed event.
-		void OnBlocked(PtCallbackInfo_t *info);//!< Raises the Widget::Blocked event.
-		void OnDragDrop(PtCallbackInfo_t *info);//!< Raises the Widget::DragDrop event.
-		void OnOutbound(PtCallbackInfo_t *info);//!< Raises the Widget::Outbound event.
-		void OnRealized(PtCallbackInfo_t *info);//!< Raises the Widget::Realized event.
-		void OnUnrealized(PtCallbackInfo_t *info);//!< Raises the Widget::Unrealized event.
+		void OnDestroyed(PtCallbackInfo_t *info); //!< Raises the Widget::Destroyed event.
+		void OnBlocked(PtCallbackInfo_t *info); //!< Raises the Widget::Blocked event.
+		void OnDragDrop(PtCallbackInfo_t *info); //!< Raises the Widget::DragDrop event.
+		void OnOutbound(PtCallbackInfo_t *info); //!< Raises the Widget::Outbound event.
+		void OnRealized(PtCallbackInfo_t *info); //!< Raises the Widget::Realized event.
+		void OnUnrealized(PtCallbackInfo_t *info); //!< Raises the Widget::Unrealized event.
 
 		
 
