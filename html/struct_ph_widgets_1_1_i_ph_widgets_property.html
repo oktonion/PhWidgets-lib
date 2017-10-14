@@ -107,7 +107,7 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_i_ph_widgets_pro
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="slib_2_ph_widgets_2include_2service_2phproperty_8hpp_source.html">PhWidgets-lib/slib/PhWidgets/include/service/phproperty.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="phproperty_8hpp_source.html">PhWidgets-lib/src/service/phproperty.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for PhWidgets::IPhWidgetsProperty:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -116,16 +116,19 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_i_ph_widgets_pro
  <div class="center">
   <img src="struct_ph_widgets_1_1_i_ph_widgets_property.png" usemap="#PhWidgets::IPhWidgetsProperty_map" alt=""/>
   <map id="PhWidgets::IPhWidgetsProperty_map" name="PhWidgets::IPhWidgetsProperty_map">
-<area href="class_ph_widgets_1_1_widget.html" alt="PhWidgets::Widget" shape="rect" coords="0,56,188,80"/>
 <area href="class_ph_widgets_1_1_widget.html" alt="PhWidgets::Widget" shape="rect" coords="396,56,584,80"/>
-<area href="class_ph_widgets_1_1_basic.html" alt="PhWidgets::Basic" shape="rect" coords="198,112,386,136"/>
-<area href="class_ph_widgets_1_1_basic.html" alt="PhWidgets::Basic" shape="rect" coords="198,168,386,192"/>
-<area href="class_ph_widgets_1_1_timer.html" alt="PhWidgets::Timer" shape="rect" coords="198,224,386,248"/>
-<area href="class_ph_widgets_1_1_timer.html" alt="PhWidgets::Timer" shape="rect" coords="198,280,386,304"/>
-<area href="class_ph_widgets_1_1_basic.html" alt="PhWidgets::Basic" shape="rect" coords="594,112,782,136"/>
-<area href="class_ph_widgets_1_1_basic.html" alt="PhWidgets::Basic" shape="rect" coords="594,168,782,192"/>
-<area href="class_ph_widgets_1_1_timer.html" alt="PhWidgets::Timer" shape="rect" coords="594,224,782,248"/>
-<area href="class_ph_widgets_1_1_timer.html" alt="PhWidgets::Timer" shape="rect" coords="594,280,782,304"/>
+<area href="class_ph_widgets_1_1_basic.html" alt="PhWidgets::Basic" shape="rect" coords="297,112,485,136"/>
+<area href="class_ph_widgets_1_1_timer.html" alt="PhWidgets::Timer" shape="rect" coords="495,112,683,136"/>
+<area href="class_ph_widgets_1_1_container.html" alt="PhWidgets::Container" shape="rect" coords="99,168,287,192"/>
+<area href="class_ph_widgets_1_1_label.html" alt="PhWidgets::Label" shape="rect" coords="495,168,683,192"/>
+<area href="class_ph_widgets_1_1_compound.html" alt="PhWidgets::Compound" shape="rect" coords="99,224,287,248"/>
+<area href="class_ph_widgets_1_1_button.html" alt="PhWidgets::Button" shape="rect" coords="396,224,584,248"/>
+<area href="class_ph_widgets_1_1_text.html" alt="PhWidgets::Text" shape="rect" coords="594,224,782,248"/>
+<area href="class_ph_widgets_1_1_numeric.html" alt="PhWidgets::Numeric" shape="rect" coords="99,280,287,304"/>
+<area href="class_ph_widgets_1_1_on_off_button.html" alt="PhWidgets::OnOffButton" shape="rect" coords="297,280,485,304"/>
+<area href="class_ph_widgets_1_1_toggle_button.html" alt="PhWidgets::ToggleButton" shape="rect" coords="495,280,683,304"/>
+<area href="class_ph_widgets_1_1_numeric_float.html" alt="PhWidgets::NumericFloat" shape="rect" coords="0,336,188,360"/>
+<area href="class_ph_widgets_1_1_numeric_integer.html" alt="PhWidgets::NumericInteger" shape="rect" coords="198,336,386,360"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -137,19 +140,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac668fc8e0f0c4fd864169c936b4b47a5"><td class="memTemplParams" colspan="2">template&lt;class ValueT , class WidgetClassT , class ArgumentT , ArgumentT ArgumentID&gt; </td></tr>
 <tr class="memitem:ac668fc8e0f0c4fd864169c936b4b47a5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_i_ph_widgets_property.html#ac668fc8e0f0c4fd864169c936b4b47a5">setArgument</a> (ValueT val)</td></tr>
 <tr class="separator:ac668fc8e0f0c4fd864169c936b4b47a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e411af7fc0a6f24cf469cd42af9107f"><td class="memTemplParams" colspan="2">template&lt;class ReturnT , class WidgetClassT , class ArgumentT , ArgumentT ArgumentID&gt; </td></tr>
-<tr class="memitem:a7e411af7fc0a6f24cf469cd42af9107f"><td class="memTemplItemLeft" align="right" valign="top">ReturnT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_i_ph_widgets_property.html#a7e411af7fc0a6f24cf469cd42af9107f">getArgument</a> () const</td></tr>
-<tr class="separator:a7e411af7fc0a6f24cf469cd42af9107f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac668fc8e0f0c4fd864169c936b4b47a5"><td class="memTemplParams" colspan="2">template&lt;class ValueT , class WidgetClassT , class ArgumentT , ArgumentT ArgumentID&gt; </td></tr>
-<tr class="memitem:ac668fc8e0f0c4fd864169c936b4b47a5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_i_ph_widgets_property.html#ac668fc8e0f0c4fd864169c936b4b47a5">setArgument</a> (ValueT val)</td></tr>
-<tr class="separator:ac668fc8e0f0c4fd864169c936b4b47a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2service_2phproperty_8hpp_source.html#l00008">8</a> of file <a class="el" href="slib_2_ph_widgets_2include_2service_2phproperty_8hpp_source.html">slib/PhWidgets/include/service/phproperty.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phproperty_8hpp_source.html#l00008">8</a> of file <a class="el" href="phproperty_8hpp_source.html">phproperty.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7e411af7fc0a6f24cf469cd42af9107f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e411af7fc0a6f24cf469cd42af9107f">&#9670;&nbsp;</a></span>getArgument() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e411af7fc0a6f24cf469cd42af9107f">&#9670;&nbsp;</a></span>getArgument()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -173,41 +170,12 @@ template&lt;class ReturnT , class WidgetClassT , class ArgumentT , ArgumentT Arg
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2service_2phproperty_8hpp_source.html#l00011">11</a> of file <a class="el" href="slib_2_ph_widgets_2include_2service_2phproperty_8hpp_source.html">slib/PhWidgets/include/service/phproperty.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a7e411af7fc0a6f24cf469cd42af9107f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e411af7fc0a6f24cf469cd42af9107f">&#9670;&nbsp;</a></span>getArgument() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ReturnT , class WidgetClassT , class ArgumentT , ArgumentT ArgumentID&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ReturnT PhWidgets::IPhWidgetsProperty::getArgument </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="src_2service_2phproperty_8hpp_source.html#l00011">11</a> of file <a class="el" href="src_2service_2phproperty_8hpp_source.html">src/service/phproperty.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phproperty_8hpp_source.html#l00011">11</a> of file <a class="el" href="phproperty_8hpp_source.html">phproperty.hpp</a>.</p>
 
 </div>
 </div>
 <a id="ac668fc8e0f0c4fd864169c936b4b47a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac668fc8e0f0c4fd864169c936b4b47a5">&#9670;&nbsp;</a></span>setArgument() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac668fc8e0f0c4fd864169c936b4b47a5">&#9670;&nbsp;</a></span>setArgument()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -232,42 +200,12 @@ template&lt;class ValueT , class WidgetClassT , class ArgumentT , ArgumentT Argu
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="src_2service_2phproperty_8hpp_source.html#l00017">17</a> of file <a class="el" href="src_2service_2phproperty_8hpp_source.html">src/service/phproperty.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ac668fc8e0f0c4fd864169c936b4b47a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac668fc8e0f0c4fd864169c936b4b47a5">&#9670;&nbsp;</a></span>setArgument() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ValueT , class WidgetClassT , class ArgumentT , ArgumentT ArgumentID&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PhWidgets::IPhWidgetsProperty::setArgument </td>
-          <td>(</td>
-          <td class="paramtype">ValueT&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2service_2phproperty_8hpp_source.html#l00017">17</a> of file <a class="el" href="slib_2_ph_widgets_2include_2service_2phproperty_8hpp_source.html">slib/PhWidgets/include/service/phproperty.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="phproperty_8hpp_source.html#l00017">17</a> of file <a class="el" href="phproperty_8hpp_source.html">phproperty.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="slib_2_ph_widgets_2include_2service_2phproperty_8hpp_source.html">slib/PhWidgets/include/service/phproperty.hpp</a></li>
+<li><a class="el" href="phproperty_8hpp_source.html">phproperty.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

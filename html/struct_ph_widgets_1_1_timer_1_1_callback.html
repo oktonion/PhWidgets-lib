@@ -107,7 +107,7 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_timer_1_1_callba
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="slib_2_ph_widgets_2include_2_timer_8h_source.html">PhWidgets-lib/slib/PhWidgets/include/Timer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_timer_8h_source.html">PhWidgets-lib/src/Timer.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for PhWidgets::Timer::Callback:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -117,13 +117,8 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_timer_1_1_callba
   <img src="struct_ph_widgets_1_1_timer_1_1_callback.png" usemap="#PhWidgets::Timer::Callback_map" alt=""/>
   <map id="PhWidgets::Timer::Callback_map" name="PhWidgets::Timer::Callback_map">
 <area href="struct_ph_widgets_1_1_widget_1_1_callback.html" alt="PhWidgets::Widget::Callback" shape="rect" coords="264,56,518,80"/>
-<area href="struct_ph_widgets_1_1_widget_1_1_callback.html" alt="PhWidgets::Widget::Callback" shape="rect" coords="792,56,1046,80"/>
-<area href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html" alt="PhWidgets::Widget::ThisCallbacks::Callback" shape="rect" coords="132,0,386,24"/>
-<area href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html" alt="PhWidgets::Widget::ThisCallbacks::Callback" shape="rect" coords="396,0,650,24"/>
-<area href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html" alt="PhWidgets::Widget::ThisCallbacks::Callback" shape="rect" coords="660,0,914,24"/>
-<area href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html" alt="PhWidgets::Widget::ThisCallbacks::Callback" shape="rect" coords="924,0,1178,24"/>
-<area href="struct_ph_widgets_1_1_timer_1_1_callbacks.html" alt="PhWidgets::Timer::Callbacks" shape="rect" coords="264,168,518,192"/>
-<area href="struct_ph_widgets_1_1_timer_1_1_callbacks.html" alt="PhWidgets::Timer::Callbacks" shape="rect" coords="528,168,782,192"/>
+<area href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html" alt="PhWidgets::Widget::ThisCallbacks::Callback" shape="rect" coords="264,0,518,24"/>
+<area href="struct_ph_widgets_1_1_timer_1_1_callbacks.html" alt="PhWidgets::Timer::Callbacks" shape="rect" coords="132,168,386,192"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -131,58 +126,26 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_timer_1_1_callba
 Public Types</h2></td></tr>
 <tr class="memitem:a7204e2c9dbe536c8f65a71d923632b47"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="struct_ph_widgets_1_1_timer_1_1_this_callbacks_1_1_callback.html#a317633362850afe4a0827f51e58c4bbb">ThisCallbacks::Callback::eCallback</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_timer_1_1_callback.html#a7204e2c9dbe536c8f65a71d923632b47">eCallback</a></td></tr>
 <tr class="separator:a7204e2c9dbe536c8f65a71d923632b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7204e2c9dbe536c8f65a71d923632b47"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="struct_ph_widgets_1_1_timer_1_1_this_callbacks_1_1_callback.html#a317633362850afe4a0827f51e58c4bbb">ThisCallbacks::Callback::eCallback</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_timer_1_1_callback.html#a7204e2c9dbe536c8f65a71d923632b47">eCallback</a></td></tr>
-<tr class="separator:a7204e2c9dbe536c8f65a71d923632b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback"><td colspan="2" onclick="javascript:toggleInherit('pub_types_struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html">PhWidgets::Widget::ThisCallbacks::Callback</a></td></tr>
 <tr class="memitem:a88ad66a5ac274d6dbbcd38c03dbe45bc inherit pub_types_struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bc">eCallback</a> { <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca49f621ecc7d3c92e639c50fddf32a8a6">blocked</a> = Pt_CB_BLOCKED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca588cd0be898e5564aad51bdfb243cc9b">destroyed</a> = Pt_CB_DESTROYED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcace87d6f4a6bc3a07226f50de6de1972e">dnd</a> = Pt_CB_DND, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca5d0b0b477c18ab5fe2ef30bab37621e8">is_destroyed</a> = Pt_CB_IS_DESTROYED, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcadb260af2c47669c019d7d855b0f01a96">blocked</a> = Pt_CB_BLOCKED, 
+<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcacbb485027a5cdae14cf85a687d4cf31c">destroyed</a> = Pt_CB_DESTROYED, 
+<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcafdd26b8ac829dac58a1340d3531c801c">dnd</a> = Pt_CB_DND, 
+<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcaf9a7da8a37aa35513f0bd33466c33fb2">is_destroyed</a> = Pt_CB_IS_DESTROYED, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca80d746df22c6b7d72a123325a794e763">outbound</a> = Pt_CB_OUTBOUND, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcadfe1f730fbfafcb4b3724610a7ac5706">realized</a> = Pt_CB_REALIZED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca9d36d1fe2a646857809f4d9de2875a47">unrealized</a> = Pt_CB_UNREALIZED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca49f621ecc7d3c92e639c50fddf32a8a6">blocked</a> = Pt_CB_BLOCKED, 
-<br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca588cd0be898e5564aad51bdfb243cc9b">destroyed</a> = Pt_CB_DESTROYED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcace87d6f4a6bc3a07226f50de6de1972e">dnd</a> = Pt_CB_DND, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca5d0b0b477c18ab5fe2ef30bab37621e8">is_destroyed</a> = Pt_CB_IS_DESTROYED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca80d746df22c6b7d72a123325a794e763">outbound</a> = Pt_CB_OUTBOUND, 
-<br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcadfe1f730fbfafcb4b3724610a7ac5706">realized</a> = Pt_CB_REALIZED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca9d36d1fe2a646857809f4d9de2875a47">unrealized</a> = Pt_CB_UNREALIZED
-<br />
- }</td></tr>
-<tr class="separator:a88ad66a5ac274d6dbbcd38c03dbe45bc inherit pub_types_struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88ad66a5ac274d6dbbcd38c03dbe45bc inherit pub_types_struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bc">eCallback</a> { <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca49f621ecc7d3c92e639c50fddf32a8a6">blocked</a> = Pt_CB_BLOCKED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca588cd0be898e5564aad51bdfb243cc9b">destroyed</a> = Pt_CB_DESTROYED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcace87d6f4a6bc3a07226f50de6de1972e">dnd</a> = Pt_CB_DND, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca5d0b0b477c18ab5fe2ef30bab37621e8">is_destroyed</a> = Pt_CB_IS_DESTROYED, 
-<br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca80d746df22c6b7d72a123325a794e763">outbound</a> = Pt_CB_OUTBOUND, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcadfe1f730fbfafcb4b3724610a7ac5706">realized</a> = Pt_CB_REALIZED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca9d36d1fe2a646857809f4d9de2875a47">unrealized</a> = Pt_CB_UNREALIZED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca49f621ecc7d3c92e639c50fddf32a8a6">blocked</a> = Pt_CB_BLOCKED, 
-<br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca588cd0be898e5564aad51bdfb243cc9b">destroyed</a> = Pt_CB_DESTROYED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcace87d6f4a6bc3a07226f50de6de1972e">dnd</a> = Pt_CB_DND, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca5d0b0b477c18ab5fe2ef30bab37621e8">is_destroyed</a> = Pt_CB_IS_DESTROYED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca80d746df22c6b7d72a123325a794e763">outbound</a> = Pt_CB_OUTBOUND, 
-<br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcadfe1f730fbfafcb4b3724610a7ac5706">realized</a> = Pt_CB_REALIZED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca9d36d1fe2a646857809f4d9de2875a47">unrealized</a> = Pt_CB_UNREALIZED
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca35cad4f675b86ceb6d7732f161b469d0">outbound</a> = Pt_CB_OUTBOUND, 
+<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca238a5a9c2b402de58f581a8662a4465d">realized</a> = Pt_CB_REALIZED, 
+<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcacf523b6524d66436b056577c79ea5d4a">unrealized</a> = Pt_CB_UNREALIZED
 <br />
  }</td></tr>
 <tr class="separator:a88ad66a5ac274d6dbbcd38c03dbe45bc inherit pub_types_struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2_timer_8h_source.html#l00057">57</a> of file <a class="el" href="slib_2_ph_widgets_2include_2_timer_8h_source.html">slib/PhWidgets/include/Timer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_timer_8h_source.html#l00057">57</a> of file <a class="el" href="_timer_8h_source.html">Timer.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a7204e2c9dbe536c8f65a71d923632b47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7204e2c9dbe536c8f65a71d923632b47">&#9670;&nbsp;</a></span>eCallback <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7204e2c9dbe536c8f65a71d923632b47">&#9670;&nbsp;</a></span>eCallback</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -193,28 +156,12 @@ Public Types</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2_timer_8h_source.html#l00061">61</a> of file <a class="el" href="slib_2_ph_widgets_2include_2_timer_8h_source.html">slib/PhWidgets/include/Timer.h</a>.</p>
-
-</div>
-</div>
-<a id="a7204e2c9dbe536c8f65a71d923632b47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7204e2c9dbe536c8f65a71d923632b47">&#9670;&nbsp;</a></span>eCallback <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="struct_ph_widgets_1_1_timer_1_1_this_callbacks_1_1_callback.html#a317633362850afe4a0827f51e58c4bbb">ThisCallbacks::Callback::eCallback</a> <a class="el" href="struct_ph_widgets_1_1_timer_1_1_this_callbacks_1_1_callback.html#a317633362850afe4a0827f51e58c4bbb">PhWidgets::Timer::Callback::eCallback</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="src_2_timer_8h_source.html#l00061">61</a> of file <a class="el" href="src_2_timer_8h_source.html">src/Timer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_timer_8h_source.html#l00061">61</a> of file <a class="el" href="_timer_8h_source.html">Timer.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="slib_2_ph_widgets_2include_2_timer_8h_source.html">slib/PhWidgets/include/Timer.h</a></li>
+<li><a class="el" href="_timer_8h_source.html">Timer.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

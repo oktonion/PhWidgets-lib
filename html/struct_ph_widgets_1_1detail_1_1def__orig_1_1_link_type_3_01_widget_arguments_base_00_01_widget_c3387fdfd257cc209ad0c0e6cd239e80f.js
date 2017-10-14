@@ -2,8 +2,6 @@ var struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments
 [
     [ "WidgetCallbacks", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_ce3bdc1b28da7f82591fac42471b82b23.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_ce3bdc1b28da7f82591fac42471b82b23" ],
     [ "WidgetArguments", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_c3387fdfd257cc209ad0c0e6cd239e80f.html#a645930e9d2d94757e87fdb8c24fb42b9", null ],
-    [ "WidgetArguments", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_c3387fdfd257cc209ad0c0e6cd239e80f.html#a645930e9d2d94757e87fdb8c24fb42b9", null ],
-    [ "LinkType", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_c3387fdfd257cc209ad0c0e6cd239e80f.html#a22fcac116157335d64d1823f2b373bab", null ],
     [ "LinkType", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_c3387fdfd257cc209ad0c0e6cd239e80f.html#a22fcac116157335d64d1823f2b373bab", null ],
     [ "callback", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_c3387fdfd257cc209ad0c0e6cd239e80f.html#afc2b6832d08f94b3214e9377e5c88ba2", null ]
 ];
