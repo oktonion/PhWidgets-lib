@@ -38,7 +38,7 @@
   
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.0</span>
+   &#160;<span id="projectnumber">0.3.1</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -107,29 +107,59 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_basic_1_1_this_c
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_basic_8h_source.html">PhWidgets-lib/src/Basic.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="slib_2_ph_widgets_2include_2_basic_8h_source.html">PhWidgets-lib/slib/PhWidgets/include/Basic.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a86c56a6d6284e43554110366ed22a7a7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7">eCallback</a> { <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7aed9693a9df57fe5c95414302ba590307">activate</a> = Pt_CB_ACTIVATE, 
-<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a18ea85e8f504678840c3588e28a725c1">arm</a> = Pt_CB_ARM, 
-<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a5b7e8976690364673ce1ca54f8eb2433">disarm</a> = Pt_CB_DISARM, 
-<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7af8029527c2a7e4234f00f603f4744284">got_focus</a> = Pt_CB_GOT_FOCUS, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a06dbede791a62d51f86b38a6f7c7b215">activate</a> = Pt_CB_ACTIVATE, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a8d2de908a0ad8bd3083df8d60131af56">arm</a> = Pt_CB_ARM, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a68fce2ce1c480c54e8ed2dc657e55950">disarm</a> = Pt_CB_DISARM, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7ae34ef6893e4cdfe1f1c135716e5529c8">got_focus</a> = Pt_CB_GOT_FOCUS, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7af12f4ac54c4dce7db8e2a302774c4ed0">lost_focus</a> = Pt_CB_LOST_FOCUS, 
-<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a15a23da437c3f58b1a22e92c482c3f66">menu</a> = Pt_CB_MENU, 
-<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7acd37bb0743bfca906c9da9bf71225264">repeat</a> = Pt_CB_REPEAT
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a33c9f3a77097069b373e8bcdcbb5e828">lost_focus</a> = Pt_CB_LOST_FOCUS, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a98cd15147f199eba5faedb5a9e9c2bc6">menu</a> = Pt_CB_MENU, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a94099781d241fa230175101c4154fdc7">repeat</a> = Pt_CB_REPEAT, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a06dbede791a62d51f86b38a6f7c7b215">activate</a> = Pt_CB_ACTIVATE, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a8d2de908a0ad8bd3083df8d60131af56">arm</a> = Pt_CB_ARM, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a68fce2ce1c480c54e8ed2dc657e55950">disarm</a> = Pt_CB_DISARM, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7ae34ef6893e4cdfe1f1c135716e5529c8">got_focus</a> = Pt_CB_GOT_FOCUS, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a33c9f3a77097069b373e8bcdcbb5e828">lost_focus</a> = Pt_CB_LOST_FOCUS, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a98cd15147f199eba5faedb5a9e9c2bc6">menu</a> = Pt_CB_MENU, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a94099781d241fa230175101c4154fdc7">repeat</a> = Pt_CB_REPEAT
+<br />
+ }</td></tr>
+<tr class="separator:a86c56a6d6284e43554110366ed22a7a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86c56a6d6284e43554110366ed22a7a7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7">eCallback</a> { <br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a06dbede791a62d51f86b38a6f7c7b215">activate</a> = Pt_CB_ACTIVATE, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a8d2de908a0ad8bd3083df8d60131af56">arm</a> = Pt_CB_ARM, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a68fce2ce1c480c54e8ed2dc657e55950">disarm</a> = Pt_CB_DISARM, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7ae34ef6893e4cdfe1f1c135716e5529c8">got_focus</a> = Pt_CB_GOT_FOCUS, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a33c9f3a77097069b373e8bcdcbb5e828">lost_focus</a> = Pt_CB_LOST_FOCUS, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a98cd15147f199eba5faedb5a9e9c2bc6">menu</a> = Pt_CB_MENU, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a94099781d241fa230175101c4154fdc7">repeat</a> = Pt_CB_REPEAT, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a06dbede791a62d51f86b38a6f7c7b215">activate</a> = Pt_CB_ACTIVATE, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a8d2de908a0ad8bd3083df8d60131af56">arm</a> = Pt_CB_ARM, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a68fce2ce1c480c54e8ed2dc657e55950">disarm</a> = Pt_CB_DISARM, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7ae34ef6893e4cdfe1f1c135716e5529c8">got_focus</a> = Pt_CB_GOT_FOCUS, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a33c9f3a77097069b373e8bcdcbb5e828">lost_focus</a> = Pt_CB_LOST_FOCUS, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a98cd15147f199eba5faedb5a9e9c2bc6">menu</a> = Pt_CB_MENU, 
+<a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a94099781d241fa230175101c4154fdc7">repeat</a> = Pt_CB_REPEAT
 <br />
  }</td></tr>
 <tr class="separator:a86c56a6d6284e43554110366ed22a7a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_basic_8h_source.html#l00090">90</a> of file <a class="el" href="_basic_8h_source.html">Basic.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2_basic_8h_source.html#l00090">90</a> of file <a class="el" href="slib_2_ph_widgets_2include_2_basic_8h_source.html">slib/PhWidgets/include/Basic.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a86c56a6d6284e43554110366ed22a7a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86c56a6d6284e43554110366ed22a7a7">&#9670;&nbsp;</a></span>eCallback</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a86c56a6d6284e43554110366ed22a7a7">&#9670;&nbsp;</a></span>eCallback <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -140,21 +170,60 @@ Public Types</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7aed9693a9df57fe5c95414302ba590307"></a>activate&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a18ea85e8f504678840c3588e28a725c1"></a>arm&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a5b7e8976690364673ce1ca54f8eb2433"></a>disarm&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7af8029527c2a7e4234f00f603f4744284"></a>got_focus&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7af12f4ac54c4dce7db8e2a302774c4ed0"></a>lost_focus&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a15a23da437c3f58b1a22e92c482c3f66"></a>menu&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7acd37bb0743bfca906c9da9bf71225264"></a>repeat&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a06dbede791a62d51f86b38a6f7c7b215"></a>activate&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a8d2de908a0ad8bd3083df8d60131af56"></a>arm&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a68fce2ce1c480c54e8ed2dc657e55950"></a>disarm&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7ae34ef6893e4cdfe1f1c135716e5529c8"></a>got_focus&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a33c9f3a77097069b373e8bcdcbb5e828"></a>lost_focus&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a98cd15147f199eba5faedb5a9e9c2bc6"></a>menu&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a94099781d241fa230175101c4154fdc7"></a>repeat&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a06dbede791a62d51f86b38a6f7c7b215"></a>activate&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a8d2de908a0ad8bd3083df8d60131af56"></a>arm&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a68fce2ce1c480c54e8ed2dc657e55950"></a>disarm&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7ae34ef6893e4cdfe1f1c135716e5529c8"></a>got_focus&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a33c9f3a77097069b373e8bcdcbb5e828"></a>lost_focus&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a98cd15147f199eba5faedb5a9e9c2bc6"></a>menu&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a94099781d241fa230175101c4154fdc7"></a>repeat&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_basic_8h_source.html#l00092">92</a> of file <a class="el" href="_basic_8h_source.html">Basic.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2_basic_8h_source.html#l00092">92</a> of file <a class="el" href="slib_2_ph_widgets_2include_2_basic_8h_source.html">slib/PhWidgets/include/Basic.h</a>.</p>
+
+</div>
+</div>
+<a id="a86c56a6d6284e43554110366ed22a7a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86c56a6d6284e43554110366ed22a7a7">&#9670;&nbsp;</a></span>eCallback <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7">PhWidgets::Basic::ThisCallbacks::Callback::eCallback</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a06dbede791a62d51f86b38a6f7c7b215"></a>activate&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a8d2de908a0ad8bd3083df8d60131af56"></a>arm&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a68fce2ce1c480c54e8ed2dc657e55950"></a>disarm&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7ae34ef6893e4cdfe1f1c135716e5529c8"></a>got_focus&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a33c9f3a77097069b373e8bcdcbb5e828"></a>lost_focus&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a98cd15147f199eba5faedb5a9e9c2bc6"></a>menu&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a94099781d241fa230175101c4154fdc7"></a>repeat&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a06dbede791a62d51f86b38a6f7c7b215"></a>activate&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a8d2de908a0ad8bd3083df8d60131af56"></a>arm&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a68fce2ce1c480c54e8ed2dc657e55950"></a>disarm&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7ae34ef6893e4cdfe1f1c135716e5529c8"></a>got_focus&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a33c9f3a77097069b373e8bcdcbb5e828"></a>lost_focus&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a98cd15147f199eba5faedb5a9e9c2bc6"></a>menu&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a86c56a6d6284e43554110366ed22a7a7a94099781d241fa230175101c4154fdc7"></a>repeat&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="src_2_basic_8h_source.html#l00092">92</a> of file <a class="el" href="src_2_basic_8h_source.html">src/Basic.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="_basic_8h_source.html">Basic.h</a></li>
+<li><a class="el" href="slib_2_ph_widgets_2include_2_basic_8h_source.html">slib/PhWidgets/include/Basic.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

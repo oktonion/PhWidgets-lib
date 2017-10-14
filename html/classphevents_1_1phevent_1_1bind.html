@@ -38,7 +38,7 @@
   
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.0</span>
+   &#160;<span id="projectnumber">0.3.1</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -107,10 +107,20 @@ $(document).ready(function(){initNavTree('classphevents_1_1phevent_1_1bind.html'
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="phevent_8hpp_source.html">PhWidgets-lib/src/service/phevent.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="slib_2_ph_widgets_2include_2service_2phevent_8hpp_source.html">PhWidgets-lib/slib/PhWidgets/include/service/phevent.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a40588608d111b28b9b09ab43f1dc944e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphevents_1_1phevent_1_1bind.html#a40588608d111b28b9b09ab43f1dc944e">bind</a> (ParentT *parent)</td></tr>
+<tr class="separator:a40588608d111b28b9b09ab43f1dc944e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace68a862ebc3c939bdb29edff5151069"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphevents_1_1phevent_1_1bind.html#ace68a862ebc3c939bdb29edff5151069">add</a> (value_t value)</td></tr>
+<tr class="separator:ace68a862ebc3c939bdb29edff5151069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a7678c003adef5303f6a4c91ccce03a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphevents_1_1phevent_1_1bind.html#a6a7678c003adef5303f6a4c91ccce03a">remove</a> (value_t value)</td></tr>
+<tr class="separator:a6a7678c003adef5303f6a4c91ccce03a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01d141ac0e596a8732b21a7593fd5490"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphevents_1_1phevent_1_1bind.html#a01d141ac0e596a8732b21a7593fd5490">operator+=</a> (value_t value)</td></tr>
+<tr class="separator:a01d141ac0e596a8732b21a7593fd5490"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cc7d0c2b847823e8c8a7897cebdb050"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphevents_1_1phevent_1_1bind.html#a5cc7d0c2b847823e8c8a7897cebdb050">operator-=</a> (value_t value)</td></tr>
+<tr class="separator:a5cc7d0c2b847823e8c8a7897cebdb050"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40588608d111b28b9b09ab43f1dc944e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphevents_1_1phevent_1_1bind.html#a40588608d111b28b9b09ab43f1dc944e">bind</a> (ParentT *parent)</td></tr>
 <tr class="separator:a40588608d111b28b9b09ab43f1dc944e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace68a862ebc3c939bdb29edff5151069"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphevents_1_1phevent_1_1bind.html#ace68a862ebc3c939bdb29edff5151069">add</a> (value_t value)</td></tr>
@@ -127,10 +137,10 @@ Public Member Functions</h2></td></tr>
 class phevents::phevent::bind&lt; ParentT, Adder, Remover &gt;</h3>
 
 
-<p class="definition">Definition at line <a class="el" href="phevent_8hpp_source.html#l00190">190</a> of file <a class="el" href="phevent_8hpp_source.html">phevent.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2service_2phevent_8hpp_source.html#l00190">190</a> of file <a class="el" href="slib_2_ph_widgets_2include_2service_2phevent_8hpp_source.html">slib/PhWidgets/include/service/phevent.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a40588608d111b28b9b09ab43f1dc944e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40588608d111b28b9b09ab43f1dc944e">&#9670;&nbsp;</a></span>bind()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a40588608d111b28b9b09ab43f1dc944e">&#9670;&nbsp;</a></span>bind() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -155,13 +165,43 @@ template&lt;class ParentT , typename detail::get_parent_func&lt; ph_callback_t, 
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="phevent_8hpp_source.html#l00195">195</a> of file <a class="el" href="phevent_8hpp_source.html">phevent.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2service_2phevent_8hpp_source.html#l00195">195</a> of file <a class="el" href="slib_2_ph_widgets_2include_2service_2phevent_8hpp_source.html">slib/PhWidgets/include/service/phevent.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a40588608d111b28b9b09ab43f1dc944e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40588608d111b28b9b09ab43f1dc944e">&#9670;&nbsp;</a></span>bind() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ParentT , typename detail::get_parent_func&lt; ph_callback_t, ParentT &gt;::adder_t Adder, typename detail::get_parent_func&lt; ph_callback_t, ParentT &gt;::remover_t Remover = detail::get_parent_func&lt;ph_callback_t, ParentT&gt;::default_remover()&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classphevents_1_1phevent_1_1bind.html">phevents::phevent::bind</a>&lt; ParentT, Adder, Remover &gt;::<a class="el" href="classphevents_1_1phevent_1_1bind.html">bind</a> </td>
+          <td>(</td>
+          <td class="paramtype">ParentT *&#160;</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="src_2service_2phevent_8hpp_source.html#l00195">195</a> of file <a class="el" href="src_2service_2phevent_8hpp_source.html">src/service/phevent.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ace68a862ebc3c939bdb29edff5151069"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace68a862ebc3c939bdb29edff5151069">&#9670;&nbsp;</a></span>add()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ace68a862ebc3c939bdb29edff5151069">&#9670;&nbsp;</a></span>add() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -186,12 +226,42 @@ template&lt;class ParentT , typename detail::get_parent_func&lt; ph_callback_t, 
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="phevent_8hpp_source.html#l00199">199</a> of file <a class="el" href="phevent_8hpp_source.html">phevent.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2service_2phevent_8hpp_source.html#l00199">199</a> of file <a class="el" href="slib_2_ph_widgets_2include_2service_2phevent_8hpp_source.html">slib/PhWidgets/include/service/phevent.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ace68a862ebc3c939bdb29edff5151069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace68a862ebc3c939bdb29edff5151069">&#9670;&nbsp;</a></span>add() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ParentT , typename detail::get_parent_func&lt; ph_callback_t, ParentT &gt;::adder_t Adder, typename detail::get_parent_func&lt; ph_callback_t, ParentT &gt;::remover_t Remover = detail::get_parent_func&lt;ph_callback_t, ParentT&gt;::default_remover()&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classphevents_1_1phevent_1_1bind.html">phevents::phevent::bind</a>&lt; ParentT, Adder, Remover &gt;::add </td>
+          <td>(</td>
+          <td class="paramtype">value_t&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="src_2service_2phevent_8hpp_source.html#l00199">199</a> of file <a class="el" href="src_2service_2phevent_8hpp_source.html">src/service/phevent.hpp</a>.</p>
 
 </div>
 </div>
 <a id="a01d141ac0e596a8732b21a7593fd5490"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01d141ac0e596a8732b21a7593fd5490">&#9670;&nbsp;</a></span>operator+=()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a01d141ac0e596a8732b21a7593fd5490">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,12 +286,42 @@ template&lt;class ParentT , typename detail::get_parent_func&lt; ph_callback_t, 
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="phevent_8hpp_source.html#l00209">209</a> of file <a class="el" href="phevent_8hpp_source.html">phevent.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="src_2service_2phevent_8hpp_source.html#l00209">209</a> of file <a class="el" href="src_2service_2phevent_8hpp_source.html">src/service/phevent.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a01d141ac0e596a8732b21a7593fd5490"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01d141ac0e596a8732b21a7593fd5490">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ParentT , typename detail::get_parent_func&lt; ph_callback_t, ParentT &gt;::adder_t Adder, typename detail::get_parent_func&lt; ph_callback_t, ParentT &gt;::remover_t Remover = detail::get_parent_func&lt;ph_callback_t, ParentT&gt;::default_remover()&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classphevents_1_1phevent_1_1bind.html">phevents::phevent::bind</a>&lt; ParentT, Adder, Remover &gt;::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">value_t&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2service_2phevent_8hpp_source.html#l00209">209</a> of file <a class="el" href="slib_2_ph_widgets_2include_2service_2phevent_8hpp_source.html">slib/PhWidgets/include/service/phevent.hpp</a>.</p>
 
 </div>
 </div>
 <a id="a5cc7d0c2b847823e8c8a7897cebdb050"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5cc7d0c2b847823e8c8a7897cebdb050">&#9670;&nbsp;</a></span>operator-=()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cc7d0c2b847823e8c8a7897cebdb050">&#9670;&nbsp;</a></span>operator-=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -246,12 +346,42 @@ template&lt;class ParentT , typename detail::get_parent_func&lt; ph_callback_t, 
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="phevent_8hpp_source.html#l00214">214</a> of file <a class="el" href="phevent_8hpp_source.html">phevent.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2service_2phevent_8hpp_source.html#l00214">214</a> of file <a class="el" href="slib_2_ph_widgets_2include_2service_2phevent_8hpp_source.html">slib/PhWidgets/include/service/phevent.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a5cc7d0c2b847823e8c8a7897cebdb050"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cc7d0c2b847823e8c8a7897cebdb050">&#9670;&nbsp;</a></span>operator-=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ParentT , typename detail::get_parent_func&lt; ph_callback_t, ParentT &gt;::adder_t Adder, typename detail::get_parent_func&lt; ph_callback_t, ParentT &gt;::remover_t Remover = detail::get_parent_func&lt;ph_callback_t, ParentT&gt;::default_remover()&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classphevents_1_1phevent_1_1bind.html">phevents::phevent::bind</a>&lt; ParentT, Adder, Remover &gt;::operator-= </td>
+          <td>(</td>
+          <td class="paramtype">value_t&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="src_2service_2phevent_8hpp_source.html#l00214">214</a> of file <a class="el" href="src_2service_2phevent_8hpp_source.html">src/service/phevent.hpp</a>.</p>
 
 </div>
 </div>
 <a id="a6a7678c003adef5303f6a4c91ccce03a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a7678c003adef5303f6a4c91ccce03a">&#9670;&nbsp;</a></span>remove()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a7678c003adef5303f6a4c91ccce03a">&#9670;&nbsp;</a></span>remove() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -276,12 +406,42 @@ template&lt;class ParentT , typename detail::get_parent_func&lt; ph_callback_t, 
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="phevent_8hpp_source.html#l00204">204</a> of file <a class="el" href="phevent_8hpp_source.html">phevent.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="src_2service_2phevent_8hpp_source.html#l00204">204</a> of file <a class="el" href="src_2service_2phevent_8hpp_source.html">src/service/phevent.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a6a7678c003adef5303f6a4c91ccce03a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a7678c003adef5303f6a4c91ccce03a">&#9670;&nbsp;</a></span>remove() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ParentT , typename detail::get_parent_func&lt; ph_callback_t, ParentT &gt;::adder_t Adder, typename detail::get_parent_func&lt; ph_callback_t, ParentT &gt;::remover_t Remover = detail::get_parent_func&lt;ph_callback_t, ParentT&gt;::default_remover()&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classphevents_1_1phevent_1_1bind.html">phevents::phevent::bind</a>&lt; ParentT, Adder, Remover &gt;::remove </td>
+          <td>(</td>
+          <td class="paramtype">value_t&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2service_2phevent_8hpp_source.html#l00204">204</a> of file <a class="el" href="slib_2_ph_widgets_2include_2service_2phevent_8hpp_source.html">slib/PhWidgets/include/service/phevent.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="phevent_8hpp_source.html">phevent.hpp</a></li>
+<li><a class="el" href="slib_2_ph_widgets_2include_2service_2phevent_8hpp_source.html">slib/PhWidgets/include/service/phevent.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

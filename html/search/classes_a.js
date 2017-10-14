@@ -1,7 +1,7 @@
 var searchData=
 [
   ['label',['Label',['../class_ph_widgets_1_1_label.html',1,'PhWidgets']]],
-  ['link',['Link',['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_link.html',1,'PhWidgets::detail::def_orig::Link&lt; PrevT, LinkT, ResourceT &gt;'],['../struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_link.html',1,'PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Link&lt; LinkT, ResourceT &gt;']]],
+  ['link',['Link',['../struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_link.html',1,'PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Link&lt; LinkT, ResourceT &gt;'],['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_link.html',1,'PhWidgets::detail::def_orig::Link&lt; PrevT, LinkT, ResourceT &gt;']]],
   ['link_3c_20prevt_2c_20linkt_2c_20ptcallback_5ft_20_2a_20_3e',['Link&lt; PrevT, LinkT, PtCallback_t * &gt;',['../namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_3_01_prev_t_00_01_link_t_00_01_pt_callback__t_01_5_01_4',1,'PhWidgets::detail::def_orig']]],
   ['link_3c_20prevt_2c_20linkt_2c_20pthotkeycallback_5ft_20_2a_20_3e',['Link&lt; PrevT, LinkT, PtHotkeyCallback_t * &gt;',['../namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_3_01_prev_t_00_01_link_t_00_01_pt_hotkey_callback__t_01_5_01_4',1,'PhWidgets::detail::def_orig']]],
   ['link_3c_20prevt_2c_20linkt_2c_20ptrawcallback_5ft_20_2a_20_3e',['Link&lt; PrevT, LinkT, PtRawCallback_t * &gt;',['../namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_3_01_prev_t_00_01_link_t_00_01_pt_raw_callback__t_01_5_01_4',1,'PhWidgets::detail::def_orig']]],

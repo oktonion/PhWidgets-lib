@@ -1,5 +1,7 @@
 var struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_fa2e5b40e88a486be9e9f3585ccf3ef7 =
 [
     [ "resource_group_type", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_fa2e5b40e88a486be9e9f3585ccf3ef7.html#ad1aa204b7c86de840e424fb3bd6f1071", null ],
+    [ "resource_group_type", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_fa2e5b40e88a486be9e9f3585ccf3ef7.html#ad1aa204b7c86de840e424fb3bd6f1071", null ],
+    [ "resource_type", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_fa2e5b40e88a486be9e9f3585ccf3ef7.html#a421aa9d8958f6c03cea825620b0df9da", null ],
     [ "resource_type", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_fa2e5b40e88a486be9e9f3585ccf3ef7.html#a421aa9d8958f6c03cea825620b0df9da", null ]
 ];

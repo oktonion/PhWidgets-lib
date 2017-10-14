@@ -38,7 +38,7 @@
   
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.0</span>
+   &#160;<span id="projectnumber">0.3.1</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -107,43 +107,113 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_events.html','')
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_widget_events_8h_source.html">PhWidgets-lib/src/WidgetEvents.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="slib_2_ph_widgets_2include_2_widget_events_8h_source.html">PhWidgets-lib/slib/PhWidgets/include/WidgetEvents.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:ac3aa0cbda0ae3cb098935a22b549e23d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23d">eEvents</a> { <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23dae5db6235e85073976ff5fdb7cf37f17e">boundary</a> = Ph_EV_BOUNDARY, 
-<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23dad4b4fc956565cfcaa99b68f68eb7ef96">press</a> = Ph_EV_BUT_PRESS, 
-<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da9078b14da6fff13b34ecaa6ea9446ff6">release</a> = Ph_EV_BUT_RELEASE, 
-<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da217b0f678e82929988cee9ed0d55d66b">repeat</a> = Ph_EV_BUT_REPEAT, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da2420f41584ec72ca1fffeffdac0b26b3">boundary</a> = Ph_EV_BOUNDARY, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da825e6363305687a8580703570b1708ef">press</a> = Ph_EV_BUT_PRESS, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23daddd025f73ffd26ff108298b9796705fc">release</a> = Ph_EV_BUT_RELEASE, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da780693196f2234a243083dee6aa4a45c">repeat</a> = Ph_EV_BUT_REPEAT, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da9b80a98c606616a5625f7cd20e0d8995">dndrop</a> = Ph_EV_DNDROP, 
-<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23dabcf543e438c9bdf0da39aacb9819514a">drag</a> = Ph_EV_DRAG, 
-<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23dabf33b34ceefb4f3d37fc312624bc8111">draw</a> = Ph_EV_DRAW, 
-<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da561b6f7811377be39cbb7be46ffd64cc">expose</a> = Ph_EV_EXPOSE, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da84064dfafa77cfd6cd44497633ae2f16">dndrop</a> = Ph_EV_DNDROP, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da6986fe8ad402c624095f5ea90439230c">drag</a> = Ph_EV_DRAG, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da02dd3b4abfc2544c9ddc51d20f050e5d">draw</a> = Ph_EV_DRAW, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23dadae9a866997055ce3589fd9edfa36e06">expose</a> = Ph_EV_EXPOSE, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da507f8830d5b3db50b7ee23ccd635002b">info</a> = Ph_EV_INFO, 
-<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23daa03e09fd0f1c8dbd81093563f33e4473">key</a> = Ph_EV_KEY, 
-<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da5cbbac4489642a8ba55321fe46bc3bc5">button</a> = Ph_EV_PTR_MOTION_BUTTON, 
-<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da30078794ac5d92c517c6c4f40d49d5ad">nobutton</a> = Ph_EV_PTR_MOTION_NOBUTTON, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da43bdc2b3a8979e6c1f26f44bd37b4245">info</a> = Ph_EV_INFO, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da8b879b18a9d4285165763ca788c577a2">key</a> = Ph_EV_KEY, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da7bc38e0fbc611ca7b364f8158ae94281">button</a> = Ph_EV_PTR_MOTION_BUTTON, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da91fc4e1094569ec613bf1af36bbb4d24">nobutton</a> = Ph_EV_PTR_MOTION_NOBUTTON, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da595d1bb46d1a5c8048e28aed6af1f622">raw</a> = Ph_EV_RAW, 
-<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23dad3a5b81a9924b468f8e9718f542de9d6">service</a> = Ph_EV_SERVICE, 
-<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da56db0b1d26be6531da1e7461856100c9">system</a> = Ph_EV_SYSTEM, 
-<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da9e027f20e099cf7a6ccf5bdc7baba715">timer</a> = Ph_EV_TIMER, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da0e115af1222c18fb8e4f06c9ef0147e1">raw</a> = Ph_EV_RAW, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da478492878dc6e34b0d848d1b954f3ccd">service</a> = Ph_EV_SERVICE, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da60bec671b4fd32272bbbfdc6b90384e0">system</a> = Ph_EV_SYSTEM, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23daa53c8e3eada0473b0d5d5cefca2288da">timer</a> = Ph_EV_TIMER, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da6e76a3dd4209716845af531e844a869d">user</a> = Ph_EV_USER, 
-<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da6481578b9738a301f4e1974931de076b">wm</a> = Ph_EV_WM
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da5b58a32f41cfaf04e3e31bbf55eed512">user</a> = Ph_EV_USER, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da650f14a5143602a19db8093e43832849">wm</a> = Ph_EV_WM, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da2420f41584ec72ca1fffeffdac0b26b3">boundary</a> = Ph_EV_BOUNDARY, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da825e6363305687a8580703570b1708ef">press</a> = Ph_EV_BUT_PRESS, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23daddd025f73ffd26ff108298b9796705fc">release</a> = Ph_EV_BUT_RELEASE, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da780693196f2234a243083dee6aa4a45c">repeat</a> = Ph_EV_BUT_REPEAT, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da84064dfafa77cfd6cd44497633ae2f16">dndrop</a> = Ph_EV_DNDROP, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da6986fe8ad402c624095f5ea90439230c">drag</a> = Ph_EV_DRAG, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da02dd3b4abfc2544c9ddc51d20f050e5d">draw</a> = Ph_EV_DRAW, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23dadae9a866997055ce3589fd9edfa36e06">expose</a> = Ph_EV_EXPOSE, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da43bdc2b3a8979e6c1f26f44bd37b4245">info</a> = Ph_EV_INFO, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da8b879b18a9d4285165763ca788c577a2">key</a> = Ph_EV_KEY, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da7bc38e0fbc611ca7b364f8158ae94281">button</a> = Ph_EV_PTR_MOTION_BUTTON, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da91fc4e1094569ec613bf1af36bbb4d24">nobutton</a> = Ph_EV_PTR_MOTION_NOBUTTON, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da0e115af1222c18fb8e4f06c9ef0147e1">raw</a> = Ph_EV_RAW, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da478492878dc6e34b0d848d1b954f3ccd">service</a> = Ph_EV_SERVICE, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da60bec671b4fd32272bbbfdc6b90384e0">system</a> = Ph_EV_SYSTEM, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23daa53c8e3eada0473b0d5d5cefca2288da">timer</a> = Ph_EV_TIMER, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da5b58a32f41cfaf04e3e31bbf55eed512">user</a> = Ph_EV_USER, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da650f14a5143602a19db8093e43832849">wm</a> = Ph_EV_WM
+<br />
+ }</td></tr>
+<tr class="separator:ac3aa0cbda0ae3cb098935a22b549e23d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3aa0cbda0ae3cb098935a22b549e23d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23d">eEvents</a> { <br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da2420f41584ec72ca1fffeffdac0b26b3">boundary</a> = Ph_EV_BOUNDARY, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da825e6363305687a8580703570b1708ef">press</a> = Ph_EV_BUT_PRESS, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23daddd025f73ffd26ff108298b9796705fc">release</a> = Ph_EV_BUT_RELEASE, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da780693196f2234a243083dee6aa4a45c">repeat</a> = Ph_EV_BUT_REPEAT, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da84064dfafa77cfd6cd44497633ae2f16">dndrop</a> = Ph_EV_DNDROP, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da6986fe8ad402c624095f5ea90439230c">drag</a> = Ph_EV_DRAG, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da02dd3b4abfc2544c9ddc51d20f050e5d">draw</a> = Ph_EV_DRAW, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23dadae9a866997055ce3589fd9edfa36e06">expose</a> = Ph_EV_EXPOSE, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da43bdc2b3a8979e6c1f26f44bd37b4245">info</a> = Ph_EV_INFO, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da8b879b18a9d4285165763ca788c577a2">key</a> = Ph_EV_KEY, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da7bc38e0fbc611ca7b364f8158ae94281">button</a> = Ph_EV_PTR_MOTION_BUTTON, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da91fc4e1094569ec613bf1af36bbb4d24">nobutton</a> = Ph_EV_PTR_MOTION_NOBUTTON, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da0e115af1222c18fb8e4f06c9ef0147e1">raw</a> = Ph_EV_RAW, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da478492878dc6e34b0d848d1b954f3ccd">service</a> = Ph_EV_SERVICE, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da60bec671b4fd32272bbbfdc6b90384e0">system</a> = Ph_EV_SYSTEM, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23daa53c8e3eada0473b0d5d5cefca2288da">timer</a> = Ph_EV_TIMER, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da5b58a32f41cfaf04e3e31bbf55eed512">user</a> = Ph_EV_USER, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da650f14a5143602a19db8093e43832849">wm</a> = Ph_EV_WM, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da2420f41584ec72ca1fffeffdac0b26b3">boundary</a> = Ph_EV_BOUNDARY, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da825e6363305687a8580703570b1708ef">press</a> = Ph_EV_BUT_PRESS, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23daddd025f73ffd26ff108298b9796705fc">release</a> = Ph_EV_BUT_RELEASE, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da780693196f2234a243083dee6aa4a45c">repeat</a> = Ph_EV_BUT_REPEAT, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da84064dfafa77cfd6cd44497633ae2f16">dndrop</a> = Ph_EV_DNDROP, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da6986fe8ad402c624095f5ea90439230c">drag</a> = Ph_EV_DRAG, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da02dd3b4abfc2544c9ddc51d20f050e5d">draw</a> = Ph_EV_DRAW, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23dadae9a866997055ce3589fd9edfa36e06">expose</a> = Ph_EV_EXPOSE, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da43bdc2b3a8979e6c1f26f44bd37b4245">info</a> = Ph_EV_INFO, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da8b879b18a9d4285165763ca788c577a2">key</a> = Ph_EV_KEY, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da7bc38e0fbc611ca7b364f8158ae94281">button</a> = Ph_EV_PTR_MOTION_BUTTON, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da91fc4e1094569ec613bf1af36bbb4d24">nobutton</a> = Ph_EV_PTR_MOTION_NOBUTTON, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da0e115af1222c18fb8e4f06c9ef0147e1">raw</a> = Ph_EV_RAW, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da478492878dc6e34b0d848d1b954f3ccd">service</a> = Ph_EV_SERVICE, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da60bec671b4fd32272bbbfdc6b90384e0">system</a> = Ph_EV_SYSTEM, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23daa53c8e3eada0473b0d5d5cefca2288da">timer</a> = Ph_EV_TIMER, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da5b58a32f41cfaf04e3e31bbf55eed512">user</a> = Ph_EV_USER, 
+<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da650f14a5143602a19db8093e43832849">wm</a> = Ph_EV_WM
 <br />
  }</td></tr>
 <tr class="separator:ac3aa0cbda0ae3cb098935a22b549e23d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_widget_events_8h_source.html#l00008">8</a> of file <a class="el" href="_widget_events_8h_source.html">WidgetEvents.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2_widget_events_8h_source.html#l00008">8</a> of file <a class="el" href="slib_2_ph_widgets_2include_2_widget_events_8h_source.html">slib/PhWidgets/include/WidgetEvents.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="ac3aa0cbda0ae3cb098935a22b549e23d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3aa0cbda0ae3cb098935a22b549e23d">&#9670;&nbsp;</a></span>eEvents</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3aa0cbda0ae3cb098935a22b549e23d">&#9670;&nbsp;</a></span>eEvents <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,50 +224,176 @@ Public Types</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23dae5db6235e85073976ff5fdb7cf37f17e"></a>boundary&#160;</td><td class="fielddoc"><p>Emitted when the pointer crosses region boundaries. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da2420f41584ec72ca1fffeffdac0b26b3"></a>boundary&#160;</td><td class="fielddoc"><p>Emitted when the pointer crosses region boundaries. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23dad4b4fc956565cfcaa99b68f68eb7ef96"></a>press&#160;</td><td class="fielddoc"><p>Emitted when the user presses a button on a pointing device. </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da825e6363305687a8580703570b1708ef"></a>press&#160;</td><td class="fielddoc"><p>Emitted when the user presses a button on a pointing device. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da9078b14da6fff13b34ecaa6ea9446ff6"></a>release&#160;</td><td class="fielddoc"><p>Emitted when the user releases a pointing-device button. </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23daddd025f73ffd26ff108298b9796705fc"></a>release&#160;</td><td class="fielddoc"><p>Emitted when the user releases a pointing-device button. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da217b0f678e82929988cee9ed0d55d66b"></a>repeat&#160;</td><td class="fielddoc"><p>Emitted when the user presses an auto-repeating button on a pointing device. </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da780693196f2234a243083dee6aa4a45c"></a>repeat&#160;</td><td class="fielddoc"><p>Emitted when the user presses an auto-repeating button on a pointing device. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da9b80a98c606616a5625f7cd20e0d8995"></a>dndrop&#160;</td><td class="fielddoc"><p>These events are emitted during a drag-and-drop operation. </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da84064dfafa77cfd6cd44497633ae2f16"></a>dndrop&#160;</td><td class="fielddoc"><p>These events are emitted during a drag-and-drop operation. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23dabcf543e438c9bdf0da39aacb9819514a"></a>drag&#160;</td><td class="fielddoc"><p>Used by an application to initiate drag events, to determine their completion, and to indicate intermediate drag-motion events. </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da6986fe8ad402c624095f5ea90439230c"></a>drag&#160;</td><td class="fielddoc"><p>Used by an application to initiate drag events, to determine their completion, and to indicate intermediate drag-motion events. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23dabf33b34ceefb4f3d37fc312624bc8111"></a>draw&#160;</td><td class="fielddoc"><p>Emitted by the Pg functions when applications perform draw operations. </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da02dd3b4abfc2544c9ddc51d20f050e5d"></a>draw&#160;</td><td class="fielddoc"><p>Emitted by the Pg functions when applications perform draw operations. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da561b6f7811377be39cbb7be46ffd64cc"></a>expose&#160;</td><td class="fielddoc"><p>Emitted by the Photon Manager on behalf of a region being moved, resized, or removed from the event space. </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23dadae9a866997055ce3589fd9edfa36e06"></a>expose&#160;</td><td class="fielddoc"><p>Emitted by the Photon Manager on behalf of a region being moved, resized, or removed from the event space. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da507f8830d5b3db50b7ee23ccd635002b"></a>info&#160;</td><td class="fielddoc"><p>All regions must always be transparent to '<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da507f8830d5b3db50b7ee23ccd635002b" title="All regions must always be transparent to &#39;Events::info&#39; events. They are emitted by applications or ...">Events::info</a>' events. They are emitted by applications or service providers to disseminate information or respond to requests. </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da43bdc2b3a8979e6c1f26f44bd37b4245"></a>info&#160;</td><td class="fielddoc"><p>All regions must always be transparent to '<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da43bdc2b3a8979e6c1f26f44bd37b4245" title="All regions must always be transparent to &#39;Events::info&#39; events. They are emitted by applications or ...">Events::info</a>' events. They are emitted by applications or service providers to disseminate information or respond to requests. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23daa03e09fd0f1c8dbd81093563f33e4473"></a>key&#160;</td><td class="fielddoc"><p>Emitted when a key state changes (for example, the user presses or releases a key). </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da8b879b18a9d4285165763ca788c577a2"></a>key&#160;</td><td class="fielddoc"><p>Emitted when a key state changes (for example, the user presses or releases a key). </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da5cbbac4489642a8ba55321fe46bc3bc5"></a>button&#160;</td><td class="fielddoc"><p>Emitted when the user moves the pointing device while pressing a button. </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da7bc38e0fbc611ca7b364f8158ae94281"></a>button&#160;</td><td class="fielddoc"><p>Emitted when the user moves the pointing device while pressing a button. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da30078794ac5d92c517c6c4f40d49d5ad"></a>nobutton&#160;</td><td class="fielddoc"><p>Emitted when the user moves the pointing device without pressing a button. </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da91fc4e1094569ec613bf1af36bbb4d24"></a>nobutton&#160;</td><td class="fielddoc"><p>Emitted when the user moves the pointing device without pressing a button. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da595d1bb46d1a5c8048e28aed6af1f622"></a>raw&#160;</td><td class="fielddoc"><p>These are raw, unfocused events that the Photon server handles. </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da0e115af1222c18fb8e4f06c9ef0147e1"></a>raw&#160;</td><td class="fielddoc"><p>These are raw, unfocused events that the Photon server handles. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23dad3a5b81a9924b468f8e9718f542de9d6"></a>service&#160;</td><td class="fielddoc"><p>These events may be emitted by applications requesting services or providing information to services, other applications that provide some kind of service in a Photon system. </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da478492878dc6e34b0d848d1b954f3ccd"></a>service&#160;</td><td class="fielddoc"><p>These events may be emitted by applications requesting services or providing information to services, other applications that provide some kind of service in a Photon system. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da56db0b1d26be6531da1e7461856100c9"></a>system&#160;</td><td class="fielddoc"><p>Are emitted when Photon or a service wants to inform applications of changes in the system. </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da60bec671b4fd32272bbbfdc6b90384e0"></a>system&#160;</td><td class="fielddoc"><p>Are emitted when Photon or a service wants to inform applications of changes in the system. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da9e027f20e099cf7a6ccf5bdc7baba715"></a>timer&#160;</td><td class="fielddoc"><p>Emitted by an application directly to the Device region to request a reciprocal event after a specific amount of time has elapsed (arm a timer). </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23daa53c8e3eada0473b0d5d5cefca2288da"></a>timer&#160;</td><td class="fielddoc"><p>Emitted by an application directly to the Device region to request a reciprocal event after a specific amount of time has elapsed (arm a timer). </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da6e76a3dd4209716845af531e844a869d"></a>user&#160;</td><td class="fielddoc"><p>A custom event type that your application can use to interact with other applications. </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da5b58a32f41cfaf04e3e31bbf55eed512"></a>user&#160;</td><td class="fielddoc"><p>A custom event type that your application can use to interact with other applications. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da6481578b9738a301f4e1974931de076b"></a>wm&#160;</td><td class="fielddoc"><p>Both the Window Manager and applications can emit this event. The Window Manager emits this event when an application has asked to be notified. An application can emit this event to communicate to the Window Manager regarding windows. </p>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da650f14a5143602a19db8093e43832849"></a>wm&#160;</td><td class="fielddoc"><p>Both the Window Manager and applications can emit this event. The Window Manager emits this event when an application has asked to be notified. An application can emit this event to communicate to the Window Manager regarding windows. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da2420f41584ec72ca1fffeffdac0b26b3"></a>boundary&#160;</td><td class="fielddoc"><p>Emitted when the pointer crosses region boundaries. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da825e6363305687a8580703570b1708ef"></a>press&#160;</td><td class="fielddoc"><p>Emitted when the user presses a button on a pointing device. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23daddd025f73ffd26ff108298b9796705fc"></a>release&#160;</td><td class="fielddoc"><p>Emitted when the user releases a pointing-device button. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da780693196f2234a243083dee6aa4a45c"></a>repeat&#160;</td><td class="fielddoc"><p>Emitted when the user presses an auto-repeating button on a pointing device. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da84064dfafa77cfd6cd44497633ae2f16"></a>dndrop&#160;</td><td class="fielddoc"><p>These events are emitted during a drag-and-drop operation. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da6986fe8ad402c624095f5ea90439230c"></a>drag&#160;</td><td class="fielddoc"><p>Used by an application to initiate drag events, to determine their completion, and to indicate intermediate drag-motion events. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da02dd3b4abfc2544c9ddc51d20f050e5d"></a>draw&#160;</td><td class="fielddoc"><p>Emitted by the Pg functions when applications perform draw operations. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23dadae9a866997055ce3589fd9edfa36e06"></a>expose&#160;</td><td class="fielddoc"><p>Emitted by the Photon Manager on behalf of a region being moved, resized, or removed from the event space. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da43bdc2b3a8979e6c1f26f44bd37b4245"></a>info&#160;</td><td class="fielddoc"><p>All regions must always be transparent to '<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da43bdc2b3a8979e6c1f26f44bd37b4245" title="All regions must always be transparent to &#39;Events::info&#39; events. They are emitted by applications or ...">Events::info</a>' events. They are emitted by applications or service providers to disseminate information or respond to requests. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da8b879b18a9d4285165763ca788c577a2"></a>key&#160;</td><td class="fielddoc"><p>Emitted when a key state changes (for example, the user presses or releases a key). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da7bc38e0fbc611ca7b364f8158ae94281"></a>button&#160;</td><td class="fielddoc"><p>Emitted when the user moves the pointing device while pressing a button. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da91fc4e1094569ec613bf1af36bbb4d24"></a>nobutton&#160;</td><td class="fielddoc"><p>Emitted when the user moves the pointing device without pressing a button. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da0e115af1222c18fb8e4f06c9ef0147e1"></a>raw&#160;</td><td class="fielddoc"><p>These are raw, unfocused events that the Photon server handles. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da478492878dc6e34b0d848d1b954f3ccd"></a>service&#160;</td><td class="fielddoc"><p>These events may be emitted by applications requesting services or providing information to services, other applications that provide some kind of service in a Photon system. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da60bec671b4fd32272bbbfdc6b90384e0"></a>system&#160;</td><td class="fielddoc"><p>Are emitted when Photon or a service wants to inform applications of changes in the system. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23daa53c8e3eada0473b0d5d5cefca2288da"></a>timer&#160;</td><td class="fielddoc"><p>Emitted by an application directly to the Device region to request a reciprocal event after a specific amount of time has elapsed (arm a timer). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da5b58a32f41cfaf04e3e31bbf55eed512"></a>user&#160;</td><td class="fielddoc"><p>A custom event type that your application can use to interact with other applications. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da650f14a5143602a19db8093e43832849"></a>wm&#160;</td><td class="fielddoc"><p>Both the Window Manager and applications can emit this event. The Window Manager emits this event when an application has asked to be notified. An application can emit this event to communicate to the Window Manager regarding windows. </p>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_widget_events_8h_source.html#l00010">10</a> of file <a class="el" href="_widget_events_8h_source.html">WidgetEvents.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2_widget_events_8h_source.html#l00010">10</a> of file <a class="el" href="slib_2_ph_widgets_2include_2_widget_events_8h_source.html">slib/PhWidgets/include/WidgetEvents.h</a>.</p>
+
+</div>
+</div>
+<a id="ac3aa0cbda0ae3cb098935a22b549e23d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3aa0cbda0ae3cb098935a22b549e23d">&#9670;&nbsp;</a></span>eEvents <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23d">PhWidgets::Events::eEvents</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da2420f41584ec72ca1fffeffdac0b26b3"></a>boundary&#160;</td><td class="fielddoc"><p>Emitted when the pointer crosses region boundaries. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da825e6363305687a8580703570b1708ef"></a>press&#160;</td><td class="fielddoc"><p>Emitted when the user presses a button on a pointing device. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23daddd025f73ffd26ff108298b9796705fc"></a>release&#160;</td><td class="fielddoc"><p>Emitted when the user releases a pointing-device button. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da780693196f2234a243083dee6aa4a45c"></a>repeat&#160;</td><td class="fielddoc"><p>Emitted when the user presses an auto-repeating button on a pointing device. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da84064dfafa77cfd6cd44497633ae2f16"></a>dndrop&#160;</td><td class="fielddoc"><p>These events are emitted during a drag-and-drop operation. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da6986fe8ad402c624095f5ea90439230c"></a>drag&#160;</td><td class="fielddoc"><p>Used by an application to initiate drag events, to determine their completion, and to indicate intermediate drag-motion events. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da02dd3b4abfc2544c9ddc51d20f050e5d"></a>draw&#160;</td><td class="fielddoc"><p>Emitted by the Pg functions when applications perform draw operations. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23dadae9a866997055ce3589fd9edfa36e06"></a>expose&#160;</td><td class="fielddoc"><p>Emitted by the Photon Manager on behalf of a region being moved, resized, or removed from the event space. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da43bdc2b3a8979e6c1f26f44bd37b4245"></a>info&#160;</td><td class="fielddoc"><p>All regions must always be transparent to '<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da43bdc2b3a8979e6c1f26f44bd37b4245" title="All regions must always be transparent to &#39;Events::info&#39; events. They are emitted by applications or ...">Events::info</a>' events. They are emitted by applications or service providers to disseminate information or respond to requests. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da8b879b18a9d4285165763ca788c577a2"></a>key&#160;</td><td class="fielddoc"><p>Emitted when a key state changes (for example, the user presses or releases a key). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da7bc38e0fbc611ca7b364f8158ae94281"></a>button&#160;</td><td class="fielddoc"><p>Emitted when the user moves the pointing device while pressing a button. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da91fc4e1094569ec613bf1af36bbb4d24"></a>nobutton&#160;</td><td class="fielddoc"><p>Emitted when the user moves the pointing device without pressing a button. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da0e115af1222c18fb8e4f06c9ef0147e1"></a>raw&#160;</td><td class="fielddoc"><p>These are raw, unfocused events that the Photon server handles. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da478492878dc6e34b0d848d1b954f3ccd"></a>service&#160;</td><td class="fielddoc"><p>These events may be emitted by applications requesting services or providing information to services, other applications that provide some kind of service in a Photon system. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da60bec671b4fd32272bbbfdc6b90384e0"></a>system&#160;</td><td class="fielddoc"><p>Are emitted when Photon or a service wants to inform applications of changes in the system. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23daa53c8e3eada0473b0d5d5cefca2288da"></a>timer&#160;</td><td class="fielddoc"><p>Emitted by an application directly to the Device region to request a reciprocal event after a specific amount of time has elapsed (arm a timer). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da5b58a32f41cfaf04e3e31bbf55eed512"></a>user&#160;</td><td class="fielddoc"><p>A custom event type that your application can use to interact with other applications. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da650f14a5143602a19db8093e43832849"></a>wm&#160;</td><td class="fielddoc"><p>Both the Window Manager and applications can emit this event. The Window Manager emits this event when an application has asked to be notified. An application can emit this event to communicate to the Window Manager regarding windows. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da2420f41584ec72ca1fffeffdac0b26b3"></a>boundary&#160;</td><td class="fielddoc"><p>Emitted when the pointer crosses region boundaries. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da825e6363305687a8580703570b1708ef"></a>press&#160;</td><td class="fielddoc"><p>Emitted when the user presses a button on a pointing device. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23daddd025f73ffd26ff108298b9796705fc"></a>release&#160;</td><td class="fielddoc"><p>Emitted when the user releases a pointing-device button. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da780693196f2234a243083dee6aa4a45c"></a>repeat&#160;</td><td class="fielddoc"><p>Emitted when the user presses an auto-repeating button on a pointing device. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da84064dfafa77cfd6cd44497633ae2f16"></a>dndrop&#160;</td><td class="fielddoc"><p>These events are emitted during a drag-and-drop operation. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da6986fe8ad402c624095f5ea90439230c"></a>drag&#160;</td><td class="fielddoc"><p>Used by an application to initiate drag events, to determine their completion, and to indicate intermediate drag-motion events. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da02dd3b4abfc2544c9ddc51d20f050e5d"></a>draw&#160;</td><td class="fielddoc"><p>Emitted by the Pg functions when applications perform draw operations. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23dadae9a866997055ce3589fd9edfa36e06"></a>expose&#160;</td><td class="fielddoc"><p>Emitted by the Photon Manager on behalf of a region being moved, resized, or removed from the event space. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da43bdc2b3a8979e6c1f26f44bd37b4245"></a>info&#160;</td><td class="fielddoc"><p>All regions must always be transparent to '<a class="el" href="struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da43bdc2b3a8979e6c1f26f44bd37b4245" title="All regions must always be transparent to &#39;Events::info&#39; events. They are emitted by applications or ...">Events::info</a>' events. They are emitted by applications or service providers to disseminate information or respond to requests. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da8b879b18a9d4285165763ca788c577a2"></a>key&#160;</td><td class="fielddoc"><p>Emitted when a key state changes (for example, the user presses or releases a key). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da7bc38e0fbc611ca7b364f8158ae94281"></a>button&#160;</td><td class="fielddoc"><p>Emitted when the user moves the pointing device while pressing a button. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da91fc4e1094569ec613bf1af36bbb4d24"></a>nobutton&#160;</td><td class="fielddoc"><p>Emitted when the user moves the pointing device without pressing a button. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da0e115af1222c18fb8e4f06c9ef0147e1"></a>raw&#160;</td><td class="fielddoc"><p>These are raw, unfocused events that the Photon server handles. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da478492878dc6e34b0d848d1b954f3ccd"></a>service&#160;</td><td class="fielddoc"><p>These events may be emitted by applications requesting services or providing information to services, other applications that provide some kind of service in a Photon system. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da60bec671b4fd32272bbbfdc6b90384e0"></a>system&#160;</td><td class="fielddoc"><p>Are emitted when Photon or a service wants to inform applications of changes in the system. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23daa53c8e3eada0473b0d5d5cefca2288da"></a>timer&#160;</td><td class="fielddoc"><p>Emitted by an application directly to the Device region to request a reciprocal event after a specific amount of time has elapsed (arm a timer). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da5b58a32f41cfaf04e3e31bbf55eed512"></a>user&#160;</td><td class="fielddoc"><p>A custom event type that your application can use to interact with other applications. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac3aa0cbda0ae3cb098935a22b549e23da650f14a5143602a19db8093e43832849"></a>wm&#160;</td><td class="fielddoc"><p>Both the Window Manager and applications can emit this event. The Window Manager emits this event when an application has asked to be notified. An application can emit this event to communicate to the Window Manager regarding windows. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="src_2_widget_events_8h_source.html#l00010">10</a> of file <a class="el" href="src_2_widget_events_8h_source.html">src/WidgetEvents.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="_widget_events_8h_source.html">WidgetEvents.h</a></li>
+<li><a class="el" href="slib_2_ph_widgets_2include_2_widget_events_8h_source.html">slib/PhWidgets/include/WidgetEvents.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

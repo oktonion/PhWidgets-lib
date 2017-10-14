@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['value_5ft',['value_t',['../structphevents_1_1detail_1_1get__parent__func.html#a0282cdc8a12297b6e241d3b2c0196d34',1,'phevents::detail::get_parent_func::value_t()'],['../structphevents_1_1detail_1_1get__parent__func_3_01void_00_01void_01_4.html#ae739ae71828f5f712c37ccc82389abd1',1,'phevents::detail::get_parent_func&lt; void, void &gt;::value_t()'],['../structcppproperties_1_1detail_1_1get__parent__func.html#a2a1be19231090954dd0b17169701e7a0',1,'cppproperties::detail::get_parent_func::value_t()'],['../structcppproperties_1_1detail_1_1get__parent__func_3_01void_00_01void_01_4.html#ab4a42ba8250743d5b12fbdab2229980a',1,'cppproperties::detail::get_parent_func&lt; void, void &gt;::value_t()']]],
-  ['value_5ftype',['value_type',['../structstd_1_1integral__constant.html#aabe31637906aa168bd8c119bef961c7c',1,'std::integral_constant']]]
+  ['uchar16_5ft',['uchar16_t',['../slib_2_ph_widgets_2include_2service_2stdex_2h_2types__ex_8h.html#aa1ba02159bc6b01c29d7b5554111a700',1,'uchar16_t():&#160;types_ex.h'],['../src_2service_2stdex_2h_2types__ex_8h.html#aa1ba02159bc6b01c29d7b5554111a700',1,'uchar16_t():&#160;types_ex.h']]],
+  ['uchar32_5ft',['uchar32_t',['../slib_2_ph_widgets_2include_2service_2stdex_2h_2types__ex_8h.html#a741b65e518a6f59e09f994590403fa38',1,'uchar32_t():&#160;types_ex.h'],['../src_2service_2stdex_2h_2types__ex_8h.html#a741b65e518a6f59e09f994590403fa38',1,'uchar32_t():&#160;types_ex.h']]]
 ];

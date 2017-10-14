@@ -38,7 +38,7 @@
   
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.0</span>
+   &#160;<span id="projectnumber">0.3.1</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -107,83 +107,273 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_hotkeys.html',''
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_widget_keys_8h_source.html">PhWidgets-lib/src/WidgetKeys.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="slib_2_ph_widgets_2include_2_widget_keys_8h_source.html">PhWidgets-lib/slib/PhWidgets/include/WidgetKeys.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:ae32768126b19c5dd67c8616ceefaf30e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30e">eHotkeys</a> { <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea87a886267d6575a13539280be1abc8f9">Left</a> = Pk_Left, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eadfad8197e55313dcd365abb0007b708f">BackSpace</a> = Pk_BackSpace, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea14d70e37768fe3280ffc7f4f1227c4ea">Tab</a> = Pk_Tab, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea48199308bcdcf4aa386a493585b8c518">Return</a> = Pk_Return, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea08d7c317e8ee82b561bb817b7f7a5260">Left</a> = Pk_Left, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea6812add94d31e78e3d1e9ece7c08a633">BackSpace</a> = Pk_BackSpace, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea8a670e9e4e8001afe71ede6a890ad63b">Tab</a> = Pk_Tab, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea59e365f9ef0394d010ba2197ba821e08">Return</a> = Pk_Return, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea653eb63997affe2a695c55add694a517">Escape</a> = Pk_Escape, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea3968b5bc78c116cc1c66138e46a5b177">Home</a> = Pk_Home, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea55399728a9d73d9907ff94af73514a7b">Up</a> = Pk_Up, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea90f59b6d72b44cb9a678ebf56c90704b">Right</a> = Pk_Right, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eac52c28d3a7c97acd409e153b61a40059">Escape</a> = Pk_Escape, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea14d8edab8f0211642a02002c3aae0da8">Home</a> = Pk_Home, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae1e1778b910e57b8328f8cbb3f17d8d4">Up</a> = Pk_Up, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea729573aea50de6dca280fd4672356f4d">Right</a> = Pk_Right, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea0c80adfa6a5062a7761cf41de0b4ee7e">Down</a> = Pk_Down, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea48d1dc824092012686281ad3e49e32da">Pg_Up</a> = Pk_Pg_Up, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eabb1201a3f17e4a955cebf87387336431">Pg_Down</a> = Pk_Pg_Down, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea4f38331a6fff668b58cb4372cba3a41c">End</a> = Pk_End, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea7c6d6976b342426320abc15e91d22f89">Down</a> = Pk_Down, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea3c255b58e315b2856d1263a55d37e4e7">Pg_Up</a> = Pk_Pg_Up, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea5003716e40594a66d6b4944cd01fe809">Pg_Down</a> = Pk_Pg_Down, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea7c8f213e94e18ecdd98a3d2d4ba2f68d">End</a> = Pk_End, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea855c2973f18c3f9c87281db35dd40f3f">Insert</a> = Pk_Insert, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea503fd63e9f4de43a41fee371e2f0cb52">Delete</a> = Pk_Delete, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ead5390ab57eb39272ed14c233eb148797">Menu</a> = Pk_Menu, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea803f69100188696bd7346023548d0ca7">F1</a> = Pk_F1, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea098c1b023a395c60ba6d128f0a970f20">Insert</a> = Pk_Insert, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae90e84b09c891dd5db52fb260f1a3c08">Delete</a> = Pk_Delete, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea7bc22080e8ee47c83edea791029295b1">Menu</a> = Pk_Menu, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea35f83bfa08da5bdeb49b3417b38a7201">F1</a> = Pk_F1, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eabaa854b17e431a79f396962a8625af62">F2</a> = Pk_F2, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9b3d8a54fff613b3fcd6bfb991f8f5d4">F3</a> = Pk_F3, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eac085a11ed828fc6182aaab2c6e90efcf">F4</a> = Pk_F4, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea69df71a6f24e7d0fadc06ae305bb08a3">F5</a> = Pk_F5, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea5ddbaf0b770425ca430c47cc7e67b582">F2</a> = Pk_F2, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaaff229918259d4da5ef4d518116a5bbf">F3</a> = Pk_F3, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea885ea3f222707a19af0694e9b6b12abb">F4</a> = Pk_F4, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea2890f37453a972bc5c69971dc599069c">F5</a> = Pk_F5, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea315325537a6254f97ca34149fd39dd87">F6</a> = Pk_F6, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea2693d5bb4f58c2f7423b237b45fc389b">F7</a> = Pk_F7, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea6abce9f29cab5a007a7ac225af5cf9a1">F8</a> = Pk_F8, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea85d109ee50a8dab82699662373d78ec6">F9</a> = Pk_F9, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaf5e0ed8ff0451189c721700fbaef3327">F6</a> = Pk_F6, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eac4b6972ddebf5a67bac918d06a5a204d">F7</a> = Pk_F7, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaff9f2b074d100efca2a4492fcf79dea9">F8</a> = Pk_F8, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea8cddebc9e7c4488bf7dfffb97b92ad4a">F9</a> = Pk_F9, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eab40a9acb72bf863d775b7198a986cf50">F10</a> = Pk_F10, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea85b00b65d6fdb6a3aa2c89a3a69ea28b">F11</a> = Pk_F11, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaf3c13c6ab9e51d333cdf5852b92696ce">F12</a> = Pk_F12, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea0a310c753e790bee6a147d827030a511">F13</a> = Pk_F13, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ead543235550ab4b7bbd85c164a96ae56c">F10</a> = Pk_F10, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea99c391d6720a670af1c851ae7c610345">F11</a> = Pk_F11, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9f195d79d30f44825a4ed0425384c6b9">F12</a> = Pk_F12, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae6af7b74c6d0c633d4dfa5536e789c8b">F13</a> = Pk_F13, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea566a5f3a87586080e8b1673c98d0d372">F14</a> = Pk_F14, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea1fabe87f2b296d8e6c88e5ef307d7479">F15</a> = Pk_F15, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9a8d96a51eabb4df4d5dabd02ed31116">F16</a> = Pk_F16, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea393a952968581bb2e382550bc605ff2d">F17</a> = Pk_F17, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea2c516aa61135d2df9ae98093594a8e6a">F14</a> = Pk_F14, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea1ef60f4c7294531035692376b3584602">F15</a> = Pk_F15, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9a452c4b1eaf155e3bedc731f248854e">F16</a> = Pk_F16, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae65e49a3a7f41238a3a27a822eb77b84">F17</a> = Pk_F17, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9d2293932188334c07159853c21e362d">F18</a> = Pk_F18, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea61f686ec429ca6efa434b6e6464b8503">F19</a> = Pk_F19, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea38560707ffec213cc0e6e2edc72a0f7c">F20</a> = Pk_F20, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea82934d51ae874215997937a9f42b5ad5">F21</a> = Pk_F21, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea85487e6229bbd6a2b10b7b0751dfe77c">F18</a> = Pk_F18, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ead26bc64415449396d6d8903761460353">F19</a> = Pk_F19, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea31f1bb9169486afe758748d353cda924">F20</a> = Pk_F20, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea169a3e4f919839248d1db7766be17ed5">F21</a> = Pk_F21, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea09326359288af9a249196c2c5e2d799a">F22</a> = Pk_F22, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea4c615437341f9ec11a8187c7a6557ef1">F23</a> = Pk_F23, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea64f99524f46b22e5070d7b742ca59b5e">F24</a> = Pk_F24, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea978098dd4c3b5dacc91961941596a235">F25</a> = Pk_F25, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea12fe80fff17daad961325a992f2553ff">F22</a> = Pk_F22, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaaede1ff4b1da707eece77d59fd5dc90e">F23</a> = Pk_F23, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea848aac1e036ad6b71c814f4d2ca5bdbe">F24</a> = Pk_F24, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae0ebc3c118bd9665f9773836882ab5b7">F25</a> = Pk_F25, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaefa6d497e1e7423f3cc3d7981957e095">F26</a> = Pk_F26, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea12bc1fdbf6c3a851ece6f67a65cfe3c1">F27</a> = Pk_F27, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea6ad84fa685de1d02387b2259bf4f7bc7">F28</a> = Pk_F28, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea6082fa44e9126a59730510108fc60830">F29</a> = Pk_F29, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea0b5c3322b162ae23773444d5cc495cd1">F26</a> = Pk_F26, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea3c177c9e1d6992f89aa7ceb5aaa1e7ed">F27</a> = Pk_F27, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaca555928c3e65a45c925a3fe62b113b3">F28</a> = Pk_F28, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea366c17e787dbd7d57ccebad3bdb9e2ae">F29</a> = Pk_F29, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea5100dc03513c90a0c9fc9a8cf7c30bb7">F30</a> = Pk_F30, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eabd8ab1bb04c195b068d957e2fa7687e9">F31</a> = Pk_F31, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaee202c400604f94fc89d040891ee4c8a">F32</a> = Pk_F32, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea799a3d95249161f4141b80a0491dc505">F33</a> = Pk_F33, 
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea748725be693d3786852f77f647bed934">F30</a> = Pk_F30, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea4a3baad1065ca29fe491a40f19756118">F31</a> = Pk_F31, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea1468d4e0485091cbc408b1d39f7766de">F32</a> = Pk_F32, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea7d70c8a51e49e11af86a60109fbb6c5e">F33</a> = Pk_F33, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eabeff9439a3570febf1f517c953a28cc6">F34</a> = Pk_F34, 
-<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eadde296b09db866cca811b00a5368a9d8">F35</a> = Pk_F35
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaf3a06312029059957c3b6da044809297">F34</a> = Pk_F34, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaecc75a5488d9ffd94bed684191503546">F35</a> = Pk_F35, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea08d7c317e8ee82b561bb817b7f7a5260">Left</a> = Pk_Left, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea6812add94d31e78e3d1e9ece7c08a633">BackSpace</a> = Pk_BackSpace, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea8a670e9e4e8001afe71ede6a890ad63b">Tab</a> = Pk_Tab, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea59e365f9ef0394d010ba2197ba821e08">Return</a> = Pk_Return, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eac52c28d3a7c97acd409e153b61a40059">Escape</a> = Pk_Escape, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea14d8edab8f0211642a02002c3aae0da8">Home</a> = Pk_Home, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae1e1778b910e57b8328f8cbb3f17d8d4">Up</a> = Pk_Up, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea729573aea50de6dca280fd4672356f4d">Right</a> = Pk_Right, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea7c6d6976b342426320abc15e91d22f89">Down</a> = Pk_Down, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea3c255b58e315b2856d1263a55d37e4e7">Pg_Up</a> = Pk_Pg_Up, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea5003716e40594a66d6b4944cd01fe809">Pg_Down</a> = Pk_Pg_Down, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea7c8f213e94e18ecdd98a3d2d4ba2f68d">End</a> = Pk_End, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea098c1b023a395c60ba6d128f0a970f20">Insert</a> = Pk_Insert, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae90e84b09c891dd5db52fb260f1a3c08">Delete</a> = Pk_Delete, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea7bc22080e8ee47c83edea791029295b1">Menu</a> = Pk_Menu, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea35f83bfa08da5bdeb49b3417b38a7201">F1</a> = Pk_F1, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea5ddbaf0b770425ca430c47cc7e67b582">F2</a> = Pk_F2, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaaff229918259d4da5ef4d518116a5bbf">F3</a> = Pk_F3, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea885ea3f222707a19af0694e9b6b12abb">F4</a> = Pk_F4, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea2890f37453a972bc5c69971dc599069c">F5</a> = Pk_F5, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaf5e0ed8ff0451189c721700fbaef3327">F6</a> = Pk_F6, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eac4b6972ddebf5a67bac918d06a5a204d">F7</a> = Pk_F7, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaff9f2b074d100efca2a4492fcf79dea9">F8</a> = Pk_F8, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea8cddebc9e7c4488bf7dfffb97b92ad4a">F9</a> = Pk_F9, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ead543235550ab4b7bbd85c164a96ae56c">F10</a> = Pk_F10, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea99c391d6720a670af1c851ae7c610345">F11</a> = Pk_F11, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9f195d79d30f44825a4ed0425384c6b9">F12</a> = Pk_F12, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae6af7b74c6d0c633d4dfa5536e789c8b">F13</a> = Pk_F13, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea2c516aa61135d2df9ae98093594a8e6a">F14</a> = Pk_F14, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea1ef60f4c7294531035692376b3584602">F15</a> = Pk_F15, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9a452c4b1eaf155e3bedc731f248854e">F16</a> = Pk_F16, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae65e49a3a7f41238a3a27a822eb77b84">F17</a> = Pk_F17, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea85487e6229bbd6a2b10b7b0751dfe77c">F18</a> = Pk_F18, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ead26bc64415449396d6d8903761460353">F19</a> = Pk_F19, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea31f1bb9169486afe758748d353cda924">F20</a> = Pk_F20, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea169a3e4f919839248d1db7766be17ed5">F21</a> = Pk_F21, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea12fe80fff17daad961325a992f2553ff">F22</a> = Pk_F22, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaaede1ff4b1da707eece77d59fd5dc90e">F23</a> = Pk_F23, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea848aac1e036ad6b71c814f4d2ca5bdbe">F24</a> = Pk_F24, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae0ebc3c118bd9665f9773836882ab5b7">F25</a> = Pk_F25, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea0b5c3322b162ae23773444d5cc495cd1">F26</a> = Pk_F26, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea3c177c9e1d6992f89aa7ceb5aaa1e7ed">F27</a> = Pk_F27, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaca555928c3e65a45c925a3fe62b113b3">F28</a> = Pk_F28, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea366c17e787dbd7d57ccebad3bdb9e2ae">F29</a> = Pk_F29, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea748725be693d3786852f77f647bed934">F30</a> = Pk_F30, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea4a3baad1065ca29fe491a40f19756118">F31</a> = Pk_F31, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea1468d4e0485091cbc408b1d39f7766de">F32</a> = Pk_F32, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea7d70c8a51e49e11af86a60109fbb6c5e">F33</a> = Pk_F33, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaf3a06312029059957c3b6da044809297">F34</a> = Pk_F34, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaecc75a5488d9ffd94bed684191503546">F35</a> = Pk_F35
+<br />
+ }</td></tr>
+<tr class="separator:ae32768126b19c5dd67c8616ceefaf30e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae32768126b19c5dd67c8616ceefaf30e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30e">eHotkeys</a> { <br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea08d7c317e8ee82b561bb817b7f7a5260">Left</a> = Pk_Left, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea6812add94d31e78e3d1e9ece7c08a633">BackSpace</a> = Pk_BackSpace, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea8a670e9e4e8001afe71ede6a890ad63b">Tab</a> = Pk_Tab, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea59e365f9ef0394d010ba2197ba821e08">Return</a> = Pk_Return, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eac52c28d3a7c97acd409e153b61a40059">Escape</a> = Pk_Escape, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea14d8edab8f0211642a02002c3aae0da8">Home</a> = Pk_Home, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae1e1778b910e57b8328f8cbb3f17d8d4">Up</a> = Pk_Up, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea729573aea50de6dca280fd4672356f4d">Right</a> = Pk_Right, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea7c6d6976b342426320abc15e91d22f89">Down</a> = Pk_Down, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea3c255b58e315b2856d1263a55d37e4e7">Pg_Up</a> = Pk_Pg_Up, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea5003716e40594a66d6b4944cd01fe809">Pg_Down</a> = Pk_Pg_Down, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea7c8f213e94e18ecdd98a3d2d4ba2f68d">End</a> = Pk_End, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea098c1b023a395c60ba6d128f0a970f20">Insert</a> = Pk_Insert, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae90e84b09c891dd5db52fb260f1a3c08">Delete</a> = Pk_Delete, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea7bc22080e8ee47c83edea791029295b1">Menu</a> = Pk_Menu, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea35f83bfa08da5bdeb49b3417b38a7201">F1</a> = Pk_F1, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea5ddbaf0b770425ca430c47cc7e67b582">F2</a> = Pk_F2, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaaff229918259d4da5ef4d518116a5bbf">F3</a> = Pk_F3, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea885ea3f222707a19af0694e9b6b12abb">F4</a> = Pk_F4, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea2890f37453a972bc5c69971dc599069c">F5</a> = Pk_F5, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaf5e0ed8ff0451189c721700fbaef3327">F6</a> = Pk_F6, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eac4b6972ddebf5a67bac918d06a5a204d">F7</a> = Pk_F7, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaff9f2b074d100efca2a4492fcf79dea9">F8</a> = Pk_F8, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea8cddebc9e7c4488bf7dfffb97b92ad4a">F9</a> = Pk_F9, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ead543235550ab4b7bbd85c164a96ae56c">F10</a> = Pk_F10, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea99c391d6720a670af1c851ae7c610345">F11</a> = Pk_F11, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9f195d79d30f44825a4ed0425384c6b9">F12</a> = Pk_F12, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae6af7b74c6d0c633d4dfa5536e789c8b">F13</a> = Pk_F13, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea2c516aa61135d2df9ae98093594a8e6a">F14</a> = Pk_F14, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea1ef60f4c7294531035692376b3584602">F15</a> = Pk_F15, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9a452c4b1eaf155e3bedc731f248854e">F16</a> = Pk_F16, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae65e49a3a7f41238a3a27a822eb77b84">F17</a> = Pk_F17, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea85487e6229bbd6a2b10b7b0751dfe77c">F18</a> = Pk_F18, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ead26bc64415449396d6d8903761460353">F19</a> = Pk_F19, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea31f1bb9169486afe758748d353cda924">F20</a> = Pk_F20, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea169a3e4f919839248d1db7766be17ed5">F21</a> = Pk_F21, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea12fe80fff17daad961325a992f2553ff">F22</a> = Pk_F22, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaaede1ff4b1da707eece77d59fd5dc90e">F23</a> = Pk_F23, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea848aac1e036ad6b71c814f4d2ca5bdbe">F24</a> = Pk_F24, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae0ebc3c118bd9665f9773836882ab5b7">F25</a> = Pk_F25, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea0b5c3322b162ae23773444d5cc495cd1">F26</a> = Pk_F26, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea3c177c9e1d6992f89aa7ceb5aaa1e7ed">F27</a> = Pk_F27, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaca555928c3e65a45c925a3fe62b113b3">F28</a> = Pk_F28, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea366c17e787dbd7d57ccebad3bdb9e2ae">F29</a> = Pk_F29, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea748725be693d3786852f77f647bed934">F30</a> = Pk_F30, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea4a3baad1065ca29fe491a40f19756118">F31</a> = Pk_F31, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea1468d4e0485091cbc408b1d39f7766de">F32</a> = Pk_F32, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea7d70c8a51e49e11af86a60109fbb6c5e">F33</a> = Pk_F33, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaf3a06312029059957c3b6da044809297">F34</a> = Pk_F34, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaecc75a5488d9ffd94bed684191503546">F35</a> = Pk_F35, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea08d7c317e8ee82b561bb817b7f7a5260">Left</a> = Pk_Left, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea6812add94d31e78e3d1e9ece7c08a633">BackSpace</a> = Pk_BackSpace, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea8a670e9e4e8001afe71ede6a890ad63b">Tab</a> = Pk_Tab, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea59e365f9ef0394d010ba2197ba821e08">Return</a> = Pk_Return, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eac52c28d3a7c97acd409e153b61a40059">Escape</a> = Pk_Escape, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea14d8edab8f0211642a02002c3aae0da8">Home</a> = Pk_Home, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae1e1778b910e57b8328f8cbb3f17d8d4">Up</a> = Pk_Up, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea729573aea50de6dca280fd4672356f4d">Right</a> = Pk_Right, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea7c6d6976b342426320abc15e91d22f89">Down</a> = Pk_Down, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea3c255b58e315b2856d1263a55d37e4e7">Pg_Up</a> = Pk_Pg_Up, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea5003716e40594a66d6b4944cd01fe809">Pg_Down</a> = Pk_Pg_Down, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea7c8f213e94e18ecdd98a3d2d4ba2f68d">End</a> = Pk_End, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea098c1b023a395c60ba6d128f0a970f20">Insert</a> = Pk_Insert, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae90e84b09c891dd5db52fb260f1a3c08">Delete</a> = Pk_Delete, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea7bc22080e8ee47c83edea791029295b1">Menu</a> = Pk_Menu, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea35f83bfa08da5bdeb49b3417b38a7201">F1</a> = Pk_F1, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea5ddbaf0b770425ca430c47cc7e67b582">F2</a> = Pk_F2, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaaff229918259d4da5ef4d518116a5bbf">F3</a> = Pk_F3, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea885ea3f222707a19af0694e9b6b12abb">F4</a> = Pk_F4, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea2890f37453a972bc5c69971dc599069c">F5</a> = Pk_F5, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaf5e0ed8ff0451189c721700fbaef3327">F6</a> = Pk_F6, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eac4b6972ddebf5a67bac918d06a5a204d">F7</a> = Pk_F7, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaff9f2b074d100efca2a4492fcf79dea9">F8</a> = Pk_F8, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea8cddebc9e7c4488bf7dfffb97b92ad4a">F9</a> = Pk_F9, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ead543235550ab4b7bbd85c164a96ae56c">F10</a> = Pk_F10, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea99c391d6720a670af1c851ae7c610345">F11</a> = Pk_F11, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9f195d79d30f44825a4ed0425384c6b9">F12</a> = Pk_F12, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae6af7b74c6d0c633d4dfa5536e789c8b">F13</a> = Pk_F13, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea2c516aa61135d2df9ae98093594a8e6a">F14</a> = Pk_F14, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea1ef60f4c7294531035692376b3584602">F15</a> = Pk_F15, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9a452c4b1eaf155e3bedc731f248854e">F16</a> = Pk_F16, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae65e49a3a7f41238a3a27a822eb77b84">F17</a> = Pk_F17, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea85487e6229bbd6a2b10b7b0751dfe77c">F18</a> = Pk_F18, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ead26bc64415449396d6d8903761460353">F19</a> = Pk_F19, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea31f1bb9169486afe758748d353cda924">F20</a> = Pk_F20, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea169a3e4f919839248d1db7766be17ed5">F21</a> = Pk_F21, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea12fe80fff17daad961325a992f2553ff">F22</a> = Pk_F22, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaaede1ff4b1da707eece77d59fd5dc90e">F23</a> = Pk_F23, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea848aac1e036ad6b71c814f4d2ca5bdbe">F24</a> = Pk_F24, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eae0ebc3c118bd9665f9773836882ab5b7">F25</a> = Pk_F25, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea0b5c3322b162ae23773444d5cc495cd1">F26</a> = Pk_F26, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea3c177c9e1d6992f89aa7ceb5aaa1e7ed">F27</a> = Pk_F27, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaca555928c3e65a45c925a3fe62b113b3">F28</a> = Pk_F28, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea366c17e787dbd7d57ccebad3bdb9e2ae">F29</a> = Pk_F29, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea748725be693d3786852f77f647bed934">F30</a> = Pk_F30, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea4a3baad1065ca29fe491a40f19756118">F31</a> = Pk_F31, 
+<br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea1468d4e0485091cbc408b1d39f7766de">F32</a> = Pk_F32, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea7d70c8a51e49e11af86a60109fbb6c5e">F33</a> = Pk_F33, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaf3a06312029059957c3b6da044809297">F34</a> = Pk_F34, 
+<a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaecc75a5488d9ffd94bed684191503546">F35</a> = Pk_F35
 <br />
  }</td></tr>
 <tr class="separator:ae32768126b19c5dd67c8616ceefaf30e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_widget_keys_8h_source.html#l00009">9</a> of file <a class="el" href="_widget_keys_8h_source.html">WidgetKeys.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2_widget_keys_8h_source.html#l00009">9</a> of file <a class="el" href="slib_2_ph_widgets_2include_2_widget_keys_8h_source.html">slib/PhWidgets/include/WidgetKeys.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="ae32768126b19c5dd67c8616ceefaf30e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae32768126b19c5dd67c8616ceefaf30e">&#9670;&nbsp;</a></span>eHotkeys</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae32768126b19c5dd67c8616ceefaf30e">&#9670;&nbsp;</a></span>eHotkeys <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -194,113 +384,428 @@ Public Types</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea87a886267d6575a13539280be1abc8f9"></a>Left&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eadfad8197e55313dcd365abb0007b708f"></a>BackSpace&#160;</td><td class="fielddoc"><p>BACKSPACE key. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea08d7c317e8ee82b561bb817b7f7a5260"></a>Left&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea6812add94d31e78e3d1e9ece7c08a633"></a>BackSpace&#160;</td><td class="fielddoc"><p>BACKSPACE key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea14d70e37768fe3280ffc7f4f1227c4ea"></a>Tab&#160;</td><td class="fielddoc"><p>TAB key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea8a670e9e4e8001afe71ede6a890ad63b"></a>Tab&#160;</td><td class="fielddoc"><p>TAB key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea48199308bcdcf4aa386a493585b8c518"></a>Return&#160;</td><td class="fielddoc"><p>ENTER key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea59e365f9ef0394d010ba2197ba821e08"></a>Return&#160;</td><td class="fielddoc"><p>ENTER key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea653eb63997affe2a695c55add694a517"></a>Escape&#160;</td><td class="fielddoc"><p>ESC key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eac52c28d3a7c97acd409e153b61a40059"></a>Escape&#160;</td><td class="fielddoc"><p>ESC key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea3968b5bc78c116cc1c66138e46a5b177"></a>Home&#160;</td><td class="fielddoc"><p>HOME key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea14d8edab8f0211642a02002c3aae0da8"></a>Home&#160;</td><td class="fielddoc"><p>HOME key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea55399728a9d73d9907ff94af73514a7b"></a>Up&#160;</td><td class="fielddoc"><p>UP key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae1e1778b910e57b8328f8cbb3f17d8d4"></a>Up&#160;</td><td class="fielddoc"><p>UP key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea90f59b6d72b44cb9a678ebf56c90704b"></a>Right&#160;</td><td class="fielddoc"><p>RIGHT ARROW key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea729573aea50de6dca280fd4672356f4d"></a>Right&#160;</td><td class="fielddoc"><p>RIGHT ARROW key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea0c80adfa6a5062a7761cf41de0b4ee7e"></a>Down&#160;</td><td class="fielddoc"><p>DOWN ARROW key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea7c6d6976b342426320abc15e91d22f89"></a>Down&#160;</td><td class="fielddoc"><p>DOWN ARROW key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea48d1dc824092012686281ad3e49e32da"></a>Pg_Up&#160;</td><td class="fielddoc"><p>PAGE UP key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea3c255b58e315b2856d1263a55d37e4e7"></a>Pg_Up&#160;</td><td class="fielddoc"><p>PAGE UP key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eabb1201a3f17e4a955cebf87387336431"></a>Pg_Down&#160;</td><td class="fielddoc"><p>PAGE DOWN key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea5003716e40594a66d6b4944cd01fe809"></a>Pg_Down&#160;</td><td class="fielddoc"><p>PAGE DOWN key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea4f38331a6fff668b58cb4372cba3a41c"></a>End&#160;</td><td class="fielddoc"><p>END key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea7c8f213e94e18ecdd98a3d2d4ba2f68d"></a>End&#160;</td><td class="fielddoc"><p>END key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea855c2973f18c3f9c87281db35dd40f3f"></a>Insert&#160;</td><td class="fielddoc"><p>INS key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea098c1b023a395c60ba6d128f0a970f20"></a>Insert&#160;</td><td class="fielddoc"><p>INS key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea503fd63e9f4de43a41fee371e2f0cb52"></a>Delete&#160;</td><td class="fielddoc"><p>DEL key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae90e84b09c891dd5db52fb260f1a3c08"></a>Delete&#160;</td><td class="fielddoc"><p>DEL key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ead5390ab57eb39272ed14c233eb148797"></a>Menu&#160;</td><td class="fielddoc"><p>ALT key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea7bc22080e8ee47c83edea791029295b1"></a>Menu&#160;</td><td class="fielddoc"><p>ALT key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea803f69100188696bd7346023548d0ca7"></a>F1&#160;</td><td class="fielddoc"><p>F1 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea35f83bfa08da5bdeb49b3417b38a7201"></a>F1&#160;</td><td class="fielddoc"><p>F1 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eabaa854b17e431a79f396962a8625af62"></a>F2&#160;</td><td class="fielddoc"><p>F2 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea5ddbaf0b770425ca430c47cc7e67b582"></a>F2&#160;</td><td class="fielddoc"><p>F2 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea9b3d8a54fff613b3fcd6bfb991f8f5d4"></a>F3&#160;</td><td class="fielddoc"><p>F3 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaaff229918259d4da5ef4d518116a5bbf"></a>F3&#160;</td><td class="fielddoc"><p>F3 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eac085a11ed828fc6182aaab2c6e90efcf"></a>F4&#160;</td><td class="fielddoc"><p>F4 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea885ea3f222707a19af0694e9b6b12abb"></a>F4&#160;</td><td class="fielddoc"><p>F4 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea69df71a6f24e7d0fadc06ae305bb08a3"></a>F5&#160;</td><td class="fielddoc"><p>F5 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea2890f37453a972bc5c69971dc599069c"></a>F5&#160;</td><td class="fielddoc"><p>F5 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea315325537a6254f97ca34149fd39dd87"></a>F6&#160;</td><td class="fielddoc"><p>F6 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaf5e0ed8ff0451189c721700fbaef3327"></a>F6&#160;</td><td class="fielddoc"><p>F6 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea2693d5bb4f58c2f7423b237b45fc389b"></a>F7&#160;</td><td class="fielddoc"><p>F7 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eac4b6972ddebf5a67bac918d06a5a204d"></a>F7&#160;</td><td class="fielddoc"><p>F7 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea6abce9f29cab5a007a7ac225af5cf9a1"></a>F8&#160;</td><td class="fielddoc"><p>F8 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaff9f2b074d100efca2a4492fcf79dea9"></a>F8&#160;</td><td class="fielddoc"><p>F8 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea85d109ee50a8dab82699662373d78ec6"></a>F9&#160;</td><td class="fielddoc"><p>F9 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea8cddebc9e7c4488bf7dfffb97b92ad4a"></a>F9&#160;</td><td class="fielddoc"><p>F9 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eab40a9acb72bf863d775b7198a986cf50"></a>F10&#160;</td><td class="fielddoc"><p>F10 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ead543235550ab4b7bbd85c164a96ae56c"></a>F10&#160;</td><td class="fielddoc"><p>F10 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea85b00b65d6fdb6a3aa2c89a3a69ea28b"></a>F11&#160;</td><td class="fielddoc"><p>F11 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea99c391d6720a670af1c851ae7c610345"></a>F11&#160;</td><td class="fielddoc"><p>F11 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaf3c13c6ab9e51d333cdf5852b92696ce"></a>F12&#160;</td><td class="fielddoc"><p>F12 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea9f195d79d30f44825a4ed0425384c6b9"></a>F12&#160;</td><td class="fielddoc"><p>F12 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea0a310c753e790bee6a147d827030a511"></a>F13&#160;</td><td class="fielddoc"><p>F13 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae6af7b74c6d0c633d4dfa5536e789c8b"></a>F13&#160;</td><td class="fielddoc"><p>F13 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea566a5f3a87586080e8b1673c98d0d372"></a>F14&#160;</td><td class="fielddoc"><p>F14 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea2c516aa61135d2df9ae98093594a8e6a"></a>F14&#160;</td><td class="fielddoc"><p>F14 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea1fabe87f2b296d8e6c88e5ef307d7479"></a>F15&#160;</td><td class="fielddoc"><p>F15 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea1ef60f4c7294531035692376b3584602"></a>F15&#160;</td><td class="fielddoc"><p>F15 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea9a8d96a51eabb4df4d5dabd02ed31116"></a>F16&#160;</td><td class="fielddoc"><p>F16 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea9a452c4b1eaf155e3bedc731f248854e"></a>F16&#160;</td><td class="fielddoc"><p>F16 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea393a952968581bb2e382550bc605ff2d"></a>F17&#160;</td><td class="fielddoc"><p>F17 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae65e49a3a7f41238a3a27a822eb77b84"></a>F17&#160;</td><td class="fielddoc"><p>F17 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea9d2293932188334c07159853c21e362d"></a>F18&#160;</td><td class="fielddoc"><p>F18 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea85487e6229bbd6a2b10b7b0751dfe77c"></a>F18&#160;</td><td class="fielddoc"><p>F18 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea61f686ec429ca6efa434b6e6464b8503"></a>F19&#160;</td><td class="fielddoc"><p>F19 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ead26bc64415449396d6d8903761460353"></a>F19&#160;</td><td class="fielddoc"><p>F19 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea38560707ffec213cc0e6e2edc72a0f7c"></a>F20&#160;</td><td class="fielddoc"><p>F20 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea31f1bb9169486afe758748d353cda924"></a>F20&#160;</td><td class="fielddoc"><p>F20 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea82934d51ae874215997937a9f42b5ad5"></a>F21&#160;</td><td class="fielddoc"><p>F21 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea169a3e4f919839248d1db7766be17ed5"></a>F21&#160;</td><td class="fielddoc"><p>F21 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea09326359288af9a249196c2c5e2d799a"></a>F22&#160;</td><td class="fielddoc"><p>F22 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea12fe80fff17daad961325a992f2553ff"></a>F22&#160;</td><td class="fielddoc"><p>F22 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea4c615437341f9ec11a8187c7a6557ef1"></a>F23&#160;</td><td class="fielddoc"><p>F23 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaaede1ff4b1da707eece77d59fd5dc90e"></a>F23&#160;</td><td class="fielddoc"><p>F23 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea64f99524f46b22e5070d7b742ca59b5e"></a>F24&#160;</td><td class="fielddoc"><p>F24 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea848aac1e036ad6b71c814f4d2ca5bdbe"></a>F24&#160;</td><td class="fielddoc"><p>F24 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea978098dd4c3b5dacc91961941596a235"></a>F25&#160;</td><td class="fielddoc"><p>F25 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae0ebc3c118bd9665f9773836882ab5b7"></a>F25&#160;</td><td class="fielddoc"><p>F25 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaefa6d497e1e7423f3cc3d7981957e095"></a>F26&#160;</td><td class="fielddoc"><p>F26 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea0b5c3322b162ae23773444d5cc495cd1"></a>F26&#160;</td><td class="fielddoc"><p>F26 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea12bc1fdbf6c3a851ece6f67a65cfe3c1"></a>F27&#160;</td><td class="fielddoc"><p>F27 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea3c177c9e1d6992f89aa7ceb5aaa1e7ed"></a>F27&#160;</td><td class="fielddoc"><p>F27 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea6ad84fa685de1d02387b2259bf4f7bc7"></a>F28&#160;</td><td class="fielddoc"><p>F28 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaca555928c3e65a45c925a3fe62b113b3"></a>F28&#160;</td><td class="fielddoc"><p>F28 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea6082fa44e9126a59730510108fc60830"></a>F29&#160;</td><td class="fielddoc"><p>F29 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea366c17e787dbd7d57ccebad3bdb9e2ae"></a>F29&#160;</td><td class="fielddoc"><p>F29 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea5100dc03513c90a0c9fc9a8cf7c30bb7"></a>F30&#160;</td><td class="fielddoc"><p>F30 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea748725be693d3786852f77f647bed934"></a>F30&#160;</td><td class="fielddoc"><p>F30 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eabd8ab1bb04c195b068d957e2fa7687e9"></a>F31&#160;</td><td class="fielddoc"><p>F31 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea4a3baad1065ca29fe491a40f19756118"></a>F31&#160;</td><td class="fielddoc"><p>F31 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaee202c400604f94fc89d040891ee4c8a"></a>F32&#160;</td><td class="fielddoc"><p>F32 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea1468d4e0485091cbc408b1d39f7766de"></a>F32&#160;</td><td class="fielddoc"><p>F32 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea799a3d95249161f4141b80a0491dc505"></a>F33&#160;</td><td class="fielddoc"><p>F33 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea7d70c8a51e49e11af86a60109fbb6c5e"></a>F33&#160;</td><td class="fielddoc"><p>F33 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eabeff9439a3570febf1f517c953a28cc6"></a>F34&#160;</td><td class="fielddoc"><p>F34 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaf3a06312029059957c3b6da044809297"></a>F34&#160;</td><td class="fielddoc"><p>F34 key. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eadde296b09db866cca811b00a5368a9d8"></a>F35&#160;</td><td class="fielddoc"><p>F35 key. </p>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaecc75a5488d9ffd94bed684191503546"></a>F35&#160;</td><td class="fielddoc"><p>F35 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea08d7c317e8ee82b561bb817b7f7a5260"></a>Left&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea6812add94d31e78e3d1e9ece7c08a633"></a>BackSpace&#160;</td><td class="fielddoc"><p>BACKSPACE key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea8a670e9e4e8001afe71ede6a890ad63b"></a>Tab&#160;</td><td class="fielddoc"><p>TAB key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea59e365f9ef0394d010ba2197ba821e08"></a>Return&#160;</td><td class="fielddoc"><p>ENTER key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eac52c28d3a7c97acd409e153b61a40059"></a>Escape&#160;</td><td class="fielddoc"><p>ESC key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea14d8edab8f0211642a02002c3aae0da8"></a>Home&#160;</td><td class="fielddoc"><p>HOME key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae1e1778b910e57b8328f8cbb3f17d8d4"></a>Up&#160;</td><td class="fielddoc"><p>UP key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea729573aea50de6dca280fd4672356f4d"></a>Right&#160;</td><td class="fielddoc"><p>RIGHT ARROW key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea7c6d6976b342426320abc15e91d22f89"></a>Down&#160;</td><td class="fielddoc"><p>DOWN ARROW key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea3c255b58e315b2856d1263a55d37e4e7"></a>Pg_Up&#160;</td><td class="fielddoc"><p>PAGE UP key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea5003716e40594a66d6b4944cd01fe809"></a>Pg_Down&#160;</td><td class="fielddoc"><p>PAGE DOWN key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea7c8f213e94e18ecdd98a3d2d4ba2f68d"></a>End&#160;</td><td class="fielddoc"><p>END key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea098c1b023a395c60ba6d128f0a970f20"></a>Insert&#160;</td><td class="fielddoc"><p>INS key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae90e84b09c891dd5db52fb260f1a3c08"></a>Delete&#160;</td><td class="fielddoc"><p>DEL key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea7bc22080e8ee47c83edea791029295b1"></a>Menu&#160;</td><td class="fielddoc"><p>ALT key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea35f83bfa08da5bdeb49b3417b38a7201"></a>F1&#160;</td><td class="fielddoc"><p>F1 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea5ddbaf0b770425ca430c47cc7e67b582"></a>F2&#160;</td><td class="fielddoc"><p>F2 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaaff229918259d4da5ef4d518116a5bbf"></a>F3&#160;</td><td class="fielddoc"><p>F3 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea885ea3f222707a19af0694e9b6b12abb"></a>F4&#160;</td><td class="fielddoc"><p>F4 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea2890f37453a972bc5c69971dc599069c"></a>F5&#160;</td><td class="fielddoc"><p>F5 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaf5e0ed8ff0451189c721700fbaef3327"></a>F6&#160;</td><td class="fielddoc"><p>F6 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eac4b6972ddebf5a67bac918d06a5a204d"></a>F7&#160;</td><td class="fielddoc"><p>F7 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaff9f2b074d100efca2a4492fcf79dea9"></a>F8&#160;</td><td class="fielddoc"><p>F8 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea8cddebc9e7c4488bf7dfffb97b92ad4a"></a>F9&#160;</td><td class="fielddoc"><p>F9 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ead543235550ab4b7bbd85c164a96ae56c"></a>F10&#160;</td><td class="fielddoc"><p>F10 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea99c391d6720a670af1c851ae7c610345"></a>F11&#160;</td><td class="fielddoc"><p>F11 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea9f195d79d30f44825a4ed0425384c6b9"></a>F12&#160;</td><td class="fielddoc"><p>F12 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae6af7b74c6d0c633d4dfa5536e789c8b"></a>F13&#160;</td><td class="fielddoc"><p>F13 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea2c516aa61135d2df9ae98093594a8e6a"></a>F14&#160;</td><td class="fielddoc"><p>F14 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea1ef60f4c7294531035692376b3584602"></a>F15&#160;</td><td class="fielddoc"><p>F15 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea9a452c4b1eaf155e3bedc731f248854e"></a>F16&#160;</td><td class="fielddoc"><p>F16 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae65e49a3a7f41238a3a27a822eb77b84"></a>F17&#160;</td><td class="fielddoc"><p>F17 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea85487e6229bbd6a2b10b7b0751dfe77c"></a>F18&#160;</td><td class="fielddoc"><p>F18 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ead26bc64415449396d6d8903761460353"></a>F19&#160;</td><td class="fielddoc"><p>F19 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea31f1bb9169486afe758748d353cda924"></a>F20&#160;</td><td class="fielddoc"><p>F20 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea169a3e4f919839248d1db7766be17ed5"></a>F21&#160;</td><td class="fielddoc"><p>F21 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea12fe80fff17daad961325a992f2553ff"></a>F22&#160;</td><td class="fielddoc"><p>F22 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaaede1ff4b1da707eece77d59fd5dc90e"></a>F23&#160;</td><td class="fielddoc"><p>F23 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea848aac1e036ad6b71c814f4d2ca5bdbe"></a>F24&#160;</td><td class="fielddoc"><p>F24 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae0ebc3c118bd9665f9773836882ab5b7"></a>F25&#160;</td><td class="fielddoc"><p>F25 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea0b5c3322b162ae23773444d5cc495cd1"></a>F26&#160;</td><td class="fielddoc"><p>F26 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea3c177c9e1d6992f89aa7ceb5aaa1e7ed"></a>F27&#160;</td><td class="fielddoc"><p>F27 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaca555928c3e65a45c925a3fe62b113b3"></a>F28&#160;</td><td class="fielddoc"><p>F28 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea366c17e787dbd7d57ccebad3bdb9e2ae"></a>F29&#160;</td><td class="fielddoc"><p>F29 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea748725be693d3786852f77f647bed934"></a>F30&#160;</td><td class="fielddoc"><p>F30 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea4a3baad1065ca29fe491a40f19756118"></a>F31&#160;</td><td class="fielddoc"><p>F31 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea1468d4e0485091cbc408b1d39f7766de"></a>F32&#160;</td><td class="fielddoc"><p>F32 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea7d70c8a51e49e11af86a60109fbb6c5e"></a>F33&#160;</td><td class="fielddoc"><p>F33 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaf3a06312029059957c3b6da044809297"></a>F34&#160;</td><td class="fielddoc"><p>F34 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaecc75a5488d9ffd94bed684191503546"></a>F35&#160;</td><td class="fielddoc"><p>F35 key. </p>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_widget_keys_8h_source.html#l00011">11</a> of file <a class="el" href="_widget_keys_8h_source.html">WidgetKeys.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2_widget_keys_8h_source.html#l00011">11</a> of file <a class="el" href="slib_2_ph_widgets_2include_2_widget_keys_8h_source.html">slib/PhWidgets/include/WidgetKeys.h</a>.</p>
+
+</div>
+</div>
+<a id="ae32768126b19c5dd67c8616ceefaf30e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae32768126b19c5dd67c8616ceefaf30e">&#9670;&nbsp;</a></span>eHotkeys <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30e">PhWidgets::Hotkeys::eHotkeys</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea08d7c317e8ee82b561bb817b7f7a5260"></a>Left&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea6812add94d31e78e3d1e9ece7c08a633"></a>BackSpace&#160;</td><td class="fielddoc"><p>BACKSPACE key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea8a670e9e4e8001afe71ede6a890ad63b"></a>Tab&#160;</td><td class="fielddoc"><p>TAB key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea59e365f9ef0394d010ba2197ba821e08"></a>Return&#160;</td><td class="fielddoc"><p>ENTER key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eac52c28d3a7c97acd409e153b61a40059"></a>Escape&#160;</td><td class="fielddoc"><p>ESC key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea14d8edab8f0211642a02002c3aae0da8"></a>Home&#160;</td><td class="fielddoc"><p>HOME key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae1e1778b910e57b8328f8cbb3f17d8d4"></a>Up&#160;</td><td class="fielddoc"><p>UP key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea729573aea50de6dca280fd4672356f4d"></a>Right&#160;</td><td class="fielddoc"><p>RIGHT ARROW key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea7c6d6976b342426320abc15e91d22f89"></a>Down&#160;</td><td class="fielddoc"><p>DOWN ARROW key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea3c255b58e315b2856d1263a55d37e4e7"></a>Pg_Up&#160;</td><td class="fielddoc"><p>PAGE UP key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea5003716e40594a66d6b4944cd01fe809"></a>Pg_Down&#160;</td><td class="fielddoc"><p>PAGE DOWN key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea7c8f213e94e18ecdd98a3d2d4ba2f68d"></a>End&#160;</td><td class="fielddoc"><p>END key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea098c1b023a395c60ba6d128f0a970f20"></a>Insert&#160;</td><td class="fielddoc"><p>INS key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae90e84b09c891dd5db52fb260f1a3c08"></a>Delete&#160;</td><td class="fielddoc"><p>DEL key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea7bc22080e8ee47c83edea791029295b1"></a>Menu&#160;</td><td class="fielddoc"><p>ALT key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea35f83bfa08da5bdeb49b3417b38a7201"></a>F1&#160;</td><td class="fielddoc"><p>F1 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea5ddbaf0b770425ca430c47cc7e67b582"></a>F2&#160;</td><td class="fielddoc"><p>F2 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaaff229918259d4da5ef4d518116a5bbf"></a>F3&#160;</td><td class="fielddoc"><p>F3 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea885ea3f222707a19af0694e9b6b12abb"></a>F4&#160;</td><td class="fielddoc"><p>F4 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea2890f37453a972bc5c69971dc599069c"></a>F5&#160;</td><td class="fielddoc"><p>F5 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaf5e0ed8ff0451189c721700fbaef3327"></a>F6&#160;</td><td class="fielddoc"><p>F6 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eac4b6972ddebf5a67bac918d06a5a204d"></a>F7&#160;</td><td class="fielddoc"><p>F7 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaff9f2b074d100efca2a4492fcf79dea9"></a>F8&#160;</td><td class="fielddoc"><p>F8 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea8cddebc9e7c4488bf7dfffb97b92ad4a"></a>F9&#160;</td><td class="fielddoc"><p>F9 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ead543235550ab4b7bbd85c164a96ae56c"></a>F10&#160;</td><td class="fielddoc"><p>F10 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea99c391d6720a670af1c851ae7c610345"></a>F11&#160;</td><td class="fielddoc"><p>F11 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea9f195d79d30f44825a4ed0425384c6b9"></a>F12&#160;</td><td class="fielddoc"><p>F12 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae6af7b74c6d0c633d4dfa5536e789c8b"></a>F13&#160;</td><td class="fielddoc"><p>F13 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea2c516aa61135d2df9ae98093594a8e6a"></a>F14&#160;</td><td class="fielddoc"><p>F14 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea1ef60f4c7294531035692376b3584602"></a>F15&#160;</td><td class="fielddoc"><p>F15 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea9a452c4b1eaf155e3bedc731f248854e"></a>F16&#160;</td><td class="fielddoc"><p>F16 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae65e49a3a7f41238a3a27a822eb77b84"></a>F17&#160;</td><td class="fielddoc"><p>F17 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea85487e6229bbd6a2b10b7b0751dfe77c"></a>F18&#160;</td><td class="fielddoc"><p>F18 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ead26bc64415449396d6d8903761460353"></a>F19&#160;</td><td class="fielddoc"><p>F19 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea31f1bb9169486afe758748d353cda924"></a>F20&#160;</td><td class="fielddoc"><p>F20 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea169a3e4f919839248d1db7766be17ed5"></a>F21&#160;</td><td class="fielddoc"><p>F21 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea12fe80fff17daad961325a992f2553ff"></a>F22&#160;</td><td class="fielddoc"><p>F22 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaaede1ff4b1da707eece77d59fd5dc90e"></a>F23&#160;</td><td class="fielddoc"><p>F23 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea848aac1e036ad6b71c814f4d2ca5bdbe"></a>F24&#160;</td><td class="fielddoc"><p>F24 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae0ebc3c118bd9665f9773836882ab5b7"></a>F25&#160;</td><td class="fielddoc"><p>F25 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea0b5c3322b162ae23773444d5cc495cd1"></a>F26&#160;</td><td class="fielddoc"><p>F26 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea3c177c9e1d6992f89aa7ceb5aaa1e7ed"></a>F27&#160;</td><td class="fielddoc"><p>F27 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaca555928c3e65a45c925a3fe62b113b3"></a>F28&#160;</td><td class="fielddoc"><p>F28 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea366c17e787dbd7d57ccebad3bdb9e2ae"></a>F29&#160;</td><td class="fielddoc"><p>F29 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea748725be693d3786852f77f647bed934"></a>F30&#160;</td><td class="fielddoc"><p>F30 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea4a3baad1065ca29fe491a40f19756118"></a>F31&#160;</td><td class="fielddoc"><p>F31 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea1468d4e0485091cbc408b1d39f7766de"></a>F32&#160;</td><td class="fielddoc"><p>F32 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea7d70c8a51e49e11af86a60109fbb6c5e"></a>F33&#160;</td><td class="fielddoc"><p>F33 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaf3a06312029059957c3b6da044809297"></a>F34&#160;</td><td class="fielddoc"><p>F34 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaecc75a5488d9ffd94bed684191503546"></a>F35&#160;</td><td class="fielddoc"><p>F35 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea08d7c317e8ee82b561bb817b7f7a5260"></a>Left&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea6812add94d31e78e3d1e9ece7c08a633"></a>BackSpace&#160;</td><td class="fielddoc"><p>BACKSPACE key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea8a670e9e4e8001afe71ede6a890ad63b"></a>Tab&#160;</td><td class="fielddoc"><p>TAB key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea59e365f9ef0394d010ba2197ba821e08"></a>Return&#160;</td><td class="fielddoc"><p>ENTER key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eac52c28d3a7c97acd409e153b61a40059"></a>Escape&#160;</td><td class="fielddoc"><p>ESC key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea14d8edab8f0211642a02002c3aae0da8"></a>Home&#160;</td><td class="fielddoc"><p>HOME key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae1e1778b910e57b8328f8cbb3f17d8d4"></a>Up&#160;</td><td class="fielddoc"><p>UP key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea729573aea50de6dca280fd4672356f4d"></a>Right&#160;</td><td class="fielddoc"><p>RIGHT ARROW key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea7c6d6976b342426320abc15e91d22f89"></a>Down&#160;</td><td class="fielddoc"><p>DOWN ARROW key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea3c255b58e315b2856d1263a55d37e4e7"></a>Pg_Up&#160;</td><td class="fielddoc"><p>PAGE UP key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea5003716e40594a66d6b4944cd01fe809"></a>Pg_Down&#160;</td><td class="fielddoc"><p>PAGE DOWN key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea7c8f213e94e18ecdd98a3d2d4ba2f68d"></a>End&#160;</td><td class="fielddoc"><p>END key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea098c1b023a395c60ba6d128f0a970f20"></a>Insert&#160;</td><td class="fielddoc"><p>INS key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae90e84b09c891dd5db52fb260f1a3c08"></a>Delete&#160;</td><td class="fielddoc"><p>DEL key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea7bc22080e8ee47c83edea791029295b1"></a>Menu&#160;</td><td class="fielddoc"><p>ALT key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea35f83bfa08da5bdeb49b3417b38a7201"></a>F1&#160;</td><td class="fielddoc"><p>F1 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea5ddbaf0b770425ca430c47cc7e67b582"></a>F2&#160;</td><td class="fielddoc"><p>F2 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaaff229918259d4da5ef4d518116a5bbf"></a>F3&#160;</td><td class="fielddoc"><p>F3 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea885ea3f222707a19af0694e9b6b12abb"></a>F4&#160;</td><td class="fielddoc"><p>F4 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea2890f37453a972bc5c69971dc599069c"></a>F5&#160;</td><td class="fielddoc"><p>F5 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaf5e0ed8ff0451189c721700fbaef3327"></a>F6&#160;</td><td class="fielddoc"><p>F6 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eac4b6972ddebf5a67bac918d06a5a204d"></a>F7&#160;</td><td class="fielddoc"><p>F7 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaff9f2b074d100efca2a4492fcf79dea9"></a>F8&#160;</td><td class="fielddoc"><p>F8 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea8cddebc9e7c4488bf7dfffb97b92ad4a"></a>F9&#160;</td><td class="fielddoc"><p>F9 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ead543235550ab4b7bbd85c164a96ae56c"></a>F10&#160;</td><td class="fielddoc"><p>F10 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea99c391d6720a670af1c851ae7c610345"></a>F11&#160;</td><td class="fielddoc"><p>F11 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea9f195d79d30f44825a4ed0425384c6b9"></a>F12&#160;</td><td class="fielddoc"><p>F12 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae6af7b74c6d0c633d4dfa5536e789c8b"></a>F13&#160;</td><td class="fielddoc"><p>F13 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea2c516aa61135d2df9ae98093594a8e6a"></a>F14&#160;</td><td class="fielddoc"><p>F14 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea1ef60f4c7294531035692376b3584602"></a>F15&#160;</td><td class="fielddoc"><p>F15 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea9a452c4b1eaf155e3bedc731f248854e"></a>F16&#160;</td><td class="fielddoc"><p>F16 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae65e49a3a7f41238a3a27a822eb77b84"></a>F17&#160;</td><td class="fielddoc"><p>F17 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea85487e6229bbd6a2b10b7b0751dfe77c"></a>F18&#160;</td><td class="fielddoc"><p>F18 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ead26bc64415449396d6d8903761460353"></a>F19&#160;</td><td class="fielddoc"><p>F19 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea31f1bb9169486afe758748d353cda924"></a>F20&#160;</td><td class="fielddoc"><p>F20 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea169a3e4f919839248d1db7766be17ed5"></a>F21&#160;</td><td class="fielddoc"><p>F21 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea12fe80fff17daad961325a992f2553ff"></a>F22&#160;</td><td class="fielddoc"><p>F22 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaaede1ff4b1da707eece77d59fd5dc90e"></a>F23&#160;</td><td class="fielddoc"><p>F23 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea848aac1e036ad6b71c814f4d2ca5bdbe"></a>F24&#160;</td><td class="fielddoc"><p>F24 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eae0ebc3c118bd9665f9773836882ab5b7"></a>F25&#160;</td><td class="fielddoc"><p>F25 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea0b5c3322b162ae23773444d5cc495cd1"></a>F26&#160;</td><td class="fielddoc"><p>F26 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea3c177c9e1d6992f89aa7ceb5aaa1e7ed"></a>F27&#160;</td><td class="fielddoc"><p>F27 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaca555928c3e65a45c925a3fe62b113b3"></a>F28&#160;</td><td class="fielddoc"><p>F28 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea366c17e787dbd7d57ccebad3bdb9e2ae"></a>F29&#160;</td><td class="fielddoc"><p>F29 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea748725be693d3786852f77f647bed934"></a>F30&#160;</td><td class="fielddoc"><p>F30 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea4a3baad1065ca29fe491a40f19756118"></a>F31&#160;</td><td class="fielddoc"><p>F31 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea1468d4e0485091cbc408b1d39f7766de"></a>F32&#160;</td><td class="fielddoc"><p>F32 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30ea7d70c8a51e49e11af86a60109fbb6c5e"></a>F33&#160;</td><td class="fielddoc"><p>F33 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaf3a06312029059957c3b6da044809297"></a>F34&#160;</td><td class="fielddoc"><p>F34 key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae32768126b19c5dd67c8616ceefaf30eaecc75a5488d9ffd94bed684191503546"></a>F35&#160;</td><td class="fielddoc"><p>F35 key. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="src_2_widget_keys_8h_source.html#l00011">11</a> of file <a class="el" href="src_2_widget_keys_8h_source.html">src/WidgetKeys.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="_widget_keys_8h_source.html">WidgetKeys.h</a></li>
+<li><a class="el" href="slib_2_ph_widgets_2include_2_widget_keys_8h_source.html">slib/PhWidgets/include/WidgetKeys.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

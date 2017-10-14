@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['image',['Image',['../namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_image',1,'PhWidgets::detail::def_orig::Image&lt; PrevT, LinkT, ResourceT &gt;'],['../struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_image.html',1,'PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Image&lt; ArgT, ResourceT &gt;']]],
+  ['image',['Image',['../struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_image.html',1,'PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Image&lt; ArgT, ResourceT &gt;'],['../namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_image',1,'PhWidgets::detail::def_orig::Image&lt; PrevT, LinkT, ResourceT &gt;']]],
   ['image_3c_20prevt_2c_20argt_2c_20resourcet_20_3e',['Image&lt; PrevT, ArgT, ResourceT &gt;',['../namespace_ph_widgets_1_1detail_1_1def__orig.html',1,'PhWidgets::detail::def_orig']]],
   ['integral_5fconstant',['integral_constant',['../structstd_1_1integral__constant.html',1,'std']]],
   ['integral_5fconstant_3c_20bool_2c_20val_20_3e',['integral_constant&lt; bool, Val &gt;',['../structstd_1_1integral__constant.html',1,'std']]],
+  ['iphwidgetsproperty',['IPhWidgetsProperty',['../struct_ph_widgets_1_1_i_ph_widgets_property.html',1,'PhWidgets']]],
   ['iptwidget',['IPtWidget',['../class_ph_widgets_1_1detail_1_1_i_pt_widget.html',1,'PhWidgets::detail']]],
   ['is_5fconst',['is_const',['../structstd_1_1is__const.html',1,'std']]],
   ['is_5fconst_3c_20const_20t_20_2a_20_3e',['is_const&lt; const T * &gt;',['../structstd_1_1is__const_3_01const_01_t_01_5_01_4.html',1,'std']]],

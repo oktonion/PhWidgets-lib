@@ -24,6 +24,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "PhWidgets library", "index.html", [
+    [ "PhWidgets-lib", "md__ph_widgets-lib__r_e_a_d_m_e.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -39,7 +40,7 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Typedefs", "functions_type.html", null ],
+        [ "Typedefs", "functions_type.html", "functions_type" ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Enumerator", "functions_eval.html", "functions_eval" ],
         [ "Related Functions", "functions_rela.html", null ]
@@ -60,13 +61,25 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"class_ph_widgets_1_1_text.html#a335ff77915730438c7dcd9ac9b55d42d",
-"functions_enum.html",
-"struct_ph_widgets_1_1_basic_1_1_arguments.html",
-"struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea9d2293932188334c07159853c21e362d",
-"struct_ph_widgets_1_1_timer_1_1_this_callbacks_1_1_callback.html#a317633362850afe4a0827f51e58c4bbb",
-"struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_e8129a316a0ef7204b9a8ee724c64fd9.html#acda11e44a7ac0e9b8f2bf8f902b93a07",
-"structstd_1_1is__const_3_01const_01_t_01_5_01_4.html"
+"class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks",
+"class_ph_widgets_1_1phproperty_3_01void_00_01cppproperties_1_1detail_1_1property__flag_1_1ro_01_4.html#a6023fd7cd49a20e05cbed3a29499ea33",
+"functions_type_i.html",
+"namespace_ph_widgets_1_1detail_1_1def__orig.html#a8b92a24339c8792d0c6b96be62efe0aa",
+"namespacephevents.html",
+"struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_char.html#ab35e898a310b71235ff62b06a6029a68a9183a6455537fa600af33b5bb2d709b7",
+"struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_unsigned_short.html#ad32c6140df7c7d3a31dd990957bd7559",
+"struct_ph_widgets_1_1_container_1_1_this_args_1_1_arg_int.html#ac72def65d97d863bf244de2c5400aee0ac07e2a176a4ad195852bb30458c19446",
+"struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da478492878dc6e34b0d848d1b954f3ccd",
+"struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30eaf3a06312029059957c3b6da044809297",
+"struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_p_widget.html#acf71a63ef56a82394c5eefaad5272fd2",
+"struct_ph_widgets_1_1_numeric_1_1_this_args_1_1_arg_unsigned_short.html#a4c65011a69b305abd8dcbece1766eba9aa6daa571e9741a875adc85f6dc22ca39",
+"struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks_1_1_callback.html#ad21c295e59c1ec66db0f6266d52651f6",
+"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_area.html#a8c7ab307c4e0dd7b88aaa96d582bb58e",
+"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_void.html#aab59819c4a5047b0216bc9f72f821a17afe5b0bfc69d87b48e5b638c4b42dee22",
+"struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_hotkey_callback.html",
+"struct_ph_widgets_1_1detail_1_1_widget_callback_3_01_link_t_00_01_widget_resource_group_type_1_12acecaeab324489a3f31a1070738fe04.html#a7545e58f6d292ca29fa8b4a44784544e",
+"structcppproperties_1_1detail_1_1flag__chooser_3_01_t1_01_6_01_4.html",
+"structstdex_1_1type__zero_3_01const_01_t[_n]_4.html#a1456aef096650ad15096b8d26eb296ac"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

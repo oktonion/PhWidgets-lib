@@ -1,10 +1,27 @@
 var struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback =
 [
     [ "eCallback", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7", [
-      [ "modify_notify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7ab9ae2eb228fdbf72c87a03f727b8ab74", null ],
-      [ "modify_verify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7af89118c8741cbd3f975fed2f37aaedc7", null ],
-      [ "motion_notify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7ac73921a0f4e72903230653ac3b189579", null ],
-      [ "motion_verify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a34043759fda2bc5428e9ba5895cd63ca", null ],
-      [ "text_changed", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a6805f585a81a09330d5d572fe9c08fb3", null ]
+      [ "modify_notify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a8b7127274353be5977aa9b9fecd6c872", null ],
+      [ "modify_verify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7aba24a243d196c9f8405572895148b656", null ],
+      [ "motion_notify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a67ba46cdc01de4c02ef0f3a80f65b651", null ],
+      [ "motion_verify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a3bbc4e44180ef870b4a8517771a827f2", null ],
+      [ "text_changed", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a24381b3eee7d6d9cbbd1f06ec5c4547f", null ],
+      [ "modify_notify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a8b7127274353be5977aa9b9fecd6c872", null ],
+      [ "modify_verify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7aba24a243d196c9f8405572895148b656", null ],
+      [ "motion_notify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a67ba46cdc01de4c02ef0f3a80f65b651", null ],
+      [ "motion_verify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a3bbc4e44180ef870b4a8517771a827f2", null ],
+      [ "text_changed", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a24381b3eee7d6d9cbbd1f06ec5c4547f", null ]
+    ] ],
+    [ "eCallback", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7", [
+      [ "modify_notify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a8b7127274353be5977aa9b9fecd6c872", null ],
+      [ "modify_verify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7aba24a243d196c9f8405572895148b656", null ],
+      [ "motion_notify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a67ba46cdc01de4c02ef0f3a80f65b651", null ],
+      [ "motion_verify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a3bbc4e44180ef870b4a8517771a827f2", null ],
+      [ "text_changed", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a24381b3eee7d6d9cbbd1f06ec5c4547f", null ],
+      [ "modify_notify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a8b7127274353be5977aa9b9fecd6c872", null ],
+      [ "modify_verify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7aba24a243d196c9f8405572895148b656", null ],
+      [ "motion_notify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a67ba46cdc01de4c02ef0f3a80f65b651", null ],
+      [ "motion_verify", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a3bbc4e44180ef870b4a8517771a827f2", null ],
+      [ "text_changed", "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7a24381b3eee7d6d9cbbd1f06ec5c4547f", null ]
     ] ]
 ];

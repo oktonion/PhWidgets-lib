@@ -2,6 +2,8 @@ var struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_argum
 [
     [ "WidgetArguments", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widgd2643eb865ee61f00871679414e33197" ],
     [ "WidgetCallbacks", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widg40cb6ccdccec5f64d7436e231476e97f.html#a549cd838c4e55bc6b753b9a3030e8b3b", null ],
+    [ "WidgetCallbacks", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widg40cb6ccdccec5f64d7436e231476e97f.html#a549cd838c4e55bc6b753b9a3030e8b3b", null ],
+    [ "ArgumentType", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widg40cb6ccdccec5f64d7436e231476e97f.html#a4b9873f9d78cdb0e56d8014e29639d1d", null ],
     [ "ArgumentType", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widg40cb6ccdccec5f64d7436e231476e97f.html#a4b9873f9d78cdb0e56d8014e29639d1d", null ],
     [ "argument", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widg40cb6ccdccec5f64d7436e231476e97f.html#a1fe0dbbf106e06c35803900e6f6c00a3", null ],
     [ "callback", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_argument_type_3_01_widget_arguments_base_00_01_widg40cb6ccdccec5f64d7436e231476e97f.html#a7126716e463e7445d77560a627700d18", null ]

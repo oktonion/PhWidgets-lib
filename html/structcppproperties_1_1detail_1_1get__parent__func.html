@@ -38,7 +38,7 @@
   
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.0</span>
+   &#160;<span id="projectnumber">0.3.1</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -108,10 +108,18 @@ $(document).ready(function(){initNavTree('structcppproperties_1_1detail_1_1get__
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="property_8hpp_source.html">PhWidgets-lib/src/service/property.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="slib_2_ph_widgets_2include_2service_2property_8hpp_source.html">PhWidgets-lib/slib/PhWidgets/include/service/property.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
+<tr class="memitem:a2a1be19231090954dd0b17169701e7a0"><td class="memItemLeft" align="right" valign="top">typedef ValueT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#a2a1be19231090954dd0b17169701e7a0">value_t</a></td></tr>
+<tr class="separator:a2a1be19231090954dd0b17169701e7a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c94fd58356cd515a949296646f961fb"><td class="memItemLeft" align="right" valign="top">typedef ParentT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#a8c94fd58356cd515a949296646f961fb">parent_t</a></td></tr>
+<tr class="separator:a8c94fd58356cd515a949296646f961fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fc701280582bec9b656491b9a8823b3"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#a2a1be19231090954dd0b17169701e7a0">value_t</a>(parent_t::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#a8fc701280582bec9b656491b9a8823b3">getter_t</a>) () const</td></tr>
+<tr class="separator:a8fc701280582bec9b656491b9a8823b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7704bb4081b9b7e184b0dd1e71aa332"><td class="memItemLeft" align="right" valign="top">typedef void(parent_t::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#ac7704bb4081b9b7e184b0dd1e71aa332">setter_t</a>) (<a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#a2a1be19231090954dd0b17169701e7a0">value_t</a>)</td></tr>
+<tr class="separator:ac7704bb4081b9b7e184b0dd1e71aa332"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a1be19231090954dd0b17169701e7a0"><td class="memItemLeft" align="right" valign="top">typedef ValueT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#a2a1be19231090954dd0b17169701e7a0">value_t</a></td></tr>
 <tr class="separator:a2a1be19231090954dd0b17169701e7a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c94fd58356cd515a949296646f961fb"><td class="memItemLeft" align="right" valign="top">typedef ParentT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#a8c94fd58356cd515a949296646f961fb">parent_t</a></td></tr>
@@ -127,16 +135,20 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:ab4da6c0b2d7a4d68ee76f26ab088fd2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16c218b7057574140d03c7bccf5c6131"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#ac7704bb4081b9b7e184b0dd1e71aa332">setter_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#a16c218b7057574140d03c7bccf5c6131">default_setter</a> ()</td></tr>
 <tr class="separator:a16c218b7057574140d03c7bccf5c6131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4da6c0b2d7a4d68ee76f26ab088fd2a"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#a8fc701280582bec9b656491b9a8823b3">getter_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#ab4da6c0b2d7a4d68ee76f26ab088fd2a">default_getter</a> ()</td></tr>
+<tr class="separator:ab4da6c0b2d7a4d68ee76f26ab088fd2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16c218b7057574140d03c7bccf5c6131"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#ac7704bb4081b9b7e184b0dd1e71aa332">setter_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#a16c218b7057574140d03c7bccf5c6131">default_setter</a> ()</td></tr>
+<tr class="separator:a16c218b7057574140d03c7bccf5c6131"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename ValueT, typename ParentT&gt;<br />
 struct cppproperties::detail::get_parent_func&lt; ValueT, ParentT &gt;</h3>
 
 
-<p class="definition">Definition at line <a class="el" href="property_8hpp_source.html#l00081">81</a> of file <a class="el" href="property_8hpp_source.html">property.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2service_2property_8hpp_source.html#l00081">81</a> of file <a class="el" href="slib_2_ph_widgets_2include_2service_2property_8hpp_source.html">slib/PhWidgets/include/service/property.hpp</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a8fc701280582bec9b656491b9a8823b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fc701280582bec9b656491b9a8823b3">&#9670;&nbsp;</a></span>getter_t</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fc701280582bec9b656491b9a8823b3">&#9670;&nbsp;</a></span>getter_t <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -149,12 +161,30 @@ template&lt;typename ValueT, typename ParentT&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="property_8hpp_source.html#l00085">85</a> of file <a class="el" href="property_8hpp_source.html">property.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2service_2property_8hpp_source.html#l00085">85</a> of file <a class="el" href="slib_2_ph_widgets_2include_2service_2property_8hpp_source.html">slib/PhWidgets/include/service/property.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a8fc701280582bec9b656491b9a8823b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fc701280582bec9b656491b9a8823b3">&#9670;&nbsp;</a></span>getter_t <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueT, typename ParentT&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#a2a1be19231090954dd0b17169701e7a0">value_t</a>(parent_t::*  <a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html">cppproperties::detail::get_parent_func</a>&lt; ValueT, ParentT &gt;::getter_t) () const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="src_2service_2property_8hpp_source.html#l00085">85</a> of file <a class="el" href="src_2service_2property_8hpp_source.html">src/service/property.hpp</a>.</p>
 
 </div>
 </div>
 <a id="a8c94fd58356cd515a949296646f961fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c94fd58356cd515a949296646f961fb">&#9670;&nbsp;</a></span>parent_t</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c94fd58356cd515a949296646f961fb">&#9670;&nbsp;</a></span>parent_t <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,12 +197,30 @@ template&lt;typename ValueT, typename ParentT&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="property_8hpp_source.html#l00084">84</a> of file <a class="el" href="property_8hpp_source.html">property.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2service_2property_8hpp_source.html#l00084">84</a> of file <a class="el" href="slib_2_ph_widgets_2include_2service_2property_8hpp_source.html">slib/PhWidgets/include/service/property.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a8c94fd58356cd515a949296646f961fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c94fd58356cd515a949296646f961fb">&#9670;&nbsp;</a></span>parent_t <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueT, typename ParentT&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef ParentT <a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html">cppproperties::detail::get_parent_func</a>&lt; ValueT, ParentT &gt;::<a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#a8c94fd58356cd515a949296646f961fb">parent_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="src_2service_2property_8hpp_source.html#l00084">84</a> of file <a class="el" href="src_2service_2property_8hpp_source.html">src/service/property.hpp</a>.</p>
 
 </div>
 </div>
 <a id="ac7704bb4081b9b7e184b0dd1e71aa332"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7704bb4081b9b7e184b0dd1e71aa332">&#9670;&nbsp;</a></span>setter_t</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7704bb4081b9b7e184b0dd1e71aa332">&#9670;&nbsp;</a></span>setter_t <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,12 +233,30 @@ template&lt;typename ValueT, typename ParentT&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="property_8hpp_source.html#l00086">86</a> of file <a class="el" href="property_8hpp_source.html">property.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2service_2property_8hpp_source.html#l00086">86</a> of file <a class="el" href="slib_2_ph_widgets_2include_2service_2property_8hpp_source.html">slib/PhWidgets/include/service/property.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ac7704bb4081b9b7e184b0dd1e71aa332"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7704bb4081b9b7e184b0dd1e71aa332">&#9670;&nbsp;</a></span>setter_t <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueT, typename ParentT&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(parent_t::*  <a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html">cppproperties::detail::get_parent_func</a>&lt; ValueT, ParentT &gt;::setter_t) (<a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#a2a1be19231090954dd0b17169701e7a0">value_t</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="src_2service_2property_8hpp_source.html#l00086">86</a> of file <a class="el" href="src_2service_2property_8hpp_source.html">src/service/property.hpp</a>.</p>
 
 </div>
 </div>
 <a id="a2a1be19231090954dd0b17169701e7a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a1be19231090954dd0b17169701e7a0">&#9670;&nbsp;</a></span>value_t</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a1be19231090954dd0b17169701e7a0">&#9670;&nbsp;</a></span>value_t <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -203,13 +269,31 @@ template&lt;typename ValueT, typename ParentT&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="property_8hpp_source.html#l00083">83</a> of file <a class="el" href="property_8hpp_source.html">property.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2service_2property_8hpp_source.html#l00083">83</a> of file <a class="el" href="slib_2_ph_widgets_2include_2service_2property_8hpp_source.html">slib/PhWidgets/include/service/property.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2a1be19231090954dd0b17169701e7a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a1be19231090954dd0b17169701e7a0">&#9670;&nbsp;</a></span>value_t <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueT, typename ParentT&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef ValueT <a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html">cppproperties::detail::get_parent_func</a>&lt; ValueT, ParentT &gt;::<a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#a2a1be19231090954dd0b17169701e7a0">value_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="src_2service_2property_8hpp_source.html#l00083">83</a> of file <a class="el" href="src_2service_2property_8hpp_source.html">src/service/property.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab4da6c0b2d7a4d68ee76f26ab088fd2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4da6c0b2d7a4d68ee76f26ab088fd2a">&#9670;&nbsp;</a></span>default_getter()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4da6c0b2d7a4d68ee76f26ab088fd2a">&#9670;&nbsp;</a></span>default_getter() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,12 +317,41 @@ template&lt;typename ValueT, typename ParentT&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="property_8hpp_source.html#l00088">88</a> of file <a class="el" href="property_8hpp_source.html">property.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2service_2property_8hpp_source.html#l00088">88</a> of file <a class="el" href="slib_2_ph_widgets_2include_2service_2property_8hpp_source.html">slib/PhWidgets/include/service/property.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab4da6c0b2d7a4d68ee76f26ab088fd2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4da6c0b2d7a4d68ee76f26ab088fd2a">&#9670;&nbsp;</a></span>default_getter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueT, typename ParentT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#a8fc701280582bec9b656491b9a8823b3">getter_t</a>&amp; <a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html">cppproperties::detail::get_parent_func</a>&lt; ValueT, ParentT &gt;::default_getter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="src_2service_2property_8hpp_source.html#l00088">88</a> of file <a class="el" href="src_2service_2property_8hpp_source.html">src/service/property.hpp</a>.</p>
 
 </div>
 </div>
 <a id="a16c218b7057574140d03c7bccf5c6131"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16c218b7057574140d03c7bccf5c6131">&#9670;&nbsp;</a></span>default_setter()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a16c218b7057574140d03c7bccf5c6131">&#9670;&nbsp;</a></span>default_setter() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,12 +375,41 @@ template&lt;typename ValueT, typename ParentT&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="property_8hpp_source.html#l00089">89</a> of file <a class="el" href="property_8hpp_source.html">property.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="src_2service_2property_8hpp_source.html#l00089">89</a> of file <a class="el" href="src_2service_2property_8hpp_source.html">src/service/property.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a16c218b7057574140d03c7bccf5c6131"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16c218b7057574140d03c7bccf5c6131">&#9670;&nbsp;</a></span>default_setter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueT, typename ParentT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html#ac7704bb4081b9b7e184b0dd1e71aa332">setter_t</a>&amp; <a class="el" href="structcppproperties_1_1detail_1_1get__parent__func.html">cppproperties::detail::get_parent_func</a>&lt; ValueT, ParentT &gt;::default_setter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="slib_2_ph_widgets_2include_2service_2property_8hpp_source.html#l00089">89</a> of file <a class="el" href="slib_2_ph_widgets_2include_2service_2property_8hpp_source.html">slib/PhWidgets/include/service/property.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="property_8hpp_source.html">property.hpp</a></li>
+<li><a class="el" href="slib_2_ph_widgets_2include_2service_2property_8hpp_source.html">slib/PhWidgets/include/service/property.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
