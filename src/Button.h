@@ -46,21 +46,21 @@ namespace PhWidgets
 			public ArgumentsEx<Label::ArgColor>,
 			public ThisArgs::ArgColor
 		{
-			using ThisArgs::ArgColor::eArgColor;
+			typedef ThisArgs::ArgColor::eArgColor eArgColor;
 		};
 		
 		struct ArgUnsignedChar:
 			public ArgumentsEx<Label::ArgUnsignedChar>,
 			public ThisArgs::ArgUnsignedChar
 		{
-			using ThisArgs::ArgUnsignedChar::eArgUnsignedChar;
+			typedef ThisArgs::ArgUnsignedChar::eArgUnsignedChar eArgUnsignedChar;
 		};
 		
 		struct ArgPImage:
 			public ArgumentsEx<Label::ArgPImage>,
 			public ThisArgs::ArgPImage
 		{
-			using ThisArgs::ArgPImage::eArgPImage;
+			typedef ThisArgs::ArgPImage::eArgPImage eArgPImage;
 		};
 
 
@@ -83,9 +83,6 @@ namespace PhWidgets
 
 		virtual void check();
 
-		void setArmColor(PgColor_t);
-		PgColor_t getArmColor() const;
-
 						
 	public:
 		WidgetResourcesSingleton resource;
@@ -97,7 +94,7 @@ namespace PhWidgets
 
 		Button &operator=(const Button &rhs);
 
-		property<PgColor_t>::bind<Button, &Button::getArmColor, &Button::setArmColor> ArmColor;
+		phproperty<PgColor_t>::bind<Button, ArgColor::eArgColor, Arguments::arm_color> ArmColor;
 	};
 
 }

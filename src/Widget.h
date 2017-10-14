@@ -13,7 +13,7 @@
 
 #include "./service/mystd/my_exception.h"
 #include "./service/stdex/stdex.h"
-#include "./service/property.hpp"
+#include "./service/phproperty.hpp"
 #include "./service/phevent.hpp"
 
 #include "./WidgetResource.hpp"
@@ -30,42 +30,64 @@ namespace PhWidgets
 	using namespace phevents;
 		
 	class Widget:
-		protected detail::IPtWidget
+		protected detail::IPtWidget,
+		public IPhWidgetsProperty
 	{
 	public:
+
+		
 		typedef phevent::ph_callback_t callback_t;//!< An event handler that is raised when an \link Widget::phwidgets_event event \endlink occur.
 		
 		//! An event, which raise a notification to registered subscribers (event handlers) that something of interest has occurred.
 
 		//! Event handlers must be Widget::callback_t type or convertable to it.
-		template<class ParentT, typename ParentT::ThisCallbacks::Callback::eCallback callback>
+		template<class ParentT, typename ParentT::ThisCallbacks::Callback::eCallback CallbackID>
 		class phwidgets_event
 		{
-			typedef phevent::ph_callback_t value_t;
-
+			
 		public:
 			phwidgets_event(ParentT *parent) :
 				_obj(parent)
 			{}
 
-			inline void add(value_t value)
+			//! add an event handler
+			inline void add(callback_t value)
 			{
-				_obj->resource.callback[callback].add(value);
+				_obj->resource.callback[CallbackID].add(value);
 			}
 
-			inline void remove(value_t value)
+			//! remove an event handler
+			inline void remove(callback_t value)
 			{
-				_obj->resource.callback[callback].remove(value);
+				_obj->resource.callback[CallbackID].remove(value);
 			}
 
-			inline void operator+=(value_t value)
+			//! raise an event
+
+			//! invokes all event handlers that are subscribed to this event
+			inline void raise(PtCallbackInfo_t * info) const
+			{
+				_obj->resource.callback[CallbackID].raise(info);
+			}
+
+			//! add an event handler
+			inline void operator+=(callback_t value)
 			{
 				add(value);
 			}
 
-			inline void operator-=(value_t value)
+			//! remove an event handler
+			inline void operator-=(callback_t value)
 			{
 				remove(value);
+			}
+
+			//! raise an event
+
+			//! invokes all event handlers that are subscribed to this event
+			inline void operator()(PtCallbackInfo_t * info) const
+			{
+				raise(info);
 			}
 
 
@@ -74,7 +96,7 @@ namespace PhWidgets
 
 			phwidgets_event(const phwidgets_event &rhs);
 
-			inline phwidgets_event &operator=(value_t);
+			inline phwidgets_event &operator=(callback_t);
 			inline phwidgets_event &operator=(phwidgets_event const &);
 		};
 
@@ -172,8 +194,8 @@ namespace PhWidgets
 				enum eArgPChar
 				{
 					help_topic = Pt_ARG_HELP_TOPIC //!< The meaning of this resource depends on the bits set in Pt_ARG_EFLAGS:
-												   //!< If Pt_INTERNAL_HELP isn't set, Pt_ARG_HELP_TOPIC is used to set the topic position within the HTML help file.
-												   //!< If Pt_INTERNAL_HELP is set, Pt_ARG_HELP_TOPIC is the help information to be displayed.
+												   //!< If Pt_INTERNAL_HELP isn't set, Widget::ArgPChar::help_topic is used to set the topic position within the HTML help file.
+												   //!< If Pt_INTERNAL_HELP is set, Widget::ArgPChar::help_topic is the help information to be displayed.
 
 				};
 			};
@@ -431,6 +453,8 @@ namespace PhWidgets
 		int _abn;
 		mutable PtWidget_t *_widget;
 		
+		using IPhWidgetsProperty::setArgument;
+		using IPhWidgetsProperty::getArgument;
 		
 	protected:
 
@@ -469,26 +493,9 @@ namespace PhWidgets
 
 		void setEnabled(bool);
 		bool getEnabled() const;
-		
-		void setWidth(unsigned short);
-		unsigned short getWidth() const;
-		
-		void setHeight(unsigned short);
-		unsigned short getHeight() const;
 
-		void setDim(PhDim_t);
-		PhDim_t getDim() const;
-		
-		void setBevelWidth(unsigned short);
-		unsigned short getBevelWidth() const;
-		
 		void setHelpTopic(std::string);
 		std::string getHelpTopic() const;
-		
-		void setLocation(PhPoint_t);
-		PhPoint_t getLocation() const;
-
-		void onEvent(PtCallbackList_t *cl, PtCallbackInfo_t * info);
 						
 	public:
 		//! (constructor)
@@ -531,31 +538,35 @@ namespace PhWidgets
 		//! Resources of the Widget
 		WidgetResourcesSingleton resource;
 	
-		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>					Enabled;//!< Gets or sets a value indicating whether the widget can respond to user interaction.
-		property<unsigned short>::bind<Widget, &Widget::getWidth, &Widget::setWidth>			Width;//!< Gets or sets the width of the widget.
-		property<unsigned short>::bind<Widget, &Widget::getHeight, &Widget::setHeight>			Height;//!< Gets or sets the hight of the widget.
-		property<PhDim_t>::bind<Widget, &Widget::getDim, &Widget::setDim>						Size;//!< Gets or sets the size of the widget.
-		property<unsigned short>::bind<Widget, &Widget::getBevelWidth, &Widget::setBevelWidth>	BevelWidth;//!< Gets or sets the bevel width of the widget.
-		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>		HelpTopic;//!< Gets or sets the help topic of the widget.
-		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation>			Location;//!< Gets or sets the location of the widget.
+		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled; //!< Gets or sets a value indicating whether the widget can respond to user interaction.
+		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.
 
-		phwidgets_event<Widget, Widget::Callbacks::destroyed>		Destroyed;//!< Occurs when the widget is destroyed.
-		phwidgets_event<Widget, Widget::Callbacks::blocked>			Blocked;//!< Occurs when the widget is blocked.
-		phwidgets_event<Widget, Widget::Callbacks::dnd>				DragDrop;//!< Occurs when a drag-and-drop operation is completed.
-		phwidgets_event<Widget, Widget::Callbacks::is_destroyed>	IsDestroyed;//!< Occurs when the widget's resources are being released.
-		phwidgets_event<Widget, Widget::Callbacks::outbound>		Outbound;//!< Occurs when you press the pointer button on the widget and then move out of the "hot spot" with the button still depressed.
-		phwidgets_event<Widget, Widget::Callbacks::realized>		Realized;//!<  Occurs when the widget is realized.
-		phwidgets_event<Widget, Widget::Callbacks::unrealized>		Unrealized;//!<  Occurs when the widget is unrealized.
+		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width>		Width; //!< Gets or sets the width of the widget.
+		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::height>		Height; //!< Gets or sets the hight of the widget.
+		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::bevel_width>	BevelWidth; //!< Gets or sets the bevel width of the widget.
+		phproperty<PhDim_t>::bind<Widget, Arguments::eArgDim, Arguments::dim>							Size; //!< Gets or sets the size of the widget.
+		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos>						Location; //!< Gets or sets the position of the widget.
 
-		void OnDestroyed(PtCallbackInfo_t *info);//!< Raises the Widget::Destroyed event.
-		void OnBlocked(PtCallbackInfo_t *info);//!< Raises the Widget::Blocked event.
-		void OnDragDrop(PtCallbackInfo_t *info);//!< Raises the Widget::DragDrop event.
-		void OnOutbound(PtCallbackInfo_t *info);//!< Raises the Widget::Outbound event.
-		void OnRealized(PtCallbackInfo_t *info);//!< Raises the Widget::Realized event.
-		void OnUnrealized(PtCallbackInfo_t *info);//!< Raises the Widget::Unrealized event.
+		phwidgets_event<Widget, Widget::Callbacks::destroyed>		Destroyed; //!< Occurs when the widget is destroyed.
+		phwidgets_event<Widget, Widget::Callbacks::blocked>			Blocked; //!< Occurs when the widget is blocked.
+		phwidgets_event<Widget, Widget::Callbacks::dnd>				DragDrop; //!< Occurs when a drag-and-drop operation is completed.
+		phwidgets_event<Widget, Widget::Callbacks::is_destroyed>	IsDestroyed; //!< Occurs when the widget's resources are being released.
+		phwidgets_event<Widget, Widget::Callbacks::outbound>		Outbound; //!< Occurs when you press the pointer button on the widget and then move out of the "hot spot" with the button still depressed.
+		phwidgets_event<Widget, Widget::Callbacks::realized>		Realized; //!<  Occurs when the widget is realized.
+		phwidgets_event<Widget, Widget::Callbacks::unrealized>		Unrealized; //!<  Occurs when the widget is unrealized.
+
+		void OnDestroyed(PtCallbackInfo_t *info); //!< Raises the Widget::Destroyed event.
+		void OnBlocked(PtCallbackInfo_t *info); //!< Raises the Widget::Blocked event.
+		void OnDragDrop(PtCallbackInfo_t *info); //!< Raises the Widget::DragDrop event.
+		void OnOutbound(PtCallbackInfo_t *info); //!< Raises the Widget::Outbound event.
+		void OnRealized(PtCallbackInfo_t *info); //!< Raises the Widget::Realized event.
+		void OnUnrealized(PtCallbackInfo_t *info); //!< Raises the Widget::Unrealized event.
+
+		
 
 	};
-
+	
+	
 
 }//namespace PhWidgets
 

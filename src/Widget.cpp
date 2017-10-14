@@ -121,11 +121,11 @@ Widget::Widget(int abn):
 	resource(this),
 	//properties:
 	Enabled(this),
+	HelpTopic(this),
 	Width(this),
 	Height(this),
-	Size(this),
 	BevelWidth(this),
-	HelpTopic(this),
+	Size(this),
 	Location(this),
 	//callbacks:
 	Destroyed(this),
@@ -148,11 +148,11 @@ Widget::Widget(PtWidget_t* wdg):
 	resource(this),
 	//properties:
 	Enabled(this),
+	HelpTopic(this),
 	Width(this),
 	Height(this),
-	Size(this),
 	BevelWidth(this),
-	HelpTopic(this),
+	Size(this),
 	Location(this),
 	//callbacks:
 	Destroyed(this),
@@ -212,11 +212,11 @@ Widget::Widget(const Widget &rhs):
 	resource(this),
 	//properties:
 	Enabled(this),
+	HelpTopic(this),
 	Width(this),
 	Height(this),
-	Size(this),
 	BevelWidth(this),
-	HelpTopic(this),
+	Size(this),
 	Location(this),
 	//callbacks:
 	Destroyed(this),
@@ -266,45 +266,39 @@ Widget::operator const PtWidget_t*() const
 	return widget();
 }
 
-void Widget::onEvent(PtCallbackList_t *cl, PtCallbackInfo_t * info)
-{
-
-	if (nullptr == cl)
-		return;
-
-	PtWidget_t *w = widget();
-
-	PtInvokeCallbackList(cl, w, info);
-}
-
 void Widget::OnDestroyed( PtCallbackInfo_t * info)
 {
-	onEvent( resource.callback[Callback::destroyed].get(), info);
+	resource.callback[Callback::destroyed].raise(info);
 }
 
 void PhWidgets::Widget::OnBlocked( PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::blocked].get(), info);
+	resource.callback[Callback::blocked].raise(info);
 }
 
 void PhWidgets::Widget::OnDragDrop( PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::dnd].get(), info);
+	resource.callback[Callback::dnd].raise(info);
 }
 
 void PhWidgets::Widget::OnOutbound( PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::outbound].get(), info);
+	resource.callback[Callback::outbound].raise(info);
 }
 
 void PhWidgets::Widget::OnRealized( PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::realized].get(), info);
+	resource.callback[Callback::realized].raise(info);
 }
 
 void PhWidgets::Widget::OnUnrealized( PtCallbackInfo_t * info)
 {
-	onEvent(resource.callback[Callback::unrealized].get(), info);
+	resource.callback[Callback::unrealized].raise(info);
+}
+
+Widget::operator PtWidget_t*()
+{
+	return widget();
 }
 
 //for properties:
@@ -318,70 +312,12 @@ bool Widget::getEnabled() const
 	return resource.argument[Arguments::flags].get(Pt_BLOCKED);
 }
 
-void Widget::setWidth(unsigned short val)
-{
-	resource.argument[Arguments::width].set(val);
-}
-
-unsigned short Widget::getWidth() const
-{
-	return resource.argument[Arguments::width].get();
-}
-
-void Widget::setHeight(unsigned short val)
-{
-	resource.argument[Arguments::height].set(val);
-}
-
-unsigned short Widget::getHeight() const
-{
-	return resource.argument[Arguments::height].get();
-}
-
-void Widget::setDim(PhDim_t val)
-{
-	resource.argument[Arguments::dim].set(val);
-}
-
-PhDim_t Widget::getDim() const
-{
-	return resource.argument[Arguments::dim].get();
-}
-
-void Widget::setBevelWidth(unsigned short val)
-{
-	resource.argument[Arguments::bevel_width].set(val);
-}
-
-unsigned short Widget::getBevelWidth() const
-{
-	return resource.argument[Arguments::bevel_width].get();
-}
-
-void Widget::setHelpTopic(std::string val)
+void PhWidgets::Widget::setHelpTopic(std::string val)
 {
 	resource.argument[Arguments::help_topic].set(val.c_str());
 }
 
-std::string Widget::getHelpTopic() const
+std::string PhWidgets::Widget::getHelpTopic() const
 {
 	return resource.argument[Arguments::help_topic].get();
-}
-
-void Widget::setLocation(PhPoint_t val)
-{
-	resource.argument[Arguments::pos].set(val);
-}
-
-
-PhPoint_t Widget::getLocation() const
-{
-	return resource.argument[Arguments::pos].get();
-}
-
-
-
-Widget::operator PtWidget_t*()
-{
-	return widget();
 }

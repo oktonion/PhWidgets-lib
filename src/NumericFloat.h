@@ -63,7 +63,7 @@ namespace PhWidgets
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Numeric::Callback
 		{
-			using ThisCallbacks::Callback::eCallback;
+			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
 

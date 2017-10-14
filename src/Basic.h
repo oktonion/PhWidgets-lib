@@ -106,21 +106,21 @@ namespace PhWidgets
 			public ArgumentsEx<Widget::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort
 		{
-			using ThisArgs::ArgUnsignedShort::eArgUnsignedShort;
+			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShort eArgUnsignedShort;
 		};
 			
 		struct ArgUnsignedLong:
 			public ArgumentsEx<Widget::ArgUnsignedLong>,
 			public ThisArgs::ArgUnsignedLong
 		{
-			using ThisArgs::ArgUnsignedLong::eArgUnsignedLong;
+			typedef ThisArgs::ArgUnsignedLong::eArgUnsignedLong eArgUnsignedLong;
 		};
 
 		struct ArgColor:
 			public ArgumentsEx<Widget::ArgColor>,
 			public ThisArgs::ArgColor
 		{
-			using ThisArgs::ArgColor::eArgColor;
+			typedef ThisArgs::ArgColor::eArgColor eArgColor;
 		};
 
 		struct ArgChar:
@@ -142,14 +142,14 @@ namespace PhWidgets
 			public ArgumentsEx<Widget::ArgPChar>,
 			public ThisArgs::ArgPChar
 		{
-			using ThisArgs::ArgPChar::eArgPChar;
+			typedef ThisArgs::ArgPChar::eArgPChar eArgPChar;
 		};	
 
 		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Widget::Callback
 		{
-			using ThisCallbacks::Callback::eCallback;
+			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
 		struct Arguments:
@@ -186,12 +186,6 @@ namespace PhWidgets
 		resource_type WidgetResourcesSingleton;
 
 		virtual void check();
-
-		void setColor(PgColor_t);
-		PgColor_t getColor() const;
-
-		void setFillColor(PgColor_t);
-		PgColor_t getFillColor() const;
 						
 	public:
 		Basic(int abn);
@@ -203,8 +197,8 @@ namespace PhWidgets
 
 		WidgetResourcesSingleton resource;
 		
-		property<PgColor_t>::bind<Basic, &Basic::getColor, &Basic::setColor> Color;
-		property<PgColor_t>::bind<Basic, &Basic::getFillColor, &Basic::setFillColor> FillColor;
+		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::color> Color;
+		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::fill_color> FillColor;
 
 		phwidgets_event<Basic, Basic::Callbacks::activate>		Activate;
 		phwidgets_event<Basic, Basic::Callbacks::arm>			Arm;

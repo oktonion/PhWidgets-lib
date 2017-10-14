@@ -52,7 +52,7 @@ namespace PhWidgets
 			public ThisArgs::ArgUnsignedShort,
 			public ThisArgs::ArgUnsignedShortFlag
 		{
-			using ThisArgs::ArgUnsignedShort::eArgUnsignedShort;
+			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShort eArgUnsignedShort;
 		};
 
 			
@@ -61,7 +61,7 @@ namespace PhWidgets
 			public ArgumentsEx<Compound::ArgPChar>,
 			public ThisArgs::ArgPChar
 		{
-			using ThisArgs::ArgPChar::eArgPChar;
+			typedef ThisArgs::ArgPChar::eArgPChar eArgPChar;
 		};	
 
 		struct Arguments:

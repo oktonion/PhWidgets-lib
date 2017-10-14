@@ -59,36 +59,5 @@ NumericInteger &NumericInteger::operator=(const NumericInteger &rhs)
 	return *this;
 }
 
-int NumericInteger::getValue() const
-{
-	return resource.argument[Arguments::numeric_value].get();
-}
-
-void NumericInteger::setValue(int val)
-{
-	resource.argument[Arguments::numeric_value].set(val);
-}
-
-int NumericInteger::getMaxValue() const
-{
-	return resource.argument[Arguments::numeric_max].get();
-}
-
-void NumericInteger::setMaxValue(int val)
-{
-	resource.argument[Arguments::numeric_max].set(val);
-}
-
-
-int NumericInteger::getMinValue() const
-{
-	return resource.argument[Arguments::numeric_min].get();
-}
-
-void NumericInteger::setMinValue(int val)
-{
-	resource.argument[Arguments::numeric_min].set(val);
-}
-
 
 

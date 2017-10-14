@@ -69,7 +69,7 @@ namespace cppproperties
 		{
 		};
 
-				template<class T1>
+		template<class T1>
 		struct flag_chooser<T1&> :
 			public flag_chooser_helper<T1, const T1>
 		{

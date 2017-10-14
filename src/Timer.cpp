@@ -57,27 +57,7 @@ Timer &Timer::operator=(const Timer &rhs)
 	return *this;
 }
 
-void Timer::setInitial(unsigned long val)
-{
-	resource.argument[Arguments::timer_initial].set(val);
-}
-
-unsigned long Timer::getInitial() const
-{
-	return resource.argument[Arguments::timer_initial].get();
-}
-
-void Timer::setRepeat(unsigned long val)
-{
-	resource.argument[Arguments::timer_repeat].set(val);
-}
-
-unsigned long Timer::getRepeat() const
-{
-	return resource.argument[Arguments::timer_repeat].get();
-}
-
 void Timer::OnActivate(PtCallbackInfo_t *info)
 {
-	onEvent(resource.callback[Callback::timer_activate].get(), info);
+	resource.callback[Callback::timer_activate].raise(info);
 }

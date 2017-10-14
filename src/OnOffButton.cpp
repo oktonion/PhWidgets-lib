@@ -61,13 +61,4 @@ void OnOffButton::Uncheck(bool val)
 		resource.argument[Arguments::onoff_state].set(false);
 }
 
-void OnOffButton::setChecked(bool val)
-{
-	resource.argument[Arguments::onoff_state].set(val);
-}
-
-bool OnOffButton::getChecked() const
-{
-	return resource.argument[Arguments::onoff_state].get();
-}
 

@@ -49,7 +49,7 @@ namespace PhWidgets
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Numeric::Callback
 		{
-			using ThisCallbacks::Callback::eCallback;
+			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
 			
@@ -75,15 +75,7 @@ namespace PhWidgets
 		resource_type WidgetResourcesSingleton;
 
 		virtual void check();
-		
-		int getValue() const;
-		void setValue(int);
-		
-		int getMaxValue() const;
-		void setMaxValue(int);
-
-		int getMinValue() const;
-		void setMinValue(int);
+	
 						
 	public:
 		WidgetResourcesSingleton resource;
@@ -95,9 +87,9 @@ namespace PhWidgets
 
 		NumericInteger &operator=(const NumericInteger &rhs);
 		
-		property<int>::bind<NumericInteger, &NumericInteger::getValue, &NumericInteger::setValue> Value;
-		property<int>::bind<NumericInteger, &NumericInteger::getMaxValue, &NumericInteger::setMaxValue> MaxValue;
-		property<int>::bind<NumericInteger, &NumericInteger::getMinValue, &NumericInteger::setMinValue> MinValue;
+		phproperty<int>::bind<NumericInteger, ArgInt::eArgInt, Arguments::numeric_value> Value;
+		phproperty<int>::bind<NumericInteger, ArgInt::eArgInt, Arguments::numeric_max> MaxValue;
+		phproperty<int>::bind<NumericInteger, ArgInt::eArgInt, Arguments::numeric_min> MinValue;
 
 		phwidgets_event<NumericInteger, NumericInteger::Callbacks::numeric_changed>		NumericChanged;
 	};

@@ -40,7 +40,7 @@ namespace PhWidgets
 			public ArgumentsEx<Button::ArgUnsignedChar>,
 			public ThisArgs::ArgUnsignedChar
 		{
-			using ThisArgs::ArgUnsignedChar::eArgUnsignedChar;
+			typedef ThisArgs::ArgUnsignedChar::eArgUnsignedChar eArgUnsignedChar;
 		};
 
 			
@@ -49,7 +49,7 @@ namespace PhWidgets
 			public ArgumentsEx<Button::ArgColor>,
 			public ThisArgs::ArgColor
 		{
-			using ThisArgs::ArgColor::eArgColor;
+			typedef ThisArgs::ArgColor::eArgColor eArgColor;
 		};
 
 		struct Arguments:
@@ -82,8 +82,8 @@ namespace PhWidgets
 
 		ToggleButton &operator=(const ToggleButton &rhs);
 		
-		void Check(bool val);
-		void Uncheck(bool val);
+		void Check(bool val = true);
+		void Uncheck(bool val = true);
 				
 		property<bool>::bind<ToggleButton, &ToggleButton::getChecked, &ToggleButton::setChecked> Checked;
 	};

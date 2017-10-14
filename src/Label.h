@@ -118,14 +118,14 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgPChar>,
 			public ThisArgs::ArgPChar
 		{
-			using ThisArgs::ArgPChar::eArgPChar;
+			typedef ThisArgs::ArgPChar::eArgPChar eArgPChar;
 		};	
 			
 		struct ArgColor:
 			public ArgumentsEx<Basic::ArgColor>,
 			public ThisArgs::ArgColor
 		{
-			using ThisArgs::ArgColor::eArgColor;
+			typedef ThisArgs::ArgColor::eArgColor eArgColor;
 		};
 
 		struct ArgShort:
@@ -137,7 +137,7 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort
 		{
-			using ThisArgs::ArgUnsignedShort::eArgUnsignedShort;
+			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShort eArgUnsignedShort;
 		};	
 
 		struct ArgSignedShort:
@@ -149,7 +149,7 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgUnsignedChar>,
 			public ThisArgs::ArgUnsignedChar
 		{
-			using ThisArgs::ArgUnsignedChar::eArgUnsignedChar;
+			typedef ThisArgs::ArgUnsignedChar::eArgUnsignedChar eArgUnsignedChar;
 		};
 
 		struct ArgPWidget:
@@ -161,7 +161,7 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgChar>,
 			public ThisArgs::ArgChar
 		{
-			using ThisArgs::ArgChar::eArgChar;
+			typedef ThisArgs::ArgChar::eArgChar eArgChar;
 		};	
 
 		struct ArgPImage:
@@ -207,9 +207,6 @@ namespace PhWidgets
 		std::string getCaption() const;
 		void setCaption(std::string caption);
 
-		void setBalloonColor(PgColor_t);
-		PgColor_t getBalloonColor() const;
-
 		virtual void check();
 						
 	public:
@@ -223,7 +220,8 @@ namespace PhWidgets
 		Label &operator=(const Label &rhs);
 		
 		property<std::string>::bind<Label, &Label::getCaption, &Label::setCaption> Caption;
-		property<PgColor_t>::bind<Label, &Label::getBalloonColor, &Label::setBalloonColor> BalloonColor;
+
+		phproperty<PgColor_t>::bind<Label, ArgColor::eArgColor, Arguments::balloon_color> BalloonColor;
 	};
 
 }

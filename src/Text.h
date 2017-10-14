@@ -52,7 +52,7 @@ namespace PhWidgets
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Label::Callback
 		{
-			using ThisCallbacks::Callback::eCallback;
+			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
 		
@@ -94,7 +94,7 @@ namespace PhWidgets
 		phwidgets_event<Text, Text::Callbacks::motion_verify>	MotionVerify;
 		phwidgets_event<Text, Text::Callbacks::text_changed> 	TextChanged;
 	};
-
+	
 }
 
 

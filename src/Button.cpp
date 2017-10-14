@@ -41,13 +41,3 @@ Button &Button::operator=(const Button &rhs)
 	
 	return *this;
 }
-
-void Button::setArmColor(PgColor_t val)
-{
-	resource.argument[Arguments::arm_color].set(val);
-}
-
-PgColor_t Button::getArmColor() const
-{
-	return resource.argument[Arguments::arm_color].get();
-}

@@ -54,13 +54,3 @@ void Label::setCaption(std::string caption)
 	resource.argument[Arguments::text_string].set(caption.c_str());
 }
 
-void Label::setBalloonColor(PgColor_t val)
-{
-	resource.argument[Arguments::balloon_color].set(val);
-}
-
-PgColor_t Label::getBalloonColor() const
-{
-	return resource.argument[Arguments::balloon_color].get();
-}
-
