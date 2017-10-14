@@ -106,21 +106,21 @@ namespace PhWidgets
 			public ArgumentsEx<Widget::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort
 		{
-			using ThisArgs::ArgUnsignedShort::eArgUnsignedShort;
+			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShort eArgUnsignedShort;
 		};
 			
 		struct ArgUnsignedLong:
 			public ArgumentsEx<Widget::ArgUnsignedLong>,
 			public ThisArgs::ArgUnsignedLong
 		{
-			using ThisArgs::ArgUnsignedLong::eArgUnsignedLong;
+			typedef ThisArgs::ArgUnsignedLong::eArgUnsignedLong eArgUnsignedLong;
 		};
 
 		struct ArgColor:
 			public ArgumentsEx<Widget::ArgColor>,
 			public ThisArgs::ArgColor
 		{
-			using ThisArgs::ArgColor::eArgColor;
+			typedef ThisArgs::ArgColor::eArgColor eArgColor;
 		};
 
 		struct ArgChar:
@@ -142,14 +142,14 @@ namespace PhWidgets
 			public ArgumentsEx<Widget::ArgPChar>,
 			public ThisArgs::ArgPChar
 		{
-			using ThisArgs::ArgPChar::eArgPChar;
+			typedef ThisArgs::ArgPChar::eArgPChar eArgPChar;
 		};	
 
 		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Widget::Callback
 		{
-			using ThisCallbacks::Callback::eCallback;
+			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
 		struct Arguments:

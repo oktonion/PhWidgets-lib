@@ -114,7 +114,7 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgLong>,
 			public ThisArgs::ArgLong
 		{
-			using ThisArgs::ArgLong::eArgLong;
+			typedef ThisArgs::ArgLong::eArgLong eArgLong;
 		};
 		
 		struct ArgInt:
@@ -142,7 +142,7 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgPVoid>,
 			public ThisArgs::ArgPVoid
 		{
-			using ThisArgs::ArgPVoid::eArgPVoid;
+			typedef ThisArgs::ArgPVoid::eArgPVoid eArgPVoid;
 		};	
 		
 		struct ArgPRowLayoutInfo:
@@ -155,14 +155,14 @@ namespace PhWidgets
 			public ArgumentsEx<Basic::ArgPChar>,
 			public ThisArgs::ArgPChar
 		{
-			using ThisArgs::ArgPChar::eArgPChar;
+			typedef ThisArgs::ArgPChar::eArgPChar eArgPChar;
 		};	
 
 		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Basic::Callback
 		{
-			using ThisCallbacks::Callback::eCallback;
+			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
 		struct Arguments:

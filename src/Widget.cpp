@@ -121,11 +121,11 @@ Widget::Widget(int abn):
 	resource(this),
 	//properties:
 	Enabled(this),
+	HelpTopic(this),
 	Width(this),
 	Height(this),
-	Size(this),
 	BevelWidth(this),
-	HelpTopic(this),
+	Size(this),
 	Location(this),
 	//callbacks:
 	Destroyed(this),
@@ -148,11 +148,11 @@ Widget::Widget(PtWidget_t* wdg):
 	resource(this),
 	//properties:
 	Enabled(this),
+	HelpTopic(this),
 	Width(this),
 	Height(this),
-	Size(this),
 	BevelWidth(this),
-	HelpTopic(this),
+	Size(this),
 	Location(this),
 	//callbacks:
 	Destroyed(this),
@@ -212,11 +212,11 @@ Widget::Widget(const Widget &rhs):
 	resource(this),
 	//properties:
 	Enabled(this),
+	HelpTopic(this),
 	Width(this),
 	Height(this),
-	Size(this),
 	BevelWidth(this),
-	HelpTopic(this),
+	Size(this),
 	Location(this),
 	//callbacks:
 	Destroyed(this),

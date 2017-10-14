@@ -45,7 +45,7 @@ namespace PhWidgets
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Button::Callback
 		{
-			using ThisCallbacks::Callback::eCallback;
+			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
 

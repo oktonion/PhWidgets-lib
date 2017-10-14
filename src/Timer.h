@@ -14,6 +14,7 @@ namespace PhWidgets
 		protected Widget
 	{
 	public:
+		using Widget::IPhWidgetsProperty;
 
 		struct ThisArgs
 		{												
@@ -57,7 +58,7 @@ namespace PhWidgets
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Widget::Callback
 		{
-			using ThisCallbacks::Callback::eCallback;
+			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 		
 		struct Arguments:
@@ -73,7 +74,8 @@ namespace PhWidgets
 		{
 		};
 
-		
+	private:
+				
 	protected:
 		typedef ResourceFrom<Widget::WidgetResourcesSingleton>::
 			Define::Scalar<ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long>::

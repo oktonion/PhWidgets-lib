@@ -46,21 +46,21 @@ namespace PhWidgets
 			public ArgumentsEx<Label::ArgColor>,
 			public ThisArgs::ArgColor
 		{
-			using ThisArgs::ArgColor::eArgColor;
+			typedef ThisArgs::ArgColor::eArgColor eArgColor;
 		};
 		
 		struct ArgUnsignedChar:
 			public ArgumentsEx<Label::ArgUnsignedChar>,
 			public ThisArgs::ArgUnsignedChar
 		{
-			using ThisArgs::ArgUnsignedChar::eArgUnsignedChar;
+			typedef ThisArgs::ArgUnsignedChar::eArgUnsignedChar eArgUnsignedChar;
 		};
 		
 		struct ArgPImage:
 			public ArgumentsEx<Label::ArgPImage>,
 			public ThisArgs::ArgPImage
 		{
-			using ThisArgs::ArgPImage::eArgPImage;
+			typedef ThisArgs::ArgPImage::eArgPImage eArgPImage;
 		};
 
 

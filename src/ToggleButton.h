@@ -40,7 +40,7 @@ namespace PhWidgets
 			public ArgumentsEx<Button::ArgUnsignedChar>,
 			public ThisArgs::ArgUnsignedChar
 		{
-			using ThisArgs::ArgUnsignedChar::eArgUnsignedChar;
+			typedef ThisArgs::ArgUnsignedChar::eArgUnsignedChar eArgUnsignedChar;
 		};
 
 			
@@ -49,7 +49,7 @@ namespace PhWidgets
 			public ArgumentsEx<Button::ArgColor>,
 			public ThisArgs::ArgColor
 		{
-			using ThisArgs::ArgColor::eArgColor;
+			typedef ThisArgs::ArgColor::eArgColor eArgColor;
 		};
 
 		struct Arguments:
