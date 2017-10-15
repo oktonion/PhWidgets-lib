@@ -15,6 +15,7 @@
 #include "./service/stdex/stdex.h"
 #include "./service/phproperty.hpp"
 #include "./service/phevent.hpp"
+#include "./service/bitmask.hpp"
 
 #include "./WidgetResource.hpp"
 
@@ -28,6 +29,7 @@ namespace PhWidgets
 {
 	using namespace cppproperties;
 	using namespace phevents;
+	using namespace cppbitmasks;
 		
 	class Widget:
 		protected detail::IPtWidget,
@@ -445,7 +447,16 @@ namespace PhWidgets
 		{
 		};
 
-		
+		struct ExFlags
+		{
+			enum eExFlags
+			{
+				consume_events,
+				internal_help,
+				damage_parent,
+				skip_layout
+			};
+		};
 
 				
 	private:
@@ -546,6 +557,7 @@ namespace PhWidgets
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::bevel_width>	BevelWidth; //!< Gets or sets the bevel width of the widget.
 		phproperty<PhDim_t>::bind<Widget, Arguments::eArgDim, Arguments::dim>							Size; //!< Gets or sets the size of the widget.
 		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos>						Location; //!< Gets or sets the position of the widget.
+		phproperty< bitmask<unsigned long, ExFlags::eExFlags> >::bind<Widget, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::eflags>	ExtendedFlags;
 
 		phwidgets_event<Widget, Widget::Callbacks::destroyed>		Destroyed; //!< Occurs when the widget is destroyed.
 		phwidgets_event<Widget, Widget::Callbacks::blocked>			Blocked; //!< Occurs when the widget is blocked.

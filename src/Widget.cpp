@@ -127,6 +127,7 @@ Widget::Widget(int abn):
 	BevelWidth(this),
 	Size(this),
 	Location(this),
+	ExtendedFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -154,6 +155,7 @@ Widget::Widget(PtWidget_t* wdg):
 	BevelWidth(this),
 	Size(this),
 	Location(this),
+	ExtendedFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -218,6 +220,7 @@ Widget::Widget(const Widget &rhs):
 	BevelWidth(this),
 	Size(this),
 	Location(this),
+	ExtendedFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
