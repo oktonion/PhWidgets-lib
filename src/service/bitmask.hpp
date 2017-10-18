@@ -122,6 +122,36 @@ namespace cppbitmasks
 			return *this;
 		}
 
+		inline bitmask& operator|=(const FlagT &flag)
+		{
+			return set(flag);
+		}
+
+		inline bitmask& operator|=(const bitmask &other)
+		{
+			return set(other);
+		}
+
+		inline bitmask& operator&=(const FlagT &flag)
+		{
+			return keep(flag);
+		}
+
+		inline bitmask& operator&=(const bitmask &other)
+		{
+			return keep(other);
+		}
+
+		inline bitmask& operator^=(const FlagT &flag)
+		{
+			return flip(flag);
+		}
+
+		inline bitmask& operator^=(const bitmask &other)
+		{
+			return flip(other);
+		}
+
 		inline bool operator==(const FlagT &flag) const
 		{
 			return test(flag);
