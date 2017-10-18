@@ -80,14 +80,34 @@ namespace cppbitmasks
 			return *this;
 		}
 
-		inline bitmask& operator|(const FlagT &flag)
+		inline bitmask operator|(const FlagT &flag) const
 		{
-			return set(flag);
+			return _val | flag;
 		}
 
 		inline bitmask operator|(const bitmask &mask) const
 		{
 			return _val | mask._val;
+		}
+
+		inline bitmask operator&(const FlagT &flag) const
+		{
+			return _val & flag;
+		}
+
+		inline bitmask operator&(const bitmask &mask) const
+		{
+			return _val & mask._val;
+		}
+
+		inline bitmask operator^(const FlagT &flag) const
+		{
+			return _val ^ flag;
+		}
+
+		inline bitmask operator^(const bitmask &mask) const
+		{
+			return _val ^ mask._val;
 		}
 
 		inline bitmask& operator=(const bitmask &other)
@@ -112,9 +132,21 @@ namespace cppbitmasks
 	};
 
 	template<class MaskT, class FlagT>
-	inline bitmask<MaskT, FlagT>  &operator|(const FlagT &flag1, const bitmask<MaskT, FlagT> &flag2)
+	inline bitmask<MaskT, FlagT>  operator|(const FlagT &flag, const bitmask<MaskT, FlagT> &mask)
 	{
-		return flag2 | flag1;
+		return mask | flag;
+	}
+
+	template<class MaskT, class FlagT>
+	inline bitmask<MaskT, FlagT>  operator&(const FlagT &flag, const bitmask<MaskT, FlagT> &mask)
+	{
+		return mask & flag;
+	}
+
+	template<class MaskT, class FlagT>
+	inline bitmask<MaskT, FlagT>  operator^(const FlagT &flag, const bitmask<MaskT, FlagT> &mask)
+	{
+		return mask ^ flag;
 	}
 }
 
