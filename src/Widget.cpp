@@ -128,6 +128,7 @@ Widget::Widget(int abn):
 	Size(this),
 	Location(this),
 	ExtendedFlags(this),
+	WidgetFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -156,6 +157,7 @@ Widget::Widget(PtWidget_t* wdg):
 	Size(this),
 	Location(this),
 	ExtendedFlags(this),
+	WidgetFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -221,6 +223,7 @@ Widget::Widget(const Widget &rhs):
 	Size(this),
 	Location(this),
 	ExtendedFlags(this),
+	WidgetFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -307,12 +310,12 @@ Widget::operator PtWidget_t*()
 //for properties:
 void Widget::setEnabled(bool val)
 {
-	resource.argument[Arguments::flags].set(Pt_BLOCKED | Pt_GHOST, !val);
+	resource.argument[Arguments::flags].set(Flags::Blocked | Flags::Ghost, !val);
 }
 
 bool Widget::getEnabled() const
 {
-	return resource.argument[Arguments::flags].get(Pt_BLOCKED);
+	return resource.argument[Arguments::flags].get(Flags::Blocked);
 }
 
 void PhWidgets::Widget::setHelpTopic(std::string val)
