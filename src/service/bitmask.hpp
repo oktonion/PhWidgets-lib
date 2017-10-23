@@ -7,8 +7,8 @@ namespace cppbitmasks
 	class bitmask
 	{
 	public:
-		bitmask() :
-			_val(MaskT())
+		bitmask(MaskT val = MaskT()) :
+			_val(val)
 		{
 		}
 
