@@ -15,7 +15,7 @@
 #include "./service/stdex/stdex.h"
 #include "./service/phproperty.hpp"
 #include "./service/phevent.hpp"
-#include "./service/bitmask.hpp"
+#include "./service/phbitmask.hpp"
 
 #include "./WidgetResource.hpp"
 

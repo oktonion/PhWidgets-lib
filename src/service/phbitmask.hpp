@@ -1,7 +1,7 @@
-#ifndef PH_PROPERTY_HPP
-#define PH_PROPERTY_HPP
+#ifndef PH_BITMASK_HPP
+#define PH_BITMASK_HPP
 
-#include "property.hpp"
+#include "bitmask.hpp"
 
 namespace PhWidgets
 {
@@ -22,11 +22,11 @@ namespace PhWidgets
 
 	template<class ValueT = void,
 		const cppproperties::detail::property_flag::e_property_flag Flag = (const cppproperties::detail::property_flag::e_property_flag)(cppproperties::detail::flag_chooser<ValueT>::flag)>
-	class phproperty{};
+	class phbitmask {};
 
-	//phproperty<void>:
+	//phbitmask<void>:
 	template<>
-	class phproperty<void, cppproperties::detail::property_flag::ro> :
+	class phbitmask<void, cppproperties::detail::property_flag::ro> :
 		public cppproperties::detail::property_flag
 	{
 	public:
@@ -34,7 +34,7 @@ namespace PhWidgets
 	};
 
 	template<>
-	class phproperty<void, cppproperties::detail::property_flag::wo> :
+	class phbitmask<void, cppproperties::detail::property_flag::wo> :
 		public cppproperties::detail::property_flag
 	{
 	public:
@@ -42,16 +42,16 @@ namespace PhWidgets
 	};
 
 	template<>
-	class phproperty<void, cppproperties::detail::property_flag::rw> :
+	class phbitmask<void, cppproperties::detail::property_flag::rw> :
 		public cppproperties::detail::property_flag
 	{
 	public:
 		typedef cppproperties::detail::property_flag flags;
 	};
 
-	//phproperty<Value>:
+	//phbitmask<Value>:
 	template<typename ValueT>
-	class phproperty<ValueT, cppproperties::detail::property_flag::ro>//ValueT == const...
+	class phbitmask<ValueT, cppproperties::detail::property_flag::ro>//ValueT == const...
 	{
 		typedef cppproperties::property<ValueT, cppproperties::detail::property_flag::ro> cpp_property_t;
 
@@ -72,13 +72,13 @@ namespace PhWidgets
 		template<class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
 		class bind :
 			public bind_internal<
-				IPhWidgetsProperty, 
-				&IPhWidgetsProperty::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>
+			IPhWidgetsProperty,
+			&IPhWidgetsProperty::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>
 			>
 		{
 			typedef bind_internal<
-				IPhWidgetsProperty, 
-				&IPhWidgetsProperty::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID> 
+				IPhWidgetsProperty,
+				&IPhWidgetsProperty::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>
 			> cpp_bind_t;
 
 		public:
@@ -95,7 +95,7 @@ namespace PhWidgets
 
 
 	template<typename ValueT>
-	class phproperty<ValueT, cppproperties::detail::property_flag::rw>//ValueT != const...
+	class phbitmask<ValueT, cppproperties::detail::property_flag::rw>//ValueT != const...
 	{
 		typedef cppproperties::property<ValueT, cppproperties::detail::property_flag::rw> cpp_property_t;
 
@@ -115,9 +115,9 @@ namespace PhWidgets
 		template<class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
 		class bind :
 			public bind_internal<
-				IPhWidgetsProperty, 
-				&IPhWidgetsProperty::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>,
-				&IPhWidgetsProperty::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>
+			IPhWidgetsProperty,
+			&IPhWidgetsProperty::getArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>,
+			&IPhWidgetsProperty::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>
 			>
 		{
 			typedef bind_internal<
@@ -130,14 +130,14 @@ namespace PhWidgets
 			bind(WidgetClassT *parent) :
 				cpp_bind_t(parent)
 			{}
-			
+
 			using cpp_bind_t::operator=;
 		};
 
 	};
 
 	template<typename ValueT>
-	class phproperty<ValueT, cppproperties::detail::property_flag::wo>//ValueT != const...
+	class phbitmask<ValueT, cppproperties::detail::property_flag::wo>//ValueT != const...
 	{
 		typedef cppproperties::property<ValueT, cppproperties::detail::property_flag::wo> cpp_property_t;
 
@@ -148,7 +148,7 @@ namespace PhWidgets
 			bind_internal(WidgetClassT *parent) :
 				cpp_property_t::template bind<WidgetClassT, Setter>(parent)
 			{}
-			
+
 			using cpp_property_t::template bind<WidgetClassT, Setter>::operator=;
 		};
 
@@ -156,12 +156,12 @@ namespace PhWidgets
 		template<class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
 		class bind :
 			public bind_internal<
-				IPhWidgetsProperty, 
-				&IPhWidgetsProperty::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>
+			IPhWidgetsProperty,
+			&IPhWidgetsProperty::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>
 			>
 		{
 			typedef bind_internal<
-				IPhWidgetsProperty, 
+				IPhWidgetsProperty,
 				&IPhWidgetsProperty::setArgument<ValueT, WidgetClassT, ArgumentT, ArgumentID>
 			> cpp_bind_t;
 
@@ -169,11 +169,11 @@ namespace PhWidgets
 			bind(WidgetClassT *parent) :
 				cpp_bind_t(parent)
 			{}
-			
+
 			using cpp_bind_t::operator=;
 		};
 
-	};	
+	};
 }
 
 #endif
