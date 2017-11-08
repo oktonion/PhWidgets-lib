@@ -122,11 +122,14 @@ Widget::Widget(int abn):
 	//properties:
 	Enabled(this),
 	HelpTopic(this),
+	Left(this),
+	Top(this),
+	Location(this),
 	Width(this),
 	Height(this),
 	BevelWidth(this),
 	Size(this),
-	Location(this),
+	Position(this),
 	//flags:
 	ExtendedFlags(this),
 	WidgetFlags(this),
@@ -154,11 +157,14 @@ Widget::Widget(PtWidget_t* wdg):
 	//properties:
 	Enabled(this),
 	HelpTopic(this),
+	Left(this),
+	Top(this),
+	Location(this),
 	Width(this),
 	Height(this),
 	BevelWidth(this),
 	Size(this),
-	Location(this),
+	Position(this),
 	//flags:
 	ExtendedFlags(this),
 	WidgetFlags(this),
@@ -223,11 +229,14 @@ Widget::Widget(const Widget &rhs):
 	//properties:
 	Enabled(this),
 	HelpTopic(this),
+	Left(this),
+	Top(this),
+	Location(this),
 	Width(this),
 	Height(this),
 	BevelWidth(this),
 	Size(this),
-	Location(this),
+	Position(this),
 	//flags:
 	ExtendedFlags(this),
 	WidgetFlags(this),
@@ -335,6 +344,69 @@ void PhWidgets::Widget::setHelpTopic(std::string val)
 std::string PhWidgets::Widget::getHelpTopic() const
 {
 	return resource.argument[Arguments::help_topic].get();
+}
+
+void PhWidgets::Widget::setLocation(PhPoint_t location)
+{
+	PhPoint_t offset, position;
+
+	if (PtWidgetOffset(this->widget(), &offset))
+	{
+		position.x = location.x - offset.x;
+		position.y = location.y - offset.y;
+
+		resource.argument[Arguments::pos].set(position);
+	}
+
+}
+
+PhPoint_t PhWidgets::Widget::getLocation() const
+{
+	PhPoint_t offset, position, location;
+	location.x = 0;
+	location.y = 0;
+
+	if (PtWidgetOffset(this->widget(), &offset))
+	{
+		position = resource.argument[Arguments::pos].get();
+
+		location.x = position.x + offset.x;
+		location.y = position.y + offset.y;
+	}
+
+	return location;
+}
+
+void PhWidgets::Widget::setLeft(short x)
+{
+	PhPoint_t location = getLocation();
+
+	if (location.x != x)
+	{
+		location.x = x;
+		setLocation(location);
+	}
+}
+
+short PhWidgets::Widget::getLeft() const
+{
+	return getLocation().x;
+}
+
+void PhWidgets::Widget::setTop(short y)
+{
+	PhPoint_t location = getLocation();
+
+	if (location.y != y)
+	{
+		location.y = y;
+		setLocation(location);
+	}
+}
+
+short PhWidgets::Widget::getTop() const
+{
+	return getLocation().y;
 }
 
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator|(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2)
