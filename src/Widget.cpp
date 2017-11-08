@@ -327,3 +327,39 @@ std::string PhWidgets::Widget::getHelpTopic() const
 {
 	return resource.argument[Arguments::help_topic].get();
 }
+
+cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator|(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2)
+{
+	cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> bm(flag1);
+	return bm | flag2;
+}
+
+cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator&(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2)
+{
+	cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> bm(flag1);
+	return bm & flag2;
+}
+
+cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator^(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2)
+{
+	cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> bm(flag1);
+	return bm ^ flag2;
+}
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator|(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2)
+{
+	cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> bm(flag1);
+	return bm | flag2;
+}
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator&(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2)
+{
+	cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> bm(flag1);
+	return bm & flag2;
+}
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator^(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2)
+{
+	cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> bm(flag1);
+	return bm ^ flag2;
+}
