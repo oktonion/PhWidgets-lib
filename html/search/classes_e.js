@@ -1,6 +1,9 @@
 var searchData=
 [
   ['ph_5fcallback_5ft',['ph_callback_t',['../classphevents_1_1phevent_1_1ph__callback__t.html',1,'phevents::phevent']]],
+  ['phbitmask',['phbitmask',['../namespace_ph_widgets.html#class_ph_widgets_1_1phbitmask',1,'PhWidgets']]],
+  ['phbitmask_3c_20long_2c_20flags_3a_3aeflags_20_3e',['phbitmask&lt; long, Flags::eFlags &gt;',['../namespace_ph_widgets.html#namespace_ph_widgets',1,'PhWidgets']]],
+  ['phbitmask_3c_20unsigned_20long_2c_20flags_3a_3aextended_3a_3aeexflags_20_3e',['phbitmask&lt; unsigned long, Flags::Extended::eExFlags &gt;',['../namespace_ph_widgets.html#namespace_ph_widgets',1,'PhWidgets']]],
   ['phevent',['phevent',['../namespacephevents.html#classphevents_1_1phevent',1,'phevents']]],
   ['phproperty',['phproperty',['../namespace_ph_widgets.html#class_ph_widgets_1_1phproperty',1,'PhWidgets']]],
   ['phproperty_3c_20bool_20_3e',['phproperty&lt; bool &gt;',['../namespace_ph_widgets.html#namespace_ph_widgets',1,'PhWidgets']]],

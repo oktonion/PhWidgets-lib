@@ -18,6 +18,7 @@ var class_ph_widgets_1_1_widget =
     [ "ArgUnsignedShort", "struct_ph_widgets_1_1_widget_1_1_arg_unsigned_short.html", null ],
     [ "Callback", "struct_ph_widgets_1_1_widget_1_1_callback.html", null ],
     [ "Callbacks", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", null ],
+    [ "Flags", "struct_ph_widgets_1_1_widget_1_1_flags.html", null ],
     [ "HotkeyCallback", "struct_ph_widgets_1_1_widget_1_1_hotkey_callback.html", null ],
     [ "phwidgets_event", "class_ph_widgets_1_1_widget_1_1phwidgets__event.html", "class_ph_widgets_1_1_widget_1_1phwidgets__event" ],
     [ "RawCallback", "struct_ph_widgets_1_1_widget_1_1_raw_callback.html", null ],
@@ -127,6 +128,7 @@ var class_ph_widgets_1_1_widget =
         ] ]
       ] ]
     ] ],
+    [ "ThisFlags", "struct_ph_widgets_1_1_widget_1_1_this_flags.html", "struct_ph_widgets_1_1_widget_1_1_this_flags" ],
     [ "callback_t", "class_ph_widgets_1_1_widget.html#aeafd68a2c58d7194c149e58fddadd3ed", null ],
     [ "WidgetResourcesSingleton", "class_ph_widgets_1_1_widget.html#a77cd7f9163131ca44f77924d865290f8", null ],
     [ "Widget", "class_ph_widgets_1_1_widget.html#a43b01493754c8a4e482633082032ba72", null ],
@@ -154,6 +156,7 @@ var class_ph_widgets_1_1_widget =
     [ "Destroyed", "class_ph_widgets_1_1_widget.html#af1e24b7efd98f6395b2b9013027777c0", null ],
     [ "DragDrop", "class_ph_widgets_1_1_widget.html#a045ced187e442b6d9d7ca37412055ec9", null ],
     [ "Enabled", "class_ph_widgets_1_1_widget.html#ad3ba726040db0ff4cffcda905192f250", null ],
+    [ "ExtendedFlags", "class_ph_widgets_1_1_widget.html#a97cf7f430bfbca119b5dc39f7625d013", null ],
     [ "Height", "class_ph_widgets_1_1_widget.html#a7ad2788ec0486d6e2b4d9a5b15e17723", null ],
     [ "HelpTopic", "class_ph_widgets_1_1_widget.html#a410640fc73b0aa7d8343bf13cbbb2e1f", null ],
     [ "IsDestroyed", "class_ph_widgets_1_1_widget.html#a035653a11b43dc468898fdcca8c179de", null ],
@@ -163,5 +166,6 @@ var class_ph_widgets_1_1_widget =
     [ "resource", "class_ph_widgets_1_1_widget.html#a7864754d3f767d782c6aa886da5c10cc", null ],
     [ "Size", "class_ph_widgets_1_1_widget.html#aa070988cb796124ca4d6294f32f5970a", null ],
     [ "Unrealized", "class_ph_widgets_1_1_widget.html#ae4ca4ac33bb23e81372eb8df5b5664c6", null ],
+    [ "WidgetFlags", "class_ph_widgets_1_1_widget.html#aa71af51e58a3859da6afe0d0d6942b58", null ],
     [ "Width", "class_ph_widgets_1_1_widget.html#a728284c889610b1a6aa9c1e81d1540f2", null ]
 ];

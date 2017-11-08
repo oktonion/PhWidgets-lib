@@ -11,5 +11,6 @@ var searchData=
   ['timer_5frepeat',['timer_repeat',['../struct_ph_widgets_1_1_timer_1_1_this_args_1_1_arg_unsigned_long.html#aaa6a80096307e60b1384a7b4c72c460ca4d8b7776c7e9a13a5e19fee07ac10d0f',1,'PhWidgets::Timer::ThisArgs::ArgUnsignedLong']]],
   ['title',['title',['../struct_ph_widgets_1_1_container_1_1_this_args_1_1_arg_p_char.html#a27655e8baccd90289d01662a773f7895a79a7c54314ae0aa8cfe6d2770aa9d886',1,'PhWidgets::Container::ThisArgs::ArgPChar']]],
   ['title_5ffont',['title_font',['../struct_ph_widgets_1_1_container_1_1_this_args_1_1_arg_p_char.html#a27655e8baccd90289d01662a773f7895a490f3ba600d6f9bbbf4f213f861b10e8',1,'PhWidgets::Container::ThisArgs::ArgPChar']]],
+  ['toggle',['Toggle',['../struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbda776a7e4dbacc515dcfa39479328fd45e',1,'PhWidgets::Widget::ThisFlags']]],
   ['trans_5fpattern',['trans_pattern',['../struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_pattern.html#a7c7ef18533fadacf265209807482f16fafe61cd60e1524bc358bf8cb2394a5d75',1,'PhWidgets::Basic::ThisArgs::ArgPattern']]]
 ];

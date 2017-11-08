@@ -11,6 +11,8 @@ var searchData=
   ['max_5fdim',['max_dim',['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_dim.html#a996bffa203dcfffe5cf6db42ac70bdcca7b230c121452d2ca405a37490adb27be',1,'PhWidgets::Widget::ThisArgs::ArgDim']]],
   ['maxvalue',['MaxValue',['../class_ph_widgets_1_1_numeric_float.html#a5f5a9e7c4d04dcc9e4909a6fe65e0725',1,'PhWidgets::NumericFloat::MaxValue()'],['../class_ph_widgets_1_1_numeric_integer.html#ab445ece88f569b8bc77a45d72c0efe37',1,'PhWidgets::NumericInteger::MaxValue()']]],
   ['menu',['menu',['../struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a15a23da437c3f58b1a22e92c482c3f66',1,'PhWidgets::Basic::ThisCallbacks::Callback::menu()'],['../class_ph_widgets_1_1_basic.html#a5bbdea02779187578568b058de460302',1,'PhWidgets::Basic::Menu()'],['../struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ead5390ab57eb39272ed14c233eb148797',1,'PhWidgets::Hotkeys::Menu()']]],
+  ['menuable',['Menuable',['../struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbda2206dbe95f9b40208a6e3abd6eba143d',1,'PhWidgets::Widget::ThisFlags']]],
+  ['menubutton',['MenuButton',['../struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbda4c2c72a8048cef91b195539693ce3d4c',1,'PhWidgets::Widget::ThisFlags']]],
   ['min_5fdim',['min_dim',['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_dim.html#a996bffa203dcfffe5cf6db42ac70bdcca4141cb60dc506e768ec4e1d9171c11d3',1,'PhWidgets::Widget::ThisArgs::ArgDim']]],
   ['minus',['minus',['../namespacestd_1_1details.html#structstd_1_1details_1_1minus',1,'std::details']]],
   ['minus_3c_20false_20_3e',['minus&lt; false &gt;',['../structstd_1_1details_1_1minus_3_01false_01_4.html',1,'std::details']]],

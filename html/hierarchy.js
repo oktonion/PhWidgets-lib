@@ -341,6 +341,7 @@ var hierarchy =
       [ "PhWidgets::detail::def_help::Define< PrevT >::Array< ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_array.html", null ]
     ] ],
     [ "PhWidgets::detail::def_help::BasePrevType", "namespace_ph_widgets_1_1detail_1_1def__help.html#struct_ph_widgets_1_1detail_1_1def__help_1_1_base_prev_type", null ],
+    [ "PhWidgets::phbitmask< MaskT, FlagT >::bind< WidgetClassT, ArgumentT, ArgumentID >", "class_ph_widgets_1_1phbitmask_1_1bind.html", null ],
     [ "cppproperties::property< ValueT, detail::property_flag::ro >::bind< ParentT, Getter >", "classcppproperties_1_1property_3_01_value_t_00_01detail_1_1property__flag_1_1ro_01_4_1_1bind.html", null ],
     [ "cppproperties::property< ValueT, detail::property_flag::rw >::bind< ParentT, Getter, Setter >", "classcppproperties_1_1property_3_01_value_t_00_01detail_1_1property__flag_1_1rw_01_4_1_1bind.html", null ],
     [ "cppproperties::property< ValueT, detail::property_flag::wo >::bind< ParentT, Setter >", "classcppproperties_1_1property_3_01_value_t_00_01detail_1_1property__flag_1_1wo_01_4_1_1bind.html", null ],
@@ -350,6 +351,7 @@ var hierarchy =
       [ "PhWidgets::phproperty< ValueT, cppproperties::detail::property_flag::rw >::bind< WidgetClassT, ArgumentT, ArgumentID >", "class_ph_widgets_1_1phproperty_3_01_value_t_00_01cppproperties_1_1detail_1_1property__flag_1_1rw_01_4_1_1bind.html", null ],
       [ "PhWidgets::phproperty< ValueT, cppproperties::detail::property_flag::wo >::bind< WidgetClassT, ArgumentT, ArgumentID >", "class_ph_widgets_1_1phproperty_3_01_value_t_00_01cppproperties_1_1detail_1_1property__flag_1_1wo_01_4_1_1bind.html", null ]
     ] ],
+    [ "cppbitmasks::bitmask< MaskT, FlagT >", "classcppbitmasks_1_1bitmask.html", null ],
     [ "PhWidgets::detail::def_orig::Boolean< PrevT, LinkT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_boolean", null ],
     [ "PhWidgets::detail::def_orig::Boolean< PrevT, ArgT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html", [
       [ "PhWidgets::detail::def_help::Define< PrevT >::Boolean< ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_boolean.html", null ]
@@ -379,10 +381,10 @@ var hierarchy =
     [ "PhWidgets::NumericInteger::ThisCallbacks::Callback", "struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks_1_1_callback.html", null ],
     [ "PhWidgets::OnOffButton::ThisCallbacks::Callback", "struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks_1_1_callback.html", null ],
     [ "Callbacks", null, [
-      [ "PhWidgets::NumericInteger::Callbacks", "struct_ph_widgets_1_1_numeric_integer_1_1_callbacks.html", null ]
+      [ "PhWidgets::Text::Callbacks", "struct_ph_widgets_1_1_text_1_1_callbacks.html", null ]
     ] ],
     [ "Callbacks", null, [
-      [ "PhWidgets::Text::Callbacks", "struct_ph_widgets_1_1_text_1_1_callbacks.html", null ]
+      [ "PhWidgets::NumericInteger::Callbacks", "struct_ph_widgets_1_1_numeric_integer_1_1_callbacks.html", null ]
     ] ],
     [ "PhWidgets::detail::def_orig::Color< PrevT, LinkT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_color", null ],
     [ "PhWidgets::detail::def_orig::Color< PrevT, ArgT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html", [
@@ -401,6 +403,7 @@ var hierarchy =
     [ "std::exception", null, [
       [ "std::mystd::exception", "classstd_1_1mystd_1_1exception.html", null ]
     ] ],
+    [ "PhWidgets::Widget::ThisFlags::Extended", "struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html", null ],
     [ "PhWidgets::detail::def_orig::Flag< PrevT, LinkT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html#struct_ph_widgets_1_1detail_1_1def__orig_1_1_flag", null ],
     [ "PhWidgets::detail::def_orig::Flag< PrevT, ArgT, ResourceT >", "namespace_ph_widgets_1_1detail_1_1def__orig.html", [
       [ "PhWidgets::detail::def_help::Define< PrevT >::Flag< ArgT, ResourceT >", "struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_flag.html", null ]
@@ -545,6 +548,9 @@ var hierarchy =
       ] ]
     ] ],
     [ "phevents::phevent::ph_callback_t", "classphevents_1_1phevent_1_1ph__callback__t.html", null ],
+    [ "PhWidgets::phbitmask< MaskT, FlagT >", "namespace_ph_widgets.html#class_ph_widgets_1_1phbitmask", null ],
+    [ "PhWidgets::phbitmask< long, Flags::eFlags >", "namespace_ph_widgets.html#namespace_ph_widgets", null ],
+    [ "PhWidgets::phbitmask< unsigned long, Flags::Extended::eExFlags >", "namespace_ph_widgets.html#namespace_ph_widgets", null ],
     [ "phevents::phevent", "namespacephevents.html#classphevents_1_1phevent", null ],
     [ "PhWidgets::phproperty< ValueT, Flag >", "namespace_ph_widgets.html#class_ph_widgets_1_1phproperty", null ],
     [ "PhWidgets::phproperty< bool >", "namespace_ph_widgets.html#namespace_ph_widgets", null ],
@@ -592,13 +598,13 @@ var hierarchy =
     [ "std::remove_const< T >", "structstd_1_1remove__const.html", null ],
     [ "cppproperties::detail::remove_const< T >", "namespacecppproperties_1_1detail.html#structcppproperties_1_1detail_1_1remove__const", null ],
     [ "std::remove_const< const T * >", "structstd_1_1remove__const_3_01const_01_t_01_5_01_4.html", null ],
-    [ "std::remove_const< const T >", "structstd_1_1remove__const_3_01const_01_t_01_4.html", null ],
     [ "cppproperties::detail::remove_const< const T >", "namespacecppproperties_1_1detail.html#structcppproperties_1_1detail_1_1remove__const_3_01const_01_t_01_4", null ],
+    [ "std::remove_const< const T >", "structstd_1_1remove__const_3_01const_01_t_01_4.html", null ],
     [ "std::remove_const< const volatile T * >", "structstd_1_1remove__const_3_01const_01volatile_01_t_01_5_01_4.html", null ],
     [ "std::remove_const< const volatile T >", "structstd_1_1remove__const_3_01const_01volatile_01_t_01_4.html", null ],
     [ "std::remove_cv< T >", "structstd_1_1remove__cv.html", null ],
-    [ "std::remove_reference< T >", "structstd_1_1remove__reference.html", null ],
     [ "cppproperties::detail::remove_reference< T >", "namespacecppproperties_1_1detail.html#structcppproperties_1_1detail_1_1remove__reference", null ],
+    [ "std::remove_reference< T >", "structstd_1_1remove__reference.html", null ],
     [ "std::remove_reference< T & >", "structstd_1_1remove__reference_3_01_t_01_6_01_4.html", null ],
     [ "cppproperties::detail::remove_reference< T & >", "namespacecppproperties_1_1detail.html#structcppproperties_1_1detail_1_1remove__reference_3_01_t_01_6_01_4", null ],
     [ "std::remove_volatile< T >", "structstd_1_1remove__volatile.html", null ],
@@ -633,26 +639,29 @@ var hierarchy =
     [ "T", null, [
       [ "stdex::type_zero< T >", "structstdex_1_1type__zero.html", null ]
     ] ],
-    [ "PhWidgets::Numeric::ThisArgs", "class_ph_widgets_1_1_numeric.html#struct_ph_widgets_1_1_numeric_1_1_this_args", null ],
-    [ "PhWidgets::NumericInteger::ThisArgs", "class_ph_widgets_1_1_numeric_integer.html#struct_ph_widgets_1_1_numeric_integer_1_1_this_args", null ],
-    [ "PhWidgets::Button::ThisArgs", "class_ph_widgets_1_1_button.html#struct_ph_widgets_1_1_button_1_1_this_args", null ],
-    [ "PhWidgets::NumericFloat::ThisArgs", "class_ph_widgets_1_1_numeric_float.html#struct_ph_widgets_1_1_numeric_float_1_1_this_args", null ],
-    [ "PhWidgets::Basic::ThisArgs", "class_ph_widgets_1_1_basic.html#struct_ph_widgets_1_1_basic_1_1_this_args", null ],
     [ "PhWidgets::Label::ThisArgs", "class_ph_widgets_1_1_label.html#struct_ph_widgets_1_1_label_1_1_this_args", null ],
-    [ "PhWidgets::Widget::ThisArgs", "class_ph_widgets_1_1_widget.html#struct_ph_widgets_1_1_widget_1_1_this_args", null ],
-    [ "PhWidgets::Container::ThisArgs", "class_ph_widgets_1_1_container.html#struct_ph_widgets_1_1_container_1_1_this_args", null ],
-    [ "PhWidgets::ToggleButton::ThisArgs", "class_ph_widgets_1_1_toggle_button.html#struct_ph_widgets_1_1_toggle_button_1_1_this_args", null ],
-    [ "PhWidgets::OnOffButton::ThisArgs", "class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_args", null ],
     [ "PhWidgets::Timer::ThisArgs", "class_ph_widgets_1_1_timer.html#struct_ph_widgets_1_1_timer_1_1_this_args", null ],
+    [ "PhWidgets::Button::ThisArgs", "class_ph_widgets_1_1_button.html#struct_ph_widgets_1_1_button_1_1_this_args", null ],
+    [ "PhWidgets::ToggleButton::ThisArgs", "class_ph_widgets_1_1_toggle_button.html#struct_ph_widgets_1_1_toggle_button_1_1_this_args", null ],
+    [ "PhWidgets::Basic::ThisArgs", "class_ph_widgets_1_1_basic.html#struct_ph_widgets_1_1_basic_1_1_this_args", null ],
+    [ "PhWidgets::OnOffButton::ThisArgs", "class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_args", null ],
     [ "PhWidgets::Text::ThisArgs", "class_ph_widgets_1_1_text.html#struct_ph_widgets_1_1_text_1_1_this_args", null ],
+    [ "PhWidgets::Numeric::ThisArgs", "class_ph_widgets_1_1_numeric.html#struct_ph_widgets_1_1_numeric_1_1_this_args", null ],
+    [ "PhWidgets::Container::ThisArgs", "class_ph_widgets_1_1_container.html#struct_ph_widgets_1_1_container_1_1_this_args", null ],
+    [ "PhWidgets::NumericInteger::ThisArgs", "class_ph_widgets_1_1_numeric_integer.html#struct_ph_widgets_1_1_numeric_integer_1_1_this_args", null ],
+    [ "PhWidgets::NumericFloat::ThisArgs", "class_ph_widgets_1_1_numeric_float.html#struct_ph_widgets_1_1_numeric_float_1_1_this_args", null ],
+    [ "PhWidgets::Widget::ThisArgs", "class_ph_widgets_1_1_widget.html#struct_ph_widgets_1_1_widget_1_1_this_args", null ],
+    [ "PhWidgets::OnOffButton::ThisCallbacks", "class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks", null ],
     [ "PhWidgets::Text::ThisCallbacks", "class_ph_widgets_1_1_text.html#struct_ph_widgets_1_1_text_1_1_this_callbacks", null ],
     [ "PhWidgets::Basic::ThisCallbacks", "class_ph_widgets_1_1_basic.html#struct_ph_widgets_1_1_basic_1_1_this_callbacks", null ],
     [ "PhWidgets::Container::ThisCallbacks", "class_ph_widgets_1_1_container.html#struct_ph_widgets_1_1_container_1_1_this_callbacks", null ],
+    [ "PhWidgets::Timer::ThisCallbacks", "class_ph_widgets_1_1_timer.html#struct_ph_widgets_1_1_timer_1_1_this_callbacks", null ],
     [ "PhWidgets::NumericInteger::ThisCallbacks", "class_ph_widgets_1_1_numeric_integer.html#struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks", null ],
     [ "PhWidgets::Widget::ThisCallbacks", "class_ph_widgets_1_1_widget.html#struct_ph_widgets_1_1_widget_1_1_this_callbacks", null ],
     [ "PhWidgets::NumericFloat::ThisCallbacks", "class_ph_widgets_1_1_numeric_float.html#struct_ph_widgets_1_1_numeric_float_1_1_this_callbacks", null ],
-    [ "PhWidgets::OnOffButton::ThisCallbacks", "class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks", null ],
-    [ "PhWidgets::Timer::ThisCallbacks", "class_ph_widgets_1_1_timer.html#struct_ph_widgets_1_1_timer_1_1_this_callbacks", null ],
+    [ "PhWidgets::Widget::ThisFlags", "struct_ph_widgets_1_1_widget_1_1_this_flags.html", [
+      [ "PhWidgets::Widget::Flags", "struct_ph_widgets_1_1_widget_1_1_flags.html", null ]
+    ] ],
     [ "stdex::type_zero< const T[N]>", "structstdex_1_1type__zero_3_01const_01_t[_n]_4.html", null ],
     [ "stdex::type_zero< T[N]>", "structstdex_1_1type__zero_3_01_t[_n]_4.html", null ],
     [ "std::detail::UnsignedComparer< T >", "structstd_1_1detail_1_1_unsigned_comparer.html", null ],

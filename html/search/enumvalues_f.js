@@ -1,7 +1,9 @@
 var searchData=
 [
   ['raw',['raw',['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_raw_callback.html#a0d3c0b29a907371fcfb4e217b5e45036a9f50e1f23ba0a546e9030dd9b5896106',1,'PhWidgets::Widget::ThisCallbacks::RawCallback::raw()'],['../struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da595d1bb46d1a5c8048e28aed6af1f622',1,'PhWidgets::Events::raw()']]],
-  ['realized',['realized',['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca238a5a9c2b402de58f581a8662a4465d',1,'PhWidgets::Widget::ThisCallbacks::Callback']]],
+  ['realized',['Realized',['../struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbda06bd1e86b0b86f5263bdde9697c930d0',1,'PhWidgets::Widget::ThisFlags::Realized()'],['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca238a5a9c2b402de58f581a8662a4465d',1,'PhWidgets::Widget::ThisCallbacks::Callback::realized()']]],
+  ['realizing',['Realizing',['../struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbda7d1e7254597654b4a01ced60f93544fd',1,'PhWidgets::Widget::ThisFlags']]],
+  ['region',['Region',['../struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbda6ee73708786747e169042ad328968fb7',1,'PhWidgets::Widget::ThisFlags']]],
   ['release',['release',['../struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da9078b14da6fff13b34ecaa6ea9446ff6',1,'PhWidgets::Events']]],
   ['repeat',['repeat',['../struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7acd37bb0743bfca906c9da9bf71225264',1,'PhWidgets::Basic::ThisCallbacks::Callback::repeat()'],['../struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da217b0f678e82929988cee9ed0d55d66b',1,'PhWidgets::Events::repeat()']]],
   ['resize',['resize',['../struct_ph_widgets_1_1_container_1_1_this_callbacks_1_1_callback.html#a9c06fcbbb7071d5febd6e9516f60cd17aa56205291fe8180adbb3b06752f7023c',1,'PhWidgets::Container::ThisCallbacks::Callback']]],

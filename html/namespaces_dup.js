@@ -1,5 +1,6 @@
 var namespaces_dup =
 [
+    [ "cppbitmasks", "namespacecppbitmasks.html", null ],
     [ "cppproperties", "namespacecppproperties.html", "namespacecppproperties" ],
     [ "detail", "namespacedetail.html", null ],
     [ "phevents", "namespacephevents.html", "namespacephevents" ],

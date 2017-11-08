@@ -38,7 +38,7 @@
   
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.1</span>
+   &#160;<span id="projectnumber">0.3.2</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -176,6 +176,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_callbacks.html">Callbacks</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_flags.html">Flags</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_hotkey_callback.html">HotkeyCallback</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_1_1phwidgets__event.html">phwidgets_event</a></td></tr>
@@ -187,6 +189,8 @@ Classes</h2></td></tr>
 <tr class="separator:struct_ph_widgets_1_1_widget_1_1_this_args"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:struct_ph_widgets_1_1_widget_1_1_this_callbacks"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#struct_ph_widgets_1_1_widget_1_1_this_callbacks">ThisCallbacks</a></td></tr>
 <tr class="separator:struct_ph_widgets_1_1_widget_1_1_this_callbacks"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html">ThisFlags</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -272,6 +276,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a0a50b30ec2d60950ad66f5f0047e1404"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_ph_widgets.html#class_ph_widgets_1_1phproperty">phproperty</a>&lt; PhPoint_t &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_point.html#aa596cc2b4d42d3597a480a2b8f567de1">Arguments::eArgPoint</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_point.html#aa596cc2b4d42d3597a480a2b8f567de1af076bdca6a11ef117a54b6bca4e1ca36">Arguments::pos</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#a0a50b30ec2d60950ad66f5f0047e1404">Location</a></td></tr>
 <tr class="memdesc:a0a50b30ec2d60950ad66f5f0047e1404"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the position of the widget.  <a href="#a0a50b30ec2d60950ad66f5f0047e1404">More...</a><br /></td></tr>
 <tr class="separator:a0a50b30ec2d60950ad66f5f0047e1404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97cf7f430bfbca119b5dc39f7625d013"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_ph_widgets.html#class_ph_widgets_1_1phbitmask">phbitmask</a>&lt; unsigned long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">Flags::Extended::eExFlags</a> &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_long.html#a5c7282f5d354a28095034d98fe154c61">ArgUnsignedLong::eArgUnsignedLong</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_long.html#a5c7282f5d354a28095034d98fe154c61adc0f579b53a0b8ff0bf20c77dd53c367">ArgUnsignedLong::eflags</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#a97cf7f430bfbca119b5dc39f7625d013">ExtendedFlags</a></td></tr>
+<tr class="memdesc:a97cf7f430bfbca119b5dc39f7625d013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets extended flags inherited by all widgets. See Flags::Extended.  <a href="#a97cf7f430bfbca119b5dc39f7625d013">More...</a><br /></td></tr>
+<tr class="separator:a97cf7f430bfbca119b5dc39f7625d013"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa71af51e58a3859da6afe0d0d6942b58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_ph_widgets.html#class_ph_widgets_1_1phbitmask">phbitmask</a>&lt; long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">Flags::eFlags</a> &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_long.html#a4deba655c8d3dc2d794aabd716c15d25">ArgLong::eArgLong</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_long.html#a4deba655c8d3dc2d794aabd716c15d25adaf477f74ebe062cc2d6db6ce66d053c">ArgLong::flags</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#aa71af51e58a3859da6afe0d0d6942b58">WidgetFlags</a></td></tr>
+<tr class="memdesc:aa71af51e58a3859da6afe0d0d6942b58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets flags inherited by all widgets. See <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd" title="Common flags used by all widgets. Except for those indicated as read-only, these flags are all read/w...">Flags::eFlags</a>.  <a href="#aa71af51e58a3859da6afe0d0d6942b58">More...</a><br /></td></tr>
+<tr class="separator:aa71af51e58a3859da6afe0d0d6942b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1e24b7efd98f6395b2b9013027777c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ph_widgets_1_1_widget_1_1phwidgets__event.html">phwidgets_event</a>&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcacbb485027a5cdae14cf85a687d4cf31c">Widget::Callbacks::destroyed</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#af1e24b7efd98f6395b2b9013027777c0">Destroyed</a></td></tr>
 <tr class="memdesc:af1e24b7efd98f6395b2b9013027777c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Occurs when the widget is destroyed.  <a href="#af1e24b7efd98f6395b2b9013027777c0">More...</a><br /></td></tr>
 <tr class="separator:af1e24b7efd98f6395b2b9013027777c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -323,7 +333,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00032">32</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00034">34</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 </div><hr/><h2 class="groupheader">Class Documentation</h2>
 <a name="struct_ph_widgets_1_1_widget_1_1_this_args" id="struct_ph_widgets_1_1_widget_1_1_this_args"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#struct_ph_widgets_1_1_widget_1_1_this_args">&#9670;&nbsp;</a></span>PhWidgets::Widget::ThisArgs</h2>
@@ -337,7 +347,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00144">144</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00146">146</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 </div>
 </div>
 </div>
@@ -353,7 +363,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00276">276</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00277">277</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 </div>
 </div>
 </div>
@@ -372,7 +382,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>An event handler that is raised when an <a class="el" href="class_ph_widgets_1_1_widget_1_1phwidgets__event.html">event </a> occur. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00039">39</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00041">41</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>
@@ -396,7 +406,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00487">487</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00555">555</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>
@@ -455,7 +465,7 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00145">145</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00147">147</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -484,7 +494,7 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00209">209</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00213">213</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -541,7 +551,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00310">310</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00316">316</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -568,7 +578,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00320">320</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00326">326</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -590,7 +600,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Raises the <a class="el" href="class_ph_widgets_1_1_widget.html#abc5594d08c6e0ab9da8a8962caddc665" title="Occurs when the widget is blocked. ">Widget::Blocked</a> event. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00274">274</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00280">280</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -612,7 +622,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Raises the <a class="el" href="class_ph_widgets_1_1_widget.html#af1e24b7efd98f6395b2b9013027777c0" title="Occurs when the widget is destroyed. ">Widget::Destroyed</a> event. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00269">269</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00275">275</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -634,7 +644,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Raises the <a class="el" href="class_ph_widgets_1_1_widget.html#a045ced187e442b6d9d7ca37412055ec9" title="Occurs when a drag-and-drop operation is completed. ">Widget::DragDrop</a> event. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00279">279</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00285">285</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -656,7 +666,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Raises the <a class="el" href="class_ph_widgets_1_1_widget.html#a59e2041a2aa676a17182766438ab67a3" title="Occurs when you press the pointer button on the widget and then move out of the &quot;hot spot&quot; with the b...">Widget::Outbound</a> event. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00284">284</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00290">290</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -678,7 +688,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Raises the <a class="el" href="class_ph_widgets_1_1_widget.html#a28553628e9f78524e5ccfc953f51e7e8" title="Occurs when the widget is realized. ">Widget::Realized</a> event. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00289">289</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00295">295</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -700,7 +710,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Raises the <a class="el" href="class_ph_widgets_1_1_widget.html#ae4ca4ac33bb23e81372eb8df5b5664c6" title="Occurs when the widget is unrealized. ">Widget::Unrealized</a> event. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00294">294</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00300">300</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -721,7 +731,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Converts <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a> to constant Photon widget pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00264">264</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00270">270</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -742,7 +752,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Converts <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a> to Photon widget pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00299">299</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00305">305</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -771,7 +781,7 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00251">251</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00257">257</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -800,7 +810,7 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00232">232</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00238">238</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -829,7 +839,7 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00243">243</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00249">249</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -857,7 +867,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00305">305</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00311">311</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -885,7 +895,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00315">315</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00321">321</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
 
 </div>
 </div>
@@ -933,7 +943,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Gets or sets the bevel width of the widget. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00546">546</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00614">614</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>
@@ -951,7 +961,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Occurs when the widget is blocked. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00551">551</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00622">622</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>
@@ -969,7 +979,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Occurs when the widget is destroyed. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00550">550</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00621">621</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>
@@ -987,7 +997,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Occurs when a drag-and-drop operation is completed. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00552">552</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00623">623</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>
@@ -1005,7 +1015,25 @@ Protected Member Functions</h2></td></tr>
 
 <p>Gets or sets a value indicating whether the widget can respond to user interaction. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00541">541</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00609">609</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+
+</div>
+</div>
+<a id="a97cf7f430bfbca119b5dc39f7625d013"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97cf7f430bfbca119b5dc39f7625d013">&#9670;&nbsp;</a></span>ExtendedFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_ph_widgets.html#class_ph_widgets_1_1phbitmask">phbitmask</a>&lt;unsigned long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">Flags::Extended::eExFlags</a>&gt;::bind&lt;<a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_long.html#a5c7282f5d354a28095034d98fe154c61">ArgUnsignedLong::eArgUnsignedLong</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_long.html#a5c7282f5d354a28095034d98fe154c61adc0f579b53a0b8ff0bf20c77dd53c367">ArgUnsignedLong::eflags</a>&gt; PhWidgets::Widget::ExtendedFlags</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets or sets extended flags inherited by all widgets. See Flags::Extended. </p>
+
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00618">618</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>
@@ -1023,7 +1051,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Gets or sets the hight of the widget. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00545">545</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00613">613</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>
@@ -1041,7 +1069,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Gets or sets the help topic of the widget. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00542">542</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00610">610</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>
@@ -1059,7 +1087,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Occurs when the widget's resources are being released. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00553">553</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00624">624</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>
@@ -1077,7 +1105,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Gets or sets the position of the widget. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00548">548</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00616">616</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>
@@ -1095,7 +1123,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Occurs when you press the pointer button on the widget and then move out of the "hot spot" with the button still depressed. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00554">554</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00625">625</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>
@@ -1113,7 +1141,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Occurs when the widget is realized. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00555">555</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00626">626</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>
@@ -1131,7 +1159,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Resources of the <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00539">539</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00607">607</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>
@@ -1149,7 +1177,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Gets or sets the size of the widget. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00547">547</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00615">615</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>
@@ -1167,7 +1195,25 @@ Protected Member Functions</h2></td></tr>
 
 <p>Occurs when the widget is unrealized. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00556">556</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00627">627</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+
+</div>
+</div>
+<a id="aa71af51e58a3859da6afe0d0d6942b58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa71af51e58a3859da6afe0d0d6942b58">&#9670;&nbsp;</a></span>WidgetFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_ph_widgets.html#class_ph_widgets_1_1phbitmask">phbitmask</a>&lt;long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">Flags::eFlags</a>&gt;::bind&lt;<a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_long.html#a4deba655c8d3dc2d794aabd716c15d25">ArgLong::eArgLong</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_long.html#a4deba655c8d3dc2d794aabd716c15d25adaf477f74ebe062cc2d6db6ce66d053c">ArgLong::flags</a>&gt; PhWidgets::Widget::WidgetFlags</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets or sets flags inherited by all widgets. See <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd" title="Common flags used by all widgets. Except for those indicated as read-only, these flags are all read/w...">Flags::eFlags</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00619">619</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>
@@ -1185,7 +1231,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Gets or sets the width of the widget. </p>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00544">544</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00612">612</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>

@@ -38,7 +38,7 @@
   
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.1</span>
+   &#160;<span id="projectnumber">0.3.2</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -102,7 +102,8 @@ $(document).ready(function(){initNavTree('_widget_8h.html','');});
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Widget.h File Reference</div>  </div>
 </div><!--header-->
@@ -119,6 +120,7 @@ $(document).ready(function(){initNavTree('_widget_8h.html','');});
 <code>#include &quot;<a class="el" href="stdex_8h_source.html">./service/stdex/stdex.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="phproperty_8hpp_source.html">./service/phproperty.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="phevent_8hpp_source.html">./service/phevent.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="phbitmask_8hpp_source.html">./service/phbitmask.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_widget_resource_8hpp_source.html">./WidgetResource.hpp</a>&quot;</code><br />
 </div>
 <p><a href="_widget_8h_source.html">Go to the source code of this file.</a></p>
@@ -168,6 +170,10 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_hotkey_callback.html">PhWidgets::Widget::ThisCallbacks::HotkeyCallback</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html">PhWidgets::Widget::ThisFlags</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html">PhWidgets::Widget::ThisFlags::Extended</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_arg_area.html">PhWidgets::Widget::ArgArea</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_arg_unsigned.html">PhWidgets::Widget::ArgUnsigned</a></td></tr>
@@ -206,6 +212,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_callbacks.html">PhWidgets::Widget::Callbacks</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_flags.html">PhWidgets::Widget::Flags</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_arguments_ex.html">PhWidgets::Widget::ArgumentsEx&lt; ParentArgs &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -218,6 +226,21 @@ Namespaces</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:ad0f5f2106375f06d35aa56702b029422"><td class="memItemLeft" align="right" valign="top">typedef struct Ph_rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_widget_8h.html#ad0f5f2106375f06d35aa56702b029422">PhRect_t</a></td></tr>
 <tr class="separator:ad0f5f2106375f06d35aa56702b029422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a0ee6058b31cc513b9c40fdca668ad5c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcppbitmasks_1_1bitmask.html">cppbitmasks::bitmask</a>&lt; unsigned long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_widget_8h.html#a0ee6058b31cc513b9c40fdca668ad5c3">operator|</a> (const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a> &amp;flag1, const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a> &amp;flag2)</td></tr>
+<tr class="separator:a0ee6058b31cc513b9c40fdca668ad5c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72e0667cd50d512f7527b300ecefe084"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcppbitmasks_1_1bitmask.html">cppbitmasks::bitmask</a>&lt; unsigned long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_widget_8h.html#a72e0667cd50d512f7527b300ecefe084">operator &amp;</a> (const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a> &amp;flag1, const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a> &amp;flag2)</td></tr>
+<tr class="separator:a72e0667cd50d512f7527b300ecefe084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15f198e043e402a7cc4ade4be12d8d44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcppbitmasks_1_1bitmask.html">cppbitmasks::bitmask</a>&lt; unsigned long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_widget_8h.html#a15f198e043e402a7cc4ade4be12d8d44">operator^</a> (const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a> &amp;flag1, const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a> &amp;flag2)</td></tr>
+<tr class="separator:a15f198e043e402a7cc4ade4be12d8d44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2b57204a4d41fb20f9537eb1645cd56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcppbitmasks_1_1bitmask.html">cppbitmasks::bitmask</a>&lt; long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_widget_8h.html#ac2b57204a4d41fb20f9537eb1645cd56">operator|</a> (const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a> &amp;flag1, const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a> &amp;flag2)</td></tr>
+<tr class="separator:ac2b57204a4d41fb20f9537eb1645cd56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa780f5064c4db35a1b64b7b66eaf7f8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcppbitmasks_1_1bitmask.html">cppbitmasks::bitmask</a>&lt; long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_widget_8h.html#aa780f5064c4db35a1b64b7b66eaf7f8d">operator &amp;</a> (const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a> &amp;flag1, const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a> &amp;flag2)</td></tr>
+<tr class="separator:aa780f5064c4db35a1b64b7b66eaf7f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa890e23db76a1f0975c9ac3c934c27be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcppbitmasks_1_1bitmask.html">cppbitmasks::bitmask</a>&lt; long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_widget_8h.html#aa890e23db76a1f0975c9ac3c934c27be">operator^</a> (const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a> &amp;flag1, const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a> &amp;flag2)</td></tr>
+<tr class="separator:aa890e23db76a1f0975c9ac3c934c27be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Class Documentation</h2>
 <a name="struct_ph_widgets_1_1_widget_1_1_this_args" id="struct_ph_widgets_1_1_widget_1_1_this_args"></a>
@@ -232,7 +255,7 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00144">144</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00146">146</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 </div>
 </div>
 </div>
@@ -248,7 +271,7 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00276">276</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00277">277</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 </div>
 </div>
 </div>
@@ -265,7 +288,182 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00024">24</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00025">25</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a72e0667cd50d512f7527b300ecefe084"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72e0667cd50d512f7527b300ecefe084">&#9670;&nbsp;</a></span>operator &amp;() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcppbitmasks_1_1bitmask.html">cppbitmasks::bitmask</a>&lt;unsigned long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a>&gt; operator&amp; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a> &amp;&#160;</td>
+          <td class="paramname"><em>flag1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a> &amp;&#160;</td>
+          <td class="paramname"><em>flag2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00337">337</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa780f5064c4db35a1b64b7b66eaf7f8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa780f5064c4db35a1b64b7b66eaf7f8d">&#9670;&nbsp;</a></span>operator &amp;() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcppbitmasks_1_1bitmask.html">cppbitmasks::bitmask</a>&lt;long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a>&gt; operator&amp; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a> &amp;&#160;</td>
+          <td class="paramname"><em>flag1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a> &amp;&#160;</td>
+          <td class="paramname"><em>flag2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a15f198e043e402a7cc4ade4be12d8d44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15f198e043e402a7cc4ade4be12d8d44">&#9670;&nbsp;</a></span>operator^() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcppbitmasks_1_1bitmask.html">cppbitmasks::bitmask</a>&lt;unsigned long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a>&gt; operator^ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a> &amp;&#160;</td>
+          <td class="paramname"><em>flag1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a> &amp;&#160;</td>
+          <td class="paramname"><em>flag2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00343">343</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa890e23db76a1f0975c9ac3c934c27be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa890e23db76a1f0975c9ac3c934c27be">&#9670;&nbsp;</a></span>operator^() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcppbitmasks_1_1bitmask.html">cppbitmasks::bitmask</a>&lt;long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a>&gt; operator^ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a> &amp;&#160;</td>
+          <td class="paramname"><em>flag1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a> &amp;&#160;</td>
+          <td class="paramname"><em>flag2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0ee6058b31cc513b9c40fdca668ad5c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ee6058b31cc513b9c40fdca668ad5c3">&#9670;&nbsp;</a></span>operator|() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcppbitmasks_1_1bitmask.html">cppbitmasks::bitmask</a>&lt;unsigned long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a>&gt; operator| </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a> &amp;&#160;</td>
+          <td class="paramname"><em>flag1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">PhWidgets::Widget::Flags::Extended::eExFlags</a> &amp;&#160;</td>
+          <td class="paramname"><em>flag2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_widget_8cpp_source.html#l00331">331</a> of file <a class="el" href="_widget_8cpp_source.html">Widget.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac2b57204a4d41fb20f9537eb1645cd56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2b57204a4d41fb20f9537eb1645cd56">&#9670;&nbsp;</a></span>operator|() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcppbitmasks_1_1bitmask.html">cppbitmasks::bitmask</a>&lt;long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a>&gt; operator| </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a> &amp;&#160;</td>
+          <td class="paramname"><em>flag1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbd">PhWidgets::Widget::Flags::eFlags</a> &amp;&#160;</td>
+          <td class="paramname"><em>flag2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

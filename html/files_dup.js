@@ -85,6 +85,7 @@ var files_dup =
       [ "Callbacks", "struct_ph_widgets_1_1_basic_1_1_callbacks.html", null ]
     ] ],
     [ "basic_string_ex.h", "basic__string__ex_8h.html", "basic__string__ex_8h" ],
+    [ "bitmask.hpp", "bitmask_8hpp.html", "bitmask_8hpp" ],
     [ "Button.cpp", "_button_8cpp.html", null ],
     [ "Button.h", "_button_8h.html", [
       [ "Button", "class_ph_widgets_1_1_button.html", "class_ph_widgets_1_1_button" ],
@@ -410,6 +411,14 @@ var files_dup =
       [ "Callback", "struct_ph_widgets_1_1_on_off_button_1_1_callback.html", "struct_ph_widgets_1_1_on_off_button_1_1_callback" ],
       [ "Arguments", "struct_ph_widgets_1_1_on_off_button_1_1_arguments.html", null ],
       [ "Callbacks", "struct_ph_widgets_1_1_on_off_button_1_1_callbacks.html", null ]
+    ] ],
+    [ "phbitmask.hpp", "phbitmask_8hpp.html", [
+      [ "phbitmask", "namespace_ph_widgets.html#class_ph_widgets_1_1phbitmask", [
+        [ "bind", "class_ph_widgets_1_1phbitmask_1_1bind.html", [
+          [ "bind", "class_ph_widgets_1_1phbitmask_1_1bind.html#a527d2fff60b69c0d491b954d044b2d5d", null ]
+        ] ]
+      ] ],
+      [ "bind", "class_ph_widgets_1_1phbitmask_1_1bind.html", "class_ph_widgets_1_1phbitmask_1_1bind" ]
     ] ],
     [ "phevent.hpp", "phevent_8hpp.html", [
       [ "Void", "namespacephevents_1_1detail.html#structphevents_1_1detail_1_1_void", null ],

@@ -14,6 +14,9 @@ var namespace_ph_widgets =
     [ "NumericFloat", "class_ph_widgets_1_1_numeric_float.html", "class_ph_widgets_1_1_numeric_float" ],
     [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer.html", "class_ph_widgets_1_1_numeric_integer" ],
     [ "OnOffButton", "class_ph_widgets_1_1_on_off_button.html", "class_ph_widgets_1_1_on_off_button" ],
+    [ "phbitmask", "namespace_ph_widgets.html#class_ph_widgets_1_1phbitmask", [
+      [ "bind", "class_ph_widgets_1_1phbitmask_1_1bind.html", "class_ph_widgets_1_1phbitmask_1_1bind" ]
+    ] ],
     [ "phproperty", "namespace_ph_widgets.html#class_ph_widgets_1_1phproperty", null ],
     [ "phproperty< ValueT, cppproperties::detail::property_flag::ro >", "class_ph_widgets_1_1phproperty_3_01_value_t_00_01cppproperties_1_1detail_1_1property__flag_1_1ro_01_4.html", "class_ph_widgets_1_1phproperty_3_01_value_t_00_01cppproperties_1_1detail_1_1property__flag_1_1ro_01_4" ],
     [ "phproperty< ValueT, cppproperties::detail::property_flag::rw >", "class_ph_widgets_1_1phproperty_3_01_value_t_00_01cppproperties_1_1detail_1_1property__flag_1_1rw_01_4.html", "class_ph_widgets_1_1phproperty_3_01_value_t_00_01cppproperties_1_1detail_1_1property__flag_1_1rw_01_4" ],

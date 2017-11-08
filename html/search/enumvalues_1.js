@@ -11,7 +11,7 @@ var searchData=
   ['bevel_5fcontrast',['bevel_contrast',['../struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_char.html#ab35e898a310b71235ff62b06a6029a68a1e795c76bdf85568f04708f034b6e79d',1,'PhWidgets::Basic::ThisArgs::ArgChar']]],
   ['bevel_5fwidth',['bevel_width',['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short.html#add5b33bf072e087e634112b4e5e471d3a70382a2a911f1900197e28ac280b77fb',1,'PhWidgets::Widget::ThisArgs::ArgUnsignedShort']]],
   ['bitmap_5fcursor',['bitmap_cursor',['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_cursor_def.html#aeda4709b717fcf22bcc3f35dd568397ca107937b39800ab408158a6a6f9ee2135',1,'PhWidgets::Widget::ThisArgs::ArgPCursorDef']]],
-  ['blocked',['blocked',['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcadb260af2c47669c019d7d855b0f01a96',1,'PhWidgets::Widget::ThisCallbacks::Callback']]],
+  ['blocked',['Blocked',['../struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbdab3bbd6bdfd835311e0e52f4a9155f292',1,'PhWidgets::Widget::ThisFlags::Blocked()'],['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcadb260af2c47669c019d7d855b0f01a96',1,'PhWidgets::Widget::ThisCallbacks::Callback::blocked()']]],
   ['boundary',['boundary',['../struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23dae5db6235e85073976ff5fdb7cf37f17e',1,'PhWidgets::Events']]],
   ['button',['button',['../struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da5cbbac4489642a8ba55321fe46bc3bc5',1,'PhWidgets::Events']]]
 ];

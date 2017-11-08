@@ -125,6 +125,8 @@ var _widget_8h =
     [ "RawCallback", "struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_raw_callback.html", "struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_raw_callback" ],
     [ "Callback", "struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html", "struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback" ],
     [ "HotkeyCallback", "struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_hotkey_callback.html", "struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_hotkey_callback" ],
+    [ "ThisFlags", "struct_ph_widgets_1_1_widget_1_1_this_flags.html", "struct_ph_widgets_1_1_widget_1_1_this_flags" ],
+    [ "Extended", "struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html", "struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended" ],
     [ "ArgArea", "struct_ph_widgets_1_1_widget_1_1_arg_area.html", null ],
     [ "ArgUnsigned", "struct_ph_widgets_1_1_widget_1_1_arg_unsigned.html", null ],
     [ "ArgUnsignedShort", "struct_ph_widgets_1_1_widget_1_1_arg_unsigned_short.html", null ],
@@ -144,6 +146,13 @@ var _widget_8h =
     [ "HotkeyCallback", "struct_ph_widgets_1_1_widget_1_1_hotkey_callback.html", null ],
     [ "Arguments", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
     [ "Callbacks", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", null ],
+    [ "Flags", "struct_ph_widgets_1_1_widget_1_1_flags.html", null ],
     [ "ArgumentsEx", "struct_ph_widgets_1_1_widget_1_1_arguments_ex.html", null ],
-    [ "PhRect_t", "_widget_8h.html#ad0f5f2106375f06d35aa56702b029422", null ]
+    [ "PhRect_t", "_widget_8h.html#ad0f5f2106375f06d35aa56702b029422", null ],
+    [ "operator &", "_widget_8h.html#a72e0667cd50d512f7527b300ecefe084", null ],
+    [ "operator &", "_widget_8h.html#aa780f5064c4db35a1b64b7b66eaf7f8d", null ],
+    [ "operator^", "_widget_8h.html#a15f198e043e402a7cc4ade4be12d8d44", null ],
+    [ "operator^", "_widget_8h.html#aa890e23db76a1f0975c9ac3c934c27be", null ],
+    [ "operator|", "_widget_8h.html#a0ee6058b31cc513b9c40fdca668ad5c3", null ],
+    [ "operator|", "_widget_8h.html#ac2b57204a4d41fb20f9537eb1645cd56", null ]
 ];

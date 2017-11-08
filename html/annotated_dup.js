@@ -1,5 +1,6 @@
 var annotated_dup =
 [
+    [ "cppbitmasks", "namespacecppbitmasks.html", "namespacecppbitmasks" ],
     [ "cppproperties", "namespacecppproperties.html", "namespacecppproperties" ],
     [ "detail", "namespacedetail.html", "namespacedetail" ],
     [ "phevents", "namespacephevents.html", "namespacephevents" ],
