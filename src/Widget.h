@@ -353,6 +353,52 @@ namespace PhWidgets
 				};
 			};
 
+			struct Anchor
+			{
+				//! Anchor flags specify how the widget is anchored to its parent.
+				enum eAnchorFlags
+				{
+					LeftAnchoredRight = Pt_LEFT_ANCHORED_RIGHT, //!< Anchor the widget's left extent to the right edge of its parent's canvas. 
+					RightAnchoredRight = Pt_RIGHT_ANCHORED_RIGHT, //!< Anchor the widget's right extent to the right edge of its parent's canvas.
+					TopAnchoredBottom = Pt_TOP_ANCHORED_BOTTOM, //!< Anchor the widget's top extent to the bottom edge of its parent's canvas. 
+					BottomAnchoredBottom = Pt_BOTTOM_ANCHORED_BOTTOM, //!< Anchor the widget's bottom extent to the bottom edge of its parent's canvas. 
+					LeftAnchoredLeft = Pt_LEFT_ANCHORED_LEFT, //!< Anchor the widget's left extent to the left edge of its parent's canvas. 
+					RightAnchoredLeft = Pt_RIGHT_ANCHORED_LEFT, //!< Anchor the widget's right extent to the left edge of its parent's canvas. 
+					TopAnchoredTop = Pt_TOP_ANCHORED_TOP, //!< Anchor the widget's top extent to the top edge of its parent's canvas. 
+					BottomAnchoredTop = Pt_BOTTOM_ANCHORED_TOP, //!< Anchor the widget's bottom extent to the top edge of its parent's canvas. 
+					BalloonsOn = Pt_BALLOONS_ON //!< If a child widget has been assigned a balloon, pop up the balloon as soon as the pointer passes over the child widget; otherwise delay the pop up for 1.25 seconds. 
+				};
+			};
+
+			struct Resize
+			{
+				//! Resize flags to control a widget's resize policy in both the x and y directions.
+
+				//! Note that each ..._bits flag is a mask that represents all the bits of that type.
+				//! The default setting of this resource is 0; that is, no resize policy is in effect.
+				//! A widget's resize policy deals solely with the widget's renderable data. For a button, the data is its text; for a container, the data is its children.Any rendered data that doesn't fit within the widget's canvas is clipped.
+				//! If no resize policy is in effect, the widget's size is unbounded; it may be made as large or small as specified via Pt_ARG_DIM or Pt_ARG_AREA.
+				//! If a resize policy is in effect, the widget grows or shrinks to honor that policy.If the policy is ...ALWAYS, the widget resizes itself to fit its data—the dimensions specified via Pt_ARG_DIM or Pt_ARG_AREA don't apply. If the policy is ..._as_requred, the widget resizes itself to fit its data only if its current canvas size is inadequate to contain that data. In other words, it grows, but doesn't shrink, to fit its data.
+				//! If the widget has the ..._initial bit set, the resize policy is applied only once each time the widget is realized. This bit is meaningful only in concert with ..._always or ..._as_requred.
+				enum eResizeFlags
+				{
+
+					ResizeX_asRequired = Pt_RESIZE_X_AS_REQUIRED,
+					ResizeX_always = Pt_RESIZE_X_ALWAYS,
+					ResizeX_initial = Pt_RESIZE_X_INITIAL,
+					ResizeX_bits = Pt_RESIZE_X_BITS,
+					ResizeY_asRequired = Pt_RESIZE_Y_AS_REQUIRED,
+					ResizeY_always = Pt_RESIZE_Y_ALWAYS,
+					ResizeY_initial = Pt_RESIZE_Y_INITIAL,
+					ResizeY_bits = Pt_RESIZE_Y_BITS,
+					ResizeXY_asRequired = Pt_RESIZE_XY_ALWAYS,
+					ResizeXY_always = Pt_RESIZE_XY_AS_REQUIRED,
+					ResizeXY_initial = Pt_RESIZE_XY_INITIAL,
+					ResizeXY_bits = Pt_RESIZE_XY_BITS
+
+				};
+			};
+
 			//! Common flags used by all widgets. Except for those indicated as read-only, these flags are all read/write.
 			enum eFlags
 			{
@@ -615,8 +661,10 @@ namespace PhWidgets
 		phproperty<PhDim_t>::bind<Widget, Arguments::eArgDim, Arguments::dim>							Size; //!< Gets or sets the size of the widget.
 		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos>						Location; //!< Gets or sets the position of the widget.
 
-		phbitmask<unsigned long, Flags::Extended::eExFlags>::bind<Widget, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::eflags>	ExtendedFlags; //!< Gets or sets extended flags inherited by all widgets. See Flags::Extended.
+		phbitmask<unsigned long, Flags::Extended::eExFlags>::bind<Widget, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::eflags>	ExtendedFlags; //!< Gets or sets extended flags inherited by all widgets. See Flags::Extended::eExFlags.
 		phbitmask<long, Flags::eFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::flags>													WidgetFlags; //!< Gets or sets flags inherited by all widgets. See Flags::eFlags.
+		phbitmask<long, Flags::Resize::eResizeFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::resize_flags>							ResizeFlags; //!< Gets or sets flags to control a widget's resize policy. See Flags::Resize::eResizeFlags.
+		phbitmask<unsigned, Flags::Anchor::eAnchorFlags>::bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags>			AnchorFlags; //!< Gets or sets flags specifying how the widget is anchored to its parent. See Flags::Anchor::eAnchorFlags.
 
 		phwidgets_event<Widget, Widget::Callbacks::destroyed>		Destroyed; //!< Occurs when the widget is destroyed.
 		phwidgets_event<Widget, Widget::Callbacks::blocked>			Blocked; //!< Occurs when the widget is blocked.
