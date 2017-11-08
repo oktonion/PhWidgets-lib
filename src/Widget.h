@@ -650,11 +650,11 @@ namespace PhWidgets
 		//! Converts Widget to constant Photon widget pointer
 		operator const PtWidget_t*() const;
 
-		//! Resources of the Widget
-		WidgetResourcesSingleton resource;
+		
+		WidgetResourcesSingleton resource;//!< Resources of the Widget
 	
 		//! @name Properties
-		///@{ 
+		//! @{ 
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled; //!< Gets or sets a value indicating whether the widget can respond to user interaction.
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.
 
@@ -668,8 +668,10 @@ namespace PhWidgets
 		phbitmask<long, Flags::eFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::flags>													WidgetFlags; //!< Gets or sets flags inherited by all widgets. See Flags::eFlags.
 		phbitmask<long, Flags::Resize::eResizeFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::resize_flags>							ResizeFlags; //!< Gets or sets flags to control a widget's resize policy. See Flags::Resize::eResizeFlags.
 		phbitmask<unsigned, Flags::Anchor::eAnchorFlags>::bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags>			AnchorFlags; //!< Gets or sets flags specifying how the widget is anchored to its parent. See Flags::Anchor::eAnchorFlags.
-		///@}
+		//! @}
 
+		//! @name Events
+		//! @{ 
 		phwidgets_event<Widget, Widget::Callbacks::destroyed>		Destroyed; //!< Occurs when the widget is destroyed.
 		phwidgets_event<Widget, Widget::Callbacks::blocked>			Blocked; //!< Occurs when the widget is blocked.
 		phwidgets_event<Widget, Widget::Callbacks::dnd>				DragDrop; //!< Occurs when a drag-and-drop operation is completed.
@@ -677,13 +679,17 @@ namespace PhWidgets
 		phwidgets_event<Widget, Widget::Callbacks::outbound>		Outbound; //!< Occurs when you press the pointer button on the widget and then move out of the "hot spot" with the button still depressed.
 		phwidgets_event<Widget, Widget::Callbacks::realized>		Realized; //!<  Occurs when the widget is realized.
 		phwidgets_event<Widget, Widget::Callbacks::unrealized>		Unrealized; //!<  Occurs when the widget is unrealized.
+		//! @}
 
+		//! @name Event raisers
+		//! @{ 
 		void OnDestroyed(PtCallbackInfo_t *info); //!< Raises the Widget::Destroyed event.
 		void OnBlocked(PtCallbackInfo_t *info); //!< Raises the Widget::Blocked event.
 		void OnDragDrop(PtCallbackInfo_t *info); //!< Raises the Widget::DragDrop event.
 		void OnOutbound(PtCallbackInfo_t *info); //!< Raises the Widget::Outbound event.
 		void OnRealized(PtCallbackInfo_t *info); //!< Raises the Widget::Realized event.
 		void OnUnrealized(PtCallbackInfo_t *info); //!< Raises the Widget::Unrealized event.
+		//! @}
 
 		
 
