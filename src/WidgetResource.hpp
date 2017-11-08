@@ -503,6 +503,15 @@ namespace PhWidgets
 			{
 				return this->setFlag(flag, static_cast<typename flag_detail::mask_type<A2>::type>(mask));
 			}
+			
+			template<typename A1>
+			inline int set(A1 bitmask)
+			{
+				int err = this->setFlag(bitmask, true);
+				if(0 != err)
+					return err;
+				return this->setFlag(~bitmask, false);
+			}
 
 			inline resource_type get() const
 			{

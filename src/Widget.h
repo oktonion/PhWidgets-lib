@@ -15,6 +15,7 @@
 #include "./service/stdex/stdex.h"
 #include "./service/phproperty.hpp"
 #include "./service/phevent.hpp"
+#include "./service/phbitmask.hpp"
 
 #include "./WidgetResource.hpp"
 
@@ -28,6 +29,7 @@ namespace PhWidgets
 {
 	using namespace cppproperties;
 	using namespace phevents;
+	using namespace cppbitmasks;
 		
 	class Widget:
 		protected detail::IPtWidget,
@@ -174,8 +176,7 @@ namespace PhWidgets
 			{
 				enum eArgUnsignedLong
 				{
-					eflags = Pt_ARG_EFLAGS //!< Extended flags inherited by all widgets:
-										   //!< Documentation in progress...
+					eflags = Pt_ARG_EFLAGS //!< Extended \link Widget::ExtendedFlags flags\endlink inherited by all widgets.
 				};
 			};
 			
@@ -183,7 +184,7 @@ namespace PhWidgets
 			{
 				enum eArgLong
 				{
-					flags = Pt_ARG_FLAGS, //!< Common flags used by all widgets. Except for those indicated as read-only, these flags are all read/write. 
+					flags = Pt_ARG_FLAGS, //!< Common \link Widget::WidgetFlags flags\endlink used by all widgets. Except for those indicated as read-only, these flags are all read/write. 
 					resize_flags = Pt_ARG_RESIZE_FLAGS //!< Controls a widget's resize policy in both the x and y directions.
 													   //!< Documentation in progress...
 				};
@@ -335,6 +336,69 @@ namespace PhWidgets
 			};
 		};
 
+		struct ThisFlags
+		{
+			struct Extended
+			{
+				//! Extended flags inherited by all widgets
+				enum eExFlags
+				{
+					//! Consume any event encountered, whether or not an action was performed as a result of that event. 
+					//! (When a widget has processed an event and prevents another widget from interacting with the event, the first widget is said to have consumed the event.) 
+					ConsumeEvents = Pt_CONSUME_EVENTS,
+
+					InternalHelp = Pt_INTERNAL_HELP, //!< Display help information for the widget in a balloon, not in the Helpviewer.
+					//damage_parent = Pt_DAMAGE_PARENT, //!< If the widget is damaged for any reason, damage its parent instead (internal use only). 
+					SkipLayout = Pt_SKIP_LAYOUT //!< Skip this widget when performing a layout. 
+				};
+			};
+
+			//! Common flags used by all widgets. Except for those indicated as read-only, these flags are all read/write.
+			enum eFlags
+			{
+				
+				AllButtons = Pt_ALL_BUTTONS, //!< Any pointer button can activate the widget. Default is the left button only. 
+				Autohighlight = Pt_AUTOHIGHLIGHT, //!< Highlight and give focus to the widget when the cursor enters its extent, and unhighlight and remove focus when the cursor leaves. 
+				Blocked = Pt_BLOCKED, //!< Prevent the widget and all its non-window-class children from interacting with Photon events. 
+
+				//! If certain widgets have this bit set, and your application sets their resources, the relevant callbacks are invoked. 
+				//! Otherwise callbacks aren't invoked when your application sets resources. If a callback refers to this flag, its description says so explicitly.
+				//! For example, if this bit is set for a Divider and you use Divider::Undefined to change the size of one of its children, the Divider::DeviderDraged event is invoked. 
+				CallbacksActive = Pt_CALLBACKS_ACTIVE,
+
+				Clear = Pt_CLEAR, //!< (read-only) The widget's brothers-in-front don't intersect with its extent. 
+				ClipHighlight = Pt_CLIP_HIGHLIGHT, //!< Clip the corners of the highlighting rectangle.
+				Damaged = Pt_DAMAGED, //!< (read-only) The Widget requires repair. 
+				DamageFamily = Pt_DAMAGE_FAMILY, //!< (read-only) The widget and all its children need to be repaired. 
+				DelayRealize = Pt_DELAY_REALIZE, //!< Prevent the widget from becoming realized unless it's explicitly realized with Widget::Realized event. 
+				Destroyed = Pt_DESTROYED, //!< (read-only) The widget has been marked for destruction. 
+				FocusRender = Pt_FOCUS_RENDER, //!< Render a focus indicator when the widget when it gets focus. 
+				GetsFocus = Pt_GETS_FOCUS, //!< Allow the widget to be granted focus. The widget needs to have this bit set if it's to receive key events. 
+				Ghost = Pt_GHOST, //!< Dim the widget. Setting this flag doesn't affect the widget's behavior, just its appearance. The simplest way to disable the widget is to set the Blocked flag in this resource. 
+				Highlighted = Pt_HIGHLIGHTED, //!< Allow the widget to be highlighted as defined by the Widget::BevelWidth, and the Basic::BasicFlags. 
+				InFlux = Pt_IN_FLUX, //!< (read-only) A call to PtContainerHold() has been made on the widget. 
+				Menuable = Pt_MENUABLE, //!< Respond to clicks on the pointer's right button (i.e. enable the Basic::MenuActivate event). 
+				MenuButton = Pt_MENU_BUTTON, //!< The widget is a menu item. 
+				Obscured = Pt_OBSCURED, //!< (read-only) The widget is completely covered by one other widget, or it's completely outside its parent container's canvas. 
+				Opaque = Pt_OPAQUE, //!< (read-only) This widget obscures everything directly behind it (i.e. it isn't transparent). 
+				Procreated = Pt_PROCREATED, //!< (read-only) The widget was created by another widget (as opposed to an application), such as the List and Text created by a ComboBox. 
+				Realized = Pt_REALIZED, //!< (read-only) The widget is realized. 
+				Realizing = Pt_REALIZING, //!< (read-only) The widget is in the process of being realized. 
+				Region = Pt_REGION, //!< Force the widget to have a region. 
+				Selectable = Pt_SELECTABLE, //!< You can select (\link Basic::Repeat repeat \endlink, \link Basic::Arm arm \endlink, \link Basic::Disarm disarm \endlink and \link Basic::Activate activate \endlink) the widget. Widgets usually provide visual feedback when selected. 
+				SelectNoredraw = Pt_SELECT_NOREDRAW, //!< The widget doesn't change its appearance when set or unset. This is meaningful only when the widget is Selectable. 
+				Set = Pt_SET, //!< The widget is in a “set” state. Generally, this indicates that the widget has been selected. 
+
+				//! Pressing the pointer button on this widget causes it to toggle between being set and unset. 
+				//! Normally, selectable widgets act as push buttons — they become set when you press the pointer button, and unset when you release the button. 
+				Toggle = Pt_TOGGLE, 
+	
+				WidgetRebuild = Pt_WIDGET_REBUILD, //!< (read-only) The widget will be rebuilt(rerealized) when the widget engine is finished applying resource changes.
+				WidgetResize = Pt_WIDGET_RESIZE, //!< (read-only) The widget will be resized when the widget engine is finished applying resource changes. 
+			};
+
+		};
+
 		struct ArgArea:
 			public ThisArgs::ArgArea
 		{
@@ -445,7 +509,11 @@ namespace PhWidgets
 		{
 		};
 
-		
+		struct Flags:
+			public ThisFlags
+		{
+		};
+
 
 				
 	private:
@@ -547,6 +615,9 @@ namespace PhWidgets
 		phproperty<PhDim_t>::bind<Widget, Arguments::eArgDim, Arguments::dim>							Size; //!< Gets or sets the size of the widget.
 		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos>						Location; //!< Gets or sets the position of the widget.
 
+		phbitmask<unsigned long, Flags::Extended::eExFlags>::bind<Widget, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::eflags>	ExtendedFlags; //!< Gets or sets extended flags inherited by all widgets. See Flags::Extended.
+		phbitmask<long, Flags::eFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::flags>													WidgetFlags; //!< Gets or sets flags inherited by all widgets. See Flags::eFlags.
+
 		phwidgets_event<Widget, Widget::Callbacks::destroyed>		Destroyed; //!< Occurs when the widget is destroyed.
 		phwidgets_event<Widget, Widget::Callbacks::blocked>			Blocked; //!< Occurs when the widget is blocked.
 		phwidgets_event<Widget, Widget::Callbacks::dnd>				DragDrop; //!< Occurs when a drag-and-drop operation is completed.
@@ -565,10 +636,20 @@ namespace PhWidgets
 		
 
 	};
-	
-	
 
 }//namespace PhWidgets
+
+cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator|(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2);
+
+cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator&(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2);
+
+cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator^(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2);
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator|(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2);
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator&(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2);
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator^(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2);
 
 
 #endif

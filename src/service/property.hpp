@@ -232,7 +232,6 @@ namespace cppproperties
 
 			inline operator value_t() const { return get(); }
 
-			inline bind &operator=(bind const &) {return *this;}
 			inline bind &operator=(value_t value) { set(value); return *this; }
 
 			inline value_t operator()(void) const { return get(); }
@@ -299,7 +298,6 @@ namespace cppproperties
 				(_obj->*Setter)(value);
 			}
 			
-			inline bind &operator=(bind const &) {return *this;}
 			inline bind &operator=(value_t value) { set(value); return *this; }
 
 			inline void operator()(value_t value) { set(value); return *this; }

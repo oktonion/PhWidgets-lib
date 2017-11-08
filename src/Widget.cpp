@@ -127,6 +127,8 @@ Widget::Widget(int abn):
 	BevelWidth(this),
 	Size(this),
 	Location(this),
+	ExtendedFlags(this),
+	WidgetFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -154,6 +156,8 @@ Widget::Widget(PtWidget_t* wdg):
 	BevelWidth(this),
 	Size(this),
 	Location(this),
+	ExtendedFlags(this),
+	WidgetFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -218,6 +222,8 @@ Widget::Widget(const Widget &rhs):
 	BevelWidth(this),
 	Size(this),
 	Location(this),
+	ExtendedFlags(this),
+	WidgetFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -304,12 +310,12 @@ Widget::operator PtWidget_t*()
 //for properties:
 void Widget::setEnabled(bool val)
 {
-	resource.argument[Arguments::flags].set(Pt_BLOCKED | Pt_GHOST, !val);
+	resource.argument[Arguments::flags].set(Flags::Blocked | Flags::Ghost, !val);
 }
 
 bool Widget::getEnabled() const
 {
-	return resource.argument[Arguments::flags].get(Pt_BLOCKED);
+	return resource.argument[Arguments::flags].get(Flags::Blocked);
 }
 
 void PhWidgets::Widget::setHelpTopic(std::string val)
@@ -320,4 +326,40 @@ void PhWidgets::Widget::setHelpTopic(std::string val)
 std::string PhWidgets::Widget::getHelpTopic() const
 {
 	return resource.argument[Arguments::help_topic].get();
+}
+
+cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator|(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2)
+{
+	cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> bm(flag1);
+	return bm | flag2;
+}
+
+cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator&(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2)
+{
+	cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> bm(flag1);
+	return bm & flag2;
+}
+
+cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator^(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2)
+{
+	cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> bm(flag1);
+	return bm ^ flag2;
+}
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator|(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2)
+{
+	cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> bm(flag1);
+	return bm | flag2;
+}
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator&(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2)
+{
+	cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> bm(flag1);
+	return bm & flag2;
+}
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator^(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2)
+{
+	cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> bm(flag1);
+	return bm ^ flag2;
 }

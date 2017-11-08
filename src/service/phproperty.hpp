@@ -90,6 +90,7 @@ namespace PhWidgets
 			inline bind &operator=(ValueT const &);
 			inline bind &operator=(bind const &);
 		};
+
 	};
 
 
