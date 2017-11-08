@@ -376,9 +376,10 @@ namespace PhWidgets
 
 				//! Note that each ..._bits flag is a mask that represents all the bits of that type.
 				//! The default setting of this resource is 0; that is, no resize policy is in effect.
-				//! A widget's resize policy deals solely with the widget's renderable data. For a button, the data is its text; for a container, the data is its children.Any rendered data that doesn't fit within the widget's canvas is clipped.
+				//! A widget's resize policy deals solely with the widget's renderable data. For a button, the data is its text; for a container, the data is its children. Any rendered data that doesn't fit within the widget's canvas is clipped.
 				//! If no resize policy is in effect, the widget's size is unbounded; it may be made as large or small as specified via Pt_ARG_DIM or Pt_ARG_AREA.
-				//! If a resize policy is in effect, the widget grows or shrinks to honor that policy.If the policy is ...ALWAYS, the widget resizes itself to fit its data—the dimensions specified via Pt_ARG_DIM or Pt_ARG_AREA don't apply. If the policy is ..._as_requred, the widget resizes itself to fit its data only if its current canvas size is inadequate to contain that data. In other words, it grows, but doesn't shrink, to fit its data.
+				//! If a resize policy is in effect, the widget grows or shrinks to honor that policy.If the policy is ..._always, the widget resizes itself to fit its data—the dimensions specified via Pt_ARG_DIM or Pt_ARG_AREA don't apply. 
+				//! If the policy is ..._as_requred, the widget resizes itself to fit its data only if its current canvas size is inadequate to contain that data. In other words, it grows, but doesn't shrink, to fit its data.
 				//! If the widget has the ..._initial bit set, the resize policy is applied only once each time the widget is realized. This bit is meaningful only in concert with ..._always or ..._as_requred.
 				enum eResizeFlags
 				{
@@ -688,16 +689,20 @@ namespace PhWidgets
 }//namespace PhWidgets
 
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator|(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2);
-
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator&(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2);
-
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator^(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2);
 
 cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator|(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2);
-
 cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator&(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2);
-
 cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator^(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2);
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> operator|(const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag1, const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag2);
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> operator&(const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag1, const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag2);
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> operator^(const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag1, const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag2);
+
+cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> operator|(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag2);
+cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> operator&(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag2);
+cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> operator^(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag2);
 
 
 #endif

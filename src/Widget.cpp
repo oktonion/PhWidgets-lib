@@ -127,8 +127,11 @@ Widget::Widget(int abn):
 	BevelWidth(this),
 	Size(this),
 	Location(this),
+	//flags:
 	ExtendedFlags(this),
 	WidgetFlags(this),
+	ResizeFlags(this),
+	AnchorFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -156,8 +159,11 @@ Widget::Widget(PtWidget_t* wdg):
 	BevelWidth(this),
 	Size(this),
 	Location(this),
+	//flags:
 	ExtendedFlags(this),
 	WidgetFlags(this),
+	ResizeFlags(this),
+	AnchorFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -222,8 +228,11 @@ Widget::Widget(const Widget &rhs):
 	BevelWidth(this),
 	Size(this),
 	Location(this),
+	//flags:
 	ExtendedFlags(this),
 	WidgetFlags(this),
+	ResizeFlags(this),
+	AnchorFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -361,5 +370,41 @@ cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator&(const PhW
 cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator^(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2)
 {
 	cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> bm(flag1);
+	return bm ^ flag2;
+}
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> operator|(const PhWidgets::Widget::Flags::Resize::eResizeFlags & flag1, const PhWidgets::Widget::Flags::Resize::eResizeFlags & flag2)
+{
+	cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> bm(flag1);
+	return bm | flag2;
+}
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> operator&(const PhWidgets::Widget::Flags::Resize::eResizeFlags & flag1, const PhWidgets::Widget::Flags::Resize::eResizeFlags & flag2)
+{
+	cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> bm(flag1);
+	return bm & flag2;
+}
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> operator^(const PhWidgets::Widget::Flags::Resize::eResizeFlags & flag1, const PhWidgets::Widget::Flags::Resize::eResizeFlags & flag2)
+{
+	cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> bm(flag1);
+	return bm ^ flag2;
+}
+
+cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> operator|(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag2)
+{
+	cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> bm(flag1);
+	return bm | flag2;
+}
+
+cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> operator&(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag2)
+{
+	cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> bm(flag1);
+	return bm & flag2;
+}
+
+cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> operator^(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag2)
+{
+	cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> bm(flag1);
 	return bm ^ flag2;
 }
