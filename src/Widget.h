@@ -653,6 +653,8 @@ namespace PhWidgets
 		//! Resources of the Widget
 		WidgetResourcesSingleton resource;
 	
+		//! @name Properties
+		///@{ 
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled; //!< Gets or sets a value indicating whether the widget can respond to user interaction.
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.
 
@@ -666,6 +668,7 @@ namespace PhWidgets
 		phbitmask<long, Flags::eFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::flags>													WidgetFlags; //!< Gets or sets flags inherited by all widgets. See Flags::eFlags.
 		phbitmask<long, Flags::Resize::eResizeFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::resize_flags>							ResizeFlags; //!< Gets or sets flags to control a widget's resize policy. See Flags::Resize::eResizeFlags.
 		phbitmask<unsigned, Flags::Anchor::eAnchorFlags>::bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags>			AnchorFlags; //!< Gets or sets flags specifying how the widget is anchored to its parent. See Flags::Anchor::eAnchorFlags.
+		///@}
 
 		phwidgets_event<Widget, Widget::Callbacks::destroyed>		Destroyed; //!< Occurs when the widget is destroyed.
 		phwidgets_event<Widget, Widget::Callbacks::blocked>			Blocked; //!< Occurs when the widget is blocked.

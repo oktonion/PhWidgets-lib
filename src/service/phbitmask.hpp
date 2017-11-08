@@ -61,40 +61,6 @@ namespace PhWidgets
 			using internal_bind_t::operator=;
 		};
 	};
-
-	/*template<class MaskT, class FlagT>
-	class phbitmask<const MaskT, FlagT>
-	{
-	public:
-		template<class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
-		class bind :
-			private phproperty<const MaskT>::template bind<WidgetClassT, ArgumentT, ArgumentID>
-		{
-			typedef cppbitmasks::bitmask<MaskT, FlagT> value_t;
-			typedef phproperty<const MaskT>::template bind<WidgetClassT, ArgumentT, ArgumentID> ph_bind_t;
-
-		public:
-			bind(WidgetClassT *parent) :
-				ph_bind_t(parent)
-			{}
-
-			inline value_t get() const
-			{
-				value_t bm;
-				MaskT mask = static_cast<ph_bind_t*>(this)->get();
-				std::memcpy(&bm, &mask, sizeof(MaskT));
-				return bm;
-			}
-
-			inline operator value_t() const { return get(); }
-
-			inline value_t operator()(void) const { return get(); }
-
-		private:
-			inline bind &operator=(value_t const &);
-			inline bind &operator=(bind const &);
-		};
-	};*/
 }
 
 #endif
