@@ -20,8 +20,8 @@ namespace PhWidgets
 			Expose = Ph_EV_EXPOSE,//!< Emitted by the Photon Manager on behalf of a region being moved, resized, or removed from the event space.
 			Info = Ph_EV_INFO,//!< All regions must always be transparent to 'Events::info' events. They are emitted by applications or service providers to disseminate information or respond to requests.
 			Key = Ph_EV_KEY,//!< Emitted when a key state changes (for example, the user presses or releases a key).
-			Button = Ph_EV_PTR_MOTION_BUTTON,//!< Emitted when the user moves the pointing device while pressing a button.
-			NoButton = Ph_EV_PTR_MOTION_NOBUTTON,//!< Emitted when the user moves the pointing device without pressing a button.
+			MotionWithButton = Ph_EV_PTR_MOTION_BUTTON,//!< Emitted when the user moves the pointing device while pressing a button.
+			MotionWithNoButton = Ph_EV_PTR_MOTION_NOBUTTON,//!< Emitted when the user moves the pointing device without pressing a button.
 			Raw = Ph_EV_RAW,//!< These are raw, unfocused events that the Photon server handles. 
 			Service = Ph_EV_SERVICE,//!< These events may be emitted by applications requesting services or providing information to services, other applications that provide some kind of service in a Photon system.
 			System = Ph_EV_SYSTEM,//!< Are emitted when Photon or a service wants to inform applications of changes in the system.
