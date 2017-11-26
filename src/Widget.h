@@ -596,8 +596,8 @@ namespace PhWidgets
 			Define::Flag<ArgUnsigned::eArgUnsigned, unsigned>::
 
 			Define::Link<Callback::eCallback, PtCallback_t*>::
-			Define::Link<RawCallback::eRawCallback, PtRawCallback_t*>::
-			Define::Link<HotkeyCallback::eHotkeyCallback, PtHotkeyCallback_t*>::
+			//Define::Link<RawCallback::eRawCallback, PtRawCallback_t*>::
+			//Define::Link<HotkeyCallback::eHotkeyCallback, PtHotkeyCallback_t*>::
 
 		resource_type WidgetResourcesSingleton;
 	
@@ -625,7 +625,7 @@ namespace PhWidgets
 		//! (constructor)
 
 		//! Constructs a Widget by ID.
-		Widget(int abn/**< [in] - ID given by PhAB to widget (like 'ABN_WIDIGET_NAME'). */);
+		Widget(int abn/**< [in] - ID given by PhAB to widget (like 'ABN_WIDGET_NAME'). */);
 
 		//! (constructor)
 
@@ -667,7 +667,7 @@ namespace PhWidgets
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled; //!< Gets or sets a value indicating whether the widget can respond to user interaction.
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.
 		property<short>::bind<Widget, &Widget::getLeft, &Widget::setLeft>								Left; //!< Gets or sets the distance, in pixels, between the left edge of the widget and the left edge of its parent widget.
-		property<short>::bind<Widget, &Widget::getTop, &Widget::setTop>									Top; //!< Gets or sets the distance, in pixels, between the left edge of the widget and the left edge of its parent widget.
+		property<short>::bind<Widget, &Widget::getTop, &Widget::setTop>									Top; //!< Gets or sets the distance, in pixels, between the top edge of the widget and the top edge of its parent widget.
 		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation>					Location; //!< Gets or sets the coordinates of the upper-left corner of the widget relative to the upper-left corner of its parent widget.
 
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width>		Width; //!< Gets or sets the width of the widget.
