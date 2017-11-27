@@ -253,7 +253,7 @@ namespace PhWidgets
 
 			inline void removeLinkBefore(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Events::eEvents event, void *data = nullptr)
 			{
-				PtRemoveFilterHandler(_rwidget->widget(), event, callback, data);
+				PtRemoveFilterCallback(_rwidget->widget(), event, callback, data);
 			}
 
 			inline void removeLinkAfter(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), Events::eEvents event, void *data = nullptr)
