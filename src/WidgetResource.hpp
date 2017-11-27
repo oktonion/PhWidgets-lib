@@ -952,18 +952,18 @@ namespace PhWidgets
 		};
 
 		template<typename EventT = Events::eEvents, class ResourceT = PtRawCallback_t*>
-		struct WidgetEvent:
+		struct WidgetRawCallback:
 			private WidgetResourceBase<EventT>
 		{
 			typedef WidgetResourceGroupType::WidgetCallbackGroupType::raw_type resource_group_type;
 			typedef ResourceT resource_type;
 
-			WidgetEvent(IPtWidget *widget, EventT arg) :
+			WidgetRawCallback(IPtWidget *widget, EventT arg) :
 				WidgetResourceBase<EventT>(widget, arg)
 			{}
 			
 				
-			~WidgetEvent()
+			~WidgetRawCallback()
 			{}
 				
 				
@@ -995,44 +995,44 @@ namespace PhWidgets
 			// can't raise this type of callbacks
 		};
 
-		struct WidgetEventsBase
+		struct WidgetRawCallbacksBase
 		{
 
 		protected:
 
 			IPtWidget *_widget; // pointer to parent widget!!!
 
-			WidgetEventsBase(IPtWidget *widget) :
+			WidgetRawCallbacksBase(IPtWidget *widget) :
 				_widget(widget)
 			{
 			}
 
-			~WidgetEventsBase()
+			~WidgetRawCallbacksBase()
 			{
 			}
 		
 		public:
 			template<class EventT, class ResourceT>
-			inline WidgetEvent<EventT, ResourceT> resource(const EventT indx) const
+			inline WidgetRawCallback<EventT, ResourceT> resource(const EventT indx) const
 			{
-				return WidgetEvent <EventT, ResourceT>(_widget, indx);
+				return WidgetRawCallback <EventT, ResourceT>(_widget, indx);
 			}
 
 		};
 
 		template<typename EventT = Events::eEvents, class ResourceT = PtRawCallback_t*>
-		struct WidgetFilter:
+		struct WidgetFilterCallback:
 			private WidgetResourceBase<EventT>
 		{
 			typedef WidgetResourceGroupType::WidgetCallbackGroupType::raw_type resource_group_type;
 			typedef ResourceT resource_type;
 
-			WidgetFilter(IPtWidget *widget, EventT arg) :
+			WidgetFilterCallback(IPtWidget *widget, EventT arg) :
 				WidgetResourceBase<EventT>(widget, arg)
 			{}
 			
 				
-			~WidgetFilter()
+			~WidgetFilterCallback()
 			{}
 				
 				
@@ -1064,27 +1064,27 @@ namespace PhWidgets
 			// can't raise this type of callbacks
 		};
 
-		struct WidgetFiltersBase
+		struct WidgetFilterCallbacksBase
 		{
 
 		protected:
 
 			IPtWidget *_widget; // pointer to parent widget!!!
 
-			WidgetFiltersBase(IPtWidget *widget) :
+			WidgetFilterCallbacksBase(IPtWidget *widget) :
 				_widget(widget)
 			{
 			}
 
-			~WidgetFiltersBase()
+			~WidgetFilterCallbacksBase()
 			{
 			}
 		
 		public:
 			template<class EventT, class ResourceT>
-			inline WidgetFilter<EventT, ResourceT> resource(const EventT indx) const
+			inline WidgetFilterCallback<EventT, ResourceT> resource(const EventT indx) const
 			{
-				return WidgetFilter <EventT, ResourceT>(_widget, indx);
+				return WidgetFilterCallback <EventT, ResourceT>(_widget, indx);
 			}
 
 		};
