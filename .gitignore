@@ -89,3 +89,8 @@ src/.vscode/launch.json
 /old/*
 /slib/*
 *.tar
+
+# cppcheck files
+*.a1
+*.cppcheck
+PhWidgets-cppcheck-build-dir/*
