@@ -264,7 +264,7 @@ Widget &Widget::operator=(const Widget &rhs)
 	return *this;
 }
 
-bool Widget::operator==(const Widget &rhs)
+bool Widget::operator==(const Widget &rhs) const
 {
 	if(&rhs == this)
 		return true;
@@ -272,7 +272,7 @@ bool Widget::operator==(const Widget &rhs)
 	return widget() == rhs.widget();
 }
 
-bool Widget::operator<(const Widget &rhs)
+bool Widget::operator<(const Widget &rhs) const
 {
 	if(&rhs == this)
 		return false;

@@ -378,7 +378,7 @@ namespace PhWidgets
 				//! The default setting of this resource is 0; that is, no resize policy is in effect.
 				//! A widget's resize policy deals solely with the widget's renderable data. For a button, the data is its text; for a container, the data is its children. Any rendered data that doesn't fit within the widget's canvas is clipped.
 				//! If no resize policy is in effect, the widget's size is unbounded; it may be made as large or small as specified via Pt_ARG_DIM or Pt_ARG_AREA.
-				//! If a resize policy is in effect, the widget grows or shrinks to honor that policy.If the policy is ..._always, the widget resizes itself to fit its data—the dimensions specified via Pt_ARG_DIM or Pt_ARG_AREA don't apply. 
+				//! If a resize policy is in effect, the widget grows or shrinks to honor that policy.If the policy is ..._always, the widget resizes itself to fit its dataï¿½the dimensions specified via Pt_ARG_DIM or Pt_ARG_AREA don't apply. 
 				//! If the policy is ..._as_requred, the widget resizes itself to fit its data only if its current canvas size is inadequate to contain that data. In other words, it grows, but doesn't shrink, to fit its data.
 				//! If the widget has the ..._initial bit set, the resize policy is applied only once each time the widget is realized. This bit is meaningful only in concert with ..._always or ..._as_requred.
 				enum eResizeFlags
@@ -434,10 +434,10 @@ namespace PhWidgets
 				Region = Pt_REGION, //!< Force the widget to have a region. 
 				Selectable = Pt_SELECTABLE, //!< You can select (\link Basic::Repeat repeat \endlink, \link Basic::Arm arm \endlink, \link Basic::Disarm disarm \endlink and \link Basic::Activate activate \endlink) the widget. Widgets usually provide visual feedback when selected. 
 				SelectNoredraw = Pt_SELECT_NOREDRAW, //!< The widget doesn't change its appearance when set or unset. This is meaningful only when the widget is Selectable. 
-				Set = Pt_SET, //!< The widget is in a “set” state. Generally, this indicates that the widget has been selected. 
+				Set = Pt_SET, //!< The widget is in a ï¿½setï¿½ state. Generally, this indicates that the widget has been selected. 
 
 				//! Pressing the pointer button on this widget causes it to toggle between being set and unset. 
-				//! Normally, selectable widgets act as push buttons — they become set when you press the pointer button, and unset when you release the button. 
+				//! Normally, selectable widgets act as push buttons ï¿½ they become set when you press the pointer button, and unset when you release the button. 
 				Toggle = Pt_TOGGLE, 
 	
 				WidgetRebuild = Pt_WIDGET_REBUILD, //!< (read-only) The widget will be rebuilt(rerealized) when the widget engine is finished applying resource changes.
@@ -645,12 +645,12 @@ namespace PhWidgets
 		//! Compares Widgets
 
 		//! Compares the Widgets by their Photon widget pointers. 
-		bool operator==(const Widget &rhs/**< [in] - Widgets whose contents to compare . */);
+		bool operator==(const Widget &rhs/**< [in] - Widgets whose contents to compare . */) const;
 
 		//! Compares Widgets
 
 		//! Compares the Widgets by their Photon widget pointers. 
-		bool operator<(const Widget &rhs/**< [in] - Widgets whose contents to compare . */);
+		bool operator<(const Widget &rhs/**< [in] - Widgets whose contents to compare . */) const;
 
 		
 		//! Converts Widget to Photon widget pointer
