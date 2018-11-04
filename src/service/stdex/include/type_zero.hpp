@@ -1,4 +1,6 @@
 #include <memory.h>
+#include <cstddef>
+
 namespace stdex
 {
 	template<class T>
@@ -8,7 +10,7 @@ namespace stdex
 		type_zero() { memset(&static_cast<T>(*this), 0, sizeof(T)); }
 	};
 
-	template<class T, size_t N>
+	template<class T, std::size_t N>
 	struct type_zero<T[N]>
 	{
         typedef T array_t[N];
@@ -55,7 +57,7 @@ namespace stdex
         operator const array_t&() const { return data; }
 	};
 
-    template<class T, size_t N>
+    template<class T, std::size_t N>
 	struct type_zero<const T[N]>
 	{
         typedef T array_t[N];
