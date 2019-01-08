@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['initial',['Initial',['../class_ph_widgets_1_1_timer.html#a4752e7ff9d073c1af7d2cb4407acd0db',1,'PhWidgets::Timer']]],
-  ['interval',['Interval',['../class_ph_widgets_1_1_timer.html#a94b39b7e9591c4a8640c06c91a0de251',1,'PhWidgets::Timer']]],
-  ['isdestroyed',['IsDestroyed',['../class_ph_widgets_1_1_widget.html#a035653a11b43dc468898fdcca8c179de',1,'PhWidgets::Widget']]]
+  ['left',['Left',['../class_ph_widgets_1_1_widget.html#af16788209177491d790900a5f4c2c51a',1,'PhWidgets::Widget']]],
+  ['location',['Location',['../class_ph_widgets_1_1_widget.html#a185eb01b846e20c7ba986da2e0663ee8',1,'PhWidgets::Widget']]],
+  ['lostfocus',['LostFocus',['../class_ph_widgets_1_1_basic.html#ab9f0b70e979bded9059a3537c8720a45',1,'PhWidgets::Basic']]]
 ];

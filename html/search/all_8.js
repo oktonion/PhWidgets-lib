@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['height',['Height',['../class_ph_widgets_1_1_widget.html#a7ad2788ec0486d6e2b4d9a5b15e17723',1,'PhWidgets::Widget::Height()'],['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short.html#add5b33bf072e087e634112b4e5e471d3a80bd0fd5f6ab528673b88aa678836b67',1,'PhWidgets::Widget::ThisArgs::ArgUnsignedShort::height()']]],
-  ['help_5ftopic',['help_topic',['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_char.html#a38bbf24724778307d4f56b41b198aedba93489702449bddfff1fc31c0247df07f',1,'PhWidgets::Widget::ThisArgs::ArgPChar']]],
-  ['helptopic',['HelpTopic',['../class_ph_widgets_1_1_widget.html#a410640fc73b0aa7d8343bf13cbbb2e1f',1,'PhWidgets::Widget']]],
-  ['highlighted',['Highlighted',['../struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbda54c99d04ce045f930f27054c22748379',1,'PhWidgets::Widget::ThisFlags']]],
-  ['highlihgt_5froundness',['highlihgt_roundness',['../struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_unsigned_char.html#af11991506a14e199a31d3db84ecdc1c5a2ff105989001775922c8c206c9b0ee59',1,'PhWidgets::Basic::ThisArgs::ArgUnsignedChar']]],
-  ['home',['Home',['../struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea3968b5bc78c116cc1c66138e46a5b177',1,'PhWidgets::Hotkeys']]],
-  ['horizontal_5falignment',['horizontal_alignment',['../struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_unsigned_char.html#af420833f2ea585a34f9fa31affe55dcaa5bea3888f87745390d7e6fd443c81a13',1,'PhWidgets::Label::ThisArgs::ArgUnsignedChar']]],
-  ['hotkey',['hotkey',['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_hotkey_callback.html#a667f4ad7c41dd1f95a48e127981967dbaa0558b71e79d579538d1af1107ecb10e',1,'PhWidgets::Widget::ThisCallbacks::HotkeyCallback']]],
-  ['hotkeycallback',['HotkeyCallback',['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_hotkey_callback.html',1,'PhWidgets::Widget::ThisCallbacks::HotkeyCallback'],['../struct_ph_widgets_1_1_widget_1_1_hotkey_callback.html',1,'PhWidgets::Widget::HotkeyCallback']]],
-  ['hotkeys',['Hotkeys',['../struct_ph_widgets_1_1_hotkeys.html',1,'PhWidgets']]]
+  ['image',['Image',['../struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_image.html',1,'PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Image&lt; ArgT, ResourceT &gt;'],['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_image.html',1,'PhWidgets::detail::def_orig::Image&lt; PrevT, LinkT, ResourceT &gt;']]],
+  ['image_3c_20prevt_2c_20argt_2c_20resourcet_20_3e',['Image&lt; PrevT, ArgT, ResourceT &gt;',['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_image.html',1,'PhWidgets::detail::def_orig']]],
+  ['influx',['InFlux',['../struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbdaf3eafa784b204b999bd1e0f99f325d45',1,'PhWidgets::Widget::ThisFlags']]],
+  ['info',['Info',['../struct_ph_widgets_1_1_events.html#ac3aa0cbda0ae3cb098935a22b549e23da8e821f892b720de4fcb44513961e923c',1,'PhWidgets::Events']]],
+  ['inline_5fcolor',['inline_color',['../struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_color.html#a5f4a5e7aecdbba0e3ce7768bbdb92d10ac59e30b53bd870654f572ae71b3cefe0',1,'PhWidgets::Basic::ThisArgs::ArgColor']]],
+  ['insert',['Insert',['../struct_ph_widgets_1_1_hotkeys.html#ae32768126b19c5dd67c8616ceefaf30ea855c2973f18c3f9c87281db35dd40f3f',1,'PhWidgets::Hotkeys']]],
+  ['internalhelp',['InternalHelp',['../struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcca5f2968a726af6724859f28df27ecafd4',1,'PhWidgets::Widget::ThisFlags::Extended']]],
+  ['iptwidget',['IPtWidget',['../class_ph_widgets_1_1detail_1_1_i_pt_widget.html',1,'PhWidgets::detail']]],
+  ['is_5fdestroyed',['is_destroyed',['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcaf9a7da8a37aa35513f0bd33466c33fb2',1,'PhWidgets::Widget::ThisCallbacks::Callback']]],
+  ['isdestroyed',['IsDestroyed',['../class_ph_widgets_1_1_widget.html#a035653a11b43dc468898fdcca8c179de',1,'PhWidgets::Widget']]]
 ];

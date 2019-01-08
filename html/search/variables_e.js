@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pointer',['pointer',['../struct_ph_widgets_1_1_timer_1_1_arg_p_void.html#a01f922e6466e525f77fc6341bbe6f36d',1,'PhWidgets::Timer::ArgPVoid']]]
+  ['size',['Size',['../class_ph_widgets_1_1_widget.html#aa070988cb796124ca4d6294f32f5970a',1,'PhWidgets::Widget']]]
 ];

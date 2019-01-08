@@ -1,5 +1,0 @@
-var struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_adbcbfb8d8b03d47197e792d88a26faf =
-[
-    [ "resource_group_type", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_adbcbfb8d8b03d47197e792d88a26faf.html#a5bb7eee9aaa750659b6dc7e9f7f16e91", null ],
-    [ "resource_type", "struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_adbcbfb8d8b03d47197e792d88a26faf.html#a745ad6565139890e27e5e99375fe1df7", null ]
-];
