@@ -113,6 +113,72 @@ namespace PhWidgets
 			};
 		};
 
+		struct ThisFlags
+		{
+			struct Basic
+			{
+				enum eBasic
+				{
+					// Edge-control bits:
+
+					top_etch = Pt_TOP_ETCH,
+					bottom_etch = Pt_BOTTOM_ETCH,
+					left_etch = Pt_LEFT_ETCH,
+					right_etch = Pt_RIGHT_ETCH, // Render a single alpha line on an edge of the widget. The top and left lines are dark, and the bottom and right lines are light. This can make a widget look like it's slightly inset. 
+					blank_etches = Pt_BLANK_ETCHES, //!< Don't draw the etched lines. 
+					opaque_etches = Pt_OPAQUE_ETCHES, //!< Use a solid line, instead of an alpha line, for the etching. The color is calculated based on the widget's color and widget's parent color. 
+					top_outline = Pt_TOP_OUTLINE,
+					bottom_outline = Pt_BOTTOM_OUTLINE,
+					left_outline = Pt_LEFT_OUTLINE,
+					right_outline = Pt_RIGHT_OUTLINE, // Render a single-pixel outline on an edge of the widget. 
+					top_bevel = Pt_TOP_BEVEL,
+					bottom_bevel = Pt_BOTTOM_BEVEL,
+					left_bevel = Pt_LEFT_BEVEL,
+					right_bevel = Pt_RIGHT_BEVEL, // Render a bevel Pt_ARG_BEVEL_WIDTH pixels wide on an edge of the widget. 
+					full_bevels = Pt_FULL_BEVELS, // Render a full bevel (i.e. half-round) instead of a half bevel (quarter-round). 
+					top_inline =  Pt_TOP_INLINE,
+					bottom_inline = Pt_BOTTOM_INLINE,
+					left_inline = Pt_LEFT_INLINE,
+					right_inline = Pt_RIGHT_INLINE, // Render a single-pixel inline on an edge of the widget. 
+
+					// These convenience manifests make working with these bits easier:
+
+					top_left_etch = Pt_TOP_LEFT_ETCH, //!< Adjust the etching on the top/left edges. 
+					bottom_right_etch = Pt_BOTTOM_RIGHT_ETCH, //!< Adjust the etching on the bottom/right edges. 
+					all_etches = Pt_ALL_ETCHES, //!< Adjust the etching on the all edges.  
+					top_left_outline = Pt_TOP_LEFT_OUTLINE, //!< Adjust the outline on the top/left edges. 
+					bottom_right_outline = Pt_BOTTOM_RIGHT_OUTLINE, //!< Adjust the outline on the bottom/right edges. 
+					all_outlines = Pt_ALL_OUTLINES, //!< Adjust the outline on the all edges. 
+					top_left_bevel = Pt_TOP_LEFT_BEVEL, //!< Adjust the bevel on the top/left edges. 
+					bottom_right_bevel = Pt_BOTTOM_RIGHT_BEVEL, //!< Adjust the bevel on the bottom/right edges. 
+					all_bevels = Pt_ALL_BEVELS, //!< Adjust the bevel on the all edges. 
+					top_left_inline = Pt_TOP_LEFT_INLINE, //!< Adjust the inline on the top/left edges. 
+					bottom_right_inline= Pt_BOTTOM_RIGHT_INLINE, //!< Adjust the inline on the bottom/right edges. 
+					all_inlines = Pt_ALL_INLINES, //!< Adjust the inline on the all edges. 
+					all_top = Pt_ALL_TOP, //!< Adjust all edge decorations (etch, outline, bevel, and inline) on the top edge. 
+					all_bottom = Pt_ALL_BOTTOM, //!< Adjust all edge decorations (etch, outline, bevel, and inline) on the bottom edge. 
+					all_left = Pt_ALL_LEFT, //!< Adjust all edge decorations (etch, outline, bevel, and inline) on the left edge. 
+					all_right = Pt_ALL_RIGHT, //!< Adjust all edge decorations (etch, outline, bevel, and inline) on the right edge. 
+					all = Pt_ALL, //!< Adjust all edge decorations (etch, outline, bevel, and inline) on the all edges. 
+
+					// Fill-control bits:
+
+					flat_fill = Pt_FLAT_FILL, //!<  If set, the widget is filled with a solid color as given by ArgColor::fill_color. If clear, the widget is filled with a gradient. 
+					horizontal_gradient = Pt_HORIZONTAL_GRADIENT, //!<  If set, and Pt_FLAT_FILL is clear, the fill gradient changes colors on the horizontal axis. If clear and ArgColor::flat_fill is clear, the fill gradient changes colors on the vertical axis. 
+					reverse_gradient = Pt_REVERSE_GRADIENT, //!<  If set and Pt_FLAT_FILL is clear, the gradient rendered is reversed (i.e. begin with the dark fill color on the top or left when the widget isn't pressed). 
+					static_bevel_colors = Pt_STATIC_BEVEL_COLORS, //!<  If set, the bevel color doesn't change when you set ArgColor::fill_color. 
+					prevent_fill = Pt_BASIC_PREVENT_FILL, //!<  If set, the widget isn't filled. This is useful when you want to set the base color for borders and etches without actually rendering a fill. 
+
+					// Behavior on state change:
+
+					// These bits affect how the widget behaves when set (depressed) or unset (raised):
+
+					static_gradient = Pt_STATIC_GRADIENT, //!<  If set, the gradient doesn't reverse when the widget is set or unset. 
+					static_bevels = Pt_STATIC_BEVELS, //!<  If set, the rendered bevels don't change when the widget is set or unset. 
+				};
+			};
+		};
+
 		struct ArgUnsignedShort:
 			public ArgumentsEx<Widget::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort
@@ -181,6 +247,12 @@ namespace PhWidgets
 		{
 		};
 
+		struct Flags:
+			public ThisFlags,
+			public Widget::Flags
+		{
+		};
+
 	protected:
 
 		typedef ResourceFrom<Widget::WidgetResourcesSingleton>::
@@ -212,6 +284,9 @@ namespace PhWidgets
 		//! @{ 
 		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::color> Color; //!< The widget's foreground or drawing color.
 		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::fill_color> FillColor; //!< The base fill color for the widget.
+
+		phbitmask<unsigned long, Flags::Basic::eBasic>::bind<Widget, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::basic_flags>	BasicFlags; //!< Gets or sets basic flags inherited by all widgets. See Flags::Basic::eBasic.
+
 		//! @}
 
 		//! @name Events
@@ -223,6 +298,7 @@ namespace PhWidgets
 		phwidgets_event<Basic, Basic::Callbacks::lost_focus>	LostFocus; //!< Occurs when a widget loses focus.
 		phwidgets_event<Basic, Basic::Callbacks::menu>			Menu; //!< Occurs when you press the right button while the pointer is on top of the widget.
 		phwidgets_event<Basic, Basic::Callbacks::repeat>		Repeat; //!< Documentation in progress...
+
 		//! @}
 
 		//! @name Event raisers
@@ -234,12 +310,17 @@ namespace PhWidgets
 		void OnLostFocus(PtCallbackInfo_t *info); //!< Raises the Basic::LostFocus event.
 		void OnMenu(PtCallbackInfo_t *info); //!< Raises the Basic::Menu event.
 		void OnRepeat(PtCallbackInfo_t *info); //!< Raises the Basic::Repeat event.
+
 		//! @}
 	};		  
 
 
 	
 }
+
+cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator|(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2);
+cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator&(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2);
+cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator^(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2);
 
 
 #endif
