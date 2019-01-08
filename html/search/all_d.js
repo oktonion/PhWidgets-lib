@@ -16,6 +16,7 @@ var searchData=
   ['onrepeat',['OnRepeat',['../class_ph_widgets_1_1_basic.html#a28eb314eef33b094804dd63c7a969a21',1,'PhWidgets::Basic']]],
   ['onunrealized',['OnUnrealized',['../class_ph_widgets_1_1_widget.html#a93f0ecee0849c98fc25b367da2a8e209',1,'PhWidgets::Widget']]],
   ['opaque',['Opaque',['../struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbda251a0764c760ffcfccd95b6b662c2c64',1,'PhWidgets::Widget::ThisFlags']]],
+  ['opaque_5fetches',['opaque_etches',['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic.html#a258299d92b4b17d19ead7ab30554ed41a612321266652d8bf131c5effc0ee9dc5',1,'PhWidgets::Basic::ThisFlags::Basic']]],
   ['operator_20const_20ptwidget_5ft_20_2a',['operator const PtWidget_t *',['../class_ph_widgets_1_1_widget.html#a4fedf80c9f4995982259ed525b83f5e3',1,'PhWidgets::Widget']]],
   ['operator_20ptwidget_5ft_20_2a',['operator PtWidget_t *',['../class_ph_widgets_1_1_widget.html#aaa78cad4c79ece87eb88ee58a209a340',1,'PhWidgets::Widget']]],
   ['operator_28_29',['operator()',['../class_ph_widgets_1_1_widget_1_1phwidgets__event.html#abdb5fbdaa7600ee3e813e719491d0347',1,'PhWidgets::Widget::phwidgets_event']]],
