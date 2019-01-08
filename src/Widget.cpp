@@ -122,13 +122,19 @@ Widget::Widget(int abn):
 	//properties:
 	Enabled(this),
 	HelpTopic(this),
+	Left(this),
+	Top(this),
+	Location(this),
 	Width(this),
 	Height(this),
 	BevelWidth(this),
 	Size(this),
-	Location(this),
+	Position(this),
+	//flags:
 	ExtendedFlags(this),
 	WidgetFlags(this),
+	ResizeFlags(this),
+	AnchorFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -151,13 +157,19 @@ Widget::Widget(PtWidget_t* wdg):
 	//properties:
 	Enabled(this),
 	HelpTopic(this),
+	Left(this),
+	Top(this),
+	Location(this),
 	Width(this),
 	Height(this),
 	BevelWidth(this),
 	Size(this),
-	Location(this),
+	Position(this),
+	//flags:
 	ExtendedFlags(this),
 	WidgetFlags(this),
+	ResizeFlags(this),
+	AnchorFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -217,13 +229,19 @@ Widget::Widget(const Widget &rhs):
 	//properties:
 	Enabled(this),
 	HelpTopic(this),
+	Left(this),
+	Top(this),
+	Location(this),
 	Width(this),
 	Height(this),
 	BevelWidth(this),
 	Size(this),
-	Location(this),
+	Position(this),
+	//flags:
 	ExtendedFlags(this),
 	WidgetFlags(this),
+	ResizeFlags(this),
+	AnchorFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -246,7 +264,7 @@ Widget &Widget::operator=(const Widget &rhs)
 	return *this;
 }
 
-bool Widget::operator==(const Widget &rhs)
+bool Widget::operator==(const Widget &rhs) const
 {
 	if(&rhs == this)
 		return true;
@@ -254,7 +272,7 @@ bool Widget::operator==(const Widget &rhs)
 	return widget() == rhs.widget();
 }
 
-bool Widget::operator<(const Widget &rhs)
+bool Widget::operator<(const Widget &rhs) const
 {
 	if(&rhs == this)
 		return false;
@@ -328,6 +346,69 @@ std::string PhWidgets::Widget::getHelpTopic() const
 	return resource.argument[Arguments::help_topic].get();
 }
 
+void PhWidgets::Widget::setLocation(PhPoint_t location)
+{
+	PhPoint_t offset, position;
+
+	if (PtWidgetOffset(this->widget(), &offset))
+	{
+		position.x = location.x - offset.x;
+		position.y = location.y - offset.y;
+
+		resource.argument[Arguments::pos].set(position);
+	}
+
+}
+
+PhPoint_t PhWidgets::Widget::getLocation() const
+{
+	PhPoint_t offset, position, location;
+	location.x = 0;
+	location.y = 0;
+
+	if (PtWidgetOffset(this->widget(), &offset))
+	{
+		position = resource.argument[Arguments::pos].get();
+
+		location.x = position.x + offset.x;
+		location.y = position.y + offset.y;
+	}
+
+	return location;
+}
+
+void PhWidgets::Widget::setLeft(short x)
+{
+	PhPoint_t location = getLocation();
+
+	if (location.x != x)
+	{
+		location.x = x;
+		setLocation(location);
+	}
+}
+
+short PhWidgets::Widget::getLeft() const
+{
+	return getLocation().x;
+}
+
+void PhWidgets::Widget::setTop(short y)
+{
+	PhPoint_t location = getLocation();
+
+	if (location.y != y)
+	{
+		location.y = y;
+		setLocation(location);
+	}
+}
+
+short PhWidgets::Widget::getTop() const
+{
+	return getLocation().y;
+}
+
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator|(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2)
 {
 	cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> bm(flag1);
@@ -361,5 +442,41 @@ cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator&(const PhW
 cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator^(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2)
 {
 	cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> bm(flag1);
+	return bm ^ flag2;
+}
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> operator|(const PhWidgets::Widget::Flags::Resize::eResizeFlags & flag1, const PhWidgets::Widget::Flags::Resize::eResizeFlags & flag2)
+{
+	cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> bm(flag1);
+	return bm | flag2;
+}
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> operator&(const PhWidgets::Widget::Flags::Resize::eResizeFlags & flag1, const PhWidgets::Widget::Flags::Resize::eResizeFlags & flag2)
+{
+	cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> bm(flag1);
+	return bm & flag2;
+}
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> operator^(const PhWidgets::Widget::Flags::Resize::eResizeFlags & flag1, const PhWidgets::Widget::Flags::Resize::eResizeFlags & flag2)
+{
+	cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> bm(flag1);
+	return bm ^ flag2;
+}
+
+cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> operator|(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag2)
+{
+	cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> bm(flag1);
+	return bm | flag2;
+}
+
+cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> operator&(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag2)
+{
+	cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> bm(flag1);
+	return bm & flag2;
+}
+
+cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> operator^(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag2)
+{
+	cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> bm(flag1);
 	return bm ^ flag2;
 }

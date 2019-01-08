@@ -353,6 +353,53 @@ namespace PhWidgets
 				};
 			};
 
+			struct Anchor
+			{
+				//! Anchor flags specify how the widget is anchored to its parent.
+				enum eAnchorFlags
+				{
+					LeftAnchoredRight = Pt_LEFT_ANCHORED_RIGHT, //!< Anchor the widget's left extent to the right edge of its parent's canvas. 
+					RightAnchoredRight = Pt_RIGHT_ANCHORED_RIGHT, //!< Anchor the widget's right extent to the right edge of its parent's canvas.
+					TopAnchoredBottom = Pt_TOP_ANCHORED_BOTTOM, //!< Anchor the widget's top extent to the bottom edge of its parent's canvas. 
+					BottomAnchoredBottom = Pt_BOTTOM_ANCHORED_BOTTOM, //!< Anchor the widget's bottom extent to the bottom edge of its parent's canvas. 
+					LeftAnchoredLeft = Pt_LEFT_ANCHORED_LEFT, //!< Anchor the widget's left extent to the left edge of its parent's canvas. 
+					RightAnchoredLeft = Pt_RIGHT_ANCHORED_LEFT, //!< Anchor the widget's right extent to the left edge of its parent's canvas. 
+					TopAnchoredTop = Pt_TOP_ANCHORED_TOP, //!< Anchor the widget's top extent to the top edge of its parent's canvas. 
+					BottomAnchoredTop = Pt_BOTTOM_ANCHORED_TOP, //!< Anchor the widget's bottom extent to the top edge of its parent's canvas. 
+					BalloonsOn = Pt_BALLOONS_ON //!< If a child widget has been assigned a balloon, pop up the balloon as soon as the pointer passes over the child widget; otherwise delay the pop up for 1.25 seconds. 
+				};
+			};
+
+			struct Resize
+			{
+				//! Resize flags to control a widget's resize policy in both the x and y directions.
+
+				//! Note that each ..._bits flag is a mask that represents all the bits of that type.
+				//! The default setting of this resource is 0; that is, no resize policy is in effect.
+				//! A widget's resize policy deals solely with the widget's renderable data. For a button, the data is its text; for a container, the data is its children. Any rendered data that doesn't fit within the widget's canvas is clipped.
+				//! If no resize policy is in effect, the widget's size is unbounded; it may be made as large or small as specified via Pt_ARG_DIM or Pt_ARG_AREA.
+				//! If a resize policy is in effect, the widget grows or shrinks to honor that policy.If the policy is ..._always, the widget resizes itself to fit its dataï¿½the dimensions specified via Pt_ARG_DIM or Pt_ARG_AREA don't apply. 
+				//! If the policy is ..._as_requred, the widget resizes itself to fit its data only if its current canvas size is inadequate to contain that data. In other words, it grows, but doesn't shrink, to fit its data.
+				//! If the widget has the ..._initial bit set, the resize policy is applied only once each time the widget is realized. This bit is meaningful only in concert with ..._always or ..._as_requred.
+				enum eResizeFlags
+				{
+
+					ResizeX_asRequired = Pt_RESIZE_X_AS_REQUIRED,
+					ResizeX_always = Pt_RESIZE_X_ALWAYS,
+					ResizeX_initial = Pt_RESIZE_X_INITIAL,
+					ResizeX_bits = Pt_RESIZE_X_BITS,
+					ResizeY_asRequired = Pt_RESIZE_Y_AS_REQUIRED,
+					ResizeY_always = Pt_RESIZE_Y_ALWAYS,
+					ResizeY_initial = Pt_RESIZE_Y_INITIAL,
+					ResizeY_bits = Pt_RESIZE_Y_BITS,
+					ResizeXY_asRequired = Pt_RESIZE_XY_ALWAYS,
+					ResizeXY_always = Pt_RESIZE_XY_AS_REQUIRED,
+					ResizeXY_initial = Pt_RESIZE_XY_INITIAL,
+					ResizeXY_bits = Pt_RESIZE_XY_BITS
+
+				};
+			};
+
 			//! Common flags used by all widgets. Except for those indicated as read-only, these flags are all read/write.
 			enum eFlags
 			{
@@ -387,10 +434,10 @@ namespace PhWidgets
 				Region = Pt_REGION, //!< Force the widget to have a region. 
 				Selectable = Pt_SELECTABLE, //!< You can select (\link Basic::Repeat repeat \endlink, \link Basic::Arm arm \endlink, \link Basic::Disarm disarm \endlink and \link Basic::Activate activate \endlink) the widget. Widgets usually provide visual feedback when selected. 
 				SelectNoredraw = Pt_SELECT_NOREDRAW, //!< The widget doesn't change its appearance when set or unset. This is meaningful only when the widget is Selectable. 
-				Set = Pt_SET, //!< The widget is in a “set” state. Generally, this indicates that the widget has been selected. 
+				Set = Pt_SET, //!< The widget is in a ï¿½setï¿½ state. Generally, this indicates that the widget has been selected. 
 
 				//! Pressing the pointer button on this widget causes it to toggle between being set and unset. 
-				//! Normally, selectable widgets act as push buttons — they become set when you press the pointer button, and unset when you release the button. 
+				//! Normally, selectable widgets act as push buttons ï¿½ they become set when you press the pointer button, and unset when you release the button. 
 				Toggle = Pt_TOGGLE, 
 	
 				WidgetRebuild = Pt_WIDGET_REBUILD, //!< (read-only) The widget will be rebuilt(rerealized) when the widget engine is finished applying resource changes.
@@ -549,8 +596,8 @@ namespace PhWidgets
 			Define::Flag<ArgUnsigned::eArgUnsigned, unsigned>::
 
 			Define::Link<Callback::eCallback, PtCallback_t*>::
-			Define::Link<RawCallback::eRawCallback, PtRawCallback_t*>::
-			Define::Link<HotkeyCallback::eHotkeyCallback, PtHotkeyCallback_t*>::
+			//Define::Link<RawCallback::eRawCallback, PtRawCallback_t*>::
+			//Define::Link<HotkeyCallback::eHotkeyCallback, PtHotkeyCallback_t*>::
 
 		resource_type WidgetResourcesSingleton;
 	
@@ -564,12 +611,21 @@ namespace PhWidgets
 
 		void setHelpTopic(std::string);
 		std::string getHelpTopic() const;
+
+		void setLocation(PhPoint_t);
+		PhPoint_t getLocation() const;
+
+		void setLeft(short);
+		short getLeft() const;
+
+		void setTop(short);
+		short getTop() const;
 						
 	public:
 		//! (constructor)
 
 		//! Constructs a Widget by ID.
-		Widget(int abn/**< [in] - ID given by PhAB to widget (like 'ABN_WIDIGET_NAME'). */);
+		Widget(int abn/**< [in] - ID given by PhAB to widget (like 'ABN_WIDGET_NAME'). */);
 
 		//! (constructor)
 
@@ -589,12 +645,12 @@ namespace PhWidgets
 		//! Compares Widgets
 
 		//! Compares the Widgets by their Photon widget pointers. 
-		bool operator==(const Widget &rhs/**< [in] - Widgets whose contents to compare . */);
+		bool operator==(const Widget &rhs/**< [in] - Widgets whose contents to compare . */) const;
 
 		//! Compares Widgets
 
 		//! Compares the Widgets by their Photon widget pointers. 
-		bool operator<(const Widget &rhs/**< [in] - Widgets whose contents to compare . */);
+		bool operator<(const Widget &rhs/**< [in] - Widgets whose contents to compare . */) const;
 
 		
 		//! Converts Widget to Photon widget pointer
@@ -603,21 +659,31 @@ namespace PhWidgets
 		//! Converts Widget to constant Photon widget pointer
 		operator const PtWidget_t*() const;
 
-		//! Resources of the Widget
-		WidgetResourcesSingleton resource;
+		
+		WidgetResourcesSingleton resource;//!< Resources of the Widget
 	
+		//! @name Properties
+		//! @{ 
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled; //!< Gets or sets a value indicating whether the widget can respond to user interaction.
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.
+		property<short>::bind<Widget, &Widget::getLeft, &Widget::setLeft>								Left; //!< Gets or sets the distance, in pixels, between the left edge of the widget and the left edge of its parent widget.
+		property<short>::bind<Widget, &Widget::getTop, &Widget::setTop>									Top; //!< Gets or sets the distance, in pixels, between the top edge of the widget and the top edge of its parent widget.
+		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation>					Location; //!< Gets or sets the coordinates of the upper-left corner of the widget relative to the upper-left corner of its parent widget.
 
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width>		Width; //!< Gets or sets the width of the widget.
-		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::height>		Height; //!< Gets or sets the hight of the widget.
+		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::height>		Height; //!< Gets or sets the height of the widget.
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::bevel_width>	BevelWidth; //!< Gets or sets the bevel width of the widget.
 		phproperty<PhDim_t>::bind<Widget, Arguments::eArgDim, Arguments::dim>							Size; //!< Gets or sets the size of the widget.
-		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos>						Location; //!< Gets or sets the position of the widget.
+		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos>						Position; //!< Gets or sets the absolute coordinates of the upper-left corner of the widget.
 
-		phbitmask<unsigned long, Flags::Extended::eExFlags>::bind<Widget, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::eflags>	ExtendedFlags; //!< Gets or sets extended flags inherited by all widgets. See Flags::Extended.
+		phbitmask<unsigned long, Flags::Extended::eExFlags>::bind<Widget, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::eflags>	ExtendedFlags; //!< Gets or sets extended flags inherited by all widgets. See Flags::Extended::eExFlags.
 		phbitmask<long, Flags::eFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::flags>													WidgetFlags; //!< Gets or sets flags inherited by all widgets. See Flags::eFlags.
+		phbitmask<long, Flags::Resize::eResizeFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::resize_flags>							ResizeFlags; //!< Gets or sets flags to control a widget's resize policy. See Flags::Resize::eResizeFlags.
+		phbitmask<unsigned, Flags::Anchor::eAnchorFlags>::bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags>			AnchorFlags; //!< Gets or sets flags specifying how the widget is anchored to its parent. See Flags::Anchor::eAnchorFlags.
+		//! @}
 
+		//! @name Events
+		//! @{ 
 		phwidgets_event<Widget, Widget::Callbacks::destroyed>		Destroyed; //!< Occurs when the widget is destroyed.
 		phwidgets_event<Widget, Widget::Callbacks::blocked>			Blocked; //!< Occurs when the widget is blocked.
 		phwidgets_event<Widget, Widget::Callbacks::dnd>				DragDrop; //!< Occurs when a drag-and-drop operation is completed.
@@ -625,13 +691,17 @@ namespace PhWidgets
 		phwidgets_event<Widget, Widget::Callbacks::outbound>		Outbound; //!< Occurs when you press the pointer button on the widget and then move out of the "hot spot" with the button still depressed.
 		phwidgets_event<Widget, Widget::Callbacks::realized>		Realized; //!<  Occurs when the widget is realized.
 		phwidgets_event<Widget, Widget::Callbacks::unrealized>		Unrealized; //!<  Occurs when the widget is unrealized.
+		//! @}
 
+		//! @name Event raisers
+		//! @{ 
 		void OnDestroyed(PtCallbackInfo_t *info); //!< Raises the Widget::Destroyed event.
 		void OnBlocked(PtCallbackInfo_t *info); //!< Raises the Widget::Blocked event.
 		void OnDragDrop(PtCallbackInfo_t *info); //!< Raises the Widget::DragDrop event.
 		void OnOutbound(PtCallbackInfo_t *info); //!< Raises the Widget::Outbound event.
 		void OnRealized(PtCallbackInfo_t *info); //!< Raises the Widget::Realized event.
 		void OnUnrealized(PtCallbackInfo_t *info); //!< Raises the Widget::Unrealized event.
+		//! @}
 
 		
 
@@ -640,16 +710,20 @@ namespace PhWidgets
 }//namespace PhWidgets
 
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator|(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2);
-
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator&(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2);
-
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator^(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2);
 
 cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator|(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2);
-
 cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator&(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2);
-
 cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::eFlags> operator^(const PhWidgets::Widget::Flags::eFlags &flag1, const PhWidgets::Widget::Flags::eFlags &flag2);
+
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> operator|(const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag1, const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag2);
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> operator&(const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag1, const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag2);
+cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> operator^(const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag1, const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag2);
+
+cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> operator|(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag2);
+cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> operator&(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag2);
+cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> operator^(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag2);
 
 
 #endif
