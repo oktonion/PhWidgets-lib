@@ -199,14 +199,10 @@ namespace stdex
 			nullptr_detail::_no_type operator==(T1, T2);
 
 			template<class T>
-			nullptr_detail::_yes_type _nullptr_comparison_tester(T(&)[sizeof(((T) (STDEX_NULL)) == (void*)(STDEX_NULL))]);
-			nullptr_detail::_no_type _nullptr_comparison_tester(...);
-
-			template<class T>
 			struct _nullptr_can_be_compared_to_ptr
 			{
-				static const T arr[sizeof(bool)];
-				static const bool value = sizeof(_nullptr_comparison_tester(arr)) == sizeof(nullptr_detail::_yes_type);
+				static const int *ptr;
+				static const bool value = sizeof(((T) (STDEX_NULL)) == ptr) != sizeof(nullptr_detail::_no_type);
 			};
 		}
 
@@ -360,7 +356,11 @@ typedef detail::_nullptr_chooser::type nullptr_t;
 
 }
 
-#define nullptr (STDEX_NULL)
+#ifdef nullptr
+	#undef nullptr
+#endif
+
+#define nullptr (stdex::nullptr_t)(STDEX_NULL)
 
 
 #endif // _STDEX_NULLPTR_H
