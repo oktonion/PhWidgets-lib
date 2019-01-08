@@ -680,6 +680,7 @@ namespace PhWidgets
 		phbitmask<long, Flags::eFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::flags>													WidgetFlags; //!< Gets or sets flags inherited by all widgets. See Flags::eFlags.
 		phbitmask<long, Flags::Resize::eResizeFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::resize_flags>							ResizeFlags; //!< Gets or sets flags to control a widget's resize policy. See Flags::Resize::eResizeFlags.
 		phbitmask<unsigned, Flags::Anchor::eAnchorFlags>::bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags>			AnchorFlags; //!< Gets or sets flags specifying how the widget is anchored to its parent. See Flags::Anchor::eAnchorFlags.
+		
 		//! @}
 
 		//! @name Events
@@ -691,6 +692,7 @@ namespace PhWidgets
 		phwidgets_event<Widget, Widget::Callbacks::outbound>		Outbound; //!< Occurs when you press the pointer button on the widget and then move out of the "hot spot" with the button still depressed.
 		phwidgets_event<Widget, Widget::Callbacks::realized>		Realized; //!<  Occurs when the widget is realized.
 		phwidgets_event<Widget, Widget::Callbacks::unrealized>		Unrealized; //!<  Occurs when the widget is unrealized.
+
 		//! @}
 
 		//! @name Event raisers
@@ -701,6 +703,7 @@ namespace PhWidgets
 		void OnOutbound(PtCallbackInfo_t *info); //!< Raises the Widget::Outbound event.
 		void OnRealized(PtCallbackInfo_t *info); //!< Raises the Widget::Realized event.
 		void OnUnrealized(PtCallbackInfo_t *info); //!< Raises the Widget::Unrealized event.
+
 		//! @}
 
 		

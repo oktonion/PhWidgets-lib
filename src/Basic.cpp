@@ -17,6 +17,8 @@ Basic::Basic(int abn):
 	//properties:
 	Color(this),
 	FillColor(this),
+	//flags:
+	BasicFlags(this),
 	//callbacks:
 	Activate(this),
 	Arm(this),
@@ -35,6 +37,8 @@ Basic::Basic(PtWidget_t *wdg):
 	//properties:
 	Color(this),
 	FillColor(this),
+	//flags:
+	BasicFlags(this),
 	//callbacks:
 	Activate(this),
 	Arm(this),
@@ -53,6 +57,8 @@ Basic::Basic(const Basic &rhs):
 	//properties:
 	Color(this),
 	FillColor(this),
+	//flags:
+	BasicFlags(this),
 	//callbacks:
 	Activate(this),
 	Arm(this),
@@ -105,4 +111,22 @@ void PhWidgets::Basic::OnMenu(PtCallbackInfo_t * info)
 void PhWidgets::Basic::OnRepeat(PtCallbackInfo_t * info)
 {
 	resource.callback[Callback::repeat].raise(info);
+}
+
+cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator|(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2)
+{
+	cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> bm(flag1);
+	return bm | flag2;
+}
+
+cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator&(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2)
+{
+	cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> bm(flag1);
+	return bm & flag2;
+}
+
+cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator^(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2)
+{
+	cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> bm(flag1);
+	return bm ^ flag2;
 }
