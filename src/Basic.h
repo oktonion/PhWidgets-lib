@@ -282,6 +282,9 @@ namespace PhWidgets
 		
 		//! @name Properties
 		//! @{ 
+		phproperty<unsigned short>::bind<Basic, ArgUnsignedShort::eArgUnsignedShort, Arguments::margin_height> MarginHeight; //!< The amount of vertical space between the widget's canvas and the widget's border.
+		phproperty<unsigned short>::bind<Basic, ArgUnsignedShort::eArgUnsignedShort, Arguments::margin_width> MarginWidth; //!< The amount of horizontal space between the widget's canvas and the widget's border.
+		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::bevel_color> BevelColor; //!< The main color of the bevel.
 		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::color> Color; //!< The widget's foreground or drawing color.
 		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::fill_color> FillColor; //!< The base fill color for the widget.
 
