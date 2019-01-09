@@ -174,7 +174,7 @@ namespace PhWidgets
 					// These bits affect how the widget behaves when set (depressed) or unset (raised):
 
 					static_gradient = Pt_STATIC_GRADIENT, //!<  If set, the gradient doesn't reverse when the widget is set or unset. 
-					static_bevels = Pt_STATIC_BEVELS, //!<  If set, the rendered bevels don't change when the widget is set or unset. 
+					static_bevels = Pt_STATIC_BEVELS //!<  If set, the rendered bevels don't change when the widget is set or unset. 
 				};
 			};
 		};
