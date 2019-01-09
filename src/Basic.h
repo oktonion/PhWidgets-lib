@@ -174,7 +174,7 @@ namespace PhWidgets
 					// These bits affect how the widget behaves when set (depressed) or unset (raised):
 
 					static_gradient = Pt_STATIC_GRADIENT, //!<  If set, the gradient doesn't reverse when the widget is set or unset. 
-					static_bevels = Pt_STATIC_BEVELS, //!<  If set, the rendered bevels don't change when the widget is set or unset. 
+					static_bevels = Pt_STATIC_BEVELS //!<  If set, the rendered bevels don't change when the widget is set or unset. 
 				};
 			};
 		};
@@ -288,7 +288,7 @@ namespace PhWidgets
 		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::color> Color; //!< The widget's foreground or drawing color.
 		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::fill_color> FillColor; //!< The base fill color for the widget.
 
-		phbitmask<unsigned long, Flags::Basic::eBasic>::bind<Widget, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::basic_flags>	BasicFlags; //!< Gets or sets basic flags inherited by all widgets. See Flags::Basic::eBasic.
+		phbitmask<unsigned long, Flags::Basic::eBasic>::bind<Basic, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::basic_flags>	BasicFlags; //!< Gets or sets basic flags inherited by all widgets. See Flags::Basic::eBasic.
 
 		//! @}
 

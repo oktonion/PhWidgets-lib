@@ -15,6 +15,9 @@ Basic::Basic(int abn):
 	Widget(abn),
 	resource(this),
 	//properties:
+	MarginHeight(this),
+	MarginWidth(this),
+	BevelColor(this),
 	Color(this),
 	FillColor(this),
 	//flags:
@@ -35,6 +38,9 @@ Basic::Basic(PtWidget_t *wdg):
 	Widget(wdg),
 	resource(this),
 	//properties:
+	MarginHeight(this),
+	MarginWidth(this),
+	BevelColor(this),
 	Color(this),
 	FillColor(this),
 	//flags:
@@ -55,6 +61,9 @@ Basic::Basic(const Basic &rhs):
 	Widget(rhs),
 	resource(this),
 	//properties:
+	MarginHeight(this),
+	MarginWidth(this),
+	BevelColor(this),
 	Color(this),
 	FillColor(this),
 	//flags:
