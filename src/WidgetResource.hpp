@@ -355,7 +355,7 @@ namespace PhWidgets
 			{
 				PtCallbackList_t *cl = this->getLink();
 
-				if (nullptr == cl)
+				if (!cl)
 					return;
 
 				PtWidget_t *w = _rwidget->widget();
