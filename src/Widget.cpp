@@ -396,6 +396,8 @@ PhArea_t PhWidgets::Widget::getBounds() const
 
 	bounds.pos = getLocation();
 	bounds.size = resource.argument[Arguments::dim].get();
+
+	return bounds;
 }
 
 short PhWidgets::Widget::getBottom() const
