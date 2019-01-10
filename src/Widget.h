@@ -30,7 +30,12 @@ namespace PhWidgets
 	using namespace cppproperties;
 	using namespace phevents;
 	using namespace cppbitmasks;
-		
+
+	//! Superclass for all widgets
+	/*!
+		Widget is the fundamental superclass. 
+		All widgets belong to a subclass of Widget. 
+	*/	
 	class Widget:
 		protected detail::IPtWidget,
 		public IPhWidgetsProperty
@@ -635,35 +640,47 @@ namespace PhWidgets
 		short getTop() const;
 						
 	public:
-		//! (constructor)
+		//! (constructor) 
+		/*!
+			Constructs a Widget by ID.
+			\param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+		*/
+		Widget(int abn);
 
-		//! Constructs a Widget by ID.
-		Widget(int abn/**< [in] - ID given by PhAB to widget (like 'ABN_WIDGET_NAME'). */);
+		//! (constructor) 
+		/*!
+			Constructs a Widget by pointer to widget.
+			\param[in] wdg pointer to Photon widget.
+		*/
+		Widget(PtWidget_t *wdg);
 
-		//! (constructor)
-
-		//! Constructs a Widget by pointer to widget.
-		Widget(PtWidget_t *wdg /**< [in] - pointer to Photon widget. */);
+		//! (copy constructor) 
+		/*!
+			Constructs a Widget by copy.
+			\param[in] other another Widget to be used as source to initialize the elements of the container with.
+		*/
+		Widget(const Widget &other);
 		
-		//! (copy constructor)
-
-		//! Constructs a Widget by copy.
-		Widget(const Widget &rhs /**< [in] - another Widget to be used as source to initialize the elements of the container with. */);
-		
-		//! Assigns value in Widget
-
-		//! Replaces the contents of the Widget.
-		Widget &operator=(const Widget &rhs/**< [in] - another Widget to use as data source. */);
+		//! Assigns value in Widget 
+		/*!
+			Replaces the contents of the Widget.
+			\param[in] other another Widget to use as data source.
+		*/
+		Widget &operator=(const Widget &other);
 
 		//! Compares Widgets
-
-		//! Compares the Widgets by their Photon widget pointers. 
-		bool operator==(const Widget &rhs/**< [in] - Widgets whose contents to compare . */) const;
+		/*!
+			Compares the Widgets by their Photon widget pointers.
+			\param[in] other Widgets whose contents to compare.
+		*/
+		bool operator==(const Widget &other) const;
 
 		//! Compares Widgets
-
-		//! Compares the Widgets by their Photon widget pointers. 
-		bool operator<(const Widget &rhs/**< [in] - Widgets whose contents to compare . */) const;
+		/*!
+			Compares the Widgets by their Photon widget pointers.
+			\param[in] other Widgets whose contents to compare.
+		*/
+		bool operator<(const Widget &other) const;
 
 		
 		//! Converts Widget to Photon widget pointer
@@ -672,8 +689,8 @@ namespace PhWidgets
 		//! Converts Widget to constant Photon widget pointer
 		operator const PtWidget_t*() const;
 
-		
-		WidgetResourcesSingleton resource;//!< Resources of the Widget
+		//! Resources of the Widget
+		WidgetResourcesSingleton resource;
 	
 		//! @name Properties
 		//! @{ 
