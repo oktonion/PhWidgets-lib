@@ -22,9 +22,9 @@ var searchData=
   ['operator_28_29',['operator()',['../class_ph_widgets_1_1_widget_1_1phwidgets__event.html#abdb5fbdaa7600ee3e813e719491d0347',1,'PhWidgets::Widget::phwidgets_event']]],
   ['operator_2b_3d',['operator+=',['../class_ph_widgets_1_1_widget_1_1phwidgets__event.html#a2c5b13153c542db2acb684d392d7507b',1,'PhWidgets::Widget::phwidgets_event']]],
   ['operator_2d_3d',['operator-=',['../class_ph_widgets_1_1_widget_1_1phwidgets__event.html#a9cc5d2b985d0f7e2b50a55806c7e00bb',1,'PhWidgets::Widget::phwidgets_event']]],
-  ['operator_3c',['operator&lt;',['../class_ph_widgets_1_1_widget.html#ac227dcc5e6ae5e9baeffcb77f2cb775e',1,'PhWidgets::Widget']]],
-  ['operator_3d',['operator=',['../class_ph_widgets_1_1_widget.html#a3756ca0fe326ce49b40242c433a495f6',1,'PhWidgets::Widget']]],
-  ['operator_3d_3d',['operator==',['../class_ph_widgets_1_1_widget.html#aeb702572e30d2a5b7ab38300759fe5a5',1,'PhWidgets::Widget']]],
+  ['operator_3c',['operator&lt;',['../class_ph_widgets_1_1_widget.html#a21cb31ae91d1b5546566a2b07e23a566',1,'PhWidgets::Widget']]],
+  ['operator_3d',['operator=',['../class_ph_widgets_1_1_basic.html#adbbb65047952752f2c961525473b546e',1,'PhWidgets::Basic::operator=()'],['../class_ph_widgets_1_1_timer.html#a32607760bb7bcf670a0a182eda673f78',1,'PhWidgets::Timer::operator=()'],['../class_ph_widgets_1_1_widget.html#a1838c4524925532d0492368cf9242a45',1,'PhWidgets::Widget::operator=()']]],
+  ['operator_3d_3d',['operator==',['../class_ph_widgets_1_1_widget.html#a395fc1a8b39729b8d1a1025b08808b95',1,'PhWidgets::Widget']]],
   ['outbound',['outbound',['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca35cad4f675b86ceb6d7732f161b469d0',1,'PhWidgets::Widget::ThisCallbacks::Callback::outbound()'],['../class_ph_widgets_1_1_widget.html#a59e2041a2aa676a17182766438ab67a3',1,'PhWidgets::Widget::Outbound()']]],
   ['outline_5fcolor',['outline_color',['../struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_color.html#a5f4a5e7aecdbba0e3ce7768bbdb92d10aacae5fa1c0eb865730f748993f5e5f5a',1,'PhWidgets::Basic::ThisArgs::ArgColor']]]
 ];

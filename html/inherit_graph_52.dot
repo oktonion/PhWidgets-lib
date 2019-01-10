@@ -1,0 +1,7 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="PhWidgets::detail::\ldef_orig::Struct\< PrevT,\l LinkT, ResourceT \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct_ph_widgets_1_1detail_1_1def__orig_1_1_struct.html"];
+}

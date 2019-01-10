@@ -1,0 +1,10 @@
+digraph "PhWidgets::detail::WidgetResourceBase&lt; ArgT &gt;"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node11 [label="PhWidgets::detail::\lWidgetResourceBase\<\l ArgT \>",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node12 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" _rwidget" ,fontname="Helvetica"];
+  Node12 [label="PhWidgets::detail::\lIPtWidget",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ph_widgets_1_1detail_1_1_i_pt_widget.html"];
+  Node13 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" _arg" ,fontname="Helvetica"];
+  Node13 [label="ArgT",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

@@ -1,0 +1,19 @@
+digraph "PhWidgets::detail::NotImplemented"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="PhWidgets::detail::\lNotImplemented",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node0 -> Node1 [dir="back",color="firebrick4",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="PhWidgets::detail::\lWidgetArgument\< ArgT,\l WidgetResourceGroupType\l::WidgetArgumentGroupType\l::array_type, ResourceT \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_fa2e5b40e88a486be9e9f3585ccf3ef7.html"];
+  Node0 -> Node2 [dir="back",color="firebrick4",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="PhWidgets::detail::\lWidgetArgument\< ArgT,\l WidgetResourceGroupType\l::WidgetArgumentGroupType\l::boolean_type, ResourceT \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_af5f72a317eac477cdf62ef098d16510.html"];
+  Node0 -> Node3 [dir="back",color="firebrick4",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="PhWidgets::detail::\lWidgetArgument\< ArgT,\l WidgetResourceGroupType\l::WidgetArgumentGroupType\l::complex_type, ResourceT \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_b482aae34046e372616d439d37c558b2.html"];
+  Node0 -> Node4 [dir="back",color="firebrick4",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="PhWidgets::detail::\lWidgetArgument\< ArgT,\l WidgetResourceGroupType\l::WidgetArgumentGroupType\l::function_type, ResourceT \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_adbcbfb8d8b03d47197e792d88a26faf.html"];
+  Node0 -> Node5 [dir="back",color="firebrick4",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="PhWidgets::detail::\lWidgetArgument\< ArgT,\l WidgetResourceGroupType\l::WidgetArgumentGroupType\l::image_type, ResourceT \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_e20d9905b62d081e81deba90953fed5a.html"];
+  Node0 -> Node6 [dir="back",color="firebrick4",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="PhWidgets::detail::\lWidgetArgument\< ArgT,\l WidgetResourceGroupType\l::WidgetArgumentGroupType\l::pointer_type, ResourceT \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_7a89236ea0bae1efae19bae0c2f87339.html"];
+}

@@ -1,0 +1,8 @@
+digraph "PhWidgets::detail::def_orig::ArgumentType&lt; WidgetArgumentsT, WidgetCallbacksT, ArgT, ResourceGroupT, ResourceT &gt;::WidgetArguments"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node0 [label="PhWidgets::detail::\ldef_orig::ArgumentType\l\< WidgetArgumentsT, WidgetCallbacks\lT, ArgT, ResourceGroupT, ResourceT\l \>::WidgetArguments",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="WidgetArgumentsT",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

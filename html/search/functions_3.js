@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['widget',['Widget',['../class_ph_widgets_1_1_widget.html#a43b01493754c8a4e482633082032ba72',1,'PhWidgets::Widget::Widget(int abn)'],['../class_ph_widgets_1_1_widget.html#aa2596e8b40807a3212f3ef2bf618b786',1,'PhWidgets::Widget::Widget(PtWidget_t *wdg)'],['../class_ph_widgets_1_1_widget.html#a9c5dc418090a6a6b09073e272029392c',1,'PhWidgets::Widget::Widget(const Widget &amp;rhs)']]]
+  ['raise',['raise',['../class_ph_widgets_1_1_widget_1_1phwidgets__event.html#a4e83c92bd484752b95a583512ac7fa52',1,'PhWidgets::Widget::phwidgets_event']]],
+  ['remove',['remove',['../class_ph_widgets_1_1_widget_1_1phwidgets__event.html#a51e975e7647cd3b64c3fbc52e40577a4',1,'PhWidgets::Widget::phwidgets_event']]]
 ];
