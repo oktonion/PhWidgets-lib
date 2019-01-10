@@ -8,7 +8,28 @@
 
 namespace PhWidgets
 {
-		
+	//! A superclass of basic resources for most widgets
+	/*!
+		The Basic superclass provides basic resources for all widgets. It provides the fundamental events for:
+
+		getting/losing focus
+		activating
+		button press, release, and repeat
+
+		Also, Basic supports:
+
+			toggle buttons
+			autohighlighting
+
+		and provides properties for:
+
+			margins
+			bevel colors
+			outline and inline colors
+			draw color
+			fill color
+			fill pattern.
+	*/	
 	class Basic:
 		public Widget
 	{
@@ -271,13 +292,35 @@ namespace PhWidgets
 		virtual void check();
 						
 	public:
+		//! (constructor) 
+		/*!
+			Constructs a Basic widget by ID.
+			\param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+		*/
 		Basic(int abn);
+
+		//! (constructor) 
+		/*!
+			Constructs a Basic widget by pointer to widget.
+			\param[in] wdg pointer to Photon widget.
+		*/
 		Basic(PtWidget_t *wdg);
 		
-		Basic(const Basic &rhs);
+		//! (copy constructor) 
+		/*!
+			Constructs a Basic widget by copy.
+			\param[in] other another Basic widget to be used as source to initialize the elements of the container with.
+		*/
+		Basic(const Basic &other);
 
-		Basic &operator=(const Basic &rhs);
+		//! Assigns value in Basic widget 
+		/*!
+			Replaces the contents of the Basic widget.
+			\param[in] other another Basic widget to use as data source.
+		*/
+		Basic &operator=(const Basic &other);
 
+		//! Resources of the Basic widget 
 		WidgetResourcesSingleton resource;
 		
 		//! @name Properties

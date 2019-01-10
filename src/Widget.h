@@ -30,7 +30,12 @@ namespace PhWidgets
 	using namespace cppproperties;
 	using namespace phevents;
 	using namespace cppbitmasks;
-		
+
+	//! Superclass for all widgets
+	/*!
+		Widget is the fundamental superclass. 
+		All widgets belong to a subclass of Widget. 
+	*/	
 	class Widget:
 		protected detail::IPtWidget,
 		public IPhWidgetsProperty
@@ -366,7 +371,15 @@ namespace PhWidgets
 					RightAnchoredLeft = Pt_RIGHT_ANCHORED_LEFT, //!< Anchor the widget's right extent to the left edge of its parent's canvas. 
 					TopAnchoredTop = Pt_TOP_ANCHORED_TOP, //!< Anchor the widget's top extent to the top edge of its parent's canvas. 
 					BottomAnchoredTop = Pt_BOTTOM_ANCHORED_TOP, //!< Anchor the widget's bottom extent to the top edge of its parent's canvas. 
-					BalloonsOn = Pt_BALLOONS_ON //!< If a child widget has been assigned a balloon, pop up the balloon as soon as the pointer passes over the child widget; otherwise delay the pop up for 1.25 seconds. 
+					BalloonsOn = Pt_BALLOONS_ON, //!< If a child widget has been assigned a balloon, pop up the balloon as soon as the pointer passes over the child widget; otherwise delay the pop up for 1.25 seconds. 
+
+					// Visual Studio like styles:
+
+					Bottom = BottomAnchoredBottom, //!< The widget is anchored to the bottom edge of its container.
+					Left = LeftAnchoredLeft, //!<The widget is anchored to the left edge of its container.
+					None = 0, //!<The widget is not anchored to any edges of its container.
+					Right = RightAnchoredRight, //!<The widget is anchored to the right edge of its container.
+					Top = TopAnchoredTop //!<The widget is anchored to the top edge of its container.
 				};
 			};
 
@@ -615,6 +628,11 @@ namespace PhWidgets
 		void setLocation(PhPoint_t);
 		PhPoint_t getLocation() const;
 
+		void setBounds(PhArea_t);
+		PhArea_t getBounds() const;
+
+		short getBottom() const;
+
 		void setLeft(short);
 		short getLeft() const;
 
@@ -622,35 +640,47 @@ namespace PhWidgets
 		short getTop() const;
 						
 	public:
-		//! (constructor)
+		//! (constructor) 
+		/*!
+			Constructs a Widget by ID.
+			\param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+		*/
+		Widget(int abn);
 
-		//! Constructs a Widget by ID.
-		Widget(int abn/**< [in] - ID given by PhAB to widget (like 'ABN_WIDGET_NAME'). */);
+		//! (constructor) 
+		/*!
+			Constructs a Widget by pointer to widget.
+			\param[in] wdg pointer to Photon widget.
+		*/
+		Widget(PtWidget_t *wdg);
 
-		//! (constructor)
-
-		//! Constructs a Widget by pointer to widget.
-		Widget(PtWidget_t *wdg /**< [in] - pointer to Photon widget. */);
+		//! (copy constructor) 
+		/*!
+			Constructs a Widget by copy.
+			\param[in] other another Widget to be used as source to initialize the elements of the container with.
+		*/
+		Widget(const Widget &other);
 		
-		//! (copy constructor)
-
-		//! Constructs a Widget by copy.
-		Widget(const Widget &rhs /**< [in] - another Widget to be used as source to initialize the elements of the container with. */);
-		
-		//! Assigns value in Widget
-
-		//! Replaces the contents of the Widget.
-		Widget &operator=(const Widget &rhs/**< [in] - another Widget to use as data source. */);
+		//! Assigns value in Widget 
+		/*!
+			Replaces the contents of the Widget.
+			\param[in] other another Widget to use as data source.
+		*/
+		Widget &operator=(const Widget &other);
 
 		//! Compares Widgets
-
-		//! Compares the Widgets by their Photon widget pointers. 
-		bool operator==(const Widget &rhs/**< [in] - Widgets whose contents to compare . */) const;
+		/*!
+			Compares the Widgets by their Photon widget pointers.
+			\param[in] other Widgets whose contents to compare.
+		*/
+		bool operator==(const Widget &other) const;
 
 		//! Compares Widgets
-
-		//! Compares the Widgets by their Photon widget pointers. 
-		bool operator<(const Widget &rhs/**< [in] - Widgets whose contents to compare . */) const;
+		/*!
+			Compares the Widgets by their Photon widget pointers.
+			\param[in] other Widgets whose contents to compare.
+		*/
+		bool operator<(const Widget &other) const;
 
 		
 		//! Converts Widget to Photon widget pointer
@@ -659,11 +689,60 @@ namespace PhWidgets
 		//! Converts Widget to constant Photon widget pointer
 		operator const PtWidget_t*() const;
 
-		
-		WidgetResourcesSingleton resource;//!< Resources of the Widget
+		//! Resources of the Widget
+		/*!
+			All resources of the widget could be accessed by using PhWidgets::$widget_name$::resource.
+			There are two types of resources:
+				- argument
+				- callback
+
+			Each resource could be obtained using Widget::Arguments::$argument_tag$ or Widget::Callbacks::$callback_tag$ respectively.
+
+			Example:
+			\code
+				// You have somewhere:
+				PtWidget_t *ptwidget; // pointer to widget
+				int ptwidget_realized_callback( PtWidget_t *, void *, PtCallbackInfo_t *); // callback
+
+				// constructing Widget
+				PhWidgets::Widget widget(ptwidget);
+				
+				// get/set of widget width
+				unsigned short widget_width = widget.resource.argument[Widget::Arguments::width].get();
+				widget.resource.argument[Widget::Arguments::width].set(100);
+
+				// add/remove callback
+				widget.resource.callback[Widget::Callbacks::realized].add(ptwidget_realized_callback);
+				widget.resource.callback[Widget::Callbacks::realized].remove(ptwidget_realized_callback);
+			\endcode
+
+			For convenient use of resources each widget has properties and events. 
+			So the code snippet above could shrink to:
+			\code
+				// You have somewhere:
+				PtWidget_t *ptwidget; // pointer to widget
+				int ptwidget_realized_callback( PtWidget_t *, void *, PtCallbackInfo_t *); // callback
+
+				// constructing Widget
+				PhWidgets::Widget widget(ptwidget);
+				
+				// get/set of widget width
+				unsigned short widget_width = widget.Width;
+				widget.Width = 100;
+
+				// add/remove callback
+				widget.Realized += ptwidget_realized_callback;
+				widget.Realized -= ptwidget_realized_callback;
+			\endcode
+		*/
+		WidgetResourcesSingleton resource;
 	
 		//! @name Properties
 		//! @{ 
+		phbitmask<unsigned, Flags::Anchor::eAnchorFlags>::bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags>			Anchor; //!< Gets or sets flags specifying how the widget is anchored to its parent. See Flags::Anchor::eAnchorFlags.
+		property<short, property<>::ro>::bind<Widget, &Widget::getBottom> Bottom; //!< Gets the distance, in pixels, between the bottom edge of the widget and the top edge of its container's client area.
+		property<PhArea_t>::bind<Widget, &Widget::getBounds, &Widget::setBounds> Bounds; //!< Gets or sets the size and location of the widget including its nonclient elements, in pixels, relative to the parent widget.
+
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled; //!< Gets or sets a value indicating whether the widget can respond to user interaction.
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.
 		property<short>::bind<Widget, &Widget::getLeft, &Widget::setLeft>								Left; //!< Gets or sets the distance, in pixels, between the left edge of the widget and the left edge of its parent widget.
@@ -679,7 +758,6 @@ namespace PhWidgets
 		phbitmask<unsigned long, Flags::Extended::eExFlags>::bind<Widget, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::eflags>	ExtendedFlags; //!< Gets or sets extended flags inherited by all widgets. See Flags::Extended::eExFlags.
 		phbitmask<long, Flags::eFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::flags>													WidgetFlags; //!< Gets or sets flags inherited by all widgets. See Flags::eFlags.
 		phbitmask<long, Flags::Resize::eResizeFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::resize_flags>							ResizeFlags; //!< Gets or sets flags to control a widget's resize policy. See Flags::Resize::eResizeFlags.
-		phbitmask<unsigned, Flags::Anchor::eAnchorFlags>::bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags>			AnchorFlags; //!< Gets or sets flags specifying how the widget is anchored to its parent. See Flags::Anchor::eAnchorFlags.
 		
 		//! @}
 
@@ -709,6 +787,13 @@ namespace PhWidgets
 		
 
 	};
+
+	//! Specifies how a widget anchors to the edges of its container.
+
+	//! Apply to Widget::Anchor property
+	struct AnchorStyles:
+		public Widget::Flags::Anchor
+	{};
 
 }//namespace PhWidgets
 
