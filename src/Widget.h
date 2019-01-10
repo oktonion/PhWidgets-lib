@@ -690,6 +690,51 @@ namespace PhWidgets
 		operator const PtWidget_t*() const;
 
 		//! Resources of the Widget
+		/*!
+			All resources of the widget could be accessed by using PhWidgets::$widget_name$::resource.
+			There are two types of resources:
+				- argument
+				- callback
+
+			Each resource could be obtained using Widget::Arguments::$argument_tag$ or Widget::Callbacks::$callback_tag$ respectively.
+
+			Example:
+			\code
+				// You have somewhere:
+				PtWidget_t *ptwidget; // pointer to widget
+				int ptwidget_realized_callback( PtWidget_t *, void *, PtCallbackInfo_t *); // callback
+
+				// constructing Widget
+				PhWidgets::Widget widget(ptwidget);
+				
+				// get/set of widget width
+				unsigned short widget_width = widget.resource.argument[Widget::Arguments::width].get();
+				widget.resource.argument[Widget::Arguments::width].set(100);
+
+				// add/remove callback
+				widget.resource.callback[Widget::Callbacks::realized].add(ptwidget_realized_callback);
+				widget.resource.callback[Widget::Callbacks::realized].remove(ptwidget_realized_callback);
+			\endcode
+
+			For convenient use of resources each widget has properties and events. 
+			So the code snippet above could shrink to:
+			\code
+				// You have somewhere:
+				PtWidget_t *ptwidget; // pointer to widget
+				int ptwidget_realized_callback( PtWidget_t *, void *, PtCallbackInfo_t *); // callback
+
+				// constructing Widget
+				PhWidgets::Widget widget(ptwidget);
+				
+				// get/set of widget width
+				unsigned short widget_width = widget.Width;
+				widget.Width = 100;
+
+				// add/remove callback
+				widget.Realized += ptwidget_realized_callback;
+				widget.Realized -= ptwidget_realized_callback;
+			\endcode
+		*/
 		WidgetResourcesSingleton resource;
 	
 		//! @name Properties
