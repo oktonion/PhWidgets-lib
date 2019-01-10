@@ -366,7 +366,15 @@ namespace PhWidgets
 					RightAnchoredLeft = Pt_RIGHT_ANCHORED_LEFT, //!< Anchor the widget's right extent to the left edge of its parent's canvas. 
 					TopAnchoredTop = Pt_TOP_ANCHORED_TOP, //!< Anchor the widget's top extent to the top edge of its parent's canvas. 
 					BottomAnchoredTop = Pt_BOTTOM_ANCHORED_TOP, //!< Anchor the widget's bottom extent to the top edge of its parent's canvas. 
-					BalloonsOn = Pt_BALLOONS_ON //!< If a child widget has been assigned a balloon, pop up the balloon as soon as the pointer passes over the child widget; otherwise delay the pop up for 1.25 seconds. 
+					BalloonsOn = Pt_BALLOONS_ON, //!< If a child widget has been assigned a balloon, pop up the balloon as soon as the pointer passes over the child widget; otherwise delay the pop up for 1.25 seconds. 
+
+					// Visual Studio like styles:
+
+					Bottom = BottomAnchoredBottom, //!< The widget is anchored to the bottom edge of its container.
+					Left = LeftAnchoredLeft, //!<The widget is anchored to the left edge of its container.
+					None = 0, //!<The widget is not anchored to any edges of its container.
+					Right = RightAnchoredRight, //!<The widget is anchored to the right edge of its container.
+					Top = TopAnchoredTop //!<The widget is anchored to the top edge of its container.
 				};
 			};
 
@@ -615,6 +623,11 @@ namespace PhWidgets
 		void setLocation(PhPoint_t);
 		PhPoint_t getLocation() const;
 
+		void setBounds(PhArea_t);
+		PhArea_t getBounds() const;
+
+		short getBottom() const;
+
 		void setLeft(short);
 		short getLeft() const;
 
@@ -664,6 +677,10 @@ namespace PhWidgets
 	
 		//! @name Properties
 		//! @{ 
+		phbitmask<unsigned, Flags::Anchor::eAnchorFlags>::bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags>			Anchor; //!< Gets or sets flags specifying how the widget is anchored to its parent. See Flags::Anchor::eAnchorFlags.
+		property<short, property<>::ro>::bind<Widget, &Widget::getBottom> Bottom; //!< Gets the distance, in pixels, between the bottom edge of the widget and the top edge of its container's client area.
+		property<PhArea_t>::bind<Widget, &Widget::getBounds, &Widget::setBounds> Bounds; //!< Gets or sets the size and location of the widget including its nonclient elements, in pixels, relative to the parent widget.
+
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled; //!< Gets or sets a value indicating whether the widget can respond to user interaction.
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.
 		property<short>::bind<Widget, &Widget::getLeft, &Widget::setLeft>								Left; //!< Gets or sets the distance, in pixels, between the left edge of the widget and the left edge of its parent widget.
@@ -679,7 +696,6 @@ namespace PhWidgets
 		phbitmask<unsigned long, Flags::Extended::eExFlags>::bind<Widget, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::eflags>	ExtendedFlags; //!< Gets or sets extended flags inherited by all widgets. See Flags::Extended::eExFlags.
 		phbitmask<long, Flags::eFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::flags>													WidgetFlags; //!< Gets or sets flags inherited by all widgets. See Flags::eFlags.
 		phbitmask<long, Flags::Resize::eResizeFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::resize_flags>							ResizeFlags; //!< Gets or sets flags to control a widget's resize policy. See Flags::Resize::eResizeFlags.
-		phbitmask<unsigned, Flags::Anchor::eAnchorFlags>::bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags>			AnchorFlags; //!< Gets or sets flags specifying how the widget is anchored to its parent. See Flags::Anchor::eAnchorFlags.
 		
 		//! @}
 
@@ -709,6 +725,13 @@ namespace PhWidgets
 		
 
 	};
+
+	//! Specifies how a widget anchors to the edges of its container.
+
+	//! Apply to Widget::Anchor property
+	struct AnchorStyles:
+		public Widget::Flags::Anchor
+	{};
 
 }//namespace PhWidgets
 

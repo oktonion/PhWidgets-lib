@@ -120,6 +120,9 @@ Widget::Widget(int abn):
 	_widget(nullptr),
 	resource(this),
 	//properties:
+	Anchor(this), // flag
+	Bottom(this),
+	Bounds(this),
 	Enabled(this),
 	HelpTopic(this),
 	Left(this),
@@ -134,7 +137,6 @@ Widget::Widget(int abn):
 	ExtendedFlags(this),
 	WidgetFlags(this),
 	ResizeFlags(this),
-	AnchorFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -155,6 +157,9 @@ Widget::Widget(PtWidget_t* wdg):
 	_widget(wdg),
 	resource(this),
 	//properties:
+	Anchor(this), // flag
+	Bottom(this),
+	Bounds(this),
 	Enabled(this),
 	HelpTopic(this),
 	Left(this),
@@ -169,7 +174,6 @@ Widget::Widget(PtWidget_t* wdg):
 	ExtendedFlags(this),
 	WidgetFlags(this),
 	ResizeFlags(this),
-	AnchorFlags(this),
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -227,6 +231,9 @@ Widget::Widget(const Widget &rhs):
 	_widget(nullptr),
 	resource(this),
 	//properties:
+	Anchor(this), // flag
+	Bottom(this),
+	Bounds(this),
 	Enabled(this),
 	HelpTopic(this),
 	Left(this),
@@ -241,7 +248,7 @@ Widget::Widget(const Widget &rhs):
 	ExtendedFlags(this),
 	WidgetFlags(this),
 	ResizeFlags(this),
-	AnchorFlags(this),
+	
 	//callbacks:
 	Destroyed(this),
 	Blocked(this),
@@ -375,6 +382,25 @@ PhPoint_t PhWidgets::Widget::getLocation() const
 	}
 
 	return location;
+}
+
+void PhWidgets::Widget::setBounds(PhArea_t bounds)
+{
+	setLocation(bounds.pos);
+	resource.argument[Arguments::dim].set(bounds.size);
+}
+
+PhArea_t PhWidgets::Widget::getBounds() const
+{
+	PhArea_t bounds;
+
+	bounds.pos = getLocation();
+	bounds.size = resource.argument[Arguments::dim].get();
+}
+
+short PhWidgets::Widget::getBottom() const
+{
+	return getLocation().y + Height;
 }
 
 void PhWidgets::Widget::setLeft(short x)
