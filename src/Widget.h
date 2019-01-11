@@ -1048,7 +1048,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			[AnchorStyles::eAnchorFlags](@ref Flags::Anchor::eAnchorFlags) 
+			> [AnchorStyles::eAnchorFlags](@ref Flags::Anchor::eAnchorFlags) 
 
 			A bitwise combination of the Flags::Anchor::eAnchorFlags values.
 
@@ -1078,7 +1078,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			`short`
+			> **short**
 
 			An `short` representing the distance, in pixels, between the bottom edge of the widget and the top edge of its container's client area.
 		*/
@@ -1088,7 +1088,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			`PhArea_t`
+			> **PhArea_t**
 
 			A `PhArea_t` in pixels relative to the parent widget that represents the size and location of the widget including its nonclient elements.
 
@@ -1115,9 +1115,9 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			PhWidgets::CursorDef
+			> PhWidgets::CursorDef
 
-			A PhWidgets::CursorDef that represents the cursor to display when the mouse pointer is over the widget.
+			A CursorDef that represents the cursor to display when the mouse pointer is over the widget.
 
 			### Examples ###
 
