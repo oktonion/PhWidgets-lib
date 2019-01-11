@@ -924,6 +924,10 @@ namespace PhWidgets
 		void setCursor(CursorDef);
 		CursorDef getCursor() const;
 
+		bool getCanFocus() const;
+
+		bool getCanSelect() const;
+
 		void setLeft(short);
 		short getLeft() const;
 
@@ -1103,9 +1107,11 @@ namespace PhWidgets
 			@remark
 			The value of this property is equal to the sum of the Widget::Top property value, and the Widget::Height property value.
 			@par
-			The Widget::Bottom property is a read-only property. You can manipulate this property value by changing the value of the Widget::Top or Widget::Height properties
+			The Widget::Bottom property is a read-only property. 
+			You can manipulate this property value by changing the value of the Widget::Top or Widget::Height properties 
+			or calling the Widget::SetBounds methods.
 		*/
-		property<short, property<>::ro>::bind<Widget, &Widget::getBottom> 		Bottom;
+		property<short, property<>::ro>::bind<Widget, &Widget::getBottom> Bottom;
 		
 		//! Gets or sets the size and location of the widget including its nonclient elements, in pixels, relative to the parent widget.
 		/*!
@@ -1174,6 +1180,35 @@ namespace PhWidgets
 			Assign a CursorDef to the Widget::Cursor property of the widget to change the cursor displayed when the mouse pointer is over the widget.
 		*/
 		property<CursorDef>::bind<Widget, &Widget::getCursor, &Widget::setCursor> Cursor;
+
+		//! Gets a value indicating whether the widget can receive focus.
+		/*!
+			### Property Value ### 
+			
+			> **bool**
+
+			`true` if the widget can receive focus; otherwise, `false`.
+
+			@remark
+			In order for a widget to receive input focus, the Widget must have a PtWidget_t pointer assigned to it, 
+			and the Widget::Visible and Widget::Enabled properties must both be set to `true` for both the widget and all its parent widgets, 
+			and the widget must be a form or the widget's outermost parent must be a form.
+		*/
+		property<bool, property<>::ro>::bind<Widget, &Widget::getCanFocus> CanFocus;
+
+		//! Gets a value indicating whether the widget can be selected.
+		/*!
+			### Property Value ### 
+			
+			> **bool**
+
+			`true` if the widget can be selected; otherwise, `false`.
+
+			@remark
+			This property returns `true` if the Widget::Flags::Highlighted flag of Widget::Arguments::flags is set, 
+			is contained in another widget, the widget itself is visible and enabled, and all its parent widget are visible and enabled.
+		*/
+		property<bool, property<>::ro>::bind<Widget, &Widget::getCanSelect> CanSelect;
 
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled; //!< Gets or sets a value indicating whether the widget can respond to user interaction.
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.

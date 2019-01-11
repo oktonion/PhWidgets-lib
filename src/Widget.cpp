@@ -450,6 +450,26 @@ PhWidgets::CursorDef PhWidgets::Widget::getCursor() const
 	return Cursors::eCursors(cursor);
 }
 
+bool Widget::getCanFocus() const
+{
+	bool 
+		disabled = resource.argument[Arguments::flags].get(Flags::Blocked),
+		obscured = resource.argument[Arguments::flags].get(Flags::Obscured),
+		gets_focus = resource.argument[Arguments::flags].get(Flags::GetsFocus);
+
+	return !(disabled || obscured) && gets_focus;
+}
+
+bool Widget::getCanSelect() const
+{
+	bool 
+		highlighted = resource.argument[Arguments::flags].get(Flags::Highlighted),
+		has_parent = (PtWidgetParent(widget()) != nullptr);
+		//autohighlight = resource.argument[Arguments::flags].get(Flags::Autohighlight);
+
+	return (getCanFocus() && highlighted && has_parent);
+}
+
 void PhWidgets::Widget::setLeft(short x)
 {
 	PhPoint_t location = getLocation();
@@ -457,7 +477,7 @@ void PhWidgets::Widget::setLeft(short x)
 	if (location.x != x)
 	{
 		location.x = x;
-		setLocation(location);
+		setLocation(location); 
 	}
 }
 
