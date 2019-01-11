@@ -44,7 +44,7 @@ namespace PhWidgets
 	public:
 
 		
-		typedef phevent::ph_callback_t callback_t;//!< An event handler that is raised when an \link Widget::phwidgets_event event \endlink occur.
+		typedef phevent::ph_callback_t callback_t;//!< An event handler that is raised when an [event](@ref Widget::phwidgets_event) occur.
 		
 		//! An event, which raise a notification to registered subscribers (event handlers) that something of interest has occurred.
 
@@ -526,7 +526,7 @@ namespace PhWidgets
 					
 					//! If the widget receives a key event that matches a structure's key cap and key modifiers, the widget calls the function specified in that structure. 
 					//! If a function isn't specified, the widget invokes its Basic::Callbacks::activate callback list with a reason_subtype of Widget::Callbacks::hotkey. 
-					//! \remark A hotkey isn't invoked if any ancestor of the widget that owns it is blocked.
+					//! @remark A hotkey isn't invoked if any ancestor of the widget that owns it is blocked.
 					//! Documentation in progress...
 					hotkey = Pt_CB_HOTKEY
 				};
@@ -630,19 +630,22 @@ namespace PhWidgets
 				/*!
 					Resize flags to control a widget's resize policy in both the x and y directions.
 
-					Note that each ..._bits flag is a mask that represents all the bits of that type.
+					@note
+					Each ..._bits flag is a mask that represents all the bits of that type.
 					The default setting of this resource is 0; that is, no resize policy is in effect.
 					A widget's resize policy deals solely with the widget's renderable data. 
 					For a button, the data is its text; for a container, the data is its children. 
+					@par
 					Any rendered data that doesn't fit within the widget's canvas is clipped.
 					If no resize policy is in effect, the widget's size is unbounded; 
 					it may be made as large or small as specified via Widget::Arguments::dim or Widget::Arguments::area.
-					If a resize policy is in effect, the widget grows or shrinks to honor that policy.
-					If the policy is ..._always, the widget resizes itself to fit its data 
+					@par
+					If a resize policy is in effect, the widget grows or shrinks to honor that policy:
+					- If the policy is ..._always, the widget resizes itself to fit its data 
 					the dimensions specified via Widget::Arguments::dim or Widget::Arguments::area don't apply. 
-					If the policy is ..._as_requred, the widget resizes itself to fit its data only if its current canvas size is inadequate to contain that data. 
+					- If the policy is ..._as_requred, the widget resizes itself to fit its data only if its current canvas size is inadequate to contain that data. 
 					In other words, it grows, but doesn't shrink, to fit its data.
-					If the widget has the ..._initial bit set, the resize policy is applied only once each time the widget is realized. 
+					- If the widget has the ..._initial bit set, the resize policy is applied only once each time the widget is realized. 
 					This bit is meaningful only in concert with ..._always or ..._as_requred.
 
 					### Aliases ###
@@ -682,9 +685,13 @@ namespace PhWidgets
 				Autohighlight = Pt_AUTOHIGHLIGHT, //!< Highlight and give focus to the widget when the cursor enters its extent, and unhighlight and remove focus when the cursor leaves. 
 				Blocked = Pt_BLOCKED, //!< Prevent the widget and all its non-window-class children from interacting with Photon events. 
 
-				//! If certain widgets have this bit set, and your application sets their resources, the relevant callbacks are invoked. 
-				//! Otherwise callbacks aren't invoked when your application sets resources. If a callback refers to this flag, its description says so explicitly.
-				//! For example, if this bit is set for a Divider and you use Divider::Undefined to change the size of one of its children, the Divider::DeviderDraged event is invoked. 
+				/*!
+					If certain widgets have this bit set, and your application sets their resources, the relevant callbacks are invoked. 
+					Otherwise callbacks aren't invoked when your application sets resources. 
+					@note
+					If a callback refers to this flag, its description says so explicitly.
+					For example, if this bit is set for a Divider and you use Divider::Undefined to change the size of one of its children, the Divider::DeviderDraged event is invoked. 
+				*/
 				CallbacksActive = Pt_CALLBACKS_ACTIVE,
 
 				Clear = Pt_CLEAR, //!< (read-only) The widget's brothers-in-front don't intersect with its extent. 
@@ -706,12 +713,12 @@ namespace PhWidgets
 				Realized = Pt_REALIZED, //!< (read-only) The widget is realized. 
 				Realizing = Pt_REALIZING, //!< (read-only) The widget is in the process of being realized. 
 				Region = Pt_REGION, //!< Force the widget to have a region. 
-				Selectable = Pt_SELECTABLE, //!< You can select (\link Basic::Repeat repeat \endlink, \link Basic::Arm arm \endlink, \link Basic::Disarm disarm \endlink and \link Basic::Activate activate \endlink) the widget. Widgets usually provide visual feedback when selected. 
+				Selectable = Pt_SELECTABLE, //!< You can select ([repeat](@ref Basic::Repeat), [arm](@ref Basic::Arm), [disarm](@ref Basic::Disarm) and [activate](@ref Basic::Activate)) the widget. Widgets usually provide visual feedback when selected. 
 				SelectNoredraw = Pt_SELECT_NOREDRAW, //!< The widget doesn't change its appearance when set or unset. This is meaningful only when the widget is Selectable. 
-				Set = Pt_SET, //!< The widget is in a �set� state. Generally, this indicates that the widget has been selected. 
+				Set = Pt_SET, //!< The widget is in a set state. Generally, this indicates that the widget has been selected. 
 
 				//! Pressing the pointer button on this widget causes it to toggle between being set and unset. 
-				//! Normally, selectable widgets act as push buttons � they become set when you press the pointer button, and unset when you release the button. 
+				//! @remark Normally, selectable widgets act as push buttons they become set when you press the pointer button, and unset when you release the button. 
 				Toggle = Pt_TOGGLE, 
 	
 				WidgetRebuild = Pt_WIDGET_REBUILD, //!< (read-only) The widget will be rebuilt(rerealized) when the widget engine is finished applying resource changes.
@@ -975,14 +982,26 @@ namespace PhWidgets
 
 		//! Resources of the Widget
 		/*!
-			All resources of the widget could be accessed by using PhWidgets::$widget_name$::resource.
+			All resources of the Widget could be accessed by using PhWidgets::Widget::resource.
+			As an example:
+
+			- Widget resources could be accessed using Widget::resource with Widget::Arguments and Widget::Callbacks.
+			- Basic (which is the child of Widget) and Widget resources could be accessed by Basic::resource with Basic::Arguments and Basic::Callbacks
+			or you can specify resources only for one class (Basic::ThisArgs and Basic::ThisCallbacks, Widget::ThisArgs and Widget::ThisCallbacks).
+			- Label (which is the child of Basic), Widget and Basic resources could be all accessed by Label::resource
+			or, again, you can specify resources only for one class 
+			(Basic::ThisArgs and Basic::ThisCallbacks, Widget::ThisArgs and Widget::ThisCallbacks, Label::ThisArgs).
+
+			and so on...
+
 			There are two types of resources:
-				- argument
-				- callback
+			- argument
+			- callback
 
 			Each resource could be obtained using Widget::Arguments::$argument_tag$ or Widget::Callbacks::$callback_tag$ respectively.
 
-			Example:
+			### Examples ###
+
 			@code
 				// You have somewhere:
 				PtWidget_t *ptwidget; // pointer to widget
@@ -1022,6 +1041,7 @@ namespace PhWidgets
 		WidgetResourcesSingleton resource;
 	
 		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
 		///@{
 		
 		//! Gets or sets flags specifying how the widget is anchored to its parent.
@@ -1032,7 +1052,8 @@ namespace PhWidgets
 
 			A bitwise combination of the Flags::Anchor::eAnchorFlags values.
 
-			Example:
+			### Examples ###
+
 			@code
 				// You have somewhere:
 				PtWidget_t *ptwidget; // pointer to widget
@@ -1043,6 +1064,13 @@ namespace PhWidgets
 				// anchor the widget to the bottom right corner of the parent
    				widget.Anchor = (PhWidgets::AnchorStyles::Bottom | PhWidgets::AnchorStyles::Right);
 			@endcode
+
+			@remark
+			Use the Widget::Anchor property to define how a widget is automatically resized as its parent widget is resized. 
+			Anchoring a widget to its parent widget ensures that the anchored edges remain in the same position relative to the edges of the parent widget when the parent widget is resized.
+			You can anchor a widget to one or more edges of its container. 
+			For example, if you have a Container with a Button whose Button::Anchor property value is set to [AnchorStyles::Top](@ref Flags::Anchor::Top) and [AnchorStyles::Bottom](@ref Flags::Anchor::Bottom), 
+			the Button is stretched to maintain the anchored distance to the top and bottom edges of the Container as the [Height](@ref Container::Height) of the Container is increased. 
 		*/
 		phbitmask<unsigned, Flags::Anchor::eAnchorFlags>::bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags>			Anchor; 
 		
@@ -1064,7 +1092,8 @@ namespace PhWidgets
 
 			A `PhArea_t` in pixels relative to the parent widget that represents the size and location of the widget including its nonclient elements.
 
-			Example:
+			### Examples ###
+
 			@code
 				// You have somewhere:
 				PtWidget_t *ptwidget; // pointer to widget
@@ -1090,7 +1119,8 @@ namespace PhWidgets
 
 			A PhWidgets::CursorDef that represents the cursor to display when the mouse pointer is over the widget.
 
-			Example:
+			### Examples ###
+
 			@code
 				// You have somewhere:
 				PtWidget_t *ptwidget; // pointer to widget
@@ -1098,8 +1128,27 @@ namespace PhWidgets
 				// constructing Widget
 				PhWidgets::Widget widget(ptwidget);
 				
-				widget.Cursor = Cursors::Hand;
+				widget.Cursor = PhWidgets::Cursors::Hand;
 			@endcode
+
+			@note
+			CursorDef could also be constructed from PhCursorDef_t 
+			so you can assign your own defined PhCursorDef_t structure to this property.
+
+			@code
+				PhCursorDef_t curdef;
+				
+				curdef.size1.x = curdef.size2.x = BMP_WIDTH;
+				curdef.size1.y = curdef.size2.y = BMP_HEIGHT;
+				...
+				// fill 'curdef' with your own cursor info
+				...
+
+				widget.Cursor = curdef; // assign custom cursor
+			@endcode
+
+			@remark
+			Assign a CursorDef to the Widget::Cursor property of the widget to change the cursor displayed when the mouse pointer is over the widget.
 		*/
 		property<CursorDef>::bind<Widget, &Widget::getCursor, &Widget::setCursor> Cursor;
 
