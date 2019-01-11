@@ -123,6 +123,7 @@ Widget::Widget(int abn):
 	Anchor(this), // flag
 	Bottom(this),
 	Bounds(this),
+	Cursor(this),
 	Enabled(this),
 	HelpTopic(this),
 	Left(this),
@@ -160,6 +161,7 @@ Widget::Widget(PtWidget_t* wdg):
 	Anchor(this), // flag
 	Bottom(this),
 	Bounds(this),
+	Cursor(this),
 	Enabled(this),
 	HelpTopic(this),
 	Left(this),
@@ -234,6 +236,7 @@ Widget::Widget(const Widget &rhs):
 	Anchor(this), // flag
 	Bottom(this),
 	Bounds(this),
+	Cursor(this),
 	Enabled(this),
 	HelpTopic(this),
 	Left(this),
@@ -403,6 +406,31 @@ PhArea_t PhWidgets::Widget::getBounds() const
 short PhWidgets::Widget::getBottom() const
 {
 	return getLocation().y + Height;
+}
+
+void PhWidgets::Widget::setCursor(PhWidgets::CursorDef cursor)
+{
+	if(cursor._def)
+	{
+		resource.argument[Arguments::cursor_type].set(Flags::Cursor::bitmap);	
+
+		resource.argument[Arguments::bitmap_cursor].set(*cursor._def);
+		return;
+	}
+
+	resource.argument[Arguments::cursor_type].set(cursor._cursor);
+}	
+
+PhWidgets::CursorDef PhWidgets::Widget::getCursor() const
+{
+	const unsigned short cursor = resource.argument[Arguments::cursor_type].get();
+
+	if(cursor == Flags::Cursor::bitmap_no_inherit || cursor == Flags::Cursor::bitmap_inherit)
+	{
+		return resource.argument[Arguments::bitmap_cursor].get();
+	}
+
+	return Cursors::eCursors(cursor);
 }
 
 void PhWidgets::Widget::setLeft(short x)

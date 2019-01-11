@@ -18,6 +18,7 @@
 #include "./service/phbitmask.hpp"
 
 #include "./WidgetResource.hpp"
+#include "./Cursor.h"
 
 //typedef Ph_rect PhRect_t;
 
@@ -913,6 +914,9 @@ namespace PhWidgets
 
 		short getBottom() const;
 
+		void setCursor(CursorDef);
+		CursorDef getCursor() const;
+
 		void setLeft(short);
 		short getLeft() const;
 
@@ -951,14 +955,14 @@ namespace PhWidgets
 		//! Compares Widgets
 		/*!
 			Compares the Widgets by their Photon widget pointers.
-			@param[in] other Widgets whose contents to compare.
+			@param[in] other Widget whose contents to compare.
 		*/
 		bool operator==(const Widget &other) const;
 
 		//! Compares Widgets
 		/*!
 			Compares the Widgets by their Photon widget pointers.
-			@param[in] other Widgets whose contents to compare.
+			@param[in] other Widget whose contents to compare.
 		*/
 		bool operator<(const Widget &other) const;
 
@@ -1050,7 +1054,7 @@ namespace PhWidgets
 
 			An `short` representing the distance, in pixels, between the bottom edge of the widget and the top edge of its container's client area.
 		*/
-		property<short, property<>::ro>::bind<Widget, &Widget::getBottom> Bottom;
+		property<short, property<>::ro>::bind<Widget, &Widget::getBottom> 		Bottom;
 		
 		//! Gets or sets the size and location of the widget including its nonclient elements, in pixels, relative to the parent widget.
 		/*!
@@ -1077,6 +1081,27 @@ namespace PhWidgets
 			@endcode
 		*/
 		property<PhArea_t>::bind<Widget, &Widget::getBounds, &Widget::setBounds> Bounds;
+
+		//! Gets or sets the cursor that is displayed when the mouse pointer is over the widget.
+		/*!
+			### Property Value ### 
+			
+			PhWidgets::CursorDef
+
+			A PhWidgets::CursorDef that represents the cursor to display when the mouse pointer is over the widget.
+
+			Example:
+			@code
+				// You have somewhere:
+				PtWidget_t *ptwidget; // pointer to widget
+
+				// constructing Widget
+				PhWidgets::Widget widget(ptwidget);
+				
+				widget.Cursor = Cursors::Hand;
+			@endcode
+		*/
+		property<CursorDef>::bind<Widget, &Widget::getCursor, &Widget::setCursor> Cursor;
 
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled; //!< Gets or sets a value indicating whether the widget can respond to user interaction.
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.
@@ -1150,4 +1175,4 @@ cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> o
 cppbitmasks::bitmask<unsigned, PhWidgets::Widget::Flags::Anchor::eAnchorFlags> operator^(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag2);
 
 
-#endif
+#endif // PT_WIDGET_H
