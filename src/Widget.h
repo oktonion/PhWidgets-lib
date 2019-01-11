@@ -147,67 +147,145 @@ namespace PhWidgets
 			inline phwidgets_event &operator=(value_t);
 			inline phwidgets_event &operator=(phwidgets_event const &);
 		};*/
-	
+
+		//! Contains resource IDs for Widget arguments.
 		struct ThisArgs
 		{
+			//! Contains resource IDs for Widget arguments of type PhArea_t.
 			struct ArgArea
 			{
+				//! Resource IDs for Widget arguments of type PhArea_t.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Arguments::eArgArea,
+					PhWidgets::Widget::ArgArea::eArgArea
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgArea
 				{			
 					area = Pt_ARG_AREA //!< A PhArea_t structure (see the Photon Library Reference) that contains the x, y, height, and width values for the widget. 
 				};
 			};
 			
+			//! Contains resource IDs for Widget arguments of type unsigned.
 			struct ArgUnsigned
 			{
+				//! Resource IDs for Widget arguments of type unsigned.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Arguments::eArgUnsigned,
+					PhWidgets::Widget::ArgUnsigned::eArgUnsigned
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgUnsigned
 				{
 					anchor_flags = Pt_ARG_ANCHOR_FLAGS //!< This resource specifies how the widget is anchored to its parent.
 				};
 			};
 			
+			//! Contains resource IDs for Widget arguments of type unsigned short.
 			struct ArgUnsignedShort
 			{
+				//! Resource IDs for Widget arguments of type unsigned short.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Arguments::eArgUnsignedShort,
+					PhWidgets::Widget::ArgUnsignedShort::eArgUnsignedShort
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgUnsignedShort
 				{
 					bevel_width = Pt_ARG_BEVEL_WIDTH, //!< The width of the widget's bevel if the widget is highlighted and is to draw a bevel.
-					cursor_type = Pt_ARG_CURSOR_TYPE, //!< The type of cursor.
+					cursor_type = Pt_ARG_CURSOR_TYPE, //!< The type of cursor. See Widget::Flags::Cursor::eCursorFlags for possible values.
 					height = Pt_ARG_HEIGHT, //!< The height of the widget.
 					width = Pt_ARG_WIDTH //!< The width of the widget.
 				};
 			};
 			
+			//! Contains resource IDs for Widget arguments of type unsigned long.
 			struct ArgUnsignedLong
 			{
+				//! Resource IDs for Widget arguments of type unsigned long.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Arguments::eArgUnsignedLong,
+					PhWidgets::Widget::ArgUnsignedLong::eArgUnsignedLong
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgUnsignedLong
 				{
-					eflags = Pt_ARG_EFLAGS //!< Extended \link Widget::ExtendedFlags flags\endlink inherited by all widgets.
+					eflags = Pt_ARG_EFLAGS //!< Extended [flags](@ref Widget::Flags::eFlags) inherited by all widgets.
 				};
 			};
 			
+			//! Contains resource IDs for Widget arguments of type long.
 			struct ArgLong
 			{
+				//! Resource IDs for Widget arguments of type long.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Arguments::eArgLong,
+					PhWidgets::Widget::ArgLong::eArgLong
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgLong
 				{
-					flags = Pt_ARG_FLAGS, //!< Common \link Widget::WidgetFlags flags\endlink used by all widgets. Except for those indicated as read-only, these flags are all read/write. 
+					flags = Pt_ARG_FLAGS, //!< Common \Widget::WidgetFlags flags\endlink used by all widgets. Except for those indicated as read-only, these flags are all read/write. 
 					resize_flags = Pt_ARG_RESIZE_FLAGS //!< Controls a widget's resize policy in both the x and y directions.
 													   //!< Documentation in progress...
 				};
 			};
 
+			//! Contains resource IDs for Widget arguments of type char*.
 			struct ArgPChar
 			{
+				//! Resource IDs for Widget arguments of type char*.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Arguments::eArgPChar,
+					PhWidgets::Widget::ArgPChar::eArgPChar
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPChar
 				{
-					help_topic = Pt_ARG_HELP_TOPIC //!< The meaning of this resource depends on the bits set in Pt_ARG_EFLAGS:
-												   //!< If Pt_INTERNAL_HELP isn't set, Widget::ArgPChar::help_topic is used to set the topic position within the HTML help file.
-												   //!< If Pt_INTERNAL_HELP is set, Widget::ArgPChar::help_topic is the help information to be displayed.
+					help_topic = Pt_ARG_HELP_TOPIC //!< The meaning of this resource depends on the bits set in Widget::Flags::eflags:
+												   //!< If Widget::Flags::Extended::internal_help isn't set, Widget::Flags::help_topic is used to set the topic position within the HTML help file.
+												   //!< If Widget::Flags::Extended::internal_help is set, Widget::Flags::help_topic is the help information to be displayed.
 
 				};
 			};
 			
+			//! Contains resource IDs for Widget arguments of type void*.
 			struct ArgPVoid
 			{
+				//! Resource IDs for Widget arguments of type void*.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Arguments::eArgPVoid,
+					PhWidgets::Widget::ArgPVoid::eArgPVoid
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPVoid
 				{
 					pointer = Pt_ARG_POINTER, //!< A pointer to any data that you want to associate with the widget.
@@ -218,33 +296,79 @@ namespace PhWidgets
 				};
 			};
 
+			//! Contains resource IDs for Widget arguments of type PhRect_t.
 			struct ArgRect
 			{
+				//! Resource IDs for Widget arguments of type PhRect_t.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Arguments::eArgRect,
+					PhWidgets::Widget::ArgRect::eArgRect
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgRect
 				{
-					enchor_offsets = Pt_ARG_ANCHOR_OFFSETS, //!< The four values in this PhRect_t structure (see the Photon Library Reference) determine the anchor offsets of each of the widget's sides. (An anchor offset is the distance between the anchoring side of the parent and corresponding side of the child.) 
+					enchor_offsets = Pt_ARG_ANCHOR_OFFSETS, //!< The four values in this PhRect_t structure (see the Photon Library Reference) determine the anchor offsets of each of the widget's sides. 
+															//!< (An anchor offset is the distance between the anchoring side of the parent and corresponding side of the child.) 
+					
 					extent = Pt_ARG_EXTENT //!< A PhRect_t structure that contains the extent of the widget, a rectangle that specifies the upper-left and lower-right corners of the widget.
 				};
 			};
 			
+			//! Contains resource IDs for Widget arguments of type PgColor_t.
 			struct ArgColor
 			{
+				//! Resource IDs for Widget arguments of type PgColor_t.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Arguments::eArgColor,
+					PhWidgets::Widget::ArgColor::eArgColor
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgColor
 				{
 					cursor_color = Pt_ARG_CURSOR_COLOR //!< The color of the pointer when it's inside the widget.
 				};	
 			};
 			
+			//! Contains resource IDs for Widget arguments of type PhCursorDef_t.
 			struct ArgPCursorDef
 			{
+				//! Resource IDs for Widget arguments of type PhCursorDef_t.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Arguments::eArgPCursorDef,
+					PhWidgets::Widget::ArgPCursorDef::eArgPCursorDef
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPCursorDef
 				{
-					bitmap_cursor = Pt_ARG_BITMAP_CURSOR //!< Defines bitmaps for the cursor when the cursor type (Pt_ARG_CURSOR_TYPE) is set to Ph_CURSOR_BITMAP. 
+					bitmap_cursor = Pt_ARG_BITMAP_CURSOR //!< Defines bitmaps for the cursor when the [cursor type](@ref Widget::Arguments::cursor_type) is set to Widget::Flags::Cursor::bitmap. 
 				};
 			};
 			
+			//! Contains resource IDs for Widget arguments of type PtGridLayoutData_t.
 			struct ArgPGridLayoutData
 			{
+				//! Resource IDs for Widget arguments of type PtGridLayoutData_t.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Arguments::eArgPGridLayoutData,
+					PhWidgets::Widget::ArgPGridLayoutData::eArgPGridLayoutData
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPGridLayoutData
 				{
 					grid_layout_data = Pt_ARG_GRID_LAYOUT_DATA //!< A PtGridLayoutData_t structure that defines additional layout data for the widget when its container widget uses a PtGridLayout type layout. 
@@ -252,24 +376,57 @@ namespace PhWidgets
 				};
 			};
 			
+			//! Contains resource IDs for Widget arguments of type PhPoint_t.
 			struct ArgPoint
 			{
+				//! Resource IDs for Widget arguments of type PhPoint_t.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Arguments::eArgPoint,
+					PhWidgets::Widget::ArgPoint::eArgPoint
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPoint
 				{
 					pos = Pt_ARG_POS //!< A PhPoint_t structure that stores the x and y coordinates for the widget.
 				};
 			};
 
+			//! Contains resource IDs for Widget arguments of type PtRowLayoutData_t.
 			struct ArgPRowLayoutData
 			{
+				//! Resource IDs for Widget arguments of type PtRowLayoutData_t.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Arguments::eArgPRowLayoutData,
+					PhWidgets::Widget::ArgPRowLayoutData::eArgPRowLayoutData
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPRowLayoutData
 				{
 					row_layout_data = Pt_ARG_ROW_LAYOUT_DATA //!< A PtRowLayoutData_t structure that defines additional layout data for the widget when its container widget uses a PtRowLayout type layout. 
 				};
 			};
 
+			//! Contains resource IDs for Widget arguments of type PhDim_t.
 			struct ArgDim
 			{
+				//! Resource IDs for Widget arguments of type PhDim_t.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Arguments::eArgDim,
+					PhWidgets::Widget::ArgDim::eArgDim
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgDim
 				{
 					dim = Pt_ARG_DIM, //!< A PhDim_t structure (see the Photon Library Reference) that defines the height and width values for the widget.
@@ -279,10 +436,22 @@ namespace PhWidgets
 			};
 		};
 
+		//! Contains resource IDs for Widget callbacks.
 		struct ThisCallbacks
 		{
+			//! Contains resource IDs for Widget callbacks of type PtRawCallback_t.
 			struct RawCallback
 			{
+				//! Resource IDs for Widget arguments of type PtRawCallback_t.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Callbacks::eRawCallback,
+					PhWidgets::Widget::RawCallback::eRawCallback
+
+					See Widget::resource for usage description.
+				*/
 				enum eRawCallback
 				{
 					filter = Pt_CB_FILTER, //!< A list of raw callbacks invoked when an event that matches the provided event mask is to be passed to the widget. 
@@ -295,8 +464,19 @@ namespace PhWidgets
 				};
 			};
 
+			//! Contains resource IDs for Widget callbacks of type PtCallback_t.
 			struct Callback
 			{
+				//! Resource IDs for Widget arguments of type PtCallback_t.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Callbacks::eCallback,
+					PhWidgets::Widget::Callback::eCallback
+
+					See Widget::resource for usage description.
+				*/
 				enum eCallback
 				{
 					blocked = Pt_CB_BLOCKED, //!< A list of PtCallback_t structures that define the callbacks that the widget invokes whenever it must ignore an event due to being blocked.
@@ -325,9 +505,20 @@ namespace PhWidgets
 												  //!< Documentation in progress...
 				};
 			};
-
+			
+			//! Contains resource IDs for Widget callbacks of type PtHotkeyCallback_t.
 			struct HotkeyCallback
 			{
+				//! Resource IDs for Widget arguments of type PtHotkeyCallback_t.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Callbacks::eHotkeyCallback,
+					PhWidgets::Widget::HotkeyCallback::eHotkeyCallback
+
+					See Widget::resource for usage description.
+				*/
 				enum eHotkeyCallback
 				{
 					//! A list of PtHotkeyCallback_t structures. 
@@ -341,11 +532,48 @@ namespace PhWidgets
 			};
 		};
 
+		//! Contains flags for Widget resources.
 		struct ThisFlags
 		{
+			//! Contains flags for Widget resource Widget::Arguments::cursor_type.
+			struct Cursor
+			{
+				//! Cursor flags for Widget resource Widget::Arguments::cursor_type.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Flags::Cursor::eCursorFlags
+				*/
+				enum eCursorFlags
+				{
+					inherit = Ph_CURSOR_INHERIT, //!< Inherit the cursor, not from the class hierarchy, but from the family hierarchy; 
+												 //!< that is, from the way your application nests the widgets. 
+												 //!< The cursor might even be inherited from the Photon server itself.
+
+					bitmap_no_inherit = Ph_CURSOR_BITMAP,	//!< Use the bitmap stored in Arguments::bitmap_cursor for the cursor.
+															//!< By default, bitmap cursors aren't inherited by a widget's child regions.
+															//!< Use Widget::Flags::Cursor::bitmap_inherit instead to inherit bitmap cursor.
+
+					bitmap_inherit = Ph_CURSOR_BITMAP & ~Ph_CURSOR_NO_INHERIT,	//!< Use the bitmap stored in Arguments::bitmap_cursor for the cursor.
+																				//!< By default, bitmap cursors aren't inherited by a widget's child regions.
+																				//!< Use this flag to inherit bitmap cursor.
+
+					bitmap = bitmap_no_inherit //!< Same as Cursor::bitmap_no_inherit
+
+				};
+			};
+
+			//! Contains flags for Widget resource Widget::Arguments::eflags.
 			struct Extended
 			{
-				//! Extended flags inherited by all widgets
+				//! Extended flags for Widget resource Widget::Arguments::eflags.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Widget::Flags::Extended::eExFlags
+				*/
 				enum eExFlags
 				{
 					//! Consume any event encountered, whether or not an action was performed as a result of that event. 
@@ -357,20 +585,30 @@ namespace PhWidgets
 					SkipLayout = Pt_SKIP_LAYOUT //!< Skip this widget when performing a layout. 
 				};
 			};
-
+			
+			//! Contains flags for Widget resource Widget::Arguments::anchor_flags.
 			struct Anchor
 			{
-				//! Anchor flags specify how the widget is anchored to its parent.
+				//! Anchor flags for Widget resource Widget::Arguments::anchor_flags.
+
+				/*!
+					Anchor flags specify how the widget is anchored to its parent.
+
+					### Aliases ###
+					
+					PhWidgets::Widget::Flags::Anchor::eAnchorFlags,
+					[PhWidgets::AnchorStyles::eAnchorFlags](@ref Flags::Anchor::eAnchorFlags)
+				*/
 				enum eAnchorFlags
 				{
-					LeftAnchoredRight = Pt_LEFT_ANCHORED_RIGHT, //!< Anchor the widget's left extent to the right edge of its parent's canvas. 
-					RightAnchoredRight = Pt_RIGHT_ANCHORED_RIGHT, //!< Anchor the widget's right extent to the right edge of its parent's canvas.
-					TopAnchoredBottom = Pt_TOP_ANCHORED_BOTTOM, //!< Anchor the widget's top extent to the bottom edge of its parent's canvas. 
-					BottomAnchoredBottom = Pt_BOTTOM_ANCHORED_BOTTOM, //!< Anchor the widget's bottom extent to the bottom edge of its parent's canvas. 
-					LeftAnchoredLeft = Pt_LEFT_ANCHORED_LEFT, //!< Anchor the widget's left extent to the left edge of its parent's canvas. 
-					RightAnchoredLeft = Pt_RIGHT_ANCHORED_LEFT, //!< Anchor the widget's right extent to the left edge of its parent's canvas. 
-					TopAnchoredTop = Pt_TOP_ANCHORED_TOP, //!< Anchor the widget's top extent to the top edge of its parent's canvas. 
-					BottomAnchoredTop = Pt_BOTTOM_ANCHORED_TOP, //!< Anchor the widget's bottom extent to the top edge of its parent's canvas. 
+					LeftAnchoredRight = Pt_LEFT_ANCHORED_RIGHT, //!< Anchors the widget's left extent to the right edge of its parent's canvas. 
+					RightAnchoredRight = Pt_RIGHT_ANCHORED_RIGHT, //!< Anchors the widget's right extent to the right edge of its parent's canvas.
+					TopAnchoredBottom = Pt_TOP_ANCHORED_BOTTOM, //!< Anchors the widget's top extent to the bottom edge of its parent's canvas. 
+					BottomAnchoredBottom = Pt_BOTTOM_ANCHORED_BOTTOM, //!< Anchors the widget's bottom extent to the bottom edge of its parent's canvas. 
+					LeftAnchoredLeft = Pt_LEFT_ANCHORED_LEFT, //!< Anchors the widget's left extent to the left edge of its parent's canvas. 
+					RightAnchoredLeft = Pt_RIGHT_ANCHORED_LEFT, //!< Anchors the widget's right extent to the left edge of its parent's canvas. 
+					TopAnchoredTop = Pt_TOP_ANCHORED_TOP, //!< Anchors the widget's top extent to the top edge of its parent's canvas. 
+					BottomAnchoredTop = Pt_BOTTOM_ANCHORED_TOP, //!< Anchors the widget's bottom extent to the top edge of its parent's canvas. 
 					BalloonsOn = Pt_BALLOONS_ON, //!< If a child widget has been assigned a balloon, pop up the balloon as soon as the pointer passes over the child widget; otherwise delay the pop up for 1.25 seconds. 
 
 					// Visual Studio like styles:
@@ -383,20 +621,36 @@ namespace PhWidgets
 				};
 			};
 
+			//! Contains flags for Widget resource Widget::Arguments::resize_flags.
 			struct Resize
 			{
-				//! Resize flags to control a widget's resize policy in both the x and y directions.
+				//! Resize flags for Widget resource Widget::Arguments::resize_flags.
 
-				//! Note that each ..._bits flag is a mask that represents all the bits of that type.
-				//! The default setting of this resource is 0; that is, no resize policy is in effect.
-				//! A widget's resize policy deals solely with the widget's renderable data. For a button, the data is its text; for a container, the data is its children. Any rendered data that doesn't fit within the widget's canvas is clipped.
-				//! If no resize policy is in effect, the widget's size is unbounded; it may be made as large or small as specified via Pt_ARG_DIM or Pt_ARG_AREA.
-				//! If a resize policy is in effect, the widget grows or shrinks to honor that policy.If the policy is ..._always, the widget resizes itself to fit its data�the dimensions specified via Pt_ARG_DIM or Pt_ARG_AREA don't apply. 
-				//! If the policy is ..._as_requred, the widget resizes itself to fit its data only if its current canvas size is inadequate to contain that data. In other words, it grows, but doesn't shrink, to fit its data.
-				//! If the widget has the ..._initial bit set, the resize policy is applied only once each time the widget is realized. This bit is meaningful only in concert with ..._always or ..._as_requred.
+				/*!
+					Resize flags to control a widget's resize policy in both the x and y directions.
+
+					Note that each ..._bits flag is a mask that represents all the bits of that type.
+					The default setting of this resource is 0; that is, no resize policy is in effect.
+					A widget's resize policy deals solely with the widget's renderable data. 
+					For a button, the data is its text; for a container, the data is its children. 
+					Any rendered data that doesn't fit within the widget's canvas is clipped.
+					If no resize policy is in effect, the widget's size is unbounded; 
+					it may be made as large or small as specified via Widget::Arguments::dim or Widget::Arguments::area.
+					If a resize policy is in effect, the widget grows or shrinks to honor that policy.
+					If the policy is ..._always, the widget resizes itself to fit its data 
+					the dimensions specified via Widget::Arguments::dim or Widget::Arguments::area don't apply. 
+					If the policy is ..._as_requred, the widget resizes itself to fit its data only if its current canvas size is inadequate to contain that data. 
+					In other words, it grows, but doesn't shrink, to fit its data.
+					If the widget has the ..._initial bit set, the resize policy is applied only once each time the widget is realized. 
+					This bit is meaningful only in concert with ..._always or ..._as_requred.
+
+					### Aliases ###
+					
+					PhWidgets::Widget::Flags::Resize::eResizeFlags
+				*/
 				enum eResizeFlags
 				{
-
+					None = 0,
 					ResizeX_asRequired = Pt_RESIZE_X_AS_REQUIRED,
 					ResizeX_always = Pt_RESIZE_X_ALWAYS,
 					ResizeX_initial = Pt_RESIZE_X_INITIAL,
@@ -413,10 +667,16 @@ namespace PhWidgets
 				};
 			};
 
-			//! Common flags used by all widgets. Except for those indicated as read-only, these flags are all read/write.
+			//! Common flags for Widget resource Widget::Arguments::flags.
+			/*! 
+				Common flags used by all widgets. Except for those indicated as read-only, these flags are all read/write.
+
+				### Aliases ###
+					
+				PhWidgets::Widget::Flags::eFlags
+			*/
 			enum eFlags
 			{
-				
 				AllButtons = Pt_ALL_BUTTONS, //!< Any pointer button can activate the widget. Default is the left button only. 
 				Autohighlight = Pt_AUTOHIGHLIGHT, //!< Highlight and give focus to the widget when the cursor enters its extent, and unhighlight and remove focus when the cursor leaves. 
 				Blocked = Pt_BLOCKED, //!< Prevent the widget and all its non-window-class children from interacting with Photon events. 
@@ -459,91 +719,109 @@ namespace PhWidgets
 
 		};
 
+		//! Contains resource IDs for Widget arguments of type PhArea_t.
 		struct ArgArea:
 			public ThisArgs::ArgArea
 		{
 		};
 		
+		//! Contains resource IDs for Widget arguments of type unsigned.
 		struct ArgUnsigned:
 			public ThisArgs::ArgUnsigned
 		{
 		};
 		
+		//! Contains resource IDs for Widget arguments of type unsigned short.
 		struct ArgUnsignedShort:
 			public ThisArgs::ArgUnsignedShort
 		{
 		};
 		
+		//! Contains resource IDs for Widget arguments of type unsigned long.
 		struct ArgUnsignedLong:
 			public ThisArgs::ArgUnsignedLong
 		{
 		};
 		
+		//! Contains resource IDs for Widget arguments of type long.
 		struct ArgLong:
 			public ThisArgs::ArgLong
 		{
 		};
 
+		//! Contains resource IDs for Widget arguments of type char*.
 		struct ArgPChar:
 			public ThisArgs::ArgPChar
 		{
 		};
 		
+		//! Contains resource IDs for Widget arguments of type void*.
 		struct ArgPVoid:
 			public ThisArgs::ArgPVoid
 		{
 		};
 
+		//! Contains resource IDs for Widget arguments of type PhRect_t.
 		struct ArgRect:
 			public ThisArgs::ArgRect
 		{
 		};
 		
+		//! Contains resource IDs for Widget arguments of type PgColor_t.
 		struct ArgColor:
 			public ThisArgs::ArgColor
 		{
 		};
 		
+		//! Contains resource IDs for Widget arguments of type PhCursorDef_t.
 		struct ArgPCursorDef:
 			public ThisArgs::ArgPCursorDef
 		{
 		};
 		
+		//! Contains resource IDs for Widget arguments of type PtGridLayoutData_t.
 		struct ArgPGridLayoutData:
 			public ThisArgs::ArgPGridLayoutData
 		{
 		};
 		
+		//! Contains resource IDs for Widget arguments of type PhPoint_t.
 		struct ArgPoint:
 			public ThisArgs::ArgPoint
 		{
 		};
 
+		//! Contains resource IDs for Widget arguments of type PtRowLayoutData_t.
 		struct ArgPRowLayoutData:
 			public ThisArgs::ArgPRowLayoutData
 		{
 		};
 
+		//! Contains resource IDs for Widget arguments of type PhDim_t.
 		struct ArgDim:
 			public ThisArgs::ArgDim
 		{
 		};
 
+		//! Contains resource IDs for Widget callbacks of type PtRawCallback_t.
 		struct RawCallback:
 			public ThisCallbacks::RawCallback
 		{
 		};
 
+		//! Contains resource IDs for Widget callbacks of type PtCallback_t.
 		struct Callback:
 			public ThisCallbacks::Callback
 		{
 		};
 
+		//! Contains resource IDs for Widget callbacks of type PtHotkeyCallback_t.
 		struct HotkeyCallback:
 			public ThisCallbacks::HotkeyCallback
 		{
 		};
-	
+
+		//! Contains resource IDs for all Widget arguments.
 		struct Arguments:
 			public ArgArea,
 			public ArgColor,
@@ -562,6 +840,7 @@ namespace PhWidgets
 		{
 		};
 
+		//! Contains resource IDs for all Widget callbacks.
 		struct Callbacks :
 			public RawCallback,
 			public Callback,
@@ -569,6 +848,7 @@ namespace PhWidgets
 		{
 		};
 
+		//! Contains flags for all Widget resources.
 		struct Flags:
 			public ThisFlags
 		{
@@ -643,42 +923,42 @@ namespace PhWidgets
 		//! (constructor) 
 		/*!
 			Constructs a Widget by ID.
-			\param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
 		*/
 		Widget(int abn);
 
 		//! (constructor) 
 		/*!
 			Constructs a Widget by pointer to widget.
-			\param[in] wdg pointer to Photon widget.
+			@param[in] wdg pointer to Photon widget.
 		*/
 		Widget(PtWidget_t *wdg);
 
 		//! (copy constructor) 
 		/*!
 			Constructs a Widget by copy.
-			\param[in] other another Widget to be used as source to initialize the elements of the container with.
+			@param[in] other another Widget to be used as source to initialize the elements of the container with.
 		*/
 		Widget(const Widget &other);
 		
 		//! Assigns value in Widget 
 		/*!
 			Replaces the contents of the Widget.
-			\param[in] other another Widget to use as data source.
+			@param[in] other another Widget to use as data source.
 		*/
 		Widget &operator=(const Widget &other);
 
 		//! Compares Widgets
 		/*!
 			Compares the Widgets by their Photon widget pointers.
-			\param[in] other Widgets whose contents to compare.
+			@param[in] other Widgets whose contents to compare.
 		*/
 		bool operator==(const Widget &other) const;
 
 		//! Compares Widgets
 		/*!
 			Compares the Widgets by their Photon widget pointers.
-			\param[in] other Widgets whose contents to compare.
+			@param[in] other Widgets whose contents to compare.
 		*/
 		bool operator<(const Widget &other) const;
 
@@ -699,7 +979,7 @@ namespace PhWidgets
 			Each resource could be obtained using Widget::Arguments::$argument_tag$ or Widget::Callbacks::$callback_tag$ respectively.
 
 			Example:
-			\code
+			@code
 				// You have somewhere:
 				PtWidget_t *ptwidget; // pointer to widget
 				int ptwidget_realized_callback( PtWidget_t *, void *, PtCallbackInfo_t *); // callback
@@ -714,11 +994,11 @@ namespace PhWidgets
 				// add/remove callback
 				widget.resource.callback[Widget::Callbacks::realized].add(ptwidget_realized_callback);
 				widget.resource.callback[Widget::Callbacks::realized].remove(ptwidget_realized_callback);
-			\endcode
+			@endcode
 
 			For convenient use of resources each widget has properties and events. 
 			So the code snippet above could shrink to:
-			\code
+			@code
 				// You have somewhere:
 				PtWidget_t *ptwidget; // pointer to widget
 				int ptwidget_realized_callback( PtWidget_t *, void *, PtCallbackInfo_t *); // callback
@@ -733,15 +1013,70 @@ namespace PhWidgets
 				// add/remove callback
 				widget.Realized += ptwidget_realized_callback;
 				widget.Realized -= ptwidget_realized_callback;
-			\endcode
+			@endcode
 		*/
 		WidgetResourcesSingleton resource;
 	
 		//! @name Properties
-		//! @{ 
-		phbitmask<unsigned, Flags::Anchor::eAnchorFlags>::bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags>			Anchor; //!< Gets or sets flags specifying how the widget is anchored to its parent. See Flags::Anchor::eAnchorFlags.
-		property<short, property<>::ro>::bind<Widget, &Widget::getBottom> Bottom; //!< Gets the distance, in pixels, between the bottom edge of the widget and the top edge of its container's client area.
-		property<PhArea_t>::bind<Widget, &Widget::getBounds, &Widget::setBounds> Bounds; //!< Gets or sets the size and location of the widget including its nonclient elements, in pixels, relative to the parent widget.
+		///@{
+		
+		//! Gets or sets flags specifying how the widget is anchored to its parent.
+		/*!
+			### Property Value ### 
+			
+			[AnchorStyles::eAnchorFlags](@ref Flags::Anchor::eAnchorFlags) 
+
+			A bitwise combination of the Flags::Anchor::eAnchorFlags values.
+
+			Example:
+			@code
+				// You have somewhere:
+				PtWidget_t *ptwidget; // pointer to widget
+
+				// constructing Widget
+				PhWidgets::Widget widget(ptwidget);
+				
+				// anchor the widget to the bottom right corner of the parent
+   				widget.Anchor = (PhWidgets::AnchorStyles::Bottom | PhWidgets::AnchorStyles::Right);
+			@endcode
+		*/
+		phbitmask<unsigned, Flags::Anchor::eAnchorFlags>::bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags>			Anchor; 
+		
+		//! Gets the distance, in pixels, between the bottom edge of the widget and the top edge of its container's client area.
+		/*!
+			### Property Value ### 
+			
+			`short`
+
+			An `short` representing the distance, in pixels, between the bottom edge of the widget and the top edge of its container's client area.
+		*/
+		property<short, property<>::ro>::bind<Widget, &Widget::getBottom> Bottom;
+		
+		//! Gets or sets the size and location of the widget including its nonclient elements, in pixels, relative to the parent widget.
+		/*!
+			### Property Value ### 
+			
+			`PhArea_t`
+
+			A `PhArea_t` in pixels relative to the parent widget that represents the size and location of the widget including its nonclient elements.
+
+			Example:
+			@code
+				// You have somewhere:
+				PtWidget_t *ptwidget; // pointer to widget
+
+				// constructing Widget
+				PhWidgets::Widget widget(ptwidget);
+				
+				// set the widget size and location using the Bounds property.
+				PhArea_t bounds;
+
+				bounds.pos = PhPoint_t(20, 48); // location
+				bounds.size = PhDim_t(12, 20); // size
+   				widget.Bounds = bounds;
+			@endcode
+		*/
+		property<PhArea_t>::bind<Widget, &Widget::getBounds, &Widget::setBounds> Bounds;
 
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled; //!< Gets or sets a value indicating whether the widget can respond to user interaction.
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.
@@ -759,10 +1094,10 @@ namespace PhWidgets
 		phbitmask<long, Flags::eFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::flags>													WidgetFlags; //!< Gets or sets flags inherited by all widgets. See Flags::eFlags.
 		phbitmask<long, Flags::Resize::eResizeFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::resize_flags>							ResizeFlags; //!< Gets or sets flags to control a widget's resize policy. See Flags::Resize::eResizeFlags.
 		
-		//! @}
+		///@}
 
 		//! @name Events
-		//! @{ 
+		// @{ 
 		phwidgets_event<Widget, Widget::Callbacks::destroyed>		Destroyed; //!< Occurs when the widget is destroyed.
 		phwidgets_event<Widget, Widget::Callbacks::blocked>			Blocked; //!< Occurs when the widget is blocked.
 		phwidgets_event<Widget, Widget::Callbacks::dnd>				DragDrop; //!< Occurs when a drag-and-drop operation is completed.
@@ -771,10 +1106,10 @@ namespace PhWidgets
 		phwidgets_event<Widget, Widget::Callbacks::realized>		Realized; //!<  Occurs when the widget is realized.
 		phwidgets_event<Widget, Widget::Callbacks::unrealized>		Unrealized; //!<  Occurs when the widget is unrealized.
 
-		//! @}
+		// @}
 
 		//! @name Event raisers
-		//! @{ 
+		// @{ 
 		void OnDestroyed(PtCallbackInfo_t *info); //!< Raises the Widget::Destroyed event.
 		void OnBlocked(PtCallbackInfo_t *info); //!< Raises the Widget::Blocked event.
 		void OnDragDrop(PtCallbackInfo_t *info); //!< Raises the Widget::DragDrop event.
@@ -782,7 +1117,7 @@ namespace PhWidgets
 		void OnRealized(PtCallbackInfo_t *info); //!< Raises the Widget::Realized event.
 		void OnUnrealized(PtCallbackInfo_t *info); //!< Raises the Widget::Unrealized event.
 
-		//! @}
+		// @}
 
 		
 
@@ -791,6 +1126,7 @@ namespace PhWidgets
 	//! Specifies how a widget anchors to the edges of its container.
 
 	//! Apply to Widget::Anchor property
+	//! Is the alias for Widget::Flags::Anchor
 	struct AnchorStyles:
 		public Widget::Flags::Anchor
 	{};
