@@ -980,6 +980,25 @@ namespace PhWidgets
 		//! Converts Widget to constant Photon widget pointer
 		operator const PtWidget_t*() const;
 
+
+		//@{
+		//! Sets the bounds of the widget to the specified location and size.
+		/*!
+			@param[in] x The new Widget::Left property value of the widget.
+			@param[in] y The new Widget::Top property value of the widget.
+			@param[in] width The new Widget::Width property value of the widget.
+			@param[in] height The new Widget::Height property value of the widget.
+		*/
+		void SetBounds(short x, short y, unsigned short width, unsigned short height);
+
+		//! Sets the bounds of the widget to the specified location.
+		/*!
+			@param[in] x The new Widget::Left property value of the widget.
+			@param[in] y The new Widget::Top property value of the widget.
+		*/
+		void SetBounds(short x, short y);
+		//@}
+
 		//! Resources of the Widget
 		/*!
 			All resources of the Widget could be accessed by using PhWidgets::Widget::resource.
@@ -1042,8 +1061,7 @@ namespace PhWidgets
 	
 		//! @name Properties
 		//! Properties are used to simplify use of widget resources.
-		///@{
-		
+		//@{
 		//! Gets or sets flags specifying how the widget is anchored to its parent.
 		/*!
 			### Property Value ### 
@@ -1081,6 +1099,11 @@ namespace PhWidgets
 			> **short**
 
 			An `short` representing the distance, in pixels, between the bottom edge of the widget and the top edge of its container's client area.
+
+			@remark
+			The value of this property is equal to the sum of the Widget::Top property value, and the Widget::Height property value.
+			@par
+			The Widget::Bottom property is a read-only property. You can manipulate this property value by changing the value of the Widget::Top or Widget::Height properties
 		*/
 		property<short, property<>::ro>::bind<Widget, &Widget::getBottom> 		Bottom;
 		
@@ -1166,12 +1189,11 @@ namespace PhWidgets
 
 		phbitmask<unsigned long, Flags::Extended::eExFlags>::bind<Widget, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::eflags>	ExtendedFlags; //!< Gets or sets extended flags inherited by all widgets. See Flags::Extended::eExFlags.
 		phbitmask<long, Flags::eFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::flags>													WidgetFlags; //!< Gets or sets flags inherited by all widgets. See Flags::eFlags.
-		phbitmask<long, Flags::Resize::eResizeFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::resize_flags>							ResizeFlags; //!< Gets or sets flags to control a widget's resize policy. See Flags::Resize::eResizeFlags.
-		
-		///@}
+		phbitmask<long, Flags::Resize::eResizeFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::resize_flags>							ResizeFlags; //!< Gets or sets flags to control a widget's resize policy. See Flags::Resize::eResizeFlags.	
+		//@}
 
 		//! @name Events
-		// @{ 
+		//@{ 
 		phwidgets_event<Widget, Widget::Callbacks::destroyed>		Destroyed; //!< Occurs when the widget is destroyed.
 		phwidgets_event<Widget, Widget::Callbacks::blocked>			Blocked; //!< Occurs when the widget is blocked.
 		phwidgets_event<Widget, Widget::Callbacks::dnd>				DragDrop; //!< Occurs when a drag-and-drop operation is completed.
@@ -1179,19 +1201,17 @@ namespace PhWidgets
 		phwidgets_event<Widget, Widget::Callbacks::outbound>		Outbound; //!< Occurs when you press the pointer button on the widget and then move out of the "hot spot" with the button still depressed.
 		phwidgets_event<Widget, Widget::Callbacks::realized>		Realized; //!<  Occurs when the widget is realized.
 		phwidgets_event<Widget, Widget::Callbacks::unrealized>		Unrealized; //!<  Occurs when the widget is unrealized.
-
-		// @}
+		//@}
 
 		//! @name Event raisers
-		// @{ 
+		//@{ 
 		void OnDestroyed(PtCallbackInfo_t *info); //!< Raises the Widget::Destroyed event.
 		void OnBlocked(PtCallbackInfo_t *info); //!< Raises the Widget::Blocked event.
 		void OnDragDrop(PtCallbackInfo_t *info); //!< Raises the Widget::DragDrop event.
 		void OnOutbound(PtCallbackInfo_t *info); //!< Raises the Widget::Outbound event.
 		void OnRealized(PtCallbackInfo_t *info); //!< Raises the Widget::Realized event.
 		void OnUnrealized(PtCallbackInfo_t *info); //!< Raises the Widget::Unrealized event.
-
-		// @}
+		//@}
 
 		
 

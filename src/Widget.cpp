@@ -290,10 +290,10 @@ bool Widget::operator<(const Widget &rhs) const
 	return std::less<PtWidget_t*>()(widget(), rhs.widget());
 }
 
-
-
-
-
+Widget::operator PtWidget_t*()
+{
+	return widget();
+}
 
 Widget::operator const PtWidget_t*() const
 {
@@ -330,9 +330,26 @@ void PhWidgets::Widget::OnUnrealized( PtCallbackInfo_t * info)
 	resource.callback[Callback::unrealized].raise(info);
 }
 
-Widget::operator PtWidget_t*()
+
+void Widget::SetBounds(short x, short y, unsigned short width, unsigned short height)
 {
-	return widget();
+	PhDim_t size;
+
+	size.w = width;
+	size.h = height;
+
+	SetBounds(x, y);
+	resource.argument[Arguments::dim].set(size);
+}
+
+void Widget::SetBounds(short x, short y)
+{
+	PhPoint_t position;
+
+	position.x = x;
+	position.y = y;
+
+	setLocation(position);
 }
 
 //for properties:
