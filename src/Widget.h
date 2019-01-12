@@ -361,7 +361,6 @@ namespace PhWidgets
 			struct ArgPGridLayoutData
 			{
 				//! Resource IDs for Widget arguments of type PtGridLayoutData_t.
-
 				/*!
 					### Aliases ###
 					
@@ -381,7 +380,6 @@ namespace PhWidgets
 			struct ArgPoint
 			{
 				//! Resource IDs for Widget arguments of type PhPoint_t.
-
 				/*!
 					### Aliases ###
 					
@@ -400,7 +398,6 @@ namespace PhWidgets
 			struct ArgPRowLayoutData
 			{
 				//! Resource IDs for Widget arguments of type PtRowLayoutData_t.
-
 				/*!
 					### Aliases ###
 					
@@ -419,7 +416,6 @@ namespace PhWidgets
 			struct ArgDim
 			{
 				//! Resource IDs for Widget arguments of type PhDim_t.
-
 				/*!
 					### Aliases ###
 					
@@ -444,7 +440,6 @@ namespace PhWidgets
 			struct RawCallback
 			{
 				//! Resource IDs for Widget arguments of type PtRawCallback_t.
-
 				/*!
 					### Aliases ###
 					
@@ -469,7 +464,6 @@ namespace PhWidgets
 			struct Callback
 			{
 				//! Resource IDs for Widget arguments of type PtCallback_t.
-
 				/*!
 					### Aliases ###
 					
@@ -511,7 +505,6 @@ namespace PhWidgets
 			struct HotkeyCallback
 			{
 				//! Resource IDs for Widget arguments of type PtHotkeyCallback_t.
-
 				/*!
 					### Aliases ###
 					
@@ -540,7 +533,6 @@ namespace PhWidgets
 			struct Cursor
 			{
 				//! Cursor flags for Widget resource Widget::Arguments::cursor_type.
-
 				/*!
 					### Aliases ###
 					
@@ -569,7 +561,6 @@ namespace PhWidgets
 			struct Extended
 			{
 				//! Extended flags for Widget resource Widget::Arguments::eflags.
-
 				/*!
 					### Aliases ###
 					
@@ -591,7 +582,6 @@ namespace PhWidgets
 			struct Anchor
 			{
 				//! Anchor flags for Widget resource Widget::Arguments::anchor_flags.
-
 				/*!
 					Anchor flags specify how the widget is anchored to its parent.
 
@@ -626,7 +616,6 @@ namespace PhWidgets
 			struct Resize
 			{
 				//! Resize flags for Widget resource Widget::Arguments::resize_flags.
-
 				/*!
 					Resize flags to control a widget's resize policy in both the x and y directions.
 
@@ -1081,7 +1070,10 @@ namespace PhWidgets
 			@endcode
 		*/
 		WidgetResourcesSingleton resource;
-	
+
+		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
+		//@{
 		//! Gets or sets a value indicating whether the widget can accept data that the user drags onto it.
 		/*!
 			### Property Value ### 
@@ -1099,10 +1091,7 @@ namespace PhWidgets
 			- DoDragDrop
 		*/
 		property<bool>::bind<Widget, &Widget::getAllowDrop, &Widget::setAllowDrop> AllowDrop;
-
-		//! @name Properties
-		//! Properties are used to simplify use of widget resources.
-		//@{
+		
 		//! Gets or sets flags specifying how the widget is anchored to its parent.
 		/*!
 			### Property Value ### 
