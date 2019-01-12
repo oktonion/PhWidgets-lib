@@ -4,6 +4,7 @@
 #include <vector>
 
 #include <Ap.h>
+#include <PtWindow.h>
 
 #include "Widget.h"
 
@@ -353,6 +354,16 @@ void Widget::SetBounds(short x, short y)
 }
 
 //for properties:
+void Widget::setAllowDrop(bool val)
+{
+	resource.argument[Arguments::flags].set(Flags::Selectable, val);
+}
+
+bool Widget::getAllowDrop() const
+{
+	return resource.argument[Arguments::flags].get(Flags::Selectable);
+}
+
 void Widget::setEnabled(bool val)
 {
 	resource.argument[Arguments::flags].set(Flags::Blocked | Flags::Ghost, !val);
@@ -463,11 +474,37 @@ bool Widget::getCanFocus() const
 bool Widget::getCanSelect() const
 {
 	bool 
+		disabled = resource.argument[Arguments::flags].get(Flags::Blocked),
+		obscured = resource.argument[Arguments::flags].get(Flags::Obscured),
 		highlighted = resource.argument[Arguments::flags].get(Flags::Highlighted),
+		selectable = resource.argument[Arguments::flags].get(Flags::Selectable),
 		has_parent = (PtWidgetParent(widget()) != nullptr);
 		//autohighlight = resource.argument[Arguments::flags].get(Flags::Autohighlight);
 
-	return (getCanFocus() && highlighted && has_parent);
+	return (!disabled && !obscured && highlighted && has_parent && selectable);
+}
+
+bool Widget::getContainsFocus() const
+{
+	return PtIsFocused( widget() ) != 0;
+}
+
+bool Widget::getFocused() const
+{
+	return PtIsFocused( widget() ) == 2;
+}
+
+bool Widget::Focus()
+{
+	if(PtWidgetIsClassMember(widget(), PtWindow) == true)
+		return PtWindowFocus(widget()) == 0;
+
+	return PtGiveFocus(widget(), nullptr) != nullptr;
+}
+
+void Widget::Select()
+{
+	Focus(); // TODO: check the actual difference
 }
 
 void PhWidgets::Widget::setLeft(short x)

@@ -246,7 +246,7 @@ namespace PhWidgets
 				*/
 				enum eArgLong
 				{
-					flags = Pt_ARG_FLAGS, //!< Common \Widget::WidgetFlags flags\endlink used by all widgets. Except for those indicated as read-only, these flags are all read/write. 
+					flags = Pt_ARG_FLAGS, //!< Common [flags](@ref Widget::Flags::eFlags) used by all widgets. Except for those indicated as read-only, these flags are all read/write. 
 					resize_flags = Pt_ARG_RESIZE_FLAGS //!< Controls a widget's resize policy in both the x and y directions.
 													   //!< Documentation in progress...
 				};
@@ -906,6 +906,9 @@ namespace PhWidgets
 		virtual void check();
 		
 		//for properties:
+		
+		void setAllowDrop(bool);
+		bool getAllowDrop() const;
 
 		void setEnabled(bool);
 		bool getEnabled() const;
@@ -927,6 +930,10 @@ namespace PhWidgets
 		bool getCanFocus() const;
 
 		bool getCanSelect() const;
+
+		bool getContainsFocus() const;
+
+		bool getFocused() const;
 
 		void setLeft(short);
 		short getLeft() const;
@@ -984,6 +991,11 @@ namespace PhWidgets
 		//! Converts Widget to constant Photon widget pointer
 		operator const PtWidget_t*() const;
 
+		//! Sets input focus to the widget.
+		/*!
+			@return `true` if the input focus request was successful; otherwise, `false`.
+		*/
+		bool Focus();
 
 		//@{
 		//! Sets the bounds of the widget to the specified location and size.
@@ -1002,6 +1014,13 @@ namespace PhWidgets
 		*/
 		void SetBounds(short x, short y);
 		//@}
+
+		//! Activates the control.
+		/*!
+			The Select method activates the widget if the widget's Widget::Flags::Selectable flag of Widget::Arguments::flags is set true, 
+			it is contained in another widget, and all its parent widget are both visible and enabled.
+		*/
+		void Select();
 
 		//! Resources of the Widget
 		/*!
@@ -1063,6 +1082,24 @@ namespace PhWidgets
 		*/
 		WidgetResourcesSingleton resource;
 	
+		//! Gets or sets a value indicating whether the widget can accept data that the user drags onto it.
+		/*!
+			### Property Value ### 
+			
+			> **bool**
+
+			`true` if drag-and-drop operations are allowed in the control; otherwise, `false`. The default is `false`.
+
+			@see
+			- DragEventArgs
+			- DragOver
+			- DragDrop
+			- DragEnter
+			- DragLeave
+			- DoDragDrop
+		*/
+		property<bool>::bind<Widget, &Widget::getAllowDrop, &Widget::setAllowDrop> AllowDrop;
+
 		//! @name Properties
 		//! Properties are used to simplify use of widget resources.
 		//@{
@@ -1093,8 +1130,13 @@ namespace PhWidgets
 			You can anchor a widget to one or more edges of its container. 
 			For example, if you have a Container with a Button whose Button::Anchor property value is set to [AnchorStyles::Top](@ref Flags::Anchor::Top) and [AnchorStyles::Bottom](@ref Flags::Anchor::Bottom), 
 			the Button is stretched to maintain the anchored distance to the top and bottom edges of the Container as the [Height](@ref Container::Height) of the Container is increased. 
+
+			@see
+			- AnchorStyles
+			- Dock
+			- Layout
 		*/
-		phbitmask<unsigned, Flags::Anchor::eAnchorFlags>::bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags>			Anchor; 
+		phbitmask<unsigned, Flags::Anchor::eAnchorFlags>::bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags> Anchor; 
 		
 		//! Gets the distance, in pixels, between the bottom edge of the widget and the top edge of its container's client area.
 		/*!
@@ -1110,6 +1152,10 @@ namespace PhWidgets
 			The Widget::Bottom property is a read-only property. 
 			You can manipulate this property value by changing the value of the Widget::Top or Widget::Height properties 
 			or calling the Widget::SetBounds methods.
+
+			@see
+			- Top
+			- Height
 		*/
 		property<short, property<>::ro>::bind<Widget, &Widget::getBottom> Bottom;
 		
@@ -1137,8 +1183,78 @@ namespace PhWidgets
 				bounds.size = PhDim_t(12, 20); // size
    				widget.Bounds = bounds;
 			@endcode
+
+			@see
+			- Top
+			- Left
+			- Height
+			- Width
 		*/
 		property<PhArea_t>::bind<Widget, &Widget::getBounds, &Widget::setBounds> Bounds;
+
+		//! Gets a value indicating whether the widget can receive focus.
+		/*!
+			### Property Value ### 
+			
+			> **bool**
+
+			`true` if the widget can receive focus; otherwise, `false`.
+
+			@remark
+			In order for a widget to receive input focus, the Widget must have a PtWidget_t pointer assigned to it, 
+			and the Widget::Visible and Widget::Enabled properties must both be set to `true` for both the widget and all its parent widgets, 
+			and the widget must be a form or the widget's outermost parent must be a form.
+
+			@see
+			- Enabled
+			- Visible
+			- Focus
+			- Focused
+			- CanSelect
+		*/
+		property<bool, property<>::ro>::bind<Widget, &Widget::getCanFocus> CanFocus;
+
+		//! Gets a value indicating whether the widget can be selected.
+		/*!
+			### Property Value ### 
+			
+			> **bool**
+
+			`true` if the widget can be selected; otherwise, `false`.
+
+			@remark
+			This property returns `true` if the Widget::Flags::Selectable flag of Widget::Arguments::flags is set, 
+			is contained in another widget, the widget itself is visible and enabled, and all its parent widget are visible and enabled.
+
+			@see
+			- Select
+			- Enabled
+			- Visible
+			- Focus
+			- CanFocus
+		*/
+		property<bool, property<>::ro>::bind<Widget, &Widget::getCanSelect> CanSelect;
+
+		//! Gets a value indicating whether the widget, or one of its child widgets, currently has the input focus.
+		/*!
+			### Property Value ### 
+			
+			> **bool**
+
+			`true` if the control or one of its child controls currently has the input focus; otherwise, `false`.
+
+			@remark
+			You can use this property to determine whether a widget or any of the widgets contained within it has the input focus. 
+			To determine whether the widget has focus, regardless of whether any of its child widgets have focus, use the Widget::Focused property. 
+			To give a widget the input focus, use the Widget::Focus or Widget::Select methods.
+
+			@see
+			- CanFocus
+			- Focus
+			- Focused
+			- CanSelect
+		*/
+		property<bool, property<>::ro>::bind<Widget, &Widget::getContainsFocus> ContainsFocus;
 
 		//! Gets or sets the cursor that is displayed when the mouse pointer is over the widget.
 		/*!
@@ -1178,37 +1294,28 @@ namespace PhWidgets
 
 			@remark
 			Assign a CursorDef to the Widget::Cursor property of the widget to change the cursor displayed when the mouse pointer is over the widget.
+
+			@see
+			- CursorDef
+			- Cursors
 		*/
 		property<CursorDef>::bind<Widget, &Widget::getCursor, &Widget::setCursor> Cursor;
 
-		//! Gets a value indicating whether the widget can receive focus.
+		//! Gets a value indicating whether the widget has input focus.
 		/*!
 			### Property Value ### 
 			
 			> **bool**
 
-			`true` if the widget can receive focus; otherwise, `false`.
+			`true` if the control has focus; otherwise, `false`.
 
-			@remark
-			In order for a widget to receive input focus, the Widget must have a PtWidget_t pointer assigned to it, 
-			and the Widget::Visible and Widget::Enabled properties must both be set to `true` for both the widget and all its parent widgets, 
-			and the widget must be a form or the widget's outermost parent must be a form.
+			@see 
+			- CanFocus
+			- Focus
+			- CanSelect
+			- ContainsFocus
 		*/
-		property<bool, property<>::ro>::bind<Widget, &Widget::getCanFocus> CanFocus;
-
-		//! Gets a value indicating whether the widget can be selected.
-		/*!
-			### Property Value ### 
-			
-			> **bool**
-
-			`true` if the widget can be selected; otherwise, `false`.
-
-			@remark
-			This property returns `true` if the Widget::Flags::Highlighted flag of Widget::Arguments::flags is set, 
-			is contained in another widget, the widget itself is visible and enabled, and all its parent widget are visible and enabled.
-		*/
-		property<bool, property<>::ro>::bind<Widget, &Widget::getCanSelect> CanSelect;
+		property<bool, property<>::ro>::bind<Widget, &Widget::getFocused> Focused;
 
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled; //!< Gets or sets a value indicating whether the widget can respond to user interaction.
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.
@@ -1253,12 +1360,17 @@ namespace PhWidgets
 	};
 
 	//! Specifies how a widget anchors to the edges of its container.
+	/*! 
+		Apply to Widget::Anchor property
+		Is the alias for Widget::Flags::Anchor
 
-	//! Apply to Widget::Anchor property
-	//! Is the alias for Widget::Flags::Anchor
+		@see
+    	- Widget::Anchor
+		- Widget::Flags::Anchor::eAnchorFlags
+	*/
 	struct AnchorStyles:
 		public Widget::Flags::Anchor
-	{};
+	{ };
 
 }//namespace PhWidgets
 
