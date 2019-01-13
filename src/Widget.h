@@ -1027,7 +1027,7 @@ namespace PhWidgets
 		void SetBounds(short x, short y);
 		//@}
 
-		//! Activates the control.
+		//! Activates the widget.
 		/*!
 			The Select method activates the widget if the widget's Widget::Flags::Selectable flag of Widget::Arguments::flags is set true, 
 			it is contained in another widget, and all its parent widget are both visible and enabled.
@@ -1103,7 +1103,7 @@ namespace PhWidgets
 			
 			> **bool**
 
-			`true` if drag-and-drop operations are allowed in the control; otherwise, `false`. The default is `false`.
+			`true` if drag-and-drop operations are allowed in the widget; otherwise, `false`. The default is `false`.
 
 			@see
 			- DragEventArgs
@@ -1253,7 +1253,7 @@ namespace PhWidgets
 			
 			> **bool**
 
-			`true` if the control or one of its child controls currently has the input focus; otherwise, `false`.
+			`true` if the widget or one of its child widgets currently has the input focus; otherwise, `false`.
 
 			@remark
 			You can use this property to determine whether a widget or any of the widgets contained within it has the input focus. 
@@ -1319,7 +1319,7 @@ namespace PhWidgets
 			
 			> **bool**
 
-			`true` if the control has focus; otherwise, `false`.
+			`true` if the widget has focus; otherwise, `false`.
 
 			@see 
 			- CanFocus
