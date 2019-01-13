@@ -32,6 +32,48 @@ namespace PhWidgets
 	using namespace phevents;
 	using namespace cppbitmasks;
 
+	//! Specifies how a widget anchors to the edges of its container.
+	/*! 
+		Apply to Widget::Anchor property
+		Is the alias for Widget::Flags::Anchor
+
+		@see
+    	- Widget::Anchor
+		- Widget::Flags::Anchor::eAnchorFlags
+	*/
+	struct AnchorStyles
+	{
+		//! Anchor flags for Widget resource Widget::Arguments::anchor_flags.
+		/*!
+			Anchor flags specify how the widget is anchored to its parent.
+
+			### Aliases ###
+			
+			PhWidgets::Widget::Flags::Anchor::eAnchorFlags,
+			PhWidgets::Widget::ThisFlags::Anchor::eAnchorFlags
+		*/
+		enum eAnchorFlags
+		{
+			LeftAnchoredRight = Pt_LEFT_ANCHORED_RIGHT, //!< Anchors the widget's left extent to the right edge of its parent's canvas. 
+			RightAnchoredRight = Pt_RIGHT_ANCHORED_RIGHT, //!< Anchors the widget's right extent to the right edge of its parent's canvas.
+			TopAnchoredBottom = Pt_TOP_ANCHORED_BOTTOM, //!< Anchors the widget's top extent to the bottom edge of its parent's canvas. 
+			BottomAnchoredBottom = Pt_BOTTOM_ANCHORED_BOTTOM, //!< Anchors the widget's bottom extent to the bottom edge of its parent's canvas. 
+			LeftAnchoredLeft = Pt_LEFT_ANCHORED_LEFT, //!< Anchors the widget's left extent to the left edge of its parent's canvas. 
+			RightAnchoredLeft = Pt_RIGHT_ANCHORED_LEFT, //!< Anchors the widget's right extent to the left edge of its parent's canvas. 
+			TopAnchoredTop = Pt_TOP_ANCHORED_TOP, //!< Anchors the widget's top extent to the top edge of its parent's canvas. 
+			BottomAnchoredTop = Pt_BOTTOM_ANCHORED_TOP, //!< Anchors the widget's bottom extent to the top edge of its parent's canvas. 
+			BalloonsOn = Pt_BALLOONS_ON, //!< If a child widget has been assigned a balloon, pop up the balloon as soon as the pointer passes over the child widget; otherwise delay the pop up for 1.25 seconds. 
+
+			// Visual Studio like styles:
+
+			Bottom = BottomAnchoredBottom, //!< The widget is anchored to the bottom edge of its container.
+			Left = LeftAnchoredLeft, //!<The widget is anchored to the left edge of its container.
+			None = 0, //!<The widget is not anchored to any edges of its container.
+			Right = RightAnchoredRight, //!<The widget is anchored to the right edge of its container.
+			Top = TopAnchoredTop //!<The widget is anchored to the top edge of its container.
+		};
+	};
+
 	//! Superclass for all widgets
 	/*!
 		Widget is the fundamental superclass. 
@@ -601,38 +643,9 @@ namespace PhWidgets
 			};
 			
 			//! Contains flags for Widget resource Widget::Arguments::anchor_flags.
-			struct Anchor
-			{
-				//! Anchor flags for Widget resource Widget::Arguments::anchor_flags.
-				/*!
-					Anchor flags specify how the widget is anchored to its parent.
-
-					### Aliases ###
-					
-					PhWidgets::Widget::Flags::Anchor::eAnchorFlags,
-					[PhWidgets::AnchorStyles::eAnchorFlags](@ref Flags::Anchor::eAnchorFlags)
-				*/
-				enum eAnchorFlags
-				{
-					LeftAnchoredRight = Pt_LEFT_ANCHORED_RIGHT, //!< Anchors the widget's left extent to the right edge of its parent's canvas. 
-					RightAnchoredRight = Pt_RIGHT_ANCHORED_RIGHT, //!< Anchors the widget's right extent to the right edge of its parent's canvas.
-					TopAnchoredBottom = Pt_TOP_ANCHORED_BOTTOM, //!< Anchors the widget's top extent to the bottom edge of its parent's canvas. 
-					BottomAnchoredBottom = Pt_BOTTOM_ANCHORED_BOTTOM, //!< Anchors the widget's bottom extent to the bottom edge of its parent's canvas. 
-					LeftAnchoredLeft = Pt_LEFT_ANCHORED_LEFT, //!< Anchors the widget's left extent to the left edge of its parent's canvas. 
-					RightAnchoredLeft = Pt_RIGHT_ANCHORED_LEFT, //!< Anchors the widget's right extent to the left edge of its parent's canvas. 
-					TopAnchoredTop = Pt_TOP_ANCHORED_TOP, //!< Anchors the widget's top extent to the top edge of its parent's canvas. 
-					BottomAnchoredTop = Pt_BOTTOM_ANCHORED_TOP, //!< Anchors the widget's bottom extent to the top edge of its parent's canvas. 
-					BalloonsOn = Pt_BALLOONS_ON, //!< If a child widget has been assigned a balloon, pop up the balloon as soon as the pointer passes over the child widget; otherwise delay the pop up for 1.25 seconds. 
-
-					// Visual Studio like styles:
-
-					Bottom = BottomAnchoredBottom, //!< The widget is anchored to the bottom edge of its container.
-					Left = LeftAnchoredLeft, //!<The widget is anchored to the left edge of its container.
-					None = 0, //!<The widget is not anchored to any edges of its container.
-					Right = RightAnchoredRight, //!<The widget is anchored to the right edge of its container.
-					Top = TopAnchoredTop //!<The widget is anchored to the top edge of its container.
-				};
-			};
+			struct Anchor:
+				public AnchorStyles
+			{};
 
 			//! Contains flags for Widget resource Widget::Arguments::resize_flags.
 			struct Resize
@@ -1370,20 +1383,6 @@ namespace PhWidgets
 		
 
 	};
-
-	//! Specifies how a widget anchors to the edges of its container.
-	/*! 
-		Apply to Widget::Anchor property
-		Is the alias for Widget::Flags::Anchor
-
-		@see
-    	- Widget::Anchor
-		- Widget::Flags::Anchor::eAnchorFlags
-	*/
-	struct AnchorStyles:
-		public Widget::Flags::Anchor
-	{ };
-
 }//namespace PhWidgets
 
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator|(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2);
