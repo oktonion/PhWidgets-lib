@@ -589,7 +589,7 @@ namespace PhWidgets
 			typedef WidgetResourceGroupType::WidgetArgumentGroupType::color_type resource_group_type;
 			typedef
 			typename stdex::conditional< 
-				stdex::is_same<void, ResourceT>::value,
+				stdex::is_void<ResourceT>::value,
 				PgColor_t,
 				ResourceT
 			>::type resource_type;
@@ -697,7 +697,10 @@ namespace PhWidgets
 			ArgT, 
 			typename
 			stdex::enable_if<
-				stdex::is_pointer<ResourceT>::value,
+				(
+					stdex::is_pointer<ResourceT>::value ||
+					stdex::is_void<ResourceT>::value
+				),
 				WidgetResourceGroupType::pointer_type
 			>::type,
 			ResourceT
@@ -707,7 +710,7 @@ namespace PhWidgets
 			typedef WidgetResourceGroupType::pointer_type resource_group_type;
 			typedef
 			typename stdex::conditional< 
-				stdex::is_same<void, ResourceT>::value,
+				stdex::is_void<ResourceT>::value,
 				void *,
 				ResourceT
 			>::type resource_type;
