@@ -353,11 +353,11 @@ namespace PhWidgets
 			template<class T>
 			inline
 			typename stdex::enable_if<
-				stdex::is_pointer<T>::value == false, 
-				T*
+				stdex::is_pointer<T>::value, 
+				T
 			>::type getPointer() const
 			{
-				T *value = nullptr;
+				T value = nullptr;
 				PtArg_t args[1];
 
 				PtSetArg(&args[0], _arg, &value, 0);
@@ -377,13 +377,13 @@ namespace PhWidgets
 				const T&
 			>::type getScalar() const
 			{
-				return *getPointer<const T>();
+				return *getPointer<const T*>();
 			}
  
 			inline
 			const char* getString() const
 			{
-				return getPointer<const char>();
+				return getPointer<const char*>();
 			}
 
 			// If you set the value and len arguments to PtSetArg() to zero, 
@@ -693,13 +693,38 @@ namespace PhWidgets
 		};
 
 		template<class ArgT, class ResourceT>
-		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::pointer_type, ResourceT> :
-			private NotImplemented//WidgetResourceBase<ArgT>
+		struct WidgetArgument<
+			ArgT, 
+			typename
+			stdex::enable_if<
+				stdex::is_pointer<ResourceT>::value,
+				WidgetResourceGroupType::pointer_type
+			>::type,
+			ResourceT
+		> :
+			private WidgetResourceBase<ArgT>
 		{
-			typedef WidgetResourceGroupType::WidgetArgumentGroupType::pointer_type resource_group_type;
+			typedef WidgetResourceGroupType::pointer_type resource_group_type;
 			typedef ResourceT resource_type;
 
-			// not impelemented
+			WidgetArgument(IPtWidget *widget, ArgT arg) :
+				WidgetResourceBase<ArgT>(widget, arg)
+			{}
+
+			~WidgetArgument()
+			{}
+
+			inline
+			int set(resource_type value)
+			{
+				return this->setPointer(value);
+			}
+
+			inline
+			resource_type get() const
+			{
+				return this->getPointer<resource_type>();
+			}
 		};
 
 		template<class ArgT, class ResourceT>
