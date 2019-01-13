@@ -705,7 +705,12 @@ namespace PhWidgets
 			private WidgetResourceBase<ArgT>
 		{
 			typedef WidgetResourceGroupType::pointer_type resource_group_type;
-			typedef ResourceT resource_type;
+			typedef
+			typename stdex::conditional< 
+				stdex::is_same<void, ResourceT>::value,
+				void *,
+				ResourceT
+			>::type resource_type;
 
 			WidgetArgument(IPtWidget *widget, ArgT arg) :
 				WidgetResourceBase<ArgT>(widget, arg)
@@ -1724,7 +1729,7 @@ namespace PhWidgets
 				typedef def_help::Define<resource_type> Define;
 			};
 
-			template<class PrevT, class LinkT, class ResourceT>
+			template<class PrevT, class LinkT, class ResourceT = void>
 			struct Pointer
 			{
 				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
@@ -1810,7 +1815,7 @@ namespace PhWidgets
 				template<class ArgT, class ResourceT>
 				struct Image : def_orig::Image<PrevT, ArgT, ResourceT> {};
 
-				template<class ArgT, class ResourceT>
+				template<class ArgT, class ResourceT = void>
 				struct Pointer : def_orig::Pointer<PrevT, ArgT, ResourceT> {};
 
 				template<class ArgT, class ResourceT>

@@ -277,9 +277,35 @@ namespace PhWidgets
 			//! Contains resource IDs for Widget arguments of type void*.
 			struct ArgPVoid
 			{
-				//! Resource IDs for Widget arguments of type void*.
+				//! Resource IDs for Widget arguments of type void* that are stored in widget.
 
 				/*!
+					@note 
+					This resource is data that is internally stored in widget as a copy.
+
+					### Aliases ###
+					
+					PhWidgets::Widget::Arguments::eArgPVoidData,
+					PhWidgets::Widget::ArgPVoid::eArgPVoidData
+
+					See Widget::resource for usage description.
+				*/
+				enum eArgPVoidData
+				{
+					layout_data = Pt_ARG_LAYOUT_DATA, //!< This resource provides a convenient method to get or set either of the Pt_ARG_*_LAYOUT_DATA resources.
+													  //!< Documentation in progress...
+					data = Pt_ARG_DATA, //!< This resource is used internally by PhAB applications as well as by compound widgets.
+					user_data = Pt_ARG_USER_DATA //!< Data that you want to store in the widget's internal memory.
+				};
+
+				//! Resource IDs for Widget arguments of type void* that are stored externally.
+
+				/*!
+					@note 
+					This resource is data that is externally stored in widget as just a pointer. 
+					The widget doesn't make a copy of the memory referenced by the pointer; 
+					don't free the memory while the widget is still referencing it.
+
 					### Aliases ###
 					
 					PhWidgets::Widget::Arguments::eArgPVoid,
@@ -289,11 +315,7 @@ namespace PhWidgets
 				*/
 				enum eArgPVoid
 				{
-					pointer = Pt_ARG_POINTER, //!< A pointer to any data that you want to associate with the widget.
-					layout_data = Pt_ARG_LAYOUT_DATA, //!< This resource provides a convenient method to get or set either of the Pt_ARG_*_LAYOUT_DATA resources.
-													  //!< Documentation in progress...
-					data = Pt_ARG_DATA, //!< This resource is used internally by PhAB applications as well as by compound widgets.
-					user_data = Pt_ARG_USER_DATA //!< Data that you want to store in the widget's internal memory.
+					pointer = Pt_ARG_POINTER //!< A pointer to any data that you want to associate with the widget.
 				};
 			};
 
@@ -871,7 +893,8 @@ namespace PhWidgets
 
 		typedef ResourceFrom<>::
 			Define::String<ArgPChar::eArgPChar>::
-			Define::Alloc<ArgPVoid::eArgPVoid>::
+			Define::Alloc<ArgPVoid::eArgPVoidData>::
+			Define::Pointer<ArgPVoid::eArgPVoid>::
 			Define::Color<ArgColor::eArgColor>::
 			Define::Struct<ArgPCursorDef::eArgPCursorDef, PhCursorDef_t>::
 			Define::Struct<ArgPGridLayoutData::eArgPGridLayoutData, PtGridLayoutData_t>::

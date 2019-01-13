@@ -53,8 +53,8 @@ namespace PhWidgets
 		struct ArgPVoid
 		{
 			static const Widget::ArgPVoid::eArgPVoid pointer;
-			static const Widget::ArgPVoid::eArgPVoid data;
-			static const Widget::ArgPVoid::eArgPVoid user_data;
+			static const Widget::ArgPVoid::eArgPVoidData data;
+			static const Widget::ArgPVoid::eArgPVoidData user_data;
 		};
 
 		Widget::ArgLong;//Pt_ARG_FLAGS

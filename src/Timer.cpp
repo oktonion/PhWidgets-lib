@@ -4,8 +4,8 @@
 
 using namespace PhWidgets;
 
-const Widget::ArgPVoid::eArgPVoid Timer::ArgPVoid::data = Widget::ArgPVoid::data;
-const Widget::ArgPVoid::eArgPVoid Timer::ArgPVoid::user_data = Widget::ArgPVoid::user_data;
+const Widget::ArgPVoid::eArgPVoidData Timer::ArgPVoid::data = Widget::ArgPVoid::data;
+const Widget::ArgPVoid::eArgPVoidData Timer::ArgPVoid::user_data = Widget::ArgPVoid::user_data;
 const Widget::ArgPVoid::eArgPVoid Timer::ArgPVoid::pointer = Widget::ArgPVoid::pointer;
 
 void Timer::check()
