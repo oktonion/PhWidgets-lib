@@ -1364,7 +1364,9 @@ namespace PhWidgets
 			@code
 				// You have somewhere:
 				PtWidget_t *ptwidget; // pointer to widget
+			@endcode
 
+			@code
 				// constructing Widget
 				PhWidgets::Widget widget(ptwidget);
 				
@@ -1375,18 +1377,56 @@ namespace PhWidgets
 
 			@note
 			Widget::Tag could accept any pointer and copies data from it in widget Widget::Arguments::user_data resource.
-			If you want to pass raw void* then use WidgetTag(ptr, size) as value.
+			If you want to pass raw `void*` then use `WidgetTag(ptr, size)` as value.
 
 			@code
-				// You have somewhere:
-				PtWidget_t *ptwidget; // pointer to widget
-
 				// constructing Widget
 				PhWidgets::Widget widget(ptwidget);
 				
 				void *ptr = new char[100];
 
 				widget.Tag = PhWidgets::WidgetTag(ptr, 100);
+			@endcode
+
+			@attention
+			Do not provide just pointer for the Widget::Tag property to `set` if it points to dynamic array! Use `WidgetTag(ptr, size)` wrap instead. See example below:
+
+			@code
+				// constructing Widget
+				PhWidgets::Widget widget(ptwidget);
+				
+				int *ptr = new int[42];
+				float fvalue;
+
+				// right:
+				widget.Tag = PhWidgets::WidgetTag(ptr, 100); // copy 100 ints to Widget::Arguments::user_data
+				widget.Tag = &fvalue; // copy 1 float to Widget::Arguments::user_data
+
+				// wrong (if you do not mean it):
+				widget.Tag = ptr; // copy just 1 int to Widget::Arguments::user_data (not what you meant probably, yeah?)
+			@endcode
+
+			@attention
+			This property returns just raw `const void*` so be really carefull with all casts. 
+			Make shure that you know the exact type hiding beneath the pointer or 
+			the behaviour is undefined.
+			However the property will cover you in some cases with `nullptr` as a result 
+			in case you will try to do some really unapropriate cast but do not rely on it much. 
+
+			@code
+				// constructing Widget
+				PhWidgets::Widget widget(ptwidget);
+				
+				void *dptr = new double[42];
+
+				widget.Tag = PhWidgets::WidgetTag(dptr, 100); // set
+
+				// right:
+				const double *dptr_get = widget.Tag; // get
+				const void *vptr_get = widget.Tag; // get
+
+				// undefined behaviour:
+				// float *fptr_get = widget.Tag; // UB get! Do not do this!
 			@endcode
 
 
