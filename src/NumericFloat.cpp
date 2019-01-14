@@ -60,32 +60,32 @@ NumericFloat &NumericFloat::operator=(const NumericFloat &rhs)
 
 double NumericFloat::getValue() const
 {
-	return *(resource.argument[Arguments::numeric_value].get());
+	return resource.argument[Arguments::numeric_value].get();
 }
 
 void NumericFloat::setValue(double val)
 {
-	resource.argument[Arguments::numeric_value].set(&val);
+	resource.argument[Arguments::numeric_value].set(val);
 }
 
 double NumericFloat::getMaxValue() const
 {
-	return *(resource.argument[Arguments::numeric_max].get());
+	return resource.argument[Arguments::numeric_max].get();
 }
 
 void NumericFloat::setMaxValue(double val)
 {
-	resource.argument[Arguments::numeric_max].set(&val);
+	resource.argument[Arguments::numeric_max].set(val);
 }
 
 double NumericFloat::getMinValue() const
 {
-	return *(resource.argument[Arguments::numeric_min].get());
+	return resource.argument[Arguments::numeric_min].get();
 }
 
 void NumericFloat::setMinValue(double val)
 {
-	resource.argument[Arguments::numeric_min].set(&val);
+	resource.argument[Arguments::numeric_min].set(val);
 }
 
 

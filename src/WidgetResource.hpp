@@ -374,7 +374,7 @@ namespace PhWidgets
 			inline
 			typename stdex::enable_if<
 				stdex::is_pointer<T>::value == false, 
-				const T&
+				typename stdex::remove_cv<T>::type const &
 			>::type getScalar() const
 			{
 				return *getPointer<const T*>();
@@ -586,7 +586,7 @@ namespace PhWidgets
 		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::color_type, ResourceT> :
 			private WidgetResourceBase<ArgT>
 		{
-			typedef WidgetResourceGroupType::WidgetArgumentGroupType::color_type resource_group_type;
+			typedef WidgetResourceGroupType::color_type resource_group_type;
 			typedef
 			typename stdex::conditional< 
 				stdex::is_void<ResourceT>::value,
@@ -601,16 +601,17 @@ namespace PhWidgets
 			~WidgetArgument()
 			{}
 
-			inline int set(resource_type color)
+			inline 
+			int set(resource_type color)
 			{
-				return this->setColor(color);
+				return setColor(color);
 			}
 
-			inline resource_type get() const
+			inline 
+			resource_type get() const
 			{
-				return this->getScalar<PgColor_t>();
+				return WidgetResourceBase<ArgT>::template getScalar<PgColor_t>();
 			}
-
 		};
 
 		template<class ArgT, class ResourceT>
@@ -647,7 +648,7 @@ namespace PhWidgets
 			template<class A1, typename A2>
 			inline int set(A1 flag, A2 mask)
 			{
-				return this->setFlag(flag, static_cast<class flag_detail::mask_type<A2>::type>(mask));
+				return this->setFlag(flag, static_cast<typename flag_detail::mask_type<A2>::type>(mask));
 			}
 			
 			template<class A1>
@@ -661,7 +662,7 @@ namespace PhWidgets
 
 			inline resource_type get() const
 			{
-				return this->getScalar<resource_type>();
+				return WidgetResourceBase<ArgT>::template getScalar<resource_type>();
 			}
 
 			template<class A1>
@@ -731,7 +732,7 @@ namespace PhWidgets
 			inline
 			resource_type get() const
 			{
-				return this->getPointer<resource_type>();
+				return WidgetResourceBase<ArgT>::template getPointer<resource_type>();
 			}
 		};
 
@@ -765,7 +766,7 @@ namespace PhWidgets
 			inline
 			resource_type get() const
 			{
-				return this->getScalar<resource_type>();
+				return WidgetResourceBase<ArgT>::template getScalar<resource_type>();
 			}
 		};
 
@@ -846,7 +847,7 @@ namespace PhWidgets
 			inline 
 			const resource_type& get() const
 			{
-				return *getStruct<resource_type>();
+				return *WidgetResourceBase<ArgT>::template getStruct<resource_type>();
 			}
 		};
 

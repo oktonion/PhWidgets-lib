@@ -4,7 +4,7 @@
 #include <vector>
 
 #include <Ap.h>
-#include <PtWindow.h>
+#include <photon/PtWindow.h>
 
 #include "Widget.h"
 
@@ -129,8 +129,8 @@ Widget::Widget(int abn):
 	CanSelect(this),
 	ContainsFocus(this),
 	Cursor(this),
-	Enabled(this),
 	Focused(this),
+	Enabled(this),
 	HelpTopic(this),
 	Left(this),
 	Top(this),
@@ -172,8 +172,8 @@ Widget::Widget(PtWidget_t* wdg):
 	CanSelect(this),
 	ContainsFocus(this),
 	Cursor(this),
-	Enabled(this),
 	Focused(this),
+	Enabled(this),
 	HelpTopic(this),
 	Left(this),
 	Top(this),
@@ -252,8 +252,8 @@ Widget::Widget(const Widget &rhs):
 	CanSelect(this),
 	ContainsFocus(this),
 	Cursor(this),
-	Enabled(this),
 	Focused(this),
+	Enabled(this),
 	HelpTopic(this),
 	Left(this),
 	Top(this),
