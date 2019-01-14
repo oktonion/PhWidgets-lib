@@ -27,6 +27,7 @@
 	typedef struct Ph_rect   PhRect_t;
 #endif
 
+//! The main namespace for all widgets
 namespace PhWidgets
 {
 	using namespace cppproperties;
