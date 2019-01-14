@@ -29,7 +29,7 @@ namespace PhWidgets
         template<class T>
         operator const T*() const
         {
-            if(sizeof(T) == _size)
+            if(0 == _size || sizeof(T) == _size)
                 return _tag;
             return nullptr;
         }
