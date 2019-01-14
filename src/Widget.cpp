@@ -133,6 +133,7 @@ Widget::Widget(int abn):
 	Enabled(this),
 	HelpTopic(this),
 	Left(this),
+	Tag(this),
 	Top(this),
 	Location(this),
 	Width(this),
@@ -176,6 +177,7 @@ Widget::Widget(PtWidget_t* wdg):
 	Enabled(this),
 	HelpTopic(this),
 	Left(this),
+	Tag(this),
 	Top(this),
 	Location(this),
 	Width(this),
@@ -256,6 +258,7 @@ Widget::Widget(const Widget &rhs):
 	Enabled(this),
 	HelpTopic(this),
 	Left(this),
+	Tag(this),
 	Top(this),
 	Location(this),
 	Width(this),
@@ -537,6 +540,17 @@ short PhWidgets::Widget::getLeft() const
 {
 	return getLocation().x;
 }
+
+void Widget::setTag(WidgetTag tag)
+{
+	resource.argument[Widget::Arguments::user_data].set(tag._tag, tag._size);
+}
+
+WidgetTag Widget::getTag() const
+{
+	return resource.argument[Widget::Arguments::user_data].get();
+}
+
 
 void PhWidgets::Widget::setTop(short y)
 {

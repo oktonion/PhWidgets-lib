@@ -19,6 +19,7 @@
 
 #include "./WidgetResource.hpp"
 #include "./Cursor.h"
+#include "./WidgetTag.h"
 
 //typedef Ph_rect PhRect_t;
 
@@ -963,6 +964,9 @@ namespace PhWidgets
 		void setLeft(short);
 		short getLeft() const;
 
+		void setTag(WidgetTag);
+		WidgetTag getTag() const;
+
 		void setTop(short);
 		short getTop() const;
 						
@@ -1345,6 +1349,60 @@ namespace PhWidgets
 		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled; //!< Gets or sets a value indicating whether the widget can respond to user interaction.
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.
 		property<short>::bind<Widget, &Widget::getLeft, &Widget::setLeft>								Left; //!< Gets or sets the distance, in pixels, between the left edge of the widget and the left edge of its parent widget.
+		
+		//! Gets or sets the resource that contains data about the widget.
+		/*!
+			### Property Value ### 
+			
+			> PhWidgets::WidgetTag
+
+			An WidgetTag that contains data about the widget. The default is `nullptr`.
+
+			### Examples ###
+
+			@code
+				// You have somewhere:
+				PtWidget_t *ptwidget; // pointer to widget
+
+				// constructing Widget
+				PhWidgets::Widget widget(ptwidget);
+				
+				PtColor_t color = 0;
+
+				widget.Tag = &color;
+			@endcode
+
+			@note
+			Widget::Tag could accept any pointer and copies data from it in widget Widget::Arguments::user_data resource.
+			If you want to pass raw void* then use WidgetTag(ptr, size) as value.
+
+			@code
+				// You have somewhere:
+				PtWidget_t *ptwidget; // pointer to widget
+
+				// constructing Widget
+				PhWidgets::Widget widget(ptwidget);
+				
+				void *ptr = new char[100];
+
+				widget.Tag = PhWidgets::WidgetTag(ptr, 100);
+			@endcode
+
+
+			@remark
+			Any pointer can be assigned to this property. 
+			A common use for the Tag property is to store data that is closely associated with the widget. 
+			@par
+			For example, if you have a widget that displays different colors, 
+			you might store a pointer to struct that contains the set of defined colors in that widget's Tag property 
+			so the colors can be accessed quickly.
+
+			@see
+			- WidgetTag
+			- Widget::Arguments::user_data
+		*/
+		property<WidgetTag>::bind<Widget, &Widget::getTag, &Widget::setTag> Tag;
+
 		property<short>::bind<Widget, &Widget::getTop, &Widget::setTop>									Top; //!< Gets or sets the distance, in pixels, between the top edge of the widget and the top edge of its parent widget.
 		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation>					Location; //!< Gets or sets the coordinates of the upper-left corner of the widget relative to the upper-left corner of its parent widget.
 
