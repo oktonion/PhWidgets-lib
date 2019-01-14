@@ -1,13 +1,22 @@
 var searchData=
 [
-  ['phwidgets_5fevent',['phwidgets_event',['../class_ph_widgets_1_1_widget_1_1phwidgets__event.html',1,'PhWidgets::Widget']]],
-  ['phwidgets_5fevent_3c_20phwidgets_3a_3awidget_2c_20widget_3a_3acallbacks_3a_3ablocked_20_3e',['phwidgets_event&lt; PhWidgets::Widget, Widget::Callbacks::blocked &gt;',['../class_ph_widgets_1_1_widget_1_1phwidgets__event.html',1,'PhWidgets::Widget']]],
-  ['phwidgets_5fevent_3c_20phwidgets_3a_3awidget_2c_20widget_3a_3acallbacks_3a_3adestroyed_20_3e',['phwidgets_event&lt; PhWidgets::Widget, Widget::Callbacks::destroyed &gt;',['../class_ph_widgets_1_1_widget_1_1phwidgets__event.html',1,'PhWidgets::Widget']]],
-  ['phwidgets_5fevent_3c_20phwidgets_3a_3awidget_2c_20widget_3a_3acallbacks_3a_3adnd_20_3e',['phwidgets_event&lt; PhWidgets::Widget, Widget::Callbacks::dnd &gt;',['../class_ph_widgets_1_1_widget_1_1phwidgets__event.html',1,'PhWidgets::Widget']]],
-  ['phwidgets_5fevent_3c_20phwidgets_3a_3awidget_2c_20widget_3a_3acallbacks_3a_3ais_5fdestroyed_20_3e',['phwidgets_event&lt; PhWidgets::Widget, Widget::Callbacks::is_destroyed &gt;',['../class_ph_widgets_1_1_widget_1_1phwidgets__event.html',1,'PhWidgets::Widget']]],
-  ['phwidgets_5fevent_3c_20phwidgets_3a_3awidget_2c_20widget_3a_3acallbacks_3a_3aoutbound_20_3e',['phwidgets_event&lt; PhWidgets::Widget, Widget::Callbacks::outbound &gt;',['../class_ph_widgets_1_1_widget_1_1phwidgets__event.html',1,'PhWidgets::Widget']]],
-  ['phwidgets_5fevent_3c_20phwidgets_3a_3awidget_2c_20widget_3a_3acallbacks_3a_3arealized_20_3e',['phwidgets_event&lt; PhWidgets::Widget, Widget::Callbacks::realized &gt;',['../class_ph_widgets_1_1_widget_1_1phwidgets__event.html',1,'PhWidgets::Widget']]],
-  ['phwidgets_5fevent_3c_20phwidgets_3a_3awidget_2c_20widget_3a_3acallbacks_3a_3aunrealized_20_3e',['phwidgets_event&lt; PhWidgets::Widget, Widget::Callbacks::unrealized &gt;',['../class_ph_widgets_1_1_widget_1_1phwidgets__event.html',1,'PhWidgets::Widget']]],
-  ['pointer',['Pointer',['../struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_pointer.html',1,'PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Pointer&lt; ArgT, ResourceT &gt;'],['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_pointer.html',1,'PhWidgets::detail::def_orig::Pointer&lt; PrevT, LinkT, ResourceT &gt;']]],
-  ['pointer_3c_20prevt_2c_20argt_2c_20resourcet_20_3e',['Pointer&lt; PrevT, ArgT, ResourceT &gt;',['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_pointer.html',1,'PhWidgets::detail::def_orig']]]
+  ['nano',['nano',['http://en.cppreference.com/w/namespacestd.html#cpp/numeric/ratio/ratio',1,'std']]],
+  ['nanoseconds',['nanoseconds',['http://en.cppreference.com/w/cpp/chrono/duration.html',1,'std::chrono']]],
+  ['negate',['negate',['http://en.cppreference.com/w/cpp/utility/functional/negate.html',1,'std']]],
+  ['negative_5fbinomial_5fdistribution',['negative_binomial_distribution',['http://en.cppreference.com/w/cpp/numeric/random/negative_binomial_distribution.html',1,'std']]],
+  ['nested_5fexception',['nested_exception',['http://en.cppreference.com/w/cpp/error/nested_exception.html',1,'std']]],
+  ['new_5fhandler',['new_handler',['http://en.cppreference.com/w/namespacestd.html#cpp/memory/new/new_handler',1,'std']]],
+  ['normal_5fdistribution',['normal_distribution',['http://en.cppreference.com/w/cpp/numeric/random/normal_distribution.html',1,'std']]],
+  ['not_5fequal_5fto',['not_equal_to',['http://en.cppreference.com/w/cpp/utility/functional/not_equal_to.html',1,'std']]],
+  ['nothrow_5ft',['nothrow_t',['http://en.cppreference.com/w/namespacestd.html#cpp/memory/new/nothrow_t',1,'std']]],
+  ['notimplemented',['NotImplemented',['../class_ph_widgets_1_1detail_1_1_not_implemented.html',1,'PhWidgets::detail']]],
+  ['nullptr_5ft',['nullptr_t',['http://en.cppreference.com/w/namespacestd.html#cpp/types/nullptr_t',1,'std']]],
+  ['num_5fget',['num_get',['http://en.cppreference.com/w/cpp/locale/num_get.html',1,'std']]],
+  ['num_5fput',['num_put',['http://en.cppreference.com/w/cpp/locale/num_put.html',1,'std']]],
+  ['numeric',['Numeric',['../class_ph_widgets_1_1_numeric.html',1,'PhWidgets']]],
+  ['numeric_5flimits',['numeric_limits',['http://en.cppreference.com/w/cpp/types/numeric_limits.html',1,'std']]],
+  ['numericfloat',['NumericFloat',['../class_ph_widgets_1_1_numeric_float.html',1,'PhWidgets']]],
+  ['numericinteger',['NumericInteger',['../class_ph_widgets_1_1_numeric_integer.html',1,'PhWidgets']]],
+  ['numpunct',['numpunct',['http://en.cppreference.com/w/cpp/locale/numpunct.html',1,'std']]],
+  ['numpunct_5fbyname',['numpunct_byname',['http://en.cppreference.com/w/cpp/locale/numpunct_byname.html',1,'std']]]
 ];

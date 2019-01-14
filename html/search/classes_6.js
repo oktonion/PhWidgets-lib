@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['hotkeycallback',['HotkeyCallback',['../struct_ph_widgets_1_1_widget_1_1_hotkey_callback.html',1,'PhWidgets::Widget::HotkeyCallback'],['../struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_hot_key_callback.html',1,'PhWidgets::detail::def_help::Define&lt; PrevT &gt;::HotKeyCallback&lt; LinkT, ResourceT &gt;'],['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_hotkey_callback.html',1,'PhWidgets::Widget::ThisCallbacks::HotkeyCallback'],['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_hot_key_callback.html',1,'PhWidgets::detail::def_orig::HotKeyCallback&lt; PrevT, LinkT, ResourceT &gt;']]],
-  ['hotkeys',['Hotkeys',['../struct_ph_widgets_1_1_hotkeys.html',1,'PhWidgets']]]
+  ['gamma_5fdistribution',['gamma_distribution',['http://en.cppreference.com/w/cpp/numeric/random/gamma_distribution.html',1,'std']]],
+  ['geometric_5fdistribution',['geometric_distribution',['http://en.cppreference.com/w/cpp/numeric/random/geometric_distribution.html',1,'std']]],
+  ['giga',['giga',['http://en.cppreference.com/w/namespacestd.html#cpp/numeric/ratio/ratio',1,'std']]],
+  ['greater',['greater',['http://en.cppreference.com/w/cpp/utility/functional/greater.html',1,'std']]],
+  ['greater_5fequal',['greater_equal',['http://en.cppreference.com/w/cpp/utility/functional/greater_equal.html',1,'std']]]
 ];

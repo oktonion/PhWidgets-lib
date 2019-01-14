@@ -1,12 +1,16 @@
 var searchData=
 [
-  ['rawcallback',['RawCallback',['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_raw_callback.html',1,'PhWidgets::detail::def_orig::RawCallback&lt; PrevT, LinkT, ResourceT &gt;'],['../struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_raw_callback.html',1,'PhWidgets::detail::def_help::Define&lt; PrevT &gt;::RawCallback&lt; LinkT, ResourceT &gt;'],['../struct_ph_widgets_1_1_widget_1_1_raw_callback.html',1,'PhWidgets::Widget::RawCallback'],['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_raw_callback.html',1,'PhWidgets::Widget::ThisCallbacks::RawCallback']]],
-  ['resize',['Resize',['../struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_resize.html',1,'PhWidgets::Widget::ThisFlags']]],
-  ['resourcefrom',['ResourceFrom',['../struct_ph_widgets_1_1_resource_from.html',1,'PhWidgets']]],
-  ['resourcefrom_3c_20basic_3a_3awidgetresourcessingleton_20_3e',['ResourceFrom&lt; Basic::WidgetResourcesSingleton &gt;',['../struct_ph_widgets_1_1_resource_from.html',1,'PhWidgets']]],
-  ['resourcefrom_3c_20button_3a_3awidgetresourcessingleton_20_3e',['ResourceFrom&lt; Button::WidgetResourcesSingleton &gt;',['../struct_ph_widgets_1_1_resource_from.html',1,'PhWidgets']]],
-  ['resourcefrom_3c_20compound_3a_3awidgetresourcessingleton_20_3e',['ResourceFrom&lt; Compound::WidgetResourcesSingleton &gt;',['../struct_ph_widgets_1_1_resource_from.html',1,'PhWidgets']]],
-  ['resourcefrom_3c_20label_3a_3awidgetresourcessingleton_20_3e',['ResourceFrom&lt; Label::WidgetResourcesSingleton &gt;',['../struct_ph_widgets_1_1_resource_from.html',1,'PhWidgets']]],
-  ['resourcefrom_3c_20numeric_3a_3awidgetresourcessingleton_20_3e',['ResourceFrom&lt; Numeric::WidgetResourcesSingleton &gt;',['../struct_ph_widgets_1_1_resource_from.html',1,'PhWidgets']]],
-  ['resourcefrom_3c_20widget_3a_3awidgetresourcessingleton_20_3e',['ResourceFrom&lt; Widget::WidgetResourcesSingleton &gt;',['../struct_ph_widgets_1_1_resource_from.html',1,'PhWidgets']]]
+  ['ofstream',['ofstream',['http://en.cppreference.com/w/cpp/io/basic_ofstream.html',1,'std']]],
+  ['once_5fflag',['once_flag',['http://en.cppreference.com/w/cpp/thread/once_flag.html',1,'std']]],
+  ['onoffbutton',['OnOffButton',['../class_ph_widgets_1_1_on_off_button.html',1,'PhWidgets']]],
+  ['optional',['optional',['http://en.cppreference.com/w/cpp/experimental/optional.html',1,'std::experimental']]],
+  ['ostream',['ostream',['http://en.cppreference.com/w/cpp/io/basic_ostream.html',1,'std']]],
+  ['ostream_5fiterator',['ostream_iterator',['http://en.cppreference.com/w/namespacestd.html#cpp/iterator/ostream_iterator',1,'std']]],
+  ['ostreambuf_5fiterator',['ostreambuf_iterator',['http://en.cppreference.com/w/namespacestd.html#cpp/iterator/ostreambuf_iterator',1,'std']]],
+  ['ostringstream',['ostringstream',['http://en.cppreference.com/w/cpp/io/basic_ostringstream.html',1,'std']]],
+  ['ostrstream',['ostrstream',['http://en.cppreference.com/w/cpp/io/ostrstream.html',1,'std']]],
+  ['out_5fof_5frange',['out_of_range',['http://en.cppreference.com/w/cpp/error/out_of_range.html',1,'std']]],
+  ['output_5fiterator_5ftag',['output_iterator_tag',['http://en.cppreference.com/w/namespacestd.html#cpp/iterator/iterator_tags',1,'std']]],
+  ['overflow_5ferror',['overflow_error',['http://en.cppreference.com/w/cpp/error/overflow_error.html',1,'std']]],
+  ['owner_5fless',['owner_less',['http://en.cppreference.com/w/cpp/memory/owner_less.html',1,'std']]]
 ];
