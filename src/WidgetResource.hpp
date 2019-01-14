@@ -8,6 +8,8 @@
 #include "./WidgetEvents.h"
 #include "./WidgetKeys.h"
 
+#include <cstddef> // std::size_t
+
 namespace PhWidgets
 {
 	struct WidgetResourceGroupType
@@ -124,7 +126,7 @@ namespace PhWidgets
 			// The fourth argument is the size of the block of memory, in bytes.
 			// The widget copies the number of bytes given into its internal memory when you call PtSetResources().
 			inline 
-			int setAlloc(const void **pdata, size_t size)//pointer to data and size of data
+			int setAlloc(const void *pdata, std::size_t size)//pointer to data and size of data
 			{
 				return PtSetResource(_rwidget->widget(), _arg, pdata, size);
 			}
@@ -135,7 +137,7 @@ namespace PhWidgets
 			// The fourth argument is 0.
 			// The widget copies the image structure (but not any memory pointed to by the PhImage_t members) into its internal memory when you call PtSetResources(). 
 			inline 
-			int setImage(const void **pimage)
+			int setImage(const void *pimage)
 			{
 				return setAlloc(pimage, 0);
 			}
@@ -143,7 +145,7 @@ namespace PhWidgets
 			// When setting an array value, the third argument to PtSetArg() is the address of the array. 
 			// The fourth argument is the number of elements in the array.
 			// The widget copies the contents of the array into its own internal data structure when you call PtSetResources().
-			template<class T, size_t count>
+			template<class T, std::size_t count>
 			inline 
 			int setArray(T(&arr)[count])
 			{
@@ -151,7 +153,7 @@ namespace PhWidgets
 			}
 
 			inline 
-			int setArray(const void *parr, size_t count)
+			int setArray(const void *parr, std::size_t count)
 			{
 				return PtSetResource(_rwidget->widget(), _arg, parr, count);
 			}
@@ -202,7 +204,7 @@ namespace PhWidgets
 				return PtSetResource(_rwidget->widget(), _arg, val ? 1 : 0, 0);
 			}
 
-			template<size_t count>
+			template<std::size_t count>
 			inline 
 			void addLink(PtCallback_t const (&callbacks)[count])
 			{
@@ -223,14 +225,14 @@ namespace PhWidgets
 				PtAddCallback(_rwidget->widget(), _arg, callback, data);
 			}
 
-			template<size_t count>
+			template<std::size_t count>
 			inline
 			void addLinkBefore(PtRawCallback_t const (&callbacks)[count])
 			{
 				PtAddFilterCallbacks(_rwidget->widget(), callbacks, count);
 			}
 
-			template<size_t count>
+			template<std::size_t count>
 			inline 
 			void addLinkAfter(PtRawCallback_t const (&callbacks)[count])
 			{
@@ -275,7 +277,7 @@ namespace PhWidgets
 				PtAddHotkeyHandler(_rwidget->widget(), _arg, keymode, chained ? Pt_HOTKEY_CHAINED : 0, data, callback);
 			}
 
-			template<size_t count>
+			template<std::size_t count>
 			inline 
 			void removeLink(PtCallback_t const (&callbacks)[count])
 			{
@@ -296,14 +298,14 @@ namespace PhWidgets
 				PtRemoveCallback(_rwidget->widget(), _arg, callback, data);
 			}
 
-			template<size_t count>
+			template<std::size_t count>
 			inline 
 			void removeLinkBefore(PtRawCallback_t const (&callbacks)[count])
 			{
 				PtRemoveFilterHandlers(_rwidget->widget(), callbacks, count);
 			}
 
-			template<size_t count>
+			template<std::size_t count>
 			inline 
 			void removeLinkAfter(PtRawCallback_t const (&callbacks)[count])
 			{
@@ -411,17 +413,19 @@ namespace PhWidgets
 				return getPointer<const T*>();
 			}
 
-
+			// The value argument to PtSetArg() is the address of a pointer of the appropriate type 
+			// (the type is determined by the data given to the widget when this resource is set). 
+			// The len isn't used.
+			// When PtGetResources() is called, the pointer specified is set to point to the widget's internal data. 
 			template<class T>
-			inline T* getAlloc() const
+			inline
+			typename stdex::enable_if<
+				stdex::is_pointer<T>::value == true, 
+				typename stdex::remove_cv<T>::type const
+			>::type getAlloc() const
 			{
-				T *p = nullptr;
-				PtArg_t arg;
-
-				PtSetArg(&arg, _arg, &p, 0);
-				PtGetResources(_rwidget->widget(), 1, &arg);
-
-				return p;
+				typedef typename stdex::remove_cv<T>::type type;
+				return getPointer<const type>();
 			}
 
 			inline PtCallbackList_t *getLink() const
@@ -473,12 +477,27 @@ namespace PhWidgets
 		template<class ArgT, class ResourceGroupT, class ResourceT>
 		struct WidgetArgument;
 
-		template<class ArgT>//const void * always
-		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::alloc_type, const void *> :
+		template<class ArgT, class ResourceT> // pointer always
+		struct WidgetArgument<
+			ArgT, 
+			typename stdex::enable_if<
+				(
+					stdex::is_pointer<ResourceT>::value ||
+					stdex::is_void<ResourceT>::value 
+				),
+				WidgetResourceGroupType::alloc_type
+			>::type,
+			ResourceT
+		> :
 			private WidgetResourceBase<ArgT>
 		{
 			typedef WidgetResourceGroupType::WidgetArgumentGroupType::alloc_type resource_group_type;
-			typedef const void * resource_type;
+			typedef 
+			typename stdex::conditional< 
+				stdex::is_void<ResourceT>::value,
+				const void *,
+				typename stdex::remove_cv<ResourceT>::type const // const pointer
+			>::type resource_type;
 
 			WidgetArgument(IPtWidget *widget, ArgT arg) :
 				WidgetResourceBase<ArgT>(widget, arg)
@@ -488,53 +507,26 @@ namespace PhWidgets
 			{}
 
 
-			inline int set(const void *pdata, size_t size)
+			inline 
+			int set(resource_type pdata, std::size_t size)
 			{
 				return this->setAlloc(&pdata, size);
 			}
 
-			inline int set(const void *pdata)
+			inline 
+			typename stdex::enable_if<
+				stdex::is_same<resource_type, const void*>::value,
+				int
+			>::type set(resource_type pdata)
 			{
-				return this->setPointer(pdata);
+				typedef typename stdex::remove_pointer<resource_type>::type type;
+				return this->setAlloc(pdata, sizeof(type));
 			}
 
-			inline const void* get() const
+			inline 
+			resource_type get() const
 			{
-				//return this->getAlloc<const void>();
-				return nullptr;
-			}
-
-		};
-
-		template<class ArgT>//const void * always
-		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::alloc_type, void> :
-			private WidgetResourceBase<ArgT>
-		{
-			typedef WidgetResourceGroupType::WidgetArgumentGroupType::alloc_type resource_group_type;
-			typedef const void * resource_type;
-
-			WidgetArgument(IPtWidget *widget, ArgT arg) :
-				WidgetResourceBase<ArgT>(widget, arg)
-			{}
-
-			~WidgetArgument()
-			{}
-
-
-			inline int set(const void *pdata, size_t size)
-			{
-				return this->setAlloc(&pdata, size);
-			}
-
-			inline int set(const void *pdata)
-			{
-				return this->setPointer(pdata);
-			}
-
-			inline const void* get() const
-			{
-				//return this->getAlloc<const void>();
-				return nullptr;
+				return WidgetResourceBase<ArgT>::template getAlloc<resource_type>();
 			}
 
 		};
