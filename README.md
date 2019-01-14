@@ -8,7 +8,7 @@ All classes of the library provide simple and convenient access to 'resources' o
 
 Also library implements easy raw access to 'resources' of Photon Widget and the Widget itself, its callbacks, etc as well. The classes of the library itself are lightweight proxies for standart C-functions of Photon Library (like PtSetResource, PtGetResource, ...). Use of the hierarchy of classes constructs userfriendly interface with less ways for "shooting yourself in the foot".
 
-### Implemented ###
+### Implemented widgets ###
 
 * [Widget](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_widget.html)
 * [Basic](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_basic.html)
@@ -22,12 +22,14 @@ Also library implements easy raw access to 'resources' of Photon Widget and the 
     * [NumericInteger](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_numeric_integer.html)
 
   * [Label](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_label.html)
-  
+
     * [Button](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_button.html)
       * [OnOffButton](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_on_off_button.html)
 
       * [ToggleButton](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_toggle_button.html)
 
+
+### Quick start ###
 
 Now if you have a pointer to standart Photon widget (PtWidget_t*) or it's ABN_ id then with this library widgets are now simple and convenient, just do:
 ```
