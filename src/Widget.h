@@ -1385,7 +1385,7 @@ namespace PhWidgets
 				
 				void *ptr = new char[100];
 
-				widget.Tag = PhWidgets::WidgetTag(ptr, 100);
+				widget.Tag = PhWidgets::WidgetTag(ptr, 100 * sizeof(char));
 			@endcode
 
 			@attention
@@ -1401,7 +1401,7 @@ namespace PhWidgets
 				double arr[20];
 
 				// right use to copy to Widget::Arguments::user_data:
-				widget.Tag = PhWidgets::WidgetTag(ptr, 100); // copy 100 ints
+				widget.Tag = PhWidgets::WidgetTag(ptr, 42 * sizeof(int)); // copy 42 ints
 				widget.Tag = &fvalue; // copy 1 float
 				widget.Tag = fvalue; // copy 1 float
 				// exotic but valid use of storing just pointer in widget not the data it points to
