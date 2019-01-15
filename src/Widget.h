@@ -1389,7 +1389,8 @@ namespace PhWidgets
 			@endcode
 
 			@attention
-			Do not provide just pointer for the Widget::Tag property to `set` if it points to dynamic array! Use `WidgetTag(ptr, size)` wrap instead. See example below:
+			Do not provide just pointer for the Widget::Tag property to `set` if it points to dynamic array! 
+			Use `WidgetTag(ptr, size)` wrap instead. See example below:
 
 			@code
 				// constructing Widget
@@ -1397,21 +1398,28 @@ namespace PhWidgets
 				
 				int *ptr = new int[42];
 				float fvalue;
+				double arr[20];
 
-				// right:
-				widget.Tag = PhWidgets::WidgetTag(ptr, 100); // copy 100 ints to Widget::Arguments::user_data
-				widget.Tag = &fvalue; // copy 1 float to Widget::Arguments::user_data
+				// right use to copy to Widget::Arguments::user_data:
+				widget.Tag = PhWidgets::WidgetTag(ptr, 100); // copy 100 ints
+				widget.Tag = &fvalue; // copy 1 float
+				widget.Tag = fvalue; // copy 1 float
+				// exotic but valid use of storing just pointer in widget not the data it points to
+				widget.Tag = &ptr; // copy 1 int* 
+				widget.Tag = arr; // copy 20 double
 
 				// wrong (if you do not mean it):
 				widget.Tag = ptr; // copy just 1 int to Widget::Arguments::user_data (not what you meant probably, yeah?)
 			@endcode
 
 			@attention
-			This property returns just raw `const void*` so be really carefull with all casts. 
+			This property returns just raw `const void*` that is casted to user-provided type
+			so be really carefull with all casts!
 			Make shure that you know the exact type hiding beneath the pointer or 
 			the behaviour is undefined.
+			@par
 			However the property will cover you in some cases with `nullptr` as a result 
-			in case you will try to do some really unapropriate cast but do not rely on it much. 
+			if you will try to do some really unapropriate cast do not rely on it much. 
 
 			@code
 				// constructing Widget
@@ -1419,11 +1427,11 @@ namespace PhWidgets
 				
 				void *dptr = new double[42];
 
-				widget.Tag = PhWidgets::WidgetTag(dptr, 100); // set
+				widget.Tag = PhWidgets::WidgetTag(dptr, 42 * sizeof(double)); // set to 42 doubles
 
 				// right:
 				const double *dptr_get = widget.Tag; // get
-				const void *vptr_get = widget.Tag; // get
+				const void *vptr_get = widget.Tag; // get - always safe!
 
 				// undefined behaviour:
 				// float *fptr_get = widget.Tag; // UB get! Do not do this!

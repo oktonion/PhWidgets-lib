@@ -15,6 +15,12 @@ namespace PhWidgets
             _size(tag == nullptr ? 0 : sizeof(T))
         { }
 
+        template<class T>
+        WidgetTag(const T &tag):
+            _tag(&tag),
+            _size(sizeof(T))
+        { }
+
         template<class T, std::size_t count>
         WidgetTag(const T(&arr)[count]):
             _tag(arr),
