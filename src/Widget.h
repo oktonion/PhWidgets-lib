@@ -16,10 +16,11 @@
 #include "./service/phproperty.hpp"
 #include "./service/phevent.hpp"
 #include "./service/phbitmask.hpp"
+#include "./service/tag_property.hpp"
 
 #include "./WidgetResource.hpp"
 #include "./Cursor.h"
-#include "./WidgetTag.h"
+
 
 //typedef Ph_rect PhRect_t;
 
@@ -716,7 +717,8 @@ namespace PhWidgets
 					Otherwise callbacks aren't invoked when your application sets resources. 
 					@note
 					If a callback refers to this flag, its description says so explicitly.
-					For example, if this bit is set for a Divider and you use Divider::Undefined to change the size of one of its children, the Divider::DeviderDraged event is invoked. 
+					For example, if this bit is set for a Divider and you use Divider::Undefined to change the size of one of its children, 
+					the Divider::DeviderDraged event is invoked. 
 				*/
 				CallbacksActive = Pt_CALLBACKS_ACTIVE,
 
@@ -965,8 +967,8 @@ namespace PhWidgets
 		void setLeft(short);
 		short getLeft() const;
 
-		void setTag(WidgetTag);
-		WidgetTag getTag() const;
+		void setTag(const void*, std::size_t);
+		const void * getTag() const;
 
 		void setTop(short);
 		short getTop() const;
@@ -1355,9 +1357,9 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			> PhWidgets::WidgetTag
+			> const void *
 
-			An WidgetTag that contains data about the widget. The default is `nullptr`.
+			An `const void *` that contains data about the widget. The default is `nullptr`.
 
 			### Examples ###
 
@@ -1366,18 +1368,20 @@ namespace PhWidgets
 				PtWidget_t *ptwidget; // pointer to widget
 			@endcode
 
+
+
 			@code
 				// constructing Widget
 				PhWidgets::Widget widget(ptwidget);
 				
 				PtColor_t color = 0;
 
-				widget.Tag = &color;
+				widget.Tag = color;
 			@endcode
 
 			@note
 			Widget::Tag could accept any pointer and copies data from it in widget Widget::Arguments::user_data resource.
-			If you want to pass raw `void*` then use `WidgetTag(ptr, size)` as value.
+			If you want to pass raw pointer then use `widget.Tag(ptr, size)` method.
 
 			@code
 				// constructing Widget
@@ -1385,12 +1389,15 @@ namespace PhWidgets
 				
 				void *ptr = new char[100];
 
-				widget.Tag = PhWidgets::WidgetTag(ptr, 100 * sizeof(char));
+				// set resource:
+				widget.Tag(ptr, 100 * sizeof(char));
+				// or like this:
+				widget.Tag.set(ptr, 100 * sizeof(char));
 			@endcode
 
 			@attention
 			Do not provide just pointer for the Widget::Tag property to `set` if it points to dynamic array! 
-			Use `WidgetTag(ptr, size)` wrap instead. See example below:
+			Use `widget.Tag(ptr, size)` method instead. See example below:
 
 			@code
 				// constructing Widget
@@ -1401,15 +1408,17 @@ namespace PhWidgets
 				double arr[20];
 
 				// right use to copy to Widget::Arguments::user_data:
-				widget.Tag = PhWidgets::WidgetTag(ptr, 42 * sizeof(int)); // copy 42 ints
-				widget.Tag = &fvalue; // copy 1 float
+				widget.Tag(ptr, 42 * sizeof(int)); // copy 42 ints
 				widget.Tag = fvalue; // copy 1 float
-				// exotic but valid use of storing just pointer in widget not the data it points to
-				widget.Tag = &ptr; // copy 1 int* 
 				widget.Tag = arr; // copy 20 double
 
-				// wrong (if you do not mean it):
-				widget.Tag = ptr; // copy just 1 int to Widget::Arguments::user_data (not what you meant probably, yeah?)
+				// exotic but valid use of storing just pointer in widget not the data it points to
+				// copy 1 int* - only pointer! 
+				widget.Tag = ptr; 
+				// Note that property will return const int**.
+				const int **ptr_get = widget.Tag;
+				// where (*ptr_get) is the ptr passed
+				ptr == (*ptr_get); // true
 			@endcode
 
 			@attention
@@ -1427,14 +1436,15 @@ namespace PhWidgets
 				
 				void *dptr = new double[42];
 
-				widget.Tag = PhWidgets::WidgetTag(dptr, 42 * sizeof(double)); // set to 42 doubles
+				widget.Tag(dptr, 42 * sizeof(double)); // set to 42 doubles
 
 				// right:
 				const double *dptr_get = widget.Tag; // get
 				const void *vptr_get = widget.Tag; // get - always safe!
 
 				// undefined behaviour:
-				// float *fptr_get = widget.Tag; // UB get! Do not do this!
+				// const float *fptr_get = widget.Tag; // Wrong type! Do not do this!
+				// const MyCustomClass *obj_ptr_get = Widget.Tag; // UB get! Do not do this!
 			@endcode
 
 
@@ -1447,10 +1457,9 @@ namespace PhWidgets
 			so the colors can be accessed quickly.
 
 			@see
-			- WidgetTag
 			- Widget::Arguments::user_data
 		*/
-		property<WidgetTag>::bind<Widget, &Widget::getTag, &Widget::setTag> Tag;
+		tag_property<Widget, &Widget::getTag, &Widget::setTag> Tag;
 
 		property<short>::bind<Widget, &Widget::getTop, &Widget::setTop>									Top; //!< Gets or sets the distance, in pixels, between the top edge of the widget and the top edge of its parent widget.
 		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation>					Location; //!< Gets or sets the coordinates of the upper-left corner of the widget relative to the upper-left corner of its parent widget.

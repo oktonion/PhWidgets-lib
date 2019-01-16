@@ -541,12 +541,12 @@ short PhWidgets::Widget::getLeft() const
 	return getLocation().x;
 }
 
-void Widget::setTag(WidgetTag tag)
+void Widget::setTag(const void *tag, std::size_t size)
 {
-	resource.argument[Widget::Arguments::user_data].set(tag._tag, tag._size);
+	resource.argument[Widget::Arguments::user_data].set(tag, size);
 }
 
-WidgetTag Widget::getTag() const
+const void * Widget::getTag() const
 {
 	return resource.argument[Widget::Arguments::user_data].get();
 }
