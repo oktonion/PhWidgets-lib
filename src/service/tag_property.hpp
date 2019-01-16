@@ -1,6 +1,7 @@
 #ifndef TAG_PROPERTY_H
 #define TAG_PROPERTY_H
 
+#include "./stdex/stdex.h"
 #include <cstddef>
 
 namespace PhWidgets
@@ -12,6 +13,9 @@ namespace PhWidgets
     >
     class tag_property
     {
+        template<unsigned N, bool = true> struct priority_tag : priority_tag < N - 1 > {};
+        template<bool dummy> struct priority_tag<0, dummy> {};
+
         typedef const void* value_t;
 
     public:
@@ -39,10 +43,8 @@ namespace PhWidgets
         inline
         void set(const T &value)
         {
-            //const T *tmp = new T(value);
-            (_obj->*Setter)(&value, sizeof(T));
-            //delete tmp;
-        }
+            set_value(value, priority_tag<2>());
+        }       
 
         inline
         value_t get() const
@@ -87,6 +89,49 @@ namespace PhWidgets
         ParentT *_obj;
         
         tag_property(const tag_property &);
+        
+        template<
+            class OtherParentT, 
+            class OtherValueT, 
+            OtherValueT (OtherParentT::*OtherGetter)() const, 
+            template <
+                class, 
+                class, 
+                OtherValueT (OtherParentT::*)() const
+            > class T
+        >
+        inline
+        void set_value(const T<OtherParentT, OtherValueT, OtherGetter> &value, priority_tag<2>)
+        {
+            const OtherValueT tmp = value.get();
+            (_obj->*Setter)(&tmp, sizeof(OtherValueT));
+        }
+
+        template<
+            class OtherParentT, 
+            class OtherValueT, 
+            OtherValueT (OtherParentT::*OtherGetter)() const, 
+            void (OtherParentT::*OtherSetter)(OtherValueT),
+            template <
+                class, 
+                class, 
+                OtherValueT (OtherParentT::*)() const,
+                void (OtherParentT::*)(OtherValueT)
+            > class T
+        >
+        inline
+        void set_value(const T<OtherParentT, OtherValueT, OtherGetter, OtherSetter> &value, priority_tag<1>)
+        {
+            const OtherValueT tmp = value.get();
+            (_obj->*Setter)(&tmp, sizeof(OtherValueT));
+        }
+
+        template<class T>
+        inline
+        void set_value(T value, priority_tag<0>)
+        {
+            (_obj->*Setter)(&value, sizeof(T));
+        }
     };
 }
 
