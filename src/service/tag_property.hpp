@@ -236,7 +236,11 @@ namespace PhWidgets
         }
 
         // 'remember' types passed:
-        
+        #if !defined(NDEBUG) || defined(_DEBUG) || defined(DEBUG)
+        #define PH_WIDGETS_DEBUG_BUILD
+        #endif
+
+        #ifdef PH_WIDGETS_DEBUG_BUILD
         template<class>
         static void type_id_func() {}
 
@@ -247,6 +251,7 @@ namespace PhWidgets
             static map_type ptr_map_;
             return ptr_map_;
         }
+        #endif
 
         template<class T>
         inline
@@ -258,6 +263,7 @@ namespace PhWidgets
             value_t value = (_obj->*Getter)();
             type result = reinterpret_cast<type>(value);
 
+            #ifdef PH_WIDGETS_DEBUG_BUILD
             {
                 static map_type &ptr_map = tag_pointers();
                 
@@ -279,6 +285,7 @@ namespace PhWidgets
                     }
                 }
             }
+            #endif
 
             return result;
         }
@@ -293,6 +300,7 @@ namespace PhWidgets
 
             (_obj->*Setter)(value, size);
 
+            #ifdef PH_WIDGETS_DEBUG_BUILD
             {
                 value = get_ptr(value);
 
@@ -317,6 +325,7 @@ namespace PhWidgets
                     }
                 }
             }
+            #endif
         }
     };
 
@@ -357,6 +366,10 @@ namespace PhWidgets
     inline
     bool operator!=(const T &lhs, const tag_property<ObjectT, Getter, Setter> &rhs) { const T *tmp = rhs; return (&lhs != tmp); }    
 }
+
+#ifdef PH_WIDGETS_DEBUG_BUILD
+#undef PH_WIDGETS_DEBUG_BUILD
+#endif
 
 
 #endif // TAG_PROPERTY_H
