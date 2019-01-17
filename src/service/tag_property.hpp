@@ -6,10 +6,34 @@
 
 namespace PhWidgets
 {
+    namespace
+    {
+        namespace type_traits
+        {
+            typedef char yes_type;
+            struct no_type {char dummy[8];};
+
+            template<class ObjectT, int> 
+            struct sfinae {};
+
+            template<class ObjectT>
+            yes_type has_getter_tester(sfinae<ObjectT, sizeof(&ObjectT::get)>*);
+            template<class ObjectT>
+            no_type has_getter_tester(...);
+
+            template<class T>
+            struct has_getter
+            {
+                typedef typename std::remove_cv<T>::type type;
+                static const bool value = sizeof(has_getter_tester<type>(0)) == sizeof(yes_type);
+            };
+        }
+    }
+
     template<
-        class ParentT, 
-        const void*(ParentT::*Getter)()const, 
-        void(ParentT::*Setter)(const void*, std::size_t)
+        class ObjectT, 
+        const void*(ObjectT::*Getter)()const, 
+        void(ObjectT::*Setter)(const void*, std::size_t)
     >
     class tag_property
     {
@@ -19,8 +43,8 @@ namespace PhWidgets
         typedef const void* value_t;
 
     public:
-        tag_property(ParentT *parent) :
-            _obj(parent)
+        tag_property(ObjectT *obj) :
+            _obj(obj)
         { }
 
         inline 
@@ -41,7 +65,7 @@ namespace PhWidgets
 
         template<class T>
         inline
-        void set(const T &value)
+        void set(T &value)
         {
             set_value(value, priority_tag<2>());
         }       
@@ -86,46 +110,64 @@ namespace PhWidgets
         void operator()(const T &value) { set(value); }
 
     private:
-        ParentT *_obj;
+        ObjectT *_obj;
         
         tag_property(const tag_property &);
         
         template<
-            class OtherParentT, 
+            class OtherObjectT, 
             class OtherValueT, 
-            OtherValueT (OtherParentT::*OtherGetter)() const, 
+            OtherValueT (OtherObjectT::*OtherGetter)() const, 
             template <
                 class, 
                 class, 
-                OtherValueT (OtherParentT::*)() const
+                OtherValueT (OtherObjectT::*)() const
             > class T
-        >
+        > // ro cpp property
         inline
-        void set_value(const T<OtherParentT, OtherValueT, OtherGetter> &value, priority_tag<2>)
+        void set_value(const T<OtherObjectT, OtherValueT, OtherGetter> &value, priority_tag<3>)
         {
-            const OtherValueT tmp = value.get();
+            const OtherValueT tmp = value;
             (_obj->*Setter)(&tmp, sizeof(OtherValueT));
         }
 
         template<
-            class OtherParentT, 
+            class OtherObjectT, 
             class OtherValueT, 
-            OtherValueT (OtherParentT::*OtherGetter)() const, 
-            void (OtherParentT::*OtherSetter)(OtherValueT),
+            OtherValueT (OtherObjectT::*OtherGetter)() const, 
+            void (OtherObjectT::*OtherSetter)(OtherValueT),
             template <
                 class, 
                 class, 
-                OtherValueT (OtherParentT::*)() const,
-                void (OtherParentT::*)(OtherValueT)
+                OtherValueT (OtherObjectT::*)() const,
+                void (OtherObjectT::*)(OtherValueT)
             > class T
-        >
+        > // rw cpp property
         inline
-        void set_value(const T<OtherParentT, OtherValueT, OtherGetter, OtherSetter> &value, priority_tag<1>)
+        void set_value(const T<OtherObjectT, OtherValueT, OtherGetter, OtherSetter> &value, priority_tag<2>)
         {
-            const OtherValueT tmp = value.get();
+            const OtherValueT tmp = value;
             (_obj->*Setter)(&tmp, sizeof(OtherValueT));
         }
 
+        template<class T>
+        inline
+        void set_value_from_get(T value)
+        {
+            set(&value, sizeof(T));
+        }
+
+        template<class T>
+        inline
+        typename std::enable_if<
+            type_traits::has_getter<T>::value,
+            void
+        >::type set_value(T &value, priority_tag<1>)
+        {
+            set_value_from_get(value.get());
+        }
+
+        
         template<class T>
         inline
         void set_value(T value, priority_tag<0>)
