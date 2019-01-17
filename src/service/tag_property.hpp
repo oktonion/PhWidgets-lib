@@ -51,16 +51,16 @@ namespace PhWidgets
         void set(value_t value, std::size_t size)
         {
             if(value)
-                (_obj->*Setter)(value, size);
+                set_ptr(value, size);
             else
-                (_obj->*Setter)(value, 0);
+                set_ptr(value, 0);
         }
 
         template<class T, std::size_t count>
         inline
         void set(const T(&value)[count])
         {
-            (_obj->*Setter)(value, count * sizeof(T));
+            set_ptr(value, count * sizeof(T));
         }
 
         template<class T>
@@ -128,7 +128,7 @@ namespace PhWidgets
         void set_value(const T<OtherObjectT, OtherValueT, OtherGetter> &value, priority_tag<3>)
         {
             const OtherValueT tmp = value;
-            (_obj->*Setter)(&tmp, sizeof(OtherValueT));
+            set_ptr(&tmp, sizeof(OtherValueT));
         }
 
         template<
@@ -147,14 +147,14 @@ namespace PhWidgets
         void set_value(const T<OtherObjectT, OtherValueT, OtherGetter, OtherSetter> &value, priority_tag<2>)
         {
             const OtherValueT tmp = value;
-            (_obj->*Setter)(&tmp, sizeof(OtherValueT));
+            set_ptr(&tmp, sizeof(OtherValueT));
         }
 
         template<class T>
         inline
         void set_value_from_get(T value)
         {
-            set(&value, sizeof(T));
+            set_ptr(&value, sizeof(T));
         }
 
         template<class T>
@@ -172,7 +172,14 @@ namespace PhWidgets
         inline
         void set_value(T value, priority_tag<0>)
         {
-            (_obj->*Setter)(&value, sizeof(T));
+            set_ptr(&value, sizeof(T));
+        }
+
+        template<class T>
+        inline
+        void set_ptr(const T *value, std::size_t size)
+        {
+            (_obj->*Setter)(value, size);
         }
     };
 }
