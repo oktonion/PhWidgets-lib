@@ -1396,7 +1396,7 @@ namespace PhWidgets
 			@endcode
 
 			@attention
-			Do not provide just pointer for the Widget::Tag property to `set` if it points to dynamic array! 
+			Do not provide just pointer for the Widget::Tag property to `set` if your intentions are to copy dynamic array! 
 			Use `widget.Tag(ptr, size)` method instead. See example below:
 
 			@code
