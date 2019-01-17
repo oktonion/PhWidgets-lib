@@ -1,8 +1,9 @@
 #ifndef TAG_PROPERTY_H
 #define TAG_PROPERTY_H
 
-#include "./stdex/stdex.h"
 #include <cstddef>
+#include <map>
+#include <set>
 
 namespace PhWidgets
 {
@@ -10,6 +11,29 @@ namespace PhWidgets
     {
         namespace type_traits
         {
+            template<bool>
+            struct void_enable_if { typedef void type; };
+
+            template<>
+            struct void_enable_if<false> { };
+
+            template<class T>
+            struct remove_cv { typedef T type; };
+
+            template<class T>
+            struct remove_cv<const T> { typedef typename remove_cv<T>::type type; };
+
+            template<class T>
+            struct remove_cv<volatile T> { typedef typename remove_cv<T>::type type; };
+
+            template<class, class>
+            struct is_same
+            { static const bool value = false; };
+
+            template<class T>
+            struct is_same<T, T>
+            { static const bool value = true; };
+
             typedef char yes_type;
             struct no_type {char dummy[8];};
 
@@ -24,7 +48,7 @@ namespace PhWidgets
             template<class T>
             struct has_getter
             {
-                typedef typename std::remove_cv<T>::type type;
+                typedef typename remove_cv<T>::type type;
                 static const bool value = sizeof(has_getter_tester<type>(0)) == sizeof(yes_type);
             };
         }
@@ -70,18 +94,23 @@ namespace PhWidgets
             set_value(value, priority_tag<2>());
         }       
 
-        inline
+        inline 
         value_t get() const
         {
-            return (_obj->*Getter)();
+            return get_ptr( value_t() );
         }
 
-        inline 
-        operator value_t() const { return get(); }
-        
         template<class T>
         inline 
-        operator const T*() const { return reinterpret_cast<const T*>( get() ); }
+        const T* get() const
+        {
+            typedef const T* type;
+            return get_ptr( type() );
+        }
+
+        template<class T>
+        inline 
+        operator const T*() const { return get<T>(); }
         
         template<class T, std::size_t count>
         inline 
@@ -94,10 +123,6 @@ namespace PhWidgets
         inline 
         value_t operator()(void) const { return get(); }
 
-        template<class T>
-        inline 
-        value_t operator()(void) const { return reinterpret_cast<const T*>( get() ); }
-
         inline 
         void operator()(value_t value, std::size_t size) { set(value, size); }
 
@@ -108,6 +133,30 @@ namespace PhWidgets
         template<class T>
         inline
         void operator()(const T &value) { set(value); }
+
+        template<
+            class OtherObjectT, 
+            const void*(OtherObjectT::*OtherGetter)()const, 
+            void(OtherObjectT::*OtherSetter)(const void*, std::size_t)
+        >
+        inline
+        bool operator==(const tag_property<OtherObjectT, OtherGetter, OtherSetter> &other) 
+        { 
+            value_t tmp = other.get(); 
+            return (get() == tmp); 
+        }
+
+        template<
+            class OtherObjectT, 
+            const void*(OtherObjectT::*OtherGetter)()const, 
+            void(OtherObjectT::*OtherSetter)(const void*, std::size_t)
+        >
+        inline
+        bool operator!=(const tag_property<OtherObjectT, OtherGetter, OtherSetter> &other) 
+        { 
+            value_t tmp = other.get(); 
+            return (get() != tmp); 
+        }
 
     private:
         ObjectT *_obj;
@@ -128,7 +177,7 @@ namespace PhWidgets
         void set_value(const T<OtherObjectT, OtherValueT, OtherGetter> &value, priority_tag<3>)
         {
             const OtherValueT tmp = value;
-            set_ptr(&tmp, sizeof(OtherValueT));
+            set_ptr(&tmp, sizeof(OtherValueT), priority_tag<3>());
         }
 
         template<
@@ -147,41 +196,166 @@ namespace PhWidgets
         void set_value(const T<OtherObjectT, OtherValueT, OtherGetter, OtherSetter> &value, priority_tag<2>)
         {
             const OtherValueT tmp = value;
-            set_ptr(&tmp, sizeof(OtherValueT));
+            set_ptr(&tmp, sizeof(OtherValueT), priority_tag<3>());
         }
 
         template<class T>
         inline
         void set_value_from_get(T value)
         {
-            set_ptr(&value, sizeof(T));
+            set_ptr(&value, sizeof(T), priority_tag<3>());
         }
 
         template<class T>
         inline
-        typename std::enable_if<
-            type_traits::has_getter<T>::value,
-            void
+        typename type_traits::void_enable_if<
+            type_traits::has_getter<T>::value
         >::type set_value(T &value, priority_tag<1>)
         {
             set_value_from_get(value.get());
         }
 
-        
         template<class T>
         inline
         void set_value(T value, priority_tag<0>)
         {
-            set_ptr(&value, sizeof(T));
+            set_ptr(&value, sizeof(T), priority_tag<3>());
+        }
+
+
+        inline
+        void set_ptr(value_t value, std::size_t size, priority_tag<0>)
+        {
+            (_obj->*Setter)(value, size);
+        }
+
+        inline
+        value_t get_ptr(value_t) const
+        {
+            return (_obj->*Getter)();
+        }
+
+        // 'remember' types passed:
+        
+        template<class>
+        static void type_id_func() {}
+
+        typedef std::map<value_t, std::set<void (*)()> > map_type;
+
+        static map_type &tag_pointers()
+        {
+            static map_type ptr_map_;
+            return ptr_map_;
         }
 
         template<class T>
         inline
-        void set_ptr(const T *value, std::size_t size)
+        typename type_traits::remove_cv<T>
+        ::type const get_ptr(T) const
         {
+            typedef typename type_traits::remove_cv<T>::type const type;
+
+            value_t value = (_obj->*Getter)();
+            type result = reinterpret_cast<type>(value);
+
+            {
+                static map_type &ptr_map = tag_pointers();
+                
+                map_type::iterator it = ptr_map.find(value);
+                if(ptr_map.end() != it)
+                {
+                    if(!value)
+                        ptr_map.erase(it);
+                    else
+                    {
+                        if( it->second.find(&type_id_func<type>) == it->second.end() )
+                        {
+                            #ifdef NULL
+                                return NULL;
+                            #else
+                                return 0;
+                            #endif
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        template<class T>
+        inline 
+        typename type_traits::void_enable_if<
+            false == type_traits::is_same<const T*, const void*>::value
+        >::type set_ptr(const T *value, std::size_t size, priority_tag<1>)
+        {
+            typedef typename type_traits::remove_cv<T>::type const type;
+
             (_obj->*Setter)(value, size);
+
+            {
+                value = get_ptr(value);
+
+                static map_type &ptr_map = tag_pointers();
+
+                map_type::iterator it = ptr_map.find(value);
+
+                if(ptr_map.end() != it)
+                {
+                    if(!value)
+                        ptr_map.erase(it);
+                    else
+                        it->second.insert(&type_id_func<type>);
+                }
+                else
+                {
+                    if(value)
+                    {
+                        map_type::mapped_type second;
+                        second.insert(&type_id_func<type>);
+                        ptr_map.insert(std::make_pair(value, second));
+                    }
+                }
+            }
         }
     };
+
+    template<
+        class ObjectT, 
+        const void*(ObjectT::*Getter)()const, 
+        void(ObjectT::*Setter)(const void*, std::size_t),
+        class T
+    >
+    inline
+    bool operator==(const tag_property<ObjectT, Getter, Setter> &lhs, const T &rhs) { const T *tmp = lhs; return (&rhs == tmp); }
+
+    template<
+        class ObjectT, 
+        const void*(ObjectT::*Getter)()const, 
+        void(ObjectT::*Setter)(const void*, std::size_t),
+        class T
+    >
+    inline
+    bool operator==(const T &lhs, const tag_property<ObjectT, Getter, Setter> &rhs) { const T *tmp = rhs; return (&lhs == tmp); }
+    
+
+    template<
+        class ObjectT, 
+        const void*(ObjectT::*Getter)()const, 
+        void(ObjectT::*Setter)(const void*, std::size_t),
+        class T
+    >
+    inline
+    bool operator!=(const tag_property<ObjectT, Getter, Setter> &lhs, const T &rhs) { const T *tmp = lhs; return (&rhs != tmp); }
+
+    template<
+        class ObjectT, 
+        const void*(ObjectT::*Getter)()const, 
+        void(ObjectT::*Setter)(const void*, std::size_t),
+        class T
+    >
+    inline
+    bool operator!=(const T &lhs, const tag_property<ObjectT, Getter, Setter> &rhs) { const T *tmp = rhs; return (&lhs != tmp); }    
 }
 
 
