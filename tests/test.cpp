@@ -27,8 +27,7 @@ namespace PhWidgets
 
 
 TEST_CASE("Testing Widget"){
-    if(-1 == PtInit(NULL))
-        return;
+    REQUIRE_MESSAGE(-1 != PtInit(NULL), "Photon App failed to init.");
     
     PtWidget_t *ptwidget_ptr = PtCreateWidget(PtWindow, Pt_NO_PARENT, 0, NULL);
     PhWidgets::Widget *widget_ptr = nullptr;
@@ -44,7 +43,6 @@ TEST_CASE("Testing Widget"){
     PhWidgets::Widget &widget = *widget_ptr;
 
     SUBCASE("Widget properties") {
-
         CHECK(widget.Height == 0);
     }
 }

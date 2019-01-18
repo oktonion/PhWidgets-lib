@@ -12,7 +12,7 @@ for file in ./tests/*.cpp; do
   filename=$(basename -- "$file")
   filename="${filename%.*}"
   echo "compiling test c++03 $filename"
-  if ! $COMPILER -pedantic $exclude_warn $file -I./slib/PhWidgets/include/ -L./slib/PhWidgets/ -lm -lAp -lph -lfont -lphwidgets -o "./tests/bin/$filename"; then
+  if ! $COMPILER -Vgcc_ntox86 -pedantic $exclude_warn $file -I./slib/PhWidgets/include/ -L./slib/PhWidgets/ -lm -lAp -lph -lfont -lm -lang-c++ -lphwidgets -o "./tests/bin/$filename"; then
     build_ok=0
   fi
 done
