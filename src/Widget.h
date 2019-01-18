@@ -750,7 +750,7 @@ namespace PhWidgets
 				Toggle = Pt_TOGGLE, 
 	
 				WidgetRebuild = Pt_WIDGET_REBUILD, //!< (read-only) The widget will be rebuilt(rerealized) when the widget engine is finished applying resource changes.
-				WidgetResize = Pt_WIDGET_RESIZE, //!< (read-only) The widget will be resized when the widget engine is finished applying resource changes. 
+				WidgetResize = Pt_WIDGET_RESIZE //!< (read-only) The widget will be resized when the widget engine is finished applying resource changes. 
 			};
 
 		};
