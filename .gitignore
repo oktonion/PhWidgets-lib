@@ -94,3 +94,6 @@ src/.vscode/launch.json
 *.a1
 *.cppcheck
 PhWidgets-cppcheck-build-dir/*
+
+# tests binaries
+/tests/bin/*
