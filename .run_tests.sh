@@ -9,7 +9,7 @@ for file in ./tests/bin/*; do
   if [ $run_result -eq 0 ]; then
     echo "...ok."
   else
-    run_ok=-1
+    run_ok=1
     echo "...failed with $run_result."
   fi 
 done
