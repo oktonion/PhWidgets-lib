@@ -27,7 +27,8 @@ namespace PhWidgets
 
 
 TEST_CASE("Testing Widget"){
-    REQUIRE_MESSAGE(-1 != PtInit(NULL), "Photon App failed to init.");
+    
+    REQUIRE_MESSAGE(0 == PtInit(NULL), "Photon App failed to init.");
     
     PtWidget_t *ptwidget_ptr = PtCreateWidget(PtWindow, Pt_NO_PARENT, 0, NULL);
     PhWidgets::Widget *widget_ptr = nullptr;
