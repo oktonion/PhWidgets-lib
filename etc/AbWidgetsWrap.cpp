@@ -22,7 +22,7 @@
 
 #include "./PhWidgets/include/service/PhWidgetsFunc.h"
 #include "./PhWidgets/include/service/PhWidgetsTypes.h"
-#include "./PhWidgets/include/service/stdex/h/code_extensions.h"
+#include "./PhWidgets/include/service/stdex/stdex.h"
 
 namespace PhWidgets
 {
