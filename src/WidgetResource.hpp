@@ -64,6 +64,7 @@ namespace PhWidgets
 		class IPtWidget
 		{
 		public:
+			virtual ~IPtWidget() {}
 			virtual PtWidget_t *widget() const = 0;
 		};
 
