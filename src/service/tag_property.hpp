@@ -63,16 +63,16 @@ namespace PhWidgets
     {
         template<unsigned N, bool = true> struct priority_tag : priority_tag < N - 1 > {};
         template<bool dummy> struct priority_tag<0, dummy> {};
-
-        typedef const void* value_t;
-
+        
     public:
+        typedef const void* value_type;
+
         tag_property(ObjectT *obj) :
             _obj(obj)
         { }
 
         inline 
-        void set(value_t value, std::size_t size)
+        void set(value_type value, std::size_t size)
         {
             if(value)
                 set_ptr(value, size);
@@ -95,9 +95,9 @@ namespace PhWidgets
         }       
 
         inline 
-        value_t get() const
+        value_type get() const
         {
-            return get_ptr( value_t() );
+            return get_ptr( value_type() );
         }
 
         template<class T>
@@ -121,10 +121,10 @@ namespace PhWidgets
         tag_property &operator=(const T &value) { set(value); return *this; }
 
         inline 
-        value_t operator()(void) const { return get(); }
+        value_type operator()(void) const { return get(); }
 
         inline 
-        void operator()(value_t value, std::size_t size) { set(value, size); }
+        void operator()(value_type value, std::size_t size) { set(value, size); }
 
         template<class T, std::size_t count>
         inline
@@ -142,7 +142,7 @@ namespace PhWidgets
         inline
         bool operator==(const tag_property<OtherObjectT, OtherGetter, OtherSetter> &other) 
         { 
-            value_t tmp = other.get(); 
+            value_type tmp = other.get(); 
             return (get() == tmp); 
         }
 
@@ -154,7 +154,7 @@ namespace PhWidgets
         inline
         bool operator!=(const tag_property<OtherObjectT, OtherGetter, OtherSetter> &other) 
         { 
-            value_t tmp = other.get(); 
+            value_type tmp = other.get(); 
             return (get() != tmp); 
         }
 
@@ -224,13 +224,13 @@ namespace PhWidgets
 
 
         inline
-        void set_ptr(value_t value, std::size_t size, priority_tag<0>)
+        void set_ptr(value_type value, std::size_t size, priority_tag<0>)
         {
             (_obj->*Setter)(value, size);
         }
 
         inline
-        value_t get_ptr(value_t) const
+        value_type get_ptr(value_type) const
         {
             return (_obj->*Getter)();
         }
@@ -244,7 +244,7 @@ namespace PhWidgets
         template<class>
         static void type_id_func() {}
 
-        typedef std::map<value_t, std::set<void (*)()> > map_type;
+        typedef std::map<value_type, std::set<void (*)()> > map_type;
 
         static map_type &tag_pointers()
         {
@@ -260,7 +260,7 @@ namespace PhWidgets
         {
             typedef typename type_traits::remove_cv<T>::type const type;
 
-            value_t value = (_obj->*Getter)();
+            value_type value = (_obj->*Getter)();
             type result = reinterpret_cast<type>(value);
 
             #ifdef PH_WIDGETS_DEBUG_BUILD

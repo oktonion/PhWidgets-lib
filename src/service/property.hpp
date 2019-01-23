@@ -80,10 +80,10 @@ namespace cppproperties
 		template<typename ValueT, typename ParentT>
 		struct get_parent_func
 		{
-			typedef ValueT value_t;
+			typedef ValueT value_type;
 			typedef ParentT parent_t;
-			typedef value_t(parent_t::* getter_t)()const;
-			typedef void(parent_t::* setter_t)(value_t);
+			typedef value_type(parent_t::* getter_t)()const;
+			typedef void(parent_t::* setter_t)(value_type);
 
 			static const getter_t &default_getter() { static getter_t getter = getter_t(0); return getter;}
 			static const setter_t &default_setter() { static setter_t setter = setter_t(0); return setter;}
@@ -92,7 +92,7 @@ namespace cppproperties
 		template<>
 		struct get_parent_func<void, void>
 		{
-			typedef void value_t;
+			typedef void value_type;
 			typedef Void parent_t;
 			typedef const int getter_t;
 			typedef const int setter_t;
@@ -148,27 +148,27 @@ namespace cppproperties
 	template<typename ValueT>
 	class property<ValueT, detail::property_flag::ro>//ValueT == const...
 	{
-		typedef typename detail::remove_const<typename detail::remove_reference<ValueT>::type>::type value_t;
-
 	public:
+		typedef typename detail::remove_const<typename detail::remove_reference<ValueT>::type>::type value_type;
+
 		template<class ParentT, typename detail::get_parent_func<ValueT, ParentT>::getter_t Getter>
 		class bind
 		{
-			typedef typename detail::get_parent_func<ValueT, ParentT>::value_t value_t;
-
 		public:
+			typedef typename detail::get_parent_func<ValueT, ParentT>::value_type value_type;
+
 			bind(ParentT *parent) :
 				_obj(parent)
 			{}
 
-			inline value_t get() const
+			inline value_type get() const
 			{
 				return (_obj->*Getter)();
 			}
 
-			inline operator value_t() const { return get(); }
+			inline operator value_type() const { return get(); }
 			
-			inline value_t operator()(void) const { return get(); }
+			inline value_type operator()(void) const { return get(); }
 
 		private:
 			ParentT *_obj;
@@ -179,26 +179,26 @@ namespace cppproperties
 			inline bind &operator=(bind const &);
 		};
 
-		property(value_t const &value) :
+		property(value_type const &value) :
 			_val(value)
 		{}
 
-		inline const value_t &get() const
+		inline const value_type &get() const
 		{
 			return _val;
 		}
 
-		inline operator const value_t&() const { return get(); }
+		inline operator const value_type&() const { return get(); }
 
-		inline const value_t& operator()(void) const { return get(); }
+		inline const value_type& operator()(void) const { return get(); }
 
 	private:
 
-		//inline operator value_t&();
+		//inline operator value_type&();
 
 		const ValueT _val;
 
-		inline property &operator=(value_t const &);
+		inline property &operator=(value_type const &);
 		inline property &operator=(property const &);
 	};
 
@@ -206,37 +206,36 @@ namespace cppproperties
 	template<typename ValueT>
 	class property<ValueT, detail::property_flag::rw>//ValueT != const...
 	{
-		typedef typename detail::remove_reference<ValueT>::type value_t;
-
 	public:
+		typedef typename detail::remove_reference<ValueT>::type value_type;
 
 		template<class ParentT, typename detail::get_parent_func<ValueT, ParentT>::getter_t Getter, typename detail::get_parent_func<ValueT, ParentT>::setter_t Setter>
 		class bind
 		{
-			typedef typename detail::get_parent_func<ValueT, ParentT>::value_t value_t;
-
 		public:
+			typedef typename detail::get_parent_func<ValueT, ParentT>::value_type value_type;
+
 			bind(ParentT *parent) :
 				_obj(parent)
 			{}
 
-			inline void set(value_t value)
+			inline void set(value_type value)
 			{
 				(_obj->*Setter)(value);
 			}
 
-			inline value_t get() const
+			inline value_type get() const
 			{
 				return (_obj->*Getter)();
 			}
 
-			inline operator value_t() const { return get(); }
+			inline operator value_type() const { return get(); }
 
-			inline bind &operator=(value_t value) { set(value); return *this; }
+			inline bind &operator=(value_type value) { set(value); return *this; }
 
-			inline value_t operator()(void) const { return get(); }
+			inline value_type operator()(void) const { return get(); }
 
-			inline void operator()(value_t value) { set(value); return *this; }
+			inline void operator()(value_type value) { set(value); return *this; }
 			
 
 		private:
@@ -252,23 +251,23 @@ namespace cppproperties
 			_val(value)
 		{}
 
-		inline void set(value_t const &value)
+		inline void set(value_type const &value)
 		{
 			_val = value;
 		}
 
-		inline value_t &get() const
+		inline value_type &get() const
 		{
 			return _val;
 		}
 
-		inline property &operator=(value_t const &value) { set(value); return *this; }
+		inline property &operator=(value_type const &value) { set(value); return *this; }
 
-		inline operator value_t&() const { return get(); }
+		inline operator value_type&() const { return get(); }
 		
-		inline value_t operator()(void) const { return get(); }
+		inline value_type operator()(void) const { return get(); }
 
-		inline void operator()(value_t const &value) { set(value); }
+		inline void operator()(value_type const &value) { set(value); }
 
 	private:
 
@@ -279,28 +278,27 @@ namespace cppproperties
 	template<typename ValueT>
 	class property<ValueT, detail::property_flag::wo>//ValueT != const...
 	{
-		typedef typename detail::remove_reference<ValueT>::type value_t;
-
 	public:
+		typedef typename detail::remove_reference<ValueT>::type value_type;
 
 		template<class ParentT, typename detail::get_parent_func<ValueT, ParentT>::setter_t Setter>
 		class bind
 		{
-			typedef typename detail::get_parent_func<ValueT, ParentT>::value_t value_t;
-
 		public:
+			typedef typename detail::get_parent_func<ValueT, ParentT>::value_type value_type;
+
 			bind(ParentT *parent) :
 				_obj(parent)
 			{}
 
-			inline void set(value_t value)
+			inline void set(value_type value)
 			{
 				(_obj->*Setter)(value);
 			}
 			
-			inline bind &operator=(value_t value) { set(value); return *this; }
+			inline bind &operator=(value_type value) { set(value); return *this; }
 
-			inline void operator()(value_t value) { set(value); return *this; }
+			inline void operator()(value_type value) { set(value); return *this; }
 		private:
 			ParentT *_obj;
 			
@@ -314,14 +312,14 @@ namespace cppproperties
 			_val(value)
 		{}
 
-		inline void set(value_t const &value)
+		inline void set(value_type const &value)
 		{
 			_val = value;
 		}
 		
-		inline property &operator=(value_t const &value) { set(value); return *this; }
+		inline property &operator=(value_type const &value) { set(value); return *this; }
 
-		inline void operator()(value_t const &value) { set(value); }
+		inline void operator()(value_type const &value) { set(value); }
 	private:
 
 		ValueT _val;
