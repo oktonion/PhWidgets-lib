@@ -1,10 +1,12 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "./doctest/doctest.h"
 
+#include <Pt.h>
 #include <Widget.h>
 #include <photon/PtWindow.h>
 
 #include <vector>
+#include <iostream>
 
 namespace PhWidgets
 {
@@ -25,25 +27,52 @@ namespace PhWidgets
 	}
 }
 
+static const int pt_init = PtInit(NULL);
+
+template<class PropertyT>
+void property_test_subcase(PropertyT &property, const char *prop_name)
+{
+    SUBCASE(prop_name) {
+        unsigned short 
+            v = property,
+            vv = static_cast<unsigned short>(v * 1.5) + 100;
+        CHECK_MESSAGE(property != v, prop_name);
+        property = vv;
+        CHECK_MESSAGE(v != property, prop_name);
+        CHECK_MESSAGE(vv == property, prop_name);
+    }
+}
+
+#define PROPERTY_TEST_SUBCASE(prop) property_test_subcase(prop, #prop)
 
 TEST_CASE("Testing Widget"){
-    
-    REQUIRE_MESSAGE(0 == PtInit(NULL), "Photon App failed to init.");
+
+    REQUIRE_MESSAGE(0 == pt_init, "Photon App requires connection to Photon server.");
     
     PtWidget_t *ptwidget_ptr = PtCreateWidget(PtWindow, Pt_NO_PARENT, 0, NULL);
-    PhWidgets::Widget *widget_ptr = nullptr;
-
+    
     REQUIRE((ptwidget_ptr != nullptr));
 
     SUBCASE("Creating Widget") {
-        CHECK_NOTHROW_MESSAGE((widget_ptr = new PhWidgets::Widget(ptwidget_ptr)), "Constructor of Widget from PtWidget_t failed");
+        CHECK_NOTHROW_MESSAGE(PhWidgets::Widget w(ptwidget_ptr), "Constructor of Widget from PtWidget_t failed");
     }
 
-    REQUIRE((widget_ptr != nullptr));
+    SUBCASE("Testing Widget properties and arguments") {
+        PhWidgets::Widget widget(ptwidget_ptr);
 
-    PhWidgets::Widget &widget = *widget_ptr;
+        SUBCASE("Testing Widget::AllowDrop property") {
+            CHECK(false == widget.AllowDrop);
+            widget.AllowDrop = true;
+            CHECK(true == widget.AllowDrop);
+            widget.AllowDrop = false;
+            CHECK(widget.AllowDrop == false);
+        }
 
-    SUBCASE("Widget properties") {
-        CHECK(widget.Height == 0);
+        PROPERTY_TEST_SUBCASE(widget.Height);
+        PROPERTY_TEST_SUBCASE(widget.Width);
+        PROPERTY_TEST_SUBCASE(widget.Left);
+        PROPERTY_TEST_SUBCASE(widget.Top);
     }
+
+    PtDestroyWidget(ptwidget_ptr);
 }
