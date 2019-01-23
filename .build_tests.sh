@@ -1,9 +1,11 @@
 mkdir ./tests/bin
 
+echo "\023331;0m"
+echo "\023333;4m"
+
 build_ok=1
 exclude_warn=""
 COMPILER=qcc
-cversion=""
 
 if [[ $COMPILER = *"clang"* ]]; then
   exclude_warn="-Wno-c++11-long-long -Wno-non-literal-null-conversion"
@@ -13,27 +15,13 @@ if [ "$1" == "debug" ]
 	then
 	coption=-g
 	print "	Warning: DEBUG compile configuration!"
-elif [ "$1" == "c++" ]
-	then
-	cversion="-Vgcc_ntox86_gpp -lstdc++"
-	print " Compiling with c++ option"
-fi
-
-if [ "$2" == "debug" ]
-	then
-	coption=-g
-	print "	Warning: DEBUG compile configuration!"
-elif [ "$2" == "c++" ]
-	then
-	cversion="-Vgcc_ntox86_gpp -lstdc++"
-	print " Compiling with c++ option"
 fi
 
 for file in ./tests/*.cpp; do
   filename=$(basename -- "$file")
   filename="${filename%.*}"
   echo "compiling test c++03 $filename"
-  if ! $COMPILER $cversion -pedantic $exclude_warn $file -I./slib/PhWidgets/include/ -L./slib/PhWidgets/ -lm -lAp -lph -lfont -lm -lang-c++ -lphwidgets -o "./tests/bin/$filename"; then
+  if ! $COMPILER -Vgcc_ntox86 -lang-c++ $coption -pedantic $exclude_warn $file -I./slib/PhWidgets/include/ -L./slib/PhWidgets/ -lAp -lph -lm -lphwidgets -o "./tests/bin/$filename"; then
     build_ok=0
   fi
 done

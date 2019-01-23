@@ -13,7 +13,6 @@ print " "
 print "Making $libfullname library"
 
 coption=-O3
-cversion=""
 compiler=qcc
 
 print " "
@@ -24,21 +23,8 @@ if [ "$1" == "debug" ]
 	then
 	coption=-g
 	print "	Warning: DEBUG compile configuration!"
-elif [ "$1" == "c++" ]
-	then
-	cversion="-Vgcc_ntox86_gpp -lstdc++"
-	print " Compiling with c++ option"
 fi
 
-if [ "$2" == "debug" ]
-	then
-	coption=-g
-	print "	Warning: DEBUG compile configuration!"
-elif [ "$2" == "c++" ]
-	then
-	cversion="-Vgcc_ntox86_gpp -lstdc++"
-	print " Compiling with c++ option"
-fi
 
 compilefail=0
 
@@ -51,7 +37,7 @@ for i in $(find ./src/ -name "*.cpp"); do
 	done
 	
 	print "	Compile $fname"; 
-	$compiler -lang-c++ $cversion -Wall $coption -c $i -o $fname; 
+	$compiler -Vgcc_ntox86 -lang-c++ $coption -Wall -c $i -o $fname; 
 	
 	if [ $? -ne 0 ]; then
 		compilefail=2;

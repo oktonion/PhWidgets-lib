@@ -1,3 +1,6 @@
+echo "\023331;0m"
+echo "\023333;4m"
+
 run_ok=0
 for file in ./tests/bin/*; do
   chmod +x "$file"
