@@ -34,7 +34,7 @@ namespace PhWidgets
 			inline value_type get() const
 			{
 				value_type bm;
-				mask_type mask = static_cast<ph_bind_t*>(this)->get();
+				mask_type mask = static_cast<const ph_bind_t*>(this)->get();
 				std::memcpy(&bm, &mask, sizeof(MaskT));
 				return bm;
 			}
