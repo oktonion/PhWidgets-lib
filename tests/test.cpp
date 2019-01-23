@@ -48,6 +48,8 @@ void property_test_subcase(PropertyT &property, const char *prop_name)
 
 TEST_CASE("Testing Widget"){
 
+    using namespace PhWidgets;
+
     REQUIRE_MESSAGE(0 == pt_init, "Photon App requires connection to Photon server.");
     
     PtWidget_t *ptwidget_ptr = PtCreateWidget(PtWindow, Pt_NO_PARENT, 0, NULL);
@@ -55,11 +57,11 @@ TEST_CASE("Testing Widget"){
     REQUIRE((ptwidget_ptr != nullptr));
 
     SUBCASE("Creating Widget") {
-        CHECK_NOTHROW_MESSAGE(PhWidgets::Widget w(ptwidget_ptr), "Constructor of Widget from PtWidget_t failed");
+        CHECK_NOTHROW_MESSAGE(Widget w(ptwidget_ptr), "Constructor of Widget from PtWidget_t failed");
     }
 
     SUBCASE("Testing Widget properties and arguments") {
-        PhWidgets::Widget widget(ptwidget_ptr);
+        Widget widget(ptwidget_ptr);
 
         SUBCASE("Testing Widget::AllowDrop property") {
             CHECK(false == widget.AllowDrop);
@@ -67,6 +69,12 @@ TEST_CASE("Testing Widget"){
             CHECK(true == widget.AllowDrop);
             widget.AllowDrop = false;
             CHECK(widget.AllowDrop == false);
+        }
+
+        SUBCASE("Testing Widget::Anchor property") {
+            CHECK(AnchorStyles::None == widget.Anchor);
+            widget.Anchor = AnchorStyles::Bottom;
+            CHECK(AnchorStyles::Bottom == widget.Anchor);
         }
 
         PROPERTY_TEST_SUBCASE(widget.Height);
