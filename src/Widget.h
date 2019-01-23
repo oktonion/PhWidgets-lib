@@ -931,7 +931,7 @@ namespace PhWidgets
 
 		resource_type WidgetResourcesSingleton;
 	
-		PtWidget_t *widget() const;
+		virtual PtWidget_t *widget() const;
 		virtual void check();
 		
 		//for properties:
