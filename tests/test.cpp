@@ -32,11 +32,12 @@ static const int pt_init = PtInit(NULL);
 template<class PropertyT>
 void property_test_subcase(PropertyT &property, const char *prop_name)
 {
+    typedef typename PropertyT::value_type property_value_type;
     SUBCASE(prop_name) {
-        unsigned short 
+        property_value_type
             v = property,
-            vv = static_cast<unsigned short>(v * 1.5) + 100;
-        CHECK_MESSAGE(property != v, prop_name);
+            vv = static_cast<property_value_type>(v * 1.5) + property_value_type(100);
+        CHECK_MESSAGE(property == v, prop_name);
         property = vv;
         CHECK_MESSAGE(v != property, prop_name);
         CHECK_MESSAGE(vv == property, prop_name);
