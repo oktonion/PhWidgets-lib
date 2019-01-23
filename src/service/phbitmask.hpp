@@ -15,35 +15,36 @@ namespace PhWidgets
 		class bind_internal :
 			private phproperty<MaskT>::template bind<WidgetClassT, ArgumentT, ArgumentID>
 		{
-			typedef cppbitmasks::bitmask<MaskT, FlagT> value_t;
 			typedef phproperty<MaskT> ph_property_t;
 			typedef typename ph_property_t::template bind<WidgetClassT, ArgumentT, ArgumentID> ph_bind_t;
 
 		public:
+			typedef cppbitmasks::bitmask<MaskT, FlagT> value_type;
+
 			bind_internal(WidgetClassT *parent) :
 				ph_bind_t(parent)
 			{}
 
-			inline void set(value_t value)
+			inline void set(value_type value)
 			{
 				static_cast<ph_bind_t*>(this)->set(value);
 			}
 
-			inline value_t get() const
+			inline value_type get() const
 			{
-				value_t bm;
+				value_type bm;
 				MaskT mask = static_cast<ph_bind_t*>(this)->get();
 				std::memcpy(&bm, &mask, sizeof(MaskT));
 				return bm;
 			}
 
-			inline operator value_t() const { return get(); }
+			inline operator value_type() const { return get(); }
 
-			inline bind_internal &operator=(value_t value) { set(value); return *this; }
+			inline bind_internal &operator=(value_type value) { set(value); return *this; }
 
-			inline value_t operator()(void) const { return get(); }
+			inline value_type operator()(void) const { return get(); }
 
-			inline void operator()(value_t value) { set(value); return *this; }
+			inline void operator()(value_type value) { set(value); return *this; }
 		};
 		
 	public:
