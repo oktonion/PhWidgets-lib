@@ -15,7 +15,8 @@ namespace PhWidgets
 		class bind_internal :
 			private phproperty<MaskT>::template bind<WidgetClassT, ArgumentT, ArgumentID>
 		{
-			typedef phproperty<MaskT> ph_property_t;
+			typedef MaskT mask_type;
+			typedef phproperty<mask_type> ph_property_t;
 			typedef typename ph_property_t::template bind<WidgetClassT, ArgumentT, ArgumentID> ph_bind_t;
 
 		public:
@@ -33,12 +34,13 @@ namespace PhWidgets
 			inline value_type get() const
 			{
 				value_type bm;
-				MaskT mask = static_cast<ph_bind_t*>(this)->get();
+				mask_type mask = static_cast<ph_bind_t*>(this)->get();
 				std::memcpy(&bm, &mask, sizeof(MaskT));
 				return bm;
 			}
 
 			inline operator value_type() const { return get(); }
+			inline operator mask_type() const { return static_cast<const ph_bind_t*>(this)->get(); }
 
 			inline bind_internal &operator=(value_type value) { set(value); return *this; }
 
