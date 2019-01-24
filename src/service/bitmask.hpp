@@ -201,32 +201,32 @@ namespace cppbitmasks
 
 }
 
-template<class MaskT, class FlagT>
-inline cppbitmasks::bitmask<MaskT, FlagT>  operator|(const FlagT &flag, const cppbitmasks::bitmask<MaskT, FlagT> &mask)
+template<class MaskT, class FlagT, MaskT Mask>
+inline cppbitmasks::bitmask<MaskT, FlagT, Mask>  operator|(const FlagT &flag, const cppbitmasks::bitmask<MaskT, FlagT, Mask> &mask)
 {
 	return mask | flag;
 }
 
-template<class MaskT, class FlagT>
-inline cppbitmasks::bitmask<MaskT, FlagT>  operator&(const FlagT &flag, const cppbitmasks::bitmask<MaskT, FlagT> &mask)
+template<class MaskT, class FlagT, MaskT Mask>
+inline cppbitmasks::bitmask<MaskT, FlagT, Mask>  operator&(const FlagT &flag, const cppbitmasks::bitmask<MaskT, FlagT, Mask> &mask)
 {
 	return mask & flag;
 }
 
-template<class MaskT, class FlagT>
-inline cppbitmasks::bitmask<MaskT, FlagT>  operator^(const FlagT &flag, const cppbitmasks::bitmask<MaskT, FlagT> &mask)
+template<class MaskT, class FlagT, MaskT Mask>
+inline cppbitmasks::bitmask<MaskT, FlagT, Mask>  operator^(const FlagT &flag, const cppbitmasks::bitmask<MaskT, FlagT, Mask> &mask)
 {
 	return mask ^ flag;
 }
 
-template<class MaskT, class FlagT>
-inline cppbitmasks::bitmask<MaskT, FlagT>  operator==(const FlagT &flag, const cppbitmasks::bitmask<MaskT, FlagT> &mask)
+template<class MaskT, class FlagT, MaskT Mask>
+inline cppbitmasks::bitmask<MaskT, FlagT, Mask>  operator==(const FlagT &flag, const cppbitmasks::bitmask<MaskT, FlagT, Mask> &mask)
 {
 	return mask == flag;
 }
 
-template<class MaskT, class FlagT>
-inline cppbitmasks::bitmask<MaskT, FlagT>  operator!=(const FlagT &flag, const cppbitmasks::bitmask<MaskT, FlagT> &mask)
+template<class MaskT, class FlagT, MaskT Mask>
+inline cppbitmasks::bitmask<MaskT, FlagT, Mask>  operator!=(const FlagT &flag, const cppbitmasks::bitmask<MaskT, FlagT, Mask> &mask)
 {
 	return mask != flag;
 }
