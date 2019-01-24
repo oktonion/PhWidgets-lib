@@ -8,7 +8,7 @@
 
 namespace PhWidgets
 {
-	template<class MaskT, class FlagT>
+	template<class MaskT, class FlagT, MaskT Mask = ~(MaskT())>
 	class phbitmask
 	{
 		template<class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
@@ -20,7 +20,7 @@ namespace PhWidgets
 			typedef typename ph_property_t::template bind<WidgetClassT, ArgumentT, ArgumentID> ph_bind_t;
 
 		public:
-			typedef cppbitmasks::bitmask<MaskT, FlagT> value_type;
+			typedef cppbitmasks::bitmask<MaskT, FlagT, Mask> value_type;
 
 			bind_internal(WidgetClassT *parent) :
 				ph_bind_t(parent)
@@ -40,7 +40,7 @@ namespace PhWidgets
 			}
 
 			inline operator value_type() const { return get(); }
-			inline operator mask_type() const { return static_cast<const ph_bind_t*>(this)->get(); }
+			inline operator mask_type() const { return get(); }
 
 			inline bind_internal &operator=(value_type value) { set(value); return *this; }
 

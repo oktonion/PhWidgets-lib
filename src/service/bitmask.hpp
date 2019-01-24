@@ -3,7 +3,7 @@
 
 namespace cppbitmasks
 {
-	template<class MaskT, class FlagT>
+	template<class MaskT, class FlagT, MaskT Mask = ~(MaskT())>
 	class bitmask
 	{
 		bitmask(MaskT val) :
@@ -22,18 +22,18 @@ namespace cppbitmasks
 		}
 
 		bitmask(const bitmask &other) :
-			_val(other._val)
+			_val(other.value())
 		{
 		}
 
-		inline bool test(const FlagT &flag) const
+		inline bool has(const FlagT &flag) const
 		{
-			return 0 != (_val & flag);
+			return 0 != (value() & flag);
 		}
 
-		inline bool test(const bitmask &mask) const
+		inline bool has(const bitmask &mask) const
 		{
-			return 0 != (_val & mask);
+			return 0 != (value() & mask);
 		}
 
 		inline bitmask& set(const FlagT &flag)
@@ -44,7 +44,7 @@ namespace cppbitmasks
 
 		inline bitmask& set(const bitmask &mask)
 		{
-			_val |= mask._val;
+			_val |= mask.value();
 			return *this;
 		}
 
@@ -56,7 +56,7 @@ namespace cppbitmasks
 
 		inline bitmask& reset(const bitmask &mask)
 		{
-			_val &= ~mask._val;
+			_val &= ~mask.value();
 			return *this;
 		}
 
@@ -68,7 +68,7 @@ namespace cppbitmasks
 
 		inline bitmask& keep(const bitmask &mask)
 		{
-			_val &= mask._val;
+			_val &= mask.value();
 			return *this;
 		}
 
@@ -80,7 +80,7 @@ namespace cppbitmasks
 
 		inline bitmask& flip(const bitmask &mask)
 		{
-			_val ^= mask._val;
+			_val ^= mask.value();
 			return *this;
 		}
 
@@ -91,7 +91,7 @@ namespace cppbitmasks
 
 		inline bitmask operator|(const bitmask &mask) const
 		{
-			return _val | mask._val;
+			return value() | mask.value();
 		}
 
 		inline bitmask operator&(const FlagT &flag) const
@@ -101,7 +101,7 @@ namespace cppbitmasks
 
 		inline bitmask operator&(const bitmask &mask) const
 		{
-			return _val & mask._val;
+			return value() & mask.value();
 		}
 
 		inline bitmask operator^(const FlagT &flag) const
@@ -111,7 +111,7 @@ namespace cppbitmasks
 
 		inline bitmask operator^(const bitmask &mask) const
 		{
-			return _val ^ mask._val;
+			return value() ^ mask.value();
 		}
 
 		inline bitmask& operator=(const FlagT &flag)
@@ -122,7 +122,7 @@ namespace cppbitmasks
 
 		inline bitmask& operator=(const bitmask &other)
 		{
-			_val = other._val;
+			_val = other.value();
 			return *this;
 		}
 
@@ -158,42 +158,47 @@ namespace cppbitmasks
 
 		inline bool operator==(const FlagT &flag) const
 		{
-			return test(flag);
+			return value() == flag;
 		}
 
 		inline bool operator==(const bitmask &other) const
 		{
-			return test(other);
+			return value() == other.value();
 		}
 
 		inline bool operator!=(const FlagT &flag) const
 		{
-			return !test(flag);
+			return value() != flag;
 		}
 
 		inline bool operator!=(const bitmask &other) const
 		{
-			return !test(other);
+			return value() != other.value();
 		}
 
 		inline bool operator<(const bitmask &other) const
 		{
-			return _val < other._val;
+			return value() < other.value();
 		}
 
 		inline bool operator>(const bitmask &other) const
 		{
-			return _val > other._val;
+			return value() > other.value();
 		}
 
-		inline operator const MaskT&() const
+		inline operator MaskT() const
 		{
-			return _val;
+			return value();
 		}
 
 	private:
 		MaskT _val;
+
+		inline
+		MaskT value() const { return _val & Mask; }
 	};
+
+
 }
 
 template<class MaskT, class FlagT>
