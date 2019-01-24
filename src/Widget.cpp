@@ -622,20 +622,20 @@ cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> opera
 	return bm ^ flag2;
 }
 
-anchor_flags_bitmask operator|(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag2)
+PhWidgets::typedefs::anchor_flags_bitmask operator|(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag2)
 {
-	anchor_flags_bitmask bm(flag1);
+	PhWidgets::typedefs::anchor_flags_bitmask bm(flag1);
 	return bm | flag2;
 }
 
-anchor_flags_bitmask operator&(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag2)
+PhWidgets::typedefs::anchor_flags_bitmask operator&(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag2)
 {
-	anchor_flags_bitmask bm(flag1);
+	PhWidgets::typedefs::anchor_flags_bitmask bm(flag1);
 	return bm & flag2;
 }
 
-anchor_flags_bitmask operator^(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag2)
+PhWidgets::typedefs::anchor_flags_bitmask operator^(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags & flag2)
 {
-	anchor_flags_bitmask bm(flag1);
+	PhWidgets::typedefs::anchor_flags_bitmask bm(flag1);
 	return bm ^ flag2;
 }
