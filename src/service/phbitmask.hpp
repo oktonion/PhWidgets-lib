@@ -26,12 +26,14 @@ namespace PhWidgets
 				ph_bind_t(parent)
 			{}
 
-			inline void set(value_type value)
+			inline 
+			void set(value_type value)
 			{
 				static_cast<ph_bind_t*>(this)->set(value);
 			}
 
-			inline value_type get() const
+			inline 
+			value_type get() const
 			{
 				value_type bm;
 				mask_type mask = static_cast<const ph_bind_t*>(this)->get();
@@ -39,14 +41,25 @@ namespace PhWidgets
 				return bm;
 			}
 
-			inline operator value_type() const { return get(); }
-			inline operator mask_type() const { return get(); }
+			inline
+			bool has(value_type value) const
+			{
+				return get().has(value);
+			}
 
-			inline bind_internal &operator=(value_type value) { set(value); return *this; }
+			inline 
+			operator value_type() const { return get(); }
+			inline 
+			operator mask_type() const { return get(); }
 
-			inline value_type operator()(void) const { return get(); }
+			inline 
+			bind_internal &operator=(value_type value) { set(value); return *this; }
 
-			inline void operator()(value_type value) { set(value); return *this; }
+			inline 
+			value_type operator()(void) const { return get(); }
+
+			inline 
+			void operator()(value_type value) { set(value); return *this; }
 		};
 		
 	public:
