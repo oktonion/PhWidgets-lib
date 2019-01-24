@@ -79,6 +79,11 @@ TEST_CASE("Testing Widget"){
             widget.Anchor = AnchorStyles::Bottom;
             CHECK(AnchorStyles::Bottom == widget.Anchor);
             CHECK(AnchorStyles::Left != widget.Anchor);
+
+            widget.Anchor = (AnchorStyles::TopAnchoredBottom | AnchorStyles::LeftAnchoredRight);
+            CHECK((AnchorStyles::TopAnchoredBottom | AnchorStyles::LeftAnchoredRight) == widget.Anchor);
+            CHECK(AnchorStyles::TopAnchoredBottom != widget.Anchor);
+            CHECK(widget.Anchor == (AnchorStyles::TopAnchoredBottom | AnchorStyles::LeftAnchoredRight));
         }
 
         PROPERTY_TEST_SUBCASE(widget.Height);
