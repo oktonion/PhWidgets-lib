@@ -73,7 +73,13 @@ namespace PhWidgets
 			Left = LeftAnchoredLeft, //!<The widget is anchored to the left edge of its container.
 			None = 0, //!<The widget is not anchored to any edges of its container.
 			Right = RightAnchoredRight, //!<The widget is anchored to the right edge of its container.
-			Top = TopAnchoredTop //!<The widget is anchored to the top edge of its container.
+			Top = TopAnchoredTop, //!<The widget is anchored to the top edge of its container.
+
+			All = 	LeftAnchoredRight | RightAnchoredRight | 
+					TopAnchoredBottom | BottomAnchoredBottom |
+					LeftAnchoredLeft | RightAnchoredLeft |
+					TopAnchoredTop | BottomAnchoredTop |
+					BalloonsOn
 		};
 	};
 
@@ -1168,7 +1174,8 @@ namespace PhWidgets
 			- Dock
 			- Layout
 		*/
-		phbitmask<unsigned, Flags::Anchor::eAnchorFlags>::bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags> Anchor; 
+		phbitmask<unsigned, Flags::Anchor::eAnchorFlags, Flags::Anchor::All>::
+			bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags> Anchor; 
 		
 		//! Gets the distance, in pixels, between the bottom edge of the widget and the top edge of its container's client area.
 		/*!
