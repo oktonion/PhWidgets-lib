@@ -639,3 +639,12 @@ PhWidgets::typedefs::anchor_flags_bitmask operator^(const PhWidgets::Widget::Fla
 	PhWidgets::typedefs::anchor_flags_bitmask bm(flag1);
 	return bm ^ flag2;
 }
+
+bool operator==(const PhArea_t &lhs, const PhArea_t &rhs)
+{
+	return 0 == std::memcmp(&lhs, &rhs, sizeof(PhArea_t));
+}
+bool operator!=(const PhArea_t &lhs, const PhArea_t &rhs)
+{
+	return 0 != std::memcmp(&lhs, &rhs, sizeof(PhArea_t));
+}

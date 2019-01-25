@@ -1218,8 +1218,11 @@ namespace PhWidgets
 				// set the widget size and location using the Bounds property.
 				PhArea_t bounds;
 
-				bounds.pos = PhPoint_t(20, 48); // location
-				bounds.size = PhDim_t(12, 20); // size
+				PhPoint_t pos = {20, 48};
+    			PhDim_t size = {12, 20};
+
+				bounds.pos = pos; // location
+				bounds.size = size; // size
    				widget.Bounds = bounds;
 			@endcode
 
@@ -1536,5 +1539,7 @@ PhWidgets::typedefs::anchor_flags_bitmask operator|(const PhWidgets::Widget::Fla
 PhWidgets::typedefs::anchor_flags_bitmask operator&(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag2);
 PhWidgets::typedefs::anchor_flags_bitmask operator^(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag2);
 
+bool operator==(const PhArea_t &lhs, const PhArea_t &rhs);
+bool operator!=(const PhArea_t &lhs, const PhArea_t &rhs);
 
 #endif // PT_WIDGET_H
