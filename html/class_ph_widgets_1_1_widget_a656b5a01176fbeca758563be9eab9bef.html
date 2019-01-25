@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.4</span>
+   &#160;<span id="projectnumber">0.3.4.xxx</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -73,7 +73,7 @@ $(function() {
       <div class="navtab">
         <table>
           <tr><td class="navtab"><a class="qindex" href="class_ph_widgets_1_1_widget_a88508cd631a0683e26331285b2726509.html#a88508cd631a0683e26331285b2726509">AllowDrop</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="class_ph_widgets_1_1_widget_a8f01505d3f40e6936437f171193ced25.html#a8f01505d3f40e6936437f171193ced25">Anchor</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="class_ph_widgets_1_1_widget_a7b0085011f6980dea5eb2e8376abea66.html#a7b0085011f6980dea5eb2e8376abea66">Anchor</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="class_ph_widgets_1_1_widget.html#a657fb970e6181dacbc27de2ccd7cfcd9">BevelWidth</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="class_ph_widgets_1_1_widget.html#abc5594d08c6e0ab9da8a8962caddc665">Blocked</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="class_ph_widgets_1_1_widget_a76a70f26b5c9f1e76ab20bebd4d020bb.html#a76a70f26b5c9f1e76ab20bebd4d020bb">Bottom</a></td></tr>
@@ -145,7 +145,7 @@ $(function() {
 </blockquote>
 <p>A <code>PhArea_t</code> in pixels relative to the parent widget that represents the size and location of the widget including its nonclient elements.</p>
 <h3>Examples</h3>
-<div class="fragment"><div class="line"><span class="comment">// You have somewhere:</span></div><div class="line">PtWidget_t *ptwidget; <span class="comment">// pointer to widget</span></div><div class="line"></div><div class="line"><span class="comment">// constructing Widget</span></div><div class="line"><a class="code" href="class_ph_widgets_1_1_widget.html">PhWidgets::Widget</a> widget(ptwidget);</div><div class="line"></div><div class="line"><span class="comment">// set the widget size and location using the Bounds property.</span></div><div class="line">PhArea_t bounds;</div><div class="line"></div><div class="line">bounds.pos = PhPoint_t(20, 48); <span class="comment">// location</span></div><div class="line">bounds.size = PhDim_t(12, 20); <span class="comment">// size</span></div><div class="line">widget.Bounds = bounds;</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><ul>
+<div class="fragment"><div class="line"><span class="comment">// You have somewhere:</span></div><div class="line">PtWidget_t *ptwidget; <span class="comment">// pointer to widget</span></div><div class="line"></div><div class="line"><span class="comment">// constructing Widget</span></div><div class="line"><a class="code" href="class_ph_widgets_1_1_widget.html">PhWidgets::Widget</a> widget(ptwidget);</div><div class="line"></div><div class="line"><span class="comment">// set the widget size and location using the Bounds property.</span></div><div class="line">PhArea_t bounds;</div><div class="line"></div><div class="line">PhPoint_t pos = {20, 48};</div><div class="line">PhDim_t size = {12, 20};</div><div class="line"></div><div class="line">bounds.pos = pos; <span class="comment">// location</span></div><div class="line">bounds.size = size; <span class="comment">// size</span></div><div class="line">widget.Bounds = bounds;</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="class_ph_widgets_1_1_widget.html#ab89e2442c065998c3dee8814698274a2" title="Gets or sets the distance, in pixels, between the top edge of the widget and the top edge of its pare...">Top</a></li>
 <li><a class="el" href="class_ph_widgets_1_1_widget.html#af16788209177491d790900a5f4c2c51a" title="Gets or sets the distance, in pixels, between the left edge of the widget and the left edge of its pa...">Left</a></li>
 <li><a class="el" href="class_ph_widgets_1_1_widget.html#a7ad2788ec0486d6e2b4d9a5b15e17723" title="Gets or sets the height of the widget.">Height</a></li>
