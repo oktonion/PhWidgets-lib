@@ -7,6 +7,8 @@
 
 
 TEST_CASE("Testing Widget::Anchor property") {
+    REQUIRE(PhWidgetsGetWidget<&PtWindow>());
+    
     using namespace PhWidgets;
 
     Widget widget(PhWidgetsGetWidget<&PtWindow>());

@@ -7,8 +7,10 @@
 
 
 TEST_CASE("Testing Widget::AllowDrop property") {
-    using namespace PhWidgets;
+    REQUIRE(PhWidgetsGetWidget<&PtWindow>());
     
+    using namespace PhWidgets;
+
     Widget widget(PhWidgetsGetWidget<&PtWindow>());
     
     CHECK(false == widget.AllowDrop);

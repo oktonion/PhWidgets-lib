@@ -3357,7 +3357,7 @@ namespace detail
         return oss.str().c_str();
     }
 
-    std::ostream* createStream() { return new std::ostringstream(); }
+    std::ostream* createStream() { std::ostringstream *s = new std::ostringstream(); s->setf(std::ios_base::boolalpha); return s;}
     String        getStreamResult(std::ostream* s) {
         return static_cast<std::ostringstream*>(s)->str().c_str(); // NOLINT
     }

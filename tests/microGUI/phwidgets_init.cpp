@@ -38,7 +38,7 @@ TEST_CASE("Testing photon microGUI library initialization"){
 
     REQUIRE(ptwidget_ptr);
 
-    CHECK_NOTHROW_MESSAGE(PhWidgets::Widget w(ptwidget_ptr), "Constructor of Widget from PtWidget_t failed");
+    REQUIRE_NOTHROW_MESSAGE(PhWidgets::Widget w(ptwidget_ptr), "Constructor of Widget from PtWidget_t failed");
 }
 
 #endif // PHWIDGETS_INIT_TEST

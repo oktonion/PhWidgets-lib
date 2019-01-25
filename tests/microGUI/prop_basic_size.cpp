@@ -7,6 +7,7 @@
 
 
 TEST_CASE("Testing Widget basic size properties"){
+    REQUIRE(PhWidgetsGetWidget<&PtWindow>());
 
     using namespace PhWidgets;
     

@@ -9,3 +9,4 @@
 #include "./microGUI/prop_anchor.cpp"
 #include "./microGUI/prop_basic_size.cpp"
 #include "./microGUI/prop_bounds.cpp"
+#include "./microGUI/prop_canfocus.cpp"

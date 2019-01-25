@@ -7,6 +7,7 @@
 
 
 TEST_CASE("Testing Widget::Bounds property"){
+    REQUIRE(PhWidgetsGetWidget<&PtWindow>());
 
     using namespace PhWidgets;
     
