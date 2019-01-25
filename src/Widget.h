@@ -1367,7 +1367,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			> **const void ***
+			> **const void** * 
 
 			An `const void *` that contains data about the widget. The default is `nullptr`.
 
