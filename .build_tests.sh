@@ -6,6 +6,7 @@ echo "\023333;4m"
 build_ok=1
 exclude_warn=""
 COMPILER=qcc
+testgroup=""
 
 if [[ $COMPILER = *"clang"* ]]; then
   exclude_warn="-Wno-c++11-long-long -Wno-non-literal-null-conversion"
@@ -15,9 +16,16 @@ if [ "$1" == "debug" ]
 	then
 	coption=-g
 	print "	Warning: DEBUG compile configuration!"
+  testgroup=$2
+elif [ "$1" == "clear" ]
+  then
+  rm -rf ./tests/bin
+  exit
+else
+  testgroup=$1
 fi
 
-for file in ./tests/*.cpp; do
+for file in ./tests/$testgroup/*.cpp; do
   filename=$(basename -- "$file")
   filename="${filename%.*}"
   echo "compiling test c++03 $filename"
