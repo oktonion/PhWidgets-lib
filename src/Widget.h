@@ -1343,18 +1343,18 @@ namespace PhWidgets
 		*/
 		property<CursorDef>::bind<Widget, &Widget::getCursor, &Widget::setCursor> Cursor;
 
-		//! Gets or sets a value indicating whether the control can respond to user interaction.
+		//! Gets or sets a value indicating whether the widget can respond to user interaction.
 		/*!
 			### Property Value ### 
 			
 			> **bool**
 
-			`true` if the control can respond to user interaction; otherwise, `false`. The default is `true`.
+			`true` if the widget can respond to user interaction; otherwise, `false`. The default is `true`.
 
 			@remark
 			With the Enabled property, you can enable or disable widgets at run time. 
 			For example, you can disable widgets that do not apply to the current state of the application. 
-			You can also disable a control to restrict its use. 
+			You can also disable a widget to restrict its use. 
 			For example, a button can be disabled to prevent the user from clicking it. 
 			If a widget is disabled, it cannot be selected.  
 			@par
