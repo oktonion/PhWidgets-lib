@@ -1343,6 +1343,34 @@ namespace PhWidgets
 		*/
 		property<CursorDef>::bind<Widget, &Widget::getCursor, &Widget::setCursor> Cursor;
 
+		//! Gets or sets a value indicating whether the control can respond to user interaction.
+		/*!
+			### Property Value ### 
+			
+			> **bool**
+
+			`true` if the control can respond to user interaction; otherwise, `false`. The default is `true`.
+
+			@remark
+			With the Enabled property, you can enable or disable widgets at run time. 
+			For example, you can disable widgets that do not apply to the current state of the application. 
+			You can also disable a control to restrict its use. 
+			For example, a button can be disabled to prevent the user from clicking it. 
+			If a widget is disabled, it cannot be selected.  
+			@par
+			When a container widget has its enabled property set to `false`, 
+			all its contained widgets are disabled, as well. 
+			For example, 
+			if the user clicks on any of the widgets contained in a disabled Container widget, no events are raised. 
+
+			@note
+			Setting the Enabled property to `false` does not disable the application's widget box or prevent the application window from receiving the focus.
+
+			@see 
+			- Container
+		*/
+		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled;
+
 		//! Gets a value indicating whether the widget has input focus.
 		/*!
 			### Property Value ### 
@@ -1359,7 +1387,7 @@ namespace PhWidgets
 		*/
 		property<bool, property<>::ro>::bind<Widget, &Widget::getFocused> Focused;
 
-		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled; //!< Gets or sets a value indicating whether the widget can respond to user interaction.
+		
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.
 		property<short>::bind<Widget, &Widget::getLeft, &Widget::setLeft>								Left; //!< Gets or sets the distance, in pixels, between the left edge of the widget and the left edge of its parent widget.
 		
