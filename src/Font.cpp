@@ -1,8 +1,12 @@
 #include "Font.h"
 
+#include "./service/bitmask.hpp"
+
 #include <cctype>
 #include <map>
 #include <algorithm>
+#include <stdexcept>
+#include <cstring>
 
 using namespace PhWidgets;
 
@@ -42,8 +46,7 @@ const typename T::size_type LevensteinDistance(const T &source,
     return lev_dist[min_size];
 }
 
-template<GenericFontFamilies::eGenericFontFamilies FontFamilyID>
-FontDetails GetGenericFontFamily(const char *cname)
+FontDetails GetAnyFontFamily(const char *cname, int FontFamilyID)
 {
     static font_families_collection_type families;
     int count = PfQueryFonts(PHFONT_ALL_SYMBOLS, FontFamilyID, NULL, 0);
@@ -68,7 +71,7 @@ FontDetails GetGenericFontFamily(const char *cname)
 
         for(font_families_collection_type::size_type i = 0; i < families.size(); ++i)
         {
-            std::string ff_name(families[i].stem);
+            std::string ff_name(families[i].desc);
             
             {
                 using namespace std;
@@ -89,17 +92,17 @@ FontDetails GetGenericFontFamily(const char *cname)
     return families[0];
 }
 
-static std::map<GenericFontFamilies::eGenericFontFamilies, std::string> & GetGenericFontFamilyName()
+static std::map<GenericFontFamilies::eGenericFontFamilies, FontDetails> & GetGenericFontFamilyName()
 {
-    static std::map<GenericFontFamilies::eGenericFontFamilies, std::string> gffname;
+    static std::map<GenericFontFamilies::eGenericFontFamilies, FontDetails> gffname;
     if(gffname.size() == 0)
     {
         gffname[GenericFontFamilies::Monospace] = 
-            GetGenericFontFamily<GenericFontFamilies::Monospace>("Courier").stem;
+            GetAnyFontFamily("Courier", GenericFontFamilies::Monospace);
         gffname[GenericFontFamilies::SansSerif] = 
-            GetGenericFontFamily<GenericFontFamilies::SansSerif>("Arial Verdana").stem;
+            GetAnyFontFamily("Arial Verdana", GenericFontFamilies::SansSerif);
         gffname[GenericFontFamilies::Serif] = 
-            GetGenericFontFamily<GenericFontFamilies::Serif>("Times").stem;
+            GetAnyFontFamily("Times", GenericFontFamilies::Serif);
     }
     return gffname;
 }
@@ -122,21 +125,70 @@ const std::vector<FontDetails> & FontCollection::FontCollectionDetail::getFamili
         return families;
 }
 
+InstalledFontCollection::InstalledFontCollection():
+    FontCollection()
+{}
+
+static FontDetails FindFontFamily(std::string name, font_families_collection_type ffamilies)
+{
+    if(name.length() == 0)
+        throw(std::invalid_argument("FontFamily::Name is an empty string (\"\")."));
+
+    typedef font_families_collection_type::size_type size_type;
+    for(size_type i = 0; i < ffamilies.size(); ++i)
+    {
+        if(ffamilies[i].desc == name)
+            return ffamilies[i];
+    }
+
+    throw(std::invalid_argument(name + " specifies a font that is not installed on the computer running the application."));
+}
+
 
 FontFamily::FontFamily(GenericFontFamilies::eGenericFontFamilies ffamily):
-    Name(GetGenericFontFamilyName()[ffamily])
+    _fdetails(GetGenericFontFamilyName()[ffamily]),
+    Name(_fdetails.desc)
 {
-
+    if(Name.length() == 0)
+        throw(std::invalid_argument("FontFamily::Name is an empty string (\"\")."));
 }
 
 FontFamily::FontFamily(std::string name):
-    Name(name)
+    _fdetails(FindFontFamily(name, InstalledFontCollection::Families)),
+    Name(_fdetails.desc)
 {
-
 }
 
-FontFamily::FontFamily(std::string name, FontCollection fcollection):
-    Name(name)
+FontFamily::FontFamily(std::string name, const FontCollection &fcollection):
+    _fdetails(FindFontFamily(name, FontCollection::Families)),
+    Name(_fdetails.desc)
 {
+}
 
+int FontFamily::GetLineSpacing(FontStyle::eFontStyle fstyle) const
+{
+    return _fdetails.hisize - _fdetails.losize;
+}
+
+bool FontFamily::IsStyleAvailable(FontStyle::eFontStyle fstyle) const
+{
+    cppbitmasks::bitmask<unsigned short, FontStyle::eFontStyle, 
+        FontStyle::Antialias |
+        FontStyle::Bitmap |
+        FontStyle::Bold |
+        FontStyle::DoubleUnderline |
+        FontStyle::Italic |
+        FontStyle::Regular |
+        FontStyle::Scalable |
+        FontStyle::Underline
+    > mask;
+
+    std::memcpy(&mask, &_fdetails.flags, sizeof(unsigned short));
+
+    return mask.has(fstyle);
+}
+
+FontFamily::operator FontDetails() const
+{
+    return _fdetails;
 }
