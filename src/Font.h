@@ -4,7 +4,9 @@
 
 #include <photon/Pf.h>
 
+
 #include <string>
+#include <vector>
 
 namespace PhWidgets
 {
@@ -39,10 +41,79 @@ namespace PhWidgets
             Bold = PF_STYLE_BOLD, //!< Bold text.
             Italic = PF_STYLE_ITALIC, //!< Italic text.
             Regular = 0, //!< Normal text.
+            Underline = PF_STYLE_ULINE, //!< Underlined text.
+            DoubleUnderline = PF_STYLE_DULINE, //!< Double underlined text.
             Antialias = PF_STYLE_ANTIALIAS, //!< Antialias text.
             Scalable = PF_SCALABLE, //!< Scalable text.
             Bitmap = PF_BITMAP //!< Bitmap text.
         };
+    };
+
+    struct GenericFontFamilies
+    {
+        enum eGenericFontFamilies
+        {
+            Monospace = PHFONT_INFO_PROP, //!< A generic Monospace FontFamily object.
+            SansSerif = PHFONT_INFO_SANSERIF, //!< A generic Sans Serif FontFamily object.
+            Serif = PHFONT_INFO_SERIF //!< A generic Serif FontFamily object.
+        };
+    };
+
+    class FontCollection
+    {
+    public:
+        static const std::vector<FontDetails> Families;
+    };
+
+    class FontFamily:
+        public GenericFontFamilies
+    {
+    public:
+        //! (constructor) 
+		/*!
+			Initializes a new FontFamily from the specified generic font family.
+			@param[in] ffamily The GenericFontFamilies::eGenericFontFamilies from which to create the new FontFamily.
+		*/
+        FontFamily(GenericFontFamilies::eGenericFontFamilies ffamily);
+
+        //! (constructor) 
+		/*!
+			Initializes a new FontFamily with the specified name.
+			@param[in] name The name of the new FontFamily.
+		*/
+        FontFamily(std::string name);
+
+        //! (constructor) 
+		/*!
+			Initializes a new FontFamily with the specified name.
+			@param[in] name A std::string that represents the name of the new FontFamily.
+            @param[in] fcollection The FontCollection that contains this FontFamily.
+		*/
+        FontFamily(std::string name, FontCollection fcollection);
+
+        //! Gets the name of this FontFamily.
+		/*!
+			### Property Value ### 
+			
+			> `std::string`
+
+			A `std::string` that represents the name of this FontFamily.
+		*/
+        const std::string Name;
+
+        //! Returns the line spacing, in design units, of the FontFamily of the specified style. 
+        //! The line spacing is the vertical distance between the base lines of two consecutive lines of text.
+		/*!
+			@param[in] fstyle The FontStyle::eFontStyle to apply.
+		*/
+        int GetLineSpacing(FontStyle::eFontStyle fstyle) const;
+
+        //! Indicates whether the specified FontStyle::eFontStyle enumeration is available.
+		/*!
+			@param[in] fstyle The FontStyle::eFontStyle to test.
+		*/
+        bool IsStyleAvailable (FontStyle::eFontStyle fstyle) const;
+    private:
     };
 
     //! Defines a particular format for text, including font face, size, and style attributes. This class cannot be inherited.
