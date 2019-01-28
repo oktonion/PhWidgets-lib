@@ -5,9 +5,11 @@
 #include <Font.h>
 
 
-TEST_CASE("Testing FontCollection class"){
+TEST_CASE("Testing FontCollections classes"){
 
     using namespace PhWidgets;
     
-    CHECK(FontCollection::Families().size() != 0);
+    InstalledFontCollection ifc;
+
+    CHECK(ifc.Families().size() != 0);
 }
