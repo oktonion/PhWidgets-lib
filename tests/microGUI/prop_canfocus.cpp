@@ -13,5 +13,5 @@ TEST_CASE("Testing Widget::CanFocus property"){
     
     Widget widget(PhWidgetsGetWidget<&PtWindow>());
 
-    CHECK(widget.CanFocus == true);
+    CHECK(widget.CanFocus == false);
 }
