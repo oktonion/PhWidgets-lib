@@ -53,6 +53,7 @@ namespace PhWidgets
         };
     };
 
+    //! Specifies a generic FontFamily object.
     struct GenericFontFamilies
     {
         enum eGenericFontFamilies
@@ -63,8 +64,20 @@ namespace PhWidgets
         };
     };
 
+    //! Provides a base class for installed and private font collections.
+    /*!
+        The FontCollection allows you to get a list of the font families 
+        contained in the collection with its Families property.
+
+        @see
+        - InstalledFontCollection
+        - PrivateFontCollection
+    */
     class FontCollection
     {
+    protected:
+        FontCollection() {}
+    private:
         struct FontCollectionDetail
         {
             static const std::vector<FontDetails>& getFamilies();
@@ -74,6 +87,19 @@ namespace PhWidgets
             bind_static<&FontCollectionDetail::getFamilies> Families;
     };
 
+    //! Represents the fonts installed on the system. This class cannot be inherited.
+    class InstalledFontCollection:
+        public FontCollection
+    {
+    public:
+        InstalledFontCollection();
+    };
+
+    //! (not implemented)
+    //! Provides a collection of font families built from font files that are provided by the client application.
+    class PrivateFontCollection;
+
+    //! Defines a group of type faces having a similar basic design and certain variations in styles. This class cannot be inherited.
     class FontFamily:
         public GenericFontFamilies
     {
@@ -82,6 +108,7 @@ namespace PhWidgets
 		/*!
 			Initializes a new FontFamily from the specified generic font family.
 			@param[in] ffamily The GenericFontFamilies::eGenericFontFamilies from which to create the new FontFamily.
+            @throw std::invalid_argument
 		*/
         FontFamily(GenericFontFamilies::eGenericFontFamilies ffamily);
 
@@ -89,6 +116,7 @@ namespace PhWidgets
 		/*!
 			Initializes a new FontFamily with the specified name.
 			@param[in] name The name of the new FontFamily.
+            @throw std::invalid_argument
 		*/
         FontFamily(std::string name);
 
@@ -97,18 +125,9 @@ namespace PhWidgets
 			Initializes a new FontFamily with the specified name.
 			@param[in] name A std::string that represents the name of the new FontFamily.
             @param[in] fcollection The FontCollection that contains this FontFamily.
+            @throw std::invalid_argument
 		*/
-        FontFamily(std::string name, FontCollection fcollection);
-
-        //! Gets the name of this FontFamily.
-		/*!
-			### Property Value ### 
-			
-			> `std::string`
-
-			A `std::string` that represents the name of this FontFamily.
-		*/
-        const std::string Name;
+        FontFamily(std::string name, const FontCollection &fcollection);
 
         //! Returns the line spacing, in design units, of the FontFamily of the specified style. 
         //! The line spacing is the vertical distance between the base lines of two consecutive lines of text.
@@ -121,8 +140,23 @@ namespace PhWidgets
 		/*!
 			@param[in] fstyle The FontStyle::eFontStyle to test.
 		*/
-        bool IsStyleAvailable (FontStyle::eFontStyle fstyle) const;
+        bool IsStyleAvailable(FontStyle::eFontStyle fstyle) const;
+
+        //! Converts FontFamily to Photon FontDetails type
+        operator FontDetails() const;
     private:
+        FontDetails _fdetails;
+        
+    public:
+        //! Gets the name of this FontFamily.
+		/*!
+			### Property Value ### 
+			
+			> `std::string`
+
+			A `std::string` that represents the name of this FontFamily.
+		*/
+        const std::string Name;
     };
 
     //! Defines a particular format for text, including font face, size, and style attributes. This class cannot be inherited.
