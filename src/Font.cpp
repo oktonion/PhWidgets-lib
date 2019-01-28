@@ -1,6 +1,6 @@
 #include "Font.h"
 
-#include "./service/bitmask.hpp"
+
 
 #include <cctype>
 #include <map>
@@ -165,23 +165,14 @@ FontFamily::FontFamily(std::string name, const FontCollection &fcollection):
 {
 }
 
-int FontFamily::GetLineSpacing(FontStyle::eFontStyle fstyle) const
+int FontFamily::GetLineSpacing(typedefs::font_style_bitmask fstyle) const
 {
     return _fdetails.hisize - _fdetails.losize;
 }
 
-bool FontFamily::IsStyleAvailable(FontStyle::eFontStyle fstyle) const
+bool FontFamily::IsStyleAvailable(typedefs::font_style_bitmask fstyle) const
 {
-    cppbitmasks::bitmask<unsigned short, FontStyle::eFontStyle, 
-        FontStyle::Antialias |
-        FontStyle::Bitmap |
-        FontStyle::Bold |
-        FontStyle::DoubleUnderline |
-        FontStyle::Italic |
-        FontStyle::Regular |
-        FontStyle::Scalable |
-        FontStyle::Underline
-    > mask;
+    typedefs::font_style_bitmask mask;
 
     std::memcpy(&mask, &_fdetails.flags, sizeof(unsigned short));
 
@@ -191,4 +182,10 @@ bool FontFamily::IsStyleAvailable(FontStyle::eFontStyle fstyle) const
 FontFamily::operator FontDetails() const
 {
     return _fdetails;
+}
+
+FontDef::FontDef(const FontDef &other, typedefs::font_style_bitmask fstyle):
+    _ffamily(other._ffamily)
+{
+
 }

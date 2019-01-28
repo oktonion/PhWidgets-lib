@@ -3,6 +3,7 @@
 #define PT_FONT_H
 
 #include "./service/property.hpp"
+#include "./service/bitmask.hpp"
 
 #include <photon/Pf.h>
 
@@ -52,6 +53,23 @@ namespace PhWidgets
             Bitmap = PF_BITMAP //!< Bitmap text.
         };
     };
+
+    namespace typedefs
+	{
+        typedef
+        cppbitmasks::bitmask<
+            unsigned short,    
+            FontStyle::eFontStyle, 
+            FontStyle::Antialias |
+            FontStyle::Bitmap |
+            FontStyle::Bold |
+            FontStyle::DoubleUnderline |
+            FontStyle::Italic |
+            FontStyle::Regular |
+            FontStyle::Scalable |
+            FontStyle::Underline
+        > font_style_bitmask;
+	}
 
     //! Specifies a generic FontFamily object.
     struct GenericFontFamilies
@@ -134,13 +152,13 @@ namespace PhWidgets
 		/*!
 			@param[in] fstyle The FontStyle::eFontStyle to apply.
 		*/
-        int GetLineSpacing(FontStyle::eFontStyle fstyle) const;
+        int GetLineSpacing(typedefs::font_style_bitmask fstyle) const;
 
         //! Indicates whether the specified FontStyle::eFontStyle enumeration is available.
 		/*!
 			@param[in] fstyle The FontStyle::eFontStyle to test.
 		*/
-        bool IsStyleAvailable(FontStyle::eFontStyle fstyle) const;
+        bool IsStyleAvailable(typedefs::font_style_bitmask fstyle) const;
 
         //! Converts FontFamily to Photon FontDetails type
         operator FontDetails() const;
@@ -162,6 +180,7 @@ namespace PhWidgets
     //! Defines a particular format for text, including font face, size, and style attributes. This class cannot be inherited.
     class FontDef
     {
+        FontFamily _ffamily;
     public:
 
         //! (constructor) 
@@ -171,7 +190,7 @@ namespace PhWidgets
             @param[in] fstyle   The FontStyle::eFontStyle to apply to the new Font. 
                                 Multiple values of the FontStyle::eFontStyle enumeration can be combined with the OR operator.
 		*/
-        FontDef(const FontDef &other, FontStyle::eFontStyle fstyle);
+        FontDef(const FontDef &other, typedefs::font_style_bitmask fstyle);
 
         // (constructor) 
 		/*
@@ -209,7 +228,7 @@ namespace PhWidgets
             @param[in] fstyle   The FontStyle::eFontStyle to apply to the new Font. 
                                 Multiple values of the FontStyle::eFontStyle enumeration can be combined with the OR operator.
 		*/
-        FontDef(std::string family_name, float fsize, FontStyle::eFontStyle fstyle);
+        FontDef(std::string family_name, float fsize, typedefs::font_style_bitmask fstyle);
         
         //! @name Properties
 		//! Properties are used to simplify use of fonts.
