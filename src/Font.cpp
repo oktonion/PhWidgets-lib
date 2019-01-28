@@ -146,42 +146,34 @@ static FontDetails FindFontFamily(std::string name, font_families_collection_typ
 
 
 FontFamily::FontFamily(GenericFontFamilies::eGenericFontFamilies ffamily):
-    _fdetails(GetGenericFontFamilyName()[ffamily]),
-    Name(_fdetails.desc)
+    Name(GetGenericFontFamilyName()[ffamily].desc)
 {
     if(Name.length() == 0)
         throw(std::invalid_argument("FontFamily::Name is an empty string (\"\")."));
+    
+    std::memcpy(&_fstyle, &GetGenericFontFamilyName()[ffamily].flags, sizeof(unsigned short));
 }
 
 FontFamily::FontFamily(std::string name):
-    _fdetails(FindFontFamily(name, InstalledFontCollection::Families)),
-    Name(_fdetails.desc)
+    Name(FindFontFamily(name, InstalledFontCollection::Families).desc)
 {
+    std::memcpy(&_fstyle, &FindFontFamily(name, InstalledFontCollection::Families).flags, sizeof(unsigned short));
 }
 
 FontFamily::FontFamily(std::string name, const FontCollection &fcollection):
-    _fdetails(FindFontFamily(name, FontCollection::Families)),
-    Name(_fdetails.desc)
+    Name(FindFontFamily(name, FontCollection::Families).desc)
 {
+    std::memcpy(&_fstyle, &FindFontFamily(name, FontCollection::Families).flags, sizeof(unsigned short));
 }
 
 int FontFamily::GetLineSpacing(typedefs::font_style_bitmask fstyle) const
 {
-    return _fdetails.hisize - _fdetails.losize;
+    return 0;//_fdetails.hisize - _fdetails.losize;
 }
 
 bool FontFamily::IsStyleAvailable(typedefs::font_style_bitmask fstyle) const
 {
-    typedefs::font_style_bitmask mask;
-
-    std::memcpy(&mask, &_fdetails.flags, sizeof(unsigned short));
-
-    return mask.has(fstyle);
-}
-
-FontFamily::operator FontDetails() const
-{
-    return _fdetails;
+    return _fstyle.has(fstyle);
 }
 
 FontDef::FontDef(const FontDef &other, typedefs::font_style_bitmask fstyle):

@@ -160,10 +160,8 @@ namespace PhWidgets
 		*/
         bool IsStyleAvailable(typedefs::font_style_bitmask fstyle) const;
 
-        //! Converts FontFamily to Photon FontDetails type
-        operator FontDetails() const;
     private:
-        FontDetails _fdetails;
+        typedefs::font_style_bitmask _fstyle;
         
     public:
         //! Gets the name of this FontFamily.
