@@ -102,9 +102,14 @@ namespace cppproperties
 		};
 
 		template<typename ValueT>
-		struct get_parent_func<ValueT, void>:
-			public get_parent_func<void, void>
+		struct get_parent_func<ValueT, void>
 		{
+			typedef ValueT value_type;
+			typedef value_type(*getter_t)();
+			typedef void(*setter_t)(value_type);
+
+			static const getter_t &default_getter() { static getter_t getter = getter_t(0); return getter;}
+			static const setter_t &default_setter() { static setter_t setter = setter_t(0); return setter;}
 		};
 
 		template<typename ParentT>
@@ -177,6 +182,32 @@ namespace cppproperties
 
 			inline bind &operator=(typename detail::remove_const<typename detail::remove_reference<ValueT>::type>::type const &);
 			inline bind &operator=(bind const &);
+		};
+
+		template<typename detail::get_parent_func<ValueT, void>::getter_t Getter>
+		class bind_static
+		{
+		public:
+			typedef typename detail::get_parent_func<ValueT, void>::value_type value_type;
+
+			bind_static()
+			{}
+
+			inline value_type get() const
+			{
+				return (*Getter)();
+			}
+
+			inline operator value_type() const { return get(); }
+			
+			inline value_type operator()(void) const { return get(); }
+
+		private:
+			
+			bind_static(const bind_static &rhs);
+
+			inline bind_static &operator=(typename detail::remove_const<typename detail::remove_reference<ValueT>::type>::type const &);
+			inline bind_static &operator=(bind_static const &);
 		};
 
 		property(value_type const &value) :
