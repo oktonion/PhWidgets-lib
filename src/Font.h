@@ -2,6 +2,8 @@
 #ifndef PT_FONT_H
 #define PT_FONT_H
 
+#include "./service/property.hpp"
+
 #include <photon/Pf.h>
 
 
@@ -10,6 +12,8 @@
 
 namespace PhWidgets
 {
+    using namespace cppproperties;
+
     //! Specifies style information applied to text.
     /*!
         ### Examples ###
@@ -61,8 +65,13 @@ namespace PhWidgets
 
     class FontCollection
     {
+        struct FontCollectionDetail
+        {
+            static const std::vector<FontDetails>& getFamilies();
+        };
     public:
-        static const std::vector<FontDetails> Families;
+        static const property<const std::vector<FontDetails>&>::
+            bind_static<&FontCollectionDetail::getFamilies> Families;
     };
 
     class FontFamily:
