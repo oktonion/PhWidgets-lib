@@ -61,10 +61,12 @@ FontDef Label::getFont() const
 {
 	const char *text_font = resource.argument[Arguments::text_font].get();
 
-	FontID *id = PfDecomposeStemToID(text_font);
+	FontID *fid = PfDecomposeStemToID(text_font);
 
-	if(NULL == id)
+	if(NULL == fid)
 		throw(std::invalid_argument(std::string("Label::Font is an invalid string (\"") + text_font + "\")."));
+	
+	return fid;
 }
 
 void Label::setFont(FontDef fdef)
