@@ -216,6 +216,8 @@ namespace PhWidgets
     //! Defines a particular format for text, including font face, size, and style attributes. This class cannot be inherited.
     class FontDef
     {
+        typedef FontID* font_id_type;
+
     public:
 
         //! (constructor) 
@@ -236,6 +238,13 @@ namespace PhWidgets
             @param[in] fstyle The FontStyle::eFontStyle combination of flags.
 		*/
         FontDef(FontFamily ffamily, std::uint32_t size, typedefs::font_style_bitmask fstyle = FontStyle::Regular);
+
+        //! (constructor) 
+		/*!
+			Initializes a new FontDef using a Photon FontID.
+            @param[in] fid Photon FontID.
+		*/
+        FontDef(font_id_type fid);
 
         //FontDef(FontFamily, float, FontStyle, GraphicsUnit);		
         //FontDef(FontFamily, float, GraphicsUnit) 	       
@@ -267,6 +276,9 @@ namespace PhWidgets
 			@param[in] other FontDef whose contents to compare.
 		*/
 		bool operator<(const FontDef &other) const;
+
+        //! Converts FontDef to Photon FontID
+        operator const font_id_type() const;
 
         //! @name Properties
 		//! Properties are used to simplify use of fonts.
@@ -335,12 +347,11 @@ namespace PhWidgets
         GetHeight() 	*/
 
     private:
-        typedef FontID* font_id_type;
-        
+
         font_id_type _fid;
         std::string _fname;
         bool _bold, _italic;
-        std::uint32_t _height, _size, _sizeInPoints;
+        std::uint32_t _height, _size;
         FontFamily _ffamily;
     };
 } // PhWidgets

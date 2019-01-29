@@ -187,8 +187,11 @@ FontFamily::FontFamily(const FontFamily &other):
 
 FontFamily & FontFamily::operator=(const FontFamily &other)
 {
-    _fdetails = other._fdetails;
-    _name = other._name;
+    if(&other != this)
+    {
+        _fdetails = other._fdetails;
+        _name = other._name;
+    }
 
     return *this;
 }
@@ -251,6 +254,11 @@ FontDef::FontDef(const FontDef &other, typedefs::font_style_bitmask fstyle):
     _fid = fid;
     _fname = PfConvertFontID(_fid);
 
+    _italic = fstyle & FontStyle::Italic;
+    _bold = fstyle & FontStyle::Bold;
+    _size = fpoint_size;
+    _height = 0;
+
     //const char *fname = PfConvertFontID(&other._fid);
     //const char *fstem = PfFontBaseStem(&other._fid);
 
@@ -277,6 +285,41 @@ FontDef::FontDef(FontFamily ffamily, std::uint32_t fpoint_size, typedefs::font_s
     
     _fid = fid;
     _fname = PfConvertFontID(_fid);
+
+    _italic = fstyle & FontStyle::Italic;
+    _bold = fstyle & FontStyle::Bold;
+    _size = fpoint_size;
+    _height = 0;
+}
+
+FontDef::FontDef(font_id_type fid):
+    Bold(_bold),
+    Family(_ffamily),
+    Height(_height),
+    Italic(_italic),
+    Name(_fname),
+    Size(_size),
+    _fid(fid),
+    _ffamily(GenericFontFamilies::Serif)
+{
+    if(NULL == _fid)
+        throw(std::invalid_argument("FontID is NULL."));
+    
+    _fname = PfConvertFontID(_fid);
+
+    std::uint32_t fflags = PfFontFlags(_fid);
+
+    _italic = fflags & FontStyle::Italic;
+    _bold = fflags & FontStyle::Bold;
+
+    std::uint32_t fpoint_size = PfFontSize(_fid);
+
+    _size = fpoint_size;
+    _height = 0;
+    
+    const char *fdesc = PfFontDescription(_fid);
+
+    _ffamily = FontFamily(fdesc);
 }
 
 FontDef::FontDef(const FontDef &other):
@@ -287,20 +330,28 @@ FontDef::FontDef(const FontDef &other):
     Name(_fname),
     Size(_size),
      _fid(other._fid),
+     _fname(other._fname),
+    _bold(other._bold),
+    _italic(other._italic),
+    _height(other._height),
+    _size(other._size),
     _ffamily(other._ffamily)
 {
 }
 
 FontDef & FontDef::operator=(const FontDef &other)
 {
-    _fid = other._fid;
+    if(&other != this)
+    {
+        _fid = other._fid;
 
-    _bold = other._bold;
-    _ffamily = other._ffamily;
-    _height = other._height;
-    _italic = other._italic;
-    _fname = other._fname;
-    _size = other._size;
+        _bold = other._bold;
+        _height = other._height;
+        _italic = other._italic;
+        _fname = other._fname;
+        _size = other._size;
+        _ffamily = other._ffamily;
+    }
 
     return *this;
 }
@@ -315,4 +366,9 @@ bool FontDef::operator<(const FontDef &other) const
 {   
     return 
         _fid < other._fid;
+}
+
+FontDef::operator const font_id_type() const
+{
+    return _fid;
 }
