@@ -154,6 +154,34 @@ namespace PhWidgets
 		*/
         FontFamily(std::string name, const FontCollection &fcollection);
 
+        //! (copy constructor) 
+		/*!
+			Constructs a FontFamily by copy.
+			@param[in] other another FontFamily to be used as source to initialize the elements of the container with.
+		*/
+		FontFamily(const FontFamily &other);
+		
+		//! Assigns value in FontFamily 
+		/*!
+			Replaces the contents of the FontFamily.
+			@param[in] other another FontFamily to use as data source.
+		*/
+		FontFamily &operator=(const FontFamily &other);
+
+		//! Compares FontFamilys
+		/*!
+			Compares the FontFamilys by their Photon FontDetails.
+			@param[in] other FontFamily whose contents to compare.
+		*/
+		bool operator==(const FontFamily &other) const;
+
+		//! Compares FontFamilys
+		/*!
+			Compares the FontFamilys by their Photon FontDetails.
+			@param[in] other FontFamily whose contents to compare.
+		*/
+		bool operator<(const FontFamily &other) const;
+
         //! Returns the line spacing, in design units, of the FontFamily of the specified style. 
         //! The line spacing is the vertical distance between the base lines of two consecutive lines of text.
 		/*!
@@ -171,6 +199,7 @@ namespace PhWidgets
 
     private:
         FontDetails _fdetails;
+        std::string _name;
         
     public:
         //! Gets the name of this FontFamily.
@@ -181,7 +210,7 @@ namespace PhWidgets
 
 			A `std::string` that represents the name of this FontFamily.
 		*/
-        const std::string Name;
+        const std::string &Name;
     };
 
     //! Defines a particular format for text, including font face, size, and style attributes. This class cannot be inherited.
@@ -199,85 +228,90 @@ namespace PhWidgets
 		*/
         FontDef(const FontDef &other, typedefs::font_style_bitmask fstyle);
 
-        // (constructor) 
-		/*
-			Initializes a new FontDef using a specified size.
-		*/
-        //FontDef(FontFamily, float); 	
-
-        // (constructor) 
-		/*
+        //! (constructor) 
+		/*!
 			Initializes a new FontDef using a specified size and style.
+            @param[in] ffamily The FontFamily of the new FontDef.
+            @param[in] size The em-size, in points, of the new font.
+            @param[in] fstyle The FontStyle::eFontStyle combination of flags.
 		*/
-        //FontDef(FontFamily, float, FontStyle::eFontStyle fstyle);
+        FontDef(FontFamily ffamily, std::uint32_t size, typedefs::font_style_bitmask fstyle = FontStyle::Regular);
 
-        // (constructor) 
-		/*
-			Initializes a new FontDef using a specified size, style, and unit.
-		*/
         //FontDef(FontFamily, float, FontStyle, GraphicsUnit);		
+        //FontDef(FontFamily, float, GraphicsUnit) 	       
 
-        //FontDef(FontFamily, float, GraphicsUnit) 	
-
-        //! (constructor) 
+        //! (copy constructor) 
 		/*!
-			Initializes a new FontDef using a specified size.
-			@param[in] family_name A string representation of the FontFamily for the new FontDef.
-            @param[in] fsize The em-size of the new font
+			Constructs a FontDef by copy.
+			@param[in] other another FontDef to be used as source to initialize the elements of the container with.
 		*/
-        FontDef(std::string family_name, float fsize);
-
-        //! (constructor) 
+		FontDef(const FontDef &other);
+		
+		//! Assigns value in FontDef 
 		/*!
-			Initializes a new FontDef using a specified size and style.
-			@param[in] family_name A string representation of the FontFamily for the new FontDef.
-            @param[in] fsize The em-size of the new font
-            @param[in] fstyle   The FontStyle::eFontStyle to apply to the new Font. 
-                                Multiple values of the FontStyle::eFontStyle enumeration can be combined with the OR operator.
+			Replaces the contents of the FontDef.
+			@param[in] other another FontDef to use as data source.
 		*/
-        FontDef(std::string family_name, float fsize, typedefs::font_style_bitmask fstyle);
-        
+		FontDef &operator=(const FontDef &other);
+
+		//! Compares FontDefs
+		/*!
+			Compares the FontDefs by their Photon FontID.
+			@param[in] other FontDef whose contents to compare.
+		*/
+		bool operator==(const FontDef &other) const;
+
+		//! Compares FontDefs
+		/*!
+			Compares the FontDefs by their Photon FontID.
+			@param[in] other FontDef whose contents to compare.
+		*/
+		bool operator<(const FontDef &other) const;
 
         //! @name Properties
 		//! Properties are used to simplify use of fonts.
 		//@{
 
+        //! Gets a value that indicates whether this FontDef is bold.
+        const bool &Bold;
+        
+        //! Gets the FontFamily associated with this FontDef.
+        const FontFamily &Family;
+
+        //! Gets the line spacing of this FontDef.
+        const std::uint32_t &Height;
+
+        //! Gets a value that indicates whether this FontDef has the italic style applied.
+        const std::uint32_t &Italic;
+
         //! Gets the face name of this FontDef.
         const std::string &Name;
+
+        //! Gets the em-size, in points, of this FontDef.
+        const std::uint32_t &Size;
         
-        /*Bold 	
+        // Gets the name of the FontDef originally specified.
+        //const std::string &OriginalFontDefName;
 
-        Gets a value that indicates whether this FontDef is bold.
-        FontFamily 	
+        /*
+        
 
-        Gets the FontFamily associated with this FontDef.
-        GdiCharSet 	
+        // Gets a byte value that specifies the GDI character set that this FontDef uses.
+        // GdiCharSet 	
 
-        Gets a byte value that specifies the GDI character set that this FontDef uses.
-        GdiVerticalFontDef 	
-
-        Gets a Boolean value that indicates whether this FontDef is derived from a GDI vertical FontDef.
-        Height 	
-
-        Gets the line spacing of this FontDef.
-        IsSystemFontDef 	
-
-        Gets a value indicating whether the FontDef is a member of SystemFontDefs.
-        Italic 	
-
-        Gets a value that indicates whether this FontDef has the italic style applied.
-        Name 	
+        // Gets a Boolean value that indicates whether this FontDef is derived from a GDI vertical FontDef.
+        // GdiVerticalFontDef 	
 
         
-        OriginalFontDefName 	
+        // Gets a value indicating whether the FontDef is a member of SystemFontDefs.
+        // IsSystemFontDef 		
 
-        Gets the name of the FontDef originally specified.
-        Size 	
+        	
 
         Gets the em-size of this FontDef measured in the units specified by the Unit property.
         SizeInPoints 	
 
-        Gets the em-size, in points, of this FontDef.
+        
         Strikeout 	
 
         Gets a value that indicates whether this FontDef specifies a horizontal line through the FontDef.
@@ -305,6 +339,9 @@ namespace PhWidgets
         
         font_id_type _fid;
         std::string _fname;
+        bool _bold, _italic;
+        std::uint32_t _height, _size, _sizeInPoints;
+        FontFamily _ffamily;
     };
 } // PhWidgets
 
