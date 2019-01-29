@@ -187,7 +187,6 @@ namespace PhWidgets
     //! Defines a particular format for text, including font face, size, and style attributes. This class cannot be inherited.
     class FontDef
     {
-        FontFamily _ffamily;
     public:
 
         //! (constructor) 
@@ -196,6 +195,7 @@ namespace PhWidgets
 			@param[in] other The existing FontDef from which to create the new FontDef.
             @param[in] fstyle   The FontStyle::eFontStyle to apply to the new Font. 
                                 Multiple values of the FontStyle::eFontStyle enumeration can be combined with the OR operator.
+            @throw std::invalid_argument
 		*/
         FontDef(const FontDef &other, typedefs::font_style_bitmask fstyle);
 
@@ -243,7 +243,7 @@ namespace PhWidgets
 		//@{
 
         //! Gets the face name of this FontDef.
-        std::string Name;
+        const std::string &Name;
         
         /*Bold 	
 
@@ -300,7 +300,11 @@ namespace PhWidgets
         Returns the line spacing, in pixels, of this FontDef.
         GetHeight() 	*/
 
+    private:
+        typedef FontID* font_id_type;
         
+        font_id_type _fid;
+        std::string _fname;
     };
 } // PhWidgets
 
