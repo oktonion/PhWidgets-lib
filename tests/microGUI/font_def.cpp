@@ -18,4 +18,17 @@ TEST_CASE("Testing FontDef class"){
     CHECK(fd.Italic == false);
     CHECK(fd.Bold == false);
     CHECK(fd.Family == GenericFontFamilies::Serif);
+
+    SUBCASE("Testing copy of FontDef"){
+
+        FontDef fd2 = fd;
+
+        CHECK("" != fd2.Name);
+        CHECK(10 == fd2.Size);
+        CHECK(false == fd2.Italic);
+        CHECK(false = fd2.Bold);
+        CHECK(GenericFontFamilies::Serif == fd2.Family);
+        CHECK(fd2 == fd);
+        CHECK(fd < fd2 == false);
+    }
 }
