@@ -147,7 +147,8 @@ static FontDetails FindFontFamily(std::string name, font_families_collection_typ
 
 FontFamily::FontFamily(GenericFontFamilies::eGenericFontFamilies ffamily):
     _fdetails(GetGenericFontFamily()[ffamily]),
-    Name(_fdetails.desc)
+    _name(_fdetails.desc),
+    Name(_name)
 {
     if(Name.length() == 0)
         throw(std::invalid_argument("FontFamily::Name is an empty string (\"\")."));
@@ -155,7 +156,8 @@ FontFamily::FontFamily(GenericFontFamilies::eGenericFontFamilies ffamily):
 
 FontFamily::FontFamily(const FontDetails &fdetails):
     _fdetails(fdetails),
-    Name(_fdetails.desc)
+    _name(_fdetails.desc),
+    Name(_name)
 {
     if(Name.length() == 0)
         throw(std::invalid_argument("FontFamily::Name is an empty string (\"\")."));
@@ -163,14 +165,44 @@ FontFamily::FontFamily(const FontDetails &fdetails):
 
 FontFamily::FontFamily(std::string name):
     _fdetails(FindFontFamily(name, InstalledFontCollection::Families)),
-    Name(_fdetails.desc)
+    _name(_fdetails.desc),
+    Name(_name)
 {
 }
 
 FontFamily::FontFamily(std::string name, const FontCollection &fcollection):
     _fdetails(FindFontFamily(name, FontCollection::Families)),
-    Name(_fdetails.desc)
+    _name(_fdetails.desc),
+    Name(_name)
 {
+}
+
+FontFamily::FontFamily(const FontFamily &other):
+    _fdetails(other._fdetails),
+    _name(other._name),
+    Name(_name)
+{
+
+}
+
+FontFamily & FontFamily::operator=(const FontFamily &other)
+{
+    _fdetails = other._fdetails;
+    _name = other._name;
+
+    return *this;
+}
+
+bool FontFamily::operator==(const FontFamily &other) const
+{
+    using namespace std;
+    return (0 == memcmp(&_fdetails, &other._fdetails, sizeof(FontDetails)));
+}
+
+bool FontFamily::operator<(const FontFamily &other) const
+{
+    using namespace std;
+    return memcmp(&_fdetails, &other._fdetails, sizeof(FontDetails));
 }
 
 int FontFamily::GetLineSpacing(typedefs::font_style_bitmask fstyle) const
@@ -189,7 +221,13 @@ FontFamily::operator FontDetails() const
 }
 
 FontDef::FontDef(const FontDef &other, typedefs::font_style_bitmask fstyle):
-    Name(_fname)
+    Bold(_bold),
+    Family(_ffamily),
+    Height(_height),
+    Italic(_italic),
+    Name(_fname),
+    Size(_size),
+    _ffamily(other._ffamily)
 {
     // get other fonts pretty name:
     const char *fdesc = PfFontDescription(other._fid);
@@ -211,7 +249,7 @@ FontDef::FontDef(const FontDef &other, typedefs::font_style_bitmask fstyle):
         throw(std::invalid_argument(std::string(fdesc) + " is not a valid font description."));
 
     _fid = fid;
-    _fname = PfFontDescription(_fid);
+    _fname = PfConvertFontID(_fid);
 
     //const char *fname = PfConvertFontID(&other._fid);
     //const char *fstem = PfFontBaseStem(&other._fid);
@@ -219,4 +257,62 @@ FontDef::FontDef(const FontDef &other, typedefs::font_style_bitmask fstyle):
     // PfDecomposeStemToID // These functions convert a complete font stem, such as helv12b, to a FontID representation.
     // PfFontFlags // These functions get the flags associated with the font ID pointed to by ptsID.
     // PfConvertFontID // These functions convert the font ID pointed to by ptsID into a font name. 
+}
+
+FontDef::FontDef(FontFamily ffamily, std::uint32_t fpoint_size, typedefs::font_style_bitmask fstyle):
+    Bold(_bold),
+    Family(_ffamily),
+    Height(_height),
+    Italic(_italic),
+    Name(_fname),
+    Size(_size),
+    _ffamily(ffamily)
+{
+    const char *fdesc = ffamily.Name.c_str();
+
+    // get new font ID
+    font_id_type fid = PfFindFont(fdesc, fstyle, fpoint_size);
+    if(NULL == fid)
+        throw(std::invalid_argument(std::string(fdesc) + " is not a valid font family description."));
+    
+    _fid = fid;
+    _fname = PfConvertFontID(_fid);
+}
+
+FontDef::FontDef(const FontDef &other):
+    Bold(_bold),
+    Family(_ffamily),
+    Height(_height),
+    Italic(_italic),
+    Name(_fname),
+    Size(_size),
+     _fid(other._fid),
+    _ffamily(other._ffamily)
+{
+}
+
+FontDef & FontDef::operator=(const FontDef &other)
+{
+    _fid = other._fid;
+
+    _bold = other._bold;
+    _ffamily = other._ffamily;
+    _height = other._height;
+    _italic = other._italic;
+    _fname = other._fname;
+    _size = other._size;
+
+    return *this;
+}
+
+bool FontDef::operator==(const FontDef &other) const
+{
+    return 
+        _fid == other._fid;
+}
+
+bool FontDef::operator<(const FontDef &other) const
+{   
+    return 
+        _fid < other._fid;
 }
