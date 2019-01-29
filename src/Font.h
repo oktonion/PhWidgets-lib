@@ -294,7 +294,7 @@ namespace PhWidgets
         const std::uint32_t &Height;
 
         //! Gets a value that indicates whether this FontDef has the italic style applied.
-        const std::uint32_t &Italic;
+        const bool &Italic;
 
         //! Gets the face name of this FontDef.
         const std::string &Name;
