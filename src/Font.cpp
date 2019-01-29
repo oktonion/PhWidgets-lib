@@ -372,3 +372,21 @@ FontDef::operator const font_id_type() const
 {
     return _fid;
 }
+
+PhWidgets::typedefs::font_style_bitmask operator|(const PhWidgets::FontStyle::eFontStyle &flag1, const PhWidgets::FontStyle::eFontStyle &flag2)
+{
+    PhWidgets::typedefs::font_style_bitmask bm(flag1);
+	return bm | flag2;
+}
+
+PhWidgets::typedefs::font_style_bitmask operator&(const PhWidgets::FontStyle::eFontStyle &flag1, const PhWidgets::FontStyle::eFontStyle &flag2)
+{
+	PhWidgets::typedefs::font_style_bitmask bm(flag1);
+	return bm & flag2;
+}
+
+PhWidgets::typedefs::font_style_bitmask operator^(const PhWidgets::FontStyle::eFontStyle &flag1, const PhWidgets::FontStyle::eFontStyle &flag2)
+{
+	PhWidgets::typedefs::font_style_bitmask bm(flag1);
+	return bm ^ flag2;
+}
