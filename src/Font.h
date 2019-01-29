@@ -228,9 +228,13 @@ namespace PhWidgets
 		*/
         FontDef(std::string family_name, float fsize, typedefs::font_style_bitmask fstyle);
         
+
         //! @name Properties
 		//! Properties are used to simplify use of fonts.
 		//@{
+
+        //! Gets the face name of this FontDef.
+        std::string Name;
         
         /*Bold 	
 
@@ -255,7 +259,7 @@ namespace PhWidgets
         Gets a value that indicates whether this FontDef has the italic style applied.
         Name 	
 
-        Gets the face name of this FontDef.
+        
         OriginalFontDefName 	
 
         Gets the name of the FontDef originally specified.

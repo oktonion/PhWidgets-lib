@@ -6,6 +6,7 @@
 #include <string>
 
 #include "./Basic.h"
+#include "./Font.h"
 
 
 namespace PhWidgets
@@ -205,7 +206,10 @@ namespace PhWidgets
 		resource_type WidgetResourcesSingleton;
 
 		std::string getCaption() const;
-		void setCaption(std::string caption);
+		void setCaption(std::string);
+
+		FontDef getFont() const;
+		void setFont(FontDef);
 
 		virtual void check();
 						
@@ -220,6 +224,8 @@ namespace PhWidgets
 		Label &operator=(const Label &rhs);
 		
 		property<std::string>::bind<Label, &Label::getCaption, &Label::setCaption> Caption;
+
+		property<FontDef>::bind<Label, &Label::getFont, &Label::setFont> Font;
 
 		phproperty<PgColor_t>::bind<Label, ArgColor::eArgColor, Arguments::balloon_color> BalloonColor;
 	};
