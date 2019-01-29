@@ -7,6 +7,7 @@
 
 #include "./microGUI/font_collection.cpp"
 #include "./microGUI/font_family.cpp"
+#include "./microGUI/font_def.cpp"
 #include "./microGUI/prop_allowdrop.cpp"
 #include "./microGUI/prop_anchor.cpp"
 #include "./microGUI/prop_basic_size.cpp"
