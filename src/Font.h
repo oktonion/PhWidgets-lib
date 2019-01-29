@@ -118,8 +118,7 @@ namespace PhWidgets
     class PrivateFontCollection;
 
     //! Defines a group of type faces having a similar basic design and certain variations in styles. This class cannot be inherited.
-    class FontFamily:
-        public GenericFontFamilies
+    class FontFamily
     {
     public:
         //! (constructor) 
@@ -129,6 +128,14 @@ namespace PhWidgets
             @throw std::invalid_argument
 		*/
         FontFamily(GenericFontFamilies::eGenericFontFamilies ffamily);
+
+        //! (constructor) 
+		/*!
+			Initializes a new FontFamily from the specified photon FontDetails.
+			@param[in] fdetails The FontDetails from which to create the new FontFamily.
+            @throw std::invalid_argument
+		*/
+        FontFamily(const FontDetails &fdetails);
 
         //! (constructor) 
 		/*!
@@ -160,8 +167,10 @@ namespace PhWidgets
 		*/
         bool IsStyleAvailable(typedefs::font_style_bitmask fstyle) const;
 
+        operator FontDetails() const;
+
     private:
-        typedefs::font_style_bitmask _fstyle;
+        FontDetails _fdetails;
         
     public:
         //! Gets the name of this FontFamily.
