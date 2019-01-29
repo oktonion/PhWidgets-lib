@@ -1,7 +1,7 @@
 #include "Font.h"
 
 
-
+#include <exception>
 #include <cctype>
 #include <map>
 #include <algorithm>
@@ -189,7 +189,34 @@ FontFamily::operator FontDetails() const
 }
 
 FontDef::FontDef(const FontDef &other, typedefs::font_style_bitmask fstyle):
-    _ffamily(other._ffamily)
+    Name(_fname)
 {
+    // get other fonts pretty name:
+    const char *fdesc = PfFontDescription(other._fid);
 
+    // get other fonts flags:
+    //std::uint32_t fflags = PfFontFlags(&other._fid);
+
+    // get other fonts point size:
+    std::uint32_t fpoint_size = PfFontSize(other._fid);
+
+    // generate new font name with new flags:
+    //char fname_buf[MAX_FONT_TAG]; 
+    //PfGenerateFontName(fdesc, fstyle, fpoint_size, fname_buf);
+
+    // get new font ID
+    font_id_type fid = PfFindFont(fdesc, fstyle, fpoint_size);
+
+    if(NULL == fid)
+        throw(std::invalid_argument(std::string(fdesc) + " is not a valid font description."));
+
+    _fid = fid;
+    _fname = PfFontDescription(_fid);
+
+    //const char *fname = PfConvertFontID(&other._fid);
+    //const char *fstem = PfFontBaseStem(&other._fid);
+
+    // PfDecomposeStemToID // These functions convert a complete font stem, such as helv12b, to a FontID representation.
+    // PfFontFlags // These functions get the flags associated with the font ID pointed to by ptsID.
+    // PfConvertFontID // These functions convert the font ID pointed to by ptsID into a font name. 
 }
