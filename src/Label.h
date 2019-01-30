@@ -223,11 +223,36 @@ namespace PhWidgets
 
 		Label &operator=(const Label &rhs);
 		
+		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
+		//@{
 		property<std::string>::bind<Label, &Label::getCaption, &Label::setCaption> Caption;
 
+		//! Gets or sets the font of the text displayed by the widget.
+		/*!
+			### Property Value ### 
+			
+			> FontDef
+
+			The FontDef to apply to the text displayed by the widget. The default is the value of the DefaultFont property.
+			
+			@remark
+			The Font property is an ambient property. 
+			An ambient property is a widget property that, if not set, is retrieved from the parent widget. 
+			For example, a Button will have the same BackColor as its parent Form by default. 
+			@par
+			Because the Font is immutable (meaning that you cannot adjust any of its properties), 
+			you can only assign the Font property a new FontDef. However, you can base the new font on the existing font. 
+
+			@see
+			- FontChanged
+			- OnFontChanged(PtCallbackInfo_t*)
+			- FontDef
+		*/
 		property<FontDef>::bind<Label, &Label::getFont, &Label::setFont> Font;
 
 		phproperty<PgColor_t>::bind<Label, ArgColor::eArgColor, Arguments::balloon_color> BalloonColor;
+		//@}
 	};
 
 }
