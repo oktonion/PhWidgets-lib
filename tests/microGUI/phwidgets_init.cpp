@@ -8,6 +8,7 @@
 #include <vector>
 
 #include <Widget.h>
+#include <Button.h>
 
 namespace PhWidgets
 {
@@ -39,6 +40,12 @@ TEST_CASE("Testing photon microGUI library initialization"){
     REQUIRE(ptwidget_ptr);
 
     REQUIRE_NOTHROW_MESSAGE(PhWidgets::Widget w(ptwidget_ptr), "Constructor of Widget from PtWidget_t failed");
+
+	ptwidget_ptr = PhWidgetsCreateWidget<&PtButton>(ptwidget_ptr, 0, NULL);
+
+    REQUIRE(ptwidget_ptr);
+
+    REQUIRE_NOTHROW_MESSAGE(PhWidgets::Button b(ptwidget_ptr), "Constructor of Button from PtWidget_t failed");
 }
 
 #endif // PHWIDGETS_INIT_TEST

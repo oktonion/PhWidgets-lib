@@ -7,11 +7,22 @@
 
 
 TEST_CASE("Testing Widget::Cursor property"){
-    REQUIRE(PhWidgetsGetWidget<&PtWindow>());
 
     using namespace PhWidgets;
     
-    Widget widget(PhWidgetsGetWidget<&PtWindow>());
-    
-    CHECK(widget.Cursor() == Cursors::Default);
+    SUBCASE("Windows Cursor test"){
+        REQUIRE(PhWidgetsGetWidget<&PtWindow>());
+
+        Widget widget(PhWidgetsGetWidget<&PtWindow>());
+        
+        CHECK(widget.Cursor() == Cursors::None);
+    }
+
+    SUBCASE("Button Cursor test"){
+        REQUIRE(PhWidgetsGetWidget<&PtButton>());
+        
+        Button button(PhWidgetsGetWidget<&PtButton>());
+        
+        CHECK(button.Cursor() == Cursors::None);
+    }
 }
