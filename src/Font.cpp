@@ -202,6 +202,11 @@ bool FontFamily::operator==(const FontFamily &other) const
     return (0 == memcmp(&_fdetails, &other._fdetails, sizeof(FontDetails)));
 }
 
+bool FontFamily::operator!=(const FontFamily &other) const
+{
+    return !(*this == other);
+}
+
 bool FontFamily::operator<(const FontFamily &other) const
 {
     using namespace std;
@@ -362,6 +367,11 @@ bool FontDef::operator==(const FontDef &other) const
         _fid == other._fid;
 }
 
+bool FontDef::operator!=(const FontDef &other) const
+{
+    return !(*this == other);
+}
+
 bool FontDef::operator<(const FontDef &other) const
 {   
     return 
@@ -371,6 +381,24 @@ bool FontDef::operator<(const FontDef &other) const
 FontDef::operator const font_id_type() const
 {
     return _fid;
+}
+
+namespace PhWidgets
+{
+    bool operator==(const GenericFontFamilies::eGenericFontFamilies &lhs, const FontFamily &rhs)
+    {
+        return rhs == lhs;
+    }
+
+    bool operator!=(const GenericFontFamilies::eGenericFontFamilies &lhs, const FontFamily &rhs)
+    {
+        return rhs != lhs;
+    }
+
+    bool operator<(const GenericFontFamilies::eGenericFontFamilies &lhs, const FontFamily &rhs)
+    {
+        return FontFamily(lhs) < rhs;
+    }
 }
 
 PhWidgets::typedefs::font_style_bitmask operator|(const PhWidgets::FontStyle::eFontStyle &flag1, const PhWidgets::FontStyle::eFontStyle &flag2)

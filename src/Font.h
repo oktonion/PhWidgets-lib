@@ -175,6 +175,13 @@ namespace PhWidgets
 		*/
 		bool operator==(const FontFamily &other) const;
 
+        //! Compares FontFamilys
+		/*!
+			Compares the FontFamilys by their Photon FontDetails.
+			@param[in] other FontFamily whose contents to compare.
+		*/
+		bool operator!=(const FontFamily &other) const;
+
 		//! Compares FontFamilys
 		/*!
 			Compares the FontFamilys by their Photon FontDetails.
@@ -269,6 +276,13 @@ namespace PhWidgets
 			@param[in] other FontDef whose contents to compare.
 		*/
 		bool operator==(const FontDef &other) const;
+        
+        //! Compares FontDefs
+		/*!
+			Compares the FontDefs by their Photon FontID.
+			@param[in] other FontDef whose contents to compare.
+		*/
+		bool operator!=(const FontDef &other) const;
 
 		//! Compares FontDefs
 		/*!
@@ -354,6 +368,10 @@ namespace PhWidgets
         std::uint32_t _height, _size;
         FontFamily _ffamily;
     };
+
+    bool operator==(const GenericFontFamilies::eGenericFontFamilies &lhs, const FontFamily &rhs);
+    bool operator!=(const GenericFontFamilies::eGenericFontFamilies &lhs, const FontFamily &rhs);
+    bool operator<(const GenericFontFamilies::eGenericFontFamilies &lhs, const FontFamily &rhs);
 } // PhWidgets
 
 PhWidgets::typedefs::font_style_bitmask operator|(const PhWidgets::FontStyle::eFontStyle &flag1, const PhWidgets::FontStyle::eFontStyle &flag2);
