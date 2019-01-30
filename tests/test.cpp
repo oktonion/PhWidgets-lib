@@ -13,3 +13,6 @@
 #include "./microGUI/prop_basic_size.cpp"
 #include "./microGUI/prop_bounds.cpp"
 #include "./microGUI/prop_canfocus.cpp"
+#include "./microGUI/prop_canselect.cpp"
+#include "./microGUI/prop_containsfocus.cpp"
+#include "./microGUI/prop_cursor.cpp"
