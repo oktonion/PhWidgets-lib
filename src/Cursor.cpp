@@ -77,6 +77,11 @@ namespace PhWidgets
         return false;
     }
 
+    bool CursorDef::operator!=(const CursorDef &other) const
+    {
+        return !(*this == other);
+    }
+
     bool CursorDef::operator<(const CursorDef &other) const
     {
         if(&other == this)
@@ -97,4 +102,19 @@ namespace PhWidgets
         return _def;
     }
 
+
+    bool operator==(const Cursors::eCursors &lhs, const CursorDef &rhs)
+    {
+        return rhs == lhs;
+    }
+
+    bool operator!=(const Cursors::eCursors &lhs, const CursorDef &rhs)
+    {
+        return rhs != lhs;
+    }
+
+    bool operator<(const Cursors::eCursors &lhs, const CursorDef &rhs)
+    {
+        return CursorDef(lhs) < rhs;
+    }
 }
