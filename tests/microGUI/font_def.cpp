@@ -26,10 +26,10 @@ TEST_CASE("Testing FontDef class"){
         CHECK("" != fd2.Name);
         CHECK(10 == fd2.Size);
         CHECK(false == fd2.Italic);
-        CHECK(false = fd2.Bold);
+        CHECK(false == fd2.Bold);
         CHECK(GenericFontFamilies::Serif == fd2.Family);
         CHECK(fd2 == fd);
-        CHECK(fd < fd2 == false);
+        CHECK((fd < fd2) == false);
     }
 
     SUBCASE("Testing other FontDef"){
@@ -39,9 +39,9 @@ TEST_CASE("Testing FontDef class"){
         CHECK("" != fd2.Name);
         CHECK(13 == fd2.Size);
         CHECK(true == fd2.Italic);
-        CHECK(true = fd2.Bold);
+        CHECK(true == fd2.Bold);
         CHECK(GenericFontFamilies::Serif == fd2.Family);
         CHECK(fd2 != fd);
-        CHECK(fd < fd2 == true);
+        CHECK((fd < fd2) == true);
     }
 }
