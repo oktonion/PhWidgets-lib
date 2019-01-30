@@ -241,8 +241,8 @@ Widget::Widget(PtWidget_t* wdg):
 
 }
 
-Widget::Widget(const Widget &rhs):
-	_abn(ApName(rhs.widget())),
+Widget::Widget(const Widget &other):
+	_abn(ApName(other.widget())),
 	_widget(nullptr),
 	resource(this),
 	//properties:
@@ -282,31 +282,36 @@ Widget::Widget(const Widget &rhs):
 {
 }
 
-Widget &Widget::operator=(const Widget &rhs)
+Widget &Widget::operator=(const Widget &other)
 {
-	if(&rhs != this)
+	if(&other != this)
 	{	
-		_abn = ApName(rhs.widget());
+		_abn = ApName(other.widget());
 		_widget = nullptr;
 	}
 	
 	return *this;
 }
 
-bool Widget::operator==(const Widget &rhs) const
+bool Widget::operator==(const Widget &other) const
 {
-	if(&rhs == this)
+	if(&other == this)
 		return true;
 	
-	return widget() == rhs.widget();
+	return widget() == other.widget();
 }
 
-bool Widget::operator<(const Widget &rhs) const
+bool Widget::operator!=(const Widget &other) const
 {
-	if(&rhs == this)
+	return !(*this == other);
+}
+
+bool Widget::operator<(const Widget &other) const
+{
+	if(&other == this)
 		return false;
 	
-	return std::less<PtWidget_t*>()(widget(), rhs.widget());
+	return std::less<PtWidget_t*>()(widget(), other.widget());
 }
 
 Widget::operator PtWidget_t*()
