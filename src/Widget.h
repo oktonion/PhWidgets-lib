@@ -970,6 +970,8 @@ namespace PhWidgets
 
 		bool getFocused() const;
 
+		bool hasChildren() const;
+
 		void setLeft(short);
 		short getLeft() const;
 
@@ -1376,7 +1378,7 @@ namespace PhWidgets
 			@see 
 			- Container
 		*/
-		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled>							Enabled;
+		property<bool>::bind<Widget, &Widget::getEnabled, &Widget::setEnabled> Enabled;
 
 		//! Gets a value indicating whether the widget has input focus.
 		/*!
@@ -1393,6 +1395,36 @@ namespace PhWidgets
 			- ContainsFocus
 		*/
 		property<bool, property<>::ro>::bind<Widget, &Widget::getFocused> Focused;
+
+		//! Gets a value indicating whether the widget contains one or more child widgets.
+		/*!
+			### Property Value ### 
+			
+			> **bool**
+
+			`true` if the widget contains one or more child widgets; otherwise, `false`.
+
+			@see 
+			- Widgets
+		*/
+		property<bool, property<>::ro>::bind<Widget, &Widget::hasChildren> HasChildren;
+
+		//! Gets or sets the height of the widget.
+		/*!
+			### Property Value ### 
+			
+			> **unsigned short**
+
+			The height of the widget in pixels.
+
+			@remark
+			Changes made to the Height and Top property values cause the Bottom property value of the widget to change.
+
+			@see 
+			- Top
+			- Bottom
+		*/
+		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::height> Height;
 
 		
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.
@@ -1511,7 +1543,6 @@ namespace PhWidgets
 		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation>					Location; //!< Gets or sets the coordinates of the upper-left corner of the widget relative to the upper-left corner of its parent widget.
 
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width>		Width; //!< Gets or sets the width of the widget.
-		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::height>		Height; //!< Gets or sets the height of the widget.
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::bevel_width>	BevelWidth; //!< Gets or sets the bevel width of the widget.
 		phproperty<PhDim_t>::bind<Widget, Arguments::eArgDim, Arguments::dim>							Size; //!< Gets or sets the size of the widget.
 		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos>						Position; //!< Gets or sets the absolute coordinates of the upper-left corner of the widget.
