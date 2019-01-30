@@ -105,6 +105,13 @@ namespace PhWidgets
 		*/
 		bool operator==(const CursorDef &other) const;
 
+        //! Compares Cursors
+		/*!
+			Compares the Cursors by their definitions.
+			@param[in] other Cursor whose contents to compare.
+		*/
+		bool operator!=(const CursorDef &other) const;
+
 		//! Compares Cursors
 		/*!
 			Compares the Cursors by their definitions.
@@ -120,6 +127,10 @@ namespace PhWidgets
 
         friend class Widget;
     };
+
+    bool operator==(const Cursors::eCursors &lhs, const CursorDef &rhs);
+    bool operator!=(const Cursors::eCursors &lhs, const CursorDef &rhs);
+    bool operator<(const Cursors::eCursors &lhs, const CursorDef &rhs);
 } // namespace PhWidgets
 
 

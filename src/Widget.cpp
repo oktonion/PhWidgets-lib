@@ -131,13 +131,14 @@ Widget::Widget(int abn):
 	Cursor(this),
 	Enabled(this),
 	Focused(this),
+	HasChildren(this),
+	Height(this),
 	HelpTopic(this),
 	Left(this),
 	Tag(this),
 	Top(this),
 	Location(this),
 	Width(this),
-	Height(this),
 	BevelWidth(this),
 	Size(this),
 	Position(this),
@@ -175,13 +176,14 @@ Widget::Widget(PtWidget_t* wdg):
 	Cursor(this),
 	Enabled(this),
 	Focused(this),
+	HasChildren(this),
+	Height(this),
 	HelpTopic(this),
 	Left(this),
 	Tag(this),
 	Top(this),
 	Location(this),
 	Width(this),
-	Height(this),
 	BevelWidth(this),
 	Size(this),
 	Position(this),
@@ -256,13 +258,14 @@ Widget::Widget(const Widget &other):
 	Cursor(this),
 	Enabled(this),
 	Focused(this),
+	HasChildren(this),
+	Height(this),
 	HelpTopic(this),
 	Left(this),
 	Tag(this),
 	Top(this),
 	Location(this),
 	Width(this),
-	Height(this),
 	BevelWidth(this),
 	Size(this),
 	Position(this),
@@ -515,6 +518,11 @@ bool Widget::getContainsFocus() const
 bool Widget::getFocused() const
 {
 	return PtIsFocused( widget() ) == 2;
+}
+
+bool Widget::hasChildren() const
+{
+	return (PtWidgetChildFront(widget()) != NULL);
 }
 
 bool Widget::Focus()
