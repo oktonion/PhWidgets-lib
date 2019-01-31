@@ -15,7 +15,9 @@ TEST_CASE("Testing Widget::Cursor property"){
 
         Widget widget(PhWidgetsGetWidget<&PtWindow>());
         
-        CHECK(widget.Cursor() == Cursors::Inherit);
+        CHECK(widget.Cursor == Cursors::Inherit);
+        widget.Cursor = Cursors::Finger;
+        CHECK(Cursors::Finger == widget.Cursor);
     }
 
     SUBCASE("Button Cursor test"){
@@ -23,6 +25,8 @@ TEST_CASE("Testing Widget::Cursor property"){
         
         Button button(PhWidgetsGetWidget<&PtButton>());
         
-        CHECK(button.Cursor() == Cursors::None);
+        CHECK(button.Cursor == Cursors::Inherit);
+        button.Cursor = Cursors::Finger;
+        CHECK(Cursors::Finger == button.Cursor);
     }
 }
