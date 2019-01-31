@@ -58,7 +58,14 @@ PtWidget_t *Widget::widget() const
 		PtWidget_t *instance = ApGetInstance(_widget);
 		if(nullptr == instance)
 			throw(std::mystd::exception("Widget::widget: invalid widget pointer"));
-		return ApGetWidgetPtr(instance, ApName(_widget));
+		int abn = ApName(_widget);
+		if(-1 != abn)
+			return ApGetWidgetPtr(instance, abn);
+		else if(ValidWidgets().end() != ValidWidgets().find(_widget))
+		{
+			return _widget;
+		}
+		
 	}
 
 	static std::map<PtWidget_t*, int> &abws = ABW();
