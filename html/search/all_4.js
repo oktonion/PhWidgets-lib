@@ -80,6 +80,7 @@ var searchData=
   ['do_5fwiden',['do_widen',['http://en.cppreference.com/w/cpp/locale/ctype/widen.html',1,'std::ctype_byname::do_widen()'],['http://en.cppreference.com/w/cpp/locale/ctype/widen.html',1,'std::ctype::do_widen()']]],
   ['domain_5ferror',['domain_error',['http://en.cppreference.com/w/cpp/error/domain_error.html',1,'std::domain_error'],['http://en.cppreference.com/w/cpp/error/domain_error.html',1,'std::domain_error::domain_error()']]],
   ['dont',['Dont',['../struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629caffc28c7e0512dad67ec810c821115ceb',1,'PhWidgets::Cursors']]],
+  ['doubleunderline',['DoubleUnderline',['../struct_ph_widgets_1_1_font_style_a0de674057aece715530576da9cc155e3.html#a0de674057aece715530576da9cc155e3ab1d2c897515be4f782c11ce6cb9c6d8d',1,'PhWidgets::FontStyle']]],
   ['down',['Down',['../struct_ph_widgets_1_1_hotkeys_ae32768126b19c5dd67c8616ceefaf30e.html#ae32768126b19c5dd67c8616ceefaf30ea0c80adfa6a5062a7761cf41de0b4ee7e',1,'PhWidgets::Hotkeys']]],
   ['drag',['Drag',['../struct_ph_widgets_1_1_events_ac3aa0cbda0ae3cb098935a22b549e23d.html#ac3aa0cbda0ae3cb098935a22b549e23da142d04925f3ceb4fec01fb94b514eec8',1,'PhWidgets::Events']]],
   ['dragbackdiag',['DragBackDiag',['../struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629ca41824ef3811242208ade7a4d6ed86441',1,'PhWidgets::Cursors']]],

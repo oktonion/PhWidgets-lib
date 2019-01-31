@@ -26,6 +26,8 @@ var searchData=
   ['eevents',['eEvents',['../struct_ph_widgets_1_1_events_ac3aa0cbda0ae3cb098935a22b549e23d.html#ac3aa0cbda0ae3cb098935a22b549e23d',1,'PhWidgets::Events']]],
   ['eexflags',['eExFlags',['../struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended_a4dd82ae5cf2d69c4b8c640bfa0be7dcc.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc',1,'PhWidgets::Widget::ThisFlags::Extended']]],
   ['eflags',['eFlags',['../struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbd',1,'PhWidgets::Widget::ThisFlags']]],
+  ['efontstyle',['eFontStyle',['../struct_ph_widgets_1_1_font_style_a0de674057aece715530576da9cc155e3.html#a0de674057aece715530576da9cc155e3',1,'PhWidgets::FontStyle']]],
+  ['egenericfontfamilies',['eGenericFontFamilies',['../struct_ph_widgets_1_1_generic_font_families_a13f41893ab9cb80ae81b17f9df2c6938.html#a13f41893ab9cb80ae81b17f9df2c6938',1,'PhWidgets::GenericFontFamilies']]],
   ['ehotkeycallback',['eHotkeyCallback',['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_hotkey_callback_a667f4ad7c41dd1f95a48e127981967db.html#a667f4ad7c41dd1f95a48e127981967db',1,'PhWidgets::Widget::ThisCallbacks::HotkeyCallback']]],
   ['ehotkeys',['eHotkeys',['../struct_ph_widgets_1_1_hotkeys_ae32768126b19c5dd67c8616ceefaf30e.html#ae32768126b19c5dd67c8616ceefaf30e',1,'PhWidgets::Hotkeys']]],
   ['erawcallback',['eRawCallback',['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_raw_callback_a0d3c0b29a907371fcfb4e217b5e45036.html#a0d3c0b29a907371fcfb4e217b5e45036',1,'PhWidgets::Widget::ThisCallbacks::RawCallback']]],

@@ -1,7 +1,10 @@
 var searchData=
 [
+  ['sansserif',['SansSerif',['../struct_ph_widgets_1_1_generic_font_families_a13f41893ab9cb80ae81b17f9df2c6938.html#a13f41893ab9cb80ae81b17f9df2c6938ae785ec33f9c58f82799198317bf9d541',1,'PhWidgets::GenericFontFamilies']]],
+  ['scalable',['Scalable',['../struct_ph_widgets_1_1_font_style_a0de674057aece715530576da9cc155e3.html#a0de674057aece715530576da9cc155e3a051059e3c34f454b4e061f08434d1f80',1,'PhWidgets::FontStyle']]],
   ['selectable',['Selectable',['../struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdabecb7c26561389bf36a463494efdf32b',1,'PhWidgets::Widget::ThisFlags']]],
   ['selectnoredraw',['SelectNoredraw',['../struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdab480b6652ef293688994e5f2e0d45376',1,'PhWidgets::Widget::ThisFlags']]],
+  ['serif',['Serif',['../struct_ph_widgets_1_1_generic_font_families_a13f41893ab9cb80ae81b17f9df2c6938.html#a13f41893ab9cb80ae81b17f9df2c6938a4200fecd7c7b93000aa271f7ef8a5edf',1,'PhWidgets::GenericFontFamilies']]],
   ['service',['Service',['../struct_ph_widgets_1_1_events_ac3aa0cbda0ae3cb098935a22b549e23d.html#ac3aa0cbda0ae3cb098935a22b549e23da6aaf3eb604248c7b7dba28808169f34d',1,'PhWidgets::Events']]],
   ['set',['Set',['../struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda85e156e5ecdefa50bab54b2d40194cf8',1,'PhWidgets::Widget::ThisFlags']]],
   ['sizeall',['SizeAll',['../struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629ca0464dcd94eb6730818ed7dd3340637c8',1,'PhWidgets::Cursors']]],

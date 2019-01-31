@@ -1,7 +1,7 @@
 var searchData=
 [
   ['n',['n',['http://en.cppreference.com/w/cpp/numeric/random/student_t_distribution/n.html',1,'std::student_t_distribution::n()'],['http://en.cppreference.com/w/cpp/numeric/random/chi_squared_distribution/n.html',1,'std::chi_squared_distribution::n()'],['http://en.cppreference.com/w/cpp/numeric/random/fisher_f_distribution/params.html',1,'std::fisher_f_distribution::n()']]],
-  ['name',['name',['http://en.cppreference.com/w/cpp/locale/locale/name.html',1,'std::locale::name()'],['http://en.cppreference.com/w/cpp/error/error_category/name.html',1,'std::error_category::name()'],['http://en.cppreference.com/w/cpp/types/type_info/name.html',1,'std::type_info::name()'],['http://en.cppreference.com/w/cpp/types/type_index/name.html',1,'std::type_index::name()']]],
+  ['name',['name',['http://en.cppreference.com/w/cpp/locale/locale/name.html',1,'std::locale::name()'],['http://en.cppreference.com/w/cpp/error/error_category/name.html',1,'std::error_category::name()'],['http://en.cppreference.com/w/cpp/types/type_info/name.html',1,'std::type_info::name()'],['http://en.cppreference.com/w/cpp/types/type_index/name.html',1,'std::type_index::name()'],['../class_ph_widgets_1_1_font_family_af317b037debc8ba0560b39a61123c2d1.html#af317b037debc8ba0560b39a61123c2d1',1,'PhWidgets::FontFamily::Name()'],['../class_ph_widgets_1_1_font_def.html#a6d49faaef68529cabbdbfcc7c3c7f0e1',1,'PhWidgets::FontDef::Name()']]],
   ['nan',['nan',['http://en.cppreference.com/w/cpp/numeric/math/nan.html',1,'std']]],
   ['nanf',['nanf',['http://en.cppreference.com/w/cpp/numeric/math/nan.html',1,'std']]],
   ['nanl',['nanl',['http://en.cppreference.com/w/cpp/numeric/math/nan.html',1,'std']]],

@@ -49,6 +49,7 @@ var searchData=
   ['anchor',['Anchor',['../struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_anchor.html',1,'PhWidgets::Widget::ThisFlags::Anchor'],['../class_ph_widgets_1_1_widget_a7b0085011f6980dea5eb2e8376abea66.html#a7b0085011f6980dea5eb2e8376abea66',1,'PhWidgets::Widget::Anchor()']]],
   ['anchor_5fflags',['anchor_flags',['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_af75694a26884be6ee17b25092bdeee97.html#af75694a26884be6ee17b25092bdeee97af295089e84aca61976551c830529ad24',1,'PhWidgets::Widget::ThisArgs::ArgUnsigned']]],
   ['anchorstyles',['AnchorStyles',['../struct_ph_widgets_1_1_anchor_styles.html',1,'PhWidgets']]],
+  ['antialias',['Antialias',['../struct_ph_widgets_1_1_font_style_a0de674057aece715530576da9cc155e3.html#a0de674057aece715530576da9cc155e3a8bd85205c916dcbb5c70232048304237',1,'PhWidgets::FontStyle']]],
   ['any',['any',['http://en.cppreference.com/w/cpp/utility/bitset/all_any_none.html',1,'std::bitset']]],
   ['any_5fof',['any_of',['http://en.cppreference.com/w/cpp/algorithm/all_any_none_of.html',1,'std']]],
   ['append',['append',['http://en.cppreference.com/w/cpp/string/basic_string/append.html',1,'std::string::append()'],['http://en.cppreference.com/w/cpp/string/basic_string/append.html',1,'std::basic_string::append()'],['http://en.cppreference.com/w/cpp/string/basic_string/append.html',1,'std::wstring::append()'],['http://en.cppreference.com/w/cpp/string/basic_string/append.html',1,'std::u16string::append()'],['http://en.cppreference.com/w/cpp/string/basic_string/append.html',1,'std::u32string::append()']]],
