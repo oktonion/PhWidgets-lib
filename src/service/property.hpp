@@ -39,6 +39,86 @@ namespace cppproperties
 			typedef T type;
 		};
 
+		template <bool, class T>
+		struct enable_if
+		{
+		private:
+			struct enable_if_dummy;
+		public:
+			//typedef enable_if_dummy(&type)[1];
+		};
+
+		template <class T>
+		struct enable_if<true, T>
+		{
+			typedef T type;
+		};
+
+		typedef char yes_type;
+		struct no_type
+		{
+			char padding[8];
+		};
+
+		template<class T1, class T2>
+		no_type operator==(T1,T2);
+		
+		template<class T1, class T2>
+		no_type operator!=(T1,T2);
+
+		template<class T1, class T2>
+		no_type operator<(T1,T2);
+
+		yes_type has_comparison_operator_tester(bool);
+		no_type has_comparison_operator_tester(...);
+
+		template<class T>
+		T& declref();
+
+		template<class T, class CompT>
+		struct has_equal
+		{
+			static const bool value = 
+				sizeof(has_comparison_operator_tester(declref<T>() == declref<CompT>())) != sizeof(no_type);
+		};
+
+		template<class T, class CompT>
+		struct has_not_equal
+		{
+			static const bool value = 
+				sizeof(has_comparison_operator_tester(declref<T>() != declref<CompT>())) != sizeof(no_type);
+		};
+
+		template<class T, class CompT>
+		struct has_less
+		{
+			static const bool value = 
+				sizeof(has_comparison_operator_tester(declref<T>() < declref<CompT>())) != sizeof(no_type);
+		};
+		
+		template<class T>
+		yes_type is_convertable_tester(T);
+		template<class T>
+		no_type is_convertable_tester(...);
+
+		template<class T, class ConvT>
+		struct is_convertable
+		{
+			static const bool value = 
+				sizeof(is_convertable_tester<ConvT>(declref<T>())) == sizeof(yes_type);
+		};
+
+		template<class T>
+		struct is_array
+		{
+			static const bool value = false;
+		};
+
+		template<class T, int Size>
+		struct is_array<T[Size]>
+		{
+			static const bool value = true;
+		};
 
 		template <typename ValueT, typename CValueT>
 		struct flag_chooser_helper
@@ -119,6 +199,18 @@ namespace cppproperties
 		};
 	}
 
+	template<class ValueT>
+	struct Ipropertyr
+	{
+		typedef ValueT value_type;
+		virtual value_type get() const = 0;
+	};
+
+	template<class ValueT>
+	struct Ipropertyw
+	{
+		virtual void set(ValueT) = 0;
+	};
 
 	template<class ValueT = void,
 		const detail::property_flag::e_property_flag Flag = (const detail::property_flag::e_property_flag)(detail::flag_chooser<ValueT>::flag)>
@@ -151,16 +243,20 @@ namespace cppproperties
 
 	//property<Value>:
 	template<typename ValueT>
-	class property<ValueT, detail::property_flag::ro>//ValueT == const...
+	class property<ValueT, detail::property_flag::ro>://ValueT == const...
+		public Ipropertyr<typename detail::remove_const<typename detail::remove_reference<ValueT>::type const &>::type>
 	{
 	public:
-		typedef typename detail::remove_const<typename detail::remove_reference<ValueT>::type>::type value_type;
+		typedef typename Ipropertyr<typename detail::remove_const<typename detail::remove_reference<ValueT>::type const &>::type>::value_type value_type;
 
 		template<class ParentT, typename detail::get_parent_func<ValueT, ParentT>::getter_t Getter>
-		class bind
+		class bind:
+			public Ipropertyr<typename detail::get_parent_func<ValueT, ParentT>::value_type>
 		{
+			typedef Ipropertyr<typename detail::get_parent_func<ValueT, ParentT>::value_type> base_type;
+			typedef typename detail::enable_if<detail::has_equal<ValueT, ValueT>::value, const base_type&>::type operator_equal_type;
 		public:
-			typedef typename detail::get_parent_func<ValueT, ParentT>::value_type value_type;
+			typedef typename base_type::value_type value_type;
 
 			bind(ParentT *parent) :
 				_obj(parent)
@@ -175,6 +271,8 @@ namespace cppproperties
 			
 			inline value_type operator()(void) const { return get(); }
 
+			inline bool operator==(operator_equal_type other) const {return get() == other.get();}
+
 		private:
 			ParentT *_obj;
 			
@@ -185,10 +283,11 @@ namespace cppproperties
 		};
 
 		template<typename detail::get_parent_func<ValueT, void>::getter_t Getter>
-		class bind_static
+		class bind_static:
+			public Ipropertyr<typename detail::get_parent_func<ValueT, void>::value_type>
 		{
 		public:
-			typedef typename detail::get_parent_func<ValueT, void>::value_type value_type;
+			typedef typename Ipropertyr<typename detail::get_parent_func<ValueT, void>::value_type>::value_type value_type;
 
 			bind_static()
 			{}
@@ -210,18 +309,18 @@ namespace cppproperties
 			inline bind_static &operator=(bind_static const &);
 		};
 
-		property(value_type const &value) :
+		property(value_type value) :
 			_val(value)
 		{}
 
-		inline const value_type &get() const
+		inline value_type get() const
 		{
 			return _val;
 		}
 
-		inline operator const value_type&() const { return get(); }
+		inline operator value_type() const { return get(); }
 
-		inline const value_type& operator()(void) const { return get(); }
+		inline value_type operator()(void) const { return get(); }
 
 	private:
 
@@ -229,23 +328,26 @@ namespace cppproperties
 
 		const ValueT _val;
 
-		inline property &operator=(value_type const &);
+		inline property &operator=(value_type);
 		inline property &operator=(property const &);
 	};
 
 
 	template<typename ValueT>
-	class property<ValueT, detail::property_flag::rw>//ValueT != const...
+	class property<ValueT, detail::property_flag::rw>: //ValueT != const...
+		public Ipropertyr<typename detail::remove_reference<ValueT>::type &>
 	{
 	public:
-		typedef typename detail::remove_reference<ValueT>::type value_type;
+		typedef typename Ipropertyr<typename detail::remove_reference<ValueT>::type &>::value_type value_type;
 
 		template<class ParentT, typename detail::get_parent_func<ValueT, ParentT>::getter_t Getter, typename detail::get_parent_func<ValueT, ParentT>::setter_t Setter>
-		class bind
+		class bind:
+			public Ipropertyr<typename detail::get_parent_func<ValueT, ParentT>::value_type>
 		{
-		public:
-			typedef typename detail::get_parent_func<ValueT, ParentT>::value_type value_type;
 
+		public:
+			typedef typename Ipropertyr<typename detail::get_parent_func<ValueT, ParentT>::value_type>::value_type value_type;
+			
 			bind(ParentT *parent) :
 				_obj(parent)
 			{}
@@ -268,6 +370,7 @@ namespace cppproperties
 
 			inline void operator()(value_type value) { set(value); return *this; }
 			
+			inline bool operator==(value_type value) {return value == get();}
 
 		private:
 			ParentT *_obj;
@@ -278,27 +381,27 @@ namespace cppproperties
 		property()
 		{}
 
-		property(ValueT value) :
+		property(value_type value) :
 			_val(value)
 		{}
 
-		inline void set(value_type const &value)
+		inline void set(value_type const value)
 		{
 			_val = value;
 		}
 
-		inline value_type &get() const
+		inline value_type get() const
 		{
 			return _val;
 		}
 
-		inline property &operator=(value_type const &value) { set(value); return *this; }
+		inline property &operator=(value_type const value) { set(value); return *this; }
 
-		inline operator value_type&() const { return get(); }
+		inline operator value_type() const { return get(); }
 		
 		inline value_type operator()(void) const { return get(); }
 
-		inline void operator()(value_type const &value) { set(value); }
+		inline void operator()(value_type const value) { set(value); }
 
 	private:
 
@@ -355,6 +458,66 @@ namespace cppproperties
 
 		ValueT _val;
 	};
+
+	template<class ValueT, class OtherValueT>
+	typename 
+	detail::enable_if<
+		(
+			detail::has_equal<ValueT, OtherValueT>::value ||
+			(
+				detail::is_convertable<OtherValueT, ValueT>::value &&
+				detail::has_equal<ValueT, ValueT>::value
+			)
+		) &&
+		detail::is_array<ValueT>::value == false
+		,
+		bool
+	>::type operator==(
+		const Ipropertyr<ValueT> &lhs, 
+		const OtherValueT &rhs)
+	{
+		return lhs.get() == rhs;
+	}
+
+	template<class ValueT, class OtherValueT>
+	typename 
+	detail::enable_if<
+		(
+			detail::has_not_equal<ValueT, OtherValueT>::value ||
+			(
+				detail::is_convertable<OtherValueT, ValueT>::value &&
+				detail::has_not_equal<ValueT, ValueT>::value
+			)
+		) &&
+		detail::is_array<ValueT>::value == false
+		,
+		bool
+	>::type operator!=(
+		const Ipropertyr<ValueT> &lhs, 
+		const OtherValueT &rhs)
+	{
+		return lhs.get() != rhs;
+	}
+
+	template<class ValueT, class OtherValueT>
+	typename 
+	detail::enable_if<
+		(
+			detail::has_less<ValueT, OtherValueT>::value ||
+			(
+				detail::is_convertable<OtherValueT, ValueT>::value &&
+				detail::has_less<ValueT, ValueT>::value
+			)
+		) &&
+		detail::is_array<ValueT>::value == false
+		,
+		bool
+	>::type operator<(
+		const Ipropertyr<ValueT> &lhs, 
+		const OtherValueT &rhs)
+	{
+		return lhs.get() < rhs;
+	}
 
 
 	/*template<typename ValueT, typename ParentT = void, typename detail::get_parent_func<ValueT, ParentT>::getter_t Getter = 0, typename detail::get_parent_func<ValueT, ParentT>::setter_t Setter = 0,
