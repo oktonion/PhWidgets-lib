@@ -212,8 +212,14 @@ namespace cppproperties
 		virtual void set(ValueT) = 0;
 	};
 
+	template<class ValueT, 
+		const detail::property_flag::e_property_flag Flag = 
+			static_cast<const detail::property_flag::e_property_flag>(detail::flag_chooser<ValueT>::flag)>
+	class property_traits;
+
 	template<class ValueT = void,
-		const detail::property_flag::e_property_flag Flag = (const detail::property_flag::e_property_flag)(detail::flag_chooser<ValueT>::flag)>
+		const detail::property_flag::e_property_flag Flag = 
+			static_cast<const detail::property_flag::e_property_flag>(detail::flag_chooser<ValueT>::flag)>
 	class property{};
 
 	//property<void>:
