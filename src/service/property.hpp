@@ -563,6 +563,21 @@ namespace cppproperties
 			static const bool value = true;
 		};
 
+		template<class T, class Enabled = void_type>
+		struct has_const_iterator
+		{ 
+			static const bool value = false;
+		};
+		
+		template<class T>
+		struct has_const_iterator<
+			T, 
+			typename enable_if_type<typename T::const_iterator>::type
+		>
+		{ 
+			static const bool value = true;
+		};
+
 		template<class T, bool Enabled>
 		struct size_property_trait_impl
 		{ };
@@ -581,20 +596,60 @@ namespace cppproperties
 			}
 		};
 
+		template<class T, bool Enabled>
+		struct const_begin_end_property_trait_impl
+		{ };
+		
+		template<class T>
+		struct const_begin_end_property_trait_impl<T, true>
+		{ 
+		private:
+			typedef typename remove_reference<T>::type clear_type;
+		public:
+			typedef typename clear_type::const_iterator const_iterator;
+			
+			const_iterator begin() const
+			{
+				return reinterpret_cast<const Ipropertyr<T>*>(this)->get().begin();
+			}
+
+			const_iterator end() const
+			{
+				return reinterpret_cast<const Ipropertyr<T>*>(this)->get().end();
+			}
+
+			const_iterator cbegin() const
+			{
+				return reinterpret_cast<const Ipropertyr<T>*>(this)->get().begin();
+			}
+
+			const_iterator cend() const
+			{
+				return reinterpret_cast<const Ipropertyr<T>*>(this)->get().end();
+			}
+		};
+
 		template<class T>
 		struct size_property_trait:
 			size_property_trait_impl<T, has_size_type<typename remove_reference<T>::type>::value>
+		{ };
+
+		template<class T>
+		struct const_begin_end_property_trait:
+			const_begin_end_property_trait_impl<T, has_const_iterator<typename remove_reference<T>::type>::value>
 		{ };
 	}
 
 	template<class ValueT>
 	struct property_traits<ValueT, property<>::ro>:
-		detail::size_property_trait<ValueT>
+		detail::size_property_trait<ValueT>,
+		detail::const_begin_end_property_trait<ValueT>
 	{ };
 
 	template<class ValueT>
 	struct property_traits<ValueT, property<>::rw>:
-		detail::size_property_trait<ValueT>
+		detail::size_property_trait<ValueT>,
+		detail::const_begin_end_property_trait<ValueT>
 	{ };
 
 
