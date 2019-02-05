@@ -5,6 +5,8 @@
 #include <Widget.h>
 #include <photon/PtWindow.h>
 
+#include "./service/properties.cpp"
+
 #include "./microGUI/font_collection.cpp"
 #include "./microGUI/font_family.cpp"
 #include "./microGUI/font_def.cpp"
