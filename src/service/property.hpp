@@ -349,16 +349,19 @@ namespace cppproperties
 
 	template<typename ValueT>
 	class property<ValueT, detail::property_flag::rw>: //ValueT != const...
-		public Ipropertyr<typename detail::remove_reference<ValueT>::type &>,
-		public Ipropertyw<typename detail::remove_reference<ValueT>::type &>,
-		public property_traits<typename detail::remove_reference<ValueT>::type &, detail::property_flag::rw>
+		public Ipropertyr<typename detail::remove_reference<ValueT>::type const &>,
+		public Ipropertyw<typename detail::remove_reference<ValueT>::type const &>,
+		public property_traits<typename Ipropertyr<typename detail::remove_reference<ValueT>::type const &>::value_type, detail::property_flag::rw>
 	{
 	public:
-		typedef typename Ipropertyr<typename detail::remove_reference<ValueT>::type &>::value_type value_type;
+		typedef typename Ipropertyr<ValueT>::value_type value_type;
+		typedef typename Ipropertyr<typename detail::remove_reference<ValueT>::type &>::value_type reference;
+		typedef typename Ipropertyr<typename detail::remove_reference<ValueT>::type const &>::value_type const_reference;
 
 		template<class ParentT, typename detail::get_parent_func<ValueT, ParentT>::getter_t Getter, typename detail::get_parent_func<ValueT, ParentT>::setter_t Setter>
 		class bind:
 			public Ipropertyr<typename detail::get_parent_func<ValueT, ParentT>::value_type>,
+			public Ipropertyw<typename detail::get_parent_func<ValueT, ParentT>::value_type>,
 			public property_traits<typename detail::get_parent_func<ValueT, ParentT>::value_type, detail::property_flag::rw>
 		{
 
@@ -398,27 +401,33 @@ namespace cppproperties
 		property()
 		{}
 
-		property(value_type value) :
+		property(const_reference value) :
 			_val(value)
 		{}
 
-		inline void set(value_type const value)
+		inline 
+		void set(const_reference value)
 		{
 			_val = value;
 		}
 
-		inline value_type get() const
+		inline 
+		const_reference get() const
 		{
 			return _val;
 		}
 
-		inline property &operator=(value_type const value) { set(value); return *this; }
+		inline 
+		property &operator=(const_reference value) { set(value); return *this; }
 
-		inline operator value_type() const { return get(); }
+		inline 
+		operator const_reference() const { return get(); }
 		
-		inline value_type operator()(void) const { return get(); }
+		inline 
+		const_reference operator()(void) const { return get(); }
 
-		inline void operator()(value_type const value) { set(value); }
+		inline 
+		void operator()(const_reference value) { set(value); }
 
 	private:
 
