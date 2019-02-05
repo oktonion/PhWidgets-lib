@@ -113,8 +113,10 @@ const property<const std::vector<FontDetails>&>::
 const std::vector<FontDetails> & FontCollection::FontCollectionDetail::getFamilies()
 {
         static font_families_collection_type families;
+        typedef font_families_collection_type::size_type size_type;
+            
         int count = PfQueryFonts(PHFONT_ALL_SYMBOLS, PHFONT_ALL_FONTS, NULL, 0);
-        if(-1 == count)
+        if(count < 0 || families.size() == static_cast<size_type>(count))
             return families;
         
         families.resize(count);
