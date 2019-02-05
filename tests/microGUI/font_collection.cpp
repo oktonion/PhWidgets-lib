@@ -4,6 +4,7 @@
 
 #include <Font.h>
 
+const std::vector<int> fuuu(){return std::vector<int>();}
 
 TEST_CASE("Testing FontCollections classes"){
 
@@ -11,5 +12,7 @@ TEST_CASE("Testing FontCollections classes"){
     
     InstalledFontCollection ifc;
 
-    CHECK(ifc.Families().size() != 0);
+    CHECK(ifc.Families.size() != 0);
+
+    CHECK(ifc.Families().size() == ifc.Families.size());
 }
