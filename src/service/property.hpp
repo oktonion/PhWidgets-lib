@@ -578,6 +578,21 @@ namespace cppproperties
 			static const bool value = true;
 		};
 
+		template<class T, class Enabled = void_type>
+		struct has_iterator
+		{ 
+			static const bool value = false;
+		};
+		
+		template<class T>
+		struct has_iterator<
+			T, 
+			typename enable_if_type<typename T::iterator>::type
+		>
+		{ 
+			static const bool value = true;
+		};
+
 		template<class T, bool Enabled>
 		struct size_property_trait_impl
 		{ };
@@ -629,6 +644,29 @@ namespace cppproperties
 			}
 		};
 
+		template<class T, bool Enabled>
+		struct begin_end_property_trait_impl
+		{ };
+		
+		template<class T>
+		struct begin_end_property_trait_impl<T, true>
+		{ 
+		private:
+			typedef typename remove_reference<T>::type clear_type;
+		public:
+			typedef typename clear_type::iterator iterator;
+			
+			iterator begin()
+			{
+				return reinterpret_cast<Ipropertyr<T>*>(this)->get().begin();
+			}
+
+			iterator end()
+			{
+				return reinterpret_cast<Ipropertyr<T>*>(this)->get().end();
+			}
+		};
+
 		template<class T>
 		struct size_property_trait:
 			size_property_trait_impl<T, has_size_type<typename remove_reference<T>::type>::value>
@@ -637,6 +675,12 @@ namespace cppproperties
 		template<class T>
 		struct const_begin_end_property_trait:
 			const_begin_end_property_trait_impl<T, has_const_iterator<typename remove_reference<T>::type>::value>
+		{ };
+
+		template<class T>
+		struct begin_end_property_trait:
+			const_begin_end_property_trait_impl<T, has_const_iterator<typename remove_reference<T>::type>::value>,
+			begin_end_property_trait_impl<T, has_iterator<typename remove_reference<T>::type>::value>
 		{ };
 	}
 
@@ -649,7 +693,7 @@ namespace cppproperties
 	template<class ValueT>
 	struct property_traits<ValueT, property<>::rw>:
 		detail::size_property_trait<ValueT>,
-		detail::const_begin_end_property_trait<ValueT>
+		detail::begin_end_property_trait<ValueT>
 	{ };
 
 
