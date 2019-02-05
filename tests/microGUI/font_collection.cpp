@@ -4,8 +4,6 @@
 
 #include <Font.h>
 
-const std::vector<int> fuuu(){return std::vector<int>();}
-
 TEST_CASE("Testing FontCollections classes"){
 
     using namespace PhWidgets;
@@ -17,5 +15,6 @@ TEST_CASE("Testing FontCollections classes"){
     CHECK(ifc.Families.begin() != ifc.Families.end());
     CHECK(ifc.Families.begin() == ifc.Families().begin());
     CHECK(ifc.Families().end() == ifc.Families.end());
-
+    CHECK(ifc.Families().end() == ifc.Families.cend());
+    CHECK(ifc.Families.cbegin() == ifc.Families().begin());
 }

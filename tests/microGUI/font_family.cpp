@@ -18,6 +18,8 @@ TEST_CASE("Testing FontFamily class"){
 
         FontFamily ff_sans(GenericFontFamilies::SansSerif);
 
+        CHECK(ff_sans.Name.length());
+
         std::string 
             ff_name(ff_sans.Name),
             check_name("verdana");
