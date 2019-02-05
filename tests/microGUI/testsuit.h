@@ -1,5 +1,5 @@
-#ifndef PHWIDGETS_TESTSUIT_H
-#define PHWIDGETS_TESTSUIT_H
+#ifndef PHWIDGETS_MICROGUI_TESTSUIT_H
+#define PHWIDGETS_MICROGUI_TESTSUIT_H
 
 #ifndef DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
     #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
@@ -76,4 +76,4 @@ const typename T::size_type LevensteinDistance(const T &source,
     return lev_dist[min_size];
 }
 
-#endif // PHWIDGETS_TESTSUIT_H
+#endif // PHWIDGETS_MICROGUI_TESTSUIT_H
