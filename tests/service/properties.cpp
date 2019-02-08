@@ -78,8 +78,11 @@ TEST_CASE("Testing properties for simple types"){
 
     SUBCASE("Testing wo property"){
 
-        property<int, property<>::wo> prop_int;
+        property<int, property<>::wo> prop_int(10);
 
-        
+        prop_int.set(10);
+        CHECK(10 == prop_int);
+        prop_int.set(convertable<int>());
+        CHECK(prop_int != 10);
     }
 }
