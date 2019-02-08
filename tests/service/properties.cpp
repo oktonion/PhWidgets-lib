@@ -65,4 +65,11 @@ TEST_CASE("Testing properties for simple types"){
         CHECK(prop_cint2 != prop_int);
         CHECK(prop_int != prop_cint2);
     }
+
+    SUBCASE("Testing wo property"){
+
+        property<int, property<>::wo> prop_int;
+
+        
+    }
 }
