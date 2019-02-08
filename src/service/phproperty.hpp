@@ -55,7 +55,7 @@ namespace PhWidgets
 	{
 		typedef cppproperties::property<ValueT, cppproperties::detail::property_flag::ro> cpp_property_t;
 
-		template<class WidgetClassT, typename cppproperties::detail::get_parent_func<ValueT, WidgetClassT>::getter_t Getter>
+		template<class WidgetClassT, typename cppproperties::detail::property_info<ValueT, WidgetClassT>::getter_t Getter>
 		struct bind_internal :
 			public cpp_property_t::template bind<WidgetClassT, Getter>
 		{
@@ -99,7 +99,7 @@ namespace PhWidgets
 	{
 		typedef cppproperties::property<ValueT, cppproperties::detail::property_flag::rw> cpp_property_t;
 
-		template<class WidgetClassT, typename cppproperties::detail::get_parent_func<ValueT, WidgetClassT>::getter_t Getter, typename cppproperties::detail::get_parent_func<ValueT, WidgetClassT>::setter_t Setter>
+		template<class WidgetClassT, typename cppproperties::detail::property_info<ValueT, WidgetClassT>::getter_t Getter, typename cppproperties::detail::property_info<ValueT, WidgetClassT>::setter_t Setter>
 		struct bind_internal :
 			public cpp_property_t::template bind<WidgetClassT, Getter, Setter>
 		{
@@ -141,7 +141,7 @@ namespace PhWidgets
 	{
 		typedef cppproperties::property<ValueT, cppproperties::detail::property_flag::wo> cpp_property_t;
 
-		template<class WidgetClassT, typename cppproperties::detail::get_parent_func<ValueT, WidgetClassT>::setter_t Setter>
+		template<class WidgetClassT, typename cppproperties::detail::property_info<ValueT, WidgetClassT>::setter_t Setter>
 		struct bind_internal :
 			public cpp_property_t::template bind<WidgetClassT, Setter>
 		{
