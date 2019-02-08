@@ -476,7 +476,7 @@ namespace cppproperties
 	template<typename ValueT>
 	class property<ValueT, detail::property_flag::wo>: //ValueT != const...
 		public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
-		public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::rw>
+		public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::wo>
 	{
 	public:
 		typedef typename detail::property_info<ValueT>::value_type value_type;
@@ -486,7 +486,7 @@ namespace cppproperties
 		template<class ParentT, typename detail::property_info<ValueT, ParentT>::setter_t Setter>
 		class bind:
 			public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
-			public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::rw>
+			public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::wo>
 		{
 			typedef typename detail::remove_const<ParentT>::type parent_type;
 		public:
