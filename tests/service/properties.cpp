@@ -3,6 +3,11 @@
 #include <service/property.hpp>
 
 
+template<class T>
+struct convertable
+{
+    operator T() const {return T();}
+};
 
 
 TEST_CASE("Testing properties for simple types"){
@@ -43,6 +48,11 @@ TEST_CASE("Testing properties for simple types"){
         CHECK(prop_int.get() == 42);
         CHECK(42 == prop_int);
         CHECK(prop_int == 42);
+
+        CHECK_FALSE(prop_int == convertable<int>());
+        CHECK_FALSE(convertable<int>() == prop_int);
+        CHECK(prop_int != convertable<int>());
+        CHECK(convertable<int>() != prop_int);
     }
 
     SUBCASE("Testing ro property"){
