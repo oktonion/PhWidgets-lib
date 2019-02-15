@@ -81,7 +81,9 @@ TEST_CASE("Testing properties for simple types"){
         property<int, property<>::wo> prop_int(10);
 
         prop_int.set(10);
-        CHECK(10 == prop_int);
+        //CHECK(10 == prop_int);
+        CHECK(prop_int == 10);
+        CHECK_EQ(prop_int, 10);
         prop_int.set(convertable<int>());
         CHECK(prop_int != 10);
     }
