@@ -236,7 +236,7 @@ namespace cppproperties
 	template<class ValueT, 
 		const detail::property_flag::e_property_flag Flag = 
 			static_cast<const detail::property_flag::e_property_flag>(detail::flag_chooser<ValueT>::flag)>
-	struct property_traits;
+	struct property_traits {};
 
 	template<class ValueT = void,
 		const detail::property_flag::e_property_flag Flag = 
@@ -533,6 +533,50 @@ namespace cppproperties
 
 		inline 
 		void operator()(value_type value) { set(value); }
+
+		//custom comparison operators for property to make it useful:
+		template<class OtherValueT>
+		typename 
+		detail::enable_if<
+			(
+				detail::has_equal<value_type, OtherValueT>::value ||
+				(
+					detail::is_convertable<OtherValueT, value_type>::value &&
+					detail::has_equal<value_type, value_type>::value
+				)
+			)
+			,
+			bool
+		>::type operator==(const OtherValueT &other) const {return _val == other;}
+
+		template<class OtherValueT>
+		typename 
+		detail::enable_if<
+			(
+				detail::has_not_equal<value_type, OtherValueT>::value ||
+				(
+					detail::is_convertable<OtherValueT, value_type>::value &&
+					detail::has_not_equal<value_type, value_type>::value
+				)
+			)
+			,
+			bool
+		>::type operator!=(const OtherValueT &other) const {return _val != other;}
+
+		template<class OtherValueT>
+		typename 
+		detail::enable_if<
+			(
+				detail::has_less<value_type, OtherValueT>::value ||
+				(
+					detail::is_convertable<OtherValueT, value_type>::value &&
+					detail::has_less<value_type, value_type>::value
+				)
+			)
+			,
+			bool
+		>::type operator<(const OtherValueT &other) const {return _val < other;}
+		
 	private:
 
 		ValueT _val;
@@ -547,8 +591,7 @@ namespace cppproperties
 				detail::is_convertable<OtherValueT, ValueT>::value &&
 				detail::has_equal<ValueT, ValueT>::value
 			)
-		) &&
-		detail::is_array<ValueT>::value == false
+		)
 		,
 		bool
 	>::type operator==(
@@ -567,8 +610,7 @@ namespace cppproperties
 				detail::is_convertable<OtherValueT, ValueT>::value &&
 				detail::has_not_equal<ValueT, ValueT>::value
 			)
-		) &&
-		detail::is_array<ValueT>::value == false
+		)
 		,
 		bool
 	>::type operator!=(
@@ -587,8 +629,7 @@ namespace cppproperties
 				detail::is_convertable<OtherValueT, ValueT>::value &&
 				detail::has_less<ValueT, ValueT>::value
 			)
-		) &&
-		detail::is_array<ValueT>::value == false
+		)
 		,
 		bool
 	>::type operator<(
@@ -751,7 +792,6 @@ namespace cppproperties
 		detail::size_property_trait<ValueT>,
 		detail::begin_end_property_trait<ValueT>
 	{ };
-
 
 
 	/*template<typename ValueT, typename ParentT = void, typename detail::get_parent_func<ValueT, ParentT>::getter_t Getter = 0, typename detail::get_parent_func<ValueT, ParentT>::setter_t Setter = 0,
