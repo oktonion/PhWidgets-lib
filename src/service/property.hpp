@@ -60,56 +60,57 @@ namespace cppproperties
 			char padding[8];
 		};
 
-#ifdef CPP_PROPERTIES_COMPARE_OPERATORS
-		template<class T1, class T2>
-		no_type operator==(T1,T2);
-		
-		template<class T1, class T2>
-		no_type operator!=(T1,T2);
-
-		template<class T1, class T2>
-		no_type operator<(T1,T2);
-#endif
-
-		yes_type has_comparison_operator_tester(bool);
-		no_type has_comparison_operator_tester(...);
-
 		template<class T>
 		T& declref();
+		struct any { template <class T> any(T const&); };
+		struct no_operator { };
+#ifdef CPP_PROPERTIES_COMPARE_OPERATORS
+		
+		no_operator operator==(const any&,const any&);	
+		no_operator operator!=(const any&,const any&);
+		no_operator operator<(const any&,const any&);
+#endif
+		struct has_operator { };
+		no_operator operator,(no_operator, has_operator);
 
+		yes_type has_comparison_operator_tester(has_operator);
+		no_type has_comparison_operator_tester(no_operator);
 #define CPP_PROPERTIES_COMPARE_OPERATORS
-		template<class T, class CompT>
+		template <class LhsT, class RhsT>
 		struct has_equal
 		{
 			static const bool value = 
-				sizeof(has_comparison_operator_tester(declref<T>() == declref<CompT>())) != sizeof(no_type);
+				(sizeof(has_comparison_operator_tester(((declref<LhsT>() ==/*op*/ declref<RhsT>()),declref<has_operator>()))) == sizeof(yes_type));
 		};
 
-		template<class T, class CompT>
+		template <class LhsT, class RhsT>
 		struct has_not_equal
 		{
 			static const bool value = 
-				sizeof(has_comparison_operator_tester(declref<T>() != declref<CompT>())) != sizeof(no_type);
+				(sizeof(has_comparison_operator_tester(((declref<LhsT>() !=/*op*/ declref<RhsT>()),declref<has_operator>()))) == sizeof(yes_type));
 		};
 
-		template<class T, class CompT>
+		template <class LhsT, class RhsT>
 		struct has_less
 		{
 			static const bool value = 
-				sizeof(has_comparison_operator_tester(declref<T>() < declref<CompT>())) != sizeof(no_type);
+				(sizeof(has_comparison_operator_tester(((declref<LhsT>() </*op*/ declref<RhsT>()),declref<has_operator>()))) == sizeof(yes_type));
 		};
 #undef CPP_PROPERTIES_COMPARE_OPERATORS
-		
-		template<class T>
-		yes_type is_convertable_tester(T);
-		template<class T>
-		no_type is_convertable_tester(...);
 
-		template<class T, class ConvT>
+		template<unsigned N> struct priority_tag : priority_tag < N - 1 > {};
+		template<> struct priority_tag<0> {};
+
+		template<class T>
+		yes_type is_convertable_tester(T, priority_tag<1>);
+		template<class T>
+		yes_type is_convertable_tester(any, priority_tag<0>);
+
+		template<class FromT, class ToT>
 		struct is_convertable
 		{
 			static const bool value = 
-				sizeof(is_convertable_tester<ConvT>(declref<T>())) == sizeof(yes_type);
+				sizeof(is_convertable_tester<ToT>(declref<FromT>(), priority_tag<1>())) == sizeof(yes_type);
 		};
 
 		template<class T>
@@ -579,7 +580,7 @@ namespace cppproperties
 		
 	private:
 
-		ValueT _val;
+		value_type _val;
 	};
 
 	template<class ValueT, class OtherValueT>
