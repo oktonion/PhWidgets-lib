@@ -980,6 +980,8 @@ namespace PhWidgets
 
 		void setTop(short);
 		short getTop() const;
+
+		short getRight() const;
 						
 	public:
 		//! (constructor) 
@@ -1546,6 +1548,27 @@ namespace PhWidgets
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::bevel_width>	BevelWidth; //!< Gets or sets the bevel width of the widget.
 		phproperty<PhDim_t>::bind<Widget, Arguments::eArgDim, Arguments::dim>							Size; //!< Gets or sets the size of the widget.
 		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos>						Position; //!< Gets or sets the absolute coordinates of the upper-left corner of the widget.
+
+		//! Gets the distance, in pixels, between the bottom edge of the widget and the top edge of its container's client area.
+		/*!
+			### Property Value ### 
+			
+			> **short**
+
+			An `short` representing the distance, in pixels, between the right edge of the widget and the left edge of its container's client area.
+
+			@remark
+			The value of this property is equal to the sum of the Widget::Left property value, and the Widget::Width property value.
+			@par
+			The Widget::Right property is a read-only property. 
+			You can manipulate this property value by changing the value of the Widget::Left or Widget::Width properties 
+			or calling the Widget::SetBounds methods.
+
+			@see
+			- Left
+			- Width
+		*/
+		property<short, property<>::ro>::bind<Widget, &Widget::getBottom> Bottom;
 
 		phbitmask<unsigned long, Flags::Extended::eExFlags>::bind<Widget, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::eflags>	ExtendedFlags; //!< Gets or sets extended flags inherited by all widgets. See Flags::Extended::eExFlags.
 		phbitmask<long, Flags::eFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::flags>													WidgetFlags; //!< Gets or sets flags inherited by all widgets. See Flags::eFlags.

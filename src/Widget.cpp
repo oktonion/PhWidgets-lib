@@ -532,6 +532,11 @@ bool Widget::hasChildren() const
 	return (PtWidgetChildFront(widget()) != NULL);
 }
 
+short PhWidgets::Widget::getRight() const
+{
+	return getLocation().x + Width;
+}
+
 bool Widget::Focus()
 {
 	if(PtWidgetIsClassMember(widget(), PtWindow) == true)
