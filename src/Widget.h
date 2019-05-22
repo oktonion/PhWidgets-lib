@@ -1559,6 +1559,23 @@ namespace PhWidgets
 		*/
 		tag_property<Widget, &Widget::getTag, &Widget::setTag> Tag;
 
+		//! Gets or sets the distance, in pixels, between the top edge of the widget and the top edge of its container's client area.
+		/*!
+			### Property Value ### 
+			
+			> **short**
+
+			An `short` representing the distance, in pixels, between the top edge of the widget and the top edge of its container's client area.
+
+			@remark
+			The value of this property is equivalent to the 'y' value of the Widget::Location property value of the widget.
+			@par
+			Changes made to the Widget::Height and Widget::Top property values cause the Widget::Bottom property value of the widget to change.
+
+			@see
+			- Bottom
+			- Height
+		*/
 		property<short>::bind<Widget, &Widget::getTop, &Widget::setTop>									Top; //!< Gets or sets the distance, in pixels, between the top edge of the widget and the top edge of its parent widget.
 		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation>					Location; //!< Gets or sets the coordinates of the upper-left corner of the widget relative to the upper-left corner of its parent widget.
 
