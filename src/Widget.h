@@ -1577,6 +1577,27 @@ namespace PhWidgets
 			- Height
 		*/
 		property<short>::bind<Widget, &Widget::getTop, &Widget::setTop>									Top; //!< Gets or sets the distance, in pixels, between the top edge of the widget and the top edge of its parent widget.
+
+		//! Gets or sets the coordinates of the upper-left corner of the widget relative to the upper-left corner of its container.
+		/*!
+			### Property Value ### 
+			
+			> **PhPoint_t**
+
+			The `PhPoint_t` that represents the upper-left corner of the widget relative to the upper-left corner of its container.
+
+			@remark
+			Because the `PhPoint_t` struct is a value type, it is returned by value, 
+			meaning accessing the property returns a copy of the upper-left point of the control. 
+			So, adjusting the x or y values of the `PhPoint_t` returned from this property will not affect the 
+			Widget::Left, Widget::Right, Widget::Top, or Widget::Bottom property values of the widget. 
+			To adjust these properties set each property value individually, or set the Location property with a new `PhPoint_t`. 
+			@par
+			If the Widget is a Form, the Widget::Location property value represents the upper-left corner of the Form in screen coordinates.
+
+			@see
+			- Form
+		*/		
 		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation>					Location; //!< Gets or sets the coordinates of the upper-left corner of the widget relative to the upper-left corner of its parent widget.
 
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width>		Width; //!< Gets or sets the width of the widget.
