@@ -1446,7 +1446,7 @@ namespace PhWidgets
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::height> Height;
 
 		
-		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.
+		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic> HelpTopic; //!< Gets or sets the help topic of the widget.
 
 		//! Gets or sets the distance, in pixels, between the left edge of the widget and the left edge of its container's client area.
 		/*!
@@ -1466,6 +1466,79 @@ namespace PhWidgets
 			- Width
 		*/
 		property<short>::bind<Widget, &Widget::getLeft, &Widget::setLeft> Left;
+
+		//! Gets or sets the coordinates of the upper-left corner of the widget relative to the upper-left corner of its container.
+		/*!
+			### Property Value ### 
+			
+			@code
+				struct Ph_point_t { 
+					short x, y; 
+				};
+			@endcode
+
+			The `PhPoint_t` that represents the upper-left corner of the widget relative to the upper-left corner of its container.
+
+			@remark
+			Because the `PhPoint_t` struct is a value type, it is returned by value, 
+			meaning accessing the property returns a copy of the upper-left point of the widget. 
+			So, adjusting the x or y values of the `PhPoint_t` returned from this property will not affect the 
+			Widget::Left, Widget::Right, Widget::Top, or Widget::Bottom property values of the widget. 
+			To adjust these properties set each property value individually, or set the Widget::Location property with a new `PhPoint_t`. 
+			@par
+			If the Widget is a Form, the Widget::Location property value represents the upper-left corner of the Form in screen coordinates.
+
+			@see
+			- Form
+		*/		
+		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation> Location;
+
+		//! Gets or sets the absolute coordinates of the upper-left corner of the widget.
+		/*!
+			### Property Value ### 
+			
+			@code
+				struct Ph_point_t { 
+					short x, y; 
+				};
+			@endcode
+
+			The `PhPoint_t` that represents the absolute coordinates of the upper-left corner of the widget.
+
+			@remark
+			Because the `PhPoint_t` struct is a value type, it is returned by value, 
+			meaning accessing the property returns a copy of the upper-left point of the widget. 
+			So, adjusting the x or y values of the `PhPoint_t` returned from this property will not affect the 
+			Widget::Left, Widget::Right, Widget::Top, or Widget::Bottom property values of the widget. 
+			To adjust these properties set each property value individually, or set the Widget::Position property with a new `PhPoint_t`. 
+			@par
+			If the Widget is a Form, the Widget::Position property value represents the upper-left corner of the Form in screen coordinates.
+
+			@see
+			- Form
+		*/
+		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos> Position;
+
+		//! Gets the distance, in pixels, between the right edge of the widget and the left edge of its container's client area.
+		/*!
+			### Property Value ### 
+			
+			> **short**
+
+			An `short` representing the distance, in pixels, between the right edge of the widget and the left edge of its container's client area.
+
+			@remark
+			The value of this property is equal to the sum of the Widget::Left property value, and the Widget::Width property value.
+			@par
+			The Widget::Right property is a read-only property. 
+			You can manipulate this property value by changing the value of the Widget::Left or Widget::Width properties 
+			or calling the Widget::SetBounds methods.
+
+			@see
+			- Left
+			- Width
+		*/
+		property<short, property<>::ro>::bind<Widget, &Widget::getRight> Right;
 
 		//! Gets or sets the size of the widget.
 		/*!
@@ -1619,32 +1692,6 @@ namespace PhWidgets
 		*/
 		property<short>::bind<Widget, &Widget::getTop, &Widget::setTop> Top;
 
-		//! Gets or sets the coordinates of the upper-left corner of the widget relative to the upper-left corner of its container.
-		/*!
-			### Property Value ### 
-			
-			@code
-				struct Ph_point_t { 
-					short x, y; 
-				};
-			@endcode
-
-			The `PhPoint_t` that represents the upper-left corner of the widget relative to the upper-left corner of its container.
-
-			@remark
-			Because the `PhPoint_t` struct is a value type, it is returned by value, 
-			meaning accessing the property returns a copy of the upper-left point of the widget. 
-			So, adjusting the x or y values of the `PhPoint_t` returned from this property will not affect the 
-			Widget::Left, Widget::Right, Widget::Top, or Widget::Bottom property values of the widget. 
-			To adjust these properties set each property value individually, or set the Widget::Location property with a new `PhPoint_t`. 
-			@par
-			If the Widget is a Form, the Widget::Location property value represents the upper-left corner of the Form in screen coordinates.
-
-			@see
-			- Form
-		*/		
-		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation> Location;
-
 		//! Gets or sets the width of the widget.
 		/*!
 			### Property Value ### 
@@ -1661,53 +1708,6 @@ namespace PhWidgets
 			- Right
 		*/
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width> Width;
-
-		//! Gets or sets the absolute coordinates of the upper-left corner of the widget.
-		/*!
-			### Property Value ### 
-			
-			@code
-				struct Ph_point_t { 
-					short x, y; 
-				};
-			@endcode
-
-			The `PhPoint_t` that represents the absolute coordinates of the upper-left corner of the widget.
-
-			@remark
-			Because the `PhPoint_t` struct is a value type, it is returned by value, 
-			meaning accessing the property returns a copy of the upper-left point of the widget. 
-			So, adjusting the x or y values of the `PhPoint_t` returned from this property will not affect the 
-			Widget::Left, Widget::Right, Widget::Top, or Widget::Bottom property values of the widget. 
-			To adjust these properties set each property value individually, or set the Widget::Position property with a new `PhPoint_t`. 
-			@par
-			If the Widget is a Form, the Widget::Position property value represents the upper-left corner of the Form in screen coordinates.
-
-			@see
-			- Form
-		*/
-		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos> Position;
-
-		//! Gets the distance, in pixels, between the right edge of the widget and the left edge of its container's client area.
-		/*!
-			### Property Value ### 
-			
-			> **short**
-
-			An `short` representing the distance, in pixels, between the right edge of the widget and the left edge of its container's client area.
-
-			@remark
-			The value of this property is equal to the sum of the Widget::Left property value, and the Widget::Width property value.
-			@par
-			The Widget::Right property is a read-only property. 
-			You can manipulate this property value by changing the value of the Widget::Left or Widget::Width properties 
-			or calling the Widget::SetBounds methods.
-
-			@see
-			- Left
-			- Width
-		*/
-		property<short, property<>::ro>::bind<Widget, &Widget::getRight> Right;
 
 		phbitmask<unsigned long, Flags::Extended::eExFlags>::bind<Widget, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::eflags>	ExtendedFlags; //!< Gets or sets extended flags inherited by all widgets. See Flags::Extended::eExFlags.
 		phbitmask<long, Flags::eFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::flags>													WidgetFlags; //!< Gets or sets flags inherited by all widgets. See Flags::eFlags.
