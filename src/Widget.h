@@ -1600,7 +1600,23 @@ namespace PhWidgets
 		*/		
 		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation>					Location; //!< Gets or sets the coordinates of the upper-left corner of the widget relative to the upper-left corner of its parent widget.
 
+		//! Gets or sets the width of the widget.
+		/*!
+			### Property Value ### 
+			
+			> **unsigned short**
+
+			The width of the widget in pixels.
+
+			@remark
+			Changes made to the Width and Left property values cause the Right property value of the widget to change.
+
+			@see 
+			- Left
+			- Right
+		*/
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width>		Width; //!< Gets or sets the width of the widget.
+
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::bevel_width>	BevelWidth; //!< Gets or sets the bevel width of the widget.
 		phproperty<PhDim_t>::bind<Widget, Arguments::eArgDim, Arguments::dim>							Size; //!< Gets or sets the size of the widget.
 		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos>						Position; //!< Gets or sets the absolute coordinates of the upper-left corner of the widget.
