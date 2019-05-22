@@ -1245,6 +1245,23 @@ namespace PhWidgets
 		*/
 		property<PhArea_t>::bind<Widget, &Widget::getBounds, &Widget::setBounds> Bounds;
 
+		//! Gets or sets the bevel width of the widget.
+		/*!
+			### Property Value ### 
+			
+			> **unsigned short**
+
+			The bevel width of the widget in pixels.
+
+			@remark
+			The width of the widget's bevel if the widget is highlighted and is to draw a bevel.
+
+			@see 
+			- Widget::ThisFlags::Highlighted
+			- Basic::ThisFlags::Basic::eBasic
+		*/
+		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::bevel_width>	BevelWidth;
+
 		//! Gets a value indicating whether the widget can receive focus.
 		/*!
 			### Property Value ### 
@@ -1449,6 +1466,30 @@ namespace PhWidgets
 			- Width
 		*/
 		property<short>::bind<Widget, &Widget::getLeft, &Widget::setLeft> Left;
+
+		//! Gets or sets the size of the widget.
+		/*!
+			### Property Value ### 
+			
+			@code
+				struct PhDim_t { 
+					unsigned short w, h;
+				};
+			@endcode
+
+			The `PhDim_t` that represents the height and width of the widget in pixels.
+
+			@remark
+			Because the `PhPoint_t` struct is a value type, it is returned by value, 
+			meaning accessing the property returns a copy of the size of the widget. 
+			So, adjusting the 'w' or 'h' values of the `PhDim_t` returned from this property will not affect the 
+			Widget::Width or Widget::Height property values of the widget. 
+			To adjust these properties set each property value individually, or set the Widget::Size property with a new `PhDim_t`. 
+
+			@see
+			- SetBounds(short x, short y, unsigned short width, unsigned short height)
+		*/
+		phproperty<PhDim_t>::bind<Widget, Arguments::eArgDim, Arguments::dim> Size;
 		
 		//! Gets or sets the resource that contains data about the widget.
 		/*!
@@ -1551,7 +1592,7 @@ namespace PhWidgets
 			A common use for the Tag property is to store data that is closely associated with the widget. 
 			@par
 			For example, if you have a widget that displays different colors, 
-			you might store a pointer to struct that contains the set of defined colors in that widget's Tag property 
+			you might store a pointer to struct that contains the set of defined colors in that widget's Widget::Tag property 
 			so the colors can be accessed quickly.
 
 			@see
@@ -1576,7 +1617,7 @@ namespace PhWidgets
 			- Bottom
 			- Height
 		*/
-		property<short>::bind<Widget, &Widget::getTop, &Widget::setTop>									Top; //!< Gets or sets the distance, in pixels, between the top edge of the widget and the top edge of its parent widget.
+		property<short>::bind<Widget, &Widget::getTop, &Widget::setTop> Top;
 
 		//! Gets or sets the coordinates of the upper-left corner of the widget relative to the upper-left corner of its container.
 		/*!
@@ -1602,7 +1643,7 @@ namespace PhWidgets
 			@see
 			- Form
 		*/		
-		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation>					Location; //!< Gets or sets the coordinates of the upper-left corner of the widget relative to the upper-left corner of its parent widget.
+		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation> Location;
 
 		//! Gets or sets the width of the widget.
 		/*!
@@ -1619,10 +1660,7 @@ namespace PhWidgets
 			- Left
 			- Right
 		*/
-		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width>		Width; //!< Gets or sets the width of the widget.
-
-		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::bevel_width>	BevelWidth; //!< Gets or sets the bevel width of the widget.
-		phproperty<PhDim_t>::bind<Widget, Arguments::eArgDim, Arguments::dim>							Size; //!< Gets or sets the size of the widget.
+		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width> Width;
 
 		//! Gets or sets the absolute coordinates of the upper-left corner of the widget.
 		/*!
