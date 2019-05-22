@@ -1480,7 +1480,7 @@ namespace PhWidgets
 			The `PhDim_t` that represents the height and width of the widget in pixels.
 
 			@remark
-			Because the `PhPoint_t` struct is a value type, it is returned by value, 
+			Because the `PhDim_t` struct is a value type, it is returned by value, 
 			meaning accessing the property returns a copy of the size of the widget. 
 			So, adjusting the 'w' or 'h' values of the `PhDim_t` returned from this property will not affect the 
 			Widget::Width or Widget::Height property values of the widget. 
