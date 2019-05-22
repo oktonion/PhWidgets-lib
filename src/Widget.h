@@ -1440,7 +1440,7 @@ namespace PhWidgets
 			An `short` representing the distance, in pixels, between the left edge of the widget and the left edge of its container's client area.
 
 			@remark
-			The value of this property is equal to the is equivalent to the 'x' value of the Widget::Location property value of the widget.
+			The value of this property is equivalent to the 'x' value of the Widget::Location property value of the widget.
 			@par
 			Changes made to the Widget::Width and Widget::Left property values cause the Widget::Right property value of the widget to change.
 
