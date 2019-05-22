@@ -23,4 +23,10 @@ TEST_CASE("Testing Widget basic size properties"){
         widget.Height = 30;
         CHECK(widget.Bottom == widget.Top + widget.Height);
     }
+
+    SUBCASE("Testing Widget::Right property") {
+        widget.Left = 120;
+        widget.Width = 42;
+        CHECK(widget.Right == widget.Left + widget.Width);
+    }
 }
