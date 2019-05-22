@@ -149,6 +149,7 @@ Widget::Widget(int abn):
 	BevelWidth(this),
 	Size(this),
 	Position(this),
+	Right(this),
 	//flags:
 	ExtendedFlags(this),
 	WidgetFlags(this),
@@ -194,6 +195,7 @@ Widget::Widget(PtWidget_t* wdg):
 	BevelWidth(this),
 	Size(this),
 	Position(this),
+	Right(this),
 	//flags:
 	ExtendedFlags(this),
 	WidgetFlags(this),
@@ -276,6 +278,7 @@ Widget::Widget(const Widget &other):
 	BevelWidth(this),
 	Size(this),
 	Position(this),
+	Right(this),
 	//flags:
 	ExtendedFlags(this),
 	WidgetFlags(this),
