@@ -1430,7 +1430,25 @@ namespace PhWidgets
 
 		
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic>				HelpTopic; //!< Gets or sets the help topic of the widget.
-		property<short>::bind<Widget, &Widget::getLeft, &Widget::setLeft>								Left; //!< Gets or sets the distance, in pixels, between the left edge of the widget and the left edge of its parent widget.
+
+		//! Gets or sets the distance, in pixels, between the left edge of the widget and the left edge of its container's client area.
+		/*!
+			### Property Value ### 
+			
+			> **short**
+
+			An `short` representing the distance, in pixels, between the left edge of the widget and the left edge of its container's client area.
+
+			@remark
+			The value of this property is equal to the is equivalent to the 'x' value of the Widget::Location property value of the widget.
+			@par
+			Changes made to the Widget::Width and Widget::Left property values cause the Widget::Right property value of the widget to change.
+
+			@see
+			- Right
+			- Width
+		*/
+		property<short>::bind<Widget, &Widget::getLeft, &Widget::setLeft> Left;
 		
 		//! Gets or sets the resource that contains data about the widget.
 		/*!
