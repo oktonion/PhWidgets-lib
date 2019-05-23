@@ -51,7 +51,7 @@ else
     filename=$(basename -- "$file")
     filename="${filename%.*}"
     echo "compiling test c++03 $filename"
-    if ! $COMPILER -std=c++03 -pedantic $exclude_warn $file $build_libs -o "./tests/bin/$filename"; then
+    if ! $COMPILER -std=c++03 -pedantic $exclude_warn $file -I./slib/PhWidgets/src/ $build_libs -o "./tests/bin/$filename"; then
       build_ok=0
     fi
   done
