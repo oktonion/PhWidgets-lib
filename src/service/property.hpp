@@ -112,7 +112,23 @@ namespace cppproperties
 		//no_operator operator!=(const any&,const any&);
 		//no_operator operator<(const any&,const any&);
 
+		template<int>
+		struct sizeof_void_t
+		{
+			typedef void type;
+		};
+
+		template<class LhsT, class RhsT, class T = void>
+		struct test:
+			::stdex::false_type
+		{};
+
 		template<class LhsT, class RhsT>
+		struct test<LhsT, RhsT, sizeof_void_t<sizeof(declref<LhsT>() ==/*op*/ declref<RhsT>())>::type>:
+			::stdex::true_type
+		{};
+
+		/*template<class LhsT, class RhsT>
 		typename
 		enable_if<
 			has_built_in_operator<LhsT, RhsT>::value == false,
@@ -131,13 +147,13 @@ namespace cppproperties
 		enable_if<
 			has_built_in_operator<LhsT, RhsT>::value == false,
 			no_operator
-		>::type operator<(LhsT,RhsT);
+		>::type operator<(LhsT,RhsT);*/
 
 		template <class LhsT, class RhsT>
 		struct equal_exists
 		{
 			static const bool value = 
-				(sizeof(has_comparison_operator_tester(((declref<LhsT>() ==/*op*/ declref<RhsT>()),declref<has_operator>()))) == sizeof(yes_type));
+				test<LhsT, RhsT>::value;
 		};
 
 		template <class LhsT, class RhsT, bool>
