@@ -675,7 +675,7 @@ namespace cppproperties
 			)
 			,
 			bool
-		>::type*/ //bool operator==(const property &other) const {return other._val == _val;}
+		>::type*/ bool operator==(const property &other) const {return other._val == _val;}
 
 		template<class OtherValueT>
 		typename 
