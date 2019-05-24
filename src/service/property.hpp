@@ -660,12 +660,12 @@ namespace cppproperties
 			bool
 		>::type operator==(const OtherValueT &other) const {return _val == other;}
 
-		/*template<class OtherValueT>
+		template<class OtherValueT>
 		typename 
 		detail::enable_if<
 			detail::has_equal<value_type, value_type>::value,
 			bool
-		>::type operator==(const property &other) const {return other._val == _val;}*/
+		>::type operator==(const property &other) const {return _val == other._val;}
 
 		template<class OtherValueT>
 		typename 
@@ -681,12 +681,12 @@ namespace cppproperties
 			bool
 		>::type operator!=(const OtherValueT &other) const {return _val != other;}
 
-		/*template<class OtherValueT>
+		template<class OtherValueT>
 		typename 
 		detail::enable_if<
 			detail::has_not_equal<value_type, value_type>::value,
 			bool
-		>::type operator!=(const property &other) const {return other._val != _val;}*/
+		>::type operator!=(const property &other) const {return _val != other._val;}
 
 		template<class OtherValueT>
 		typename 
@@ -702,12 +702,12 @@ namespace cppproperties
 			bool
 		>::type operator<(const OtherValueT &other) const {return _val < other;}
 
-		/*template<class OtherValueT>
+		template<class OtherValueT>
 		typename 
 		detail::enable_if<
 			detail::has_less<value_type, value_type>::value,
 			bool
-		>::type operator<(const property &other) const {return _val < other._val;}*/
+		>::type operator<(const property &other) const {return _val < other._val;}
 		
 	private:
 
