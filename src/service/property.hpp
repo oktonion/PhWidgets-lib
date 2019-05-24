@@ -771,10 +771,10 @@ namespace cppproperties
 		return lhs.get() < rhs;
 	}
 
-	template<class ValueT, class OtherValueT>
+	/*template<class ValueT, class OtherValueT>
 	typename 
 	detail::enable_if<
-		!detail::has_equal<OtherValueT, property<ValueT, property<>::wo>/**/>::value &&
+		!detail::has_equal<OtherValueT, property<ValueT, property<>::wo> >::value &&
 		(
 			detail::has_equal<OtherValueT, ValueT>::value ||
 			(
@@ -794,7 +794,7 @@ namespace cppproperties
 	template<class ValueT, class OtherValueT>
 	typename 
 	detail::enable_if<
-		!detail::has_not_equal<OtherValueT, property<ValueT, property<>::wo>/**/>::value &&
+		!detail::has_not_equal<OtherValueT, property<ValueT, property<>::wo> >::value &&
 		(
 			detail::has_not_equal<OtherValueT, ValueT>::value ||
 			(
@@ -814,7 +814,7 @@ namespace cppproperties
 	template<class ValueT, class OtherValueT>
 	typename 
 	detail::enable_if<
-		!detail::has_less<OtherValueT, property<ValueT, property<>::wo>/**/>::value &&
+		!detail::has_less<OtherValueT, property<ValueT, property<>::wo> >::value &&
 		(
 			detail::has_less<OtherValueT, ValueT>::value ||
 			(
@@ -829,7 +829,7 @@ namespace cppproperties
 		const property<ValueT, property<>::wo> &rhs)
 	{
 		return lhs < rhs._val;
-	}
+	}*/
 
 	namespace detail
 	{
