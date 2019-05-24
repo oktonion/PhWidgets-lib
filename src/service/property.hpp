@@ -774,13 +774,14 @@ namespace cppproperties
 	template<class ValueT, class OtherValueT>
 	typename 
 	detail::enable_if<
+		!::stdex::is_same<OtherValueT, property<ValueT, property<>::wo> >::value &&
 		(
 			detail::has_equal<OtherValueT, ValueT>::value ||
 			(
 				detail::is_convertable<ValueT, OtherValueT>::value &&
 				detail::has_equal<OtherValueT, OtherValueT>::value
 			)
-		) && !::stdex::is_same<OtherValueT, property<ValueT, property<>::wo> >::value
+		)
 		,
 		bool
 	>::type operator==(
@@ -793,13 +794,14 @@ namespace cppproperties
 	template<class ValueT, class OtherValueT>
 	typename 
 	detail::enable_if<
+		!::stdex::is_same<OtherValueT, property<ValueT, property<>::wo> >::value &&
 		(
 			detail::has_not_equal<OtherValueT, ValueT>::value ||
 			(
 				detail::is_convertable<ValueT, OtherValueT>::value &&
 				detail::has_not_equal<OtherValueT, OtherValueT>::value
 			)
-		) && !::stdex::is_same<OtherValueT, property<ValueT, property<>::wo> >::value
+		)
 		,
 		bool
 	>::type operator!=(
@@ -812,13 +814,14 @@ namespace cppproperties
 	template<class ValueT, class OtherValueT>
 	typename 
 	detail::enable_if<
+		!::stdex::is_same<OtherValueT, property<ValueT, property<>::wo> >::value &&
 		(
 			detail::has_less<OtherValueT, ValueT>::value ||
 			(
 				detail::is_convertable<ValueT, OtherValueT>::value &&
 				detail::has_less<OtherValueT, OtherValueT>::value
 			)
-		) && !::stdex::is_same<OtherValueT, property<ValueT, property<>::wo> >::value
+		)
 		,
 		bool
 	>::type operator<(
