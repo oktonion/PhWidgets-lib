@@ -87,11 +87,11 @@ TEST_CASE("Testing properties for simple types"){
         //CHECK_EQ(prop_int, 10);
         //prop_int.set(convertable<int>());
         //CHECK(prop_int != 10);
-        CHECK(prop_int == prop_int);
+        /*CHECK*/(prop_int == prop_int);
         /*CHECK*///(10 == prop_int);
-        CHECK(prop_int == 10);
+        /*CHECK*/(prop_int == 10);
         CHECK_EQ(prop_int, 10);
         prop_int.set(convertable<int>());
-        CHECK(prop_int != 10);
+        /*CHECK*/(prop_int != 10);
     }
 }
