@@ -540,9 +540,6 @@ namespace cppproperties
 
 			inline
 			void operator()(value_type value) { set(value); return *this; }
-			
-			inline
-			bool operator==(value_type value) {return value == get();}
 
 		private:
 			parent_type *_obj;
@@ -663,19 +660,12 @@ namespace cppproperties
 			bool
 		>::type operator==(const OtherValueT &other) const {return _val == other;}
 
-		//template<class OtherValueT>
-		/*typename 
+		/*template<class OtherValueT>
+		typename 
 		detail::enable_if<
-			(
-				detail::has_equal<value_type, typename property<OtherValueT, detail::property_flag::wo>::value_type>::value ||
-				(
-					detail::is_convertable<OtherValueT, value_type>::value &&
-					detail::has_equal<value_type, value_type>::value
-				)
-			)
-			,
+			detail::has_equal<value_type, value_type>::value,
 			bool
-		>::type*/ bool operator==(const property &other) const {return other._val == _val;}
+		>::type operator==(const property &other) const {return other._val == _val;}*/
 
 		template<class OtherValueT>
 		typename 
@@ -691,6 +681,13 @@ namespace cppproperties
 			bool
 		>::type operator!=(const OtherValueT &other) const {return _val != other;}
 
+		/*template<class OtherValueT>
+		typename 
+		detail::enable_if<
+			detail::has_not_equal<value_type, value_type>::value,
+			bool
+		>::type operator!=(const property &other) const {return other._val != _val;}*/
+
 		template<class OtherValueT>
 		typename 
 		detail::enable_if<
@@ -704,6 +701,13 @@ namespace cppproperties
 			,
 			bool
 		>::type operator<(const OtherValueT &other) const {return _val < other;}
+
+		/*template<class OtherValueT>
+		typename 
+		detail::enable_if<
+			detail::has_less<value_type, value_type>::value,
+			bool
+		>::type operator<(const property &other) const {return _val < other._val;}*/
 		
 	private:
 
@@ -765,6 +769,63 @@ namespace cppproperties
 		const OtherValueT &rhs)
 	{
 		return lhs.get() < rhs;
+	}
+
+	template<class ValueT, class OtherValueT>
+	typename 
+	detail::enable_if<
+		(
+			detail::has_equal<OtherValueT, ValueT>::value ||
+			(
+				detail::is_convertable<ValueT, OtherValueT>::value &&
+				detail::has_equal<OtherValueT, OtherValueT>::value
+			)
+		) && !::stdex::is_same<OtherValueT, property<ValueT, property<>::wo> >::value
+		,
+		bool
+	>::type operator==(
+		const OtherValueT &lhs, 
+		const property<ValueT, property<>::wo> &rhs)
+	{
+		return lhs == rhs._val;
+	}
+
+	template<class ValueT, class OtherValueT>
+	typename 
+	detail::enable_if<
+		(
+			detail::has_not_equal<OtherValueT, ValueT>::value ||
+			(
+				detail::is_convertable<ValueT, OtherValueT>::value &&
+				detail::has_not_equal<OtherValueT, OtherValueT>::value
+			)
+		) && !::stdex::is_same<OtherValueT, property<ValueT, property<>::wo> >::value
+		,
+		bool
+	>::type operator!=(
+		const OtherValueT &lhs,
+		const property<ValueT, property<>::wo> &rhs)
+	{
+		return lhs != rhs._val;
+	}
+
+	template<class ValueT, class OtherValueT>
+	typename 
+	detail::enable_if<
+		(
+			detail::has_less<OtherValueT, ValueT>::value ||
+			(
+				detail::is_convertable<ValueT, OtherValueT>::value &&
+				detail::has_less<OtherValueT, OtherValueT>::value
+			)
+		) && !::stdex::is_same<OtherValueT, property<ValueT, property<>::wo> >::value
+		,
+		bool
+	>::type operator<(
+		const OtherValueT &lhs, 
+		const property<ValueT, property<>::wo> &rhs)
+	{
+		return lhs < rhs._val;
 	}
 
 	namespace detail
