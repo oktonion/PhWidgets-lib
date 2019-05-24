@@ -660,7 +660,6 @@ namespace cppproperties
 			bool
 		>::type operator==(const OtherValueT &other) const {return _val == other;}
 
-		template<class OtherValueT>
 		typename 
 		detail::enable_if<
 			detail::has_equal<value_type, value_type>::value,
@@ -681,7 +680,6 @@ namespace cppproperties
 			bool
 		>::type operator!=(const OtherValueT &other) const {return _val != other;}
 
-		template<class OtherValueT>
 		typename 
 		detail::enable_if<
 			detail::has_not_equal<value_type, value_type>::value,
@@ -702,7 +700,6 @@ namespace cppproperties
 			bool
 		>::type operator<(const OtherValueT &other) const {return _val < other;}
 
-		template<class OtherValueT>
 		typename 
 		detail::enable_if<
 			detail::has_less<value_type, value_type>::value,
