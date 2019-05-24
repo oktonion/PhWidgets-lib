@@ -124,7 +124,8 @@ namespace cppproperties
 		{};
 
 		template<class LhsT, class RhsT>
-		struct test<LhsT, RhsT, sizeof_void_t<sizeof(declref<LhsT>() ==/*op*/ declref<RhsT>())>::type>:
+		struct test<LhsT, RhsT, 
+			typename sizeof_void_t<sizeof(declref<LhsT>() ==/*op*/ declref<RhsT>())>::type>:
 			::stdex::true_type
 		{};
 
