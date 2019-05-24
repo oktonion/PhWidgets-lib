@@ -1,6 +1,8 @@
 #ifndef CPP_PROPERTY_HPP
 #define CPP_PROPERTY_HPP
 
+#include "stdex/include/type_traits.hpp"
+
 namespace cppproperties
 {
 	namespace detail
@@ -64,39 +66,149 @@ namespace cppproperties
 		T& declref();
 		struct any { template <class T> any(T const&); };
 		struct no_operator { };
-#ifdef CPP_PROPERTIES_COMPARE_OPERATORS
-		
-		no_operator operator==(const any&,const any&);	
-		no_operator operator!=(const any&,const any&);
-		no_operator operator<(const any&,const any&);
-#endif
 		struct has_operator { };
 		no_operator operator,(no_operator, has_operator);
 
 		yes_type has_comparison_operator_tester(has_operator);
 		no_type has_comparison_operator_tester(no_operator);
-#define CPP_PROPERTIES_COMPARE_OPERATORS
+		
+		template<class LhsT, class RhsT>
+		struct has_built_in_operator
+		{
+			typedef typename ::stdex::remove_reference<LhsT>::type Lhs_noref;
+   			typedef typename ::stdex::remove_reference<RhsT>::type Rhs_noref;
+   			typedef typename ::stdex::remove_cv<Lhs_noref>::type Lhs_nocv;
+   			typedef typename ::stdex::remove_cv<Rhs_noref>::type Rhs_nocv;
+   			typedef typename ::stdex::remove_cv< typename ::stdex::remove_reference< typename ::stdex::remove_pointer<Lhs_noref>::type >::type >::type Lhs_noptr;
+   			typedef typename ::stdex::remove_cv< typename ::stdex::remove_reference< typename ::stdex::remove_pointer<Rhs_noref>::type >::type >::type Rhs_noptr;
+			static const bool value = 
+					/* LhsT==pointer and RhsT==fundamental */
+					(
+						::stdex::is_pointer< Lhs_noref >::value && 
+						::stdex::is_fundamental< Rhs_nocv >::value
+					) || 
+					/* RhsT==pointer and LhsT==fundamental */
+					(
+						::stdex::is_pointer< Rhs_noref >::value && 
+						::stdex::is_fundamental< Lhs_nocv >::value
+					) || 
+					/* LhsT==pointer and RhsT==pointer and LhsT!=base(RhsT) and RhsT!=base(LhsT) and LhsT!=void* and RhsT!=void* */
+					(
+						::stdex::is_pointer< Lhs_noref >::value && 
+						::stdex::is_pointer< Rhs_noref >::value && 
+						(! 
+							( 
+							//::stdex::is_base_of< Lhs_noptr, Rhs_noptr >::value || 
+							//::stdex::is_base_of< Rhs_noptr, Lhs_noptr >::value || 
+							::stdex::is_same< Lhs_noptr, Rhs_noptr >::value || 
+							::stdex::is_void< Lhs_noptr >::value || 
+							::stdex::is_void< Rhs_noptr >::value
+							)
+						)
+					);
+		};
+
+		//no_operator operator==(const any&,const any&);	
+		//no_operator operator!=(const any&,const any&);
+		//no_operator operator<(const any&,const any&);
+
+		template<int>
+		struct sizeof_void_t
+		{
+			typedef void type;
+		};
+
+		template<class LhsT, class RhsT, class T = void>
+		struct test:
+			::stdex::false_type
+		{};
+
+		template<class LhsT, class RhsT>
+		struct test<LhsT, RhsT, sizeof_void_t<sizeof(declref<LhsT>() ==/*op*/ declref<RhsT>())>::type>:
+			::stdex::true_type
+		{};
+
+		/*template<class LhsT, class RhsT>
+		typename
+		enable_if<
+			has_built_in_operator<LhsT, RhsT>::value == false,
+			no_operator
+		>::type operator==(LhsT,RhsT);
+
+		template<class LhsT, class RhsT>
+		typename
+		enable_if<
+			has_built_in_operator<LhsT, RhsT>::value == false,
+			no_operator
+		>::type operator!=(LhsT,RhsT);
+
+		template<class LhsT, class RhsT>
+		typename
+		enable_if<
+			has_built_in_operator<LhsT, RhsT>::value == false,
+			no_operator
+		>::type operator<(LhsT,RhsT);*/
+
 		template <class LhsT, class RhsT>
-		struct has_equal
+		struct equal_exists
 		{
 			static const bool value = 
-				(sizeof(has_comparison_operator_tester(((declref<LhsT>() ==/*op*/ declref<RhsT>()),declref<has_operator>()))) == sizeof(yes_type));
+				test<LhsT, RhsT>::value;
+		};
+
+		template <class LhsT, class RhsT, bool>
+		struct has_equal_impl
+		{
+			static const bool value = 
+				equal_exists<LhsT, RhsT>::value;
 		};
 
 		template <class LhsT, class RhsT>
-		struct has_not_equal
+		struct has_equal_impl<LhsT, RhsT, true>
+		{
+			static const bool value = true;
+		};
+
+		template <class LhsT, class RhsT>
+		struct has_equal:
+			has_equal_impl<LhsT, RhsT, has_built_in_operator<LhsT, RhsT>::value>
+		{ };
+
+		template <class LhsT, class RhsT, bool>
+		struct has_not_equal_impl
 		{
 			static const bool value = 
 				(sizeof(has_comparison_operator_tester(((declref<LhsT>() !=/*op*/ declref<RhsT>()),declref<has_operator>()))) == sizeof(yes_type));
 		};
 
 		template <class LhsT, class RhsT>
-		struct has_less
+		struct has_not_equal_impl<LhsT, RhsT, true>
+		{
+			static const bool value = true;
+		};
+
+		template <class LhsT, class RhsT>
+		struct has_not_equal:
+			has_not_equal_impl<LhsT, RhsT, has_built_in_operator<LhsT, RhsT>::value>
+		{ };
+
+		template <class LhsT, class RhsT, bool>
+		struct has_less_impl
 		{
 			static const bool value = 
 				(sizeof(has_comparison_operator_tester(((declref<LhsT>() </*op*/ declref<RhsT>()),declref<has_operator>()))) == sizeof(yes_type));
 		};
-#undef CPP_PROPERTIES_COMPARE_OPERATORS
+
+		template <class LhsT, class RhsT>
+		struct has_less_impl<LhsT, RhsT, true>
+		{
+			static const bool value = true;
+		};
+
+		template <class LhsT, class RhsT>
+		struct has_less:
+			has_less_impl<LhsT, RhsT, has_built_in_operator<LhsT, RhsT>::value>
+		{ };
 
 		template<unsigned N> struct priority_tag : priority_tag < N - 1 > {};
 		template<> struct priority_tag<0> {};
@@ -549,6 +661,20 @@ namespace cppproperties
 			,
 			bool
 		>::type operator==(const OtherValueT &other) const {return _val == other;}
+
+		//template<class OtherValueT>
+		/*typename 
+		detail::enable_if<
+			(
+				detail::has_equal<value_type, typename property<OtherValueT, detail::property_flag::wo>::value_type>::value ||
+				(
+					detail::is_convertable<OtherValueT, value_type>::value &&
+					detail::has_equal<value_type, value_type>::value
+				)
+			)
+			,
+			bool
+		>::type*/ //bool operator==(const property &other) const {return other._val == _val;}
 
 		template<class OtherValueT>
 		typename 
