@@ -12,7 +12,7 @@ for /f %%f in ('dir /b ".\tests\%1\*.cpp"') do (
   echo "compiling test %VisualStudioVersion% %%~nf"
   cl -EHsc -W4 -Fo.\tests\obj\%%~nf.obj -c ".\tests\%1\%%f"
   if /I "%ERRORLEVEL%" NEQ "0" (
-    %build_ok%=0
+    set build_ok=0
   )
 
   if /I "%build_ok%" NEQ "0" (
