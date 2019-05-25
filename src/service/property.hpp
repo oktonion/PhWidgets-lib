@@ -17,25 +17,47 @@ namespace cppproperties
 			};
 		};
 
-		template<typename T>
+		template<class T, T Val>
+		struct integral_constant
+		{	// convenient template for integral constant types
+			static const T value = Val;
+
+			typedef const T value_type;
+			typedef integral_constant<T, Val> type;
+
+			operator value_type() const
+			{	// return stored value
+				return (value);
+			}
+
+			value_type operator()() const
+			{	// return stored value
+				return (value);
+			}
+		};
+
+		typedef integral_constant<bool, true> true_type;
+		typedef integral_constant<bool, false> false_type;
+
+		template<class T>
 		struct remove_reference
 		{
 			typedef T type;
 		};
 
-		template<typename T>
+		template<class T>
 		struct remove_reference<T&>
 		{
 			typedef T type;
 		};
 
-		template<typename T>
+		template<class T>
 		struct remove_const
 		{
 			typedef T type;
 		};
 
-		template<typename T>
+		template<class T>
 		struct remove_const<const T>
 		{
 			typedef T type;
@@ -64,55 +86,8 @@ namespace cppproperties
 
 		template<class T>
 		T& declref();
+
 		struct any { template <class T> any(T const&); };
-		struct no_operator { };
-		struct has_operator { };
-		no_operator operator,(no_operator, has_operator);
-
-		yes_type has_comparison_operator_tester(has_operator);
-		no_type has_comparison_operator_tester(no_operator);
-		
-		/*template<class LhsT, class RhsT>
-		struct has_built_in_operator
-		{
-			typedef typename ::stdex::remove_reference<LhsT>::type Lhs_noref;
-   			typedef typename ::stdex::remove_reference<RhsT>::type Rhs_noref;
-   			typedef typename ::stdex::remove_cv<Lhs_noref>::type Lhs_nocv;
-   			typedef typename ::stdex::remove_cv<Rhs_noref>::type Rhs_nocv;
-   			typedef typename ::stdex::remove_cv< typename ::stdex::remove_reference< typename ::stdex::remove_pointer<Lhs_noref>::type >::type >::type Lhs_noptr;
-   			typedef typename ::stdex::remove_cv< typename ::stdex::remove_reference< typename ::stdex::remove_pointer<Rhs_noref>::type >::type >::type Rhs_noptr;
-			static const bool value = 
-					// LhsT==pointer and RhsT==fundamental
-					(
-						::stdex::is_pointer< Lhs_noref >::value && 
-						::stdex::is_fundamental< Rhs_nocv >::value
-					) || 
-					// RhsT==pointer and LhsT==fundamental
-					(
-						::stdex::is_pointer< Rhs_noref >::value && 
-						::stdex::is_fundamental< Lhs_nocv >::value
-					) || 
-					// LhsT==pointer and RhsT==pointer and LhsT!=base(RhsT) and RhsT!=base(LhsT) and LhsT!=void* and RhsT!=void*
-					(
-						::stdex::is_pointer< Lhs_noref >::value && 
-						::stdex::is_pointer< Rhs_noref >::value && 
-						(! 
-							( 
-							//::stdex::is_base_of< Lhs_noptr, Rhs_noptr >::value || 
-							//::stdex::is_base_of< Rhs_noptr, Lhs_noptr >::value || 
-							::stdex::is_same< Lhs_noptr, Rhs_noptr >::value || 
-							::stdex::is_void< Lhs_noptr >::value || 
-							::stdex::is_void< Rhs_noptr >::value
-							)
-						)
-					);
-		};*/
-
-		template<class LhsT, class RhsT>
-		struct has_built_in_operator
-		{
-			static const bool value = false;
-		};
 
 		struct void_type {};
 
@@ -124,90 +99,57 @@ namespace cppproperties
 
 		template<class LhsT, class RhsT, class T = void_type>
 		struct has_equal_test:
-			::stdex::false_type
+			false_type
 		{};
 
 		template<class LhsT, class RhsT>
 		struct has_equal_test<LhsT, RhsT, 
 			typename sizeof_void_t<sizeof(declref<LhsT>() ==/*op*/ declref<RhsT>())>::type>:
-			::stdex::true_type
+			true_type
 		{};
 
 		template<class LhsT, class RhsT, class T = void_type>
 		struct has_not_equal_test:
-			::stdex::false_type
+			false_type
 		{};
 
 		template<class LhsT, class RhsT>
 		struct has_not_equal_test<LhsT, RhsT, 
 			typename sizeof_void_t<sizeof(declref<LhsT>() !=/*op*/ declref<RhsT>())>::type>:
-			::stdex::true_type
+			true_type
 		{};
 
 		template<class LhsT, class RhsT, class T = void_type>
 		struct has_less_test:
-			::stdex::false_type
+			false_type
 		{};
 
 		template<class LhsT, class RhsT>
 		struct has_less_test<LhsT, RhsT, 
 			typename sizeof_void_t<sizeof(declref<LhsT>() </*op*/ declref<RhsT>())>::type>:
-			::stdex::true_type
+			true_type
 		{};
 
-		template <class LhsT, class RhsT, bool>
-		struct has_equal_impl
+		template <class LhsT, class RhsT>
+		struct has_equal
 		{
 			static const bool value = 
 				has_equal_test<LhsT, RhsT>::value;
 		};
 
 		template <class LhsT, class RhsT>
-		struct has_equal_impl<LhsT, RhsT, true>
-		{
-			static const bool value = true;
-		};
-
-		template <class LhsT, class RhsT>
-		struct has_equal:
-			has_equal_impl<LhsT, RhsT, has_built_in_operator<LhsT, RhsT>::value>
-		{ };
-
-		template <class LhsT, class RhsT, bool>
-		struct has_not_equal_impl
+		struct has_not_equal
 		{
 			static const bool value = 
 				has_not_equal_test<LhsT, RhsT>::value;
 		};
 
 		template <class LhsT, class RhsT>
-		struct has_not_equal_impl<LhsT, RhsT, true>
-		{
-			static const bool value = true;
-		};
-
-		template <class LhsT, class RhsT>
-		struct has_not_equal:
-			has_not_equal_impl<LhsT, RhsT, has_built_in_operator<LhsT, RhsT>::value>
-		{ };
-
-		template <class LhsT, class RhsT, bool>
-		struct has_less_impl
+		struct has_less
 		{
 			static const bool value = 
 				has_less_test<LhsT, RhsT>::value;
 		};
-
-		template <class LhsT, class RhsT>
-		struct has_less_impl<LhsT, RhsT, true>
-		{
-			static const bool value = true;
-		};
-
-		template <class LhsT, class RhsT>
-		struct has_less:
-			has_less_impl<LhsT, RhsT, has_built_in_operator<LhsT, RhsT>::value>
-		{ };
 
 		template<unsigned N> struct priority_tag : priority_tag < N - 1 > {};
 		template<> struct priority_tag<0> {};
@@ -222,18 +164,6 @@ namespace cppproperties
 		{
 			static const bool value = 
 				sizeof(is_convertable_tester<ToT>(declref<FromT>(), priority_tag<1>())) == sizeof(yes_type);
-		};
-
-		template<class T>
-		struct is_array
-		{
-			static const bool value = false;
-		};
-
-		template<class T, int Size>
-		struct is_array<T[Size]>
-		{
-			static const bool value = true;
 		};
 
 		template <typename ValueT, typename CValueT>
@@ -486,7 +416,7 @@ namespace cppproperties
 	};
 
 
-	template<typename ValueT>
+	template<class ValueT>
 	class property<ValueT, detail::property_flag::rw>: //ValueT != const...
 		public Ipropertyr<typename detail::property_info<ValueT>::value_type>,
 		public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
@@ -580,7 +510,7 @@ namespace cppproperties
 
 	};
 
-	template<typename ValueT>
+	template<class ValueT>
 	class property<ValueT, detail::property_flag::wo>: //ValueT != const...
 		public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
 		public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::wo>
