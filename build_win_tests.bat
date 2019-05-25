@@ -10,7 +10,7 @@ call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\vsvars32
 
 for /f %%f in ('dir /b ".\tests\%1\*.cpp"') do (
   echo "compiling test %VisualStudioVersion% %%~nf"
-  cl -EHsc -W4 -Fo.\tests\obj\%%~nf.obj -c ".\tests\%%f"
+  cl -EHsc -W4 -Fo.\tests\obj\%%~nf.obj -c ".\tests\%1\%%f"
   if /I "%ERRORLEVEL%" NEQ "0" (
     %build_ok%=0
   )
