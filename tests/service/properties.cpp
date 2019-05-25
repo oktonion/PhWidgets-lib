@@ -339,3 +339,29 @@ TEST_CASE("Testing properties for simple types"){
         CHECK_FALSE(prop_cont.ro_value < prop_cont.value);
     }
 }
+
+#include <vector>
+
+
+
+TEST_CASE("Testing properties for class types"){
+
+    using namespace cppproperties;
+
+    SUBCASE("Testing rw property") {
+        
+        typedef property<std::vector<int>/**/ > property_type;
+        property_type prop_vint;
+
+        CHECK(prop_vint.size() == 0);
+
+        prop_vint.get().push_back(42);
+
+        CHECK(prop_vint.size() == 1);
+
+        for (property_type::iterator it = prop_vint.begin(); it != prop_vint.end(); ++it)
+        {
+            CHECK(*it == 42);
+        }
+    }
+}
