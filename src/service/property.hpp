@@ -879,6 +879,31 @@ namespace cppproperties
 			}
 		};
 
+		template<class T, bool HasImpl, bool HasConstImpl>
+		struct begin_end_property_trait_impl1
+		{ };
+
+		template<class T>
+		struct begin_end_property_trait_impl1<T, true, false>:
+			begin_end_property_trait_impl<T, true>
+		{ };
+
+		template<class T>
+		struct begin_end_property_trait_impl1<T, false, true>:
+			const_begin_end_property_trait_impl<T, true>
+		{ };
+
+		template<class T>
+		struct begin_end_property_trait_impl1<T, true, true>:
+			const_begin_end_property_trait_impl<T, true>,
+			begin_end_property_trait_impl<T, true>
+		{ 
+			using const_begin_end_property_trait_impl<T, true>::begin;
+			using const_begin_end_property_trait_impl<T, true>::end;
+			using begin_end_property_trait_impl<T, true>::begin;
+			using begin_end_property_trait_impl<T, true>::end;
+		};
+
 		template<class T>
 		struct size_property_trait:
 			size_property_trait_impl<T, has_size_type<typename remove_reference<T>::type>::value>
@@ -891,8 +916,7 @@ namespace cppproperties
 
 		template<class T>
 		struct begin_end_property_trait:
-			const_begin_end_property_trait_impl<T, has_const_iterator<typename remove_reference<T>::type>::value>,
-			begin_end_property_trait_impl<T, has_iterator<typename remove_reference<T>::type>::value>
+			begin_end_property_trait_impl1<T, has_iterator<typename remove_reference<T>::type>::value, has_const_iterator<typename remove_reference<T>::type>::value>
 		{ };
 	}
 
