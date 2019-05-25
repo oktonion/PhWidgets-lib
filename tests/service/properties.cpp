@@ -125,7 +125,7 @@ void property_test_subcase4(PropertyT &property, const char *message)
         CHECK(42 == property);
         CHECK(property == 42);
 
-        property<const int> 
+        cppproperties::property<const int> 
             prop_cint(42),
             prop_cint2(property + 1);
 
