@@ -321,5 +321,7 @@ TEST_CASE("Testing properties for simple types"){
         prop_cont.wo_value.set(convertable<int>());
 
         prop_cont.wo_value = convertable<int>();
+
+        prop_cont.wo_value == prop_cont.wo_value;
     }
 }
