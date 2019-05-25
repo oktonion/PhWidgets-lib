@@ -246,6 +246,8 @@ TEST_CASE("Testing properties for simple types"){
 
         property_container<int> prop_cont;
 
+        prop_cont.value = 42;
+
         CHECK(prop_cont.const_value.get() == 42);
         CHECK(42 == prop_cont.const_value);
         CHECK(prop_cont.const_value == 42);
