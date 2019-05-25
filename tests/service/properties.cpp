@@ -88,4 +88,32 @@ TEST_CASE("Testing properties for simple types"){
         prop_int.set(convertable<int>());
         CHECK(prop_int != 10);
     }
+
+    SUBCASE("Testing mixed property"){
+
+        property<int, property<>::wo> prop_wo(10);
+        property<int, property<>::ro> prop_ro(10);
+        property<int, property<>::rw> prop_rw(10);
+
+        CHECK(prop_wo == prop_ro);
+        CHECK(prop_wo == prop_rw);
+        CHECK(prop_ro == prop_wo);
+        CHECK(prop_ro == prop_rw);
+        CHECK(prop_rw == prop_ro);
+        CHECK(prop_rw == prop_wo);
+
+        CHECK_FALSE(prop_wo != prop_ro);
+        CHECK_FALSE(prop_wo != prop_rw);
+        CHECK_FALSE(prop_ro != prop_wo);
+        CHECK_FALSE(prop_ro != prop_rw);
+        CHECK_FALSE(prop_rw != prop_ro);
+        CHECK_FALSE(prop_rw != prop_wo);
+
+        CHECK_FALSE(prop_wo < prop_ro);
+        CHECK_FALSE(prop_wo < prop_rw);
+        CHECK_FALSE(prop_ro < prop_wo);
+        CHECK_FALSE(prop_ro < prop_rw);
+        CHECK_FALSE(prop_rw < prop_ro);
+        CHECK_FALSE(prop_rw < prop_wo);
+    }
 }
