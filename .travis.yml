@@ -1,7 +1,7 @@
 language: cpp
 env: 
-  - BUILD_SCRIPT="build_unix_tests.sh"
-  - RUN_SCRIPT=".run_tests.sh"
+  - BUILD_SCRIPT="./build_unix_tests.sh"
+  - RUN_SCRIPT="./.run_tests.sh"
 matrix:
   include:
     - os: linux
@@ -67,14 +67,14 @@ matrix:
 
     - os: windows
       env: 
-        - BUILD_SCRIPT="build_win_tests.bat"
-        - RUN_SCRIPT="run_tests.bat"
+        - BUILD_SCRIPT="./build_win_tests.bat"
+        - RUN_SCRIPT="./run_tests.bat"
 
 before_script:
   - 
 script:
   - echo "script started"
-  - chmod +x ./$BUILD_SCRIPT
-  - ./$BUILD_SCRIPT service
-  - chmod +x ./$RUN_SCRIPT
-  - ./$RUN_SCRIPT
+  - chmod +x $BUILD_SCRIPT
+  - $BUILD_SCRIPT service
+  - chmod +x $RUN_SCRIPT
+  - $RUN_SCRIPT
