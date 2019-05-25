@@ -324,4 +324,18 @@ TEST_CASE("Testing properties for simple types"){
 
         
     }
+
+    SUBCASE("Testing mixed contained property"){
+
+        property_container<int> prop_cont(10);
+
+        CHECK(prop_cont.value == prop_cont.ro_value);
+        CHECK(prop_cont.ro_value == prop_cont.value);
+
+        CHECK_FALSE(prop_cont.value != prop_cont.ro_value);
+        CHECK_FALSE(prop_cont.ro_value != prop_cont.value);
+
+        CHECK_FALSE(prop_cont.value < prop_cont.ro_value);
+        CHECK_FALSE(prop_cont.ro_value < prop_cont.value);
+    }
 }
