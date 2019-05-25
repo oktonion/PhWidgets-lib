@@ -19,7 +19,8 @@ struct property_container
 {
     property_container(T value_ = T()):
         _value(value_),
-        value(this)
+        value(this),
+        const_value(this)
     { }
 
 private:
@@ -31,6 +32,10 @@ public:
     typename
     cppproperties::property<T>::
         template bind<property_container, &property_container::getter, &property_container::setter> value;
+
+    typename
+    cppproperties::property<T>::
+        template bind<property_container, &property_container::getter, &property_container::setter> const const_value;
 };
 
 
@@ -235,5 +240,22 @@ TEST_CASE("Testing properties for simple types"){
         CHECK_FALSE(val < prop_cont.value);
         CHECK_FALSE(prop_cont.value < val);
         CHECK_FALSE(prop_cont.value < prop_cont.value);
+    }
+
+    SUBCASE("Testing const rw contained property"){
+
+        property_container<int> prop_cont;
+
+        CHECK(prop_cont.const_value.get() == 42);
+        CHECK(42 == prop_cont.const_value);
+        CHECK(prop_cont.const_value == 42);
+
+        CHECK_FALSE(prop_cont.const_value != 42);
+        CHECK_FALSE(42 != prop_cont.const_value);
+        CHECK_FALSE(prop_cont.const_value != prop_cont.const_value);
+
+        CHECK_FALSE(42 < prop_cont.const_value);
+        CHECK_FALSE(prop_cont.const_value < 42);
+        CHECK_FALSE(prop_cont.const_value < prop_cont.const_value);
     }
 }
