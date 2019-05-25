@@ -81,17 +81,17 @@ void property_test_subcase2(PropertyT &property, const char *message)
 {
     SUBCASE(message) {
 
-        CHECK(prop_int.get() == 42);
-        CHECK(42 == prop_int);
-        CHECK(prop_int == 42);
+        CHECK(property.get() == 42);
+        CHECK(42 == property);
+        CHECK(property == 42);
 
-        CHECK_FALSE(prop_int != 42);
-        CHECK_FALSE(42 != prop_int);
-        CHECK_FALSE(prop_int != prop_int);
+        CHECK_FALSE(property != 42);
+        CHECK_FALSE(42 != property);
+        CHECK_FALSE(property != property);
 
-        CHECK_FALSE(42 < prop_int);
-        CHECK_FALSE(prop_int < 42);
-        CHECK_FALSE(prop_int < prop_int);
+        CHECK_FALSE(42 < property);
+        CHECK_FALSE(property < 42);
+        CHECK_FALSE(property < property);
     }
 }
 
@@ -100,19 +100,19 @@ void property_test_subcase3(PropertyT &property, const char *message)
 {
     SUBCASE(message) {
 
-        CHECK(prop_int.get() == 42);
-        CHECK(42 == prop_int);
-        CHECK(prop_int == 42);
+        CHECK(property.get() == 42);
+        CHECK(42 == property);
+        CHECK(property == 42);
 
-        CHECK_FALSE(prop_int == convertable<int>());
-        CHECK_FALSE(convertable<int>() == prop_int);
-        CHECK(prop_int != convertable<int>());
-        CHECK(convertable<int>() != prop_int);
-        CHECK_FALSE(prop_int != prop_int);
+        CHECK_FALSE(property == convertable<int>());
+        CHECK_FALSE(convertable<int>() == property);
+        CHECK(property != convertable<int>());
+        CHECK(convertable<int>() != property);
+        CHECK_FALSE(property != property);
 
-        CHECK(convertable<int>() < prop_int);
-        CHECK_FALSE(prop_int < convertable<int>());
-        CHECK_FALSE(prop_int < prop_int);
+        CHECK(convertable<int>() < property);
+        CHECK_FALSE(property < convertable<int>());
+        CHECK_FALSE(property < property);
     }
 }
 
@@ -121,21 +121,21 @@ void property_test_subcase4(PropertyT &property, const char *message)
 {
     SUBCASE(message) {
 
-        CHECK(prop_int.get() == 42);
-        CHECK(42 == prop_int);
-        CHECK(prop_int == 42);
+        CHECK(property.get() == 42);
+        CHECK(42 == property);
+        CHECK(property == 42);
 
         property<const int> 
             prop_cint(42),
-            prop_cint2(prop_int + 1);
+            prop_cint2(property + 1);
 
-        CHECK(prop_cint == prop_int);
-        CHECK(prop_int == prop_cint);
-        CHECK_FALSE(prop_int > prop_cint);
+        CHECK(prop_cint == property);
+        CHECK(property == prop_cint);
+        CHECK_FALSE(property > prop_cint);
 
-        CHECK(prop_cint2 > prop_int);
-        CHECK(prop_cint2 != prop_int);
-        CHECK(prop_int != prop_cint2);
+        CHECK(prop_cint2 > property);
+        CHECK(prop_cint2 != property);
+        CHECK(property != prop_cint2);
     }
 }
 
@@ -144,13 +144,13 @@ void property_test_subcase5(PropertyT &property, const char *message)
 {
     SUBCASE(message) {
 
-        prop_int.set(10);
-        CHECK(prop_int == prop_int);
-        //CHECK_EQ(10, prop_int);
-        CHECK(prop_int == 10);
-        CHECK_EQ(prop_int, 10);
-        prop_int.set(convertable<int>());
-        CHECK(prop_int != 10);
+        property.set(10);
+        CHECK(property == property);
+        //CHECK_EQ(10, property);
+        CHECK(property == 10);
+        CHECK_EQ(property, 10);
+        property.set(convertable<int>());
+        CHECK(property != 10);
     }
 }
 
