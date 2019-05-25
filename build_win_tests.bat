@@ -6,6 +6,8 @@ setlocal enabledelayedexpansion
 set build_ok=1
 set INCLUDE=%INCLUDE%%cd%\src\;
 
+call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\vsvars32.bat"
+
 for /f %%f in ('dir /b ".\tests\%1\*.cpp"') do (
   echo "compiling test %VisualStudioVersion% %%~nf"
   cl -EHsc -W4 -Fo.\tests\obj\%%~nf.obj -c ".\tests\%%f"
