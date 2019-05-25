@@ -17,7 +17,8 @@ private:
 template<class T>
 struct property_container
 {
-    cppproperties::property<T>::bind<property_container, &property_container::getter, &property_container::setter> value;
+    cppproperties::property<T>::
+        template bind<property_container, &property_container::getter, &property_container::setter> value;
 
     property_container(T value_ = T()):
         _value(value_),
