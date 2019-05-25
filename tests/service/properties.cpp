@@ -10,8 +10,24 @@ struct convertable
         _value(value) {}
     operator T() const {return _value;}
 
-    private:
+private:
     T _value;
+};
+
+template<class T>
+struct property_container
+{
+    cppproperties::property<T>::bind<property_container, &property_container::getter, &property_container::setter> value;
+
+    property_container(T value_ = T()):
+        _value(value_),
+        value(this)
+    { }
+
+private:
+    T _value;
+    T getter() const {return _value;}
+    void setter(T value_) {_value = value_;}
 };
 
 
@@ -26,15 +42,23 @@ TEST_CASE("Testing properties for simple types"){
         prop_int = 11;
 
         CHECK(prop_int.get() == 11);
-        CHECK((11 == prop_int));
-        CHECK((prop_int == 11));
+        CHECK(11 == prop_int);
+        CHECK(prop_int == 11);
 
         int val = 42;
         prop_int.set(val);
 
         CHECK(prop_int.get() == val);
-        CHECK((val == prop_int));
-        CHECK((prop_int == val));
+        CHECK(val == prop_int);
+        CHECK(prop_int == val);
+
+        CHECK_FALSE(prop_int != val);
+        CHECK_FALSE(val != prop_int);
+        CHECK_FALSE(prop_int != prop_int);
+
+        CHECK_FALSE(val < prop_int);
+        CHECK_FALSE(prop_int < val);
+        CHECK_FALSE(prop_int < prop_int);
     }
 
     SUBCASE("Testing const rw property"){
@@ -42,8 +66,16 @@ TEST_CASE("Testing properties for simple types"){
         const property<int> prop_int(42);
 
         CHECK(prop_int.get() == 42);
-        CHECK((42 == prop_int));
-        CHECK((prop_int == 42));
+        CHECK(42 == prop_int);
+        CHECK(prop_int == 42);
+
+        CHECK_FALSE(prop_int != 42);
+        CHECK_FALSE(42 != prop_int);
+        CHECK_FALSE(prop_int != prop_int);
+
+        CHECK_FALSE(42 < prop_int);
+        CHECK_FALSE(prop_int < 42);
+        CHECK_FALSE(prop_int < prop_int);
     }
 
     SUBCASE("Testing ro property of const"){
@@ -58,6 +90,11 @@ TEST_CASE("Testing properties for simple types"){
         CHECK_FALSE(convertable<int>() == prop_int);
         CHECK(prop_int != convertable<int>());
         CHECK(convertable<int>() != prop_int);
+        CHECK_FALSE(prop_int != prop_int);
+
+        CHECK(convertable<int>() < prop_int);
+        CHECK_FALSE(prop_int < convertable<int>());
+        CHECK_FALSE(prop_int < prop_int);
     }
 
     SUBCASE("Testing ro property"){
@@ -169,5 +206,31 @@ TEST_CASE("Testing properties for simple types"){
         CHECK_FALSE(convertable<unsigned int>(42) < prop_rw);
         CHECK(prop_rw < convertable<float>(42.f));
         //CHECK(prop_rw < prop_wo);
+    }
+
+
+    SUBCASE("Testing rw contained property"){
+        property_container<int> prop_cont;
+
+        prop_cont.value = 11;
+
+        CHECK(prop_cont.value.get() == 11);
+        CHECK(11 == prop_cont.value);
+        CHECK(prop_cont.value == 11);
+
+        int val = 42;
+        prop_cont.value.set(val);
+
+        CHECK(prop_cont.value.get() == val);
+        CHECK(val == prop_cont.value);
+        CHECK(prop_cont.value == val);
+
+        CHECK_FALSE(prop_cont.value != val);
+        CHECK_FALSE(val != prop_cont.value);
+        CHECK_FALSE(prop_cont.value != prop_cont.value);
+
+        CHECK_FALSE(val < prop_cont.value);
+        CHECK_FALSE(prop_cont.value < val);
+        CHECK_FALSE(prop_cont.value < prop_cont.value);
     }
 }
