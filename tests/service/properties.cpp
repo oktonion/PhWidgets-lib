@@ -167,21 +167,6 @@ void property_test_subcase4(PropertyT &property, const char *message)
     }
 }
 
-template<class PropertyT>
-void property_test_subcase5(PropertyT &property, const char *message)
-{
-    SUBCASE(message) {
-
-        property.set(10);
-        CHECK(property == property);
-        //CHECK_EQ(10, property);
-        CHECK(property == 10);
-        CHECK_EQ(property, 10);
-        property.set(convertable<int>());
-        CHECK(property != 10);
-    }
-}
-
 
 TEST_CASE("Testing properties for simple types"){
 
@@ -211,10 +196,17 @@ TEST_CASE("Testing properties for simple types"){
         property_test_subcase4(prop_int, "Testing ro property");
     }
 
-    {
+    SUBCASE("Testing wo property") {
+
         property<int, property<>::wo> prop_int(10);
 
-        property_test_subcase5(prop_int, "Testing wo property");
+        prop_int.set(10);
+        CHECK(prop_int == prop_int);
+        //CHECK_EQ(10, property);
+        CHECK(prop_int == 10);
+        CHECK_EQ(prop_int, 10);
+        prop_int.set(convertable<int>());
+        CHECK(prop_int != 10);
     }
 
     SUBCASE("Testing mixed property"){
@@ -321,9 +313,13 @@ TEST_CASE("Testing properties for simple types"){
         property_test_subcase4(prop_cont.ro_value, "Testing ro contained property");
     }
 
-    {
+    SUBCASE("Testing wo contained property") {
+
         property_container<int> prop_cont(10);
 
-        property_test_subcase5(prop_cont.wo_value, "Testing wo property");
+        prop_cont.wo_value.set(10);
+        prop_cont.wo_value.set(convertable<int>());
+
+        prop_cont.wo_value = convertable<int>();
     }
 }
