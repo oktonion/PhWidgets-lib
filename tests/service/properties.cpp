@@ -6,7 +6,12 @@
 template<class T>
 struct convertable
 {
-    operator T() const {return T();}
+    convertable(T value = T()):        
+        _value(value) {}
+    operator T() const {return _value;}
+
+    private:
+    T _value;
 };
 
 
@@ -143,5 +148,26 @@ TEST_CASE("Testing properties for simple types"){
         CHECK_FALSE(prop_ro < prop_rw);
         CHECK_FALSE(prop_rw < prop_ro);
         //CHECK_FALSE(prop_rw < prop_wo);
+
+        CHECK(convertable<float>(10.f) == prop_ro);
+        CHECK(prop_wo == convertable<double>(10.));
+        //CHECK(prop_ro == prop_wo);
+        CHECK(convertable<float>(10.f) == prop_rw);
+        CHECK(prop_rw == convertable<char>(10));
+        //CHECK(prop_rw == prop_wo);
+
+        CHECK(convertable<float>(42.f) != prop_ro);
+        CHECK(prop_wo != convertable<double>(42.));
+        //CHECK(prop_ro != prop_wo);
+        CHECK(convertable<double>(42.) != prop_rw);
+        CHECK(prop_rw != convertable<double>(42.));
+        //CHECK(prop_rw != prop_wo);
+
+        CHECK_FALSE(convertable<int>(42) < prop_ro);
+        CHECK(prop_wo < convertable<double>(42.));
+        //CHECK(prop_ro < prop_wo);
+        CHECK_FALSE(convertable<unsigned int>(42) < prop_rw);
+        CHECK(prop_rw < convertable<float>(42.f));
+        //CHECK(prop_rw < prop_wo);
     }
 }
