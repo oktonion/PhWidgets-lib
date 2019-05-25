@@ -17,10 +17,6 @@ private:
 template<class T>
 struct property_container
 {
-    typename
-    cppproperties::property<T>::
-        template bind<property_container, &property_container::getter, &property_container::setter> value;
-
     property_container(T value_ = T()):
         _value(value_),
         value(this)
@@ -30,6 +26,11 @@ private:
     T _value;
     T getter() const {return _value;}
     void setter(T value_) {_value = value_;}
+
+public:
+    typename
+    cppproperties::property<T>::
+        template bind<property_container, &property_container::getter, &property_container::setter> value;
 };
 
 
