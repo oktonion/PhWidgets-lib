@@ -48,6 +48,35 @@ public:
         template bind<property_container, &property_container::setter> wo_value;
 };
 
+template<class T>
+struct property_container<const T>
+{
+    property_container(T value_ = T()):
+        _value(value_),
+        value(this),
+        const_value(this),
+        ro_value(this),
+        wo_value(this)
+    { }
+
+private:
+    const T _value;
+    const T getter() const {return _value;}
+
+public:
+    typename
+    cppproperties::property<const T>::
+        template bind<property_container, &property_container::getter> value;
+
+    typename
+    cppproperties::property<const T>::
+        template bind<property_container, &property_container::getter> const const_value;
+
+    typename
+    cppproperties::property<const T, cppproperties::property<>::ro>::
+        template bind<property_container, &property_container::getter> ro_value;
+};
+
 template<class PropertyT>
 void property_test_subcase1(PropertyT &property, const char *message)
 {
