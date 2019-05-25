@@ -11,13 +11,13 @@ call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\vsvars32
 for /f %%f in ('dir /b ".\tests\%1\*.cpp"') do (
   echo "compiling test %VisualStudioVersion% %%~nf"
   cl -EHsc -W4 -Fo.\tests\obj\%%~nf.obj -c ".\tests\%1\%%f"
-  @if ERRORLEVEL != 0 (
+  IF ERRORLEVEL 1 (
     set "build_ok=false"
   )
 
   if "%build_ok%" == "true" (
     cl /I \%cd%\src\ .\tests\obj\%%~nf.obj -Fe.\tests\bin\%%~nf.exe -link
-    @if ERRORLEVEL != 0 (
+    IF ERRORLEVEL 1 (
       set "build_ok=false"
     )
   )
