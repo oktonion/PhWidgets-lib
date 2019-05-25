@@ -1,4 +1,7 @@
 language: cpp
+env: 
+  - BUILD_SCRIPT="build_unix_tests.sh"
+  - RUN_SCRIPT=".run_tests.sh"
 matrix:
   include:
     - os: linux
@@ -63,17 +66,15 @@ matrix:
       env: COMPILER=clang++
 
     - os: windows
+      env: 
+        - BUILD_SCRIPT="build_win_tests.bat"
+        - RUN_SCRIPT="run_tests.bat"
 
+before_script:
+  - 
 script:
   - echo "script started"
-  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then 
-      chmod +x ./build_unix_tests.sh
-      ./build_unix_tests.sh service
-      chmod +x ./.run_tests.sh
-      ./.run_tests.sh
-    else
-      chmod +x ./build_unix_tests.sh
-      ./build_unix_tests.sh service
-      chmod +x ./.run_tests.sh
-      ./.run_tests.sh
-    fi
+  - chmod +x ./$BUILD_SCRIPT
+  - ./$BUILD_SCRIPT service
+  - chmod +x ./$RUN_SCRIPT
+  - ./$RUN_SCRIPT
