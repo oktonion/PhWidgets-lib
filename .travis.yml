@@ -1,7 +1,4 @@
 language: cpp
-env: 
-  - BUILD_SCRIPT="./build_unix_tests.sh"
-  - RUN_SCRIPT="./.run_tests.sh"
 matrix:
   include:
     - os: linux
@@ -10,15 +7,21 @@ matrix:
         apt:
           sources: ['ubuntu-toolchain-r-test']
           packages: ['g++-4.4']
-      env: COMPILER=g++-4.4
+      env: 
+        - COMPILER=g++-4.4
+        - BUILD_SCRIPT="./build_unix_tests.sh"
+        - RUN_SCRIPT="./.run_tests.sh"
 
     - os: linux
       compiler: gcc
       addons:
         apt:
           sources: ['ubuntu-toolchain-r-test']
-          packages: ['g++-4.6']
-      env: COMPILER=g++-4.6
+          packages: ['g++-4.6'] 
+      env: 
+        - COMPILER=g++-4.6
+        - BUILD_SCRIPT="./build_unix_tests.sh"
+        - RUN_SCRIPT="./.run_tests.sh"
 
     - os: linux
       compiler: gcc
@@ -26,7 +29,10 @@ matrix:
         apt:
           sources: ['ubuntu-toolchain-r-test']
           packages: ['g++-4.8']
-      env: COMPILER=g++-4.8
+      env: 
+        - COMPILER=g++-4.8
+        - BUILD_SCRIPT="./build_unix_tests.sh"
+        - RUN_SCRIPT="./.run_tests.sh"
 
     - os: linux
       compiler: gcc
@@ -34,7 +40,10 @@ matrix:
         apt:
           sources: ['ubuntu-toolchain-r-test']
           packages: ['g++-4.9']
-      env: COMPILER=g++-4.9
+      env: 
+        - COMPILER=g++-4.9
+        - BUILD_SCRIPT="./build_unix_tests.sh"
+        - RUN_SCRIPT="./.run_tests.sh"
 
     - os: linux
       compiler: gcc
@@ -42,11 +51,17 @@ matrix:
         apt:
           sources: ['ubuntu-toolchain-r-test']
           packages: ['g++-5']
-      env: COMPILER=g++-5
+      env: 
+        - COMPILER=g++-5
+        - BUILD_SCRIPT="./build_unix_tests.sh"
+        - RUN_SCRIPT="./.run_tests.sh"
 
     - os: linux
       compiler: clang
-      env: COMPILER=clang++
+      env: 
+        - COMPILER=clang++
+        - BUILD_SCRIPT="./build_unix_tests.sh"
+        - RUN_SCRIPT="./.run_tests.sh"
 
     - os: linux
       compiler: clang
@@ -54,16 +69,25 @@ matrix:
         apt:
           sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-precise-3.5']
           packages: ['clang-3.5']
-      env: COMPILER=clang++-3.5
+      env: 
+        - COMPILER=clang++-3.5
+        - BUILD_SCRIPT="./build_unix_tests.sh"
+        - RUN_SCRIPT="./.run_tests.sh"
 
     - os: linux
       compiler: gcc
       dist: precise
-      env: COMPILER=g++
+      env: 
+        - COMPILER=g++
+        - BUILD_SCRIPT="./build_unix_tests.sh"
+        - RUN_SCRIPT="./.run_tests.sh"
 
     - os: osx
       osx_image: xcode9
-      env: COMPILER=clang++
+      env: 
+        - COMPILER=clang++
+        - BUILD_SCRIPT="./build_unix_tests.sh"
+        - RUN_SCRIPT="./.run_tests.sh"
 
     - os: windows
       env: 
