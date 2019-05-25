@@ -72,7 +72,7 @@ namespace cppproperties
 		yes_type has_comparison_operator_tester(has_operator);
 		no_type has_comparison_operator_tester(no_operator);
 		
-		template<class LhsT, class RhsT>
+		/*template<class LhsT, class RhsT>
 		struct has_built_in_operator
 		{
 			typedef typename ::stdex::remove_reference<LhsT>::type Lhs_noref;
@@ -82,17 +82,17 @@ namespace cppproperties
    			typedef typename ::stdex::remove_cv< typename ::stdex::remove_reference< typename ::stdex::remove_pointer<Lhs_noref>::type >::type >::type Lhs_noptr;
    			typedef typename ::stdex::remove_cv< typename ::stdex::remove_reference< typename ::stdex::remove_pointer<Rhs_noref>::type >::type >::type Rhs_noptr;
 			static const bool value = 
-					/* LhsT==pointer and RhsT==fundamental */
+					// LhsT==pointer and RhsT==fundamental
 					(
 						::stdex::is_pointer< Lhs_noref >::value && 
 						::stdex::is_fundamental< Rhs_nocv >::value
 					) || 
-					/* RhsT==pointer and LhsT==fundamental */
+					// RhsT==pointer and LhsT==fundamental
 					(
 						::stdex::is_pointer< Rhs_noref >::value && 
 						::stdex::is_fundamental< Lhs_nocv >::value
 					) || 
-					/* LhsT==pointer and RhsT==pointer and LhsT!=base(RhsT) and RhsT!=base(LhsT) and LhsT!=void* and RhsT!=void* */
+					// LhsT==pointer and RhsT==pointer and LhsT!=base(RhsT) and RhsT!=base(LhsT) and LhsT!=void* and RhsT!=void*
 					(
 						::stdex::is_pointer< Lhs_noref >::value && 
 						::stdex::is_pointer< Rhs_noref >::value && 
@@ -106,11 +106,13 @@ namespace cppproperties
 							)
 						)
 					);
-		};
+		};*/
 
-		//no_operator operator==(const any&,const any&);	
-		//no_operator operator!=(const any&,const any&);
-		//no_operator operator<(const any&,const any&);
+		template<class LhsT, class RhsT>
+		struct has_built_in_operator
+		{
+			static const bool value = false;
+		};
 
 		struct void_type {};
 
