@@ -112,6 +112,8 @@ namespace cppproperties
 		//no_operator operator!=(const any&,const any&);
 		//no_operator operator<(const any&,const any&);
 
+		struct void_type {};
+
 		template<int>
 		struct sizeof_void_t
 		{
@@ -266,8 +268,6 @@ namespace cppproperties
 			public flag_chooser_helper<T1, const T1>
 		{
 		};
-
-		struct void_type {};
 
 		template<class ValueT, class ParentT = void_type>
 		struct property_info
