@@ -115,53 +115,47 @@ namespace cppproperties
 		template<int>
 		struct sizeof_void_t
 		{
-			typedef void type;
+			typedef void_type type;
 		};
 
-		template<class LhsT, class RhsT, class T = void>
-		struct test:
+		template<class LhsT, class RhsT, class T = void_type>
+		struct has_equal_test:
 			::stdex::false_type
 		{};
 
 		template<class LhsT, class RhsT>
-		struct test<LhsT, RhsT, 
+		struct has_equal_test<LhsT, RhsT, 
 			typename sizeof_void_t<sizeof(declref<LhsT>() ==/*op*/ declref<RhsT>())>::type>:
 			::stdex::true_type
 		{};
 
-		/*template<class LhsT, class RhsT>
-		typename
-		enable_if<
-			has_built_in_operator<LhsT, RhsT>::value == false,
-			no_operator
-		>::type operator==(LhsT,RhsT);
+		template<class LhsT, class RhsT, class T = void_type>
+		struct has_not_equal_test:
+			::stdex::false_type
+		{};
 
 		template<class LhsT, class RhsT>
-		typename
-		enable_if<
-			has_built_in_operator<LhsT, RhsT>::value == false,
-			no_operator
-		>::type operator!=(LhsT,RhsT);
+		struct has_not_equal_test<LhsT, RhsT, 
+			typename sizeof_void_t<sizeof(declref<LhsT>() !=/*op*/ declref<RhsT>())>::type>:
+			::stdex::true_type
+		{};
+
+		template<class LhsT, class RhsT, class T = void_type>
+		struct has_less_test:
+			::stdex::false_type
+		{};
 
 		template<class LhsT, class RhsT>
-		typename
-		enable_if<
-			has_built_in_operator<LhsT, RhsT>::value == false,
-			no_operator
-		>::type operator<(LhsT,RhsT);*/
-
-		template <class LhsT, class RhsT>
-		struct equal_exists
-		{
-			static const bool value = 
-				test<LhsT, RhsT>::value;
-		};
+		struct has_less_test<LhsT, RhsT, 
+			typename sizeof_void_t<sizeof(declref<LhsT>() </*op*/ declref<RhsT>())>::type>:
+			::stdex::true_type
+		{};
 
 		template <class LhsT, class RhsT, bool>
 		struct has_equal_impl
 		{
 			static const bool value = 
-				equal_exists<LhsT, RhsT>::value;
+				has_equal_test<LhsT, RhsT>::value;
 		};
 
 		template <class LhsT, class RhsT>
@@ -179,7 +173,7 @@ namespace cppproperties
 		struct has_not_equal_impl
 		{
 			static const bool value = 
-				(sizeof(has_comparison_operator_tester(((declref<LhsT>() !=/*op*/ declref<RhsT>()),declref<has_operator>()))) == sizeof(yes_type));
+				has_not_equal_test<LhsT, RhsT>::value;
 		};
 
 		template <class LhsT, class RhsT>
@@ -197,7 +191,7 @@ namespace cppproperties
 		struct has_less_impl
 		{
 			static const bool value = 
-				(sizeof(has_comparison_operator_tester(((declref<LhsT>() </*op*/ declref<RhsT>()),declref<has_operator>()))) == sizeof(yes_type));
+				has_less_test<LhsT, RhsT>::value;
 		};
 
 		template <class LhsT, class RhsT>
