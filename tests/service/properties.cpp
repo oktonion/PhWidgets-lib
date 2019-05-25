@@ -55,8 +55,7 @@ struct property_container<const T>
         _value(value_),
         value(this),
         const_value(this),
-        ro_value(this),
-        wo_value(this)
+        ro_value(this)
     { }
 
 private:
