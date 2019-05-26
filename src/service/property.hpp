@@ -314,6 +314,7 @@ namespace cppproperties
 		public Ipropertyr<typename detail::property_info<ValueT>::value_type>,
 		public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::ro>
 	{
+		const Ipropertyr<T> &getter_interface() const {return *this;}
 	public:
 		typedef typename detail::property_info<ValueT>::value_type value_type;
 		typedef typename detail::property_info<ValueT>::reference reference;
@@ -325,6 +326,7 @@ namespace cppproperties
 			public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::ro>
 		{
 			typedef typename detail::remove_const<ParentT>::type const parent_type;
+			const Ipropertyr<T> &getter_interface() const {return *this;}
 		public:
 			typedef typename detail::property_info<ValueT, ParentT>::value_type value_type;
 			typedef typename detail::property_info<ValueT, ParentT>::reference reference;
@@ -361,6 +363,7 @@ namespace cppproperties
 			public Ipropertyr<typename detail::property_info<ValueT, void>::value_type>,
 			public property_traits<typename detail::property_info<ValueT, void>::value_type, detail::property_flag::ro>
 		{
+			const Ipropertyr<T> &getter_interface() const {return *this;}
 		public:
 			typedef typename detail::property_info<ValueT>::value_type value_type;
 			typedef typename detail::property_info<ValueT>::reference reference;
@@ -422,6 +425,7 @@ namespace cppproperties
 		public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
 		public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::rw>
 	{
+		const Ipropertyr<T> &getter_interface() const {return *this;}
 	public:
 		typedef typename detail::property_info<ValueT>::value_type value_type;
 		typedef typename detail::property_info<ValueT>::reference reference;
@@ -434,6 +438,7 @@ namespace cppproperties
 			public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::rw>
 		{
 			typedef typename detail::remove_const<ParentT>::type parent_type;
+			const Ipropertyr<T> &getter_interface() const {return *this;}
 		public:
 			typedef typename detail::property_info<ValueT>::value_type value_type;
 			typedef typename detail::property_info<ValueT>::reference reference;
@@ -805,21 +810,29 @@ namespace cppproperties
 			static const bool value = true;
 		};
 
+		template<class T>
+		class IpropertyrGet
+		{
+		private:
+			virtual const Ipropertyr<T> &getter_interface() const = 0;
+		};
+
 		template<class T, bool Enabled>
 		struct size_property_trait_impl
 		{ };
 		
 		template<class T>
-		struct size_property_trait_impl<T, true>
+		struct size_property_trait_impl<T, true>:
+			private IpropertyrGet<T>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
 		public:
 			typedef typename clear_type::size_type size_type;
 			
-			size_type& size() const
+			size_type size() const
 			{
-				return reinterpret_cast<const Ipropertyr<T>*>(this)->get().size();
+				return getter_interface().get().size();
 			}
 		};
 
@@ -828,31 +841,32 @@ namespace cppproperties
 		{ };
 		
 		template<class T>
-		struct const_begin_end_property_trait_impl<T, true>
+		struct const_begin_end_property_trait_impl<T, true>:
+			private IpropertyrGet<T>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
 		public:
 			typedef typename clear_type::const_iterator const_iterator;
 			
-			const_iterator& begin() const
+			const_iterator begin() const
 			{
-				return reinterpret_cast<const Ipropertyr<T>*>(this)->get().begin();
+				return getter_interface().get().begin();
 			}
 
-			const_iterator& end() const
+			const_iterator end() const
 			{
-				return reinterpret_cast<const Ipropertyr<T>*>(this)->get().end();
+				return getter_interface().get().end();
 			}
 
-			const_iterator& cbegin() const
+			const_iterator cbegin() const
 			{
-				return reinterpret_cast<const Ipropertyr<T>*>(this)->get().begin();
+				return getter_interface().get().begin();
 			}
 
-			const_iterator& cend() const
+			const_iterator cend() const
 			{
-				return reinterpret_cast<const Ipropertyr<T>*>(this)->get().end();
+				return getter_interface().get().end();
 			}
 		};
 
@@ -861,21 +875,22 @@ namespace cppproperties
 		{ };
 		
 		template<class T>
-		struct begin_end_property_trait_impl<T, true>
+		struct begin_end_property_trait_impl<T, true>:
+			private IpropertyrGet<T>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
 		public:
 			typedef typename clear_type::iterator iterator;
 			
-			iterator& begin()
+			iterator begin()
 			{
-				return reinterpret_cast<Ipropertyr<T>*>(this)->get().begin();
+				return getter_interface().begin();
 			}
 
-			iterator& end()
+			iterator end()
 			{
-				return reinterpret_cast<Ipropertyr<T>*>(this)->get().end();
+				return getter_interface().end();
 			}
 		};
 
