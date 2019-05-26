@@ -267,6 +267,34 @@ namespace cppproperties
 	};
 
 	template<class ValueT>
+	struct Ipropertyr<ValueT&>
+	{
+		typedef const ValueT & value_type;
+		virtual value_type get() const = 0;
+
+	protected:
+		typedef typename detail::property_info<value_type>::reference backdoor_type;
+		virtual backdoor_type backdoor() = 0;
+	};
+
+	template<class ValueT>
+	struct Ipropertyr<const ValueT&>
+	{
+		typedef const ValueT & value_type;
+		virtual value_type get() const = 0;
+	};
+
+	template<class ValueT>
+	struct Ipropertyr_without_backdoor:
+		public Ipropertyr<ValueT>
+	{};
+
+	template<class ValueT>
+	struct Ipropertyr_without_backdoor<ValueT&>:
+		public Ipropertyr<const ValueT&>
+	{};
+
+	template<class ValueT>
 	struct Ipropertyw
 	{
 		typedef ValueT value_type;
@@ -314,6 +342,7 @@ namespace cppproperties
 		public Ipropertyr<typename detail::property_info<ValueT>::const_reference>,
 		public property_traits<typename detail::property_info<ValueT>::const_reference, detail::property_flag::ro>
 	{
+		typedef Ipropertyr_without_backdoor<typename detail::property_info<ValueT>::value_type> Ipropertyr_without_backdoor_type;
 	public:
 		typedef typename detail::property_info<ValueT>::value_type value_type;
 		typedef typename detail::property_info<ValueT>::reference reference;
@@ -321,12 +350,13 @@ namespace cppproperties
 
 		template<class ParentT, typename detail::property_info<ValueT, ParentT>::getter_t Getter>
 		class bind:
-			public Ipropertyr<typename detail::property_info<ValueT>::value_type>,
-			public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::ro>
+			public Ipropertyr_without_backdoor_type,
+			public property_traits<typename Ipropertyr_without_backdoor_type::value_type, detail::property_flag::ro>
 		{
 			typedef typename detail::remove_const<ParentT>::type const parent_type;
+			
 		public:
-			typedef typename detail::property_info<ValueT, ParentT>::value_type value_type;
+			typedef Ipropertyr_without_backdoor_type::value_type value_type;
 			typedef typename detail::property_info<ValueT, ParentT>::reference reference;
 			typedef typename detail::property_info<ValueT, ParentT>::const_reference const_reference;
 
@@ -360,11 +390,11 @@ namespace cppproperties
 
 		template<typename detail::property_info<ValueT, void>::getter_t Getter>
 		class bind_static:
-			public Ipropertyr<typename detail::property_info<ValueT, void>::value_type>,
-			public property_traits<typename detail::property_info<ValueT, void>::value_type, detail::property_flag::ro>
+			public Ipropertyr_without_backdoor_type,
+			public property_traits<typename Ipropertyr_without_backdoor_type::value_type, detail::property_flag::ro>
 		{
 		public:
-			typedef typename detail::property_info<ValueT>::value_type value_type;
+			typedef typename Ipropertyr_without_backdoor_type::value_type value_type;
 			typedef typename detail::property_info<ValueT>::reference reference;
 			typedef typename detail::property_info<ValueT>::const_reference const_reference;
 
@@ -424,9 +454,9 @@ namespace cppproperties
 
 	template<class ValueT>
 	class property<ValueT, detail::property_flag::rw>: //ValueT != const...
-		public Ipropertyr<typename detail::property_info<ValueT>::const_reference>,
+		public Ipropertyr<typename detail::property_info<ValueT>::reference>,
 		public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
-		public property_traits<typename detail::property_info<ValueT>::const_reference, detail::property_flag::rw>
+		public property_traits<typename detail::property_info<ValueT>::reference, detail::property_flag::rw>
 	{
 	public:
 		typedef typename detail::property_info<ValueT>::value_type value_type;
@@ -483,6 +513,8 @@ namespace cppproperties
 			parent_type *_obj;
 			
 			bind(const bind &);	
+
+			reference backdoor() {return (_obj->*Getter)();}
 		};
 
 		property()
@@ -519,6 +551,8 @@ namespace cppproperties
 	private:
 
 		value_type _val;
+
+		backdoor_type backdoor() {return _val;}
 	};
 
 	template<class ValueT>
@@ -893,12 +927,12 @@ namespace cppproperties
 			
 			iterator begin()
 			{
-				return static_cast<const base_type&>(*this).get().begin();
+				return static_cast<base_type&>(*this).backdoor().begin();
 			}
 
 			iterator end()
 			{
-				return static_cast<const base_type&>(*this).get().end();
+				return static_cast<base_type&>(*this).backdoor().end();
 			}
 		};
 
