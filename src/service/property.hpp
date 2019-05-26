@@ -889,12 +889,12 @@ namespace cppproperties
 			
 			iterator begin()
 			{
-				return getter_interface().begin();
+				return getter_interface().get().begin();
 			}
 
 			iterator end()
 			{
-				return getter_interface().end();
+				return getter_interface().get().end();
 			}
 		};
 
