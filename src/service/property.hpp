@@ -87,6 +87,9 @@ namespace cppproperties
 		template<class T>
 		T& declref();
 
+		template<class T>
+		T declval();
+
 		struct any { template <class T> any(T const&); };
 
 		struct void_type {};
@@ -104,7 +107,7 @@ namespace cppproperties
 
 		template<class LhsT, class RhsT>
 		struct has_equal_test<LhsT, RhsT, 
-			typename sizeof_void_t<sizeof(declref<LhsT>() ==/*op*/ declref<RhsT>())>::type>:
+			typename sizeof_void_t<sizeof(declval<LhsT>() ==/*op*/ declval<RhsT>())>::type>:
 			true_type
 		{};
 
@@ -115,7 +118,7 @@ namespace cppproperties
 
 		template<class LhsT, class RhsT>
 		struct has_not_equal_test<LhsT, RhsT, 
-			typename sizeof_void_t<sizeof(declref<LhsT>() !=/*op*/ declref<RhsT>())>::type>:
+			typename sizeof_void_t<sizeof(declval<LhsT>() !=/*op*/ declval<RhsT>())>::type>:
 			true_type
 		{};
 
@@ -126,7 +129,7 @@ namespace cppproperties
 
 		template<class LhsT, class RhsT>
 		struct has_less_test<LhsT, RhsT, 
-			typename sizeof_void_t<sizeof(declref<LhsT>() </*op*/ declref<RhsT>())>::type>:
+			typename sizeof_void_t<sizeof(declval<LhsT>() </*op*/ declval<RhsT>())>::type>:
 			true_type
 		{};
 
@@ -137,7 +140,7 @@ namespace cppproperties
 
 		template<class LhsT, class RhsT>
 		struct has_greater_test<LhsT, RhsT, 
-			typename sizeof_void_t<sizeof(declref<LhsT>() >/*op*/ declref<RhsT>())>::type>:
+			typename sizeof_void_t<sizeof(declval<LhsT>() >/*op*/ declval<RhsT>())>::type>:
 			true_type
 		{};
 		
@@ -148,7 +151,7 @@ namespace cppproperties
 
 		template<class LhsT, class RhsT>
 		struct has_less_equal_test<LhsT, RhsT, 
-			typename sizeof_void_t<sizeof(declref<LhsT>() <=/*op*/ declref<RhsT>())>::type>:
+			typename sizeof_void_t<sizeof(declval<LhsT>() <=/*op*/ declval<RhsT>())>::type>:
 			true_type
 		{};
 
@@ -159,7 +162,7 @@ namespace cppproperties
 
 		template<class LhsT, class RhsT>
 		struct has_greater_equal_test<LhsT, RhsT, 
-			typename sizeof_void_t<sizeof(declref<LhsT>() >=/*op*/ declref<RhsT>())>::type>:
+			typename sizeof_void_t<sizeof(declval<LhsT>() >=/*op*/ declval<RhsT>())>::type>:
 			true_type
 		{};
 
@@ -218,7 +221,7 @@ namespace cppproperties
 		struct is_convertable
 		{
 			static const bool value = 
-				sizeof(is_convertable_tester<ToT>(declref<FromT>(), priority_tag<1>())) == sizeof(yes_type);
+				sizeof(is_convertable_tester<ToT>(declval<FromT>(), priority_tag<1>())) == sizeof(yes_type);
 		};
 
 		template <typename ValueT, typename CValueT>
