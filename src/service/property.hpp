@@ -817,7 +817,7 @@ namespace cppproperties
 		template<class T>
 		class IpropertyrGet
 		{
-		private:
+		protected:
 			virtual const Ipropertyr<T> &getter_interface() const = 0;
 		};
 
