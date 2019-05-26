@@ -426,7 +426,7 @@ namespace cppproperties
 	class property<ValueT, detail::property_flag::rw>: //ValueT != const...
 		public Ipropertyr<typename detail::property_info<ValueT>::const_reference>,
 		public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
-		public property_traits<ValueT, detail::property_flag::rw>
+		public property_traits<typename detail::property_info<ValueT>::const_reference, detail::property_flag::rw>
 	{
 	public:
 		typedef typename detail::property_info<ValueT>::value_type value_type;
