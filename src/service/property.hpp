@@ -817,7 +817,7 @@ namespace cppproperties
 		public:
 			typedef typename clear_type::size_type size_type;
 			
-			size_type size() const
+			size_type& size() const
 			{
 				return reinterpret_cast<const Ipropertyr<T>*>(this)->get().size();
 			}
@@ -835,22 +835,22 @@ namespace cppproperties
 		public:
 			typedef typename clear_type::const_iterator const_iterator;
 			
-			const_iterator begin() const
+			const_iterator& begin() const
 			{
 				return reinterpret_cast<const Ipropertyr<T>*>(this)->get().begin();
 			}
 
-			const_iterator end() const
+			const_iterator& end() const
 			{
 				return reinterpret_cast<const Ipropertyr<T>*>(this)->get().end();
 			}
 
-			const_iterator cbegin() const
+			const_iterator& cbegin() const
 			{
 				return reinterpret_cast<const Ipropertyr<T>*>(this)->get().begin();
 			}
 
-			const_iterator cend() const
+			const_iterator& cend() const
 			{
 				return reinterpret_cast<const Ipropertyr<T>*>(this)->get().end();
 			}
@@ -868,12 +868,12 @@ namespace cppproperties
 		public:
 			typedef typename clear_type::iterator iterator;
 			
-			iterator begin()
+			iterator& begin()
 			{
 				return reinterpret_cast<Ipropertyr<T>*>(this)->get().begin();
 			}
 
-			iterator end()
+			iterator& end()
 			{
 				return reinterpret_cast<Ipropertyr<T>*>(this)->get().end();
 			}
