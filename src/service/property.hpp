@@ -312,7 +312,7 @@ namespace cppproperties
 	template<class ValueT>
 	class property<ValueT, detail::property_flag::ro>: //ValueT == const...
 		public Ipropertyr<typename detail::property_info<ValueT>::const_reference>,
-		public property_traits<ValueT, detail::property_flag::ro>
+		public property_traits<typename detail::property_info<ValueT>::const_reference, detail::property_flag::ro>
 	{
 	public:
 		typedef typename detail::property_info<ValueT>::value_type value_type;
@@ -321,8 +321,8 @@ namespace cppproperties
 
 		template<class ParentT, typename detail::property_info<ValueT, ParentT>::getter_t Getter>
 		class bind:
-			public Ipropertyr<typename detail::property_info<ValueT>::const_reference>,
-			public property_traits<ValueT, detail::property_flag::ro>
+			public Ipropertyr<typename detail::property_info<ValueT>::value_type>,
+			public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::ro>
 		{
 			typedef typename detail::remove_const<ParentT>::type const parent_type;
 		public:
@@ -360,8 +360,8 @@ namespace cppproperties
 
 		template<typename detail::property_info<ValueT, void>::getter_t Getter>
 		class bind_static:
-			public Ipropertyr<typename detail::property_info<ValueT, void>::const_reference>,
-			public property_traits<ValueT, detail::property_flag::ro>
+			public Ipropertyr<typename detail::property_info<ValueT, void>::value_type>,
+			public property_traits<typename detail::property_info<ValueT, void>::value_type, detail::property_flag::ro>
 		{
 		public:
 			typedef typename detail::property_info<ValueT>::value_type value_type;
@@ -435,9 +435,9 @@ namespace cppproperties
 
 		template<class ParentT, typename detail::property_info<ValueT, ParentT>::getter_t Getter, typename detail::property_info<ValueT, ParentT>::setter_t Setter>
 		class bind:
-			public Ipropertyr<typename detail::property_info<ValueT>::const_reference>,
+			public Ipropertyr<typename detail::property_info<ValueT>::value_type>,
 			public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
-			public property_traits<ValueT, detail::property_flag::rw>
+			public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::rw>
 		{
 			typedef typename detail::remove_const<ParentT>::type parent_type;
 		public:
@@ -482,9 +482,7 @@ namespace cppproperties
 		private:
 			parent_type *_obj;
 			
-			bind(const bind &);
-
-			
+			bind(const bind &);	
 		};
 
 		property()
@@ -526,7 +524,7 @@ namespace cppproperties
 	template<class ValueT>
 	class property<ValueT, detail::property_flag::wo>: //ValueT != const...
 		public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
-		public property_traits<ValueT, detail::property_flag::wo>
+		public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::wo>
 	{
 	public:
 		typedef typename detail::property_info<ValueT>::value_type value_type;
@@ -536,7 +534,7 @@ namespace cppproperties
 		template<class ParentT, typename detail::property_info<ValueT, ParentT>::setter_t Setter>
 		class bind:
 			public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
-			public property_traits<ValueT, detail::property_flag::wo>
+			public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::wo>
 		{
 			typedef typename detail::remove_const<ParentT>::type parent_type;
 		public:
@@ -830,11 +828,11 @@ namespace cppproperties
 		
 		template<class T>
 		struct size_property_trait_impl<T, true>:
-			private Ipropertyr<typename detail::property_info<T>::const_reference>
+			private Ipropertyr<T>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
-			typedef Ipropertyr<typename detail::property_info<T>::const_reference> base_type;
+			typedef Ipropertyr<T> base_type;
 		public:
 			typedef typename clear_type::size_type size_type;
 			
@@ -850,11 +848,11 @@ namespace cppproperties
 		
 		template<class T>
 		struct const_begin_end_property_trait_impl<T, true>:
-			private Ipropertyr<typename detail::property_info<T>::const_reference>
+			private Ipropertyr<T>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
-			typedef Ipropertyr<typename detail::property_info<T>::const_reference> base_type;
+			typedef Ipropertyr<T> base_type;
 		public:
 			typedef typename clear_type::const_iterator const_iterator;
 			
@@ -885,11 +883,11 @@ namespace cppproperties
 		
 		template<class T>
 		struct begin_end_property_trait_impl<T, true>:
-			private Ipropertyr<typename detail::property_info<T>::const_reference>
+			private Ipropertyr<T>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
-			typedef Ipropertyr<typename detail::property_info<T>::const_reference> base_type;
+			typedef Ipropertyr<T> base_type;
 		public:
 			typedef typename clear_type::iterator iterator;
 			
