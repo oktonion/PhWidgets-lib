@@ -361,7 +361,7 @@ TEST_CASE("Testing properties for class types"){
 
         CHECK(prop_vint.size() == 1);
 
-        for (property_type::iterator it = prop_vint.begin(); it != prop_vint.end(); ++it)
+        for (property_type::iterator it = prop_vint.get().begin(); it != prop_vint.get().end(); ++it)
         {
             CHECK(*it == 42);
         }
