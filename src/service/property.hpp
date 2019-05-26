@@ -688,11 +688,11 @@ namespace cppproperties
 		typename 
 		detail::enable_if<
 			(
-				detail::has_equal<value_type, OtherValueT>::value ||
+				detail::has_equal<value_type, OtherValueT>::value/* ||
 				(
 					detail::is_convertable<OtherValueT, value_type>::value &&
 					detail::has_equal<value_type, value_type>::value
-				)
+				)*/
 			)
 			,
 			bool
@@ -708,11 +708,11 @@ namespace cppproperties
 		typename 
 		detail::enable_if<
 			(
-				detail::has_not_equal<value_type, OtherValueT>::value ||
+				detail::has_not_equal<value_type, OtherValueT>::value/* ||
 				(
 					detail::is_convertable<OtherValueT, value_type>::value &&
 					detail::has_not_equal<value_type, value_type>::value
-				)
+				)*/
 			)
 			,
 			bool
@@ -728,11 +728,11 @@ namespace cppproperties
 		typename 
 		detail::enable_if<
 			(
-				detail::has_less<value_type, OtherValueT>::value ||
+				detail::has_less<value_type, OtherValueT>::value/* ||
 				(
 					detail::is_convertable<OtherValueT, value_type>::value &&
 					detail::has_less<value_type, value_type>::value
-				)
+				)*/
 			)
 			,
 			bool
@@ -748,11 +748,11 @@ namespace cppproperties
 		typename 
 		detail::enable_if<
 			(
-				detail::has_greater<value_type, OtherValueT>::value ||
+				detail::has_greater<value_type, OtherValueT>::value/* ||
 				(
 					detail::is_convertable<OtherValueT, value_type>::value &&
 					detail::has_greater<value_type, value_type>::value
-				)
+				)*/
 			)
 			,
 			bool
@@ -768,11 +768,11 @@ namespace cppproperties
 		typename 
 		detail::enable_if<
 			(
-				detail::has_less_equal<value_type, OtherValueT>::value ||
+				detail::has_less_equal<value_type, OtherValueT>::value/* ||
 				(
 					detail::is_convertable<OtherValueT, value_type>::value &&
 					detail::has_less_equal<value_type, value_type>::value
-				)
+				)*/
 			)
 			,
 			bool
@@ -788,11 +788,11 @@ namespace cppproperties
 		typename 
 		detail::enable_if<
 			(
-				detail::has_greater_equal<value_type, OtherValueT>::value ||
+				detail::has_greater_equal<value_type, OtherValueT>::value/* ||
 				(
 					detail::is_convertable<OtherValueT, value_type>::value &&
 					detail::has_greater_equal<value_type, value_type>::value
-				)
+				)*/
 			)
 			,
 			bool
@@ -813,11 +813,11 @@ namespace cppproperties
 	typename 
 	detail::enable_if<
 		(
-			detail::has_equal<ValueT, OtherValueT>::value ||
+			detail::has_equal<ValueT, OtherValueT>::value/* ||
 			(
 				detail::is_convertable<OtherValueT, ValueT>::value &&
 				detail::has_equal<ValueT, ValueT>::value
-			)
+			)*/
 		)
 		,
 		bool
@@ -832,11 +832,11 @@ namespace cppproperties
 	typename 
 	detail::enable_if<
 		(
-			detail::has_not_equal<ValueT, OtherValueT>::value ||
+			detail::has_not_equal<ValueT, OtherValueT>::value/* ||
 			(
 				detail::is_convertable<OtherValueT, ValueT>::value &&
 				detail::has_not_equal<ValueT, ValueT>::value
-			)
+			)*/
 		)
 		,
 		bool
@@ -851,11 +851,11 @@ namespace cppproperties
 	typename 
 	detail::enable_if<
 		(
-			detail::has_less<ValueT, OtherValueT>::value ||
+			detail::has_less<ValueT, OtherValueT>::value/* ||
 			(
 				detail::is_convertable<OtherValueT, ValueT>::value &&
 				detail::has_less<ValueT, ValueT>::value
-			)
+			)*/
 		)
 		,
 		bool
@@ -870,11 +870,11 @@ namespace cppproperties
 	typename 
 	detail::enable_if<
 		(
-			detail::has_greater<ValueT, OtherValueT>::value ||
+			detail::has_greater<ValueT, OtherValueT>::value/* ||
 			(
 				detail::is_convertable<OtherValueT, ValueT>::value &&
 				detail::has_greater<ValueT, ValueT>::value
-			)
+			)*/
 		)
 		,
 		bool
@@ -889,11 +889,11 @@ namespace cppproperties
 	typename 
 	detail::enable_if<
 		(
-			detail::has_less_equal<ValueT, OtherValueT>::value ||
+			detail::has_less_equal<ValueT, OtherValueT>::value/* ||
 			(
 				detail::is_convertable<OtherValueT, ValueT>::value &&
 				detail::has_less_equal<ValueT, ValueT>::value
-			)
+			)*/
 		)
 		,
 		bool
@@ -908,11 +908,11 @@ namespace cppproperties
 	typename 
 	detail::enable_if<
 		(
-			detail::has_greater_equal<ValueT, OtherValueT>::value ||
+			detail::has_greater_equal<ValueT, OtherValueT>::value/* ||
 			(
 				detail::is_convertable<OtherValueT, ValueT>::value &&
 				detail::has_greater_equal<ValueT, ValueT>::value
-			)
+			)*/
 		)
 		,
 		bool
