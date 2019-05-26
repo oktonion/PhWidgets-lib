@@ -101,6 +101,18 @@ void property_test_subcase1(PropertyT &property, const char *message)
         CHECK_FALSE(val < property);
         CHECK_FALSE(property < val);
         CHECK_FALSE(property < property);
+
+        CHECK_FALSE(val > property);
+        CHECK_FALSE(property > val);
+        CHECK_FALSE(property > property);
+
+        CHECK(property.get() >= val);
+        CHECK(val >= property);
+        CHECK(property >= val);
+
+        CHECK(property.get() <= val);
+        CHECK(val <= property);
+        CHECK(property <= val);
     }
 }
 
@@ -120,6 +132,18 @@ void property_test_subcase2(PropertyT &property, const char *message)
         CHECK_FALSE(42 < property);
         CHECK_FALSE(property < 42);
         CHECK_FALSE(property < property);
+
+        CHECK_FALSE(42 > property);
+        CHECK_FALSE(property > 42);
+        CHECK_FALSE(property > property);
+
+        CHECK(42 <= property);
+        CHECK(property <= 42);
+        CHECK(property <= property);
+
+        CHECK(42 >= property);
+        CHECK(property >= 42);
+        CHECK(property >= property);
     }
 }
 
@@ -141,6 +165,18 @@ void property_test_subcase3(PropertyT &property, const char *message)
         CHECK(convertable<int>() < property);
         CHECK_FALSE(property < convertable<int>());
         CHECK_FALSE(property < property);
+
+        CHECK_FALSE(convertable<int>() > property);
+        CHECK(property > convertable<int>());
+        CHECK(property > property);
+
+        CHECK(convertable<int>() <= property);
+        CHECK_FALSE(property <= convertable<int>());
+        CHECK_FALSE(property <= property);
+
+        CHECK_FALSE(convertable<int>() >= property);
+        CHECK(property >= convertable<int>());
+        CHECK(property >= property);
     }
 }
 
@@ -365,5 +401,12 @@ TEST_CASE("Testing properties for class types"){
         {
             CHECK(*it == 42);
         }
+
+        CHECK_FALSE(prop_vint == convertable<std::vector<int>/**/>());
+        CHECK(prop_vint != convertable<std::vector<int>/**/>());
+        CHECK_FALSE(prop_vint < convertable<std::vector<int>/**/>());
+        CHECK(prop_vint > convertable<std::vector<int>/**/>());
+        CHECK_FALSE(prop_vint <= convertable<std::vector<int>/**/>());
+        CHECK(prop_vint >= convertable<std::vector<int>/**/>());
     }
 }
