@@ -925,17 +925,18 @@ namespace cppproperties
 		private:
 			typedef typename remove_reference<T>::type clear_type;
 			typedef Ipropertyr<T> base_type;
+			using base_type::backdoor;
 		public:
 			typedef typename clear_type::iterator iterator;
 			
 			iterator begin()
 			{
-				return static_cast<const base_type&>(*this).backdoor().begin();
+				return backdoor().begin();
 			}
 
 			iterator end()
 			{
-				return static_cast<const base_type&>(*this).backdoor().end();
+				return backdoor().end();
 			}
 		};
 
