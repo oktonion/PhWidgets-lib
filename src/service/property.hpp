@@ -130,6 +130,39 @@ namespace cppproperties
 			true_type
 		{};
 
+		template<class LhsT, class RhsT, class T = void_type>
+		struct has_greater_test:
+			false_type
+		{};
+
+		template<class LhsT, class RhsT>
+		struct has_greater_test<LhsT, RhsT, 
+			typename sizeof_void_t<sizeof(declref<LhsT>() >/*op*/ declref<RhsT>())>::type>:
+			true_type
+		{};
+		
+		template<class LhsT, class RhsT, class T = void_type>
+		struct has_less_equal_test:
+			false_type
+		{};
+
+		template<class LhsT, class RhsT>
+		struct has_less_equal_test<LhsT, RhsT, 
+			typename sizeof_void_t<sizeof(declref<LhsT>() <=/*op*/ declref<RhsT>())>::type>:
+			true_type
+		{};
+
+		template<class LhsT, class RhsT, class T = void_type>
+		struct has_greater_equal_test:
+			false_type
+		{};
+
+		template<class LhsT, class RhsT>
+		struct has_greater_equal_test<LhsT, RhsT, 
+			typename sizeof_void_t<sizeof(declref<LhsT>() >=/*op*/ declref<RhsT>())>::type>:
+			true_type
+		{};
+
 		template <class LhsT, class RhsT>
 		struct has_equal
 		{
@@ -150,6 +183,28 @@ namespace cppproperties
 			static const bool value = 
 				has_less_test<LhsT, RhsT>::value;
 		};
+
+		template <class LhsT, class RhsT>
+		struct has_greater
+		{
+			static const bool value = 
+				has_greater_test<LhsT, RhsT>::value;
+		};
+
+		template <class LhsT, class RhsT>
+		struct has_less_equal
+		{
+			static const bool value = 
+				has_less_equal_test<LhsT, RhsT>::value;
+		};
+
+		template <class LhsT, class RhsT>
+		struct has_greater_equal
+		{
+			static const bool value = 
+				has_greater_equal_test<LhsT, RhsT>::value;
+		};
+		
 
 		template<unsigned N> struct priority_tag : priority_tag < N - 1 > {};
 		template<> struct priority_tag<0> {};
@@ -685,6 +740,66 @@ namespace cppproperties
 			detail::has_less<value_type, value_type>::value,
 			bool
 		>::type operator<(const property &other) const {return _val < other._val;}
+
+		template<class OtherValueT>
+		typename 
+		detail::enable_if<
+			(
+				detail::has_greater<value_type, OtherValueT>::value ||
+				(
+					detail::is_convertable<OtherValueT, value_type>::value &&
+					detail::has_greater<value_type, value_type>::value
+				)
+			)
+			,
+			bool
+		>::type operator>(const OtherValueT &other) const {return _val > other;}
+
+		typename 
+		detail::enable_if<
+			detail::has_greater<value_type, value_type>::value,
+			bool
+		>::type operator>(const property &other) const {return _val > other._val;}
+
+		template<class OtherValueT>
+		typename 
+		detail::enable_if<
+			(
+				detail::has_less_equal<value_type, OtherValueT>::value ||
+				(
+					detail::is_convertable<OtherValueT, value_type>::value &&
+					detail::has_less_equal<value_type, value_type>::value
+				)
+			)
+			,
+			bool
+		>::type operator<=(const OtherValueT &other) const {return _val <= other;}
+
+		typename 
+		detail::enable_if<
+			detail::has_less_equal<value_type, value_type>::value,
+			bool
+		>::type operator<=(const property &other) const {return _val <= other._val;}
+
+		template<class OtherValueT>
+		typename 
+		detail::enable_if<
+			(
+				detail::has_greater_equal<value_type, OtherValueT>::value ||
+				(
+					detail::is_convertable<OtherValueT, value_type>::value &&
+					detail::has_greater_equal<value_type, value_type>::value
+				)
+			)
+			,
+			bool
+		>::type operator>(const OtherValueT &other) const {return _val >= other;}
+
+		typename 
+		detail::enable_if<
+			detail::has_greater_equal<value_type, value_type>::value,
+			bool
+		>::type operator>(const property &other) const {return _val >= other._val;}
 		
 	private:
 
@@ -746,6 +861,63 @@ namespace cppproperties
 		const OtherValueT &rhs)
 	{
 		return lhs.get() < rhs;
+	}
+
+	template<class ValueT, class OtherValueT>
+	typename 
+	detail::enable_if<
+		(
+			detail::has_greater<ValueT, OtherValueT>::value ||
+			(
+				detail::is_convertable<OtherValueT, ValueT>::value &&
+				detail::has_greater<ValueT, ValueT>::value
+			)
+		)
+		,
+		bool
+	>::type operator>(
+		const Ipropertyr<ValueT> &lhs, 
+		const OtherValueT &rhs)
+	{
+		return lhs.get() > rhs;
+	}
+
+	template<class ValueT, class OtherValueT>
+	typename 
+	detail::enable_if<
+		(
+			detail::has_less_equal<ValueT, OtherValueT>::value ||
+			(
+				detail::is_convertable<OtherValueT, ValueT>::value &&
+				detail::has_less_equal<ValueT, ValueT>::value
+			)
+		)
+		,
+		bool
+	>::type operator<=(
+		const Ipropertyr<ValueT> &lhs, 
+		const OtherValueT &rhs)
+	{
+		return lhs.get() <= rhs;
+	}
+
+	template<class ValueT, class OtherValueT>
+	typename 
+	detail::enable_if<
+		(
+			detail::has_greater_equal<ValueT, OtherValueT>::value ||
+			(
+				detail::is_convertable<OtherValueT, ValueT>::value &&
+				detail::has_greater_equal<ValueT, ValueT>::value
+			)
+		)
+		,
+		bool
+	>::type operator>=(
+		const Ipropertyr<ValueT> &lhs, 
+		const OtherValueT &rhs)
+	{
+		return lhs.get() >= rhs;
 	}
 
 	/*template<class ValueT, class OtherValueT>
