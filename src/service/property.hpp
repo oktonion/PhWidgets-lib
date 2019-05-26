@@ -355,7 +355,7 @@ namespace cppproperties
 			bind &operator=(value_type);
 			bind &operator=(bind const &);
 
-			const Ipropertyr<value_type> &getter_interface() const {return *this;}
+			
 		};
 
 		template<typename detail::property_info<ValueT, void>::getter_t Getter>
@@ -392,7 +392,7 @@ namespace cppproperties
 			inline 
 			bind_static &operator=(bind_static const &);
 
-			const Ipropertyr<value_type> &getter_interface() const {return *this;}
+			
 		};
 
 		property(value_type value) :
@@ -418,7 +418,7 @@ namespace cppproperties
 		property &operator=(value_type);
 		property &operator=(property const &);
 
-		const Ipropertyr<value_type> &getter_interface() const {return *this;}
+		
 	};
 
 
@@ -478,7 +478,7 @@ namespace cppproperties
 			
 			bind(const bind &);
 
-			const Ipropertyr<value_type> &getter_interface() const {return *this;}
+			
 		};
 
 		property()
@@ -516,7 +516,7 @@ namespace cppproperties
 
 		ValueT _val;
 
-		const Ipropertyr<value_type> &getter_interface() const {return *this;}
+		
 	};
 
 	template<class ValueT>
@@ -814,20 +814,13 @@ namespace cppproperties
 			static const bool value = true;
 		};
 
-		template<class T>
-		class IpropertyrGet
-		{
-		protected:
-			virtual const Ipropertyr<T> &getter_interface() const = 0;
-		};
-
 		template<class T, bool Enabled>
 		struct size_property_trait_impl
 		{ };
 		
 		template<class T>
 		struct size_property_trait_impl<T, true>:
-			private IpropertyrGet<T>
+			private Ipropertyr<T>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
@@ -836,7 +829,7 @@ namespace cppproperties
 			
 			size_type size() const
 			{
-				return getter_interface().get().size();
+				return get().size();
 			}
 		};
 
@@ -846,7 +839,7 @@ namespace cppproperties
 		
 		template<class T>
 		struct const_begin_end_property_trait_impl<T, true>:
-			private IpropertyrGet<T>
+			private Ipropertyr<T>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
@@ -855,22 +848,22 @@ namespace cppproperties
 			
 			const_iterator begin() const
 			{
-				return getter_interface().get().begin();
+				return get().begin();
 			}
 
 			const_iterator end() const
 			{
-				return getter_interface().get().end();
+				return get().end();
 			}
 
 			const_iterator cbegin() const
 			{
-				return getter_interface().get().begin();
+				return get().begin();
 			}
 
 			const_iterator cend() const
 			{
-				return getter_interface().get().end();
+				return get().end();
 			}
 		};
 
@@ -880,7 +873,7 @@ namespace cppproperties
 		
 		template<class T>
 		struct begin_end_property_trait_impl<T, true>:
-			private IpropertyrGet<T>
+			private Ipropertyr<T>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
@@ -889,12 +882,12 @@ namespace cppproperties
 			
 			iterator begin()
 			{
-				return getter_interface().get().begin();
+				return get().begin();
 			}
 
 			iterator end()
 			{
-				return getter_interface().get().end();
+				return get().end();
 			}
 		};
 
