@@ -870,12 +870,13 @@ namespace cppproperties
 		private:
 			typedef typename remove_reference<T>::type clear_type;
 			typedef Ipropertyr<T> base_type;
+			using base_type::get;
 		public:
 			typedef typename clear_type::size_type size_type;
 			
 			size_type size() const
 			{
-				return static_cast<const base_type&>(*this).get().size();
+				return get().size();
 			}
 		};
 
@@ -890,27 +891,28 @@ namespace cppproperties
 		private:
 			typedef typename remove_reference<T>::type clear_type;
 			typedef Ipropertyr<T> base_type;
+			using base_type::get;
 		public:
 			typedef typename clear_type::const_iterator const_iterator;
 			
 			const_iterator begin() const
 			{
-				return static_cast<const base_type&>(*this).get().begin();
+				return get().begin();
 			}
 
 			const_iterator end() const
 			{
-				return static_cast<const base_type&>(*this).get().end();
+				return get().end();
 			}
 
 			const_iterator cbegin() const
 			{
-				return static_cast<const base_type&>(*this).get().begin();
+				return get().begin();
 			}
 
 			const_iterator cend() const
 			{
-				return static_cast<const base_type&>(*this).get().end();
+				return get().end();
 			}
 		};
 
