@@ -793,13 +793,13 @@ namespace cppproperties
 			)
 			,
 			bool
-		>::type operator>(const OtherValueT &other) const {return _val >= other;}
+		>::type operator>=(const OtherValueT &other) const {return _val >= other;}
 
 		typename 
 		detail::enable_if<
 			detail::has_greater_equal<value_type, value_type>::value,
 			bool
-		>::type operator>(const property &other) const {return _val >= other._val;}
+		>::type operator>=(const property &other) const {return _val >= other._val;}
 		
 	private:
 
