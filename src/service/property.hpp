@@ -829,7 +829,7 @@ namespace cppproperties
 			
 			size_type size() const
 			{
-				return Ipropertyr<T>::get().size();
+				return static_cast<const Ipropertyr<T>&>(*this).get().size();
 			}
 		};
 
@@ -848,22 +848,22 @@ namespace cppproperties
 			
 			const_iterator begin() const
 			{
-				return Ipropertyr<T>::get().begin();
+				return static_cast<const Ipropertyr<T>&>(*this).get().begin();
 			}
 
 			const_iterator end() const
 			{
-				return Ipropertyr<T>::get().end();
+				return static_cast<const Ipropertyr<T>&>(*this).get().end();
 			}
 
 			const_iterator cbegin() const
 			{
-				return Ipropertyr<T>::get().begin();
+				return static_cast<const Ipropertyr<T>&>(*this).get().begin();
 			}
 
 			const_iterator cend() const
 			{
-				return Ipropertyr<T>::get().end();
+				return static_cast<const Ipropertyr<T>&>(*this).get().end();
 			}
 		};
 
@@ -882,12 +882,12 @@ namespace cppproperties
 			
 			iterator begin()
 			{
-				return Ipropertyr<T>::get().begin();
+				return static_cast<const Ipropertyr<T>&>(*this).get().begin();
 			}
 
 			iterator end()
 			{
-				return Ipropertyr<T>::get().end();
+				return static_cast<const Ipropertyr<T>&>(*this).get().end();
 			}
 		};
 
