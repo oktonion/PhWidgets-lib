@@ -552,7 +552,10 @@ namespace cppproperties
 
 		value_type _val;
 
-		backdoor_type backdoor() {return _val;}
+		typedef Ipropertyr<typename detail::property_info<ValueT>::reference> Ipropertyr_base;
+		
+		typename
+		Ipropertyr_base::backdoor_type backdoor() {return _val;}
 	};
 
 	template<class ValueT>
