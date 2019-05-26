@@ -830,16 +830,17 @@ namespace cppproperties
 		
 		template<class T>
 		struct size_property_trait_impl<T, true>:
-			private Ipropertyr<T>
+			private Ipropertyr<typename detail::property_info<T>::const_reference>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
+			typedef Ipropertyr<typename detail::property_info<T>::const_reference> base_type;
 		public:
 			typedef typename clear_type::size_type size_type;
 			
 			size_type size() const
 			{
-				return static_cast<const Ipropertyr<T>&>(*this).get().size();
+				return static_cast<const base_type&>(*this).get().size();
 			}
 		};
 
@@ -849,31 +850,32 @@ namespace cppproperties
 		
 		template<class T>
 		struct const_begin_end_property_trait_impl<T, true>:
-			private Ipropertyr<T>
+			private Ipropertyr<typename detail::property_info<T>::const_reference>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
+			typedef Ipropertyr<typename detail::property_info<T>::const_reference> base_type;
 		public:
 			typedef typename clear_type::const_iterator const_iterator;
 			
 			const_iterator begin() const
 			{
-				return static_cast<const Ipropertyr<T>&>(*this).get().begin();
+				return static_cast<const base_type&>(*this).get().begin();
 			}
 
 			const_iterator end() const
 			{
-				return static_cast<const Ipropertyr<T>&>(*this).get().end();
+				return static_cast<const base_type&>(*this).get().end();
 			}
 
 			const_iterator cbegin() const
 			{
-				return static_cast<const Ipropertyr<T>&>(*this).get().begin();
+				return static_cast<const base_type&>(*this).get().begin();
 			}
 
 			const_iterator cend() const
 			{
-				return static_cast<const Ipropertyr<T>&>(*this).get().end();
+				return static_cast<const base_type&>(*this).get().end();
 			}
 		};
 
@@ -883,21 +885,22 @@ namespace cppproperties
 		
 		template<class T>
 		struct begin_end_property_trait_impl<T, true>:
-			private Ipropertyr<T>
+			private Ipropertyr<typename detail::property_info<T>::const_reference>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
+			typedef Ipropertyr<typename detail::property_info<T>::const_reference> base_type;
 		public:
 			typedef typename clear_type::iterator iterator;
 			
 			iterator begin()
 			{
-				return static_cast<const Ipropertyr<T>&>(*this).get().begin();
+				return static_cast<const base_type&>(*this).get().begin();
 			}
 
 			iterator end()
 			{
-				return static_cast<const Ipropertyr<T>&>(*this).get().end();
+				return static_cast<const base_type&>(*this).get().end();
 			}
 		};
 
