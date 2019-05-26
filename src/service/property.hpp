@@ -273,7 +273,7 @@ namespace cppproperties
 		virtual value_type get() const = 0;
 
 	protected:
-		typedef typename detail::property_info<value_type>::reference backdoor_type;
+		typedef typename detail::property_info<ValueT>::reference backdoor_type;
 		virtual backdoor_type backdoor() = 0;
 	};
 
