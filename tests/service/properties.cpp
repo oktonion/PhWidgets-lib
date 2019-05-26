@@ -410,10 +410,10 @@ TEST_CASE("Testing properties for class types"){
         /*CHECK*/(prop_vint >= val);
 
         /*CHECK_FALSE*/(prop_vint == convertable<std::vector<int>/**/>());
-        /*CHECK*/(prop_vint != convertable<std::vector<int>/**/>());
-        /*CHECK_FALSE*/(prop_vint < convertable<std::vector<int>/**/>());
-        /*CHECK*/(prop_vint > convertable<std::vector<int>/**/>());
-        /*CHECK_FALSE*/(prop_vint <= convertable<std::vector<int>/**/>());
-        /*CHECK*/(prop_vint >= convertable<std::vector<int>/**/>());
+        ///*CHECK*/(prop_vint != convertable<std::vector<int>/**/>());
+        ///*CHECK_FALSE*/(prop_vint < convertable<std::vector<int>/**/>());
+        ///*CHECK*/(prop_vint > convertable<std::vector<int>/**/>());
+        ///*CHECK_FALSE*/(prop_vint <= convertable<std::vector<int>/**/>());
+        ///*CHECK*/(prop_vint >= convertable<std::vector<int>/**/>());
     }
 }
