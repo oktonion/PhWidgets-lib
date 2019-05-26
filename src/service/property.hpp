@@ -274,7 +274,7 @@ namespace cppproperties
 
 	protected:
 		typedef typename detail::property_info<ValueT>::reference backdoor_type;
-		virtual backdoor_type backdoor() const = 0;
+		virtual backdoor_type backdoor() = 0;
 	};
 
 	template<class ValueT>
@@ -514,7 +514,7 @@ namespace cppproperties
 			
 			bind(const bind &);	
 
-			value_type backdoor() const {return (_obj->*Getter)();}
+			value_type backdoor() {return (_obj->*Getter)();}
 		};
 
 		property()
@@ -555,7 +555,7 @@ namespace cppproperties
 		typedef Ipropertyr<typename detail::property_info<ValueT>::reference> Ipropertyr_base;
 		
 		typename
-		Ipropertyr_base::backdoor_type backdoor() const {return _val;}
+		Ipropertyr_base::backdoor_type backdoor() {return _val;}
 	};
 
 	template<class ValueT>
