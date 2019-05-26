@@ -361,7 +361,7 @@ TEST_CASE("Testing properties for class types"){
 
         CHECK(prop_vint.get().size() == 1);
 
-        for (std::vector<int>::iterator it = val.begin(); it != val.end(); ++it)
+        for (std::vector<int>::iterator it = prop_vint.get().begin(); it != prop_vint.get().end(); ++it)
         {
             CHECK(*it == 42);
         }
