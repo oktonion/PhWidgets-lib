@@ -829,7 +829,7 @@ namespace cppproperties
 			
 			size_type size() const
 			{
-				return get().size();
+				return Ipropertyr<T>::get().size();
 			}
 		};
 
@@ -848,22 +848,22 @@ namespace cppproperties
 			
 			const_iterator begin() const
 			{
-				return get().begin();
+				return Ipropertyr<T>::get().begin();
 			}
 
 			const_iterator end() const
 			{
-				return get().end();
+				return Ipropertyr<T>::get().end();
 			}
 
 			const_iterator cbegin() const
 			{
-				return get().begin();
+				return Ipropertyr<T>::get().begin();
 			}
 
 			const_iterator cend() const
 			{
-				return get().end();
+				return Ipropertyr<T>::get().end();
 			}
 		};
 
@@ -882,12 +882,12 @@ namespace cppproperties
 			
 			iterator begin()
 			{
-				return get().begin();
+				return Ipropertyr<T>::get().begin();
 			}
 
 			iterator end()
 			{
-				return get().end();
+				return Ipropertyr<T>::get().end();
 			}
 		};
 
