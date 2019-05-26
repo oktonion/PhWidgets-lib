@@ -168,11 +168,11 @@ void property_test_subcase3(PropertyT &property, const char *message)
 
         CHECK_FALSE(convertable<int>() > property);
         CHECK(property > convertable<int>());
-        CHECK(property > property);
+        CHECK_FALSE(property > property);
 
         CHECK(convertable<int>() <= property);
         CHECK_FALSE(property <= convertable<int>());
-        CHECK_FALSE(property <= property);
+        CHECK(property <= property);
 
         CHECK_FALSE(convertable<int>() >= property);
         CHECK(property >= convertable<int>());
