@@ -930,12 +930,12 @@ namespace cppproperties
 			
 			iterator begin()
 			{
-				return backdoor().begin();
+				return base_type::backdoor().begin();
 			}
 
 			iterator end()
 			{
-				return backdoor().end();
+				return base_type::backdoor().end();
 			}
 		};
 
