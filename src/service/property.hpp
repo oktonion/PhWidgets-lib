@@ -314,7 +314,6 @@ namespace cppproperties
 		public Ipropertyr<typename detail::property_info<ValueT>::value_type>,
 		public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::ro>
 	{
-		const Ipropertyr<T> &getter_interface() const {return *this;}
 	public:
 		typedef typename detail::property_info<ValueT>::value_type value_type;
 		typedef typename detail::property_info<ValueT>::reference reference;
@@ -326,7 +325,6 @@ namespace cppproperties
 			public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::ro>
 		{
 			typedef typename detail::remove_const<ParentT>::type const parent_type;
-			const Ipropertyr<T> &getter_interface() const {return *this;}
 		public:
 			typedef typename detail::property_info<ValueT, ParentT>::value_type value_type;
 			typedef typename detail::property_info<ValueT, ParentT>::reference reference;
@@ -356,6 +354,8 @@ namespace cppproperties
 
 			bind &operator=(value_type);
 			bind &operator=(bind const &);
+
+			const Ipropertyr<value_type> &getter_interface() const {return *this;}
 		};
 
 		template<typename detail::property_info<ValueT, void>::getter_t Getter>
@@ -363,7 +363,6 @@ namespace cppproperties
 			public Ipropertyr<typename detail::property_info<ValueT, void>::value_type>,
 			public property_traits<typename detail::property_info<ValueT, void>::value_type, detail::property_flag::ro>
 		{
-			const Ipropertyr<T> &getter_interface() const {return *this;}
 		public:
 			typedef typename detail::property_info<ValueT>::value_type value_type;
 			typedef typename detail::property_info<ValueT>::reference reference;
@@ -392,6 +391,8 @@ namespace cppproperties
 			bind_static &operator=(value_type);
 			inline 
 			bind_static &operator=(bind_static const &);
+
+			const Ipropertyr<value_type> &getter_interface() const {return *this;}
 		};
 
 		property(value_type value) :
@@ -416,6 +417,8 @@ namespace cppproperties
 
 		property &operator=(value_type);
 		property &operator=(property const &);
+
+		const Ipropertyr<value_type> &getter_interface() const {return *this;}
 	};
 
 
@@ -425,7 +428,6 @@ namespace cppproperties
 		public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
 		public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::rw>
 	{
-		const Ipropertyr<T> &getter_interface() const {return *this;}
 	public:
 		typedef typename detail::property_info<ValueT>::value_type value_type;
 		typedef typename detail::property_info<ValueT>::reference reference;
@@ -438,7 +440,6 @@ namespace cppproperties
 			public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::rw>
 		{
 			typedef typename detail::remove_const<ParentT>::type parent_type;
-			const Ipropertyr<T> &getter_interface() const {return *this;}
 		public:
 			typedef typename detail::property_info<ValueT>::value_type value_type;
 			typedef typename detail::property_info<ValueT>::reference reference;
@@ -476,6 +477,8 @@ namespace cppproperties
 			parent_type *_obj;
 			
 			bind(const bind &);
+
+			const Ipropertyr<value_type> &getter_interface() const {return *this;}
 		};
 
 		property()
@@ -513,6 +516,7 @@ namespace cppproperties
 
 		ValueT _val;
 
+		const Ipropertyr<value_type> &getter_interface() const {return *this;}
 	};
 
 	template<class ValueT>
