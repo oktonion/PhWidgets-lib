@@ -355,7 +355,9 @@ TEST_CASE("Testing properties for class types"){
 
         CHECK(prop_vint.size() == 0);
 
-        prop_vint.get().push_back(42);
+        std::vector<int> val = prop_vint.get();
+        val.push_back(42);
+        prop_vint = val;
 
         CHECK(prop_vint.size() == 1);
 
