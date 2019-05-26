@@ -865,7 +865,7 @@ namespace cppproperties
 		
 		template<class T>
 		struct size_property_trait_impl<T, true>:
-			private virtual Ipropertyr<T>
+			public virtual Ipropertyr<T>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
@@ -886,7 +886,7 @@ namespace cppproperties
 		
 		template<class T>
 		struct const_begin_end_property_trait_impl<T, true>:
-			private virtual Ipropertyr<T>
+			public virtual Ipropertyr<T>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
@@ -922,7 +922,7 @@ namespace cppproperties
 		
 		template<class T>
 		struct begin_end_property_trait_impl<T, true>:
-			private virtual Ipropertyr<T>
+			public virtual Ipropertyr<T>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
