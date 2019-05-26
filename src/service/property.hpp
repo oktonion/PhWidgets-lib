@@ -336,23 +336,23 @@ namespace cppproperties
 			{}
 
 			inline
-			const_reference get() const
+			value_type get() const
 			{
 				return (_obj->*Getter)();
 			}
 
 			inline
-			operator const_reference() const { return get(); }
+			operator value_type() const { return get(); }
 			
 			inline
-			const_reference operator()(void) const { return get(); }
+			value_type operator()(void) const { return get(); }
 
 		private:
 			parent_type *_obj;
 			
 			bind(const bind &rhs);
 
-			bind &operator=(const_reference);
+			bind &operator=(value_type);
 			bind &operator=(bind const &);
 
 			
@@ -372,23 +372,23 @@ namespace cppproperties
 			{}
 
 			inline 
-			const_reference get() const
+			value_type get() const
 			{
 				return (*Getter)();
 			}
 
 			inline 
-			operator const_reference() const { return get(); }
+			operator value_type() const { return get(); }
 			
 			inline 
-			const_reference operator()(void) const { return get(); }
+			value_type operator()(void) const { return get(); }
 
 		private:
 			
 			bind_static(const bind_static &rhs);
 
 			inline 
-			bind_static &operator=(const_reference);
+			bind_static &operator=(value_type);
 			inline 
 			bind_static &operator=(bind_static const &);
 
@@ -462,22 +462,22 @@ namespace cppproperties
 			}
 
 			inline
-			const_reference get() const
+			value_type get() const
 			{
 				return (_obj->*Getter)();
 			}
 
 			inline
-			operator const_reference() const { return get(); }
+			operator value_type() const { return get(); }
 
 			inline
 			bind &operator=(value_type value) { set(value); return *this; }
 
 			inline
-			const_reference operator()(void) const { return get(); }
+			value_type operator()(void) const { return get(); }
 
 			inline
-			void operator()(value_type value) { set(value); return *this; }
+			void operator()(value_type value) { set(value); }
 
 		private:
 			parent_type *_obj;
@@ -564,7 +564,7 @@ namespace cppproperties
 			bind &operator=(value_type value) { set(value); return *this; }
 
 			inline 
-			void operator()(value_type value) { set(value); return *this; }
+			void operator()(value_type value) { set(value); }
 		private:
 			parent_type *_obj;
 			
