@@ -356,7 +356,7 @@ namespace cppproperties
 			typedef typename detail::remove_const<ParentT>::type const parent_type;
 			
 		public:
-			typedef Ipropertyr_without_backdoor_type::value_type value_type;
+			typedef typename Ipropertyr_without_backdoor_type::value_type value_type;
 			typedef typename detail::property_info<ValueT, ParentT>::reference reference;
 			typedef typename detail::property_info<ValueT, ParentT>::const_reference const_reference;
 
@@ -930,12 +930,12 @@ namespace cppproperties
 			
 			iterator begin()
 			{
-				return static_cast<base_type&>(*this).backdoor().begin();
+				return backdoor().begin();
 			}
 
 			iterator end()
 			{
-				return static_cast<base_type&>(*this).backdoor().end();
+				return backdoor().end();
 			}
 		};
 
