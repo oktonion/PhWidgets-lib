@@ -353,15 +353,15 @@ TEST_CASE("Testing properties for class types"){
         typedef property<std::vector<int>/**/ > property_type;
         property_type prop_vint;
 
-        CHECK(prop_vint.get().size() == 0);
+        CHECK(prop_vint.size() == 0);
 
         std::vector<int> val = prop_vint.get();
         val.push_back(42);
         prop_vint = val;
 
-        CHECK(prop_vint.get().size() == 1);
+        CHECK(prop_vint.size() == 1);
 
-        for (property_type::const_iterator it = prop_vint.get().begin(); it != prop_vint.get().end(); ++it)
+        for (property_type::const_iterator it = prop_vint.begin(); it != prop_vint.end(); ++it)
         {
             CHECK(*it == 42);
         }
