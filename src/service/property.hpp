@@ -339,7 +339,7 @@ namespace cppproperties
 	//property<Value>:
 	template<class ValueT>
 	class property<ValueT, detail::property_flag::ro>: //ValueT == const...
-		public Ipropertyr<typename detail::property_info<ValueT>::const_reference>,
+		public virtual Ipropertyr<typename detail::property_info<ValueT>::const_reference>,
 		public property_traits<typename detail::property_info<ValueT>::const_reference, detail::property_flag::ro>
 	{
 		typedef Ipropertyr_without_backdoor<typename detail::property_info<ValueT>::value_type> Ipropertyr_without_backdoor_type;
@@ -350,7 +350,7 @@ namespace cppproperties
 
 		template<class ParentT, typename detail::property_info<ValueT, ParentT>::getter_t Getter>
 		class bind:
-			public Ipropertyr_without_backdoor_type,
+			public virtual Ipropertyr_without_backdoor_type,
 			public property_traits<typename Ipropertyr_without_backdoor_type::value_type, detail::property_flag::ro>
 		{
 			typedef typename detail::remove_const<ParentT>::type const parent_type;
@@ -390,7 +390,7 @@ namespace cppproperties
 
 		template<typename detail::property_info<ValueT, void>::getter_t Getter>
 		class bind_static:
-			public Ipropertyr_without_backdoor_type,
+			public virtual Ipropertyr_without_backdoor_type,
 			public property_traits<typename Ipropertyr_without_backdoor_type::value_type, detail::property_flag::ro>
 		{
 		public:
@@ -454,7 +454,7 @@ namespace cppproperties
 
 	template<class ValueT>
 	class property<ValueT, detail::property_flag::rw>: //ValueT != const...
-		public Ipropertyr<typename detail::property_info<ValueT>::reference>,
+		public virtual Ipropertyr<typename detail::property_info<ValueT>::reference>,
 		public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
 		public property_traits<typename detail::property_info<ValueT>::reference, detail::property_flag::rw>
 	{
@@ -465,7 +465,7 @@ namespace cppproperties
 
 		template<class ParentT, typename detail::property_info<ValueT, ParentT>::getter_t Getter, typename detail::property_info<ValueT, ParentT>::setter_t Setter>
 		class bind:
-			public Ipropertyr<typename detail::property_info<ValueT>::value_type>,
+			public virtual Ipropertyr<typename detail::property_info<ValueT>::value_type>,
 			public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
 			public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::rw>
 		{
@@ -865,7 +865,7 @@ namespace cppproperties
 		
 		template<class T>
 		struct size_property_trait_impl<T, true>:
-			private Ipropertyr<T>
+			private virtual Ipropertyr<T>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
@@ -886,7 +886,7 @@ namespace cppproperties
 		
 		template<class T>
 		struct const_begin_end_property_trait_impl<T, true>:
-			private Ipropertyr<T>
+			private virtual Ipropertyr<T>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
@@ -922,7 +922,7 @@ namespace cppproperties
 		
 		template<class T>
 		struct begin_end_property_trait_impl<T, true>:
-			private Ipropertyr<T>
+			private virtual Ipropertyr<T>
 		{ 
 		private:
 			typedef typename remove_reference<T>::type clear_type;
