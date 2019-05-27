@@ -1148,13 +1148,21 @@ namespace cppproperties
 		{ };
 
 		template<class T>
-		struct const_begin_end_property_trait:
-			const_begin_end_property_trait_impl<T, has_const_iterator<typename remove_reference<T>::type>::value>
+		struct const_begin_end_property_trait
 		{ };
 
 		template<class T>
-		struct begin_end_property_trait:
-			begin_end_property_trait_impl1<T, has_iterator<typename remove_reference<T>::type>::value, has_const_iterator<typename remove_reference<T>::type>::value>
+		struct const_begin_end_property_trait<T&>:
+			const_begin_end_property_trait_impl<T&, has_const_iterator<typename remove_reference<T>::type>::value>
+		{ };
+
+		template<class T>
+		struct begin_end_property_trait
+		{ };
+
+		template<class T>
+		struct begin_end_property_trait<T&>:
+			begin_end_property_trait_impl1<T&, has_iterator<typename remove_reference<T>::type>::value, has_const_iterator<typename remove_reference<T>::type>::value>
 		{ };
 	}
 
