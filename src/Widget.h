@@ -1186,7 +1186,24 @@ namespace PhWidgets
 			- Layout
 		*/
 		phbitmask<unsigned, Flags::Anchor::eAnchorFlags, Flags::Anchor::All>::
-			bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags> Anchor; 
+			bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags> Anchor;
+
+		//! Gets or sets the bevel width of the widget.
+		/*!
+			### Property Value ### 
+			
+			> **unsigned short**
+
+			The bevel width of the widget in pixels.
+
+			@remark
+			The width of the widget's bevel if the widget is highlighted and is to draw a bevel.
+
+			@see 
+			- Widget::ThisFlags::Highlighted
+			- Basic::ThisFlags::Basic::eBasic
+		*/
+		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::bevel_width>	BevelWidth; 
 		
 		//! Gets the distance, in pixels, between the bottom edge of the widget and the top edge of its container's client area.
 		/*!
@@ -1244,23 +1261,6 @@ namespace PhWidgets
 			- Width
 		*/
 		property<PhArea_t>::bind<Widget, &Widget::getBounds, &Widget::setBounds> Bounds;
-
-		//! Gets or sets the bevel width of the widget.
-		/*!
-			### Property Value ### 
-			
-			> **unsigned short**
-
-			The bevel width of the widget in pixels.
-
-			@remark
-			The width of the widget's bevel if the widget is highlighted and is to draw a bevel.
-
-			@see 
-			- Widget::ThisFlags::Highlighted
-			- Basic::ThisFlags::Basic::eBasic
-		*/
-		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::bevel_width>	BevelWidth;
 
 		//! Gets a value indicating whether the widget can receive focus.
 		/*!
