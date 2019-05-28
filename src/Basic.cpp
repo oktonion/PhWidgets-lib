@@ -15,11 +15,11 @@ Basic::Basic(int abn):
 	Widget(abn),
 	resource(this),
 	//properties:
-	MarginHeight(this),
-	MarginWidth(this),
 	BevelColor(this),
 	Color(this),
 	FillColor(this),
+	MarginHeight(this),
+	MarginWidth(this),
 	//flags:
 	BasicFlags(this),
 	//callbacks:
@@ -38,11 +38,11 @@ Basic::Basic(PtWidget_t *wdg):
 	Widget(wdg),
 	resource(this),
 	//properties:
-	MarginHeight(this),
-	MarginWidth(this),
 	BevelColor(this),
 	Color(this),
 	FillColor(this),
+	MarginHeight(this),
+	MarginWidth(this),
 	//flags:
 	BasicFlags(this),
 	//callbacks:
@@ -61,11 +61,11 @@ Basic::Basic(const Basic &rhs):
 	Widget(rhs),
 	resource(this),
 	//properties:
-	MarginHeight(this),
-	MarginWidth(this),
 	BevelColor(this),
 	Color(this),
 	FillColor(this),
+	MarginHeight(this),
+	MarginWidth(this),
 	//flags:
 	BasicFlags(this),
 	//callbacks:
