@@ -325,11 +325,120 @@ namespace PhWidgets
 		
 		//! @name Properties
 		//! @{ 
-		phproperty<unsigned short>::bind<Basic, ArgUnsignedShort::eArgUnsignedShort, Arguments::margin_height> MarginHeight; //!< The amount of vertical space between the widget's canvas and the widget's border.
-		phproperty<unsigned short>::bind<Basic, ArgUnsignedShort::eArgUnsignedShort, Arguments::margin_width> MarginWidth; //!< The amount of horizontal space between the widget's canvas and the widget's border.
-		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::bevel_color> BevelColor; //!< The main color of the bevel.
-		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::color> Color; //!< The widget's foreground or drawing color.
-		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::fill_color> FillColor; //!< The base fill color for the widget.
+		
+		//! Gets or sets the main color of the bevel.
+		/*!
+			### Property Value ### 
+			
+			@code
+				typedef unsinged long PgColor_t
+			@endcode
+
+			A `PgColor_t` that represents the main color of the bevel.
+
+			@see
+			- Colors
+		*/
+		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::bevel_color> BevelColor;
+		
+		//! Gets or sets the foreground or drawing color for the widget.
+		/*!
+			### Property Value ### 
+			
+			@code
+				typedef unsinged long PgColor_t
+			@endcode
+
+			A `PgColor_t` that represents the foreground or drawing color of the widget. The default is the value of the PhWidgets::Colors::Black.
+
+			### Examples ###
+
+			@code
+				// You have somewhere:
+				PtWidget_t *ptwidget; // pointer to widget
+
+				// constructing Widget
+				PhWidgets::Basic widget(ptwidget);
+				
+				widget.Color = PhWidgets::Colors::DarkBlue;
+			@endcode
+
+			@remark
+			The Basic::Color property does not support transparent colors unless the color model is set to ARGB.
+			@par
+			The Basic::Color property is an ambient property. An ambient property is a widget property that, 
+			if not set, is retrieved from the parent widget. For example, a PhWidgets::Button will have the same Basic::Color as its parent PhWidgets::Form by default. 
+
+			@see
+			- Colors
+		*/
+		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::color> Color;
+
+		//! Gets or sets the fill color for the widget.
+		/*!
+			### Property Value ### 
+			
+			@code
+				typedef unsinged long PgColor_t
+			@endcode
+
+			A `PgColor_t` that represents the fill color of the widget. The default is the value of the PhWidgets::Colors::Black.
+			
+			This color is used as the base color when generating the 
+			Basic::BevelColor, Basic::LightBevelColor, Basic::DarkBevelColor, Basic::LightFillColor, and Basic::DarkFillColor.
+			
+			@note
+			Setting this property effectively overrides all values previously set for the 
+			Basic::LightBevelColor, Basic::DarkBevelColor, Basic::LightFillColor, and Basic::DarkFillColor properties.
+			This is like setting the chroma for a widget.
+
+			- If the widget uses a flat fill, that fill is Basic::FillColor. 
+			- If the widget uses a gradient fill, the gradient runs from Basic::LightFillColor to Basic::DarkFillColor. 
+			- If the widget uses a bevel, it's rendered with color ranges as defined by Basic::LightBevelColor to Basic::LightFillColor 
+			and Basic::DarkBevelColor to Basic::DarkFillColor. 
+
+			@note
+			See Basic::BasicFlags to find out when gradients and borders are rendered for a given widget.
+
+			@remark
+			The Basic::FillColor property does not support transparent colors unless the color model is set to ARGB.
+			@par
+			The Basic::Color property is an ambient property. An ambient property is a widget property that, 
+			if not set, is retrieved from the parent widget. For example, a PhWidgets::Button will have the same Basic::FillColor as its parent PhWidgets::Form by default. 
+
+			@see
+			- Colors
+			- BasicFlags
+			- LightFillColor
+			- DarkFillColor
+			- LightBevelColor
+			- DarkBevelColor
+		*/
+		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::fill_color> FillColor;
+
+		//! Gets or sets the amount of vertical space between the widget's canvas and the widget's border.
+		/*!
+			### Property Value ### 
+			
+			> **unsigned short**
+
+			A `unsigned short` that represents the amount of vertical space between the widget's canvas and the widget's border.
+			@remark
+			The canvas is the valid drawing area of the widget and is inside all borders and margins.  
+		*/
+		phproperty<unsigned short>::bind<Basic, ArgUnsignedShort::eArgUnsignedShort, Arguments::margin_height> MarginHeight;
+
+		//! Gets or sets the amount of horizontal space between the widget's canvas and the widget's border.
+		/*!
+			### Property Value ### 
+			
+			> **unsigned short**
+
+			A `unsigned short` that represents the amount of horizontal space between the widget's canvas and the widget's border.
+			@remark
+			The canvas is the valid drawing area of the widget and is inside all borders and margins.  
+		*/
+		phproperty<unsigned short>::bind<Basic, ArgUnsignedShort::eArgUnsignedShort, Arguments::margin_width> MarginWidth;
 
 		phbitmask<unsigned long, Flags::Basic::eBasic>::bind<Basic, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::basic_flags>	BasicFlags; //!< Gets or sets basic flags inherited by all widgets. See Flags::Basic::eBasic.
 

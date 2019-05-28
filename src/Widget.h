@@ -1585,15 +1585,13 @@ namespace PhWidgets
 				// constructing Widget
 				PhWidgets::Widget widget(ptwidget);
 				
-				PtColor_t color = 0;
-
-				widget.Tag = color;
-				color = Tag;
+				widget.Tag = PhWidgets::Colors::Red;
+				PgColor_t color = Tag;
 			@endcode
 
 			@note
 			Widget::Tag could accept any pointer and copies data from it in widget Widget::Arguments::user_data resource.
-			If you want to pass raw pointer then use `widget.Tag(ptr, size)` method.
+			If you want to pass data by 'raw pointer to data' then use `widget.Tag(ptr, size)` method.
 
 			@code
 				// constructing Widget
@@ -1639,8 +1637,8 @@ namespace PhWidgets
 			Make shure that you know the exact type hiding beneath the pointer or 
 			the behaviour is undefined.
 			@par
-			However the property will cover you in some cases with `nullptr` as a result 
-			if you will try to do some really unapropriate cast do not rely on it much. 
+			Although the property will cover you in some cases with `nullptr` as a result 
+			if you will try to do some really unapropriate cast - do not rely on it much! 
 
 			@code
 				// constructing Widget
