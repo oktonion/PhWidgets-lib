@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.4.xxx</span>
+   &#160;<span id="projectnumber">0.3.5.xxx</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -48,6 +56,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_eval_s.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -66,11 +90,26 @@ $(function() {
 &#160;
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>SaddleBrown
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732ab0758bb30cdd989f7ffe164947d0ef83">PhWidgets::Colors</a>
+</li>
+<li>Salmon
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732aa53eaf37b97e59e03204fbe2a4045a0c">PhWidgets::Colors</a>
+</li>
+<li>SandyBrown
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a083b0c3f7f44970fc0ef2805d788294c">PhWidgets::Colors</a>
+</li>
 <li>SansSerif
 : <a class="el" href="struct_ph_widgets_1_1_generic_font_families_a13f41893ab9cb80ae81b17f9df2c6938.html#a13f41893ab9cb80ae81b17f9df2c6938ae785ec33f9c58f82799198317bf9d541">PhWidgets::GenericFontFamilies</a>
 </li>
 <li>Scalable
 : <a class="el" href="struct_ph_widgets_1_1_font_style_a0de674057aece715530576da9cc155e3.html#a0de674057aece715530576da9cc155e3a051059e3c34f454b4e061f08434d1f80">PhWidgets::FontStyle</a>
+</li>
+<li>SeaGreen
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a74f430da2b018d0c8e09cb7f43ae2d5c">PhWidgets::Colors</a>
+</li>
+<li>SeaShell
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a00dd8a9f34203c91bcc7de304820fd7f">PhWidgets::Colors</a>
 </li>
 <li>Selectable
 : <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdabecb7c26561389bf36a463494efdf32b">PhWidgets::Widget::ThisFlags</a>
@@ -86,6 +125,12 @@ $(function() {
 </li>
 <li>Set
 : <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda85e156e5ecdefa50bab54b2d40194cf8">PhWidgets::Widget::ThisFlags</a>
+</li>
+<li>Sienna
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a733867b01315b9c448709a9da6a92fa4">PhWidgets::Colors</a>
+</li>
+<li>Silver
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a593e404dc92da174c5199af9d1d30478">PhWidgets::Colors</a>
 </li>
 <li>SizeAll
 : <a class="el" href="struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629ca0464dcd94eb6730818ed7dd3340637c8">PhWidgets::Cursors</a>
@@ -105,8 +150,23 @@ $(function() {
 <li>SkipLayout
 : <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended_a4dd82ae5cf2d69c4b8c640bfa0be7dcc.html#a4dd82ae5cf2d69c4b8c640bfa0be7dccaa8500928377329a8f8a591abed519fa9">PhWidgets::Widget::ThisFlags::Extended</a>
 </li>
+<li>SkyBlue
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a7872308e4d07e5de2d2c2f05692e5c6d">PhWidgets::Colors</a>
+</li>
+<li>SlateBlue
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a83ac34f0e9d58af5d9657a47b2d69d13">PhWidgets::Colors</a>
+</li>
+<li>SlateGray
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a9df81523e588c7f198b6a16e154b71b4">PhWidgets::Colors</a>
+</li>
+<li>Snow
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732ac544b74ada5b9339b7792c26368edff6">PhWidgets::Colors</a>
+</li>
 <li>Split
 : <a class="el" href="struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629ca85c26c5a2e21841ddbd09753f7af8652">PhWidgets::Cursors</a>
+</li>
+<li>SpringGreen
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732acdbeb43f2c7fba5ce62d548154fbe17d">PhWidgets::Colors</a>
 </li>
 <li>static_bevel_colors
 : <a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41aef1397233b54c7b334e2bac1c615e27e">PhWidgets::Basic::ThisFlags::Basic</a>
@@ -117,6 +177,9 @@ $(function() {
 <li>static_gradient
 : <a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41ad82eeea24ba525464a46b8ad7cf8f3f8">PhWidgets::Basic::ThisFlags::Basic</a>
 </li>
+<li>SteelBlue
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a2aee42db6ca7b6d88d38154dbc57e809">PhWidgets::Colors</a>
+</li>
 <li>style
 : <a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_p_char_a1779f721a0a554c3222922e3f21a50d7.html#a1779f721a0a554c3222922e3f21a50d7ab9664431031e731ae977a25da3392f9d">PhWidgets::Basic::ThisArgs::ArgPChar</a>
 </li>
@@ -125,11 +188,14 @@ $(function() {
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

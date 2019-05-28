@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.4.xxx</span>
+   &#160;<span id="projectnumber">0.3.5.xxx</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -47,6 +55,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_ph_widgets_1_1_cursor_def_af9397d3879898dded0de781b271b7d24.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,29 +86,7 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_ph_widgets.html">PhWidgets</a></li><li class="navelem"><a class="el" href="class_ph_widgets_1_1_cursor_def.html">CursorDef</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="contents">
-<table cellspacing="0" cellpadding="0" border="0">
-  <tr>
-   <td valign="top">
-      <div class="navtab">
-        <table>
-          <tr><td class="navtab"><a class="qindex" href="class_ph_widgets_1_1_cursor_def_a34e3b53d66d79dc202c3add3d66f985b.html#a34e3b53d66d79dc202c3add3d66f985b">CursorDef</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="class_ph_widgets_1_1_cursor_def_aea16305e0666a2696723f2feafda45e4.html#aea16305e0666a2696723f2feafda45e4">CursorDef</a></td></tr>
-          <tr><td class="navtab"><a class="qindexHL" href="class_ph_widgets_1_1_cursor_def_af9397d3879898dded0de781b271b7d24.html#af9397d3879898dded0de781b271b7d24">CursorDef</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="class_ph_widgets_1_1_cursor_def_a44e2b52c0c4c75da8176d95d74217ad7.html#a44e2b52c0c4c75da8176d95d74217ad7">operator!=</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="class_ph_widgets_1_1_cursor_def_abe46d694642c560d7c52b580ab8af869.html#abe46d694642c560d7c52b580ab8af869">operator&lt;</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="class_ph_widgets_1_1_cursor_def_a754ff122c12c7755ff8cb4366dae334a.html#a754ff122c12c7755ff8cb4366dae334a">operator=</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="class_ph_widgets_1_1_cursor_def_a82f520a52c8b19e369fc1409460e7434.html#a82f520a52c8b19e369fc1409460e7434">operator==</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="class_ph_widgets_1_1_cursor_def.html#a2877193bd876e1f05a46963a7ba1f3a3">~CursorDef</a></td></tr>
-        </table>
-      </div>
-   </td>
-   <td valign="top" class="mempage">
 <a id="af9397d3879898dded0de781b271b7d24"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af9397d3879898dded0de781b271b7d24">&#9670;&nbsp;</a></span>CursorDef() <span class="overload">[3/3]</span></h2>
 
@@ -101,24 +104,25 @@ $(function() {
 </div><div class="memdoc">
 
 <p>(copy constructor) </p>
-<p>Constructs a Cursor by copy. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Constructs a <a class="el" href="class_ph_widgets_1_1_cursor_def.html" title="Represents the image used to paint the mouse pointer.">CursorDef</a> by copy. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">other</td><td>another Cursor to be used as source to initialize the elements of the container with. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">other</td><td>another <a class="el" href="class_ph_widgets_1_1_cursor_def.html" title="Represents the image used to paint the mouse pointer.">CursorDef</a> to be used as source to initialize the elements of the container with. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-    </td>
-  </tr>
-</table>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_ph_widgets.html">PhWidgets</a></li><li class="navelem"><a class="el" href="class_ph_widgets_1_1_cursor_def.html">CursorDef</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

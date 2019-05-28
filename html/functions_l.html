@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.4.xxx</span>
+   &#160;<span id="projectnumber">0.3.5.xxx</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -48,6 +56,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_l.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -66,12 +90,21 @@ $(function() {
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
 
 <h3><a id="index_l"></a>- l -</h3><ul>
+<li>Lavender
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a305442ed8565761e68833bae0b233f30">PhWidgets::Colors</a>
+</li>
+<li>LavenderBlush
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732ac8f1600e3535f35a39fb0db27ee776d6">PhWidgets::Colors</a>
+</li>
+<li>LawnGreen
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a6039c8117afc4087ed5761c446db2342">PhWidgets::Colors</a>
+</li>
 <li>layout_data
 : <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_void_afa5f41a52f2e46fb021fd56bb5704266.html#afa5f41a52f2e46fb021fd56bb5704266aa52a1add537dcf71f1157cde845e79a6">PhWidgets::Widget::ThisArgs::ArgPVoid</a>
 </li>
 <li>Left
 : <a class="el" href="struct_ph_widgets_1_1_anchor_styles_a633ad6c8be39fad6a6787877082c7bb4.html#a633ad6c8be39fad6a6787877082c7bb4ad2f4dfa0ceaee0e88a0e0176fb613206">PhWidgets::AnchorStyles</a>
-, <a class="el" href="class_ph_widgets_1_1_widget.html#af16788209177491d790900a5f4c2c51a">PhWidgets::Widget</a>
+, <a class="el" href="class_ph_widgets_1_1_widget_af16788209177491d790900a5f4c2c51a.html#af16788209177491d790900a5f4c2c51a">PhWidgets::Widget</a>
 </li>
 <li>LeftAnchoredLeft
 : <a class="el" href="struct_ph_widgets_1_1_anchor_styles_a633ad6c8be39fad6a6787877082c7bb4.html#a633ad6c8be39fad6a6787877082c7bb4adbf1c8146b9741ec2f7d9c7a004e24d5">PhWidgets::AnchorStyles</a>
@@ -79,14 +112,71 @@ $(function() {
 <li>LeftAnchoredRight
 : <a class="el" href="struct_ph_widgets_1_1_anchor_styles_a633ad6c8be39fad6a6787877082c7bb4.html#a633ad6c8be39fad6a6787877082c7bb4a8925059e7fac4dc2961fdc55b536ad93">PhWidgets::AnchorStyles</a>
 </li>
+<li>LemonChiffon
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732aaf89560acd003405ef79ff206e6b0b61">PhWidgets::Colors</a>
+</li>
 <li>light_bevel_color
 : <a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_color_a5f4a5e7aecdbba0e3ce7768bbdb92d10.html#a5f4a5e7aecdbba0e3ce7768bbdb92d10af068b7e682bc0d4b72c158ce26f7f4a7">PhWidgets::Basic::ThisArgs::ArgColor</a>
 </li>
 <li>light_fill_color
 : <a class="el" href="struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_color_a5f4a5e7aecdbba0e3ce7768bbdb92d10.html#a5f4a5e7aecdbba0e3ce7768bbdb92d10addf276004e78f6874183fd3774761be6">PhWidgets::Basic::ThisArgs::ArgColor</a>
 </li>
+<li>LightBevelColor
+: <a class="el" href="class_ph_widgets_1_1_basic_abb09a6c3eb37d5de5b633c422514c315.html#abb09a6c3eb37d5de5b633c422514c315">PhWidgets::Basic</a>
+</li>
+<li>LightBlue
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a88668b1690b24844a1300d3be2e5da33">PhWidgets::Colors</a>
+</li>
+<li>LightCoral
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a78101fd9cfb2c344e4871cdaff936e8e">PhWidgets::Colors</a>
+</li>
+<li>LightCyan
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732aa4e5351904f542a4c973ff19caef7ca1">PhWidgets::Colors</a>
+</li>
+<li>LightFillColor
+: <a class="el" href="class_ph_widgets_1_1_basic_ae14eb7bb75ff5fe4c9d550ddb5c83bee.html#ae14eb7bb75ff5fe4c9d550ddb5c83bee">PhWidgets::Basic</a>
+</li>
+<li>LightGoldenrodYellow
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732ae06c6d9008e121e4292278e4a7c20dea">PhWidgets::Colors</a>
+</li>
+<li>LightGray
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a4cfdc853bef3736dbb530381e8fcf225">PhWidgets::Colors</a>
+</li>
+<li>LightGreen
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a5ecb1e64ce7a7fbd69c369395f217d89">PhWidgets::Colors</a>
+</li>
+<li>LightPink
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732ac12ce400a11dc5e046053e648bf8f300">PhWidgets::Colors</a>
+</li>
+<li>LightSalmon
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a3bd162449225877f8f5df3822eb366f8">PhWidgets::Colors</a>
+</li>
+<li>LightSeaGreen
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a1fc34607a3b6d28a889a2e7139129fa4">PhWidgets::Colors</a>
+</li>
+<li>LightSkyBlue
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732af8b671795077d7ca4446e3b6154ba7e0">PhWidgets::Colors</a>
+</li>
+<li>LightSlateGray
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732abda724952da60926e3af06ca352eed7c">PhWidgets::Colors</a>
+</li>
+<li>LightSteelBlue
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732aabab0731a767f834958189e4ea2cc320">PhWidgets::Colors</a>
+</li>
+<li>LightYellow
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a1e018c69a98298df3a293168ab04027f">PhWidgets::Colors</a>
+</li>
+<li>Lime
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a924c5922874650f0b2d1df29d9bb8c92">PhWidgets::Colors</a>
+</li>
+<li>LimeGreen
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a638278bcaf5128f9a156ad23adb9df81">PhWidgets::Colors</a>
+</li>
+<li>Linen
+: <a class="el" href="struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732aa12539f05034eb8675d1383a74c3c8b6">PhWidgets::Colors</a>
+</li>
 <li>Location
-: <a class="el" href="class_ph_widgets_1_1_widget.html#a185eb01b846e20c7ba986da2e0663ee8">PhWidgets::Widget</a>
+: <a class="el" href="class_ph_widgets_1_1_widget_a185eb01b846e20c7ba986da2e0663ee8.html#a185eb01b846e20c7ba986da2e0663ee8">PhWidgets::Widget</a>
 </li>
 <li>LongWait
 : <a class="el" href="struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629ca61fdbf318728313c5f18d3ca23854aac">PhWidgets::Cursors</a>
@@ -99,11 +189,14 @@ $(function() {
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

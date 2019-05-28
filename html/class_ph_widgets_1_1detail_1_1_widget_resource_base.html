@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.4.xxx</span>
+   &#160;<span id="projectnumber">0.3.5.xxx</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -47,6 +55,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_ph_widgets_1_1detail_1_1_widget_resource_base.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,15 +86,8 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_ph_widgets.html">PhWidgets</a></li><li class="navelem"><b>detail</b></li><li class="navelem"><a class="el" href="class_ph_widgets_1_1detail_1_1_widget_resource_base.html">WidgetResourceBase</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_ph_widgets_1_1detail_1_1_widget_resource_base-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PhWidgets::detail::WidgetResourceBase&lt; ArgT &gt; Class Template Reference</div>  </div>
@@ -90,44 +108,25 @@ Inheritance diagram for PhWidgets::detail::WidgetResourceBase&lt; ArgT &gt;:</di
 <area href="struct_ph_widgets_1_1detail_1_1_widget_argument_3_01_arg_t_00_01_widget_resource_group_type_1_1_019ceba6ac52d1f2d858a60e422e8bf1.html" alt="PhWidgets::detail::WidgetArgument&lt; ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::flag_type, ResourceT &gt;" shape="rect" coords="8664,56,10098,80"/>
   </map>
 </div></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:ae220f26bcd52b551b8870a97d20cb8a7"><td class="memItemLeft" align="right" valign="top"><a id="ae220f26bcd52b551b8870a97d20cb8a7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>WidgetResourceBase</b> (<a class="el" href="class_ph_widgets_1_1detail_1_1_i_pt_widget.html">IPtWidget</a> *widget, ArgT arg)</td></tr>
-<tr class="separator:ae220f26bcd52b551b8870a97d20cb8a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbf62cbbc6564d7fc0df8680993b81bd"><td class="memTemplParams" colspan="2"><a id="afbf62cbbc6564d7fc0df8680993b81bd"></a>
-template&lt;class T &gt; </td></tr>
-<tr class="memitem:afbf62cbbc6564d7fc0df8680993b81bd"><td class="memTemplItemLeft" align="right" valign="top">stdex::enable_if&lt; sizeof(T)&lt;=sizeof(long), int &gt;::type setScalar(T scval) { return PtSetResource(_rwidget-&gt;widget(), _arg, scval, 0);} inline int setColor(PgColor_t color) { return setScalar(color);} inline int setString(const char *str) { return setScalar(str);} inline int setAlloc(const void *pdata, <a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/namespacestd.html#cpp/types/size_t">std::size_t</a> size) { return PtSetResource(_rwidget-&gt;widget(), _arg, pdata, size);} inline int setImage(const void *pimage) { return setAlloc(pimage, 0);} template&lt; class T, <a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/namespacestd.html#cpp/types/size_t">std::size_t</a> count &gt; inline int setArray(T(&amp;arr)[count]) { return PtSetResource(_rwidget-&gt;widget(), _arg, arr, count);} inline int setArray(const void *parr, <a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/namespacestd.html#cpp/types/size_t">std::size_t</a> count) { return PtSetResource(_rwidget-&gt;widget(), _arg, parr, count);} inline int setFlag(long flag, long bits) { return PtSetResource(_rwidget-&gt;widget(), _arg, bits, flag);} inline int setFlag(long flag, bool on) { return PtSetResource(_rwidget-&gt;widget(), _arg, on ? Pt_TRUE :Pt_FALSE, flag);} inline int setPointer(const void *p) { return setScalar(p);} inline int setStruct(const void *pdata) { return setScalar(pdata);} inline int setBoolean(bool val) { return PtSetResource(_rwidget-&gt;widget(), _arg, val ? 1 :0, 0);} template&lt; <a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/namespacestd.html#cpp/types/size_t">std::size_t</a> count &gt; inline void addLink(PtCallback_t const(&amp;callbacks)[count]) { PtAddCallbacks(_rwidget-&gt;widget(), _arg, callbacks, count);} inline void addLink(PtCallback_t callback) { PtCallback_t callbacks []={ callback };addLink(callbacks);} inline void addLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data=nullptr) { PtAddCallback(_rwidget-&gt;widget(), _arg, callback, data);} template&lt; <a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/namespacestd.html#cpp/types/size_t">std::size_t</a> count &gt; inline void addLinkBefore(PtRawCallback_t const(&amp;callbacks)[count]) { PtAddFilterCallbacks(_rwidget-&gt;widget(), callbacks, count);} template&lt; <a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/namespacestd.html#cpp/types/size_t">std::size_t</a> count &gt; inline void addLinkAfter(PtRawCallback_t const(&amp;callbacks)[count]) { PtAddEventHandlers(_rwidget-&gt;widget(), callbacks, count);} inline void addLinkBefore(PtRawCallback_t callback) { PtRawCallback_t callbacks []={ callback };addLinkBefore(callbacks);} inline void addLinkAfter(PtRawCallback_t callback) { PtRawCallback_t callbacks[]={ callback };addLinkAfter(callbacks);} inline void addLinkBefore(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data=nullptr) { PtAddFilterCallback(_rwidget-&gt;widget(), _arg, callback, data);} inline void addLinkAfter(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data=nullptr) { PtAddEventHandler(_rwidget-&gt;widget(), _arg, callback, data);} inline void addLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), KeyModes::eKeyModes keymode=KeyModes::none, bool chained=false, void *data=nullptr) { PtAddHotkeyHandler(_rwidget-&gt;widget(), _arg, keymode, chained ? Pt_HOTKEY_CHAINED :0, data, callback);} template&lt; <a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/namespacestd.html#cpp/types/size_t">std::size_t</a> count &gt; inline void removeLink(PtCallback_t const(&amp;callbacks)[count]) { PtRemoveCallbacks(_rwidget-&gt;widget(), _arg, callbacks, count);} inline void removeLink(PtCallback_t callback) { PtCallback_t callbacks []={ callback };removeLink(callbacks);} inline void removeLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data=nullptr) { PtRemoveCallback(_rwidget-&gt;widget(), _arg, callback, data);} template&lt; <a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/namespacestd.html#cpp/types/size_t">std::size_t</a> count &gt; inline void removeLinkBefore(PtRawCallback_t const(&amp;callbacks)[count]) { PtRemoveFilterHandlers(_rwidget-&gt;widget(), callbacks, count);} template&lt; <a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/namespacestd.html#cpp/types/size_t">std::size_t</a> count &gt; inline void removeLinkAfter(PtRawCallback_t const(&amp;callbacks)[count]) { PtRemoveEventHandlers(_rwidget-&gt;widget(), callbacks, count);} inline void removeLinkBefore(PtRawCallback_t callback) { PtRawCallback_t callbacks []={ callback };removeLinkBefore(callbacks);} inline void removeLinkAfter(PtRawCallback_t callback) { PtRawCallback_t callbacks[]={ callback };removeLinkAfter(callbacks);} inline void removeLinkBefore(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data=nullptr) { PtRemoveFilterCallback(_rwidget-&gt;widget(), _arg, callback, data);} inline void removeLinkAfter(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data=nullptr) { PtRemoveEventHandler(_rwidget-&gt;widget(), _arg, callback, data);} inline void removeLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), KeyModes::eKeyModes keymode=KeyModes::none, bool chained=false, void *data=nullptr) { PtRemoveHotkeyHandler(_rwidget-&gt;widget(), _arg, keymode, chained ? Pt_HOTKEY_CHAINED :0, data, callback);} template&lt; class T &gt; inline typename stdex::enable_if&lt; stdex::is_pointer&lt; T &gt;::value, T &gt;::type getPointer() const { T value=nullptr;PtArg_t args[1];PtSetArg(&amp;args[0], _arg, &amp;value, 0);PtGetResources(_rwidget-&gt;widget(), 1, args);return value;} template&lt; class T &gt; inline typename stdex::enable_if&lt; stdex::is_pointer&lt; T &gt;::value==false, typename stdex::remove_cv&lt; T &gt;::type const &amp; &gt;::type getScalar() const { return *getPointer&lt; const T * &gt;);} inline const char *getString() const { return getPointer&lt; const char * &gt;);} inline bool getBoolean() const { PtArg_t arg;PtSetArg(&amp;arg, _arg, 0, 0);PtGetResources(_rwidget-&gt;widget(), 1, &amp;arg);return(arg.value !=0);} template&lt; class T &gt; inline typename stdex::enable_if&lt; stdex::is_pointer&lt; T &gt;::value==false, const T * &gt;::type getStruct() const { return getPointer&lt; const T * &gt;);} template&lt; class T &gt; inline typename stdex::enable_if&lt; stdex::is_pointer&lt; T &gt;::value==true, typename stdex::remove_cv&lt; T &gt;::type const &gt;::type getAlloc() const { typedef typename stdex::remove_cv&lt; T &gt;::type type;return getPointer&lt; const type &gt;);} inline PtCallbackList_t *getLink() const { PtCallbackList_t *cl;cl=reinterpret_cast&lt; PtCallbackList_t * &gt;PtGetCallbackList(_rwidget-&gt;widget(), _arg));return cl;} inline PtRawCallbackList_t *getLinkAfter() const { PtRawCallbackList_t *cl;cl=reinterpret_cast&lt; PtRawCallbackList_t * &gt;PtGetCallbackList(_rwidget-&gt;widget(), Pt_CB_RAW));return cl;} inline PtRawCallbackList_t *getLinkBefore() const { PtRawCallbackList_t *cl;cl=reinterpret_cast&lt; PtRawCallbackList_t * &gt;PtGetCallbackList(_rwidget-&gt;widget(), Pt_CB_FILTER));return cl;} inline void emitLink(PtCallbackInfo_t *info) const { PtCallbackList_t *cl=this-&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>getLink</b> ()</td></tr>
-<tr class="separator:afbf62cbbc6564d7fc0df8680993b81bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29b51deb6f67594f2799a667c083c098"><td class="memItemLeft" align="right" valign="top"><a id="a29b51deb6f67594f2799a667c083c098"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>if</b> (!cl) return</td></tr>
-<tr class="separator:a29b51deb6f67594f2799a667c083c098"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaf830fe8b0cc86d7ee772561003a8e3"><td class="memItemLeft" align="right" valign="top"><a id="aaaf830fe8b0cc86d7ee772561003a8e3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PtInvokeCallbackList</b> (cl, w, info)</td></tr>
-<tr class="separator:aaaf830fe8b0cc86d7ee772561003a8e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:aa61b36a8bf5ef73cb8264f4c46a88784"><td class="memItemLeft" align="right" valign="top"><a id="aa61b36a8bf5ef73cb8264f4c46a88784"></a>
-ArgT&#160;</td><td class="memItemRight" valign="bottom"><b>_arg</b></td></tr>
-<tr class="separator:aa61b36a8bf5ef73cb8264f4c46a88784"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab62fe22e3e429c4ee1b3fecf332e1b7f"><td class="memItemLeft" align="right" valign="top"><a id="ab62fe22e3e429c4ee1b3fecf332e1b7f"></a>
-<a class="el" href="class_ph_widgets_1_1detail_1_1_i_pt_widget.html">IPtWidget</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_rwidget</b></td></tr>
-<tr class="separator:ab62fe22e3e429c4ee1b3fecf332e1b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5850d328200185a9658ff4eb6910bf1"><td class="memItemLeft" align="right" valign="top"><a id="aa5850d328200185a9658ff4eb6910bf1"></a>
-PtWidget_t *&#160;</td><td class="memItemRight" valign="bottom"><b>w</b> = _rwidget-&gt;widget()</td></tr>
-<tr class="separator:aa5850d328200185a9658ff4eb6910bf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class ArgT&gt;<br />
+class PhWidgets::detail::WidgetResourceBase&lt; ArgT &gt;</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="_widget_resource_8hpp_source.html#l00072">72</a> of file <a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a>.</p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_widget_resource_8hpp_source.html">WidgetResource.hpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_ph_widgets.html">PhWidgets</a></li><li class="navelem"><b>detail</b></li><li class="navelem"><a class="el" href="class_ph_widgets_1_1detail_1_1_widget_resource_base.html">WidgetResourceBase</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

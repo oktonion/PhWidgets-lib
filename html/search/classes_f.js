@@ -18,7 +18,7 @@ var searchData=
   ['piecewise_5flinear_5fdistribution',['piecewise_linear_distribution',['http://en.cppreference.com/w/cpp/numeric/random/piecewise_linear_distribution.html',1,'std']]],
   ['placeholders',['placeholders',['http://en.cppreference.com/w/namespacestd.html#cpp/utility/functional/placeholders',1,'std']]],
   ['plus',['plus',['http://en.cppreference.com/w/cpp/utility/functional/plus.html',1,'std']]],
-  ['pointer',['Pointer',['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_pointer.html',1,'PhWidgets::detail::def_orig::Pointer&lt; PrevT, LinkT, ResourceT &gt;'],['../struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_pointer.html',1,'PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Pointer&lt; ArgT, ResourceT &gt;']]],
+  ['pointer',['Pointer',['../struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_pointer.html',1,'PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Pointer&lt; ArgT, ResourceT &gt;'],['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_pointer.html',1,'PhWidgets::detail::def_orig::Pointer&lt; PrevT, LinkT, ResourceT &gt;']]],
   ['pointer_3c_20prevt_2c_20argt_2c_20resourcet_20_3e',['Pointer&lt; PrevT, ArgT, ResourceT &gt;',['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_pointer.html',1,'PhWidgets::detail::def_orig']]],
   ['pointer_5fsafety',['pointer_safety',['http://en.cppreference.com/w/namespacestd.html#cpp/memory/gc/pointer_safety',1,'std']]],
   ['pointer_5ftraits',['pointer_traits',['http://en.cppreference.com/w/cpp/memory/pointer_traits.html',1,'std']]],

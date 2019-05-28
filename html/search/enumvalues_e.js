@@ -1,11 +1,22 @@
 var searchData=
 [
+  ['palegoldenrod',['PaleGoldenrod',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732ac00c906ec25bceadb61570e3a7a247d5',1,'PhWidgets::Colors']]],
+  ['palegreen',['PaleGreen',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732ae3e732a09562bb60afb03d17be01a0a4',1,'PhWidgets::Colors']]],
+  ['paleturquoise',['PaleTurquoise',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732afe802a62137dd6a08ffbf018bfeb5ec0',1,'PhWidgets::Colors']]],
+  ['palevioletred',['PaleVioletRed',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a35183b04a8349d9272377efe15ed4454',1,'PhWidgets::Colors']]],
+  ['papayawhip',['PapayaWhip',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a5410ce23fff9e621b7d544805a260fdc',1,'PhWidgets::Colors']]],
   ['paste',['Paste',['../struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629ca698fb5f5be8945b6c5fc58536125e32c',1,'PhWidgets::Cursors']]],
+  ['peachpuff',['PeachPuff',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a1442131039b3b423c35576f51a8805e5',1,'PhWidgets::Colors']]],
+  ['peru',['Peru',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a3125c48f5eb0079ec05109c4a080b7b1',1,'PhWidgets::Colors']]],
   ['pg_5fdown',['Pg_Down',['../struct_ph_widgets_1_1_hotkeys_ae32768126b19c5dd67c8616ceefaf30e.html#ae32768126b19c5dd67c8616ceefaf30eabb1201a3f17e4a955cebf87387336431',1,'PhWidgets::Hotkeys']]],
   ['pg_5fup',['Pg_Up',['../struct_ph_widgets_1_1_hotkeys_ae32768126b19c5dd67c8616ceefaf30e.html#ae32768126b19c5dd67c8616ceefaf30ea48d1dc824092012686281ad3e49e32da',1,'PhWidgets::Hotkeys']]],
-  ['pointer',['Pointer',['../struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629ca874c5fcbd15f2751022da4aee5c59124',1,'PhWidgets::Cursors::Pointer()'],['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_void_aab59819c4a5047b0216bc9f72f821a17.html#aab59819c4a5047b0216bc9f72f821a17a87f375f2231ab2aa2cd9ac81a76a7d2c',1,'PhWidgets::Widget::ThisArgs::ArgPVoid::pointer()']]],
+  ['pink',['Pink',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a8174e2c41a2038223c18b7eb43e0fed4',1,'PhWidgets::Colors']]],
+  ['plum',['Plum',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a6447c9a27c11e94b7fecd27d17f8d9e4',1,'PhWidgets::Colors']]],
+  ['pointer',['pointer',['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_void_aab59819c4a5047b0216bc9f72f821a17.html#aab59819c4a5047b0216bc9f72f821a17a87f375f2231ab2aa2cd9ac81a76a7d2c',1,'PhWidgets::Widget::ThisArgs::ArgPVoid::pointer()'],['../struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629ca874c5fcbd15f2751022da4aee5c59124',1,'PhWidgets::Cursors::Pointer()']]],
   ['pos',['pos',['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_point_aa596cc2b4d42d3597a480a2b8f567de1.html#aa596cc2b4d42d3597a480a2b8f567de1af076bdca6a11ef117a54b6bca4e1ca36',1,'PhWidgets::Widget::ThisArgs::ArgPoint']]],
+  ['powderblue',['PowderBlue',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a4cf82325c5c455265b1d4b5f51993452',1,'PhWidgets::Colors']]],
   ['press',['Press',['../struct_ph_widgets_1_1_events_ac3aa0cbda0ae3cb098935a22b549e23d.html#ac3aa0cbda0ae3cb098935a22b549e23da4a5be4a413e455c77ad0f11f7dd16235',1,'PhWidgets::Events']]],
   ['prevent_5ffill',['prevent_fill',['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41a2d1fc070cb9d3be149de2476eeaf64af',1,'PhWidgets::Basic::ThisFlags::Basic']]],
-  ['procreated',['Procreated',['../struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda09727096262aebd35c81cd42c01903dd',1,'PhWidgets::Widget::ThisFlags']]]
+  ['procreated',['Procreated',['../struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda09727096262aebd35c81cd42c01903dd',1,'PhWidgets::Widget::ThisFlags']]],
+  ['purple',['Purple',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a566c423b1d2618fc5580539f67e9ff1d',1,'PhWidgets::Colors']]]
 ];

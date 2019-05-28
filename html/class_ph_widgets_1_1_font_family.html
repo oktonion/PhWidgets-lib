@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.4.xxx</span>
+   &#160;<span id="projectnumber">0.3.5.xxx</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -47,6 +55,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_ph_widgets_1_1_font_family.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +86,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_ph_widgets.html">PhWidgets</a></li><li class="navelem"><a class="el" href="class_ph_widgets_1_1_font_family.html">FontFamily</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -83,41 +103,41 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7736c4952fa837e914223f3755ffac6d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_a7736c4952fa837e914223f3755ffac6d.html#a7736c4952fa837e914223f3755ffac6d">FontFamily</a> (<a class="el" href="struct_ph_widgets_1_1_generic_font_families_a13f41893ab9cb80ae81b17f9df2c6938.html#a13f41893ab9cb80ae81b17f9df2c6938">GenericFontFamilies::eGenericFontFamilies</a> ffamily)</td></tr>
-<tr class="memdesc:a7736c4952fa837e914223f3755ffac6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">(constructor)  <a href="class_ph_widgets_1_1_font_family_a7736c4952fa837e914223f3755ffac6d.html#a7736c4952fa837e914223f3755ffac6d">More...</a><br /></td></tr>
-<tr class="separator:a7736c4952fa837e914223f3755ffac6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5e6e424b6df6a0406e2abc29d24852a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_ac5e6e424b6df6a0406e2abc29d24852a.html#ac5e6e424b6df6a0406e2abc29d24852a">FontFamily</a> (const FontDetails &amp;fdetails)</td></tr>
-<tr class="memdesc:ac5e6e424b6df6a0406e2abc29d24852a"><td class="mdescLeft">&#160;</td><td class="mdescRight">(constructor)  <a href="class_ph_widgets_1_1_font_family_ac5e6e424b6df6a0406e2abc29d24852a.html#ac5e6e424b6df6a0406e2abc29d24852a">More...</a><br /></td></tr>
-<tr class="separator:ac5e6e424b6df6a0406e2abc29d24852a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5dfc327275661efcb421c599a6310b17"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_a5dfc327275661efcb421c599a6310b17.html#a5dfc327275661efcb421c599a6310b17">FontFamily</a> (<a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> name)</td></tr>
-<tr class="memdesc:a5dfc327275661efcb421c599a6310b17"><td class="mdescLeft">&#160;</td><td class="mdescRight">(constructor)  <a href="class_ph_widgets_1_1_font_family_a5dfc327275661efcb421c599a6310b17.html#a5dfc327275661efcb421c599a6310b17">More...</a><br /></td></tr>
-<tr class="separator:a5dfc327275661efcb421c599a6310b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54f7210899f15c83dd74e7a388213d10"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_a54f7210899f15c83dd74e7a388213d10.html#a54f7210899f15c83dd74e7a388213d10">FontFamily</a> (<a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> name, const <a class="el" href="class_ph_widgets_1_1_font_collection.html">FontCollection</a> &amp;fcollection)</td></tr>
-<tr class="memdesc:a54f7210899f15c83dd74e7a388213d10"><td class="mdescLeft">&#160;</td><td class="mdescRight">(constructor)  <a href="class_ph_widgets_1_1_font_family_a54f7210899f15c83dd74e7a388213d10.html#a54f7210899f15c83dd74e7a388213d10">More...</a><br /></td></tr>
-<tr class="separator:a54f7210899f15c83dd74e7a388213d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a963fb1ce7228f1b8731a78bf4313ef47"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_a963fb1ce7228f1b8731a78bf4313ef47.html#a963fb1ce7228f1b8731a78bf4313ef47">FontFamily</a> (const <a class="el" href="class_ph_widgets_1_1_font_family.html">FontFamily</a> &amp;other)</td></tr>
-<tr class="memdesc:a963fb1ce7228f1b8731a78bf4313ef47"><td class="mdescLeft">&#160;</td><td class="mdescRight">(copy constructor)  <a href="class_ph_widgets_1_1_font_family_a963fb1ce7228f1b8731a78bf4313ef47.html#a963fb1ce7228f1b8731a78bf4313ef47">More...</a><br /></td></tr>
-<tr class="separator:a963fb1ce7228f1b8731a78bf4313ef47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b20240191b8a1c55f8c6ca90546684d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ph_widgets_1_1_font_family.html">FontFamily</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_a6b20240191b8a1c55f8c6ca90546684d.html#a6b20240191b8a1c55f8c6ca90546684d">operator=</a> (const <a class="el" href="class_ph_widgets_1_1_font_family.html">FontFamily</a> &amp;other)</td></tr>
-<tr class="memdesc:a6b20240191b8a1c55f8c6ca90546684d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns value in <a class="el" href="class_ph_widgets_1_1_font_family.html" title="Defines a group of type faces having a similar basic design and certain variations in styles....">FontFamily</a>.  <a href="class_ph_widgets_1_1_font_family_a6b20240191b8a1c55f8c6ca90546684d.html#a6b20240191b8a1c55f8c6ca90546684d">More...</a><br /></td></tr>
-<tr class="separator:a6b20240191b8a1c55f8c6ca90546684d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af46606a0e9fc72c4b06eaecbb1612f31"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_af46606a0e9fc72c4b06eaecbb1612f31.html#af46606a0e9fc72c4b06eaecbb1612f31">operator==</a> (const <a class="el" href="class_ph_widgets_1_1_font_family.html">FontFamily</a> &amp;other) const</td></tr>
-<tr class="memdesc:af46606a0e9fc72c4b06eaecbb1612f31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares FontFamilys.  <a href="class_ph_widgets_1_1_font_family_af46606a0e9fc72c4b06eaecbb1612f31.html#af46606a0e9fc72c4b06eaecbb1612f31">More...</a><br /></td></tr>
-<tr class="separator:af46606a0e9fc72c4b06eaecbb1612f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf6fb5823d965779a17d2c7b12a67fcf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_aaf6fb5823d965779a17d2c7b12a67fcf.html#aaf6fb5823d965779a17d2c7b12a67fcf">operator!=</a> (const <a class="el" href="class_ph_widgets_1_1_font_family.html">FontFamily</a> &amp;other) const</td></tr>
-<tr class="memdesc:aaf6fb5823d965779a17d2c7b12a67fcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares FontFamilys.  <a href="class_ph_widgets_1_1_font_family_aaf6fb5823d965779a17d2c7b12a67fcf.html#aaf6fb5823d965779a17d2c7b12a67fcf">More...</a><br /></td></tr>
-<tr class="separator:aaf6fb5823d965779a17d2c7b12a67fcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac38ba804f0136e39ef6c3a28d4bac5c6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_ac38ba804f0136e39ef6c3a28d4bac5c6.html#ac38ba804f0136e39ef6c3a28d4bac5c6">operator&lt;</a> (const <a class="el" href="class_ph_widgets_1_1_font_family.html">FontFamily</a> &amp;other) const</td></tr>
-<tr class="memdesc:ac38ba804f0136e39ef6c3a28d4bac5c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares FontFamilys.  <a href="class_ph_widgets_1_1_font_family_ac38ba804f0136e39ef6c3a28d4bac5c6.html#ac38ba804f0136e39ef6c3a28d4bac5c6">More...</a><br /></td></tr>
-<tr class="separator:ac38ba804f0136e39ef6c3a28d4bac5c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae59f45ccbdb0464944395939e34747d1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_ae59f45ccbdb0464944395939e34747d1.html#ae59f45ccbdb0464944395939e34747d1">GetLineSpacing</a> (typedefs::font_style_bitmask fstyle) const</td></tr>
-<tr class="separator:ae59f45ccbdb0464944395939e34747d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c70120eceddb9b6e472b186eec44aef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_a7c70120eceddb9b6e472b186eec44aef.html#a7c70120eceddb9b6e472b186eec44aef">IsStyleAvailable</a> (typedefs::font_style_bitmask fstyle) const</td></tr>
-<tr class="memdesc:a7c70120eceddb9b6e472b186eec44aef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the specified <a class="el" href="struct_ph_widgets_1_1_font_style_a0de674057aece715530576da9cc155e3.html#a0de674057aece715530576da9cc155e3">FontStyle::eFontStyle</a> enumeration is available.  <a href="class_ph_widgets_1_1_font_family_a7c70120eceddb9b6e472b186eec44aef.html#a7c70120eceddb9b6e472b186eec44aef">More...</a><br /></td></tr>
-<tr class="separator:a7c70120eceddb9b6e472b186eec44aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac58245b0e0a5daf32606279bf75e4b3"><td class="memItemLeft" align="right" valign="top"><a id="aac58245b0e0a5daf32606279bf75e4b3"></a>
+<tr class="memitem:a6d380af1d19c4e5da994520eb8911ad8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_a6d380af1d19c4e5da994520eb8911ad8.html#a6d380af1d19c4e5da994520eb8911ad8">FontFamily</a> (<a class="el" href="struct_ph_widgets_1_1_generic_font_families_a13f41893ab9cb80ae81b17f9df2c6938.html#a13f41893ab9cb80ae81b17f9df2c6938">GenericFontFamilies::eGenericFontFamilies</a> ffamily)</td></tr>
+<tr class="memdesc:a6d380af1d19c4e5da994520eb8911ad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">(constructor)  <a href="class_ph_widgets_1_1_font_family_a6d380af1d19c4e5da994520eb8911ad8.html#a6d380af1d19c4e5da994520eb8911ad8">More...</a><br /></td></tr>
+<tr class="separator:a6d380af1d19c4e5da994520eb8911ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad98345bcaa1b89a1ae84379c19d63144"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_ad98345bcaa1b89a1ae84379c19d63144.html#ad98345bcaa1b89a1ae84379c19d63144">FontFamily</a> (const FontDetails &amp;fdetails)</td></tr>
+<tr class="memdesc:ad98345bcaa1b89a1ae84379c19d63144"><td class="mdescLeft">&#160;</td><td class="mdescRight">(constructor)  <a href="class_ph_widgets_1_1_font_family_ad98345bcaa1b89a1ae84379c19d63144.html#ad98345bcaa1b89a1ae84379c19d63144">More...</a><br /></td></tr>
+<tr class="separator:ad98345bcaa1b89a1ae84379c19d63144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3feee836117608770baf8a14bc8daa3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_af3feee836117608770baf8a14bc8daa3.html#af3feee836117608770baf8a14bc8daa3">FontFamily</a> (<a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> name)</td></tr>
+<tr class="memdesc:af3feee836117608770baf8a14bc8daa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">(constructor)  <a href="class_ph_widgets_1_1_font_family_af3feee836117608770baf8a14bc8daa3.html#af3feee836117608770baf8a14bc8daa3">More...</a><br /></td></tr>
+<tr class="separator:af3feee836117608770baf8a14bc8daa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a04ea5d69b0b436a91907d2db6fa890"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_a1a04ea5d69b0b436a91907d2db6fa890.html#a1a04ea5d69b0b436a91907d2db6fa890">FontFamily</a> (<a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> name, const <a class="el" href="class_ph_widgets_1_1_font_collection.html">FontCollection</a> &amp;fcollection)</td></tr>
+<tr class="memdesc:a1a04ea5d69b0b436a91907d2db6fa890"><td class="mdescLeft">&#160;</td><td class="mdescRight">(constructor)  <a href="class_ph_widgets_1_1_font_family_a1a04ea5d69b0b436a91907d2db6fa890.html#a1a04ea5d69b0b436a91907d2db6fa890">More...</a><br /></td></tr>
+<tr class="separator:a1a04ea5d69b0b436a91907d2db6fa890"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a76a67031c8bb84e6bb4bcd4dee8516"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_a1a76a67031c8bb84e6bb4bcd4dee8516.html#a1a76a67031c8bb84e6bb4bcd4dee8516">FontFamily</a> (const <a class="el" href="class_ph_widgets_1_1_font_family.html">FontFamily</a> &amp;other)</td></tr>
+<tr class="memdesc:a1a76a67031c8bb84e6bb4bcd4dee8516"><td class="mdescLeft">&#160;</td><td class="mdescRight">(copy constructor)  <a href="class_ph_widgets_1_1_font_family_a1a76a67031c8bb84e6bb4bcd4dee8516.html#a1a76a67031c8bb84e6bb4bcd4dee8516">More...</a><br /></td></tr>
+<tr class="separator:a1a76a67031c8bb84e6bb4bcd4dee8516"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75f35ca90f1fbc2304e485f3cea2bb92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ph_widgets_1_1_font_family.html">FontFamily</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_a75f35ca90f1fbc2304e485f3cea2bb92.html#a75f35ca90f1fbc2304e485f3cea2bb92">operator=</a> (const <a class="el" href="class_ph_widgets_1_1_font_family.html">FontFamily</a> &amp;other)</td></tr>
+<tr class="memdesc:a75f35ca90f1fbc2304e485f3cea2bb92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns value in <a class="el" href="class_ph_widgets_1_1_font_family.html" title="Defines a group of type faces having a similar basic design and certain variations in styles....">FontFamily</a>.  <a href="class_ph_widgets_1_1_font_family_a75f35ca90f1fbc2304e485f3cea2bb92.html#a75f35ca90f1fbc2304e485f3cea2bb92">More...</a><br /></td></tr>
+<tr class="separator:a75f35ca90f1fbc2304e485f3cea2bb92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a179b05338c8b45f51d494eb35dbd8248"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_a179b05338c8b45f51d494eb35dbd8248.html#a179b05338c8b45f51d494eb35dbd8248">operator==</a> (const <a class="el" href="class_ph_widgets_1_1_font_family.html">FontFamily</a> &amp;other) const</td></tr>
+<tr class="memdesc:a179b05338c8b45f51d494eb35dbd8248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares FontFamilys.  <a href="class_ph_widgets_1_1_font_family_a179b05338c8b45f51d494eb35dbd8248.html#a179b05338c8b45f51d494eb35dbd8248">More...</a><br /></td></tr>
+<tr class="separator:a179b05338c8b45f51d494eb35dbd8248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac297cf535e76cea1922ef8e5259e52a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_ac297cf535e76cea1922ef8e5259e52a8.html#ac297cf535e76cea1922ef8e5259e52a8">operator!=</a> (const <a class="el" href="class_ph_widgets_1_1_font_family.html">FontFamily</a> &amp;other) const</td></tr>
+<tr class="memdesc:ac297cf535e76cea1922ef8e5259e52a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares FontFamilys.  <a href="class_ph_widgets_1_1_font_family_ac297cf535e76cea1922ef8e5259e52a8.html#ac297cf535e76cea1922ef8e5259e52a8">More...</a><br /></td></tr>
+<tr class="separator:ac297cf535e76cea1922ef8e5259e52a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a100559aa2d19a5cb9242dfc1c80ace84"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_a100559aa2d19a5cb9242dfc1c80ace84.html#a100559aa2d19a5cb9242dfc1c80ace84">operator&lt;</a> (const <a class="el" href="class_ph_widgets_1_1_font_family.html">FontFamily</a> &amp;other) const</td></tr>
+<tr class="memdesc:a100559aa2d19a5cb9242dfc1c80ace84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares FontFamilys.  <a href="class_ph_widgets_1_1_font_family_a100559aa2d19a5cb9242dfc1c80ace84.html#a100559aa2d19a5cb9242dfc1c80ace84">More...</a><br /></td></tr>
+<tr class="separator:a100559aa2d19a5cb9242dfc1c80ace84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96cacbed7eaf5ced6d38367e06ee302c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_a96cacbed7eaf5ced6d38367e06ee302c.html#a96cacbed7eaf5ced6d38367e06ee302c">GetLineSpacing</a> (typedefs::font_style_bitmask fstyle) const</td></tr>
+<tr class="separator:a96cacbed7eaf5ced6d38367e06ee302c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fc95a2c342bfb7b820a5111a08df9bf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_font_family_a3fc95a2c342bfb7b820a5111a08df9bf.html#a3fc95a2c342bfb7b820a5111a08df9bf">IsStyleAvailable</a> (typedefs::font_style_bitmask fstyle) const</td></tr>
+<tr class="memdesc:a3fc95a2c342bfb7b820a5111a08df9bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the specified <a class="el" href="struct_ph_widgets_1_1_font_style_a0de674057aece715530576da9cc155e3.html#a0de674057aece715530576da9cc155e3">FontStyle::eFontStyle</a> enumeration is available.  <a href="class_ph_widgets_1_1_font_family_a3fc95a2c342bfb7b820a5111a08df9bf.html#a3fc95a2c342bfb7b820a5111a08df9bf">More...</a><br /></td></tr>
+<tr class="separator:a3fc95a2c342bfb7b820a5111a08df9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cedfd4d6851d340bd1429e788ecff67"><td class="memItemLeft" align="right" valign="top"><a id="a4cedfd4d6851d340bd1429e788ecff67"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>operator FontDetails</b> () const</td></tr>
-<tr class="separator:aac58245b0e0a5daf32606279bf75e4b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a4cedfd4d6851d340bd1429e788ecff67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -127,16 +147,21 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines a group of type faces having a similar basic design and certain variations in styles. This class cannot be inherited. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+
+<p class="definition">Definition at line <a class="el" href="_font_8h_source.html#l00121">121</a> of file <a class="el" href="_font_8h_source.html">Font.h</a>.</p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_font_8h_source.html">Font.h</a></li>
-<li>Font.cpp</li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_ph_widgets.html">PhWidgets</a></li><li class="navelem"><a class="el" href="class_ph_widgets_1_1_font_family.html">FontFamily</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

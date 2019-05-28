@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.4.xxx</span>
+   &#160;<span id="projectnumber">0.3.5.xxx</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -48,6 +56,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('files.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -71,30 +95,34 @@ $(function() {
 <table class="directory">
 <tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_basic_8h_source.html"><span class="icondoc"></span></a><b>Basic.h</b></td><td class="desc"></td></tr>
 <tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_button_8h_source.html"><span class="icondoc"></span></a><b>Button.h</b></td><td class="desc"></td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_compound_8h_source.html"><span class="icondoc"></span></a><b>Compound.h</b></td><td class="desc"></td></tr>
-<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_container_8h_source.html"><span class="icondoc"></span></a><b>Container.h</b></td><td class="desc"></td></tr>
-<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_cursor_8h_source.html"><span class="icondoc"></span></a><b>Cursor.h</b></td><td class="desc"></td></tr>
-<tr id="row_5_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_font_8h_source.html"><span class="icondoc"></span></a><b>Font.h</b></td><td class="desc"></td></tr>
-<tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_label_8h_source.html"><span class="icondoc"></span></a><b>Label.h</b></td><td class="desc"></td></tr>
-<tr id="row_7_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_numeric_8h_source.html"><span class="icondoc"></span></a><b>Numeric.h</b></td><td class="desc"></td></tr>
-<tr id="row_8_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_numeric_float_8h_source.html"><span class="icondoc"></span></a><b>NumericFloat.h</b></td><td class="desc"></td></tr>
-<tr id="row_9_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_numeric_integer_8h_source.html"><span class="icondoc"></span></a><b>NumericInteger.h</b></td><td class="desc"></td></tr>
-<tr id="row_10_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_on_off_button_8h_source.html"><span class="icondoc"></span></a><b>OnOffButton.h</b></td><td class="desc"></td></tr>
-<tr id="row_11_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_text_8h_source.html"><span class="icondoc"></span></a><b>Text.h</b></td><td class="desc"></td></tr>
-<tr id="row_12_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_timer_8h_source.html"><span class="icondoc"></span></a><b>Timer.h</b></td><td class="desc"></td></tr>
-<tr id="row_13_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_toggle_button_8h_source.html"><span class="icondoc"></span></a><b>ToggleButton.h</b></td><td class="desc"></td></tr>
-<tr id="row_14_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_widget_8h_source.html"><span class="icondoc"></span></a><b>Widget.h</b></td><td class="desc"></td></tr>
-<tr id="row_15_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_widget_events_8h_source.html"><span class="icondoc"></span></a><b>WidgetEvents.h</b></td><td class="desc"></td></tr>
-<tr id="row_16_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_widget_keys_8h_source.html"><span class="icondoc"></span></a><b>WidgetKeys.h</b></td><td class="desc"></td></tr>
-<tr id="row_17_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_widget_resource_8hpp_source.html"><span class="icondoc"></span></a><b>WidgetResource.hpp</b></td><td class="desc"></td></tr>
+<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_color_8h_source.html"><span class="icondoc"></span></a><b>Color.h</b></td><td class="desc"></td></tr>
+<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_compound_8h_source.html"><span class="icondoc"></span></a><b>Compound.h</b></td><td class="desc"></td></tr>
+<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_container_8h_source.html"><span class="icondoc"></span></a><b>Container.h</b></td><td class="desc"></td></tr>
+<tr id="row_5_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_cursor_8h_source.html"><span class="icondoc"></span></a><b>Cursor.h</b></td><td class="desc"></td></tr>
+<tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_font_8h_source.html"><span class="icondoc"></span></a><b>Font.h</b></td><td class="desc"></td></tr>
+<tr id="row_7_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_label_8h_source.html"><span class="icondoc"></span></a><b>Label.h</b></td><td class="desc"></td></tr>
+<tr id="row_8_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_numeric_8h_source.html"><span class="icondoc"></span></a><b>Numeric.h</b></td><td class="desc"></td></tr>
+<tr id="row_9_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_numeric_float_8h_source.html"><span class="icondoc"></span></a><b>NumericFloat.h</b></td><td class="desc"></td></tr>
+<tr id="row_10_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_numeric_integer_8h_source.html"><span class="icondoc"></span></a><b>NumericInteger.h</b></td><td class="desc"></td></tr>
+<tr id="row_11_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_on_off_button_8h_source.html"><span class="icondoc"></span></a><b>OnOffButton.h</b></td><td class="desc"></td></tr>
+<tr id="row_12_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_text_8h_source.html"><span class="icondoc"></span></a><b>Text.h</b></td><td class="desc"></td></tr>
+<tr id="row_13_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_timer_8h_source.html"><span class="icondoc"></span></a><b>Timer.h</b></td><td class="desc"></td></tr>
+<tr id="row_14_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_toggle_button_8h_source.html"><span class="icondoc"></span></a><b>ToggleButton.h</b></td><td class="desc"></td></tr>
+<tr id="row_15_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_widget_8h_source.html"><span class="icondoc"></span></a><b>Widget.h</b></td><td class="desc"></td></tr>
+<tr id="row_16_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_widget_events_8h_source.html"><span class="icondoc"></span></a><b>WidgetEvents.h</b></td><td class="desc"></td></tr>
+<tr id="row_17_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_widget_keys_8h_source.html"><span class="icondoc"></span></a><b>WidgetKeys.h</b></td><td class="desc"></td></tr>
+<tr id="row_18_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_widget_resource_8hpp_source.html"><span class="icondoc"></span></a><b>WidgetResource.hpp</b></td><td class="desc"></td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -39,7 +39,11 @@ var searchData=
   ['fill_5fpattern',['fill_pattern',['../struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_pattern_a7c7ef18533fadacf265209807482f16f.html#a7c7ef18533fadacf265209807482f16fa1cab2229351362695836565566525402',1,'PhWidgets::Basic::ThisArgs::ArgPattern']]],
   ['filter',['filter',['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_raw_callback_a0d3c0b29a907371fcfb4e217b5e45036.html#a0d3c0b29a907371fcfb4e217b5e45036a23de66c6e19cc07d3ee51e66517b08a0',1,'PhWidgets::Widget::ThisCallbacks::RawCallback']]],
   ['finger',['Finger',['../struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629ca4a26307e4110f9454f813a4c3ac52aa1',1,'PhWidgets::Cursors']]],
+  ['firebrick',['Firebrick',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732ac2cca7b29e988a51e58362edbdff9b0d',1,'PhWidgets::Colors']]],
   ['flags',['flags',['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_long_a4deba655c8d3dc2d794aabd716c15d25.html#a4deba655c8d3dc2d794aabd716c15d25adaf477f74ebe062cc2d6db6ce66d053c',1,'PhWidgets::Widget::ThisArgs::ArgLong']]],
   ['flat_5ffill',['flat_fill',['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41ab0f59d773d9521e55ce58c465ea71f06',1,'PhWidgets::Basic::ThisFlags::Basic']]],
-  ['focusrender',['FocusRender',['../struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdab8d0b6c921e303dc9e2a7297363e7624',1,'PhWidgets::Widget::ThisFlags']]]
+  ['floralwhite',['FloralWhite',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732af4dedde01e7fcc392e8732f052c9f038',1,'PhWidgets::Colors']]],
+  ['focusrender',['FocusRender',['../struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdab8d0b6c921e303dc9e2a7297363e7624',1,'PhWidgets::Widget::ThisFlags']]],
+  ['forestgreen',['ForestGreen',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a06a8ede853c6942421ac522dba95f8a5',1,'PhWidgets::Colors']]],
+  ['fuchsia',['Fuchsia',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732af6e798399bfb16a354d573f181c61677',1,'PhWidgets::Colors']]]
 ];

@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.4.xxx</span>
+   &#160;<span id="projectnumber">0.3.5.xxx</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -47,6 +55,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_ph_widgets_1_1_widget.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,19 +86,12 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_ph_widgets.html">PhWidgets</a></li><li class="navelem"><a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pro-types">Protected Types</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="class_ph_widgets_1_1_widget-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PhWidgets::Widget Class Reference</div>  </div>
@@ -144,8 +162,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_arguments.html">Arguments</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains resource IDs for all <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> arguments.  <a href="struct_ph_widgets_1_1_widget_1_1_arguments.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_arguments_ex.html">ArgumentsEx</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_arg_unsigned.html">ArgUnsigned</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains resource IDs for <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> arguments of type unsigned.  <a href="struct_ph_widgets_1_1_widget_1_1_arg_unsigned.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,53 +208,53 @@ typedef phevent::ph_callback_t&#160;</td><td class="memItemRight" valign="bottom
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a43b01493754c8a4e482633082032ba72"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a43b01493754c8a4e482633082032ba72.html#a43b01493754c8a4e482633082032ba72">Widget</a> (int abn)</td></tr>
-<tr class="memdesc:a43b01493754c8a4e482633082032ba72"><td class="mdescLeft">&#160;</td><td class="mdescRight">(constructor)  <a href="class_ph_widgets_1_1_widget_a43b01493754c8a4e482633082032ba72.html#a43b01493754c8a4e482633082032ba72">More...</a><br /></td></tr>
-<tr class="separator:a43b01493754c8a4e482633082032ba72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2596e8b40807a3212f3ef2bf618b786"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_aa2596e8b40807a3212f3ef2bf618b786.html#aa2596e8b40807a3212f3ef2bf618b786">Widget</a> (PtWidget_t *wdg)</td></tr>
-<tr class="memdesc:aa2596e8b40807a3212f3ef2bf618b786"><td class="mdescLeft">&#160;</td><td class="mdescRight">(constructor)  <a href="class_ph_widgets_1_1_widget_aa2596e8b40807a3212f3ef2bf618b786.html#aa2596e8b40807a3212f3ef2bf618b786">More...</a><br /></td></tr>
-<tr class="separator:aa2596e8b40807a3212f3ef2bf618b786"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa593374210c04e0bfe0c6a0f37d85060"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_aa593374210c04e0bfe0c6a0f37d85060.html#aa593374210c04e0bfe0c6a0f37d85060">Widget</a> (const <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a> &amp;other)</td></tr>
-<tr class="memdesc:aa593374210c04e0bfe0c6a0f37d85060"><td class="mdescLeft">&#160;</td><td class="mdescRight">(copy constructor)  <a href="class_ph_widgets_1_1_widget_aa593374210c04e0bfe0c6a0f37d85060.html#aa593374210c04e0bfe0c6a0f37d85060">More...</a><br /></td></tr>
-<tr class="separator:aa593374210c04e0bfe0c6a0f37d85060"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1838c4524925532d0492368cf9242a45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a1838c4524925532d0492368cf9242a45.html#a1838c4524925532d0492368cf9242a45">operator=</a> (const <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a> &amp;other)</td></tr>
-<tr class="memdesc:a1838c4524925532d0492368cf9242a45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns value in <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a>.  <a href="class_ph_widgets_1_1_widget_a1838c4524925532d0492368cf9242a45.html#a1838c4524925532d0492368cf9242a45">More...</a><br /></td></tr>
-<tr class="separator:a1838c4524925532d0492368cf9242a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a395fc1a8b39729b8d1a1025b08808b95"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a395fc1a8b39729b8d1a1025b08808b95.html#a395fc1a8b39729b8d1a1025b08808b95">operator==</a> (const <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a> &amp;other) const</td></tr>
-<tr class="memdesc:a395fc1a8b39729b8d1a1025b08808b95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares Widgets.  <a href="class_ph_widgets_1_1_widget_a395fc1a8b39729b8d1a1025b08808b95.html#a395fc1a8b39729b8d1a1025b08808b95">More...</a><br /></td></tr>
-<tr class="separator:a395fc1a8b39729b8d1a1025b08808b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c0f0774e2d80d4f3d3220c657f0a8cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a0c0f0774e2d80d4f3d3220c657f0a8cd.html#a0c0f0774e2d80d4f3d3220c657f0a8cd">operator!=</a> (const <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a> &amp;other) const</td></tr>
-<tr class="memdesc:a0c0f0774e2d80d4f3d3220c657f0a8cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares Widgets.  <a href="class_ph_widgets_1_1_widget_a0c0f0774e2d80d4f3d3220c657f0a8cd.html#a0c0f0774e2d80d4f3d3220c657f0a8cd">More...</a><br /></td></tr>
-<tr class="separator:a0c0f0774e2d80d4f3d3220c657f0a8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21cb31ae91d1b5546566a2b07e23a566"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a21cb31ae91d1b5546566a2b07e23a566.html#a21cb31ae91d1b5546566a2b07e23a566">operator&lt;</a> (const <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a> &amp;other) const</td></tr>
-<tr class="memdesc:a21cb31ae91d1b5546566a2b07e23a566"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares Widgets.  <a href="class_ph_widgets_1_1_widget_a21cb31ae91d1b5546566a2b07e23a566.html#a21cb31ae91d1b5546566a2b07e23a566">More...</a><br /></td></tr>
-<tr class="separator:a21cb31ae91d1b5546566a2b07e23a566"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa78cad4c79ece87eb88ee58a209a340"><td class="memItemLeft" align="right" valign="top"><a id="aaa78cad4c79ece87eb88ee58a209a340"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#aaa78cad4c79ece87eb88ee58a209a340">operator PtWidget_t *</a> ()</td></tr>
-<tr class="memdesc:aaa78cad4c79ece87eb88ee58a209a340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> to Photon widget pointer. <br /></td></tr>
-<tr class="separator:aaa78cad4c79ece87eb88ee58a209a340"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fedf80c9f4995982259ed525b83f5e3"><td class="memItemLeft" align="right" valign="top"><a id="a4fedf80c9f4995982259ed525b83f5e3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#a4fedf80c9f4995982259ed525b83f5e3">operator const PtWidget_t *</a> () const</td></tr>
-<tr class="memdesc:a4fedf80c9f4995982259ed525b83f5e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> to constant Photon widget pointer. <br /></td></tr>
-<tr class="separator:a4fedf80c9f4995982259ed525b83f5e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9185456ebb77262c01596ff2068ed4cf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a9185456ebb77262c01596ff2068ed4cf.html#a9185456ebb77262c01596ff2068ed4cf">Focus</a> ()</td></tr>
-<tr class="memdesc:a9185456ebb77262c01596ff2068ed4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets input focus to the widget.  <a href="class_ph_widgets_1_1_widget_a9185456ebb77262c01596ff2068ed4cf.html#a9185456ebb77262c01596ff2068ed4cf">More...</a><br /></td></tr>
-<tr class="separator:a9185456ebb77262c01596ff2068ed4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb2ea377da43a9775b8ab2c1ac4470d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_acb2ea377da43a9775b8ab2c1ac4470d1.html#acb2ea377da43a9775b8ab2c1ac4470d1">Select</a> ()</td></tr>
-<tr class="memdesc:acb2ea377da43a9775b8ab2c1ac4470d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates the widget.  <a href="class_ph_widgets_1_1_widget_acb2ea377da43a9775b8ab2c1ac4470d1.html#acb2ea377da43a9775b8ab2c1ac4470d1">More...</a><br /></td></tr>
-<tr class="separator:acb2ea377da43a9775b8ab2c1ac4470d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac295693eaf1d2487e08df5dea16c5398"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_ac295693eaf1d2487e08df5dea16c5398.html#ac295693eaf1d2487e08df5dea16c5398">Widget</a> (int abn)</td></tr>
+<tr class="memdesc:ac295693eaf1d2487e08df5dea16c5398"><td class="mdescLeft">&#160;</td><td class="mdescRight">(constructor)  <a href="class_ph_widgets_1_1_widget_ac295693eaf1d2487e08df5dea16c5398.html#ac295693eaf1d2487e08df5dea16c5398">More...</a><br /></td></tr>
+<tr class="separator:ac295693eaf1d2487e08df5dea16c5398"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac72317be625a7232255a489654b02271"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_ac72317be625a7232255a489654b02271.html#ac72317be625a7232255a489654b02271">Widget</a> (PtWidget_t *wdg)</td></tr>
+<tr class="memdesc:ac72317be625a7232255a489654b02271"><td class="mdescLeft">&#160;</td><td class="mdescRight">(constructor)  <a href="class_ph_widgets_1_1_widget_ac72317be625a7232255a489654b02271.html#ac72317be625a7232255a489654b02271">More...</a><br /></td></tr>
+<tr class="separator:ac72317be625a7232255a489654b02271"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acef62a8cd63d533f7030521f470ac008"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_acef62a8cd63d533f7030521f470ac008.html#acef62a8cd63d533f7030521f470ac008">Widget</a> (const <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a> &amp;other)</td></tr>
+<tr class="memdesc:acef62a8cd63d533f7030521f470ac008"><td class="mdescLeft">&#160;</td><td class="mdescRight">(copy constructor)  <a href="class_ph_widgets_1_1_widget_acef62a8cd63d533f7030521f470ac008.html#acef62a8cd63d533f7030521f470ac008">More...</a><br /></td></tr>
+<tr class="separator:acef62a8cd63d533f7030521f470ac008"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31fc7bcb1b3ee821ab32d9c9544a4a84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a31fc7bcb1b3ee821ab32d9c9544a4a84.html#a31fc7bcb1b3ee821ab32d9c9544a4a84">operator=</a> (const <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a> &amp;other)</td></tr>
+<tr class="memdesc:a31fc7bcb1b3ee821ab32d9c9544a4a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns value in <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a>.  <a href="class_ph_widgets_1_1_widget_a31fc7bcb1b3ee821ab32d9c9544a4a84.html#a31fc7bcb1b3ee821ab32d9c9544a4a84">More...</a><br /></td></tr>
+<tr class="separator:a31fc7bcb1b3ee821ab32d9c9544a4a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2af7ba1a60e66faeb7166fc8045309ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a2af7ba1a60e66faeb7166fc8045309ee.html#a2af7ba1a60e66faeb7166fc8045309ee">operator==</a> (const <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a> &amp;other) const</td></tr>
+<tr class="memdesc:a2af7ba1a60e66faeb7166fc8045309ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares Widgets.  <a href="class_ph_widgets_1_1_widget_a2af7ba1a60e66faeb7166fc8045309ee.html#a2af7ba1a60e66faeb7166fc8045309ee">More...</a><br /></td></tr>
+<tr class="separator:a2af7ba1a60e66faeb7166fc8045309ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a444795af956763ae3dfd79db410455b6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a444795af956763ae3dfd79db410455b6.html#a444795af956763ae3dfd79db410455b6">operator!=</a> (const <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a> &amp;other) const</td></tr>
+<tr class="memdesc:a444795af956763ae3dfd79db410455b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares Widgets.  <a href="class_ph_widgets_1_1_widget_a444795af956763ae3dfd79db410455b6.html#a444795af956763ae3dfd79db410455b6">More...</a><br /></td></tr>
+<tr class="separator:a444795af956763ae3dfd79db410455b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e21fa01f728cc20e4c61bad8eda0e9e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a1e21fa01f728cc20e4c61bad8eda0e9e.html#a1e21fa01f728cc20e4c61bad8eda0e9e">operator&lt;</a> (const <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a> &amp;other) const</td></tr>
+<tr class="memdesc:a1e21fa01f728cc20e4c61bad8eda0e9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares Widgets.  <a href="class_ph_widgets_1_1_widget_a1e21fa01f728cc20e4c61bad8eda0e9e.html#a1e21fa01f728cc20e4c61bad8eda0e9e">More...</a><br /></td></tr>
+<tr class="separator:a1e21fa01f728cc20e4c61bad8eda0e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac76db7d7571aa1acc7f1a62696dad612"><td class="memItemLeft" align="right" valign="top"><a id="ac76db7d7571aa1acc7f1a62696dad612"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#ac76db7d7571aa1acc7f1a62696dad612">operator PtWidget_t *</a> ()</td></tr>
+<tr class="memdesc:ac76db7d7571aa1acc7f1a62696dad612"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> to Photon widget pointer. <br /></td></tr>
+<tr class="separator:ac76db7d7571aa1acc7f1a62696dad612"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48a712378c64402d2b5a106c0f049572"><td class="memItemLeft" align="right" valign="top"><a id="a48a712378c64402d2b5a106c0f049572"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#a48a712378c64402d2b5a106c0f049572">operator const PtWidget_t *</a> () const</td></tr>
+<tr class="memdesc:a48a712378c64402d2b5a106c0f049572"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> to constant Photon widget pointer. <br /></td></tr>
+<tr class="separator:a48a712378c64402d2b5a106c0f049572"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d793d8e6dc4925174b7179e1eef4d15"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a9d793d8e6dc4925174b7179e1eef4d15.html#a9d793d8e6dc4925174b7179e1eef4d15">Focus</a> ()</td></tr>
+<tr class="memdesc:a9d793d8e6dc4925174b7179e1eef4d15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets input focus to the widget.  <a href="class_ph_widgets_1_1_widget_a9d793d8e6dc4925174b7179e1eef4d15.html#a9d793d8e6dc4925174b7179e1eef4d15">More...</a><br /></td></tr>
+<tr class="separator:a9d793d8e6dc4925174b7179e1eef4d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e97221634cba059f883c396be7b86e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a8e97221634cba059f883c396be7b86e3.html#a8e97221634cba059f883c396be7b86e3">Select</a> ()</td></tr>
+<tr class="memdesc:a8e97221634cba059f883c396be7b86e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates the widget.  <a href="class_ph_widgets_1_1_widget_a8e97221634cba059f883c396be7b86e3.html#a8e97221634cba059f883c396be7b86e3">More...</a><br /></td></tr>
+<tr class="separator:a8e97221634cba059f883c396be7b86e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:a9f1eaa3c204bba9620c0d042b568fce1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a9f1eaa3c204bba9620c0d042b568fce1.html#a9f1eaa3c204bba9620c0d042b568fce1">SetBounds</a> (short x, short y, unsigned short width, unsigned short height)</td></tr>
-<tr class="memdesc:a9f1eaa3c204bba9620c0d042b568fce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the bounds of the widget to the specified location and size.  <a href="class_ph_widgets_1_1_widget_a9f1eaa3c204bba9620c0d042b568fce1.html#a9f1eaa3c204bba9620c0d042b568fce1">More...</a><br /></td></tr>
-<tr class="separator:a9f1eaa3c204bba9620c0d042b568fce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a554b0207fc1ce75f7b527f71702ca6a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a554b0207fc1ce75f7b527f71702ca6a0.html#a554b0207fc1ce75f7b527f71702ca6a0">SetBounds</a> (short x, short y)</td></tr>
-<tr class="memdesc:a554b0207fc1ce75f7b527f71702ca6a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the bounds of the widget to the specified location.  <a href="class_ph_widgets_1_1_widget_a554b0207fc1ce75f7b527f71702ca6a0.html#a554b0207fc1ce75f7b527f71702ca6a0">More...</a><br /></td></tr>
-<tr class="separator:a554b0207fc1ce75f7b527f71702ca6a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61bb5bd8d2b1993aa15dc7755dc71781"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a61bb5bd8d2b1993aa15dc7755dc71781.html#a61bb5bd8d2b1993aa15dc7755dc71781">SetBounds</a> (short x, short y, unsigned short width, unsigned short height)</td></tr>
+<tr class="memdesc:a61bb5bd8d2b1993aa15dc7755dc71781"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the bounds of the widget to the specified location and size.  <a href="class_ph_widgets_1_1_widget_a61bb5bd8d2b1993aa15dc7755dc71781.html#a61bb5bd8d2b1993aa15dc7755dc71781">More...</a><br /></td></tr>
+<tr class="separator:a61bb5bd8d2b1993aa15dc7755dc71781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281c4fb555f66d647ac3bf44c353cbf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a281c4fb555f66d647ac3bf44c353cbf6.html#a281c4fb555f66d647ac3bf44c353cbf6">SetBounds</a> (short x, short y)</td></tr>
+<tr class="memdesc:a281c4fb555f66d647ac3bf44c353cbf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the bounds of the widget to the specified location.  <a href="class_ph_widgets_1_1_widget_a281c4fb555f66d647ac3bf44c353cbf6.html#a281c4fb555f66d647ac3bf44c353cbf6">More...</a><br /></td></tr>
+<tr class="separator:a281c4fb555f66d647ac3bf44c353cbf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Event raisers</div></td></tr>
-<tr class="memitem:afda637741bef1d4f40ca1eefc1f865e2"><td class="memItemLeft" align="right" valign="top"><a id="afda637741bef1d4f40ca1eefc1f865e2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#afda637741bef1d4f40ca1eefc1f865e2">OnDestroyed</a> (PtCallbackInfo_t *info)</td></tr>
-<tr class="memdesc:afda637741bef1d4f40ca1eefc1f865e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raises the <a class="el" href="class_ph_widgets_1_1_widget.html#af1e24b7efd98f6395b2b9013027777c0" title="Occurs when the widget is destroyed.">Widget::Destroyed</a> event. <br /></td></tr>
-<tr class="separator:afda637741bef1d4f40ca1eefc1f865e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae27308698b401a2a45b3cd527a739576"><td class="memItemLeft" align="right" valign="top"><a id="ae27308698b401a2a45b3cd527a739576"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#ae27308698b401a2a45b3cd527a739576">OnDestroyed</a> (PtCallbackInfo_t *info)</td></tr>
+<tr class="memdesc:ae27308698b401a2a45b3cd527a739576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raises the <a class="el" href="class_ph_widgets_1_1_widget.html#af1e24b7efd98f6395b2b9013027777c0" title="Occurs when the widget is destroyed.">Widget::Destroyed</a> event. <br /></td></tr>
+<tr class="separator:ae27308698b401a2a45b3cd527a739576"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad84f0eba60dbd0ef832a969b4d1f88d7"><td class="memItemLeft" align="right" valign="top"><a id="ad84f0eba60dbd0ef832a969b4d1f88d7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#ad84f0eba60dbd0ef832a969b4d1f88d7">OnBlocked</a> (PtCallbackInfo_t *info)</td></tr>
 <tr class="memdesc:ad84f0eba60dbd0ef832a969b4d1f88d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raises the <a class="el" href="class_ph_widgets_1_1_widget.html#abc5594d08c6e0ab9da8a8962caddc665" title="Occurs when the widget is blocked.">Widget::Blocked</a> event. <br /></td></tr>
@@ -274,6 +290,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a7b0085011f6980dea5eb2e8376abea66"><td class="memItemLeft" align="right" valign="top">phbitmask&lt; unsigned, <a class="el" href="struct_ph_widgets_1_1_anchor_styles_a633ad6c8be39fad6a6787877082c7bb4.html#a633ad6c8be39fad6a6787877082c7bb4">Flags::Anchor::eAnchorFlags</a>, Flags::Anchor::All &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_af75694a26884be6ee17b25092bdeee97.html#af75694a26884be6ee17b25092bdeee97">ArgUnsigned::eArgUnsigned</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_af75694a26884be6ee17b25092bdeee97.html#af75694a26884be6ee17b25092bdeee97af295089e84aca61976551c830529ad24">ArgUnsigned::anchor_flags</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a7b0085011f6980dea5eb2e8376abea66.html#a7b0085011f6980dea5eb2e8376abea66">Anchor</a></td></tr>
 <tr class="memdesc:a7b0085011f6980dea5eb2e8376abea66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets flags specifying how the widget is anchored to its parent.  <a href="class_ph_widgets_1_1_widget_a7b0085011f6980dea5eb2e8376abea66.html#a7b0085011f6980dea5eb2e8376abea66">More...</a><br /></td></tr>
 <tr class="separator:a7b0085011f6980dea5eb2e8376abea66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a657fb970e6181dacbc27de2ccd7cfcd9"><td class="memItemLeft" align="right" valign="top">phproperty&lt; unsigned short &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short_add5b33bf072e087e634112b4e5e471d3.html#add5b33bf072e087e634112b4e5e471d3">Arguments::eArgUnsignedShort</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short_add5b33bf072e087e634112b4e5e471d3.html#add5b33bf072e087e634112b4e5e471d3a70382a2a911f1900197e28ac280b77fb">Arguments::bevel_width</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a657fb970e6181dacbc27de2ccd7cfcd9.html#a657fb970e6181dacbc27de2ccd7cfcd9">BevelWidth</a></td></tr>
+<tr class="memdesc:a657fb970e6181dacbc27de2ccd7cfcd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the bevel width of the widget.  <a href="class_ph_widgets_1_1_widget_a657fb970e6181dacbc27de2ccd7cfcd9.html#a657fb970e6181dacbc27de2ccd7cfcd9">More...</a><br /></td></tr>
+<tr class="separator:a657fb970e6181dacbc27de2ccd7cfcd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76a70f26b5c9f1e76ab20bebd4d020bb"><td class="memItemLeft" align="right" valign="top">property&lt; short, property&lt;&gt;::ro &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, &amp;Widget::getBottom &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a76a70f26b5c9f1e76ab20bebd4d020bb.html#a76a70f26b5c9f1e76ab20bebd4d020bb">Bottom</a></td></tr>
 <tr class="memdesc:a76a70f26b5c9f1e76ab20bebd4d020bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the distance, in pixels, between the bottom edge of the widget and the top edge of its container's client area.  <a href="class_ph_widgets_1_1_widget_a76a70f26b5c9f1e76ab20bebd4d020bb.html#a76a70f26b5c9f1e76ab20bebd4d020bb">More...</a><br /></td></tr>
 <tr class="separator:a76a70f26b5c9f1e76ab20bebd4d020bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -308,37 +327,30 @@ Public Attributes</h2></td></tr>
 property&lt; <a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, &amp;Widget::getHelpTopic, &amp;Widget::setHelpTopic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#a410640fc73b0aa7d8343bf13cbbb2e1f">HelpTopic</a></td></tr>
 <tr class="memdesc:a410640fc73b0aa7d8343bf13cbbb2e1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the help topic of the widget. <br /></td></tr>
 <tr class="separator:a410640fc73b0aa7d8343bf13cbbb2e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af16788209177491d790900a5f4c2c51a"><td class="memItemLeft" align="right" valign="top"><a id="af16788209177491d790900a5f4c2c51a"></a>
-property&lt; short &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, &amp;Widget::getLeft, &amp;Widget::setLeft &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#af16788209177491d790900a5f4c2c51a">Left</a></td></tr>
-<tr class="memdesc:af16788209177491d790900a5f4c2c51a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the distance, in pixels, between the left edge of the widget and the left edge of its parent widget. <br /></td></tr>
+<tr class="memitem:af16788209177491d790900a5f4c2c51a"><td class="memItemLeft" align="right" valign="top">property&lt; short &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, &amp;Widget::getLeft, &amp;Widget::setLeft &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_af16788209177491d790900a5f4c2c51a.html#af16788209177491d790900a5f4c2c51a">Left</a></td></tr>
+<tr class="memdesc:af16788209177491d790900a5f4c2c51a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the distance, in pixels, between the left edge of the widget and the left edge of its container's client area.  <a href="class_ph_widgets_1_1_widget_af16788209177491d790900a5f4c2c51a.html#af16788209177491d790900a5f4c2c51a">More...</a><br /></td></tr>
 <tr class="separator:af16788209177491d790900a5f4c2c51a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a185eb01b846e20c7ba986da2e0663ee8"><td class="memItemLeft" align="right" valign="top">property&lt; PhPoint_t &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, &amp;Widget::getLocation, &amp;Widget::setLocation &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a185eb01b846e20c7ba986da2e0663ee8.html#a185eb01b846e20c7ba986da2e0663ee8">Location</a></td></tr>
+<tr class="memdesc:a185eb01b846e20c7ba986da2e0663ee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the coordinates of the upper-left corner of the widget relative to the upper-left corner of its container.  <a href="class_ph_widgets_1_1_widget_a185eb01b846e20c7ba986da2e0663ee8.html#a185eb01b846e20c7ba986da2e0663ee8">More...</a><br /></td></tr>
+<tr class="separator:a185eb01b846e20c7ba986da2e0663ee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31256aa2dae93890536214939f48d1f9"><td class="memItemLeft" align="right" valign="top">phproperty&lt; PhPoint_t &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_point_aa596cc2b4d42d3597a480a2b8f567de1.html#aa596cc2b4d42d3597a480a2b8f567de1">Arguments::eArgPoint</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_point_aa596cc2b4d42d3597a480a2b8f567de1.html#aa596cc2b4d42d3597a480a2b8f567de1af076bdca6a11ef117a54b6bca4e1ca36">Arguments::pos</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a31256aa2dae93890536214939f48d1f9.html#a31256aa2dae93890536214939f48d1f9">Position</a></td></tr>
+<tr class="memdesc:a31256aa2dae93890536214939f48d1f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the absolute coordinates of the upper-left corner of the widget.  <a href="class_ph_widgets_1_1_widget_a31256aa2dae93890536214939f48d1f9.html#a31256aa2dae93890536214939f48d1f9">More...</a><br /></td></tr>
+<tr class="separator:a31256aa2dae93890536214939f48d1f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa38d654683ff91c209574da59a4dfc99"><td class="memItemLeft" align="right" valign="top">property&lt; short, property&lt;&gt;::ro &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, &amp;Widget::getRight &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_aa38d654683ff91c209574da59a4dfc99.html#aa38d654683ff91c209574da59a4dfc99">Right</a></td></tr>
+<tr class="memdesc:aa38d654683ff91c209574da59a4dfc99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the distance, in pixels, between the right edge of the widget and the left edge of its container's client area.  <a href="class_ph_widgets_1_1_widget_aa38d654683ff91c209574da59a4dfc99.html#aa38d654683ff91c209574da59a4dfc99">More...</a><br /></td></tr>
+<tr class="separator:aa38d654683ff91c209574da59a4dfc99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa070988cb796124ca4d6294f32f5970a"><td class="memItemLeft" align="right" valign="top">phproperty&lt; PhDim_t &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_dim_a996bffa203dcfffe5cf6db42ac70bdcc.html#a996bffa203dcfffe5cf6db42ac70bdcc">Arguments::eArgDim</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_dim_a996bffa203dcfffe5cf6db42ac70bdcc.html#a996bffa203dcfffe5cf6db42ac70bdcca58778c95423972342eb00c96628c941a">Arguments::dim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_aa070988cb796124ca4d6294f32f5970a.html#aa070988cb796124ca4d6294f32f5970a">Size</a></td></tr>
+<tr class="memdesc:aa070988cb796124ca4d6294f32f5970a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the size of the widget.  <a href="class_ph_widgets_1_1_widget_aa070988cb796124ca4d6294f32f5970a.html#aa070988cb796124ca4d6294f32f5970a">More...</a><br /></td></tr>
+<tr class="separator:aa070988cb796124ca4d6294f32f5970a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81e00fb23879e2fa90f7a322d1be9a45"><td class="memItemLeft" align="right" valign="top">tag_property&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, &amp;Widget::getTag, &amp;Widget::setTag &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a81e00fb23879e2fa90f7a322d1be9a45.html#a81e00fb23879e2fa90f7a322d1be9a45">Tag</a></td></tr>
 <tr class="memdesc:a81e00fb23879e2fa90f7a322d1be9a45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the resource that contains data about the widget.  <a href="class_ph_widgets_1_1_widget_a81e00fb23879e2fa90f7a322d1be9a45.html#a81e00fb23879e2fa90f7a322d1be9a45">More...</a><br /></td></tr>
 <tr class="separator:a81e00fb23879e2fa90f7a322d1be9a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab89e2442c065998c3dee8814698274a2"><td class="memItemLeft" align="right" valign="top"><a id="ab89e2442c065998c3dee8814698274a2"></a>
-property&lt; short &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, &amp;Widget::getTop, &amp;Widget::setTop &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#ab89e2442c065998c3dee8814698274a2">Top</a></td></tr>
-<tr class="memdesc:ab89e2442c065998c3dee8814698274a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the distance, in pixels, between the top edge of the widget and the top edge of its parent widget. <br /></td></tr>
+<tr class="memitem:ab89e2442c065998c3dee8814698274a2"><td class="memItemLeft" align="right" valign="top">property&lt; short &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, &amp;Widget::getTop, &amp;Widget::setTop &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_ab89e2442c065998c3dee8814698274a2.html#ab89e2442c065998c3dee8814698274a2">Top</a></td></tr>
+<tr class="memdesc:ab89e2442c065998c3dee8814698274a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the distance, in pixels, between the top edge of the widget and the top edge of its container's client area.  <a href="class_ph_widgets_1_1_widget_ab89e2442c065998c3dee8814698274a2.html#ab89e2442c065998c3dee8814698274a2">More...</a><br /></td></tr>
 <tr class="separator:ab89e2442c065998c3dee8814698274a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a185eb01b846e20c7ba986da2e0663ee8"><td class="memItemLeft" align="right" valign="top"><a id="a185eb01b846e20c7ba986da2e0663ee8"></a>
-property&lt; PhPoint_t &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, &amp;Widget::getLocation, &amp;Widget::setLocation &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#a185eb01b846e20c7ba986da2e0663ee8">Location</a></td></tr>
-<tr class="memdesc:a185eb01b846e20c7ba986da2e0663ee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the coordinates of the upper-left corner of the widget relative to the upper-left corner of its parent widget. <br /></td></tr>
-<tr class="separator:a185eb01b846e20c7ba986da2e0663ee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a728284c889610b1a6aa9c1e81d1540f2"><td class="memItemLeft" align="right" valign="top"><a id="a728284c889610b1a6aa9c1e81d1540f2"></a>
-phproperty&lt; unsigned short &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short_add5b33bf072e087e634112b4e5e471d3.html#add5b33bf072e087e634112b4e5e471d3">Arguments::eArgUnsignedShort</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short_add5b33bf072e087e634112b4e5e471d3.html#add5b33bf072e087e634112b4e5e471d3a3ae0bfd42e3e277c5e7412983049973e">Arguments::width</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#a728284c889610b1a6aa9c1e81d1540f2">Width</a></td></tr>
-<tr class="memdesc:a728284c889610b1a6aa9c1e81d1540f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the width of the widget. <br /></td></tr>
+<tr class="memitem:a728284c889610b1a6aa9c1e81d1540f2"><td class="memItemLeft" align="right" valign="top">phproperty&lt; unsigned short &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short_add5b33bf072e087e634112b4e5e471d3.html#add5b33bf072e087e634112b4e5e471d3">Arguments::eArgUnsignedShort</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short_add5b33bf072e087e634112b4e5e471d3.html#add5b33bf072e087e634112b4e5e471d3a3ae0bfd42e3e277c5e7412983049973e">Arguments::width</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget_a728284c889610b1a6aa9c1e81d1540f2.html#a728284c889610b1a6aa9c1e81d1540f2">Width</a></td></tr>
+<tr class="memdesc:a728284c889610b1a6aa9c1e81d1540f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the width of the widget.  <a href="class_ph_widgets_1_1_widget_a728284c889610b1a6aa9c1e81d1540f2.html#a728284c889610b1a6aa9c1e81d1540f2">More...</a><br /></td></tr>
 <tr class="separator:a728284c889610b1a6aa9c1e81d1540f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a657fb970e6181dacbc27de2ccd7cfcd9"><td class="memItemLeft" align="right" valign="top"><a id="a657fb970e6181dacbc27de2ccd7cfcd9"></a>
-phproperty&lt; unsigned short &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short_add5b33bf072e087e634112b4e5e471d3.html#add5b33bf072e087e634112b4e5e471d3">Arguments::eArgUnsignedShort</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short_add5b33bf072e087e634112b4e5e471d3.html#add5b33bf072e087e634112b4e5e471d3a70382a2a911f1900197e28ac280b77fb">Arguments::bevel_width</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#a657fb970e6181dacbc27de2ccd7cfcd9">BevelWidth</a></td></tr>
-<tr class="memdesc:a657fb970e6181dacbc27de2ccd7cfcd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the bevel width of the widget. <br /></td></tr>
-<tr class="separator:a657fb970e6181dacbc27de2ccd7cfcd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa070988cb796124ca4d6294f32f5970a"><td class="memItemLeft" align="right" valign="top"><a id="aa070988cb796124ca4d6294f32f5970a"></a>
-phproperty&lt; PhDim_t &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_dim_a996bffa203dcfffe5cf6db42ac70bdcc.html#a996bffa203dcfffe5cf6db42ac70bdcc">Arguments::eArgDim</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_dim_a996bffa203dcfffe5cf6db42ac70bdcc.html#a996bffa203dcfffe5cf6db42ac70bdcca58778c95423972342eb00c96628c941a">Arguments::dim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#aa070988cb796124ca4d6294f32f5970a">Size</a></td></tr>
-<tr class="memdesc:aa070988cb796124ca4d6294f32f5970a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the size of the widget. <br /></td></tr>
-<tr class="separator:aa070988cb796124ca4d6294f32f5970a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31256aa2dae93890536214939f48d1f9"><td class="memItemLeft" align="right" valign="top"><a id="a31256aa2dae93890536214939f48d1f9"></a>
-phproperty&lt; PhPoint_t &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_point_aa596cc2b4d42d3597a480a2b8f567de1.html#aa596cc2b4d42d3597a480a2b8f567de1">Arguments::eArgPoint</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_point_aa596cc2b4d42d3597a480a2b8f567de1.html#aa596cc2b4d42d3597a480a2b8f567de1af076bdca6a11ef117a54b6bca4e1ca36">Arguments::pos</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#a31256aa2dae93890536214939f48d1f9">Position</a></td></tr>
-<tr class="memdesc:a31256aa2dae93890536214939f48d1f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the absolute coordinates of the upper-left corner of the widget. <br /></td></tr>
-<tr class="separator:a31256aa2dae93890536214939f48d1f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97cf7f430bfbca119b5dc39f7625d013"><td class="memItemLeft" align="right" valign="top"><a id="a97cf7f430bfbca119b5dc39f7625d013"></a>
 phbitmask&lt; unsigned long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended_a4dd82ae5cf2d69c4b8c640bfa0be7dcc.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc">Flags::Extended::eExFlags</a> &gt;::bind&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_long_a5c7282f5d354a28095034d98fe154c61.html#a5c7282f5d354a28095034d98fe154c61">ArgUnsignedLong::eArgUnsignedLong</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_long_a5c7282f5d354a28095034d98fe154c61.html#a5c7282f5d354a28095034d98fe154c61adc0f579b53a0b8ff0bf20c77dd53c367">ArgUnsignedLong::eflags</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#a97cf7f430bfbca119b5dc39f7625d013">ExtendedFlags</a></td></tr>
 <tr class="memdesc:a97cf7f430bfbca119b5dc39f7625d013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets extended flags inherited by all widgets. See <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended_a4dd82ae5cf2d69c4b8c640bfa0be7dcc.html#a4dd82ae5cf2d69c4b8c640bfa0be7dcc" title="Extended flags for Widget resource Widget::Arguments::eflags.">Flags::Extended::eExFlags</a>. <br /></td></tr>
@@ -380,107 +392,25 @@ phbitmask&lt; long, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_fl
 <a class="el" href="class_ph_widgets_1_1_widget_1_1phwidgets__event.html">phwidgets_event</a>&lt; <a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback_a88ad66a5ac274d6dbbcd38c03dbe45bc.html#a88ad66a5ac274d6dbbcd38c03dbe45bcacf523b6524d66436b056577c79ea5d4a">Widget::Callbacks::unrealized</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ph_widgets_1_1_widget.html#ae4ca4ac33bb23e81372eb8df5b5664c6">Unrealized</a></td></tr>
 <tr class="memdesc:ae4ca4ac33bb23e81372eb8df5b5664c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Occurs when the widget is unrealized. <br /></td></tr>
 <tr class="separator:ae4ca4ac33bb23e81372eb8df5b5664c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr class="memitem:af036770567141b3319daaa07dfdc685b"><td class="memItemLeft" align="right" valign="top"><a id="af036770567141b3319daaa07dfdc685b"></a>
-typedef <a class="el" href="namespace_ph_widgets.html#struct_ph_widgets_1_1_resource_from">ResourceFrom</a> ::Define::String&lt; <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_char_a38bbf24724778307d4f56b41b198aedb.html#a38bbf24724778307d4f56b41b198aedb">ArgPChar::eArgPChar</a> &gt;::Define::Alloc&lt; <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_void_afa5f41a52f2e46fb021fd56bb5704266.html#afa5f41a52f2e46fb021fd56bb5704266">ArgPVoid::eArgPVoidData</a> &gt;::Define::Pointer&lt; <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_void_aab59819c4a5047b0216bc9f72f821a17.html#aab59819c4a5047b0216bc9f72f821a17">ArgPVoid::eArgPVoid</a> &gt;::Define::Color&lt; <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_color_a8161fdd06300ced4222c5a463f9a8835.html#a8161fdd06300ced4222c5a463f9a8835">ArgColor::eArgColor</a> &gt;::Define::Struct&lt; <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_cursor_def_aeda4709b717fcf22bcc3f35dd568397c.html#aeda4709b717fcf22bcc3f35dd568397c">ArgPCursorDef::eArgPCursorDef</a>, PhCursorDef_t &gt;::Define::Struct&lt; <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_grid_layout_data_a25dee4faa1a09a957ae6ade81905c81e.html#a25dee4faa1a09a957ae6ade81905c81e">ArgPGridLayoutData::eArgPGridLayoutData</a>, PtGridLayoutData_t &gt;::Define::Struct&lt; <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_point_aa596cc2b4d42d3597a480a2b8f567de1.html#aa596cc2b4d42d3597a480a2b8f567de1">ArgPoint::eArgPoint</a>, PhPoint_t &gt;::Define::Struct&lt; <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_row_layout_data_a69947534f693f979ab2c38ac7f33e7fd.html#a69947534f693f979ab2c38ac7f33e7fd">ArgPRowLayoutData::eArgPRowLayoutData</a>, PtRowLayoutData_t &gt;::Define::Struct&lt; <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_area_a8c7ab307c4e0dd7b88aaa96d582bb58e.html#a8c7ab307c4e0dd7b88aaa96d582bb58e">ArgArea::eArgArea</a>, PhArea_t &gt;::Define::Struct&lt; <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_rect_aceb30fa71c4a21e9b2601db5f7c87178.html#aceb30fa71c4a21e9b2601db5f7c87178">ArgRect::eArgRect</a>, PhRect_t &gt;::Define::Scalar&lt; <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_short_add5b33bf072e087e634112b4e5e471d3.html#add5b33bf072e087e634112b4e5e471d3">ArgUnsignedShort::eArgUnsignedShort</a>, unsigned short &gt;::Define::Struct&lt; <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_dim_a996bffa203dcfffe5cf6db42ac70bdcc.html#a996bffa203dcfffe5cf6db42ac70bdcc">ArgDim::eArgDim</a>, PhDim_t &gt;::Define::Flag&lt; <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_long_a4deba655c8d3dc2d794aabd716c15d25.html#a4deba655c8d3dc2d794aabd716c15d25">ArgLong::eArgLong</a>, long &gt;::Define::Flag&lt; <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_long_a5c7282f5d354a28095034d98fe154c61.html#a5c7282f5d354a28095034d98fe154c61">ArgUnsignedLong::eArgUnsignedLong</a>, unsigned long &gt;::Define::Flag&lt; <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_af75694a26884be6ee17b25092bdeee97.html#af75694a26884be6ee17b25092bdeee97">ArgUnsigned::eArgUnsigned</a>, unsigned &gt;::Define::Link&lt; <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback_a88ad66a5ac274d6dbbcd38c03dbe45bc.html#a88ad66a5ac274d6dbbcd38c03dbe45bc">Callback::eCallback</a>, PtCallback_t * &gt;resource_type&#160;</td><td class="memItemRight" valign="bottom"><b>WidgetResourcesSingleton</b></td></tr>
-<tr class="separator:af036770567141b3319daaa07dfdc685b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:aa6a6dc206f059b7c860583b24bf6aa7e"><td class="memItemLeft" align="right" valign="top"><a id="aa6a6dc206f059b7c860583b24bf6aa7e"></a>
-virtual PtWidget_t *&#160;</td><td class="memItemRight" valign="bottom"><b>widget</b> () const</td></tr>
-<tr class="separator:aa6a6dc206f059b7c860583b24bf6aa7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40680c5d87133fcd2e8f136a5c32bbf0"><td class="memItemLeft" align="right" valign="top"><a id="a40680c5d87133fcd2e8f136a5c32bbf0"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>check</b> ()</td></tr>
-<tr class="separator:a40680c5d87133fcd2e8f136a5c32bbf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5acb19a1511ac07bccc825cf37ce4f4"><td class="memItemLeft" align="right" valign="top"><a id="aa5acb19a1511ac07bccc825cf37ce4f4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setAllowDrop</b> (bool)</td></tr>
-<tr class="separator:aa5acb19a1511ac07bccc825cf37ce4f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12911fe4ba1daa3e2cb9daf6d065c939"><td class="memItemLeft" align="right" valign="top"><a id="a12911fe4ba1daa3e2cb9daf6d065c939"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getAllowDrop</b> () const</td></tr>
-<tr class="separator:a12911fe4ba1daa3e2cb9daf6d065c939"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17efe14cc51e85fa2c5fd272b687c0e7"><td class="memItemLeft" align="right" valign="top"><a id="a17efe14cc51e85fa2c5fd272b687c0e7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setEnabled</b> (bool)</td></tr>
-<tr class="separator:a17efe14cc51e85fa2c5fd272b687c0e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa326ac75ac2805446722caf50c05a8cf"><td class="memItemLeft" align="right" valign="top"><a id="aa326ac75ac2805446722caf50c05a8cf"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getEnabled</b> () const</td></tr>
-<tr class="separator:aa326ac75ac2805446722caf50c05a8cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea35bea81db17eee10ab5b22f98eead4"><td class="memItemLeft" align="right" valign="top"><a id="aea35bea81db17eee10ab5b22f98eead4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setHelpTopic</b> (<a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>)</td></tr>
-<tr class="separator:aea35bea81db17eee10ab5b22f98eead4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68e125622baf1327b5546c78f2751603"><td class="memItemLeft" align="right" valign="top"><a id="a68e125622baf1327b5546c78f2751603"></a>
-<a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getHelpTopic</b> () const</td></tr>
-<tr class="separator:a68e125622baf1327b5546c78f2751603"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7591810a1a6dbf9fb2f96cd5c7e8c708"><td class="memItemLeft" align="right" valign="top"><a id="a7591810a1a6dbf9fb2f96cd5c7e8c708"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setLocation</b> (PhPoint_t)</td></tr>
-<tr class="separator:a7591810a1a6dbf9fb2f96cd5c7e8c708"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad44fa7a7dd3ab5bf9c5cff1f4a419c5"><td class="memItemLeft" align="right" valign="top"><a id="aad44fa7a7dd3ab5bf9c5cff1f4a419c5"></a>
-PhPoint_t&#160;</td><td class="memItemRight" valign="bottom"><b>getLocation</b> () const</td></tr>
-<tr class="separator:aad44fa7a7dd3ab5bf9c5cff1f4a419c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6222082f5595b1607fa7a46d7a2c53d8"><td class="memItemLeft" align="right" valign="top"><a id="a6222082f5595b1607fa7a46d7a2c53d8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setBounds</b> (PhArea_t)</td></tr>
-<tr class="separator:a6222082f5595b1607fa7a46d7a2c53d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab866f7718738a37da27a3451e44f9661"><td class="memItemLeft" align="right" valign="top"><a id="ab866f7718738a37da27a3451e44f9661"></a>
-PhArea_t&#160;</td><td class="memItemRight" valign="bottom"><b>getBounds</b> () const</td></tr>
-<tr class="separator:ab866f7718738a37da27a3451e44f9661"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35e6b637d72b4b618ea1626880a857d7"><td class="memItemLeft" align="right" valign="top"><a id="a35e6b637d72b4b618ea1626880a857d7"></a>
-short&#160;</td><td class="memItemRight" valign="bottom"><b>getBottom</b> () const</td></tr>
-<tr class="separator:a35e6b637d72b4b618ea1626880a857d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83b791a139aa3d4f83d006e4c3ab1262"><td class="memItemLeft" align="right" valign="top"><a id="a83b791a139aa3d4f83d006e4c3ab1262"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCursor</b> (<a class="el" href="class_ph_widgets_1_1_cursor_def.html">CursorDef</a>)</td></tr>
-<tr class="separator:a83b791a139aa3d4f83d006e4c3ab1262"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90eb0723df8922a7ea9dfeaf3862ad4f"><td class="memItemLeft" align="right" valign="top"><a id="a90eb0723df8922a7ea9dfeaf3862ad4f"></a>
-<a class="el" href="class_ph_widgets_1_1_cursor_def.html">CursorDef</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getCursor</b> () const</td></tr>
-<tr class="separator:a90eb0723df8922a7ea9dfeaf3862ad4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3a791529e0dbb8c71194f53c6fe9f53"><td class="memItemLeft" align="right" valign="top"><a id="af3a791529e0dbb8c71194f53c6fe9f53"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getCanFocus</b> () const</td></tr>
-<tr class="separator:af3a791529e0dbb8c71194f53c6fe9f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68257fd3913d23e02620c3636ebda98e"><td class="memItemLeft" align="right" valign="top"><a id="a68257fd3913d23e02620c3636ebda98e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getCanSelect</b> () const</td></tr>
-<tr class="separator:a68257fd3913d23e02620c3636ebda98e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b7ab2985b49a26b902deb84f9566189"><td class="memItemLeft" align="right" valign="top"><a id="a0b7ab2985b49a26b902deb84f9566189"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getContainsFocus</b> () const</td></tr>
-<tr class="separator:a0b7ab2985b49a26b902deb84f9566189"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0da45c1e4914dae345d683f4323a63c0"><td class="memItemLeft" align="right" valign="top"><a id="a0da45c1e4914dae345d683f4323a63c0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getFocused</b> () const</td></tr>
-<tr class="separator:a0da45c1e4914dae345d683f4323a63c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4f80193210e262fabec97880f430e43"><td class="memItemLeft" align="right" valign="top"><a id="aa4f80193210e262fabec97880f430e43"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasChildren</b> () const</td></tr>
-<tr class="separator:aa4f80193210e262fabec97880f430e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1c9e1def13cd85e2efea9f50c42cf99"><td class="memItemLeft" align="right" valign="top"><a id="ae1c9e1def13cd85e2efea9f50c42cf99"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setLeft</b> (short)</td></tr>
-<tr class="separator:ae1c9e1def13cd85e2efea9f50c42cf99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2652ded71f9e3e74505938f4bf807dd1"><td class="memItemLeft" align="right" valign="top"><a id="a2652ded71f9e3e74505938f4bf807dd1"></a>
-short&#160;</td><td class="memItemRight" valign="bottom"><b>getLeft</b> () const</td></tr>
-<tr class="separator:a2652ded71f9e3e74505938f4bf807dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28b750b3af8dd734555d60cbe714efa1"><td class="memItemLeft" align="right" valign="top"><a id="a28b750b3af8dd734555d60cbe714efa1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTag</b> (const void *, <a class="elRef" doxygen="C:/Users/Alex/Documents/GitHub/doc/cppreference-doxygen-web.tag.xml:http://en.cppreference.com/w/" href="http://en.cppreference.com/w/namespacestd.html#cpp/types/size_t">std::size_t</a>)</td></tr>
-<tr class="separator:a28b750b3af8dd734555d60cbe714efa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c97fd20f4bc4c09a71101b4f72b89e3"><td class="memItemLeft" align="right" valign="top"><a id="a6c97fd20f4bc4c09a71101b4f72b89e3"></a>
-const void *&#160;</td><td class="memItemRight" valign="bottom"><b>getTag</b> () const</td></tr>
-<tr class="separator:a6c97fd20f4bc4c09a71101b4f72b89e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a818edee037968b5f10ac47bc589e02e8"><td class="memItemLeft" align="right" valign="top"><a id="a818edee037968b5f10ac47bc589e02e8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTop</b> (short)</td></tr>
-<tr class="separator:a818edee037968b5f10ac47bc589e02e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab153cb206faa40b94f031c66a37ce552"><td class="memItemLeft" align="right" valign="top"><a id="ab153cb206faa40b94f031c66a37ce552"></a>
-short&#160;</td><td class="memItemRight" valign="bottom"><b>getTop</b> () const</td></tr>
-<tr class="separator:ab153cb206faa40b94f031c66a37ce552"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Superclass for all widgets. </p>
 <p><a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> is the fundamental superclass. All widgets belong to a subclass of <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a>. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00091">91</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_widget_8h_source.html">Widget.h</a></li>
-<li>Widget.cpp</li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_ph_widgets.html">PhWidgets</a></li><li class="navelem"><a class="el" href="class_ph_widgets_1_1_widget.html">Widget</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

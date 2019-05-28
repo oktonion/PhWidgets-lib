@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.4.xxx</span>
+   &#160;<span id="projectnumber">0.3.5.xxx</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -48,6 +56,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_func.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -74,7 +98,7 @@ $(function() {
 
 <h3><a id="index_b"></a>- b -</h3><ul>
 <li>Basic()
-: <a class="el" href="class_ph_widgets_1_1_basic_a3439f970ba69cd15f0676991b65a939b.html#a3439f970ba69cd15f0676991b65a939b">PhWidgets::Basic</a>
+: <a class="el" href="class_ph_widgets_1_1_basic_a5e1f2b6f4d1e920c2328974bb9bb0e7a.html#a5e1f2b6f4d1e920c2328974bb9bb0e7a">PhWidgets::Basic</a>
 </li>
 </ul>
 
@@ -88,27 +112,27 @@ $(function() {
 
 <h3><a id="index_f"></a>- f -</h3><ul>
 <li>Focus()
-: <a class="el" href="class_ph_widgets_1_1_widget_a9185456ebb77262c01596ff2068ed4cf.html#a9185456ebb77262c01596ff2068ed4cf">PhWidgets::Widget</a>
+: <a class="el" href="class_ph_widgets_1_1_widget_a9d793d8e6dc4925174b7179e1eef4d15.html#a9d793d8e6dc4925174b7179e1eef4d15">PhWidgets::Widget</a>
 </li>
 <li>FontDef()
-: <a class="el" href="class_ph_widgets_1_1_font_def_a6f21fa6e4c0a1c30cde6d3cfa7c79ce0.html#a6f21fa6e4c0a1c30cde6d3cfa7c79ce0">PhWidgets::FontDef</a>
+: <a class="el" href="class_ph_widgets_1_1_font_def_a7560751af71b1a5df89e9ec148b863ca.html#a7560751af71b1a5df89e9ec148b863ca">PhWidgets::FontDef</a>
 </li>
 <li>FontFamily()
-: <a class="el" href="class_ph_widgets_1_1_font_family_a7736c4952fa837e914223f3755ffac6d.html#a7736c4952fa837e914223f3755ffac6d">PhWidgets::FontFamily</a>
+: <a class="el" href="class_ph_widgets_1_1_font_family_a6d380af1d19c4e5da994520eb8911ad8.html#a6d380af1d19c4e5da994520eb8911ad8">PhWidgets::FontFamily</a>
 </li>
 </ul>
 
 
 <h3><a id="index_g"></a>- g -</h3><ul>
 <li>GetLineSpacing()
-: <a class="el" href="class_ph_widgets_1_1_font_family_ae59f45ccbdb0464944395939e34747d1.html#ae59f45ccbdb0464944395939e34747d1">PhWidgets::FontFamily</a>
+: <a class="el" href="class_ph_widgets_1_1_font_family_a96cacbed7eaf5ced6d38367e06ee302c.html#a96cacbed7eaf5ced6d38367e06ee302c">PhWidgets::FontFamily</a>
 </li>
 </ul>
 
 
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>IsStyleAvailable()
-: <a class="el" href="class_ph_widgets_1_1_font_family_a7c70120eceddb9b6e472b186eec44aef.html#a7c70120eceddb9b6e472b186eec44aef">PhWidgets::FontFamily</a>
+: <a class="el" href="class_ph_widgets_1_1_font_family_a3fc95a2c342bfb7b820a5111a08df9bf.html#a3fc95a2c342bfb7b820a5111a08df9bf">PhWidgets::FontFamily</a>
 </li>
 </ul>
 
@@ -124,7 +148,7 @@ $(function() {
 : <a class="el" href="class_ph_widgets_1_1_widget.html#ad84f0eba60dbd0ef832a969b4d1f88d7">PhWidgets::Widget</a>
 </li>
 <li>OnDestroyed()
-: <a class="el" href="class_ph_widgets_1_1_widget.html#afda637741bef1d4f40ca1eefc1f865e2">PhWidgets::Widget</a>
+: <a class="el" href="class_ph_widgets_1_1_widget.html#ae27308698b401a2a45b3cd527a739576">PhWidgets::Widget</a>
 </li>
 <li>OnDisarmed()
 : <a class="el" href="class_ph_widgets_1_1_basic.html#a3cbc6010ff29640cf30ebd42e63563e9">PhWidgets::Basic</a>
@@ -154,19 +178,19 @@ $(function() {
 : <a class="el" href="class_ph_widgets_1_1_widget.html#a93f0ecee0849c98fc25b367da2a8e209">PhWidgets::Widget</a>
 </li>
 <li>operator const font_id_type()
-: <a class="el" href="class_ph_widgets_1_1_font_def.html#acb742d82d3fdd88f6129fc222f8d5a49">PhWidgets::FontDef</a>
+: <a class="el" href="class_ph_widgets_1_1_font_def.html#ab009031e2222f8f80565281a8f92f0f5">PhWidgets::FontDef</a>
 </li>
 <li>operator const PtWidget_t *()
-: <a class="el" href="class_ph_widgets_1_1_widget.html#a4fedf80c9f4995982259ed525b83f5e3">PhWidgets::Widget</a>
+: <a class="el" href="class_ph_widgets_1_1_widget.html#a48a712378c64402d2b5a106c0f049572">PhWidgets::Widget</a>
 </li>
 <li>operator PtWidget_t *()
-: <a class="el" href="class_ph_widgets_1_1_widget.html#aaa78cad4c79ece87eb88ee58a209a340">PhWidgets::Widget</a>
+: <a class="el" href="class_ph_widgets_1_1_widget.html#ac76db7d7571aa1acc7f1a62696dad612">PhWidgets::Widget</a>
 </li>
 <li>operator!=()
 : <a class="el" href="class_ph_widgets_1_1_cursor_def_a44e2b52c0c4c75da8176d95d74217ad7.html#a44e2b52c0c4c75da8176d95d74217ad7">PhWidgets::CursorDef</a>
-, <a class="el" href="class_ph_widgets_1_1_font_def_a3dfdd47e3133647dd446501108b7ecb5.html#a3dfdd47e3133647dd446501108b7ecb5">PhWidgets::FontDef</a>
-, <a class="el" href="class_ph_widgets_1_1_font_family_aaf6fb5823d965779a17d2c7b12a67fcf.html#aaf6fb5823d965779a17d2c7b12a67fcf">PhWidgets::FontFamily</a>
-, <a class="el" href="class_ph_widgets_1_1_widget_a0c0f0774e2d80d4f3d3220c657f0a8cd.html#a0c0f0774e2d80d4f3d3220c657f0a8cd">PhWidgets::Widget</a>
+, <a class="el" href="class_ph_widgets_1_1_font_def_a60ddf94f9edd4ac25975a4b6bbfcd46e.html#a60ddf94f9edd4ac25975a4b6bbfcd46e">PhWidgets::FontDef</a>
+, <a class="el" href="class_ph_widgets_1_1_font_family_ac297cf535e76cea1922ef8e5259e52a8.html#ac297cf535e76cea1922ef8e5259e52a8">PhWidgets::FontFamily</a>
+, <a class="el" href="class_ph_widgets_1_1_widget_a444795af956763ae3dfd79db410455b6.html#a444795af956763ae3dfd79db410455b6">PhWidgets::Widget</a>
 </li>
 <li>operator()()
 : <a class="el" href="class_ph_widgets_1_1_widget_1_1phwidgets__event_abdb5fbdaa7600ee3e813e719491d0347.html#abdb5fbdaa7600ee3e813e719491d0347">PhWidgets::Widget::phwidgets_event&lt; ParentT, CallbackID &gt;</a>
@@ -179,23 +203,23 @@ $(function() {
 </li>
 <li>operator&lt;()
 : <a class="el" href="class_ph_widgets_1_1_cursor_def_abe46d694642c560d7c52b580ab8af869.html#abe46d694642c560d7c52b580ab8af869">PhWidgets::CursorDef</a>
-, <a class="el" href="class_ph_widgets_1_1_font_def_a549d835c55e92d4bac8f977ffa11087d.html#a549d835c55e92d4bac8f977ffa11087d">PhWidgets::FontDef</a>
-, <a class="el" href="class_ph_widgets_1_1_font_family_ac38ba804f0136e39ef6c3a28d4bac5c6.html#ac38ba804f0136e39ef6c3a28d4bac5c6">PhWidgets::FontFamily</a>
-, <a class="el" href="class_ph_widgets_1_1_widget_a21cb31ae91d1b5546566a2b07e23a566.html#a21cb31ae91d1b5546566a2b07e23a566">PhWidgets::Widget</a>
+, <a class="el" href="class_ph_widgets_1_1_font_def_a47ea9843280de7f8163d812c7139efb7.html#a47ea9843280de7f8163d812c7139efb7">PhWidgets::FontDef</a>
+, <a class="el" href="class_ph_widgets_1_1_font_family_a100559aa2d19a5cb9242dfc1c80ace84.html#a100559aa2d19a5cb9242dfc1c80ace84">PhWidgets::FontFamily</a>
+, <a class="el" href="class_ph_widgets_1_1_widget_a1e21fa01f728cc20e4c61bad8eda0e9e.html#a1e21fa01f728cc20e4c61bad8eda0e9e">PhWidgets::Widget</a>
 </li>
 <li>operator=()
-: <a class="el" href="class_ph_widgets_1_1_basic_adbbb65047952752f2c961525473b546e.html#adbbb65047952752f2c961525473b546e">PhWidgets::Basic</a>
-, <a class="el" href="class_ph_widgets_1_1_cursor_def_a754ff122c12c7755ff8cb4366dae334a.html#a754ff122c12c7755ff8cb4366dae334a">PhWidgets::CursorDef</a>
-, <a class="el" href="class_ph_widgets_1_1_font_def_ae09c4731effc949e371f31f7b810c3f0.html#ae09c4731effc949e371f31f7b810c3f0">PhWidgets::FontDef</a>
-, <a class="el" href="class_ph_widgets_1_1_font_family_a6b20240191b8a1c55f8c6ca90546684d.html#a6b20240191b8a1c55f8c6ca90546684d">PhWidgets::FontFamily</a>
-, <a class="el" href="class_ph_widgets_1_1_timer_a32607760bb7bcf670a0a182eda673f78.html#a32607760bb7bcf670a0a182eda673f78">PhWidgets::Timer</a>
-, <a class="el" href="class_ph_widgets_1_1_widget_a1838c4524925532d0492368cf9242a45.html#a1838c4524925532d0492368cf9242a45">PhWidgets::Widget</a>
+: <a class="el" href="class_ph_widgets_1_1_basic_a60b6f0b71ffa5ffda62b21b213ecd733.html#a60b6f0b71ffa5ffda62b21b213ecd733">PhWidgets::Basic</a>
+, <a class="el" href="class_ph_widgets_1_1_cursor_def_a5d59be8b6c833aa72b16830ab88964bd.html#a5d59be8b6c833aa72b16830ab88964bd">PhWidgets::CursorDef</a>
+, <a class="el" href="class_ph_widgets_1_1_font_def_a9244180d7f84599641ac8375764726b6.html#a9244180d7f84599641ac8375764726b6">PhWidgets::FontDef</a>
+, <a class="el" href="class_ph_widgets_1_1_font_family_a75f35ca90f1fbc2304e485f3cea2bb92.html#a75f35ca90f1fbc2304e485f3cea2bb92">PhWidgets::FontFamily</a>
+, <a class="el" href="class_ph_widgets_1_1_timer_a7472515539495a02ab5584a3967e79ac.html#a7472515539495a02ab5584a3967e79ac">PhWidgets::Timer</a>
+, <a class="el" href="class_ph_widgets_1_1_widget_a31fc7bcb1b3ee821ab32d9c9544a4a84.html#a31fc7bcb1b3ee821ab32d9c9544a4a84">PhWidgets::Widget</a>
 </li>
 <li>operator==()
 : <a class="el" href="class_ph_widgets_1_1_cursor_def_a82f520a52c8b19e369fc1409460e7434.html#a82f520a52c8b19e369fc1409460e7434">PhWidgets::CursorDef</a>
-, <a class="el" href="class_ph_widgets_1_1_font_def_a0246c99247f18a90922472dbef9bb560.html#a0246c99247f18a90922472dbef9bb560">PhWidgets::FontDef</a>
-, <a class="el" href="class_ph_widgets_1_1_font_family_af46606a0e9fc72c4b06eaecbb1612f31.html#af46606a0e9fc72c4b06eaecbb1612f31">PhWidgets::FontFamily</a>
-, <a class="el" href="class_ph_widgets_1_1_widget_a395fc1a8b39729b8d1a1025b08808b95.html#a395fc1a8b39729b8d1a1025b08808b95">PhWidgets::Widget</a>
+, <a class="el" href="class_ph_widgets_1_1_font_def_a529f61a3d8136938a58360de22e266a9.html#a529f61a3d8136938a58360de22e266a9">PhWidgets::FontDef</a>
+, <a class="el" href="class_ph_widgets_1_1_font_family_a179b05338c8b45f51d494eb35dbd8248.html#a179b05338c8b45f51d494eb35dbd8248">PhWidgets::FontFamily</a>
+, <a class="el" href="class_ph_widgets_1_1_widget_a2af7ba1a60e66faeb7166fc8045309ee.html#a2af7ba1a60e66faeb7166fc8045309ee">PhWidgets::Widget</a>
 </li>
 </ul>
 
@@ -212,24 +236,24 @@ $(function() {
 
 <h3><a id="index_s"></a>- s -</h3><ul>
 <li>Select()
-: <a class="el" href="class_ph_widgets_1_1_widget_acb2ea377da43a9775b8ab2c1ac4470d1.html#acb2ea377da43a9775b8ab2c1ac4470d1">PhWidgets::Widget</a>
+: <a class="el" href="class_ph_widgets_1_1_widget_a8e97221634cba059f883c396be7b86e3.html#a8e97221634cba059f883c396be7b86e3">PhWidgets::Widget</a>
 </li>
 <li>SetBounds()
-: <a class="el" href="class_ph_widgets_1_1_widget_a9f1eaa3c204bba9620c0d042b568fce1.html#a9f1eaa3c204bba9620c0d042b568fce1">PhWidgets::Widget</a>
+: <a class="el" href="class_ph_widgets_1_1_widget_a61bb5bd8d2b1993aa15dc7755dc71781.html#a61bb5bd8d2b1993aa15dc7755dc71781">PhWidgets::Widget</a>
 </li>
 </ul>
 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
 <li>Timer()
-: <a class="el" href="class_ph_widgets_1_1_timer_a7af80a64a43a55858122ae210002863e.html#a7af80a64a43a55858122ae210002863e">PhWidgets::Timer</a>
+: <a class="el" href="class_ph_widgets_1_1_timer_ae97a4689f575f15717153ea76eae32fc.html#ae97a4689f575f15717153ea76eae32fc">PhWidgets::Timer</a>
 </li>
 </ul>
 
 
 <h3><a id="index_w"></a>- w -</h3><ul>
 <li>Widget()
-: <a class="el" href="class_ph_widgets_1_1_widget_a43b01493754c8a4e482633082032ba72.html#a43b01493754c8a4e482633082032ba72">PhWidgets::Widget</a>
+: <a class="el" href="class_ph_widgets_1_1_widget_ac295693eaf1d2487e08df5dea16c5398.html#ac295693eaf1d2487e08df5dea16c5398">PhWidgets::Widget</a>
 </li>
 </ul>
 
@@ -240,11 +264,14 @@ $(function() {
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.4.xxx</span>
+   &#160;<span id="projectnumber">0.3.5.xxx</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -48,6 +56,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_vars.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -86,10 +110,10 @@ $(function() {
 : <a class="el" href="class_ph_widgets_1_1_basic.html#ad09a5664dc51cea76f4a49136f7f299a">PhWidgets::Basic</a>
 </li>
 <li>BevelColor
-: <a class="el" href="class_ph_widgets_1_1_basic.html#a6c6613bd2d47db468540253df2e36363">PhWidgets::Basic</a>
+: <a class="el" href="class_ph_widgets_1_1_basic_a6c6613bd2d47db468540253df2e36363.html#a6c6613bd2d47db468540253df2e36363">PhWidgets::Basic</a>
 </li>
 <li>BevelWidth
-: <a class="el" href="class_ph_widgets_1_1_widget.html#a657fb970e6181dacbc27de2ccd7cfcd9">PhWidgets::Widget</a>
+: <a class="el" href="class_ph_widgets_1_1_widget_a657fb970e6181dacbc27de2ccd7cfcd9.html#a657fb970e6181dacbc27de2ccd7cfcd9">PhWidgets::Widget</a>
 </li>
 <li>Blocked
 : <a class="el" href="class_ph_widgets_1_1_widget.html#abc5594d08c6e0ab9da8a8962caddc665">PhWidgets::Widget</a>
@@ -114,7 +138,7 @@ $(function() {
 : <a class="el" href="class_ph_widgets_1_1_widget_a2f568a80525f87e524dc79f05904afa3.html#a2f568a80525f87e524dc79f05904afa3">PhWidgets::Widget</a>
 </li>
 <li>Color
-: <a class="el" href="class_ph_widgets_1_1_basic.html#a62e497ffe9eab96438d41a277bfd86c0">PhWidgets::Basic</a>
+: <a class="el" href="class_ph_widgets_1_1_basic_a62e497ffe9eab96438d41a277bfd86c0.html#a62e497ffe9eab96438d41a277bfd86c0">PhWidgets::Basic</a>
 </li>
 <li>ContainsFocus
 : <a class="el" href="class_ph_widgets_1_1_widget_af9300fbeb131530bd4fc5910ab12419f.html#af9300fbeb131530bd4fc5910ab12419f">PhWidgets::Widget</a>
@@ -126,6 +150,12 @@ $(function() {
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
+<li>DarkBevelColor
+: <a class="el" href="class_ph_widgets_1_1_basic_a556b627670bc725401c35546b86ddde8.html#a556b627670bc725401c35546b86ddde8">PhWidgets::Basic</a>
+</li>
+<li>DarkFillColor
+: <a class="el" href="class_ph_widgets_1_1_basic_a86ba0a194d1f23dff48c3e7a46806758.html#a86ba0a194d1f23dff48c3e7a46806758">PhWidgets::Basic</a>
+</li>
 <li>Destroyed
 : <a class="el" href="class_ph_widgets_1_1_widget.html#af1e24b7efd98f6395b2b9013027777c0">PhWidgets::Widget</a>
 </li>
@@ -153,7 +183,7 @@ $(function() {
 : <a class="el" href="class_ph_widgets_1_1_font_def.html#aced671023ba9cb5824744b0dcddfcc82">PhWidgets::FontDef</a>
 </li>
 <li>FillColor
-: <a class="el" href="class_ph_widgets_1_1_basic.html#a71ab077dbfe633fe1d1e56928c4be0b3">PhWidgets::Basic</a>
+: <a class="el" href="class_ph_widgets_1_1_basic_a71ab077dbfe633fe1d1e56928c4be0b3.html#a71ab077dbfe633fe1d1e56928c4be0b3">PhWidgets::Basic</a>
 </li>
 <li>Focused
 : <a class="el" href="class_ph_widgets_1_1_widget_abac05a40b6c9e173b4140f64ba78ac9b.html#abac05a40b6c9e173b4140f64ba78ac9b">PhWidgets::Widget</a>
@@ -189,6 +219,9 @@ $(function() {
 <li>Initial
 : <a class="el" href="class_ph_widgets_1_1_timer.html#a4752e7ff9d073c1af7d2cb4407acd0db">PhWidgets::Timer</a>
 </li>
+<li>InlineColor
+: <a class="el" href="class_ph_widgets_1_1_basic_ab74c94f23dcd52a6dd04ea0449426879.html#ab74c94f23dcd52a6dd04ea0449426879">PhWidgets::Basic</a>
+</li>
 <li>Interval
 : <a class="el" href="class_ph_widgets_1_1_timer.html#a94b39b7e9591c4a8640c06c91a0de251">PhWidgets::Timer</a>
 </li>
@@ -203,10 +236,16 @@ $(function() {
 
 <h3><a id="index_l"></a>- l -</h3><ul>
 <li>Left
-: <a class="el" href="class_ph_widgets_1_1_widget.html#af16788209177491d790900a5f4c2c51a">PhWidgets::Widget</a>
+: <a class="el" href="class_ph_widgets_1_1_widget_af16788209177491d790900a5f4c2c51a.html#af16788209177491d790900a5f4c2c51a">PhWidgets::Widget</a>
+</li>
+<li>LightBevelColor
+: <a class="el" href="class_ph_widgets_1_1_basic_abb09a6c3eb37d5de5b633c422514c315.html#abb09a6c3eb37d5de5b633c422514c315">PhWidgets::Basic</a>
+</li>
+<li>LightFillColor
+: <a class="el" href="class_ph_widgets_1_1_basic_ae14eb7bb75ff5fe4c9d550ddb5c83bee.html#ae14eb7bb75ff5fe4c9d550ddb5c83bee">PhWidgets::Basic</a>
 </li>
 <li>Location
-: <a class="el" href="class_ph_widgets_1_1_widget.html#a185eb01b846e20c7ba986da2e0663ee8">PhWidgets::Widget</a>
+: <a class="el" href="class_ph_widgets_1_1_widget_a185eb01b846e20c7ba986da2e0663ee8.html#a185eb01b846e20c7ba986da2e0663ee8">PhWidgets::Widget</a>
 </li>
 <li>LostFocus
 : <a class="el" href="class_ph_widgets_1_1_basic.html#ab9f0b70e979bded9059a3537c8720a45">PhWidgets::Basic</a>
@@ -216,10 +255,10 @@ $(function() {
 
 <h3><a id="index_m"></a>- m -</h3><ul>
 <li>MarginHeight
-: <a class="el" href="class_ph_widgets_1_1_basic.html#a9b1c2d45666ac6212d1f7f72198046cf">PhWidgets::Basic</a>
+: <a class="el" href="class_ph_widgets_1_1_basic_a9b1c2d45666ac6212d1f7f72198046cf.html#a9b1c2d45666ac6212d1f7f72198046cf">PhWidgets::Basic</a>
 </li>
 <li>MarginWidth
-: <a class="el" href="class_ph_widgets_1_1_basic.html#a27bc62011179ae2f7678ecef8003b47d">PhWidgets::Basic</a>
+: <a class="el" href="class_ph_widgets_1_1_basic_a27bc62011179ae2f7678ecef8003b47d.html#a27bc62011179ae2f7678ecef8003b47d">PhWidgets::Basic</a>
 </li>
 <li>Menu
 : <a class="el" href="class_ph_widgets_1_1_basic.html#a5bbdea02779187578568b058de460302">PhWidgets::Basic</a>
@@ -239,12 +278,15 @@ $(function() {
 <li>Outbound
 : <a class="el" href="class_ph_widgets_1_1_widget.html#a59e2041a2aa676a17182766438ab67a3">PhWidgets::Widget</a>
 </li>
+<li>OutlineColor
+: <a class="el" href="class_ph_widgets_1_1_basic_a8db724399c67b3359e79c47bff6fcf02.html#a8db724399c67b3359e79c47bff6fcf02">PhWidgets::Basic</a>
+</li>
 </ul>
 
 
 <h3><a id="index_p"></a>- p -</h3><ul>
 <li>Position
-: <a class="el" href="class_ph_widgets_1_1_widget.html#a31256aa2dae93890536214939f48d1f9">PhWidgets::Widget</a>
+: <a class="el" href="class_ph_widgets_1_1_widget_a31256aa2dae93890536214939f48d1f9.html#a31256aa2dae93890536214939f48d1f9">PhWidgets::Widget</a>
 </li>
 </ul>
 
@@ -264,13 +306,16 @@ $(function() {
 , <a class="el" href="class_ph_widgets_1_1_timer.html#acf082dcda938f796a0a0b82544108bc8">PhWidgets::Timer</a>
 , <a class="el" href="class_ph_widgets_1_1_widget_a7864754d3f767d782c6aa886da5c10cc.html#a7864754d3f767d782c6aa886da5c10cc">PhWidgets::Widget</a>
 </li>
+<li>Right
+: <a class="el" href="class_ph_widgets_1_1_widget_aa38d654683ff91c209574da59a4dfc99.html#aa38d654683ff91c209574da59a4dfc99">PhWidgets::Widget</a>
+</li>
 </ul>
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
 <li>Size
 : <a class="el" href="class_ph_widgets_1_1_font_def.html#ac078695ddf636fcce3ad402b75599d62">PhWidgets::FontDef</a>
-, <a class="el" href="class_ph_widgets_1_1_widget.html#aa070988cb796124ca4d6294f32f5970a">PhWidgets::Widget</a>
+, <a class="el" href="class_ph_widgets_1_1_widget_aa070988cb796124ca4d6294f32f5970a.html#aa070988cb796124ca4d6294f32f5970a">PhWidgets::Widget</a>
 </li>
 </ul>
 
@@ -280,7 +325,7 @@ $(function() {
 : <a class="el" href="class_ph_widgets_1_1_widget_a81e00fb23879e2fa90f7a322d1be9a45.html#a81e00fb23879e2fa90f7a322d1be9a45">PhWidgets::Widget</a>
 </li>
 <li>Top
-: <a class="el" href="class_ph_widgets_1_1_widget.html#ab89e2442c065998c3dee8814698274a2">PhWidgets::Widget</a>
+: <a class="el" href="class_ph_widgets_1_1_widget_ab89e2442c065998c3dee8814698274a2.html#ab89e2442c065998c3dee8814698274a2">PhWidgets::Widget</a>
 </li>
 </ul>
 
@@ -297,15 +342,18 @@ $(function() {
 : <a class="el" href="class_ph_widgets_1_1_widget.html#aa71af51e58a3859da6afe0d0d6942b58">PhWidgets::Widget</a>
 </li>
 <li>Width
-: <a class="el" href="class_ph_widgets_1_1_widget.html#a728284c889610b1a6aa9c1e81d1540f2">PhWidgets::Widget</a>
+: <a class="el" href="class_ph_widgets_1_1_widget_a728284c889610b1a6aa9c1e81d1540f2.html#a728284c889610b1a6aa9c1e81d1540f2">PhWidgets::Widget</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

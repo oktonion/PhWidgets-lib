@@ -1,0 +1,7 @@
+var struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_cfb0daa368d6617a7b394009ba84fadaf =
+[
+    [ "WidgetCallbacks", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_cf2327fc25479cb03aed186c0fcc277f8.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_cf2327fc25479cb03aed186c0fcc277f8" ],
+    [ "WidgetArguments", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_cfb0daa368d6617a7b394009ba84fadaf.html#abff56d32974db26ee81bb1d481fad5e6", null ],
+    [ "LinkType", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_cfb0daa368d6617a7b394009ba84fadaf.html#a31657d1e45b7f190b8104a8f5431d55f", null ],
+    [ "callback", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_cfb0daa368d6617a7b394009ba84fadaf.html#a298ec1906287fd3c436113074b9fc741", null ]
+];

@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.4.xxx</span>
+   &#160;<span id="projectnumber">0.3.5.xxx</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -47,6 +55,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_ph_widgets_1_1_font_family.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +86,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_ph_widgets.html">PhWidgets</a></li><li class="navelem"><a class="el" href="class_ph_widgets_1_1_font_family.html">FontFamily</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">PhWidgets::FontFamily Member List</div>  </div>
@@ -74,25 +94,28 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_a7736c4952fa837e914223f3755ffac6d.html#a7736c4952fa837e914223f3755ffac6d">FontFamily</a>(GenericFontFamilies::eGenericFontFamilies ffamily)</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_ac5e6e424b6df6a0406e2abc29d24852a.html#ac5e6e424b6df6a0406e2abc29d24852a">FontFamily</a>(const FontDetails &amp;fdetails)</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_a5dfc327275661efcb421c599a6310b17.html#a5dfc327275661efcb421c599a6310b17">FontFamily</a>(std::string name)</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_a54f7210899f15c83dd74e7a388213d10.html#a54f7210899f15c83dd74e7a388213d10">FontFamily</a>(std::string name, const FontCollection &amp;fcollection)</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_a963fb1ce7228f1b8731a78bf4313ef47.html#a963fb1ce7228f1b8731a78bf4313ef47">FontFamily</a>(const FontFamily &amp;other)</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_ae59f45ccbdb0464944395939e34747d1.html#ae59f45ccbdb0464944395939e34747d1">GetLineSpacing</a>(typedefs::font_style_bitmask fstyle) const</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_a7c70120eceddb9b6e472b186eec44aef.html#a7c70120eceddb9b6e472b186eec44aef">IsStyleAvailable</a>(typedefs::font_style_bitmask fstyle) const</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_a6d380af1d19c4e5da994520eb8911ad8.html#a6d380af1d19c4e5da994520eb8911ad8">FontFamily</a>(GenericFontFamilies::eGenericFontFamilies ffamily)</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_ad98345bcaa1b89a1ae84379c19d63144.html#ad98345bcaa1b89a1ae84379c19d63144">FontFamily</a>(const FontDetails &amp;fdetails)</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_af3feee836117608770baf8a14bc8daa3.html#af3feee836117608770baf8a14bc8daa3">FontFamily</a>(std::string name)</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_a1a04ea5d69b0b436a91907d2db6fa890.html#a1a04ea5d69b0b436a91907d2db6fa890">FontFamily</a>(std::string name, const FontCollection &amp;fcollection)</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_a1a76a67031c8bb84e6bb4bcd4dee8516.html#a1a76a67031c8bb84e6bb4bcd4dee8516">FontFamily</a>(const FontFamily &amp;other)</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_a96cacbed7eaf5ced6d38367e06ee302c.html#a96cacbed7eaf5ced6d38367e06ee302c">GetLineSpacing</a>(typedefs::font_style_bitmask fstyle) const</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_a3fc95a2c342bfb7b820a5111a08df9bf.html#a3fc95a2c342bfb7b820a5111a08df9bf">IsStyleAvailable</a>(typedefs::font_style_bitmask fstyle) const</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_af317b037debc8ba0560b39a61123c2d1.html#af317b037debc8ba0560b39a61123c2d1">Name</a></td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator FontDetails</b>() const (defined in <a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a>)</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_aaf6fb5823d965779a17d2c7b12a67fcf.html#aaf6fb5823d965779a17d2c7b12a67fcf">operator!=</a>(const FontFamily &amp;other) const</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_ac38ba804f0136e39ef6c3a28d4bac5c6.html#ac38ba804f0136e39ef6c3a28d4bac5c6">operator&lt;</a>(const FontFamily &amp;other) const</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_a6b20240191b8a1c55f8c6ca90546684d.html#a6b20240191b8a1c55f8c6ca90546684d">operator=</a>(const FontFamily &amp;other)</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_af46606a0e9fc72c4b06eaecbb1612f31.html#af46606a0e9fc72c4b06eaecbb1612f31">operator==</a>(const FontFamily &amp;other) const</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_ac297cf535e76cea1922ef8e5259e52a8.html#ac297cf535e76cea1922ef8e5259e52a8">operator!=</a>(const FontFamily &amp;other) const</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_a100559aa2d19a5cb9242dfc1c80ace84.html#a100559aa2d19a5cb9242dfc1c80ace84">operator&lt;</a>(const FontFamily &amp;other) const</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_a75f35ca90f1fbc2304e485f3cea2bb92.html#a75f35ca90f1fbc2304e485f3cea2bb92">operator=</a>(const FontFamily &amp;other)</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family_a179b05338c8b45f51d494eb35dbd8248.html#a179b05338c8b45f51d494eb35dbd8248">operator==</a>(const FontFamily &amp;other) const</td><td class="entry"><a class="el" href="class_ph_widgets_1_1_font_family.html">PhWidgets::FontFamily</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

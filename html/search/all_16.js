@@ -12,6 +12,7 @@ var searchData=
   ['vfscanf',['vfscanf',['http://en.cppreference.com/w/cpp/io/c/vfscanf.html',1,'std']]],
   ['vfwprintf',['vfwprintf',['http://en.cppreference.com/w/cpp/io/c/vfwprintf.html',1,'std']]],
   ['vfwscanf',['vfwscanf',['http://en.cppreference.com/w/cpp/io/c/vfwscanf.html',1,'std']]],
+  ['violet',['Violet',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a066de9412a33cf16f49a445b78a13b05',1,'PhWidgets::Colors']]],
   ['vprintf',['vprintf',['http://en.cppreference.com/w/cpp/io/c/vfprintf.html',1,'std']]],
   ['vscanf',['vscanf',['http://en.cppreference.com/w/cpp/io/c/vfscanf.html',1,'std']]],
   ['vsnprintf',['vsnprintf',['http://en.cppreference.com/w/cpp/io/c/vfprintf.html',1,'std']]],

@@ -20,7 +20,7 @@ var searchData=
   ['fpos_5ft',['fpos_t',['http://en.cppreference.com/w/namespacestd.html#cpp/io/c',1,'std']]],
   ['front_5finsert_5fiterator',['front_insert_iterator',['http://en.cppreference.com/w/namespacestd.html#cpp/iterator/front_insert_iterator',1,'std']]],
   ['fstream',['fstream',['http://en.cppreference.com/w/cpp/io/basic_fstream.html',1,'std']]],
-  ['function',['Function',['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_function.html',1,'PhWidgets::detail::def_orig::Function&lt; PrevT, LinkT, ResourceT &gt;'],['http://en.cppreference.com/w/cpp/utility/functional/function.html',1,'std::function'],['../struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_function.html',1,'PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Function&lt; ArgT, ResourceT &gt;']]],
+  ['function',['function',['http://en.cppreference.com/w/cpp/utility/functional/function.html',1,'std::function'],['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_function.html',1,'PhWidgets::detail::def_orig::Function&lt; PrevT, LinkT, ResourceT &gt;'],['../struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_function.html',1,'PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Function&lt; ArgT, ResourceT &gt;']]],
   ['function_3c_20prevt_2c_20argt_2c_20resourcet_20_3e',['Function&lt; PrevT, ArgT, ResourceT &gt;',['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_function.html',1,'PhWidgets::detail::def_orig']]],
   ['future',['future',['http://en.cppreference.com/w/cpp/thread/future.html',1,'std']]],
   ['future_5ferror',['future_error',['http://en.cppreference.com/w/cpp/thread/future_error.html',1,'std']]]

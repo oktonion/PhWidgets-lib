@@ -1,0 +1,38 @@
+var struct_ph_widgets_1_1_widget_1_1_this_flags =
+[
+    [ "Anchor", "struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_anchor.html", null ],
+    [ "Cursor", "struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_cursor.html", "struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_cursor" ],
+    [ "Extended", "struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html", "struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended" ],
+    [ "Resize", "struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_resize.html", "struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_resize" ],
+    [ "eFlags", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbd", [
+      [ "AllButtons", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda172b292c022221a165236bcefc67cb85", null ],
+      [ "Autohighlight", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdac863e55c40cd1c225d4bacca67223df0", null ],
+      [ "Blocked", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdab3bbd6bdfd835311e0e52f4a9155f292", null ],
+      [ "CallbacksActive", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdaef7a295947451f75ee1cafc066afdf26", null ],
+      [ "Clear", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda22885a36f9e1a67fd42efb9653045571", null ],
+      [ "ClipHighlight", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdacd89f33d1954e8d224a0efe9db0bf306", null ],
+      [ "Damaged", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdad66ae6f39cd5a33051dd36c06bf368fa", null ],
+      [ "DamageFamily", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdae8100f0b3712e4f77e010ba40174d4bf", null ],
+      [ "DelayRealize", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdaa944e3420a76743b607ac1e135fb7470", null ],
+      [ "Destroyed", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda58a310cbac348bf004e9a88600924576", null ],
+      [ "FocusRender", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdab8d0b6c921e303dc9e2a7297363e7624", null ],
+      [ "GetsFocus", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda6c344c17a0dd4a7e6e8a945f59610219", null ],
+      [ "Ghost", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda95643ff24348100704d674a68762d43a", null ],
+      [ "Highlighted", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda54c99d04ce045f930f27054c22748379", null ],
+      [ "InFlux", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdaf3eafa784b204b999bd1e0f99f325d45", null ],
+      [ "Menuable", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda2206dbe95f9b40208a6e3abd6eba143d", null ],
+      [ "MenuButton", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda4c2c72a8048cef91b195539693ce3d4c", null ],
+      [ "Obscured", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdac24619869e7ba8918e64f752ae15951e", null ],
+      [ "Opaque", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda251a0764c760ffcfccd95b6b662c2c64", null ],
+      [ "Procreated", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda09727096262aebd35c81cd42c01903dd", null ],
+      [ "Realized", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda06bd1e86b0b86f5263bdde9697c930d0", null ],
+      [ "Realizing", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda7d1e7254597654b4a01ced60f93544fd", null ],
+      [ "Region", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda6ee73708786747e169042ad328968fb7", null ],
+      [ "Selectable", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdabecb7c26561389bf36a463494efdf32b", null ],
+      [ "SelectNoredraw", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdab480b6652ef293688994e5f2e0d45376", null ],
+      [ "Set", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda85e156e5ecdefa50bab54b2d40194cf8", null ],
+      [ "Toggle", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda776a7e4dbacc515dcfa39479328fd45e", null ],
+      [ "WidgetRebuild", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda889eda134c5f4233d56493ee39d13f94", null ],
+      [ "WidgetResize", "struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda3dd56356afb38a797b0dc6047674c03e", null ]
+    ] ]
+];
