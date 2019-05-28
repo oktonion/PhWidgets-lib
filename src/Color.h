@@ -3,7 +3,11 @@
 
 namespace PhWidgets
 {
-    //! Provides a collection of standard cursors for use by a Photon microGUI application.
+    //! Provides a collection of standard colors for use by a Photon microGUI application.
+    /*!
+        @see 
+        - Basic::Color
+    */
     struct Colors
     {
         enum eColors
@@ -430,7 +434,7 @@ namespace PhWidgets
             = 0xFFFFFF00,  //<! Gets the system-defined color that has an ARGB value of #FFFFFF00\.
             YellowGreen 	
 
-            = 0xFF9ACD32,  //<! Gets the system-defined color that has an ARGB value of #FF9ACD32\.
+            = 0xFF9ACD32  //<! Gets the system-defined color that has an ARGB value of #FF9ACD32\.
         };
     };
 } // namespace PhWidgets
