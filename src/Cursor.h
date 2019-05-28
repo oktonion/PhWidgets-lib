@@ -69,53 +69,53 @@ namespace PhWidgets
 
         //! (constructor) 
 		/*!
-			Initializes a new instance of the Cursor class from the specified default cursor ID.
+			Initializes a new instance of the CursorDef class from the specified default cursor ID.
 			@param[in] cursor default cursor ID (see PhWidgets::Cursors::eCursors).
 		*/
 		CursorDef(Cursors::eCursors cursor = Cursors::Default);
 
 		//! (constructor) 
 		/*!
-			Initializes a new instance of the Cursor class from the specified cursor definition.
+			Initializes a new instance of the CursorDef class from the specified cursor definition.
 			@param[in] def cursor definition.
 		*/
 		CursorDef(const PhCursorDef_t &def);
 
 		//! (copy constructor) 
 		/*!
-			Constructs a Cursor by copy.
-			@param[in] other another Cursor to be used as source to initialize the elements of the container with.
+			Constructs a CursorDef by copy.
+			@param[in] other another CursorDef to be used as source to initialize the elements of the container with.
 		*/
 		CursorDef(const CursorDef &other);
 
         //! (destructor)
         ~CursorDef();
 		
-		//! Assigns value in Cursor 
+		//! Assigns value in CursorDef 
 		/*!
 			Replaces the contents of the Cursor.
-			@param[in] other another Cursor to use as data source.
+			@param[in] other another CursorDef to use as data source.
 		*/
 		CursorDef &operator=(const CursorDef &other);
 
 		//! Compares Cursors
 		/*!
 			Compares the Cursors by their definitions.
-			@param[in] other Cursor whose contents to compare.
+			@param[in] other CursorDef whose contents to compare.
 		*/
 		bool operator==(const CursorDef &other) const;
 
         //! Compares Cursors
 		/*!
 			Compares the Cursors by their definitions.
-			@param[in] other Cursor whose contents to compare.
+			@param[in] other CursorDef whose contents to compare.
 		*/
 		bool operator!=(const CursorDef &other) const;
 
 		//! Compares Cursors
 		/*!
 			Compares the Cursors by their definitions.
-			@param[in] other Cursor whose contents to compare.
+			@param[in] other CursorDef whose contents to compare.
 		*/
 		bool operator<(const CursorDef &other) const;
 
