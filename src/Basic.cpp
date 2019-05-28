@@ -17,9 +17,15 @@ Basic::Basic(int abn):
 	//properties:
 	BevelColor(this),
 	Color(this),
+	DarkBevelColor(this),
+	DarkFillColor(this),
 	FillColor(this),
+	InlineColor(this),
+	LightBevelColor(this),
+	LightFillColor(this),
 	MarginHeight(this),
 	MarginWidth(this),
+	OutlineColor(this),
 	//flags:
 	BasicFlags(this),
 	//callbacks:
@@ -40,9 +46,15 @@ Basic::Basic(PtWidget_t *wdg):
 	//properties:
 	BevelColor(this),
 	Color(this),
+	DarkBevelColor(this),
+	DarkFillColor(this),
 	FillColor(this),
+	InlineColor(this),
+	LightBevelColor(this),
+	LightFillColor(this),
 	MarginHeight(this),
 	MarginWidth(this),
+	OutlineColor(this),
 	//flags:
 	BasicFlags(this),
 	//callbacks:
@@ -63,9 +75,15 @@ Basic::Basic(const Basic &rhs):
 	//properties:
 	BevelColor(this),
 	Color(this),
+	DarkBevelColor(this),
+	DarkFillColor(this),
 	FillColor(this),
+	InlineColor(this),
+	LightBevelColor(this),
+	LightFillColor(this),
 	MarginHeight(this),
 	MarginWidth(this),
+	OutlineColor(this),
 	//flags:
 	BasicFlags(this),
 	//callbacks:

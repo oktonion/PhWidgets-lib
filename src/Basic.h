@@ -374,6 +374,62 @@ namespace PhWidgets
 		*/
 		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::color> Color;
 
+		//! Gets or sets the dark outermost color used when applying a bevel to a widget.
+		/*!
+			### Property Value ### 
+			
+			@code
+				typedef unsinged long PgColor_t
+			@endcode
+
+			A `PgColor_t`, with Basic::LightBevelColor, that represents the outermost colors used when applying a bevel to a widget.
+			
+			@note
+			These value is automatically generated when you set Basic::FillColor. 
+			Setting Basic::FillColor overrides any values set previously via these property.
+
+			@remark
+			See Basic::BasicFlags to find out when gradients and borders are rendered for a given widget. 
+
+			@see
+			- Colors
+			- BasicFlags
+			- FillColor
+			- DarkFillColor
+			- LightFillColor
+			- LightBevelColor
+		*/
+		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::dark_bevel_color> DarkBevelColor;
+
+		//! Gets or sets the dark color with which a gradient (if applied) goes.
+		/*!
+			### Property Value ### 
+			
+			@code
+				typedef unsinged long PgColor_t
+			@endcode
+
+			A `PgColor_t`, with Basic::LightFillColor, that represents the color with which a gradient (if applied) starts and ends.
+			These value is also used as the inner color for the bevels 
+			(i.e. the bottom bevel normally goes through a transition from Basic::DarkBevelColor to Basic::DarkFillColor when a bevel is applied to the widget).
+			
+			@note
+			These value is automatically generated when you set Basic::FillColor. 
+			Setting Basic::FillColor overrides any values set previously via these property.
+
+			@remark
+			See Basic::BasicFlags to find out when gradients and borders are rendered for a given widget. 
+
+			@see
+			- Colors
+			- BasicFlags
+			- FillColor
+			- LightFillColor
+			- LightBevelColor
+			- DarkBevelColor
+		*/
+		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::dark_fill_color> DarkFillColor;
+
 		//! Gets or sets the fill color for the widget.
 		/*!
 			### Property Value ### 
@@ -416,6 +472,81 @@ namespace PhWidgets
 		*/
 		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::fill_color> FillColor;
 
+		//! Gets or sets the color of the inline of the border.
+		/*!
+			### Property Value ### 
+			
+			@code
+				typedef unsinged long PgColor_t
+			@endcode
+
+			A `PgColor_t` that represents the color of the inline of the border.
+			
+			@remark
+			The inline is drawn if any of 'inline' Basic::Flags::Basic flags are set in Basic::BasicFlags.
+
+			@see
+			- Colors
+			- BasicFlags
+		*/
+		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::inline_color> InlineColor;
+
+		//! Gets or sets the light outermost color used when applying a bevel to a widget.
+		/*!
+			### Property Value ### 
+			
+			@code
+				typedef unsinged long PgColor_t
+			@endcode
+
+			A `PgColor_t`, with Basic::DarkBevelColor, that represents the outermost colors used when applying a bevel to a widget.
+			
+			@note
+			These value is automatically generated when you set Basic::FillColor. 
+			Setting Basic::FillColor overrides any values set previously via these property.
+
+			@remark
+			See Basic::BasicFlags to find out when gradients and borders are rendered for a given widget. 
+
+			@see
+			- Colors
+			- BasicFlags
+			- FillColor
+			- DarkFillColor
+			- LightFillColor
+			- DarkBevelColor
+		*/
+		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::light_bevel_color> LightBevelColor;
+
+		//! Gets or sets the light color with which a gradient (if applied) goes.
+		/*!
+			### Property Value ### 
+			
+			@code
+				typedef unsinged long PgColor_t
+			@endcode
+
+			A `PgColor_t`, with Basic::DarkFillColor, that represents the color with which a gradient (if applied) starts and ends.
+			These value is also used as the inner color for the bevels 
+			(i.e. the bottom bevel normally goes through a transition from Basic::DarkBevelColor to Basic::DarkFillColor when a bevel is applied to the widget).
+			
+			@note
+			These value is automatically generated when you set Basic::FillColor. 
+			Setting Basic::FillColor overrides any values set previously via these property.
+
+			@remark
+			See Basic::BasicFlags to find out when gradients and borders are rendered for a given widget. 
+
+			@see
+			- Colors
+			- BasicFlags
+			- FillColor
+			- DarkFillColor
+			- LightBevelColor
+			- DarkBevelColor
+		*/
+		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::light_fill_color> LightFillColor;
+
 		//! Gets or sets the amount of vertical space between the widget's canvas and the widget's border.
 		/*!
 			### Property Value ### 
@@ -439,6 +570,25 @@ namespace PhWidgets
 			The canvas is the valid drawing area of the widget and is inside all borders and margins.  
 		*/
 		phproperty<unsigned short>::bind<Basic, ArgUnsignedShort::eArgUnsignedShort, Arguments::margin_width> MarginWidth;
+
+		//! Gets or sets the color of the outline of the border.
+		/*!
+			### Property Value ### 
+			
+			@code
+				typedef unsinged long PgColor_t
+			@endcode
+
+			A `PgColor_t` that represents the color of the outline of the border.
+			
+			@remark
+			The inline is drawn if any of 'outline' Basic::Flags::Basic flags are set in Basic::BasicFlags.
+
+			@see
+			- Colors
+			- BasicFlags
+		*/
+		phproperty<PgColor_t>::bind<Basic, ArgColor::eArgColor, Arguments::outline_color> OutlineColor;
 
 		phbitmask<unsigned long, Flags::Basic::eBasic>::bind<Basic, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::basic_flags>	BasicFlags; //!< Gets or sets basic flags inherited by all widgets. See Flags::Basic::eBasic.
 
