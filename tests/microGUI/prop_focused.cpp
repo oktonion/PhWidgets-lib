@@ -17,7 +17,7 @@ TEST_CASE("Testing Widget::Focused property"){
         
         CHECK(widget.Focused == false);
         CHECK(widget.Focus() == true);
-        CHECK(true = widget.Focused);
+        CHECK_EQ(true, widget.Focused);
     }
 
     SUBCASE("Button Focused test"){
@@ -27,7 +27,7 @@ TEST_CASE("Testing Widget::Focused property"){
         
         CHECK(button.Focused == false);
         CHECK(button.Focus() == true);
-        CHECK(true = button.Focused);
+        CHECK_EQ(true, button.Focused);
     }
 
 }

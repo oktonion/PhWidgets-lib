@@ -15,9 +15,9 @@ TEST_CASE("Testing Widget::Enabled property"){
 
         Widget widget(PhWidgetsGetWidget<&PtWindow>());
         
-        CHECK(widget.Enabled == true);
-        widget.Enabled = false;
-        CHECK(false == widget.Enabled);
+        CHECK(widget.Enabled == false);
+        widget.Enabled = true;
+        CHECK(true == widget.Enabled);
     }
 
     SUBCASE("Button Enabled test"){
@@ -25,8 +25,8 @@ TEST_CASE("Testing Widget::Enabled property"){
         
         Button button(PhWidgetsGetWidget<&PtButton>());
         
-        CHECK(button.Enabled == true);
-        button.Enabled = false;
-        CHECK(false == button.Enabled);
+        CHECK(button.Enabled == false);
+        button.Enabled = true;
+        CHECK(true == button.Enabled);
     }
 }
