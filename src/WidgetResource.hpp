@@ -101,11 +101,52 @@ namespace PhWidgets
 			inline 
 			int setColor(PgColor_t color)
 			{
-				PgColorModel_t * cm = PgGetColorModel();
-
-				if(cm && cm->id == Pg_CM_RGB->id)
+				switch(color)
 				{
-					color &= 0x00FFFFFF;
+				case Pg_BLACK:
+					break;	
+				case Pg_DGRAY:
+					break;	
+				case Pg_MGRAY:
+					break;	
+				case Pg_GRAY:
+					break;	
+				case Pg_WHITE:
+					break;	
+				case Pg_RED	:
+					break;	
+				case Pg_GREEN:
+					break;	
+				case Pg_BLUE:
+					break;	
+				case Pg_YELLOW:
+					break;	
+				case Pg_MAGENTA:
+					break;	
+				case Pg_CYAN:
+					break;	
+				case Pg_DGREEN:
+					break;	
+				case Pg_DCYAN:
+					break;	
+				case Pg_DBLUE:
+					break;	
+				case Pg_BROWN:
+					break;	
+				case Pg_PURPLE:
+					break;	
+				case Pg_CELIDON:
+					break;	
+				default:
+					{
+						PgColorModel_t * cm = PgGetColorModel();
+
+						if(cm && cm->id == Pg_CM_RGB->id)
+						{
+							color &= 0x00FFFFFF;
+						}
+						break;
+					}
 				}
 
 				return setScalar(color);
