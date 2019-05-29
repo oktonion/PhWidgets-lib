@@ -1,5 +1,6 @@
 #include "Container.h"
-#include "./service/mystd/my_exception.h"
+
+#include <stdexcept>
 
 
 using namespace PhWidgets;
@@ -7,7 +8,7 @@ using namespace PhWidgets;
 void Container::check()
 {
 	if(PtWidgetIsClassMember( widget(), PtContainer ) != true)
-		throw(std::mystd::exception("Container: widget is not PtContainer."));
+		throw(std::invalid_argument("Container: widget is not PtContainer."));
 }
 
 

@@ -1,5 +1,6 @@
 #include "OnOffButton.h"
-#include "./service/mystd/my_exception.h"
+
+#include <stdexcept>
 
 
 using namespace PhWidgets;
@@ -7,7 +8,7 @@ using namespace PhWidgets;
 void OnOffButton::check()
 {
 	if(PtWidgetIsClassMember( widget(), PtOnOffButton ) != true)
-		throw(std::mystd::exception("OnOffButton: widget is not PtOnOffButton."));
+		throw(std::invalid_argument("OnOffButton: widget is not PtOnOffButton."));
 }
 
 OnOffButton::OnOffButton(int abn):

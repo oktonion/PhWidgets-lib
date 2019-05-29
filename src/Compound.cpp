@@ -1,5 +1,6 @@
 #include "Compound.h"
-#include "./service/mystd/my_exception.h"
+
+#include <stdexcept>
 
 
 using namespace PhWidgets;
@@ -7,7 +8,7 @@ using namespace PhWidgets;
 void Compound::check()
 {
 	if(PtWidgetIsClassMember( widget(), PtCompound ) != true)
-		throw(std::mystd::exception("Compound: widget is not PtCompound."));
+		throw(std::invalid_argument("Compound: widget is not PtCompound."));
 }
 
 

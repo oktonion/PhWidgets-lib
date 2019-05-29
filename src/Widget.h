@@ -11,7 +11,6 @@
 #include <string>
 #include <list>
 
-#include "./service/mystd/my_exception.h"
 #include "./service/stdex/stdex.h"
 #include "./service/phproperty.hpp"
 #include "./service/phevent.hpp"

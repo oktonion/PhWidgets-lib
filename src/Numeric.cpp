@@ -1,5 +1,6 @@
 #include "Numeric.h"
-#include "./service/mystd/my_exception.h"
+
+#include <stdexcept>
 
 
 using namespace PhWidgets;
@@ -7,7 +8,7 @@ using namespace PhWidgets;
 void Numeric::check()
 {
 	if(PtWidgetIsClassMember( widget(), PtNumeric ) != true)
-		throw(std::mystd::exception("Numeric: widget is not PtNumeric."));
+		throw(std::invalid_argument("Numeric: widget is not PtNumeric."));
 }
 
 

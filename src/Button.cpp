@@ -1,12 +1,13 @@
 #include "Button.h"
-#include "./service/mystd/my_exception.h"
+
+#include <stdexcept>
 
 using namespace PhWidgets;
 
 void Button::check()
 {
 	if(PtWidgetIsClassMember( widget(), PtButton ) != true)
-		throw(std::mystd::exception("Button: widget is not PtButton."));
+		throw(std::invalid_argument("Button: widget is not PtButton."));
 }
 
 
