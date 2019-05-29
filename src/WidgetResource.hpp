@@ -101,6 +101,13 @@ namespace PhWidgets
 			inline 
 			int setColor(PgColor_t color)
 			{
+				PgColorModel_t * cm = PgGetColorModel();
+
+				if(cm && cm->id == Pg_CM_RGB->id)
+				{
+					color &= 0x00FFFFFF;
+				}
+
 				return setScalar(color);
 			}
 
