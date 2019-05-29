@@ -408,7 +408,7 @@ void Widget::setEnabled(bool val)
 
 bool Widget::getEnabled() const
 {
-	return resource.argument[Arguments::flags].get(Flags::Blocked);
+	return resource.argument[Arguments::flags].get(Flags::Blocked) == false;
 }
 
 void PhWidgets::Widget::setHelpTopic(std::string val)
