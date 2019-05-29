@@ -10,7 +10,7 @@ TEST_CASE("Testing Widget::Focused property"){
 
     using namespace PhWidgets;
     
-    SUBCASE("Windows Focused test"){
+    SUBCASE("Window Focused test"){
         REQUIRE(PhWidgetsGetWidget<&PtWindow>());
 
         Widget widget(PhWidgetsGetWidget<&PtWindow>());
