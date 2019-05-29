@@ -9,11 +9,11 @@
 #include "Widget.h"
 
 #include "./service/PhWidgetsFunc.h"
-#include "./service/mystd/my_exception.h"
 #include "./service/PhWidgetsTypes.h"
 
 
 #include <iostream>
+#include <stdexcept>
 
 
 using namespace PhWidgets;
@@ -57,7 +57,7 @@ PtWidget_t *Widget::widget() const
 	{
 		PtWidget_t *instance = ApGetInstance(_widget);
 		if(nullptr == instance)
-			throw(std::mystd::exception("Widget::widget: invalid widget pointer"));
+			throw(std::invalid_argument("Widget::widget: invalid widget pointer"));
 		int abn = ApName(_widget);
 		if(-1 != abn)
 			return ApGetWidgetPtr(instance, abn);
@@ -96,7 +96,7 @@ PtWidget_t *Widget::widget() const
 
 		if(nullptr == wdg)
 		{
-			throw(std::mystd::exception((std::string("Widget::widget: can not find widget with ABN ") + std::to_string(_abn)).c_str()));
+			throw(std::invalid_argument((std::string("Widget::widget: can not find widget with ABN ") + std::to_string(_abn)).c_str()));
 		}
 	}
 	
@@ -119,7 +119,7 @@ PtWidget_t *Widget::widget() const
 void Widget::check()
 {
 	if(PtWidgetIsClassMember( widget(), PtWidget ) != true)
-		throw(std::mystd::exception("Widget: widget is not PtWidget."));
+		throw(std::invalid_argument("Widget: widget is not PtWidget."));
 }
 
 
@@ -165,7 +165,7 @@ Widget::Widget(int abn):
 
 {
 	if(abn < 0)
-		throw(std::mystd::exception("Widget::Widget: invalid ABN is passed"));
+		throw(std::invalid_argument("Widget::Widget: invalid ABN is passed"));
 	check();
 }
 
@@ -211,7 +211,7 @@ Widget::Widget(PtWidget_t* wdg):
 
 {
 	if(nullptr == wdg)
-		throw(std::mystd::exception("Widget::Widget: nullptr passed"));
+		throw(std::invalid_argument("Widget::Widget: nullptr passed"));
 
 	static std::map<PtWidget_t*, int> &abws = ABW();
 	static std::vector< std::set<PtWidget_t*> > &abns = ABN();
@@ -402,7 +402,8 @@ bool Widget::getAllowDrop() const
 
 void Widget::setEnabled(bool val)
 {
-	resource.argument[Arguments::flags].set(Flags::Blocked | Flags::Ghost, !val);
+	if(resource.argument[Arguments::flags].set(Flags::Blocked | Flags::Ghost, !val) != 0)
+		throw(std::invalid_argument("Widget::setEnabled: Can not set flags of a widget."));
 }
 
 bool Widget::getEnabled() const

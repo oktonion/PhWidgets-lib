@@ -1,12 +1,13 @@
 #include "ToggleButton.h"
-#include "./service/mystd/my_exception.h"
+
+#include <stdexcept>
 
 using namespace PhWidgets;
 
 void ToggleButton::check()
 {
 	if(PtWidgetIsClassMember( widget(), PtToggleButton ) != true)
-		throw(std::mystd::exception("ToggleButton: widget is not PtToggleButton."));
+		throw(std::invalid_argument("ToggleButton: widget is not PtToggleButton."));
 }
 
 

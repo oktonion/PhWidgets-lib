@@ -1,5 +1,6 @@
 #include "Basic.h"
-#include "./service/mystd/my_exception.h"
+
+#include <stdexcept>
 
 
 using namespace PhWidgets;
@@ -7,7 +8,7 @@ using namespace PhWidgets;
 void Basic::check()
 {
 	if(PtWidgetIsClassMember( widget(), PtBasic ) != true)
-		throw(std::mystd::exception("Basic: widget is not PtBasic."));
+		throw(std::invalid_argument("Basic: widget is not PtBasic."));
 }
 
 

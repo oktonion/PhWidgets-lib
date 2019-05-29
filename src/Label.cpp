@@ -1,12 +1,13 @@
 #include "Label.h"
-#include "./service/mystd/my_exception.h"
+
+#include <stdexcept>
 
 using namespace PhWidgets;
 
 void Label::check()
 {
 	if(PtWidgetIsClassMember( widget(), PtLabel ) != true)
-		throw(std::mystd::exception("Label: widget is not PtLabel."));
+		throw(std::invalid_argument("Label: widget is not PtLabel."));
 }
 
 

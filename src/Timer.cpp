@@ -1,5 +1,6 @@
 #include "Timer.h"
-#include "./service/mystd/my_exception.h"
+
+#include <stdexcept>
 
 
 using namespace PhWidgets;
@@ -11,7 +12,7 @@ const Widget::ArgPVoid::eArgPVoid Timer::ArgPVoid::pointer = Widget::ArgPVoid::p
 void Timer::check()
 {
 	if(PtWidgetIsClassMember( widget(), PtTimer ) != true)
-		throw(std::mystd::exception("Timer: widget is not PtTimer."));
+		throw(std::invalid_argument("Timer: widget is not PtTimer."));
 }
 
 

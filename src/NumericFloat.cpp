@@ -1,5 +1,6 @@
 #include "NumericFloat.h"
-#include "./service/mystd/my_exception.h"
+
+#include <stdexcept>
 
 
 using namespace PhWidgets;
@@ -7,7 +8,7 @@ using namespace PhWidgets;
 void NumericFloat::check()
 {
 	if(PtWidgetIsClassMember( widget(), PtNumericFloat ) != true)
-		throw(std::mystd::exception("NumericFloat: widget is not PtNumericFloat."));
+		throw(std::invalid_argument("NumericFloat: widget is not PtNumericFloat."));
 }
 
 

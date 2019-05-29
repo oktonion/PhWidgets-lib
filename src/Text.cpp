@@ -1,12 +1,13 @@
 #include "Text.h"
-#include "./service/mystd/my_exception.h"
+
+#include <stdexcept>
 
 using namespace PhWidgets;
 
 void Text::check()
 {
 	if(PtWidgetIsClassMember( widget(), PtText ) != true)
-		throw(std::mystd::exception("Text: widget is not PtText."));
+		throw(std::invalid_argument("Text: widget is not PtText."));
 }
 
 
