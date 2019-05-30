@@ -139,6 +139,7 @@ Widget::Widget(int abn):
 	Cursor(this),
 	Enabled(this),
 	Focused(this),
+	IsRealized(this),
 	HasChildren(this),
 	Height(this),
 	HelpTopic(this),
@@ -149,6 +150,7 @@ Widget::Widget(int abn):
 	Size(this),
 	Tag(this),
 	Top(this),
+	Visible(this),
 	Width(this),
 	//flags:
 	ExtendedFlags(this),
@@ -185,6 +187,7 @@ Widget::Widget(PtWidget_t* wdg):
 	Cursor(this),
 	Enabled(this),
 	Focused(this),
+	IsRealized(this),
 	HasChildren(this),
 	Height(this),
 	HelpTopic(this),
@@ -195,6 +198,7 @@ Widget::Widget(PtWidget_t* wdg):
 	Size(this),
 	Tag(this),
 	Top(this),
+	Visible(this),
 	Width(this),
 	//flags:
 	ExtendedFlags(this),
@@ -271,6 +275,7 @@ Widget::Widget(const Widget &other):
 	HasChildren(this),
 	Height(this),
 	HelpTopic(this),
+	IsRealized(this),
 	Left(this),
 	Location(this),
 	Position(this),
@@ -278,6 +283,7 @@ Widget::Widget(const Widget &other):
 	Size(this),
 	Tag(this),
 	Top(this),
+	Visible(this),
 	Width(this),
 	//flags:
 	ExtendedFlags(this),
@@ -387,6 +393,39 @@ void Widget::SetBounds(short x, short y)
 	position.y = y;
 
 	setLocation(position);
+}
+
+bool Widget::Focus()
+{
+	if(PtWidgetIsClassMember(widget(), PtWindow) == true)
+		return PtWindowFocus(widget()) == 0;
+
+	return PtGiveFocus(widget(), nullptr) != nullptr;
+}
+
+void Widget::Select()
+{
+	Focus(); // TODO: check the actual difference
+}
+
+bool Widget::Realize()
+{
+	return PtRealizeWidget( widget() ) == 0;
+}
+
+bool Widget::Unrealize()
+{
+	return PtUnrealizeWidget( widget() ) == 0;
+}
+
+void Widget::Hide()
+{
+	Unrealize(); // TODO::redone to move widget
+}
+
+void Widget::Show()
+{
+	Realize(); // TODO::redone to move widget
 }
 
 //for properties:
@@ -541,19 +580,6 @@ short PhWidgets::Widget::getRight() const
 	return getLocation().x + Width;
 }
 
-bool Widget::Focus()
-{
-	if(PtWidgetIsClassMember(widget(), PtWindow) == true)
-		return PtWindowFocus(widget()) == 0;
-
-	return PtGiveFocus(widget(), nullptr) != nullptr;
-}
-
-void Widget::Select()
-{
-	Focus(); // TODO: check the actual difference
-}
-
 void PhWidgets::Widget::setLeft(short x)
 {
 	PhPoint_t location = getLocation();
@@ -595,6 +621,32 @@ void PhWidgets::Widget::setTop(short y)
 short PhWidgets::Widget::getTop() const
 {
 	return getLocation().y;
+}
+
+void Widget::setVisible(bool value)
+{
+	if(value)
+		Show();
+	else
+		Hide();
+}
+
+bool Widget::getVisible() const
+{
+	if(getIsRealized())
+	{
+		PhPoint_t location = getLocation();
+
+		if(location.x > (0 - Width) && location.y > (0 - Height))
+			return true;
+	}
+
+	return false;
+}
+
+bool Widget::getIsRealized() const
+{
+	return PtWidgetIsRealized ( widget() ) != 0;
 }
 
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator|(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2)
