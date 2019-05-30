@@ -139,6 +139,7 @@ Widget::Widget(int abn):
 	Cursor(this),
 	Enabled(this),
 	Focused(this),
+	IsRealized(this),
 	HasChildren(this),
 	Height(this),
 	HelpTopic(this),
@@ -186,6 +187,7 @@ Widget::Widget(PtWidget_t* wdg):
 	Cursor(this),
 	Enabled(this),
 	Focused(this),
+	IsRealized(this),
 	HasChildren(this),
 	Height(this),
 	HelpTopic(this),
@@ -273,6 +275,7 @@ Widget::Widget(const Widget &other):
 	HasChildren(this),
 	Height(this),
 	HelpTopic(this),
+	IsRealized(this),
 	Left(this),
 	Location(this),
 	Position(this),
@@ -620,14 +623,30 @@ short PhWidgets::Widget::getTop() const
 	return getLocation().y;
 }
 
-void Widget::setVisible(bool)
+void Widget::setVisible(bool value)
 {
-	Hide();
+	if(value)
+		Show();
+	else
+		Hide();
 }
 
 bool Widget::getVisible() const
 {
-	Show();
+	if(getIsRealized())
+	{
+		PhPoint_t location = getLocation();
+
+		if(location.x > (0 - Width) && location.y > (0 - Height))
+			return true;
+	}
+
+	return false;
+}
+
+bool Widget::getIsRealized() const
+{
+	return PtWidgetIsRealized ( widget() ) != 0;
 }
 
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator|(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2)

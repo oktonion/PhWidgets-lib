@@ -984,6 +984,8 @@ namespace PhWidgets
 
 		void setVisible(bool);
 		bool getVisible() const;
+
+		bool getIsRealized() const;
 						
 	public:
 		//! (constructor) 
@@ -1502,6 +1504,22 @@ namespace PhWidgets
 		
 		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic> HelpTopic; //!< Gets or sets the help topic of the widget.
 
+		//! Gets or sets a value indicating whether the widget is realized.
+		/*!
+			### Property Value ### 
+			
+			> **bool**
+
+			`true` if the widget is realized; otherwise, `false`.
+
+			@see 
+			- Enabled
+			- CanFocus
+			- Hide()
+			- Show()
+		*/
+		property<bool, property<>::ro>::bind<Widget, &Widget::getIsRealized> IsRealized;
+
 		//! Gets or sets the distance, in pixels, between the left edge of the widget and the left edge of its container's client area.
 		/*!
 			### Property Value ### 
@@ -1572,6 +1590,7 @@ namespace PhWidgets
 			- Form
 		*/
 		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos> Position;
+
 
 		//! Gets the distance, in pixels, between the right edge of the widget and the left edge of its container's client area.
 		/*!
@@ -1744,7 +1763,7 @@ namespace PhWidgets
 		*/
 		property<short>::bind<Widget, &Widget::getTop, &Widget::setTop> Top;
 
-		//! Gets or sets the width of the widget.
+		//! Gets or sets a value indicating whether the widget and all its child widgets are displayed.
 		/*!
 			### Property Value ### 
 			
