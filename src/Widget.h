@@ -981,6 +981,9 @@ namespace PhWidgets
 		short getTop() const;
 
 		short getRight() const;
+
+		void setVisible(bool);
+		bool getVisible() const;
 						
 	public:
 		//! (constructor) 
@@ -1069,6 +1072,58 @@ namespace PhWidgets
 			it is contained in another widget, and all its parent widget are both visible and enabled.
 		*/
 		void Select();
+
+		//! Make the widget and its children visible and possibly interactive.
+		/*!
+			Make a widget and its children visible to the user and possibly interactive. 
+
+			@note
+			Some widgets (for example, menus) have Widget::Flags::DelayRealize set in their Widget::Arguments::flags.
+			Such delay-realized widgets aren't visibly rendered when their ancestors are realized. 
+			Although they're present in the hierarchy, 
+			delay-realized widgets become visible only when the application realizes them specifically with a call to Realize(). 
+			An application might do this, for example, if the user requested it to activate a menu.
+
+			@return `true` if the realize request was successful; otherwise, `false`.
+		*/
+		bool Realize();
+
+		//! Unrealizes the widget and all its children.
+		/*!
+			The widgets are removed from the display, and the widget engine will no longer invoke their callbacks.
+			Unrealized widgets still exist in the widget hierarchy and can be realized again. 
+
+			@note
+			Unrealizing and realizing a widget can take some time. 
+			If you want to hide a widget quickly, you can set its Widget::Visible property to `false`.
+
+			@return `true` if the unrealize request was successful; otherwise, `false`.
+		*/
+		bool Unrealize();
+
+		//! Conceals the widget from the user.
+		/*!
+			@remark
+			Hiding the widget is equivalent to setting the Widget::Visible property to `false`. 
+			After the Widget::Hide method is called, the Widget::Visible property returns a value of `false` until the Widget::Show method is called.
+
+			@see
+			- Show()
+			- Visible
+		*/
+		void Hide();
+
+		//! Displays the widget to the user.
+		/*!
+			@remark
+			Showing the widget is equivalent to setting the Widget::Visible property to `true`. 
+			After the Widget::Show method is called, the Widget::Visible property returns a value of `true` until the Widget::Hide method is called.
+			
+			@see
+			- Hide()
+			- Visible
+		*/
+		void Show();
 
 		//! Resources of the Widget
 		/*!
@@ -1688,6 +1743,25 @@ namespace PhWidgets
 			- Height
 		*/
 		property<short>::bind<Widget, &Widget::getTop, &Widget::setTop> Top;
+
+		//! Gets or sets the width of the widget.
+		/*!
+			### Property Value ### 
+			
+			> **bool**
+
+			`true` if the widget and all its child widgets are displayed; otherwise, `false`. The default is `true`.
+
+			@remark
+			Note that even if Widget::Visible is set to `true`, the widget might not be visible to the user if it is obscured behind other widgets.
+
+			@see 
+			- Enabled
+			- CanFocus
+			- Hide()
+			- Show()
+		*/
+		property<bool>::bind<Widget, &Widget::getVisible, &Widget::setVisible> Visible;
 
 		//! Gets or sets the width of the widget.
 		/*!

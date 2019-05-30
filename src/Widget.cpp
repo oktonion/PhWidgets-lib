@@ -149,6 +149,7 @@ Widget::Widget(int abn):
 	Size(this),
 	Tag(this),
 	Top(this),
+	Visible(this),
 	Width(this),
 	//flags:
 	ExtendedFlags(this),
@@ -195,6 +196,7 @@ Widget::Widget(PtWidget_t* wdg):
 	Size(this),
 	Tag(this),
 	Top(this),
+	Visible(this),
 	Width(this),
 	//flags:
 	ExtendedFlags(this),
@@ -278,6 +280,7 @@ Widget::Widget(const Widget &other):
 	Size(this),
 	Tag(this),
 	Top(this),
+	Visible(this),
 	Width(this),
 	//flags:
 	ExtendedFlags(this),
@@ -387,6 +390,39 @@ void Widget::SetBounds(short x, short y)
 	position.y = y;
 
 	setLocation(position);
+}
+
+bool Widget::Focus()
+{
+	if(PtWidgetIsClassMember(widget(), PtWindow) == true)
+		return PtWindowFocus(widget()) == 0;
+
+	return PtGiveFocus(widget(), nullptr) != nullptr;
+}
+
+void Widget::Select()
+{
+	Focus(); // TODO: check the actual difference
+}
+
+bool Widget::Realize()
+{
+	return PtRealizeWidget( widget() ) == 0;
+}
+
+bool Widget::Unrealize()
+{
+	return PtUnrealizeWidget( widget() ) == 0;
+}
+
+void Widget::Hide()
+{
+	Unrealize(); // TODO::redone to move widget
+}
+
+void Widget::Show()
+{
+	Realize(); // TODO::redone to move widget
 }
 
 //for properties:
@@ -541,19 +577,6 @@ short PhWidgets::Widget::getRight() const
 	return getLocation().x + Width;
 }
 
-bool Widget::Focus()
-{
-	if(PtWidgetIsClassMember(widget(), PtWindow) == true)
-		return PtWindowFocus(widget()) == 0;
-
-	return PtGiveFocus(widget(), nullptr) != nullptr;
-}
-
-void Widget::Select()
-{
-	Focus(); // TODO: check the actual difference
-}
-
 void PhWidgets::Widget::setLeft(short x)
 {
 	PhPoint_t location = getLocation();
@@ -595,6 +618,16 @@ void PhWidgets::Widget::setTop(short y)
 short PhWidgets::Widget::getTop() const
 {
 	return getLocation().y;
+}
+
+void Widget::setVisible(bool)
+{
+	Hide();
+}
+
+bool Widget::getVisible() const
+{
+	Show();
 }
 
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator|(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2)
