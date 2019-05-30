@@ -139,7 +139,7 @@ namespace PhWidgets
 					break;	
 				default:
 					{
-						PgColorModel_t * cm = PgGetColorModel();
+						const PgColorModel_t * cm = PgGetColorModel();
 
 						if(cm && cm->id == Pg_CM_RGB->id)
 						{
