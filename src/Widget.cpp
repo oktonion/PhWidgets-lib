@@ -14,6 +14,8 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <algorithm>
+#include <utility>
 
 
 using namespace PhWidgets;
@@ -299,6 +301,17 @@ Widget::Widget(const Widget &other):
 	Realized(this),
 	Unrealized(this)
 {
+}
+
+void Widget::swap(Widget &other)
+{
+	if(&other == this)
+		return;
+
+	using std::swap;
+
+	swap(_abn, other._abn);
+	swap(_widget, other._widget);
 }
 
 Widget &Widget::operator=(const Widget &other)
