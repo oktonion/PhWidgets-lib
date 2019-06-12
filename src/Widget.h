@@ -1008,6 +1008,12 @@ namespace PhWidgets
 			@param[in] other another Widget to be used as source to initialize the elements of the container with.
 		*/
 		Widget(const Widget &other);
+
+		//! Exchanges the contents of ** *this ** and other
+		/*!
+			@param[in] other widget to exchange the contents with.
+		*/
+		void swap(Widget &other);
 		
 		//! Assigns value in Widget 
 		/*!
