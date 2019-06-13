@@ -1043,6 +1043,29 @@ namespace PhWidgets
 		*/
 		bool operator<(const Widget &other) const;
 
+		//! Compares Widgets
+		/*!
+			Compares the Widgets by their Photon widget pointers.
+			@param[in] other Widget whose contents to compare.
+		*/
+		bool operator<=(const Widget &other) const;
+
+		//! Compares Widgets
+		/*!
+			Compares the Widgets by their Photon widget pointers.
+			@param[in] other Widget whose contents to compare.
+		*/
+		bool operator>(const Widget &other) const;
+
+		//! Compares Widgets
+		/*!
+			Compares the Widgets by their Photon widget pointers.
+			@param[in] other Widget whose contents to compare.
+		*/
+		bool operator>=(const Widget &other) const;
+
+		//! Returns the stored pointer.
+		PtWidget_t* get() const;
 		
 		//! Converts Widget to Photon widget pointer
 		operator PtWidget_t*();

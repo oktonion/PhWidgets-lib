@@ -346,6 +346,35 @@ bool Widget::operator<(const Widget &other) const
 	return std::less<PtWidget_t*>()(widget(), other.widget());
 }
 
+bool Widget::operator<=(const Widget &other) const
+{
+	if(&other == this)
+		return true;
+	
+	return std::less_equal<PtWidget_t*>()(widget(), other.widget());
+}
+
+bool Widget::operator>(const Widget &other) const
+{
+	if(&other == this)
+		return false;
+	
+	return std::greater<PtWidget_t*>()(widget(), other.widget());
+}
+
+bool Widget::operator>=(const Widget &other) const
+{
+	if(&other == this)
+		return true;
+	
+	return std::greater_equal<PtWidget_t*>()(widget(), other.widget());
+}
+
+PtWidget_t* Widget::get() const
+{
+	return widget();
+}
+
 Widget::operator PtWidget_t*()
 {
 	return widget();
