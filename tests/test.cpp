@@ -7,6 +7,7 @@
 
 #include "./service/properties.cpp"
 
+#include "./microGUI/comparison.cpp"
 #include "./microGUI/font_collection.cpp"
 #include "./microGUI/font_def.cpp"
 #include "./microGUI/font_family.cpp"
@@ -23,3 +24,4 @@
 #include "./microGUI/prop_cursor.cpp"
 #include "./microGUI/prop_enabled.cpp"
 #include "./microGUI/prop_focused.cpp"
+#include "./microGUI/swap_idiom.cpp"
