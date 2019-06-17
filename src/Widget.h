@@ -221,10 +221,10 @@ namespace PhWidgets
 				};
 			};
 			
-			//! Contains resource IDs for Widget arguments of type unsigned.
+			//! Contains resource IDs for Widget arguments of type **unsigned**.
 			struct ArgUnsigned
 			{
-				//! Resource IDs for Widget arguments of type unsigned.
+				//! Resource IDs for Widget arguments of type **unsigned**.
 
 				/*!
 					### Aliases ###
@@ -240,10 +240,10 @@ namespace PhWidgets
 				};
 			};
 			
-			//! Contains resource IDs for Widget arguments of type unsigned short.
+			//! Contains resource IDs for Widget arguments of type **unsigned short**.
 			struct ArgUnsignedShort
 			{
-				//! Resource IDs for Widget arguments of type unsigned short.
+				//! Resource IDs for Widget arguments of type **unsigned short**.
 
 				/*!
 					### Aliases ###
@@ -262,10 +262,10 @@ namespace PhWidgets
 				};
 			};
 			
-			//! Contains resource IDs for Widget arguments of type unsigned long.
+			//! Contains resource IDs for Widget arguments of type **unsigned long**.
 			struct ArgUnsignedLong
 			{
-				//! Resource IDs for Widget arguments of type unsigned long.
+				//! Resource IDs for Widget arguments of type **unsigned long**.
 
 				/*!
 					### Aliases ###
@@ -281,10 +281,10 @@ namespace PhWidgets
 				};
 			};
 			
-			//! Contains resource IDs for Widget arguments of type long.
+			//! Contains resource IDs for Widget arguments of type **long**.
 			struct ArgLong
 			{
-				//! Resource IDs for Widget arguments of type long.
+				//! Resource IDs for Widget arguments of type **long**.
 
 				/*!
 					### Aliases ###
@@ -302,10 +302,10 @@ namespace PhWidgets
 				};
 			};
 
-			//! Contains resource IDs for Widget arguments of type char*.
+			//! Contains resource IDs for Widget arguments of type ** char* **.
 			struct ArgPChar
 			{
-				//! Resource IDs for Widget arguments of type char*.
+				//! Resource IDs for Widget arguments of type ** char* **.
 
 				/*!
 					### Aliases ###
@@ -324,7 +324,7 @@ namespace PhWidgets
 				};
 			};
 			
-			//! Contains resource IDs for Widget arguments of type void*.
+			//! Contains resource IDs for Widget arguments of type ** void* **.
 			struct ArgPVoid
 			{
 				//! Resource IDs for Widget arguments of type void* that are stored in widget.
@@ -348,7 +348,7 @@ namespace PhWidgets
 					user_data = Pt_ARG_USER_DATA //!< Data that you want to store in the widget's internal memory.
 				};
 
-				//! Resource IDs for Widget arguments of type void* that are stored externally.
+				//! Resource IDs for Widget arguments of type ** void* ** that are stored externally.
 
 				/*!
 					@note 
@@ -391,10 +391,10 @@ namespace PhWidgets
 				};
 			};
 			
-			//! Contains resource IDs for Widget arguments of type PgColor_t.
+			//! Contains resource IDs for Widget arguments of type `PgColor_t`.
 			struct ArgColor
 			{
-				//! Resource IDs for Widget arguments of type PgColor_t.
+				//! Resource IDs for Widget arguments of type `PgColor_t`.
 
 				/*!
 					### Aliases ###
@@ -766,37 +766,37 @@ namespace PhWidgets
 		{
 		};
 		
-		//! Contains resource IDs for Widget arguments of type unsigned.
+		//! Contains resource IDs for Widget arguments of type **unsigned**.
 		struct ArgUnsigned:
 			public ThisArgs::ArgUnsigned
 		{
 		};
 		
-		//! Contains resource IDs for Widget arguments of type unsigned short.
+		//! Contains resource IDs for Widget arguments of type **unsigned short**.
 		struct ArgUnsignedShort:
 			public ThisArgs::ArgUnsignedShort
 		{
 		};
 		
-		//! Contains resource IDs for Widget arguments of type unsigned long.
+		//! Contains resource IDs for Widget arguments of type **unsigned long**.
 		struct ArgUnsignedLong:
 			public ThisArgs::ArgUnsignedLong
 		{
 		};
 		
-		//! Contains resource IDs for Widget arguments of type long.
+		//! Contains resource IDs for Widget arguments of type **long**.
 		struct ArgLong:
 			public ThisArgs::ArgLong
 		{
 		};
 
-		//! Contains resource IDs for Widget arguments of type char*.
+		//! Contains resource IDs for Widget arguments of type ** char* **.
 		struct ArgPChar:
 			public ThisArgs::ArgPChar
 		{
 		};
 		
-		//! Contains resource IDs for Widget arguments of type void*.
+		//! Contains resource IDs for Widget arguments of type ** void* **.
 		struct ArgPVoid:
 			public ThisArgs::ArgPVoid
 		{
@@ -808,7 +808,7 @@ namespace PhWidgets
 		{
 		};
 		
-		//! Contains resource IDs for Widget arguments of type PgColor_t.
+		//! Contains resource IDs for Widget arguments of type `PgColor_t`.
 		struct ArgColor:
 			public ThisArgs::ArgColor
 		{

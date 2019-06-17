@@ -17,10 +17,10 @@ namespace PhWidgets
         //! Contains resource IDs for Disjoint arguments.
 		struct ThisArgs
 		{		
-            //! Contains resource IDs for Disjoint arguments of type PhSysInfo_t.
+            //! Contains resource IDs for Disjoint arguments of type `PhSysInfo_t`.
 			struct ArgPSysInfo
 			{
-                //! Resource IDs for Disjoint arguments of type PhSysInfo_t.
+                //! Resource IDs for Disjoint arguments of type `PhSysInfo_t`.
 
 				/*!
                 	@code
