@@ -259,8 +259,8 @@ Widget::Widget(PtWidget_t* wdg):
 }
 
 Widget::Widget(const Widget &other):
-	_abn(ApName(other.widget())),
-	_widget(nullptr),
+	_abn(other._abn),
+	_widget(other._widget),
 	resource(this),
 	//properties:
 	AllowDrop(this),
@@ -318,8 +318,8 @@ Widget &Widget::operator=(const Widget &other)
 {
 	if(&other != this)
 	{	
-		_abn = ApName(other.widget());
-		_widget = nullptr;
+		_abn = other._abn;
+		_widget = other._widget;
 	}
 	
 	return *this;
