@@ -14,6 +14,8 @@ TEST_CASE("Testing Widget::Focused property"){
         REQUIRE(PhWidgetsGetWidget<&PtWindow>());
 
         Widget widget(PhWidgetsGetWidget<&PtWindow>());
+
+        REQUIRE(widget.CanFocus);
         
         CHECK(widget.Focused == false);
         CHECK(widget.Focus() == true);
@@ -24,6 +26,8 @@ TEST_CASE("Testing Widget::Focused property"){
         REQUIRE(PhWidgetsGetWidget<&PtButton>());
         
         Button button(PhWidgetsGetWidget<&PtButton>());
+
+        REQUIRE(button.CanFocus);
         
         CHECK(button.Focused == false);
         CHECK(button.Focus() == true);
