@@ -239,7 +239,7 @@ namespace PhWidgets
 			@remark
 			The Font property is an ambient property. 
 			An ambient property is a widget property that, if not set, is retrieved from the parent widget. 
-			For example, a Button will have the same BackColor as its parent Form by default. 
+			For example, a Button will have the same BackColor as its parent PhWidgets::Window by default. 
 			@par
 			Because the Font is immutable (meaning that you cannot adjust any of its properties), 
 			you can only assign the Font property a new FontDef. However, you can base the new font on the existing font. 

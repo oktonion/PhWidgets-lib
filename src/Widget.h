@@ -1363,7 +1363,7 @@ namespace PhWidgets
 			@remark
 			In order for a widget to receive input focus, the Widget must have a PtWidget_t pointer assigned to it, 
 			and the Widget::Visible and Widget::Enabled properties must both be set to `true` for both the widget and all its parent widgets, 
-			and the widget must be a form or the widget's outermost parent must be a form.
+			and the widget must be a PhWidgets::Window or the widget's outermost parent must be a PhWidgets::Window.
 
 			@see
 			- Enabled
@@ -1578,7 +1578,7 @@ namespace PhWidgets
 			### Property Value ### 
 			
 			@code
-				struct Ph_point_t { 
+				struct PhPoint_t { 
 					short x, y; 
 				};
 			@endcode
@@ -1592,10 +1592,10 @@ namespace PhWidgets
 			Widget::Left, Widget::Right, Widget::Top, or Widget::Bottom property values of the widget. 
 			To adjust these properties set each property value individually, or set the Widget::Location property with a new `PhPoint_t`. 
 			@par
-			If the Widget is a Form, the Widget::Location property value represents the upper-left corner of the Form in screen coordinates.
+			If the Widget is a PhWidgets::Window, the Widget::Location property value represents the upper-left corner of the PhWidgets::Window in screen coordinates.
 
 			@see
-			- Form
+			- Window
 		*/		
 		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation> Location;
 
@@ -1604,7 +1604,7 @@ namespace PhWidgets
 			### Property Value ### 
 			
 			@code
-				struct Ph_point_t { 
+				struct PhPoint_t { 
 					short x, y; 
 				};
 			@endcode
@@ -1618,10 +1618,10 @@ namespace PhWidgets
 			Widget::Left, Widget::Right, Widget::Top, or Widget::Bottom property values of the widget. 
 			To adjust these properties set each property value individually, or set the Widget::Position property with a new `PhPoint_t`. 
 			@par
-			If the Widget is a Form, the Widget::Position property value represents the upper-left corner of the Form in screen coordinates.
+			If the Widget is a PhWidgets::Window, the Widget::Position property value represents the upper-left corner of the PhWidgets::Window in screen coordinates.
 
 			@see
-			- Form
+			- Window
 		*/
 		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos> Position;
 
@@ -1675,7 +1675,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			> **const void** * 
+			> <b>const void*</b> 
 
 			An `const void *` that contains data about the widget. The default is `nullptr`.
 
