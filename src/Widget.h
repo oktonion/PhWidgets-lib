@@ -302,10 +302,10 @@ namespace PhWidgets
 				};
 			};
 
-			//! Contains resource IDs for Widget arguments of type ** char* **.
+			//! Contains resource IDs for Widget arguments of type <b>char*</b>.
 			struct ArgPChar
 			{
-				//! Resource IDs for Widget arguments of type ** char* **.
+				//! Resource IDs for Widget arguments of type <b>char*</b>.
 
 				/*!
 					### Aliases ###
@@ -324,10 +324,10 @@ namespace PhWidgets
 				};
 			};
 			
-			//! Contains resource IDs for Widget arguments of type ** void* **.
+			//! Contains resource IDs for Widget arguments of type <b>void*</b>.
 			struct ArgPVoid
 			{
-				//! Resource IDs for Widget arguments of type void* that are stored in widget.
+				//! Resource IDs for Widget arguments of type <b>void*</b> that are stored in widget.
 
 				/*!
 					@note 
@@ -348,7 +348,7 @@ namespace PhWidgets
 					user_data = Pt_ARG_USER_DATA //!< Data that you want to store in the widget's internal memory.
 				};
 
-				//! Resource IDs for Widget arguments of type ** void* ** that are stored externally.
+				//! Resource IDs for Widget arguments of type <b>void*</b> that are stored externally.
 
 				/*!
 					@note 
@@ -790,13 +790,13 @@ namespace PhWidgets
 		{
 		};
 
-		//! Contains resource IDs for Widget arguments of type ** char* **.
+		//! Contains resource IDs for Widget arguments of type <b>char*</b>.
 		struct ArgPChar:
 			public ThisArgs::ArgPChar
 		{
 		};
 		
-		//! Contains resource IDs for Widget arguments of type ** void* **.
+		//! Contains resource IDs for Widget arguments of type <b>void*</b>.
 		struct ArgPVoid:
 			public ThisArgs::ArgPVoid
 		{
