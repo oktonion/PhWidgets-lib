@@ -417,3 +417,16 @@ TEST_CASE("Testing properties for class types"){
         ///*CHECK*/(prop_vint >= convertable<std::vector<int>/**/>());
     }
 }
+
+TEST_CASE("Testing properties for pointer types"){
+    using namespace cppproperties;
+
+    SUBCASE("Testing rw property") {
+
+        typedef property<std::vector<int>*> property_type;
+        property_type prop_vint(new std::vector<int>());
+
+        prop_vint->size() == 0;
+        (*prop_vint).size() == 0;
+    }
+}
