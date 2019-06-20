@@ -1153,9 +1153,8 @@ namespace cppproperties
 		private:
 			typedef Ipropertyr<T*> base_type;
 			using base_type::get;
-			using base_type::value_type;
 		public:
-			value_type operator->() const
+			base_type::value_type operator->() const
 			{
 				return get();
 			}
