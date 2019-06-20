@@ -426,7 +426,9 @@ TEST_CASE("Testing properties for pointer types"){
         typedef property<std::vector<int>*> property_type;
         property_type prop_vint(new std::vector<int>());
 
-        prop_vint->size() == 0;
-        (*prop_vint).size() == 0;
+        CHECK(prop_vint->size() == 0);
+        CHECK((*prop_vint).size() == 0);
+
+        
     }
 }
