@@ -1153,8 +1153,9 @@ namespace cppproperties
 		private:
 			typedef Ipropertyr<T*> base_type;
 			using base_type::get;
+			using base_type::value_type;
 		public:
-			value_type* operator->() const
+			value_type operator->() const
 			{
 				return get();
 			}
@@ -1208,7 +1209,7 @@ namespace cppproperties
 		template<class T>
 		struct dereference_property_trait<T*>:
 			dereference_property_trait_impl<T*>,
-			dereference_member_property_trait_impl<stdex::is_class<T>::value>
+			dereference_member_property_trait_impl<T*, stdex::is_class<T>::value>
 		{ };
 	}
 
