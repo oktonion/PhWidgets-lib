@@ -429,6 +429,21 @@ TEST_CASE("Testing properties for pointer types"){
         CHECK(prop_vint->size() == 0);
         CHECK((*prop_vint).size() == 0);
 
-        
+        prop_vint->push_back(42);
+
+        for (std::vector<int>::const_iterator it = prop_vint->begin(); it != prop_vint->end(); ++it)
+        {
+            CHECK(*it == 42);
+        }
+
+        CHECK(prop_vint->size() == 1);
+        CHECK((*prop_vint).size() == 1);
+
+        delete prop_vint();
+
+        prop_vint = 0;
+
+        CHECK(prop_vint == 0);
+        CHECK(0 == prop_vint);
     }
 }
