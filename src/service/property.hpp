@@ -1153,9 +1153,22 @@ namespace cppproperties
 		private:
 			typedef Ipropertyr<T*> base_type;
 			using base_type::get;
-			typedef typename base_type::value_type value_type;
 		public:
-			value_type operator->() const
+			T* operator->() const
+			{
+				return get();
+			}
+		};
+
+		template<class T>
+		struct dereference_member_property_trait_impl<T*&, true>:
+			public virtual Ipropertyr<T*&>
+		{ 
+		private:
+			typedef Ipropertyr<T*&> base_type;
+			using base_type::get;
+		public:
+			T* operator->() const
 			{
 				return get();
 			}
@@ -1167,10 +1180,26 @@ namespace cppproperties
 		
 		template<class T>
 		struct dereference_property_trait_impl<T*>:
-			public virtual Ipropertyr<T*>
+			public virtual Ipropertyr<T*>,
+			public dereference_member_property_trait_impl<T*, stdex::is_class<typename stdex::remove_reference<T>::type>::value>
 		{ 
 		private:
 			typedef Ipropertyr<T*> base_type;
+			using base_type::get;
+		public:
+			T& operator*() const
+			{
+				return *get();
+			}
+		};
+
+		template<class T>
+		struct dereference_property_trait_impl<T*&>:
+			public virtual Ipropertyr<T*&>,
+			public dereference_member_property_trait_impl<T*&, stdex::is_class<T>::value>
+		{ 
+		private:
+			typedef Ipropertyr<T*&> base_type;
 			using base_type::get;
 		public:
 			T& operator*() const
@@ -1208,8 +1237,12 @@ namespace cppproperties
 
 		template<class T>
 		struct dereference_property_trait<T*>:
-			dereference_property_trait_impl<T*>,
-			dereference_member_property_trait_impl<T*, stdex::is_class<typename stdex::remove_reference<T>::type>::value>
+			dereference_property_trait_impl<T*>
+		{ };
+
+		template<class T>
+		struct dereference_property_trait<T*&>:
+			dereference_property_trait_impl<T*&>
 		{ };
 	}
 
