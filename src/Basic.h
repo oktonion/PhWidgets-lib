@@ -367,7 +367,7 @@ namespace PhWidgets
 			The Basic::Color property does not support transparent colors unless the color model is set to ARGB.
 			@par
 			The Basic::Color property is an ambient property. An ambient property is a widget property that, 
-			if not set, is retrieved from the parent widget. For example, a PhWidgets::Button will have the same Basic::Color as its parent PhWidgets::Form by default. 
+			if not set, is retrieved from the parent widget. For example, a PhWidgets::Button will have the same Basic::Color as its parent PhWidgets::Window by default. 
 
 			@see
 			- Colors
@@ -460,7 +460,7 @@ namespace PhWidgets
 			The Basic::FillColor property does not support transparent colors unless the color model is set to ARGB.
 			@par
 			The Basic::Color property is an ambient property. An ambient property is a widget property that, 
-			if not set, is retrieved from the parent widget. For example, a PhWidgets::Button will have the same Basic::FillColor as its parent PhWidgets::Form by default. 
+			if not set, is retrieved from the parent widget. For example, a PhWidgets::Button will have the same Basic::FillColor as its parent PhWidgets::Window by default. 
 
 			@see
 			- Colors

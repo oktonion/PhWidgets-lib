@@ -1142,6 +1142,42 @@ namespace cppproperties
 			using begin_end_property_trait_impl<T, true>::end;
 		};
 
+		template<class T, bool Enabled>
+		struct dereference_member_property_trait_impl
+		{ };
+		
+		template<class T>
+		struct dereference_member_property_trait_impl<T*, true>:
+			public virtual Ipropertyr<T*>
+		{ 
+		private:
+			typedef Ipropertyr<T*> base_type;
+			using base_type::get;
+		public:
+			value_type* operator->() const
+			{
+				return get();
+			}
+		};
+
+		template<class T>
+		struct dereference_property_trait_impl
+		{ };
+		
+		template<class T>
+		struct dereference_property_trait_impl<T*>:
+			public virtual Ipropertyr<T*>
+		{ 
+		private:
+			typedef Ipropertyr<T*> base_type;
+			using base_type::get;
+		public:
+			T& operator*() const
+			{
+				return *get();
+			}
+		};
+
 		template<class T>
 		struct size_property_trait:
 			size_property_trait_impl<T, has_size_type<typename remove_reference<T>::type>::value>
@@ -1164,18 +1200,30 @@ namespace cppproperties
 		struct begin_end_property_trait<T&>:
 			begin_end_property_trait_impl1<T&, has_iterator<typename remove_reference<T>::type>::value, has_const_iterator<typename remove_reference<T>::type>::value>
 		{ };
+
+		template<class T>
+		struct dereference_property_trait
+		{ };
+
+		template<class T>
+		struct dereference_property_trait<T*>:
+			dereference_property_trait_impl<T*>,
+			dereference_member_property_trait_impl<stdex::is_class<T>::value>
+		{ };
 	}
 
 	template<class ValueT>
 	struct property_traits<ValueT, property<>::ro>:
 		detail::size_property_trait<ValueT>,
-		detail::const_begin_end_property_trait<ValueT>
+		detail::const_begin_end_property_trait<ValueT>,
+		detail::dereference_property_trait<ValueT>
 	{ };
 
 	template<class ValueT>
 	struct property_traits<ValueT, property<>::rw>:
 		detail::size_property_trait<ValueT>,
-		detail::begin_end_property_trait<ValueT>
+		detail::begin_end_property_trait<ValueT>,
+		detail::dereference_property_trait<ValueT>
 	{ };
 
 
