@@ -1209,7 +1209,7 @@ namespace cppproperties
 		template<class T>
 		struct dereference_property_trait<T*>:
 			dereference_property_trait_impl<T*>,
-			dereference_member_property_trait_impl<T*, stdex::is_class<T>::value>
+			dereference_member_property_trait_impl<T*, stdex::is_class<typename stdex::remove_reference<T>::type>::value>
 		{ };
 	}
 
