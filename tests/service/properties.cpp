@@ -443,7 +443,7 @@ TEST_CASE("Testing properties for pointer types"){
 
         prop_vint = 0;
 
-        /*CHECK_EQ*/(prop_vint == (void*)(0));
-        /*CHECK_EQ*/((void*)(0) == prop_vint);
+        CHECK(prop_vint == (void*)(0));
+        CHECK((void*)(0) == prop_vint);
     }
 }
