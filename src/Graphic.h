@@ -8,27 +8,23 @@
 
 namespace PhWidgets
 {
-	//! A superclass of basic resources for most widgets
+	//! Common resources for graphical widgets
 	/*!
-		The Basic superclass provides basic resources for all widgets. It provides the fundamental events for:
+		The Graphic superclass provides the common resources used by all graphic widgets. 
+		Graphical widgets provide attributes for color, fills, patterns, line thickness, joins, and much more.
 
-		getting/losing focus
-		activating
-		button press, release, and repeat
+		@remark
+		When you want to incorporate simple, static drawings in your interface, use the subclasses of Graphic. 
 
-		Also, Basic supports:
-
-			toggle buttons
-			autohighlighting
-
-		and provides properties for:
-
-			margins
-			bevel colors
-			outline and inline colors
-			draw color
-			fill color
-			fill pattern.
+		@see
+		- Arc
+		- Bezier
+		- Ellipse
+		- Grid
+		- Line
+		- Pixel
+		- Polygon
+		- Rect
 	*/	
 	class Graphic:
 		public Basic
