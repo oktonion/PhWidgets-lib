@@ -141,13 +141,18 @@ namespace PhWidgets
 					{
 						const PgColorModel_t * cm = PgGetColorModel();
 
-						if(cm && cm->id == Pg_CM_RGB->id)
+						if(!(cm && cm->id != Pg_CM_RGB->id))
 						{
 							color &= 0x00FFFFFF;
 						}
 						break;
 					}
 				}
+
+				/*PgColor_t in[] = {color};
+				PgColor_t out[] = {color};
+				if( 0 == PgColorMatch(1, in, out))
+					color = out[0];*/
 
 				return setScalar(color);
 			}
