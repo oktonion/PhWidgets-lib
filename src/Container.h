@@ -180,7 +180,7 @@ namespace PhWidgets
 	protected:
 		typedef ResourceFrom<Basic::WidgetResourcesSingleton>::
 			Define::String<ThisArgs::ArgPChar::eArgPChar>::
-			Define::Boolean<ThisArgs::ArgInt::eArgBool, bool>::
+			Define::Boolean<ThisArgs::ArgBool::eArgBool, bool>::
 			Define::Scalar<ThisArgs::ArgInt::eArgInt, int>::
 			Define::Struct<ThisArgs::ArgPFillLayoutInfo::eArgPFillLayoutInfo, PtFillLayoutInfo_t>::
 			Define::Struct<ThisArgs::ArgPGridLayoutInfo::eArgPGridLayoutInfo, PtGridLayoutInfo_t>::
