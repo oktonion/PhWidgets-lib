@@ -1,6 +1,9 @@
 #ifndef PT_COLOR_H
 #define PT_COLOR_H
 
+#include <photon/PhT.h>
+#include <photon/PtT.h>
+
 namespace PhWidgets
 {
     //! Provides a collection of standard colors for use by a Photon microGUI application.
@@ -159,6 +162,39 @@ namespace PhWidgets
             YellowGreen = static_cast<unsigned>(0xFF9ACD32) //!< System-defined color that has an ARGB value of #FF9ACD32.
         };
     };
+
+    bool operator==(const PgColor_t &pg_color, Colors::eColors ph_color)
+    {
+        const PgColorModel_t * cm = PgGetColorModel();
+
+        PgColor_t 
+            lhs = pg_color,
+            rhs = ph_color;
+
+        if(!(cm && cm->id != Pg_CM_RGB->id))
+        {
+            lhs &= 0x00FFFFFF;
+            rhs &= 0x00FFFFFF;
+        }
+
+        return (lhs == rhs);  
+    }
+
+    bool operator!=(const PgColor_t &pg_color, Colors::eColors ph_color)
+    {
+        return !(pg_color == ph_color);
+    }
+
+    bool operator==(Colors::eColors ph_color, const PgColor_t &pg_color)
+    {
+        return (pg_color == ph_color);  
+    }
+
+    bool operator!=(Colors::eColors ph_color, const PgColor_t &pg_color)
+    {
+        return !(pg_color == ph_color);
+    }
+
 } // namespace PhWidgets
 
 
