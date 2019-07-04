@@ -241,8 +241,8 @@ namespace PhWidgets
 		};	
 
 		struct Callback:
-			public ArgumentsEx<ThisCallbacks::Callback>,
-			public Widget::Callback
+			public ArgumentsEx<Widget::Callback>,
+			public ThisCallbacks::Callback
 		{
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};

@@ -154,8 +154,8 @@ namespace PhWidgets
 		};	
 
 		struct Callback:
-			public ArgumentsEx<ThisCallbacks::Callback>,
-			public Basic::Callback
+			public ArgumentsEx<Basic::Callback>,
+			public ThisCallbacks::Callback
 		{
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
@@ -180,7 +180,7 @@ namespace PhWidgets
 	protected:
 		typedef ResourceFrom<Basic::WidgetResourcesSingleton>::
 			Define::String<ThisArgs::ArgPChar::eArgPChar>::
-			//Define::Boolean<ThisArgs::ArgInt::eArgBool, bool>:: // not implemented
+			Define::Boolean<ThisArgs::ArgInt::eArgBool, bool>::
 			Define::Scalar<ThisArgs::ArgInt::eArgInt, int>::
 			Define::Struct<ThisArgs::ArgPFillLayoutInfo::eArgPFillLayoutInfo, PtFillLayoutInfo_t>::
 			Define::Struct<ThisArgs::ArgPGridLayoutInfo::eArgPGridLayoutInfo, PtGridLayoutInfo_t>::
