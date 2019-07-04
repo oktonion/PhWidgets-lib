@@ -5,11 +5,23 @@
 
 using namespace PhWidgets;
 
-void NumericFloat::check()
+namespace PhWidgets
 {
-	if(PtWidgetIsClassMember( widget(), PtNumericFloat ) != true)
-		throw(std::invalid_argument("NumericFloat: widget is not PtNumericFloat."));
+    const char * WidgetClassName(PtWidget_t *wdg);
 }
+
+#define FORM_THROW_MESSAGE(xxx) (std::string(#xxx": wrong class of photon widget - got \'") + WidgetClassName(widget()) + "\' instead of \'Pt"#xxx"\'").c_str()
+#define WIDGET_IS_CLASS_MEMBER(xxx) \
+	if(PtWidgetIsClassMember( widget(), Pt##xxx ) != true)\
+		throw(std::invalid_argument(FORM_THROW_MESSAGE(xxx)));
+
+#define CHECK_WIDGET(xxx) \
+void xxx::check() \
+{ \
+	WIDGET_IS_CLASS_MEMBER(xxx); \
+}
+
+CHECK_WIDGET(NumericFloat);
 
 
 NumericFloat::NumericFloat(int abn):

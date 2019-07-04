@@ -1,4 +1,4 @@
-#include "NumericInteger.h"
+#include "Graphic.h"
 
 #include <stdexcept>
 
@@ -21,56 +21,40 @@ void xxx::check() \
 	WIDGET_IS_CLASS_MEMBER(xxx); \
 }
 
-CHECK_WIDGET(NumericInteger);
+CHECK_WIDGET(Graphic);
 
 
-NumericInteger::NumericInteger(int abn):
-	Numeric(abn),
+Graphic::Graphic(int abn):
+	Basic(abn),
 	resource(this),
-	//properties:
-	Value(this),
-	MaxValue(this),
-	MinValue(this),
 	//callbacks:
-	NumericChanged(this)
-	
+	Rescale(this)
 {
 	check();
 }
 
-NumericInteger::NumericInteger(PtWidget_t *wdg):
-	Numeric(wdg),
+Graphic::Graphic(PtWidget_t *wdg):
+	Basic(wdg),
 	resource(this),
-	//properties:
-	Value(this),
-	MaxValue(this),
-	MinValue(this),
 	//callbacks:
-	NumericChanged(this)
-
+	Rescale(this)
 {
 	check();
 }
 
-NumericInteger::NumericInteger(const NumericInteger &rhs):
-	Numeric(rhs),
+PhWidgets::Graphic::Graphic(const Graphic & rhs):
+	Basic(rhs),
 	resource(this),
-	//properties:
-	Value(this),
-	MaxValue(this),
-	MinValue(this),
 	//callbacks:
-	NumericChanged(this)
-
+	Rescale(this)
 {
 }
 
-NumericInteger &NumericInteger::operator=(const NumericInteger &rhs)
+Graphic &Graphic::operator=(const Graphic &rhs)
 {
-	static_cast<Numeric&>(*this) = static_cast<const Numeric&>(rhs);
+	static_cast<Basic&>(*this) = static_cast<const Basic&>(rhs);
 	
 	return *this;
 }
-
 
 

@@ -38,8 +38,7 @@ namespace PhWidgets
 		
 		struct ArgBool:
 			public ThisArgs::ArgBool
-		{
-		};
+        { };
 
 		struct Callback :
 			public ArgumentsEx<ThisCallbacks::Callback>,
@@ -52,14 +51,12 @@ namespace PhWidgets
 		struct Arguments:
 			public Button::Arguments,
 			public ArgBool
-		{
-		};
+        { };
 
 		struct Callbacks :
 			public Callback,
 			public Button::Callbacks
-		{
-		};
+        { };
 		
 	protected:
 		typedef ResourceFrom<Button::WidgetResourcesSingleton>::

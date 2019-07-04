@@ -72,8 +72,7 @@ namespace PhWidgets
         //! Contains resource IDs for Disjoint arguments of type `PhSysInfo_t`.
 		struct ArgPSysInfo:
 			public ThisArgs::ArgPSysInfo
-		{
-		};	
+        { };	
 
         //! Contains resource IDs for Disjoint callbacks of type `PtCallback_t`.
 		struct Callback:
@@ -87,15 +86,13 @@ namespace PhWidgets
 		struct Arguments:
 			public ArgPSysInfo,
 			public Container::Arguments
-		{
-		};
+        { };
 
         //! Contains resource IDs for all Disjoint callbacks.
 		struct Callbacks :
 			public Callback,
 			public Container::Callbacks
-		{
-		};
+        { };
 
 	protected:
 		typedef ResourceFrom<Container::WidgetResourcesSingleton>::

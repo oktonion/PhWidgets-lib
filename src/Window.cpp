@@ -1,4 +1,4 @@
-#include "NumericInteger.h"
+#include "Window.h"
 
 #include <stdexcept>
 
@@ -21,56 +21,43 @@ void xxx::check() \
 	WIDGET_IS_CLASS_MEMBER(xxx); \
 }
 
-CHECK_WIDGET(NumericInteger);
+CHECK_WIDGET(Window);
 
 
-NumericInteger::NumericInteger(int abn):
-	Numeric(abn),
+Window::Window(int abn):
+	Disjoint(abn),
 	resource(this),
-	//properties:
-	Value(this),
-	MaxValue(this),
-	MinValue(this),
 	//callbacks:
-	NumericChanged(this)
-	
+	Closing(this),
+    Opening(this)
 {
 	check();
 }
 
-NumericInteger::NumericInteger(PtWidget_t *wdg):
-	Numeric(wdg),
+Window::Window(PtWidget_t *wdg):
+	Disjoint(wdg),
 	resource(this),
-	//properties:
-	Value(this),
-	MaxValue(this),
-	MinValue(this),
 	//callbacks:
-	NumericChanged(this)
-
+	Closing(this),
+    Opening(this)
 {
 	check();
 }
 
-NumericInteger::NumericInteger(const NumericInteger &rhs):
-	Numeric(rhs),
+Window::Window(const Window & rhs):
+	Disjoint(rhs),
 	resource(this),
-	//properties:
-	Value(this),
-	MaxValue(this),
-	MinValue(this),
 	//callbacks:
-	NumericChanged(this)
-
+	Closing(this),
+    Opening(this)
 {
 }
 
-NumericInteger &NumericInteger::operator=(const NumericInteger &rhs)
+Window &Window::operator=(const Window &rhs)
 {
-	static_cast<Numeric&>(*this) = static_cast<const Numeric&>(rhs);
+	static_cast<Disjoint&>(*this) = static_cast<const Disjoint&>(rhs);
 	
 	return *this;
 }
-
 
 

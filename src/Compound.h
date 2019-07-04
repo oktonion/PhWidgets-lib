@@ -16,8 +16,7 @@ namespace PhWidgets
 
 		struct Arguments:
 			public Container::Arguments
-		{
-		};
+        { };
 
 	protected:
 		virtual void check();

@@ -47,8 +47,7 @@ namespace PhWidgets
 		
 		struct ArgUnsignedLong:
 			public ThisArgs::ArgUnsignedLong
-		{
-		};
+        { };
 
 		struct ArgPVoid
 		{
@@ -70,14 +69,12 @@ namespace PhWidgets
 			public ArgUnsignedLong,
 			public Widget::ArgLong,
 			public ArgPVoid
-		{
-		};
+        { };
 
 		struct Callbacks :
 			public Callback,
 			public Widget::Callbacks
-		{
-		};
+        { };
 
 	private:
 				
