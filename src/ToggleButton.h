@@ -56,8 +56,7 @@ namespace PhWidgets
 			public ArgColor,
 			public ArgUnsignedChar,
 			public Button::Arguments
-		{
-		};
+        { };
 		
 		void setChecked(bool val);
 		bool getChecked() const;

@@ -51,13 +51,11 @@ namespace PhWidgets
 		
 		struct ArgInt:
 			public ThisArgs::ArgInt
-		{
-		};
+        { };
 		
 		struct ArgDoubleP:
 			public ThisArgs::ArgDoubleP
-		{
-		};
+        { };
 
 		struct Callback :
 			public ArgumentsEx<ThisCallbacks::Callback>,
@@ -72,14 +70,12 @@ namespace PhWidgets
 			public ArgInt,
 			public ArgDoubleP,
 			public Numeric::Arguments
-		{
-		};
+        { };
 
 		struct Callbacks :
 			public Callback,
 			public Numeric::Callbacks
-		{
-		};
+        { };
 
 
 	protected:

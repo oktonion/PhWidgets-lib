@@ -763,104 +763,87 @@ namespace PhWidgets
 		//! Contains resource IDs for Widget arguments of type `PhArea_t`.
 		struct ArgArea:
 			public ThisArgs::ArgArea
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type **unsigned**.
 		struct ArgUnsigned:
 			public ThisArgs::ArgUnsigned
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type **unsigned short**.
 		struct ArgUnsignedShort:
 			public ThisArgs::ArgUnsignedShort
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type **unsigned long**.
 		struct ArgUnsignedLong:
 			public ThisArgs::ArgUnsignedLong
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type **long**.
 		struct ArgLong:
 			public ThisArgs::ArgLong
-		{
-		};
+        { };
 
 		//! Contains resource IDs for Widget arguments of type <b>char*</b>.
 		struct ArgPChar:
 			public ThisArgs::ArgPChar
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type <b>void*</b>.
 		struct ArgPVoid:
 			public ThisArgs::ArgPVoid
-		{
-		};
+        { };
 
 		//! Contains resource IDs for Widget arguments of type `PhRect_t`.
 		struct ArgRect:
 			public ThisArgs::ArgRect
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type `PgColor_t`.
 		struct ArgColor:
 			public ThisArgs::ArgColor
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type `PhCursorDef_t`.
 		struct ArgPCursorDef:
 			public ThisArgs::ArgPCursorDef
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type `PtGridLayoutData_t`.
 		struct ArgPGridLayoutData:
 			public ThisArgs::ArgPGridLayoutData
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type `PhPoint_t`.
 		struct ArgPoint:
 			public ThisArgs::ArgPoint
-		{
-		};
+        { };
 
 		//! Contains resource IDs for Widget arguments of type `PtRowLayoutData_t`.
 		struct ArgPRowLayoutData:
 			public ThisArgs::ArgPRowLayoutData
-		{
-		};
+        { };
 
 		//! Contains resource IDs for Widget arguments of type `PhDim_t`.
 		struct ArgDim:
 			public ThisArgs::ArgDim
-		{
-		};
+		        { };
 
 		//! Contains resource IDs for Widget callbacks of type `PtRawCallback_t`.
 		struct RawCallback:
 			public ThisCallbacks::RawCallback
-		{
-		};
+		        { };
 
 		//! Contains resource IDs for Widget callbacks of type `PtCallback_t`.
 		struct Callback:
 			public ThisCallbacks::Callback
-		{
-		};
+		        { };
 
 		//! Contains resource IDs for Widget callbacks of type `PtHotkeyCallback_t`.
 		struct HotkeyCallback:
 			public ThisCallbacks::HotkeyCallback
-		{
-		};
+		        { };
 
 		//! Contains resource IDs for all Widget arguments.
 		struct Arguments:
@@ -878,22 +861,19 @@ namespace PhWidgets
 			public ArgUnsignedLong, 
 			public ArgUnsignedShort,
 			public ArgDim
-		{
-		};
+		        { };
 
 		//! Contains resource IDs for all Widget callbacks.
 		struct Callbacks :
 			public RawCallback,
 			public Callback,
 			public HotkeyCallback
-		{
-		};
+		        { };
 
 		//! Contains flags for all Widget resources.
 		struct Flags:
 			public ThisFlags
-		{
-		};
+		        { };
 
 
 				
@@ -910,8 +890,7 @@ namespace PhWidgets
 		template<class ParentArgs>
 		struct ArgumentsEx:
 			public ParentArgs
-		{
-		};
+        { };
 
 		typedef ResourceFrom<>::
 			Define::String<ArgPChar::eArgPChar>::

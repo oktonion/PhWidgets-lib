@@ -116,8 +116,7 @@ namespace PhWidgets
         //! Contains resource IDs for Window arguments of type **short**.
 		struct ArgShort:
 			public ThisArgs::ArgShort
-		{
-		};	
+        { };	
 
         //! Contains resource IDs for Window arguments of type `PgColor_t`.
         struct ArgColor:
@@ -140,15 +139,13 @@ namespace PhWidgets
 			public ArgShort,
             public ArgColor,
 			public Disjoint::Arguments
-		{
-		};
+        { };
 
         //! Contains resource IDs for all Window callbacks.
 		struct Callbacks :
 			public Callback,
 			public Disjoint::Callbacks
-		{
-		};
+        { };
 
 	protected:
 		typedef ResourceFrom<Disjoint::WidgetResourcesSingleton>::

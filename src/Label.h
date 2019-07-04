@@ -131,8 +131,7 @@ namespace PhWidgets
 
 		struct ArgShort:
 			public ThisArgs::ArgShort
-		{
-		};	
+        { };	
 
 		struct ArgUnsignedShort:
 			public ArgumentsEx<Basic::ArgUnsignedShort>,
@@ -143,8 +142,7 @@ namespace PhWidgets
 
 		struct ArgSignedShort:
 			public ThisArgs::ArgSignedShort
-		{
-		};	
+        { };	
 
 		struct ArgUnsignedChar:
 			public ArgumentsEx<Basic::ArgUnsignedChar>,
@@ -155,8 +153,7 @@ namespace PhWidgets
 
 		struct ArgPWidget:
 			public ThisArgs::ArgPWidget
-		{
-		};	
+        { };	
 
 		struct ArgChar:
 			public ArgumentsEx<Basic::ArgChar>,
@@ -167,13 +164,11 @@ namespace PhWidgets
 
 		struct ArgPImage:
 			public ThisArgs::ArgPImage
-		{
-		};	
+        { };	
 
 		struct ArgInt:
 			public ThisArgs::ArgInt
-		{
-		};	
+        { };	
 
 
 

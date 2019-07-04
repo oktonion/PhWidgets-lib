@@ -68,8 +68,7 @@ namespace PhWidgets
 			public ArgUnsignedShort,
 			public ArgPChar,
 			public Compound::Arguments
-		{
-		};
+        { };
 
 		typedef ResourceFrom<Compound::WidgetResourcesSingleton>::
 			Define::String<ThisArgs::ArgPChar::eArgPChar>::

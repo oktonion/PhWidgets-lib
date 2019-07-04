@@ -223,18 +223,15 @@ namespace PhWidgets
 
 		struct ArgChar:
 			public ThisArgs::ArgChar
-		{
-		};
+        { };
 			
 		struct ArgPattern:
 			public ThisArgs::ArgPattern
-		{
-		};
+        { };
 			
 		struct ArgUnsignedChar:
 			public ThisArgs::ArgUnsignedChar
-		{
-		};
+        { };
 
 		struct ArgPChar:
 			public ArgumentsEx<Widget::ArgPChar>,
@@ -259,20 +256,17 @@ namespace PhWidgets
 			public ArgUnsignedChar,
 			public ArgPChar,
 			public Widget::Arguments
-		{
-		};
+        { };
 
 		struct Callbacks :
 			public Callback,
 			public Widget::Callbacks
-		{
-		};
+        { };
 
 		struct Flags:
 			public ThisFlags,
 			public Widget::Flags
-		{
-		};
+        { };
 
 	protected:
 

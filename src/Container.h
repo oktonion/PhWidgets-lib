@@ -120,23 +120,19 @@ namespace PhWidgets
 		struct ArgInt:
 			public ThisArgs::ArgInt,
 			public ThisArgs::ArgBool
-		{
-		};
+        { };
 		
 		struct ArgPFillLayoutInfo:
 			public ThisArgs::ArgPFillLayoutInfo
-		{
-		};
+        { };
 		
 		struct ArgPGridLayoutInfo:
 			public ThisArgs::ArgPGridLayoutInfo
-		{
-		};
+        { };
 		
 		struct ArgPLayoutDefinition:
 			public ThisArgs::ArgPLayoutDefinition
-		{
-		};
+        { };
 		
 		struct ArgPVoid:
 			public ArgumentsEx<Basic::ArgPVoid>,
@@ -147,8 +143,7 @@ namespace PhWidgets
 		
 		struct ArgPRowLayoutInfo:
 			public ThisArgs::ArgPRowLayoutInfo
-		{
-		};
+        { };
 
 
 		struct ArgPChar:
@@ -175,14 +170,12 @@ namespace PhWidgets
 			public ArgPRowLayoutInfo,
 			public ArgPChar,
 			public Basic::Arguments
-		{
-		};
+        { };
 
 		struct Callbacks :
 			public Callback,
 			public Basic::Callbacks
-		{
-		};
+        { };
 
 	protected:
 		typedef ResourceFrom<Basic::WidgetResourcesSingleton>::

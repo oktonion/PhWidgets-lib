@@ -45,8 +45,7 @@ namespace PhWidgets
 		
 		struct ArgComplex:
 			public ThisArgs::ArgComplex
-		{
-		};
+        { };
 
 		struct Callback :
 			public ArgumentsEx<ThisCallbacks::Callback>,
@@ -59,14 +58,12 @@ namespace PhWidgets
 		struct Arguments:
 			public ArgComplex,
 			public Label::Arguments
-		{
-		};
+        { };
 
 		struct Callbacks :
 			public Callback,
 			public Label::Callbacks
-		{
-		};
+        { };
 		
 	protected:
 		typedef ResourceFrom<Label::WidgetResourcesSingleton>::
