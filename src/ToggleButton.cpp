@@ -4,11 +4,23 @@
 
 using namespace PhWidgets;
 
-void ToggleButton::check()
+namespace PhWidgets
 {
-	if(PtWidgetIsClassMember( widget(), PtToggleButton ) != true)
-		throw(std::invalid_argument("ToggleButton: widget is not PtToggleButton."));
+    const char * WidgetClassName(PtWidget_t *wdg);
 }
+
+#define FORM_THROW_MESSAGE(xxx) (std::string(#xxx": wrong class of photon widget - got \'") + WidgetClassName(widget()) + "\' instead of \'Pt"#xxx"\'").c_str()
+#define WIDGET_IS_CLASS_MEMBER(xxx) \
+	if(PtWidgetIsClassMember( widget(), Pt##xxx ) != true)\
+		throw(std::invalid_argument(FORM_THROW_MESSAGE(xxx)));
+
+#define CHECK_WIDGET(xxx) \
+void xxx::check() \
+{ \
+	WIDGET_IS_CLASS_MEMBER(xxx); \
+}
+
+CHECK_WIDGET(ToggleButton);
 
 
 ToggleButton::ToggleButton(int abn):
