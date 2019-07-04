@@ -2,12 +2,12 @@
 #include "PhWidgetsTypes.h"
 
 #include <Pt.h>
-/*extern*/ PtWidgetClassRef_t *PtOSContainer;
-/*extern*/ PtWidgetClassRef_t *PtClient;
+extern PtWidgetClassRef_t *PtOSContainer;
+extern PtWidgetClassRef_t *PtClient;
 /*extern*/ PtWidgetClassRef_t *PtMtrend;
 /*extern*/ PtWidgetClassRef_t *PtMultitext;
 /*extern*/ PtWidgetClassRef_t *PtScrollBar;
-/*extern*/ PtWidgetClassRef_t *PtServer;
+extern PtWidgetClassRef_t *PtServer;
 /*extern*/ PtWidgetClassRef_t *PtWebClient;
 
 using namespace PhWidgets;
