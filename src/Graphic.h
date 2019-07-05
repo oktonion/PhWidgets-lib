@@ -229,7 +229,8 @@ namespace PhWidgets
 				FloatOrigin = Pt_FLOAT_ORIGIN
 			};
 		};
-			
+
+		//! Contains resource IDs for arguments of type **long**.
 		struct ArgLong:
 			public ArgumentsEx<Basic::ArgLong>,
 			public ThisArgs::ArgLong
