@@ -323,16 +323,45 @@ namespace PhWidgets
 		virtual void check();
 						
 	public:
-		WidgetResourcesSingleton resource;
-
+		//! (constructor) 
+		/*!
+			Constructs a Graphic by ID.
+			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+		*/
 		Graphic(int abn);
+
+		//! (constructor) 
+		/*!
+			Constructs a Graphic by pointer to widget.
+			@param[in] wdg pointer to Photon widget.
+		*/
 		Graphic(PtWidget_t *wdg);
 
-		Graphic(const Graphic &rhs);
+		//! (copy constructor) 
+		/*!
+			Constructs a Graphic by copy.
+			@param[in] other another Graphic to be used as source to initialize the elements of the container with.
+		*/
+		Graphic(const Graphic &other);
 
-		Graphic &operator=(const Graphic &rhs);
+		//! Assigns value in Graphic 
+		/*!
+			Replaces the contents of the Graphic.
+			@param[in] other another Graphic to use as data source.
+		*/
+		Graphic &operator=(const Graphic &other);
+
+		//! Resources of the Graphic
+		/*!
+			@see
+			- Widget::resource
+		*/
+		WidgetResourcesSingleton resource;
 		
+		//! @name Events
+		//@{
 		phwidgets_event<Graphic, Graphic::Callbacks::rescale>	Rescale;
+		//@}
 	};
 }
 
