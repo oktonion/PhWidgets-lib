@@ -27,6 +27,8 @@ CHECK_WIDGET(Window);
 Window::Window(int abn):
 	Disjoint(abn),
 	resource(this),
+	//properties:
+	Title(this),
 	//callbacks:
 	Closing(this),
     Opening(this)
@@ -37,6 +39,8 @@ Window::Window(int abn):
 Window::Window(PtWidget_t *wdg):
 	Disjoint(wdg),
 	resource(this),
+	//properties:
+	Title(this),
 	//callbacks:
 	Closing(this),
     Opening(this)
@@ -47,6 +51,8 @@ Window::Window(PtWidget_t *wdg):
 Window::Window(const Window & rhs):
 	Disjoint(rhs),
 	resource(this),
+	//properties:
+	Title(this),
 	//callbacks:
 	Closing(this),
     Opening(this)
@@ -58,6 +64,17 @@ Window &Window::operator=(const Window &rhs)
 	static_cast<Disjoint&>(*this) = static_cast<const Disjoint&>(rhs);
 	
 	return *this;
+}
+
+//for properties:
+void Window::setTitle(std::string value)
+{
+	resource[Arguments::window_title].set(value.c_str());
+}
+
+std::string Window::getTitle() const
+{
+	return resource[Arguments::window_title].get();
 }
 
 
