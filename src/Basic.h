@@ -1,5 +1,5 @@
-#ifndef PT_BASIC_H
-#define PT_BASIC_H
+#ifndef PHWIDGETS_BASIC_H
+#define PHWIDGETS_BASIC_H
 
 #include <photon/PtBasic.h>
 
@@ -615,11 +615,11 @@ namespace PhWidgets
 
 
 	
-}
+} // namespace PhWidgets
 
 cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator|(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2);
 cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator&(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2);
 cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator^(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2);
 
 
-#endif
+#endif // PHWIDGETS_BASIC_H

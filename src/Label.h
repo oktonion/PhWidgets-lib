@@ -1,5 +1,5 @@
-#ifndef PT_LABEL_H
-#define PT_LABEL_H
+#ifndef PHWIDGETS_LABEL_H
+#define PHWIDGETS_LABEL_H
 
 #include <photon/PtLabel.h>
 
@@ -250,7 +250,7 @@ namespace PhWidgets
 		//@}
 	};
 
-}
+} // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_LABEL_H

@@ -1,5 +1,5 @@
-#ifndef PT_NUMERIC_H
-#define PT_NUMERIC_H
+#ifndef PHWIDGETS_NUMERIC_H
+#define PHWIDGETS_NUMERIC_H
 
 #include <photon/PtNumeric.h>
 
@@ -90,7 +90,7 @@ namespace PhWidgets
 		
 	};
 	
-}
+} // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_NUMERIC_H

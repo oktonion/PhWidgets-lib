@@ -1,5 +1,5 @@
-#ifndef PT_CONTAINER_H
-#define PT_CONTAINER_H
+#ifndef PHWIDGETS_CONTAINER_H
+#define PHWIDGETS_CONTAINER_H
 
 #include <photon/PtContainer.h>
 #include <photon/PtFillLayout.h>
@@ -211,7 +211,7 @@ namespace PhWidgets
 		phwidgets_event<Container, Container::Callbacks::layout>				LayoutChanged;
 		phwidgets_event<Container, Container::Callbacks::resize>				Resize;
 	};
-}
+} // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_CONTAINER_H

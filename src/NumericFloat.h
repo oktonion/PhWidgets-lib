@@ -1,5 +1,5 @@
-#ifndef PT_NUMERIC_FLOAT_H
-#define PT_NUMERIC_FLOAT_H
+#ifndef PHWIDGETS_NUMERIC_FLOAT_H
+#define PHWIDGETS_NUMERIC_FLOAT_H
 
 #include <photon/PtNumericFloat.h>
 
@@ -117,7 +117,7 @@ namespace PhWidgets
 		
 	};
 
-}
+} // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_NUMERIC_FLOAT_H

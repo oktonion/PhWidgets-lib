@@ -1,5 +1,5 @@
-#ifndef WIDGET_EVENTS_H
-#define WIDGET_EVENTS_H
+#ifndef PHWIDGETS_WIDGET_EVENTS_H
+#define PHWIDGETS_WIDGET_EVENTS_H
 
 #include <photon/PhT.h>
 
@@ -31,6 +31,6 @@ namespace PhWidgets
 
 		};
 	};
-}
+} // namespace PhWidgets
 
-#endif // WIDGET_EVENTS_H
+#endif // PHWIDGETS_WIDGET_EVENTS_H

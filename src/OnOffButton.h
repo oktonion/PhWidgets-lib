@@ -1,5 +1,5 @@
-#ifndef PT_ONOFF_BUTTON_H
-#define PT_ONOFF_BUTTON_H
+#ifndef PHWIDGETS_ONOFF_BUTTON_H
+#define PHWIDGETS_ONOFF_BUTTON_H
 
 #include <photon/PtOnOffButton.h>
 
@@ -86,7 +86,7 @@ namespace PhWidgets
 		phwidgets_event<OnOffButton, OnOffButton::Callbacks::new_value>		NewValue;
 	};
 
-}
+}  // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_ONOFF_BUTTON_H

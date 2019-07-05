@@ -1,5 +1,5 @@
-#ifndef PT_TIMER_H
-#define PT_TIMER_H
+#ifndef PHWIDGETS_TIMER_H
+#define PHWIDGETS_TIMER_H
 
 
 #include <photon/PtTimer.h>
@@ -152,6 +152,6 @@ namespace PhWidgets
 
 		//! @}
 	};
-}
+} // namespace PhWidgets
 
-#endif
+#endif // PHWIDGETS_TIMER_H

@@ -1,5 +1,5 @@
-#ifndef PT_WIDGET_H
-#define PT_WIDGET_H
+#ifndef PHWIDGETS_WIDGET_H
+#define PHWIDGETS_WIDGET_H
 
 #include <photon/PhT.h>
 #include <photon/PtWidget.h>
@@ -1852,7 +1852,7 @@ namespace PhWidgets
 		>
 		anchor_flags_bitmask;
 	}
-}//namespace PhWidgets
+} // namespace PhWidgets
 
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator|(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2);
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator&(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2);
@@ -1873,4 +1873,4 @@ PhWidgets::typedefs::anchor_flags_bitmask operator^(const PhWidgets::Widget::Fla
 bool operator==(const PhArea_t &lhs, const PhArea_t &rhs);
 bool operator!=(const PhArea_t &lhs, const PhArea_t &rhs);
 
-#endif // PT_WIDGET_H
+#endif // PHWIDGETS_WIDGET_H

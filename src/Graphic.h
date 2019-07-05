@@ -1,5 +1,5 @@
-#ifndef PT_GRAPHIC_H
-#define PT_GRAPHIC_H
+#ifndef PHWIDGETS_GRAPHIC_H
+#define PHWIDGETS_GRAPHIC_H
 
 #include <photon/PtGraphic.h>
 
@@ -363,7 +363,7 @@ namespace PhWidgets
 		phwidgets_event<Graphic, Graphic::Callbacks::rescale>	Rescale;
 		//@}
 	};
-}
+} // namespace PhWidgets
 
 
-#endif // PT_GRAPHIC_H
+#endif // PHWIDGETS_GRAPHIC_H

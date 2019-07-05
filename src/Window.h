@@ -1,5 +1,5 @@
-#ifndef PT_WINDOW_H
-#define PT_WINDOW_H
+#ifndef PHWIDGETS_WINDOW_H
+#define PHWIDGETS_WINDOW_H
 
 #include <photon/PtWindow.h>
 
@@ -277,7 +277,7 @@ namespace PhWidgets
         phwidgets_event<Window, Window::Callbacks::window_opening>	Opening;
         //@}
 	};
-}
+} // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_WINDOW_H

@@ -1,5 +1,5 @@
-#ifndef PT_DISJOINT_H
-#define PT_DISJOINT_H
+#ifndef PHWIDGETS_DISJOINT_H
+#define PHWIDGETS_DISJOINT_H
 
 #include <photon/PtDisjoint.h>
 
@@ -125,7 +125,7 @@ namespace PhWidgets
 		phwidgets_event<Disjoint, Disjoint::Callbacks::sysinfo>	SysInfo;
         //@}
 	};
-}
+} // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_DISJOINT_H

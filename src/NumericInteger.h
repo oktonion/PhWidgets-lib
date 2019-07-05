@@ -1,5 +1,5 @@
-#ifndef PT_NUMERIC_INTEGER_H
-#define PT_NUMERIC_INTEGER_H
+#ifndef PHWIDGETS_NUMERIC_INTEGER_H
+#define PHWIDGETS_NUMERIC_INTEGER_H
 
 #include <photon/PtNumericInteger.h>
 
@@ -92,7 +92,7 @@ namespace PhWidgets
 	};
 	
 		
-}
+}  // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_NUMERIC_INTEGER_H

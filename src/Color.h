@@ -1,5 +1,5 @@
-#ifndef PT_COLOR_H
-#define PT_COLOR_H
+#ifndef PHWIDGETS_COLOR_H
+#define PHWIDGETS_COLOR_H
 
 #include <photon/PhT.h>
 #include <photon/PtT.h>
@@ -198,4 +198,4 @@ namespace PhWidgets
 } // namespace PhWidgets
 
 
-#endif // PT_CURSOR_H
+#endif // PHWIDGETS_COLOR_H

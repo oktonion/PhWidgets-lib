@@ -1,5 +1,5 @@
-#ifndef PT_TOGGLE_BUTTON_H
-#define PT_TOGGLE_BUTTON_H
+#ifndef PHWIDGETS_TOGGLE_BUTTON_H
+#define PHWIDGETS_TOGGLE_BUTTON_H
 
 #include <photon/PtToggleButton.h>
 
@@ -113,7 +113,7 @@ namespace PhWidgets
 		property<bool>::bind<ToggleButton, &ToggleButton::getChecked, &ToggleButton::setChecked> Checked;
 	};
 	
-}
+} // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_TOGGLE_BUTTON_H
