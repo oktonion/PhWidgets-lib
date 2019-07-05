@@ -8,7 +8,7 @@
 
 namespace PhWidgets
 {
-	//! An application window that's managed by the Photon Window Manager
+	//! An Application window that's managed by the Photon window manager
 	/*!
 		The Window class provides a top-level container for your applications' widgets. 
 		It also provides a standard appearance for all windows. 
