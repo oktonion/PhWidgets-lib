@@ -988,7 +988,7 @@ namespace PhWidgets
 		*/
 		Widget(const Widget &other);
 
-		//! Exchanges the contents of ** *this ** and other
+		//! Exchanges the contents of <b>this*</b> and other
 		/*!
 			@param[in] other widget to exchange the contents with.
 		*/

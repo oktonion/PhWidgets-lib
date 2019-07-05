@@ -8,7 +8,13 @@
 
 namespace PhWidgets
 {
-		
+	//! Superclass for disjoint widgets
+	/*!
+		Disjoint is the superclass for the Widget classes that are disjoint (i.e. are instantiated without a parent).
+
+		@see
+		- Window
+	*/	
 	class Disjoint:
 		public Container
 	{

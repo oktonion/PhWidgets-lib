@@ -93,32 +93,36 @@ namespace PhWidgets
 		//! (constructor) 
 		/*!
 			Constructs a Timer widget by ID.
-			\param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
 		*/
 		Timer(int abn);
 
 		//! (constructor) 
 		/*!
 			Constructs a Timer widget by pointer to widget.
-			\param[in] wdg pointer to Photon widget.
+			@param[in] wdg pointer to Photon widget.
 		*/
 		Timer(PtWidget_t *wdg);
 
 		//! (copy constructor) 
 		/*!
 			Constructs a Timer widget by copy.
-			\param[in] other another Timer widget to be used as source to initialize the elements of the container with.
+			@param[in] other another Timer widget to be used as source to initialize the elements of the container with.
 		*/
 		Timer(const Timer &other);
 		
 		//! Assigns value in Timer widget 
 		/*!
 			Replaces the contents of the Timer widget.
-			\param[in] other another Timer widget to use as data source.
+			@param[in] other another Timer widget to use as data source.
 		*/
 		Timer &operator=(const Timer &other);
 
-		//! Resources of the Timer widget
+		//! Resources of the Timer
+		/*!
+			@see
+			- Widget::resource
+		*/
 		WidgetResourcesSingleton resource;
 
 		using Widget::operator=;
