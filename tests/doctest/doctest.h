@@ -154,7 +154,22 @@
 #define DOCTEST_MSVC_SUPPRESS_WARNING_WITH_PUSH(w)                                                 \
     DOCTEST_MSVC_SUPPRESS_WARNING_PUSH DOCTEST_MSVC_SUPPRESS_WARNING(w)
 #define DOCTEST_GCC_SUPPRESS_WARNING_WITH_PUSH(w)
+#else
+#define DOCTEST_PRAGMA_TO_STR(x)
+#define DOCTEST_CLANG_SUPPRESS_WARNING_PUSH
+#define DOCTEST_MSVC_SUPPRESS_WARNING_PUSH 
+#define DOCTEST_GCC_SUPPRESS_WARNING_PUSH
+#define DOCTEST_CLANG_SUPPRESS_WARNING(w)
+#define DOCTEST_MSVC_SUPPRESS_WARNING(w) 
+#define DOCTEST_GCC_SUPPRESS_WARNING(w)
+#define DOCTEST_CLANG_SUPPRESS_WARNING_POP
+#define DOCTEST_MSVC_SUPPRESS_WARNING_POP 
+#define DOCTEST_GCC_SUPPRESS_WARNING_POP
+#define DOCTEST_CLANG_SUPPRESS_WARNING_WITH_PUSH(w)
+#define DOCTEST_MSVC_SUPPRESS_WARNING_WITH_PUSH(w)
+#define DOCTEST_GCC_SUPPRESS_WARNING_WITH_PUSH(w)
 #endif // different compilers - warning suppression macros
+
 
 #ifndef DOCTEST_CLANG_HAS_WARNING
 #define DOCTEST_CLANG_HAS_WARNING(x) 1
@@ -459,10 +474,16 @@ DOCTEST_CLANG_SUPPRESS_WARNING("-Wc++98-compat-pedantic")
 #define DOCTEST_NOINLINE __declspec(noinline)
 #define DOCTEST_UNUSED
 #define DOCTEST_ALIGNMENT(x)
-#else // MSVC
+#elif ( DOCTEST_CLANG || DOCTEST_GCC )
 #define DOCTEST_NOINLINE __attribute__((noinline))
 #define DOCTEST_UNUSED __attribute__((unused))
 #define DOCTEST_ALIGNMENT(x) __attribute__((aligned(x)))
+#elif defined(__BORLANDC__)
+#define DOCTEST_NOINLINE 
+#define DOCTEST_UNUSED 
+#define DOCTEST_ALIGNMENT(x)
+#else
+#error ""
 #endif // MSVC
 
 #ifndef DOCTEST_CONFIG_NUM_CAPTURES_ON_STACK
@@ -669,7 +690,7 @@ class DOCTEST_INTERFACE String
 
     union
     {
-        char buf[len];
+        char buf[24];
         view data;
     };
 
@@ -693,6 +714,10 @@ public:
             delete[] data.ptr;
     }
 
+    #if defined(__BORLANDC__)
+#pragma option push
+#pragma option -vi-
+#endif
     // GCC 4.9/5/6 report Wstrict-overflow when optimizations are ON and it got inlined in the vector class somewhere...
     // see commit 574ef95f0cd379118be5011704664e4b5351f1e0 and build https://travis-ci.org/onqtam/doctest/builds/230671611
     DOCTEST_NOINLINE String& operator=(const String& other) {
@@ -705,6 +730,9 @@ public:
 
         return *this;
     }
+    #if defined(__BORLANDC__)
+#pragma option pop
+#endif
     String& operator+=(const String& other);
 
     String operator+(const String& other) const { return String(*this) += other; }
@@ -1248,7 +1276,7 @@ namespace detail
     // clang-format off
     template<class T>               struct decay_array       { typedef T type; };
     template<class T, unsigned N>   struct decay_array<T[N]> { typedef T* type; };
-    template<class T>               struct decay_array<T[]>  { typedef T* type; };
+    //template<class T>               struct decay_array<T[]>  { typedef T* type; };
 
     template<class T>   struct not_char_pointer              { enum { value = 1 }; };
     template<>          struct not_char_pointer<char*>       { enum { value = 0 }; };
@@ -1313,6 +1341,10 @@ namespace detail
         String m_decomposition;
 
         ~Result();
+        #if defined(__BORLANDC__)
+#pragma option push
+#pragma option -vi-
+#endif
 
         DOCTEST_NOINLINE Result(bool passed = false, const String& decomposition = String())
                 : m_passed(passed)
@@ -1321,6 +1353,10 @@ namespace detail
         DOCTEST_NOINLINE Result(const Result& other)
                 : m_passed(other.m_passed)
                 , m_decomposition(other.m_decomposition) {}
+
+        #if defined(__BORLANDC__)
+#pragma option pop
+#endif
 
         Result& operator=(const Result& other);
 
@@ -1424,7 +1460,7 @@ namespace detail
         if(!res || doctest::detail::getTestsContextState()->success)                               \
             return Result(res, stringifyBinaryExpr(lhs, op_str, rhs));                             \
         return Result(res);                                                                        \
-    }
+    }                                                                                              
 
 #define DOCTEST_FORBIT_EXPRESSION(op)                                                              \
     template <typename R>                                                                          \
@@ -1445,6 +1481,11 @@ namespace detail
                 : lhs(in)
                 , m_assert_type(at) {}
 
+        #if defined(__BORLANDC__)
+#pragma option push
+#pragma option -vi-
+#endif
+
         DOCTEST_NOINLINE operator Result() {
             bool res = !!lhs;
             if(m_assert_type & assertType::is_false) //!OCLINT bitwise operator in conditional
@@ -1455,13 +1496,25 @@ namespace detail
             return Result(res);
         }
 
+        #if defined(__BORLANDC__)
+#pragma option pop
+#endif
+
         // clang-format off
+#if defined(__BORLANDC__)
+#pragma option push
+#pragma option -vi-
+#endif
         DOCTEST_DO_BINARY_EXPRESSION_COMPARISON(==, " == ", DOCTEST_CMP_EQ) //!OCLINT bitwise operator in conditional
         DOCTEST_DO_BINARY_EXPRESSION_COMPARISON(!=, " != ", DOCTEST_CMP_NE) //!OCLINT bitwise operator in conditional
         DOCTEST_DO_BINARY_EXPRESSION_COMPARISON(>,  " >  ", DOCTEST_CMP_GT) //!OCLINT bitwise operator in conditional
         DOCTEST_DO_BINARY_EXPRESSION_COMPARISON(<,  " <  ", DOCTEST_CMP_LT) //!OCLINT bitwise operator in conditional
         DOCTEST_DO_BINARY_EXPRESSION_COMPARISON(>=, " >= ", DOCTEST_CMP_GE) //!OCLINT bitwise operator in conditional
         DOCTEST_DO_BINARY_EXPRESSION_COMPARISON(<=, " <= ", DOCTEST_CMP_LE) //!OCLINT bitwise operator in conditional
+
+#if defined(__BORLANDC__)
+#pragma option pop
+#endif
         // clang-format on
 
         // forbidding some expressions based on this table: http://en.cppreference.com/w/cpp/language/operator_precedence
@@ -1535,8 +1588,17 @@ namespace detail
         TestCase(funcType test, const char* file, unsigned line, const TestSuite& test_suite,
                  const char* type = "", int template_id = -1);
 
+        #if defined(__BORLANDC__)
+#pragma option push
+#pragma option -vi-
+#endif
+
         // for gcc 4.7
         DOCTEST_NOINLINE ~TestCase() {}
+
+        #if defined(__BORLANDC__)
+#pragma option pop
+#endif
 
         TestCase& operator*(const char* in);
 
@@ -1601,6 +1663,11 @@ namespace detail
 
         void setResult(const Result& res) { m_result = res; }
 
+        #if defined(__BORLANDC__)
+#pragma option push
+#pragma option -vi-
+#endif
+
         template <int comparison, typename L, typename R>
         DOCTEST_NOINLINE void binary_assert(const DOCTEST_REF_WRAP(L) lhs,
                                             const DOCTEST_REF_WRAP(R) rhs) {
@@ -1620,6 +1687,10 @@ namespace detail
                 m_result.m_decomposition = toString(val);
         }
 
+        #if defined(__BORLANDC__)
+#pragma option pop
+#endif
+
         void unexpectedExceptionOccurred();
 
         bool log();
@@ -1635,6 +1706,11 @@ namespace detail
             shouldthrow = 2
         };
     } // namespace assertAction
+
+    #if defined(__BORLANDC__)
+#pragma option push
+#pragma option -vi-
+#endif
 
     template <int comparison, typename L, typename R>
     DOCTEST_NOINLINE int fast_binary_assert(assertType::Enum at, const char* file, int line,
@@ -1701,6 +1777,9 @@ namespace detail
 
         return res;
     }
+    #if defined(__BORLANDC__)
+#pragma option pop
+#endif
 
     struct DOCTEST_INTERFACE IExceptionTranslator
     {
@@ -1861,6 +1940,11 @@ namespace detail
         }
         DOCTEST_GCC_SUPPRESS_WARNING_POP
 
+        #if defined(__BORLANDC__)
+#pragma option push
+#pragma option -vi-
+#endif
+
         // steal the contents of the other - acting as a move constructor...
         DOCTEST_NOINLINE ContextBuilder(ContextBuilder& other)
                 : numCaptures(other.numCaptures)
@@ -1872,10 +1956,19 @@ namespace detail
             my_memcpy(stackChunks, other.stackChunks,
                       unsigned(int(sizeof(Chunk)) * DOCTEST_CONFIG_NUM_CAPTURES_ON_STACK));
         }
+        #if defined(__BORLANDC__)
+#pragma option pop
+#endif
 
         ContextBuilder& operator=(const ContextBuilder&); // NOLINT
 
     public:
+
+        #if defined(__BORLANDC__)
+#pragma option push
+#pragma option -vi-
+#endif
+
         // cppcheck-suppress uninitMemberVar
         DOCTEST_NOINLINE ContextBuilder() // NOLINT
                 : numCaptures(0)
@@ -1917,6 +2010,10 @@ namespace detail
             }
         }
 
+        #if defined(__BORLANDC__)
+#pragma option pop
+#endif
+
 #ifdef DOCTEST_CONFIG_WITH_RVALUE_REFERENCES
         template <typename T>
         ContextBuilder& operator<<(const T&&) {
@@ -1933,6 +2030,11 @@ namespace detail
         ContextBuilder contextBuilder;
 
     public:
+        #if defined(__BORLANDC__)
+#pragma option push
+#pragma option -vi-
+#endif
+
         DOCTEST_NOINLINE explicit ContextScope(ContextBuilder& temp)
                 : contextBuilder(temp) {
             addToContexts(this);
@@ -1942,6 +2044,10 @@ namespace detail
             useContextIfExceptionOccurred(this);
             popFromContexts();
         }
+
+        #if defined(__BORLANDC__)
+#pragma option pop
+#endif
 
         void build(std::ostream* s) { contextBuilder.build(s); }
     };
@@ -2082,6 +2188,7 @@ public:
 
 } // namespace doctest
 
+
 // if registering is not disabled
 #if !defined(DOCTEST_CONFIG_DISABLE)
 
@@ -2114,8 +2221,8 @@ public:
             v.f();                                                                                 \
         }                                                                                          \
         DOCTEST_REGISTER_FUNCTION(func, decorators)                                                \
-    }                                                                                              \
-    inline DOCTEST_NOINLINE void der::f()
+    }                                                                                              \                                                                   \
+    inline DOCTEST_NOINLINE void der::f()                                                          
 
 #define DOCTEST_CREATE_AND_REGISTER_FUNCTION(f, decorators)                                        \
     static void f();                                                                               \
@@ -2255,7 +2362,7 @@ public:
     namespace ns_name                                                                              \
     {                                                                                              \
         namespace doctest_detail_test_suite_ns                                                     \
-        {                                                                                          \
+        {                                                                                          \                                                                \
             static DOCTEST_NOINLINE doctest::detail::TestSuite& getCurrentTestSuite() {            \
                 static doctest::detail::TestSuite data;                                            \
                 static bool                       inited = false;                                  \
@@ -2264,7 +2371,7 @@ public:
                     inited = true;                                                                 \
                 }                                                                                  \
                 return data;                                                                       \
-            }                                                                                      \
+            }                                                                                      \                                                                  \
         }                                                                                          \
     }                                                                                              \
     namespace ns_name
@@ -3581,67 +3688,67 @@ String toString(double long in) { return detail::fpToString(in, 15); }
 String toString(char in) {
     char buf[64];
     std::sprintf(buf, "%d", in);
-    return buf;
+    return &buf[0];
 }
 
 String toString(char signed in) {
     char buf[64];
     std::sprintf(buf, "%d", in);
-    return buf;
+    return &buf[0];
 }
 
 String toString(char unsigned in) {
     char buf[64];
     std::sprintf(buf, "%ud", in);
-    return buf;
+    return &buf[0];
 }
 
 String toString(int short in) {
     char buf[64];
     std::sprintf(buf, "%d", in);
-    return buf;
+    return &buf[0];
 }
 
 String toString(int short unsigned in) {
     char buf[64];
     std::sprintf(buf, "%u", in);
-    return buf;
+    return &buf[0];
 }
 
 String toString(int in) {
     char buf[64];
     std::sprintf(buf, "%d", in);
-    return buf;
+    return &buf[0];
 }
 
 String toString(int unsigned in) {
     char buf[64];
     std::sprintf(buf, "%u", in);
-    return buf;
+    return &buf[0];
 }
 
 String toString(int long in) {
     char buf[64];
     std::sprintf(buf, "%ld", in);
-    return buf;
+    return &buf[0];
 }
 
 String toString(int long unsigned in) {
     char buf[64];
     std::sprintf(buf, "%lu", in);
-    return buf;
+    return &buf[0];
 }
 
 #ifdef DOCTEST_CONFIG_WITH_LONG_LONG
 String toString(int long long in) {
     char buf[64];
     std::sprintf(buf, "%lld", in);
-    return buf;
+    return &buf[0];
 }
 String toString(int long long unsigned in) {
     char buf[64];
     std::sprintf(buf, "%llu", in);
-    return buf;
+    return &buf[0];
 }
 #endif // DOCTEST_CONFIG_WITH_LONG_LONG
 
@@ -5464,7 +5571,11 @@ int Context::run() {
 #endif // DOCTEST_CONFIG_DISABLE
 
 #ifdef DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-int main(int argc, char** argv) { return doctest::Context(argc, argv).run(); }
+int main(int argc, char** argv)
+{
+    const char* argv_c = *argv;
+    return doctest::Context(argc, &argv_c).run();
+}
 #endif // DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
 DOCTEST_CLANG_SUPPRESS_WARNING_POP
@@ -5473,3 +5584,4 @@ DOCTEST_GCC_SUPPRESS_WARNING_POP
 
 #endif // DOCTEST_LIBRARY_IMPLEMENTATION
 #endif // DOCTEST_CONFIG_IMPLEMENT
+
