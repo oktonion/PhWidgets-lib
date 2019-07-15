@@ -3688,7 +3688,7 @@ String toString(double long in) { return detail::fpToString(in, 15); }
 String toString(char in) {
     char buf[64];
     std::sprintf(buf, "%d", in);
-    return Stringbuf[0];
+    return &buf[0];
 }
 
 String toString(char signed in) {
