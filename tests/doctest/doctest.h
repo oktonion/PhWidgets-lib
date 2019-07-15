@@ -678,7 +678,7 @@ namespace doctest
 // - relational operators as free functions - taking const char* as one of the params
 class DOCTEST_INTERFACE String
 {
-    static const unsigned len  = 44;      //!OCLINT avoid private static members
+    static const unsigned len  = 24;      //!OCLINT avoid private static members
     static const unsigned last = len - 1; //!OCLINT avoid private static members
 
     struct view // len should be more than sizeof(view) - because of the final byte for flags
@@ -690,7 +690,7 @@ class DOCTEST_INTERFACE String
 
     union
     {
-        char buf[44];
+        char buf[24];
         view data;
     };
 
@@ -3688,67 +3688,67 @@ String toString(double long in) { return detail::fpToString(in, 15); }
 String toString(char in) {
     char buf[64];
     std::sprintf(buf, "%d", in);
-    return String(buf);
+    return Stringbuf[0];
 }
 
 String toString(char signed in) {
     char buf[64];
     std::sprintf(buf, "%d", in);
-    return String(buf);
+    return &buf[0];
 }
 
 String toString(char unsigned in) {
     char buf[64];
     std::sprintf(buf, "%ud", in);
-    return String(buf);
+    return &buf[0];
 }
 
 String toString(int short in) {
     char buf[64];
     std::sprintf(buf, "%d", in);
-    return String(buf);
+    return &buf[0];
 }
 
 String toString(int short unsigned in) {
     char buf[64];
     std::sprintf(buf, "%u", in);
-    return String(buf);
+    return &buf[0];
 }
 
 String toString(int in) {
     char buf[64];
     std::sprintf(buf, "%d", in);
-    return String(buf);
+    return &buf[0];
 }
 
 String toString(int unsigned in) {
     char buf[64];
     std::sprintf(buf, "%u", in);
-    return String(buf);
+    return &buf[0];
 }
 
 String toString(int long in) {
     char buf[64];
     std::sprintf(buf, "%ld", in);
-    return String(buf);
+    return &buf[0];
 }
 
 String toString(int long unsigned in) {
     char buf[64];
     std::sprintf(buf, "%lu", in);
-    return String(buf);
+    return &buf[0];
 }
 
 #ifdef DOCTEST_CONFIG_WITH_LONG_LONG
 String toString(int long long in) {
     char buf[64];
     std::sprintf(buf, "%lld", in);
-    return String(buf);
+    return &buf[0];
 }
 String toString(int long long unsigned in) {
     char buf[64];
     std::sprintf(buf, "%llu", in);
-    return String(buf);
+    return &buf[0];
 }
 #endif // DOCTEST_CONFIG_WITH_LONG_LONG
 
@@ -5573,8 +5573,8 @@ int Context::run() {
 #ifdef DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 int main(int argc, char** argv)
 {
-    const char* argv_c = *argv;
-    return doctest::Context(argc, argv).run();
+    const char* const *argv_c = argv;
+    return doctest::Context(argc, argv_c).run();
 }
 #endif // DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
