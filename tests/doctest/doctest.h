@@ -5574,7 +5574,7 @@ int Context::run() {
 int main(int argc, char** argv)
 {
     const char* argv_c = *argv;
-    return doctest::Context(argc, &argv_c).run();
+    return doctest::Context(argc, argv).run();
 }
 #endif // DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
