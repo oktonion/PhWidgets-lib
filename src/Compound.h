@@ -1,5 +1,5 @@
-#ifndef PT_COMPOUND_H
-#define PT_COMPOUND_H
+#ifndef PHWIDGETS_COMPOUND_H
+#define PHWIDGETS_COMPOUND_H
 
 #include <photon/PtCompound.h>
 
@@ -28,7 +28,7 @@ namespace PhWidgets
 		
 	};
 		
-}
+} // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_COMPOUND_H

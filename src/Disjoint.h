@@ -1,5 +1,5 @@
-#ifndef PT_DISJOINT_H
-#define PT_DISJOINT_H
+#ifndef PHWIDGETS_DISJOINT_H
+#define PHWIDGETS_DISJOINT_H
 
 #include <photon/PtDisjoint.h>
 
@@ -8,7 +8,13 @@
 
 namespace PhWidgets
 {
-		
+	//! Superclass for disjoint widgets
+	/*!
+		Disjoint is the superclass for the Widget classes that are disjoint (i.e. are instantiated without a parent).
+
+		@see
+		- Window
+	*/	
 	class Disjoint:
 		public Container
 	{
@@ -119,7 +125,7 @@ namespace PhWidgets
 		phwidgets_event<Disjoint, Disjoint::Callbacks::sysinfo>	SysInfo;
         //@}
 	};
-}
+} // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_DISJOINT_H

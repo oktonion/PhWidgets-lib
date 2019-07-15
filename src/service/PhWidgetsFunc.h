@@ -1,5 +1,5 @@
-#ifndef PT_PH_WIDGETS_FUNC_H
-#define PT_PH_WIDGETS_FUNC_H
+#ifndef PHWIDGETS_PH_WIDGETS_FUNC_H
+#define PHWIDGETS_PH_WIDGETS_FUNC_H
 
 #include <photon/PtWidget.h>
 

@@ -1,5 +1,5 @@
-#ifndef PT_TEXT_H
-#define PT_TEXT_H
+#ifndef PHWIDGETS_TEXT_H
+#define PHWIDGETS_TEXT_H
 
 #include <photon/PtText.h>
 
@@ -92,7 +92,7 @@ namespace PhWidgets
 		phwidgets_event<Text, Text::Callbacks::text_changed> 	TextChanged;
 	};
 	
-}
+}  // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_TEXT_H

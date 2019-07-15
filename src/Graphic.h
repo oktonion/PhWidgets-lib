@@ -1,5 +1,5 @@
-#ifndef PT_GRAPHIC_H
-#define PT_GRAPHIC_H
+#ifndef PHWIDGETS_GRAPHIC_H
+#define PHWIDGETS_GRAPHIC_H
 
 #include <photon/PtGraphic.h>
 
@@ -8,27 +8,23 @@
 
 namespace PhWidgets
 {
-	//! A superclass of basic resources for most widgets
+	//! Common resources for graphical widgets
 	/*!
-		The Basic superclass provides basic resources for all widgets. It provides the fundamental events for:
+		The Graphic superclass provides the common resources used by all graphic widgets. 
+		Graphical widgets provide attributes for color, fills, patterns, line thickness, joins, and much more.
 
-		getting/losing focus
-		activating
-		button press, release, and repeat
+		@remark
+		When you want to incorporate simple, static drawings in your interface, use the subclasses of Graphic. 
 
-		Also, Basic supports:
-
-			toggle buttons
-			autohighlighting
-
-		and provides properties for:
-
-			margins
-			bevel colors
-			outline and inline colors
-			draw color
-			fill color
-			fill pattern.
+		@see
+		- Arc
+		- Bezier
+		- Ellipse
+		- Grid
+		- Line
+		- Pixel
+		- Polygon
+		- Rect
 	*/	
 	class Graphic:
 		public Basic
@@ -233,7 +229,8 @@ namespace PhWidgets
 				FloatOrigin = Pt_FLOAT_ORIGIN
 			};
 		};
-			
+
+		//! Contains resource IDs for arguments of type **long**.
 		struct ArgLong:
 			public ArgumentsEx<Basic::ArgLong>,
 			public ThisArgs::ArgLong
@@ -326,18 +323,47 @@ namespace PhWidgets
 		virtual void check();
 						
 	public:
-		WidgetResourcesSingleton resource;
-
+		//! (constructor) 
+		/*!
+			Constructs a Graphic by ID.
+			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+		*/
 		Graphic(int abn);
+
+		//! (constructor) 
+		/*!
+			Constructs a Graphic by pointer to widget.
+			@param[in] wdg pointer to Photon widget.
+		*/
 		Graphic(PtWidget_t *wdg);
 
-		Graphic(const Graphic &rhs);
+		//! (copy constructor) 
+		/*!
+			Constructs a Graphic by copy.
+			@param[in] other another Graphic to be used as source to initialize the elements of the container with.
+		*/
+		Graphic(const Graphic &other);
 
-		Graphic &operator=(const Graphic &rhs);
+		//! Assigns value in Graphic 
+		/*!
+			Replaces the contents of the Graphic.
+			@param[in] other another Graphic to use as data source.
+		*/
+		Graphic &operator=(const Graphic &other);
+
+		//! Resources of the Graphic
+		/*!
+			@see
+			- Widget::resource
+		*/
+		WidgetResourcesSingleton resource;
 		
+		//! @name Events
+		//@{
 		phwidgets_event<Graphic, Graphic::Callbacks::rescale>	Rescale;
+		//@}
 	};
-}
+} // namespace PhWidgets
 
 
-#endif // PT_GRAPHIC_H
+#endif // PHWIDGETS_GRAPHIC_H

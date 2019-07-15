@@ -1,5 +1,5 @@
-#ifndef PT_BUTTON_H
-#define PT_BUTTON_H
+#ifndef PHWIDGETS_BUTTON_H
+#define PHWIDGETS_BUTTON_H
 
 #include <photon/PtButton.h>
 
@@ -97,7 +97,7 @@ namespace PhWidgets
 		phproperty<PgColor_t>::bind<Button, ArgColor::eArgColor, Arguments::arm_color> ArmColor;
 	};
 
-}
+} // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_BUTTON_H
