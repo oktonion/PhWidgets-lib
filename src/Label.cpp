@@ -70,7 +70,7 @@ void Label::setCaption(std::string caption)
 	resource.argument[Arguments::text_string].set(caption.c_str());
 }
 
-FontDef Label::getFont() const
+Drawing::Font Label::getFont() const
 {
 	const char *text_font = resource.argument[Arguments::text_font].get();
 
@@ -82,7 +82,7 @@ FontDef Label::getFont() const
 	return fid;
 }
 
-void Label::setFont(FontDef fdef)
+void Label::setFont(Drawing::Font fdef)
 {
 	resource.argument[Arguments::text_font].set(fdef.Name.c_str());
 }

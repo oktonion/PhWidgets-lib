@@ -203,8 +203,8 @@ namespace PhWidgets
 		std::string getCaption() const;
 		void setCaption(std::string);
 
-		FontDef getFont() const;
-		void setFont(FontDef);
+		Drawing::Font getFont() const;
+		void setFont(Drawing::Font);
 
 		virtual void check();
 						
@@ -227,9 +227,9 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			> FontDef
+			> Font
 
-			The FontDef to apply to the text displayed by the widget. The default is the value of the DefaultFont property.
+			The Font to apply to the text displayed by the widget. The default is the value of the DefaultFont property.
 			
 			@remark
 			The Font property is an ambient property. 
@@ -237,14 +237,14 @@ namespace PhWidgets
 			For example, a Button will have the same BackColor as its parent PhWidgets::Window by default. 
 			@par
 			Because the Font is immutable (meaning that you cannot adjust any of its properties), 
-			you can only assign the Font property a new FontDef. However, you can base the new font on the existing font. 
+			you can only assign the Font property a new Font. However, you can base the new font on the existing font. 
 
 			@see
 			- FontChanged
 			- OnFontChanged(PtCallbackInfo_t*)
-			- FontDef
+			- Font
 		*/
-		property<FontDef>::bind<Label, &Label::getFont, &Label::setFont> Font;
+		property<Drawing::Font>::bind<Label, &Label::getFont, &Label::setFont> Font;
 
 		phproperty<PgColor_t>::bind<Label, ArgColor::eArgColor, Arguments::balloon_color> BalloonColor;
 		//@}
