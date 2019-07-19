@@ -5,13 +5,13 @@
 #include <Font.h>
 
 
-TEST_CASE("Testing FontDef class"){
+TEST_CASE("Testing Font class"){
 
     using namespace PhWidgets;
     
-    CHECK_THROWS(FontDef fd(0)); // should throw std::invalid_argument
+    CHECK_THROWS(Font fd(0)); // should throw std::invalid_argument
 
-    FontDef fd(GenericFontFamilies::Serif, 10);
+    Font fd(GenericFontFamilies::Serif, 10);
 
     CHECK(fd.Name != "");
     CHECK(fd.Size == 10);
@@ -19,9 +19,9 @@ TEST_CASE("Testing FontDef class"){
     CHECK(fd.Bold == false);
     CHECK(fd.Family == GenericFontFamilies::Serif);
 
-    SUBCASE("Testing copy of FontDef"){
+    SUBCASE("Testing copy of Font"){
 
-        FontDef fd2 = fd;
+        Font fd2 = fd;
 
         CHECK("" != fd2.Name);
         CHECK(10 == fd2.Size);
@@ -32,9 +32,9 @@ TEST_CASE("Testing FontDef class"){
         CHECK((fd < fd2) == false);
     }
 
-    SUBCASE("Testing other FontDef"){
+    SUBCASE("Testing other Font"){
 
-        FontDef fd2(GenericFontFamilies::Serif, 13, FontStyle::Bold | FontStyle::Italic);
+        Font fd2(GenericFontFamilies::Serif, 13, FontStyle::Bold | FontStyle::Italic);
 
         CHECK("" != fd2.Name);
         CHECK(13 == fd2.Size);
