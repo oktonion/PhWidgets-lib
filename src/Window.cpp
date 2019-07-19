@@ -5,16 +5,30 @@
 
 using namespace PhWidgets;
 
-void Window::check()
+namespace PhWidgets
 {
-	if(PtWidgetIsClassMember( widget(), PtWindow ) != true)
-		throw(std::invalid_argument("Window: widget is not PtWindow."));
+    const char * WidgetClassName(PtWidget_t *wdg);
 }
+
+#define FORM_THROW_MESSAGE(xxx) (std::string(#xxx": wrong class of photon widget - got \'") + WidgetClassName(widget()) + "\' instead of \'Pt"#xxx"\'").c_str()
+#define WIDGET_IS_CLASS_MEMBER(xxx) \
+	if(PtWidgetIsClassMember( widget(), Pt##xxx ) != true)\
+		throw(std::invalid_argument(FORM_THROW_MESSAGE(xxx)));
+
+#define CHECK_WIDGET(xxx) \
+void xxx::check() \
+{ \
+	WIDGET_IS_CLASS_MEMBER(xxx); \
+}
+
+CHECK_WIDGET(Window);
 
 
 Window::Window(int abn):
 	Disjoint(abn),
 	resource(this),
+	//properties:
+	Title(this),
 	//callbacks:
 	Closing(this),
     Opening(this)
@@ -25,6 +39,8 @@ Window::Window(int abn):
 Window::Window(PtWidget_t *wdg):
 	Disjoint(wdg),
 	resource(this),
+	//properties:
+	Title(this),
 	//callbacks:
 	Closing(this),
     Opening(this)
@@ -35,6 +51,8 @@ Window::Window(PtWidget_t *wdg):
 Window::Window(const Window & rhs):
 	Disjoint(rhs),
 	resource(this),
+	//properties:
+	Title(this),
 	//callbacks:
 	Closing(this),
     Opening(this)
@@ -46,6 +64,17 @@ Window &Window::operator=(const Window &rhs)
 	static_cast<Disjoint&>(*this) = static_cast<const Disjoint&>(rhs);
 	
 	return *this;
+}
+
+//for properties:
+void Window::setTitle(std::string value)
+{
+	resource[Arguments::window_title].set(value.c_str());
+}
+
+std::string Window::getTitle() const
+{
+	return resource[Arguments::window_title].get();
 }
 
 

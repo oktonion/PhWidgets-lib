@@ -1,6 +1,6 @@
 
-#ifndef PT_FONT_H
-#define PT_FONT_H
+#ifndef PHWIDGETS_FONT_H
+#define PHWIDGETS_FONT_H
 
 #include "./service/property.hpp"
 #include "./service/bitmask.hpp"
@@ -372,10 +372,10 @@ namespace PhWidgets
     bool operator==(const GenericFontFamilies::eGenericFontFamilies &lhs, const FontFamily &rhs);
     bool operator!=(const GenericFontFamilies::eGenericFontFamilies &lhs, const FontFamily &rhs);
     bool operator<(const GenericFontFamilies::eGenericFontFamilies &lhs, const FontFamily &rhs);
-} // PhWidgets
+} // namespace PhWidgets
 
 PhWidgets::typedefs::font_style_bitmask operator|(const PhWidgets::FontStyle::eFontStyle &flag1, const PhWidgets::FontStyle::eFontStyle &flag2);
 PhWidgets::typedefs::font_style_bitmask operator&(const PhWidgets::FontStyle::eFontStyle &flag1, const PhWidgets::FontStyle::eFontStyle &flag2);
 PhWidgets::typedefs::font_style_bitmask operator^(const PhWidgets::FontStyle::eFontStyle &flag1, const PhWidgets::FontStyle::eFontStyle &flag2);
 
-#endif // PT_FONT_H
+#endif // PHWIDGETS_FONT_H

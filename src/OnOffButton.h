@@ -1,5 +1,5 @@
-#ifndef PT_ONOFF_BUTTON_H
-#define PT_ONOFF_BUTTON_H
+#ifndef PHWIDGETS_ONOFF_BUTTON_H
+#define PHWIDGETS_ONOFF_BUTTON_H
 
 #include <photon/PtOnOffButton.h>
 
@@ -38,8 +38,7 @@ namespace PhWidgets
 		
 		struct ArgBool:
 			public ThisArgs::ArgBool
-		{
-		};
+        { };
 
 		struct Callback :
 			public ArgumentsEx<ThisCallbacks::Callback>,
@@ -52,14 +51,12 @@ namespace PhWidgets
 		struct Arguments:
 			public Button::Arguments,
 			public ArgBool
-		{
-		};
+        { };
 
 		struct Callbacks :
 			public Callback,
 			public Button::Callbacks
-		{
-		};
+        { };
 		
 	protected:
 		typedef ResourceFrom<Button::WidgetResourcesSingleton>::
@@ -89,7 +86,7 @@ namespace PhWidgets
 		phwidgets_event<OnOffButton, OnOffButton::Callbacks::new_value>		NewValue;
 	};
 
-}
+}  // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_ONOFF_BUTTON_H

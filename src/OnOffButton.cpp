@@ -5,11 +5,23 @@
 
 using namespace PhWidgets;
 
-void OnOffButton::check()
+namespace PhWidgets
 {
-	if(PtWidgetIsClassMember( widget(), PtOnOffButton ) != true)
-		throw(std::invalid_argument("OnOffButton: widget is not PtOnOffButton."));
+    const char * WidgetClassName(PtWidget_t *wdg);
 }
+
+#define FORM_THROW_MESSAGE(xxx) (std::string(#xxx": wrong class of photon widget - got \'") + WidgetClassName(widget()) + "\' instead of \'Pt"#xxx"\'").c_str()
+#define WIDGET_IS_CLASS_MEMBER(xxx) \
+	if(PtWidgetIsClassMember( widget(), Pt##xxx ) != true)\
+		throw(std::invalid_argument(FORM_THROW_MESSAGE(xxx)));
+
+#define CHECK_WIDGET(xxx) \
+void xxx::check() \
+{ \
+	WIDGET_IS_CLASS_MEMBER(xxx); \
+}
+
+CHECK_WIDGET(OnOffButton);
 
 OnOffButton::OnOffButton(int abn):
 	Button(abn),

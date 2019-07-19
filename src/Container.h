@@ -1,5 +1,5 @@
-#ifndef PT_CONTAINER_H
-#define PT_CONTAINER_H
+#ifndef PHWIDGETS_CONTAINER_H
+#define PHWIDGETS_CONTAINER_H
 
 #include <photon/PtContainer.h>
 #include <photon/PtFillLayout.h>
@@ -120,23 +120,19 @@ namespace PhWidgets
 		struct ArgInt:
 			public ThisArgs::ArgInt,
 			public ThisArgs::ArgBool
-		{
-		};
+        { };
 		
 		struct ArgPFillLayoutInfo:
 			public ThisArgs::ArgPFillLayoutInfo
-		{
-		};
+        { };
 		
 		struct ArgPGridLayoutInfo:
 			public ThisArgs::ArgPGridLayoutInfo
-		{
-		};
+        { };
 		
 		struct ArgPLayoutDefinition:
 			public ThisArgs::ArgPLayoutDefinition
-		{
-		};
+        { };
 		
 		struct ArgPVoid:
 			public ArgumentsEx<Basic::ArgPVoid>,
@@ -147,8 +143,7 @@ namespace PhWidgets
 		
 		struct ArgPRowLayoutInfo:
 			public ThisArgs::ArgPRowLayoutInfo
-		{
-		};
+        { };
 
 
 		struct ArgPChar:
@@ -159,8 +154,8 @@ namespace PhWidgets
 		};	
 
 		struct Callback:
-			public ArgumentsEx<ThisCallbacks::Callback>,
-			public Basic::Callback
+			public ArgumentsEx<Basic::Callback>,
+			public ThisCallbacks::Callback
 		{
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
@@ -175,19 +170,17 @@ namespace PhWidgets
 			public ArgPRowLayoutInfo,
 			public ArgPChar,
 			public Basic::Arguments
-		{
-		};
+        { };
 
 		struct Callbacks :
 			public Callback,
 			public Basic::Callbacks
-		{
-		};
+        { };
 
 	protected:
 		typedef ResourceFrom<Basic::WidgetResourcesSingleton>::
 			Define::String<ThisArgs::ArgPChar::eArgPChar>::
-			//Define::Boolean<ThisArgs::ArgInt::eArgBool, bool>:: // not implemented
+			Define::Boolean<ThisArgs::ArgBool::eArgBool, bool>::
 			Define::Scalar<ThisArgs::ArgInt::eArgInt, int>::
 			Define::Struct<ThisArgs::ArgPFillLayoutInfo::eArgPFillLayoutInfo, PtFillLayoutInfo_t>::
 			Define::Struct<ThisArgs::ArgPGridLayoutInfo::eArgPGridLayoutInfo, PtGridLayoutInfo_t>::
@@ -218,7 +211,7 @@ namespace PhWidgets
 		phwidgets_event<Container, Container::Callbacks::layout>				LayoutChanged;
 		phwidgets_event<Container, Container::Callbacks::resize>				Resize;
 	};
-}
+} // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_CONTAINER_H

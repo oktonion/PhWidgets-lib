@@ -1,5 +1,5 @@
-#ifndef PT_NUMERIC_FLOAT_H
-#define PT_NUMERIC_FLOAT_H
+#ifndef PHWIDGETS_NUMERIC_FLOAT_H
+#define PHWIDGETS_NUMERIC_FLOAT_H
 
 #include <photon/PtNumericFloat.h>
 
@@ -51,13 +51,11 @@ namespace PhWidgets
 		
 		struct ArgInt:
 			public ThisArgs::ArgInt
-		{
-		};
+        { };
 		
 		struct ArgDoubleP:
 			public ThisArgs::ArgDoubleP
-		{
-		};
+        { };
 
 		struct Callback :
 			public ArgumentsEx<ThisCallbacks::Callback>,
@@ -72,14 +70,12 @@ namespace PhWidgets
 			public ArgInt,
 			public ArgDoubleP,
 			public Numeric::Arguments
-		{
-		};
+        { };
 
 		struct Callbacks :
 			public Callback,
 			public Numeric::Callbacks
-		{
-		};
+        { };
 
 
 	protected:
@@ -121,7 +117,7 @@ namespace PhWidgets
 		
 	};
 
-}
+} // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_NUMERIC_FLOAT_H

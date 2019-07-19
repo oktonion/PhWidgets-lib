@@ -9,11 +9,23 @@ const Widget::ArgPVoid::eArgPVoidData Timer::ArgPVoid::data = Widget::ArgPVoid::
 const Widget::ArgPVoid::eArgPVoidData Timer::ArgPVoid::user_data = Widget::ArgPVoid::user_data;
 const Widget::ArgPVoid::eArgPVoid Timer::ArgPVoid::pointer = Widget::ArgPVoid::pointer;
 
-void Timer::check()
+namespace PhWidgets
 {
-	if(PtWidgetIsClassMember( widget(), PtTimer ) != true)
-		throw(std::invalid_argument("Timer: widget is not PtTimer."));
+    const char * WidgetClassName(PtWidget_t *wdg);
 }
+
+#define FORM_THROW_MESSAGE(xxx) (std::string(#xxx": wrong class of photon widget - got \'") + WidgetClassName(widget()) + "\' instead of \'Pt"#xxx"\'").c_str()
+#define WIDGET_IS_CLASS_MEMBER(xxx) \
+	if(PtWidgetIsClassMember( widget(), Pt##xxx ) != true)\
+		throw(std::invalid_argument(FORM_THROW_MESSAGE(xxx)));
+
+#define CHECK_WIDGET(xxx) \
+void xxx::check() \
+{ \
+	WIDGET_IS_CLASS_MEMBER(xxx); \
+}
+
+CHECK_WIDGET(Timer);
 
 
 Timer::Timer(int abn) :

@@ -1,5 +1,5 @@
-#ifndef PT_CURSOR_H
-#define PT_CURSOR_H
+#ifndef PHWIDGETS_CURSOR_H
+#define PHWIDGETS_CURSOR_H
 
 #include <photon/PhCursor.h>
 #include <photon/PhT.h>
@@ -134,4 +134,4 @@ namespace PhWidgets
 } // namespace PhWidgets
 
 
-#endif // PT_CURSOR_H
+#endif // PHWIDGETS_CURSOR_H

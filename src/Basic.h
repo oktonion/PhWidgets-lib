@@ -1,5 +1,5 @@
-#ifndef PT_BASIC_H
-#define PT_BASIC_H
+#ifndef PHWIDGETS_BASIC_H
+#define PHWIDGETS_BASIC_H
 
 #include <photon/PtBasic.h>
 
@@ -223,18 +223,15 @@ namespace PhWidgets
 
 		struct ArgChar:
 			public ThisArgs::ArgChar
-		{
-		};
+        { };
 			
 		struct ArgPattern:
 			public ThisArgs::ArgPattern
-		{
-		};
+        { };
 			
 		struct ArgUnsignedChar:
 			public ThisArgs::ArgUnsignedChar
-		{
-		};
+        { };
 
 		struct ArgPChar:
 			public ArgumentsEx<Widget::ArgPChar>,
@@ -244,8 +241,8 @@ namespace PhWidgets
 		};	
 
 		struct Callback:
-			public ArgumentsEx<ThisCallbacks::Callback>,
-			public Widget::Callback
+			public ArgumentsEx<Widget::Callback>,
+			public ThisCallbacks::Callback
 		{
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
@@ -259,20 +256,17 @@ namespace PhWidgets
 			public ArgUnsignedChar,
 			public ArgPChar,
 			public Widget::Arguments
-		{
-		};
+        { };
 
 		struct Callbacks :
 			public Callback,
 			public Widget::Callbacks
-		{
-		};
+        { };
 
 		struct Flags:
 			public ThisFlags,
 			public Widget::Flags
-		{
-		};
+        { };
 
 	protected:
 
@@ -367,7 +361,7 @@ namespace PhWidgets
 			The Basic::Color property does not support transparent colors unless the color model is set to ARGB.
 			@par
 			The Basic::Color property is an ambient property. An ambient property is a widget property that, 
-			if not set, is retrieved from the parent widget. For example, a PhWidgets::Button will have the same Basic::Color as its parent PhWidgets::Form by default. 
+			if not set, is retrieved from the parent widget. For example, a PhWidgets::Button will have the same Basic::Color as its parent PhWidgets::Window by default. 
 
 			@see
 			- Colors
@@ -460,7 +454,7 @@ namespace PhWidgets
 			The Basic::FillColor property does not support transparent colors unless the color model is set to ARGB.
 			@par
 			The Basic::Color property is an ambient property. An ambient property is a widget property that, 
-			if not set, is retrieved from the parent widget. For example, a PhWidgets::Button will have the same Basic::FillColor as its parent PhWidgets::Form by default. 
+			if not set, is retrieved from the parent widget. For example, a PhWidgets::Button will have the same Basic::FillColor as its parent PhWidgets::Window by default. 
 
 			@see
 			- Colors
@@ -621,11 +615,11 @@ namespace PhWidgets
 
 
 	
-}
+} // namespace PhWidgets
 
 cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator|(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2);
 cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator&(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2);
 cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator^(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2);
 
 
-#endif
+#endif // PHWIDGETS_BASIC_H

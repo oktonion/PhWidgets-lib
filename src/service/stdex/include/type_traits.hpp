@@ -29,13 +29,14 @@
 // All type features (like is_assignable) - ni
 
 // stdex includes
-#include "./stdint_ex.h"
+#include "./core.h"
+#include "./cstdint.hpp"
 
 // POSIX includes
 /*none*/
 
 // std includes
-#include <cstddef>
+#include <cstddef> // std::ptrdiff_t, std::size_t, NULL
 #include <climits>
 
 namespace stdex
@@ -318,7 +319,7 @@ namespace stdex
 	template<class _Tp>
 	struct add_const<_Tp&>
 	{
-		typedef _Tp &     type;
+		typedef _Tp & type;
 	};
 
 	// add_volatile
@@ -331,7 +332,7 @@ namespace stdex
 	template<class _Tp>
 	struct add_volatile<_Tp&>
 	{
-		typedef _Tp &     type;
+		typedef _Tp & type;
 	};
 
 	// add_cv
@@ -344,51 +345,110 @@ namespace stdex
 	template<class _Tp>
 	struct add_cv<_Tp&>
 	{
-		typedef _Tp &     type;
+		typedef _Tp & type;
 	};
 
 	namespace detail
 	{
 		template <class> struct _is_floating_point : public false_type {};
-
+		
 		template<> struct _is_floating_point<float> : public true_type {};
 		template<> struct _is_floating_point<double> : public true_type {};
 		template<> struct _is_floating_point<long double> : public true_type {};
 
-		template <class> struct _is_integral_impl : public false_type {};
+		namespace type_traits_detail
+		{
+			template<class _Tp> struct _is_integral_cstdint_type: public true_type {};
+			template<> struct _is_integral_cstdint_type<cstdint_detail::_cstdint_invalid_type>: public false_type {};
 
-		template<> struct _is_integral_impl<bool> : public true_type {};
-		template<> struct _is_integral_impl<char> : public true_type {};
-		template<> struct _is_integral_impl<wchar_t> : public true_type {};
+			enum {_is_integral_rank = __LINE__};
+			template <int, class> struct _is_integral_map : public false_type {};
 
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), bool> : public true_type {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), char> : public true_type {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), wchar_t> : public true_type {};
 
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), unsigned char> : public true_type {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), unsigned short int> : public true_type {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), unsigned int> : public true_type {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), unsigned long int> : public true_type {};
 
-		template<> struct _is_integral_impl<unsigned char> : public true_type {};
-		template<> struct _is_integral_impl<unsigned short int> : public true_type {};
-		template<> struct _is_integral_impl<unsigned int> : public true_type {};
-		template<> struct _is_integral_impl<unsigned long int> : public true_type {};
+		#if defined(ULLONG_MAX)
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), unsigned long long int> : public true_type {};
+		#endif
 
-#ifdef LLONG_MAX
-		template<> struct _is_integral_impl<unsigned long long int> : public true_type {};
-#endif
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), signed char> : public true_type {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), short int> : public true_type {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), int> : public true_type {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), long int> : public true_type {};
 
-		template<> struct _is_integral_impl<signed char> : public true_type {};
-		template<> struct _is_integral_impl<short int> : public true_type {};
-		template<> struct _is_integral_impl<int> : public true_type {};
-		template<> struct _is_integral_impl<long int> : public true_type {};
+		#if defined(LLONG_MIN) && defined(LLONG_MAX)
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), long long int> : public true_type {};
+		#endif
 
-#ifdef LLONG_MAX
-		template<> struct _is_integral_impl<long long int> : public true_type {};
-#endif
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex_char16_t> : public true_type {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex_char32_t> : public true_type {};
 
-		template <class _Tp> struct _is_integral : public _is_integral_impl<_Tp> {};
+			// types from stdex/cstdint.hpp
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::int_least8_t> : _is_integral_cstdint_type<stdex::int_least8_t> {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::uint_least8_t> : _is_integral_cstdint_type<stdex::uint_least8_t> {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::int_least16_t> : _is_integral_cstdint_type<stdex::int_least16_t> {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::uint_least16_t> : _is_integral_cstdint_type<stdex::uint_least16_t> {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::int_least32_t> : _is_integral_cstdint_type<stdex::int_least32_t> {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::uint_least32_t> : _is_integral_cstdint_type<stdex::uint_least32_t> {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::int_least64_t> : _is_integral_cstdint_type<stdex::int_least64_t> {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::uint_least64_t> : _is_integral_cstdint_type<stdex::uint_least64_t> {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::intmax_t> : _is_integral_cstdint_type<stdex::intmax_t> {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::uintmax_t> : _is_integral_cstdint_type<stdex::uintmax_t> {};
+		#if defined(STDEX_INT8_MIN) && defined(STDEX_INT8_MAX) && defined(STDEX_UINT8_MAX)
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::int8_t> : _is_integral_cstdint_type<stdex::int8_t> {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::uint8_t> : _is_integral_cstdint_type<stdex::uint8_t> {};
+		#endif
+		#if defined(STDEX_INT16_MIN) && defined(STDEX_INT16_MAX) && defined(STDEX_UINT16_MAX)
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::int16_t> : _is_integral_cstdint_type<stdex::int16_t> {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::uint16_t> : _is_integral_cstdint_type<stdex::uint16_t> {};
+		#endif
+		#if defined(STDEX_INT32_MIN) && defined(STDEX_INT32_MAX) && defined(STDEX_UINT32_MAX)
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::int32_t> : _is_integral_cstdint_type<stdex::int32_t> {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::uint32_t> : _is_integral_cstdint_type<stdex::uint32_t> {};
+		#endif
+		#if defined(STDEX_INT64_MIN) && defined(STDEX_INT64_MAX) && defined(STDEX_UINT64_MAX)
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::int64_t> : _is_integral_cstdint_type<stdex::int64_t> {};
+			template<> struct _is_integral_map<(__LINE__ - _is_integral_rank), stdex::uint64_t> : _is_integral_cstdint_type<stdex::uint64_t> {};
+		#endif
 
-		//#if defined(_STDEX_NATIVE_CPP11_TYPES_SUPPORT) || defined(STDEX_FORCE_CPP11_TYPES_SUPPORT)
-		template<> struct _is_integral<char16_t> : public true_type {};
-		template<> struct _is_integral<char32_t> : public true_type {};
-		//#endif
-		template<> struct _is_integral<int64_t> : public true_type {};
-		template<> struct _is_integral<uint64_t> : public true_type {};
+			enum {_is_integral_max_rank = (__LINE__ - _is_integral_rank + 1)};
+
+			template<class _Tp, int _RankIt = 0, bool _IsFound = _is_integral_map<0, _Tp>::value>
+            struct _is_integral_search:
+                _is_integral_search<_Tp, _RankIt + 1, _is_integral_map<_RankIt + 1, _Tp>::value>{};
+
+            template<class _Tp>
+            struct _is_integral_search<_Tp, _is_integral_max_rank, false>:
+                _is_integral_map<_is_integral_max_rank, _Tp>{};
+
+            template<class _Tp, int _RankIt>
+            struct _is_integral_search<_Tp, _RankIt, true>:
+                _is_integral_map<_RankIt, _Tp>{};
+
+			template <class _Tp> 
+			struct _is_integral_constant:
+				bool_constant<cstdint_detail::_is_integral_constant<_Tp>::value>
+			{ };
+			
+			template <class _Tp, bool _IsFound> 
+			struct _is_integral_impl:
+				false_type
+			{ };
+
+			template <class _Tp> 
+			struct _is_integral_impl<_Tp, true>:
+				_is_integral_constant<_Tp>
+			{ };
+		}
+
+		template <class _Tp> struct _is_integral : 
+			public type_traits_detail::_is_integral_impl<_Tp, type_traits_detail::_is_integral_search<_Tp>::value> {};
 	}
 
 
@@ -534,13 +594,13 @@ namespace stdex
 		template<class _Tp, bool = _is_referenceable<_Tp>::value>//_and_<_is_referenceable<_Tp>, _not_< _and_<is_const<_Tp>, is_volatile<_Tp> > > >::value>
 		struct _add_lvalue_reference_helper
 		{
-			typedef _Tp   type;
+			typedef _Tp type;
 		};
 
 		template<class _Tp>
 		struct _add_lvalue_reference_helper<_Tp, true>
 		{
-			typedef _Tp&   type;
+			typedef _Tp& type;
 		};
 	}
 
@@ -553,14 +613,14 @@ namespace stdex
 	template<class _Tp>
 	struct add_lvalue_reference<_Tp&>
 	{
-		typedef _Tp&   type;
+		typedef _Tp& type;
 	};
 
-	template<class T>
+	template<class _Tp>
 	struct is_signed
-	{	// determine whether T is a signed type
+	{	// determine whether _Tp is a signed type
 
-		static const bool value = detail::_sign_unsign_chooser<is_integral<T>::value>::template _signed<T>::value;
+		static const bool value = detail::_sign_unsign_chooser<is_integral<_Tp>::value>::template _signed<_Tp>::value;
 
 		typedef const bool value_type;
 		typedef integral_constant<bool, is_signed::value == bool(true)> type;
@@ -576,11 +636,11 @@ namespace stdex
 		}
 	};
 
-	template<class T>
+	template<class _Tp>
 	struct is_unsigned
-	{	// determine whether T is an unsigned type
+	{	// determine whether _Tp is an unsigned type
 
-		static const bool value = detail::_sign_unsign_chooser<is_integral<T>::value>::template _unsigned<T>::value;
+		static const bool value = detail::_sign_unsign_chooser<is_integral<_Tp>::value>::template _unsigned<_Tp>::value;
 
 		typedef const bool value_type;
 		typedef integral_constant<bool, is_unsigned::value == bool(true)> type;
@@ -601,27 +661,27 @@ namespace stdex
 		template <class _Tp>
 		struct _alignment_of_trick
 		{
-			char c;
-			_Tp t;
+			char _c;
+			_Tp _t;
 			_alignment_of_trick();
 		};
 
-		template <unsigned A, unsigned S>
+		template <unsigned _A, unsigned _S>
 		struct _alignment_logic_helper
 		{
-			static const std::size_t value = A < S ? A : S;
+			static const std::size_t value = _A < _S ? _A : _S;
 		};
 
-		template <unsigned A>
-		struct _alignment_logic_helper<A, 0>
+		template <unsigned _A>
+		struct _alignment_logic_helper<_A, 0>
 		{
-			static const std::size_t value = A;
+			static const std::size_t value = _A;
 		};
 
-		template <unsigned S>
-		struct _alignment_logic_helper<0, S>
+		template <unsigned _S>
+		struct _alignment_logic_helper<0, _S>
 		{
-			static const std::size_t value = S;
+			static const std::size_t value = _S;
 		};
 
 		template< class _Tp >
@@ -777,346 +837,353 @@ namespace stdex
 
 	namespace detail
 	{
-		template <class R>
+		template <class _R>
 		struct _is_function_ptr_helper : false_type {};
-		template <class R >
-		struct _is_function_ptr_helper<R(*)()> : true_type {};
-		template <class R >
-		struct _is_function_ptr_helper<R(*)(...)> : true_type {};
-		template <class R, class T0>
-		struct _is_function_ptr_helper<R(*)(T0)> : true_type {};
-		template <class R, class T0>
-		struct _is_function_ptr_helper<R(*)(T0 ...)> : true_type {};
-		template <class R, class T0, class T1>
-		struct _is_function_ptr_helper<R(*)(T0, T1)> : true_type {};
-		template <class R, class T0, class T1>
-		struct _is_function_ptr_helper<R(*)(T0, T1 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2)> : true_type {};
-		template <class R, class T0, class T1, class T2>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19, class T20>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19, class T20>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19, class T20, class T21>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19, class T20, class T21>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19, class T20, class T21, class T22>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19, class T20, class T21, class T22>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19, class T20, class T21, class T22, class T23>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19, class T20, class T21, class T22, class T23>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23 ...)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19, class T20, class T21, class T22, class T23, class T24>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24)> : true_type {};
-		template <class R, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19, class T20, class T21, class T22, class T23, class T24>
-		struct _is_function_ptr_helper<R(*)(T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24 ...)> : true_type {};
+		template <class _R >
+		struct _is_function_ptr_helper<_R(*)()> : true_type {};
+		template <class _R >
+		struct _is_function_ptr_helper<_R(*)(...)> : true_type {};
+		template <class _R, class _T0>
+		struct _is_function_ptr_helper<_R(*)(_T0)> : true_type {};
+		template <class _R, class _T0>
+		struct _is_function_ptr_helper<_R(*)(_T0 ...)> : true_type {};
+		template <class _R, class _T0, class _T1>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1)> : true_type {};
+		template <class _R, class _T0, class _T1>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19, class _T20>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19, _T20)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19, class _T20>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19, _T20 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19, class _T20, class _T21>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19, _T20, _T21)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19, class _T20, class _T21>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19, _T20, _T21 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19, class _T20, class _T21, class _T22>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19, _T20, _T21, _T22)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19, class _T20, class _T21, class _T22>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19, _T20, _T21, _T22 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19, class _T20, class _T21, class _T22, class _T23>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19, _T20, _T21, _T22, _T23)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19, class _T20, class _T21, class _T22, class _T23>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19, _T20, _T21, _T22, _T23 ...)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19, class _T20, class _T21, class _T22, class _T23, class _T24>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19, _T20, _T21, _T22, _T23, _T24)> : true_type {};
+		template <class _R, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19, class _T20, class _T21, class _T22, class _T23, class _T24>
+		struct _is_function_ptr_helper<_R(*)(_T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19, _T20, _T21, _T22, _T23, _T24 ...)> : true_type {};
 		
 
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
+#undef _STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_IS_MEM_FUN_PTR_CLR 		
+#undef _STDEX_IS_MEM_FUN_CDECL_PTR
+#undef _STDEX_IS_MEM_FUN_STDCALL_PTR
+#undef _STDEX_IS_MEM_FUN_FASTCALL_PTR
 
-#define _IS_MEM_FUN_PTR_CLR \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(T::*const volatile*)(ARGS)); \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(T::*const volatile*)(ARGS...)); \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(T::*const volatile*)(ARGS) const); \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(T::*const volatile*)(ARGS) volatile); \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(T::*const volatile*)(ARGS) const volatile); \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(T::*const volatile*)(ARGS...) const); \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(T::*const volatile*)(ARGS...) volatile); \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(T::*const volatile*)(ARGS...) const volatile);
+#define _STDEX_IS_MEM_FUN_PTR_CLR \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R ( _Tp::*const volatile*)(_STDEX_ARGS)); \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R ( _Tp::*const volatile*)(_STDEX_ARGS...)); \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R ( _Tp::*const volatile*)(_STDEX_ARGS) const); \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R ( _Tp::*const volatile*)(_STDEX_ARGS) volatile); \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R ( _Tp::*const volatile*)(_STDEX_ARGS) const volatile); \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R ( _Tp::*const volatile*)(_STDEX_ARGS...) const); \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R ( _Tp::*const volatile*)(_STDEX_ARGS...) volatile); \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R ( _Tp::*const volatile*)(_STDEX_ARGS...) const volatile);
 
 #ifdef _STDEX_CDECL
 		_no_type _STDEX_CDECL _is_mem_function_ptr(...);
 
-#define _IS_MEM_FUN_CDECL_PTR \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(__cdecl T::*const volatile*)(ARGS)); \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(__cdecl T::*const volatile*)(ARGS) const); \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(__cdecl T::*const volatile*)(ARGS) volatile); \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(__cdecl T::*const volatile*)(ARGS) const volatile);
+#define _STDEX_IS_MEM_FUN_CDECL_PTR \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R(__cdecl _Tp::*const volatile*)(_STDEX_ARGS)); \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R(__cdecl _Tp::*const volatile*)(_STDEX_ARGS) const); \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R(__cdecl _Tp::*const volatile*)(_STDEX_ARGS) volatile); \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R(__cdecl _Tp::*const volatile*)(_STDEX_ARGS) const volatile);
 
-#define _IS_MEM_FUN_STDCALL_PTR \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(__stdcall T::*const volatile*)(ARGS)); \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(__stdcall T::*const volatile*)(ARGS) const); \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(__stdcall T::*const volatile*)(ARGS) volatile); \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(__stdcall T::*const volatile*)(ARGS) const volatile);
+#define _STDEX_IS_MEM_FUN_STDCALL_PTR \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R(__stdcall _Tp::*const volatile*)(_STDEX_ARGS)); \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R(__stdcall _Tp::*const volatile*)(_STDEX_ARGS) const); \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R(__stdcall _Tp::*const volatile*)(_STDEX_ARGS) volatile); \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R(__stdcall _Tp::*const volatile*)(_STDEX_ARGS) const volatile);
 
-#define _IS_MEM_FUN_FASTCALL_PTR \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(__fastcall T::*const volatile*)(ARGS)); \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(__fastcall T::*const volatile*)(ARGS) const); \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(__fastcall T::*const volatile*)(ARGS) volatile); \
-		template <class R, class T TYPES > \
-		_yes_type _is_mem_function_ptr(R(__fastcall T::*const volatile*)(ARGS) const volatile);
+#define _STDEX_IS_MEM_FUN_FASTCALL_PTR \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R(__fastcall _Tp::*const volatile*)(_STDEX_ARGS)); \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R(__fastcall _Tp::*const volatile*)(_STDEX_ARGS) const); \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R(__fastcall _Tp::*const volatile*)(_STDEX_ARGS) volatile); \
+		template <class _R, class _Tp _STDEX_TYPES > \
+		_yes_type _is_mem_function_ptr( _R(__fastcall _Tp::*const volatile*)(_STDEX_ARGS) const volatile);
 #else
 		_no_type _is_mem_function_ptr(...);
-#define _IS_MEM_FUN_CDECL_PTR
-#define _IS_MEM_FUN_STDCALL_PTR
-#define _IS_MEM_FUN_FASTCALL_PTR
+#define _STDEX_IS_MEM_FUN_CDECL_PTR
+#define _STDEX_IS_MEM_FUN_STDCALL_PTR
+#define _STDEX_IS_MEM_FUN_FASTCALL_PTR
 #endif
 
-#define _IS_MEM_FUN_PTR \
-		_IS_MEM_FUN_PTR_CLR \
-		_IS_MEM_FUN_CDECL_PTR \
-		_IS_MEM_FUN_STDCALL_PTR \
-		_IS_MEM_FUN_FASTCALL_PTR
+#define _STDEX_IS_MEM_FUN_PTR \
+		_STDEX_IS_MEM_FUN_PTR_CLR \
+		_STDEX_IS_MEM_FUN_CDECL_PTR \
+		_STDEX_IS_MEM_FUN_STDCALL_PTR \
+		_STDEX_IS_MEM_FUN_FASTCALL_PTR
 
-		#define TYPES
-		#define ARGS
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES
+		#define _STDEX_ARGS
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 
-		#define TYPES , class T0
-		#define ARGS T0
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0
+		#define _STDEX_ARGS _T0
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1
-		#define ARGS T0, T1
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1
+		#define _STDEX_ARGS _T0, _T1
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2
-		#define ARGS T0, T1, T2
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2
+		#define _STDEX_ARGS _T0, _T1, _T2
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3
-		#define ARGS T0, T1, T2, T3
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4
-		#define ARGS T0, T1, T2, T3, T4
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5
-		#define ARGS T0, T1, T2, T3, T4, T5
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6
-		#define ARGS T0, T1, T2, T3, T4, T5, T6
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8, T9
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19, class T20
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19, class _T20
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19, _T20
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19, class T20, class T21
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19, class _T20, class _T21
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19, _T20, _T21
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19, class T20, class T21, class T22
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19, class _T20, class _T21, class _T22
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19, _T20, _T21, _T22
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19, class T20, class T21, class T22, class T23
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19, class _T20, class _T21, class _T22, class _T23
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19, _T20, _T21, _T22, _T23
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 		
-		#define TYPES , class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19, class T20, class T21, class T22, class T23, class T24
-		#define ARGS T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24
-		_IS_MEM_FUN_PTR
-#undef TYPES
-#undef ARGS
+		#define _STDEX_TYPES , class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19, class _T20, class _T21, class _T22, class _T23, class _T24
+		#define _STDEX_ARGS _T0, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19, _T20, _T21, _T22, _T23, _T24
+		_STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_TYPES
+#undef _STDEX_ARGS
 
-#undef _IS_MEM_FUN_PTR
-#undef _IS_MEM_FUN_PTR_CLR 		
-#undef _IS_MEM_FUN_CDECL_PTR
-#undef _IS_MEM_FUN_STDCALL_PTR
-#undef _IS_MEM_FUN_FASTCALL_PTR
+#undef _STDEX_IS_MEM_FUN_PTR
+#undef _STDEX_IS_MEM_FUN_PTR_CLR 		
+#undef _STDEX_IS_MEM_FUN_CDECL_PTR
+#undef _STDEX_IS_MEM_FUN_STDCALL_PTR
+#undef _STDEX_IS_MEM_FUN_FASTCALL_PTR
 
 
 		template <class _Tp, bool _IsRef>
 		struct _is_mem_function_ptr_impl
 		{
-			static _Tp *p;
-			static const bool value = (sizeof(_is_mem_function_ptr(_is_mem_function_ptr_impl::p)) == sizeof(_yes_type));
+			static _Tp *_ptr;
+			static const bool value = (sizeof(_is_mem_function_ptr(_is_mem_function_ptr_impl::_ptr)) == sizeof(_yes_type));
 
 			typedef typename integral_constant<bool, _is_mem_function_ptr_impl::value == bool(true)>::type type;
 		};
@@ -1457,44 +1524,53 @@ namespace stdex
 
 	namespace detail
 	{
+		template <class _Tp, bool _IsReference>
+		struct _is_class_or_union_helper
+		{
+			typedef integral_constant<bool, false> type;
+		};
+
+		template <class _Tp>
+		struct _is_class_or_union_helper<_Tp, false>
+		{
+			typedef integral_constant<bool,
+				(is_scalar<_Tp>::value == bool(false))
+				&& (is_array<_Tp>::value == bool(false))
+				&& (is_void<_Tp>::value == bool(false))
+				&& (is_function<_Tp>::value == bool(false))> type;
+		};
+	}
+
+	namespace detail
+	{
+		template<class _Tp>
+		struct _is_union_intrinsic // ugly hack that cannot be done without compiler support
+		{
+			static const bool value = 
+				#if defined(__is_union)
+					__is_union(_Tp)
+				#elif defined(__oracle_is_union)
+					__oracle_is_union(_Tp)
+				#elif defined(__typeinfo)
+					(__typeinfo(_Tp) & 0x400)
+				#else
+					false
+				#endif
+			;
+		};
 		template <class _Tp, bool>
 		struct _is_union_helper
 		{
 			typedef integral_constant<bool, false> type;
 		};
 
-		template<class _Tp>
-		struct _derivered_constructible_from_type_dummy
-		{
-			_derivered_constructible_from_type_dummy(int);
-			//typedef _derived_dummy<_Tp> type;
-			//int a[sizeof(type)];
-		};
-
-		template<class _Tp>
-		_derivered_constructible_from_type_dummy<_Tp>* _union_can_be_parent_tester_helper(_derivered_constructible_from_type_dummy<_Tp>);
-		template<class _Tp>
-		char _union_can_be_parent_tester_helper(...);
-
-
-		template<class _Tp>
-		_yes_type _union_can_be_parent_tester(_Tp*);
-		//template<class _Tp>
-		_no_type _union_can_be_parent_tester(...);
-
-		template<class _Tp>
-		struct _union_can_be_parent
-		{
-			static const bool value = sizeof(_union_can_be_parent_tester(_union_can_be_parent_tester_helper<_Tp>(0))) == sizeof(_yes_type);
-		};
-
 		template <class _Tp>
 		struct _is_union_helper<_Tp, false>
 		{
+			typedef typename _is_class_or_union_helper<_Tp, false>::type is_class_or_union;
 			typedef integral_constant<bool,
-				(is_enum<_Tp>::value == bool(false))
-				&& (_has_member_pointer_impl<_Tp>::value == bool(true))
-				//&& (_union_can_be_parent<_Tp>::value == bool(false))
+				(is_class_or_union::value == bool(true))
+				&& (_is_union_intrinsic<_Tp>::value == bool(true))
 			> type;
 		};
 	}
@@ -1516,12 +1592,11 @@ namespace stdex
 		template <class _Tp>
 		struct _is_class_helper<_Tp, false>
 		{
+			typedef typename _is_class_or_union_helper<_Tp, false>::type is_class_or_union;
 			typedef integral_constant<bool,
-				(is_scalar<_Tp>::value == bool(false))
-				//&& (is_union<_Tp>::value == bool(false))
-				&& (is_array<_Tp>::value == bool(false))
-				&& (is_void<_Tp>::value == bool(false))
-				&& (is_function<_Tp>::value == bool(false))> type;
+				(is_class_or_union::value == bool(true))
+				&& (_is_union_intrinsic<_Tp>::value == bool(false))
+			> type;
 		};
 	}
 
@@ -1672,7 +1747,7 @@ namespace stdex
 			typedef unsigned long _type;
 		};
 
-#ifdef LLONG_MAX
+#if defined(LLONG_MIN) && defined(LLONG_MAX)
 		template<>
 		struct _make_unsigned<long long>
 		{
@@ -1696,7 +1771,7 @@ namespace stdex
 			static const bool _b1 = sizeof(_Tp) <= sizeof(unsigned short);
 			static const bool _b2 = sizeof(_Tp) <= sizeof(unsigned int);
 			static const bool _b3 = sizeof(_Tp) <= sizeof(unsigned long);
-#ifdef LLONG_MAX
+#if defined(ULLONG_MAX)
 			typedef conditional<_make_unsigned_selector<_Tp>::_b3, unsigned long, unsigned long long> _cond3;
 #else
 			typedef conditional<_make_unsigned_selector<_Tp>::_b3, unsigned long, unsigned long> _cond3;
@@ -1784,7 +1859,7 @@ namespace stdex
 			typedef signed long _type;
 		};
 
-#ifdef LLONG_MAX
+#if defined(ULLONG_MAX)
 		template<>
 		struct _make_signed<unsigned long long>
 		{
@@ -2019,12 +2094,12 @@ namespace stdex
 
 	namespace detail
 	{
-		template<int I> struct _arithmetic_type
+		template<int _I> struct _arithmetic_type
 		{
 			typedef void type;
 		private:
 			typedef intern::type_traits_asserts check;
-			typedef typename check::not_allowed_arithmetic_type_assert< I != 0 >::
+			typedef typename check::not_allowed_arithmetic_type_assert< _I != 0 >::
 				not_allowed_arithmetic_type_assert_failed
 			check1; // if you are there means you passed to common_type not known arithmetic type
 		};
@@ -2071,7 +2146,7 @@ namespace stdex
 			typedef char(&result_type)[7];
 		};
 
-#ifdef LLONG_MAX
+#if defined(LLONG_MIN) && defined(LLONG_MAX)
 		template<> struct _arithmetic_type<8>
 		{
 			typedef long long type;
@@ -2103,7 +2178,7 @@ namespace stdex
 			typedef char(&result_type)[12];
 		};
 
-#ifdef LLONG_MAX
+#if defined(ULLONG_MAX)
 		template<> struct _arithmetic_type<13>
 		{
 			typedef unsigned long long type;
@@ -2131,13 +2206,13 @@ namespace stdex
 
 		template<> struct _arithmetic_type<17>
 		{
-			typedef char16_t type;
+			typedef stdex_char16_t type;
 			typedef char(&result_type)[17];
 		};
 
 		template<> struct _arithmetic_type<18>
 		{
-			typedef char32_t type;
+			typedef stdex_char32_t type;
 			typedef char(&result_type)[18];
 		};
 
@@ -2148,14 +2223,14 @@ namespace stdex
 		 _arithmetic_type<5>::result_type select(_arithmetic_type<5>::type);
 		 _arithmetic_type<6>::result_type select(_arithmetic_type<6>::type);
 		 _arithmetic_type<7>::result_type select(_arithmetic_type<7>::type);
-#ifdef LLONG_MAX
+#if defined(LLONG_MIN) && defined(LLONG_MAX)
 		 _arithmetic_type<8>::result_type select(_arithmetic_type<8>::type);
 #endif
 		 _arithmetic_type<9>::result_type select(_arithmetic_type<9>::type);
 		 _arithmetic_type<10>::result_type select(_arithmetic_type<10>::type);
 		 _arithmetic_type<11>::result_type select(_arithmetic_type<11>::type);
 		 _arithmetic_type<12>::result_type select(_arithmetic_type<12>::type);
-#ifdef LLONG_MAX
+#if defined(ULLONG_MAX)
 		 _arithmetic_type<13>::result_type select(_arithmetic_type<13>::type);
 #endif
 		 _arithmetic_type<14>::result_type select(_arithmetic_type<14>::type);
@@ -2250,28 +2325,28 @@ namespace stdex
 
 	}
 
-	template<class _Tp, class T0 = detail::void_type, class T1 = detail::void_type, class T2 = detail::void_type, class T3 = detail::void_type, class T4 = detail::void_type, class T5 = detail::void_type, class T6 = detail::void_type, class T7 = detail::void_type, class T8 = detail::void_type, class T9 = detail::void_type, class T10 = detail::void_type, class T11 = detail::void_type, class T12 = detail::void_type, class T13 = detail::void_type, class T14 = detail::void_type, class T15 = detail::void_type, class T16 = detail::void_type, class T17 = detail::void_type, class T18 = detail::void_type, class T19 = detail::void_type, class T20 = detail::void_type, class T21 = detail::void_type, class T22 = detail::void_type, class T23 = detail::void_type, class T24 = detail::void_type>
+	template<class _Tp, class _T0 = detail::void_type, class _T1 = detail::void_type, class _T2 = detail::void_type, class _T3 = detail::void_type, class _T4 = detail::void_type, class _T5 = detail::void_type, class _T6 = detail::void_type, class _T7 = detail::void_type, class _T8 = detail::void_type, class _T9 = detail::void_type, class _T10 = detail::void_type, class _T11 = detail::void_type, class _T12 = detail::void_type, class _T13 = detail::void_type, class _T14 = detail::void_type, class _T15 = detail::void_type, class _T16 = detail::void_type, class _T17 = detail::void_type, class _T18 = detail::void_type, class _T19 = detail::void_type, class _T20 = detail::void_type, class _T21 = detail::void_type, class _T22 = detail::void_type, class _T23 = detail::void_type, class _T24 = detail::void_type>
 	struct common_type;
 
 	namespace detail
 	{
 
-		template<class T1, class T2, class T1d = typename decay<T1>::type, class T2d = typename decay<T2>::type>
+		template<class _T1, class _T2, class _T1d = typename decay<_T1>::type, class _T2d = typename decay<_T2>::type>
 		struct _common_type_decay_helper :
-			common_type<T1d, T2d>
+			common_type<_T1d, _T2d>
 		{
 		};
 
-		template<class T1, class T2>
-		struct _common_type_decay_helper<T1, T2, T1, T2> :
-			_common_type_impl<T1, T2>
+		template<class _T1, class _T2>
+		struct _common_type_decay_helper<_T1, _T2, _T1, _T2> :
+			_common_type_impl<_T1, _T2>
 		{
 		};
 	}
 
-	template<class _Tp, class T0, class T1, class T2, class T3, class T4, class T5, class T6, class T7, class T8, class T9, class T10, class T11, class T12, class T13, class T14, class T15, class T16, class T17, class T18, class T19, class T20, class T21, class T22, class T23, class T24 >
+	template<class _Tp, class _T0, class _T1, class _T2, class _T3, class _T4, class _T5, class _T6, class _T7, class _T8, class _T9, class _T10, class _T11, class _T12, class _T13, class _T14, class _T15, class _T16, class _T17, class _T18, class _T19, class _T20, class _T21, class _T22, class _T23, class _T24 >
 	struct common_type :
-		common_type<typename detail::_common_type_decay_helper<_Tp, T0>::type, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, detail::void_type>
+		common_type<typename detail::_common_type_decay_helper<_Tp, _T0>::type, _T1, _T2, _T3, _T4, _T5, _T6, _T7, _T8, _T9, _T10, _T11, _T12, _T13, _T14, _T15, _T16, _T17, _T18, _T19, _T20, _T21, _T22, _T23, _T24, detail::void_type>
 	{ };
 
 	template<class _Tp>
@@ -2280,9 +2355,9 @@ namespace stdex
 		typedef typename decay<_Tp>::type type;
 	};
 
-	template<class T1, class T2> 
-	struct common_type<T1, T2> : 
-		detail::_common_type_decay_helper<T1, T2>
+	template<class _T1, class _T2> 
+	struct common_type<_T1, _T2> : 
+		detail::_common_type_decay_helper<_T1, _T2>
 	{
 	};
 

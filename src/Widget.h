@@ -1,5 +1,5 @@
-#ifndef PT_WIDGET_H
-#define PT_WIDGET_H
+#ifndef PHWIDGETS_WIDGET_H
+#define PHWIDGETS_WIDGET_H
 
 #include <photon/PhT.h>
 #include <photon/PtWidget.h>
@@ -302,10 +302,10 @@ namespace PhWidgets
 				};
 			};
 
-			//! Contains resource IDs for Widget arguments of type ** char* **.
+			//! Contains resource IDs for Widget arguments of type <b>char*</b>.
 			struct ArgPChar
 			{
-				//! Resource IDs for Widget arguments of type ** char* **.
+				//! Resource IDs for Widget arguments of type <b>char*</b>.
 
 				/*!
 					### Aliases ###
@@ -324,10 +324,10 @@ namespace PhWidgets
 				};
 			};
 			
-			//! Contains resource IDs for Widget arguments of type ** void* **.
+			//! Contains resource IDs for Widget arguments of type <b>void*</b>.
 			struct ArgPVoid
 			{
-				//! Resource IDs for Widget arguments of type void* that are stored in widget.
+				//! Resource IDs for Widget arguments of type <b>void*</b> that are stored in widget.
 
 				/*!
 					@note 
@@ -348,7 +348,7 @@ namespace PhWidgets
 					user_data = Pt_ARG_USER_DATA //!< Data that you want to store in the widget's internal memory.
 				};
 
-				//! Resource IDs for Widget arguments of type ** void* ** that are stored externally.
+				//! Resource IDs for Widget arguments of type <b>void*</b> that are stored externally.
 
 				/*!
 					@note 
@@ -763,104 +763,87 @@ namespace PhWidgets
 		//! Contains resource IDs for Widget arguments of type `PhArea_t`.
 		struct ArgArea:
 			public ThisArgs::ArgArea
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type **unsigned**.
 		struct ArgUnsigned:
 			public ThisArgs::ArgUnsigned
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type **unsigned short**.
 		struct ArgUnsignedShort:
 			public ThisArgs::ArgUnsignedShort
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type **unsigned long**.
 		struct ArgUnsignedLong:
 			public ThisArgs::ArgUnsignedLong
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type **long**.
 		struct ArgLong:
 			public ThisArgs::ArgLong
-		{
-		};
+        { };
 
-		//! Contains resource IDs for Widget arguments of type ** char* **.
+		//! Contains resource IDs for Widget arguments of type <b>char*</b>.
 		struct ArgPChar:
 			public ThisArgs::ArgPChar
-		{
-		};
+        { };
 		
-		//! Contains resource IDs for Widget arguments of type ** void* **.
+		//! Contains resource IDs for Widget arguments of type <b>void*</b>.
 		struct ArgPVoid:
 			public ThisArgs::ArgPVoid
-		{
-		};
+        { };
 
 		//! Contains resource IDs for Widget arguments of type `PhRect_t`.
 		struct ArgRect:
 			public ThisArgs::ArgRect
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type `PgColor_t`.
 		struct ArgColor:
 			public ThisArgs::ArgColor
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type `PhCursorDef_t`.
 		struct ArgPCursorDef:
 			public ThisArgs::ArgPCursorDef
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type `PtGridLayoutData_t`.
 		struct ArgPGridLayoutData:
 			public ThisArgs::ArgPGridLayoutData
-		{
-		};
+        { };
 		
 		//! Contains resource IDs for Widget arguments of type `PhPoint_t`.
 		struct ArgPoint:
 			public ThisArgs::ArgPoint
-		{
-		};
+        { };
 
 		//! Contains resource IDs for Widget arguments of type `PtRowLayoutData_t`.
 		struct ArgPRowLayoutData:
 			public ThisArgs::ArgPRowLayoutData
-		{
-		};
+        { };
 
 		//! Contains resource IDs for Widget arguments of type `PhDim_t`.
 		struct ArgDim:
 			public ThisArgs::ArgDim
-		{
-		};
+		        { };
 
 		//! Contains resource IDs for Widget callbacks of type `PtRawCallback_t`.
 		struct RawCallback:
 			public ThisCallbacks::RawCallback
-		{
-		};
+		        { };
 
 		//! Contains resource IDs for Widget callbacks of type `PtCallback_t`.
 		struct Callback:
 			public ThisCallbacks::Callback
-		{
-		};
+		        { };
 
 		//! Contains resource IDs for Widget callbacks of type `PtHotkeyCallback_t`.
 		struct HotkeyCallback:
 			public ThisCallbacks::HotkeyCallback
-		{
-		};
+		        { };
 
 		//! Contains resource IDs for all Widget arguments.
 		struct Arguments:
@@ -878,22 +861,19 @@ namespace PhWidgets
 			public ArgUnsignedLong, 
 			public ArgUnsignedShort,
 			public ArgDim
-		{
-		};
+		        { };
 
 		//! Contains resource IDs for all Widget callbacks.
 		struct Callbacks :
 			public RawCallback,
 			public Callback,
 			public HotkeyCallback
-		{
-		};
+		        { };
 
 		//! Contains flags for all Widget resources.
 		struct Flags:
 			public ThisFlags
-		{
-		};
+		        { };
 
 
 				
@@ -910,8 +890,7 @@ namespace PhWidgets
 		template<class ParentArgs>
 		struct ArgumentsEx:
 			public ParentArgs
-		{
-		};
+        { };
 
 		typedef ResourceFrom<>::
 			Define::String<ArgPChar::eArgPChar>::
@@ -1009,7 +988,7 @@ namespace PhWidgets
 		*/
 		Widget(const Widget &other);
 
-		//! Exchanges the contents of ** *this ** and other
+		//! Exchanges the contents of <b>*this</b> and other
 		/*!
 			@param[in] other widget to exchange the contents with.
 		*/
@@ -1363,7 +1342,7 @@ namespace PhWidgets
 			@remark
 			In order for a widget to receive input focus, the Widget must have a PtWidget_t pointer assigned to it, 
 			and the Widget::Visible and Widget::Enabled properties must both be set to `true` for both the widget and all its parent widgets, 
-			and the widget must be a form or the widget's outermost parent must be a form.
+			and the widget must be a PhWidgets::Window or the widget's outermost parent must be a PhWidgets::Window.
 
 			@see
 			- Enabled
@@ -1578,7 +1557,7 @@ namespace PhWidgets
 			### Property Value ### 
 			
 			@code
-				struct Ph_point_t { 
+				struct PhPoint_t { 
 					short x, y; 
 				};
 			@endcode
@@ -1592,10 +1571,10 @@ namespace PhWidgets
 			Widget::Left, Widget::Right, Widget::Top, or Widget::Bottom property values of the widget. 
 			To adjust these properties set each property value individually, or set the Widget::Location property with a new `PhPoint_t`. 
 			@par
-			If the Widget is a Form, the Widget::Location property value represents the upper-left corner of the Form in screen coordinates.
+			If the Widget is a PhWidgets::Window, the Widget::Location property value represents the upper-left corner of the PhWidgets::Window in screen coordinates.
 
 			@see
-			- Form
+			- Window
 		*/		
 		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation> Location;
 
@@ -1604,7 +1583,7 @@ namespace PhWidgets
 			### Property Value ### 
 			
 			@code
-				struct Ph_point_t { 
+				struct PhPoint_t { 
 					short x, y; 
 				};
 			@endcode
@@ -1618,10 +1597,10 @@ namespace PhWidgets
 			Widget::Left, Widget::Right, Widget::Top, or Widget::Bottom property values of the widget. 
 			To adjust these properties set each property value individually, or set the Widget::Position property with a new `PhPoint_t`. 
 			@par
-			If the Widget is a Form, the Widget::Position property value represents the upper-left corner of the Form in screen coordinates.
+			If the Widget is a PhWidgets::Window, the Widget::Position property value represents the upper-left corner of the PhWidgets::Window in screen coordinates.
 
 			@see
-			- Form
+			- Window
 		*/
 		phproperty<PhPoint_t>::bind<Widget, Arguments::eArgPoint, Arguments::pos> Position;
 
@@ -1675,7 +1654,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			> **const void** * 
+			> <b>const void*</b> 
 
 			An `const void *` that contains data about the widget. The default is `nullptr`.
 
@@ -1873,7 +1852,7 @@ namespace PhWidgets
 		>
 		anchor_flags_bitmask;
 	}
-}//namespace PhWidgets
+} // namespace PhWidgets
 
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator|(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2);
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator&(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2);
@@ -1894,4 +1873,4 @@ PhWidgets::typedefs::anchor_flags_bitmask operator^(const PhWidgets::Widget::Fla
 bool operator==(const PhArea_t &lhs, const PhArea_t &rhs);
 bool operator!=(const PhArea_t &lhs, const PhArea_t &rhs);
 
-#endif // PT_WIDGET_H
+#endif // PHWIDGETS_WIDGET_H

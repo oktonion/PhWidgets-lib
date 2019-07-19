@@ -76,6 +76,6 @@ namespace PhWidgets
 		};
 	};
 
-}
+} // namespace PhWidgets
 
 #endif // WIDGET_HOTKEYS_H

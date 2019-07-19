@@ -1,5 +1,5 @@
-#ifndef PT_LABEL_H
-#define PT_LABEL_H
+#ifndef PHWIDGETS_LABEL_H
+#define PHWIDGETS_LABEL_H
 
 #include <photon/PtLabel.h>
 
@@ -131,8 +131,7 @@ namespace PhWidgets
 
 		struct ArgShort:
 			public ThisArgs::ArgShort
-		{
-		};	
+        { };	
 
 		struct ArgUnsignedShort:
 			public ArgumentsEx<Basic::ArgUnsignedShort>,
@@ -143,8 +142,7 @@ namespace PhWidgets
 
 		struct ArgSignedShort:
 			public ThisArgs::ArgSignedShort
-		{
-		};	
+        { };	
 
 		struct ArgUnsignedChar:
 			public ArgumentsEx<Basic::ArgUnsignedChar>,
@@ -155,8 +153,7 @@ namespace PhWidgets
 
 		struct ArgPWidget:
 			public ThisArgs::ArgPWidget
-		{
-		};	
+        { };	
 
 		struct ArgChar:
 			public ArgumentsEx<Basic::ArgChar>,
@@ -167,13 +164,11 @@ namespace PhWidgets
 
 		struct ArgPImage:
 			public ThisArgs::ArgPImage
-		{
-		};	
+        { };	
 
 		struct ArgInt:
 			public ThisArgs::ArgInt
-		{
-		};	
+        { };	
 
 
 
@@ -239,7 +234,7 @@ namespace PhWidgets
 			@remark
 			The Font property is an ambient property. 
 			An ambient property is a widget property that, if not set, is retrieved from the parent widget. 
-			For example, a Button will have the same BackColor as its parent Form by default. 
+			For example, a Button will have the same BackColor as its parent PhWidgets::Window by default. 
 			@par
 			Because the Font is immutable (meaning that you cannot adjust any of its properties), 
 			you can only assign the Font property a new FontDef. However, you can base the new font on the existing font. 
@@ -255,7 +250,7 @@ namespace PhWidgets
 		//@}
 	};
 
-}
+} // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_LABEL_H

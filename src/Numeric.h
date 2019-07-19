@@ -1,5 +1,5 @@
-#ifndef PT_NUMERIC_H
-#define PT_NUMERIC_H
+#ifndef PHWIDGETS_NUMERIC_H
+#define PHWIDGETS_NUMERIC_H
 
 #include <photon/PtNumeric.h>
 
@@ -68,8 +68,7 @@ namespace PhWidgets
 			public ArgUnsignedShort,
 			public ArgPChar,
 			public Compound::Arguments
-		{
-		};
+        { };
 
 		typedef ResourceFrom<Compound::WidgetResourcesSingleton>::
 			Define::String<ThisArgs::ArgPChar::eArgPChar>::
@@ -91,7 +90,7 @@ namespace PhWidgets
 		
 	};
 	
-}
+} // namespace PhWidgets
 
 
-#endif
+#endif // PHWIDGETS_NUMERIC_H
