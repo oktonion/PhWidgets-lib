@@ -10,7 +10,7 @@ namespace PhWidgets
 {
 	//! Specifies how the indicator of ToggleButton is drawn.
 	/*! 
-		Apply to ToggleButton::IndicatorType property
+		Apply to ToggleButton::IndicatorType property.
 
 		@see
     	- ToggleButton::IndicatorType
