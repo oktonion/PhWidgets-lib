@@ -69,12 +69,12 @@ Window &Window::operator=(const Window &rhs)
 //for properties:
 void Window::setTitle(std::string value)
 {
-	resource[Arguments::window_title].set(value.c_str());
+	resource.argument[Arguments::window_title].set(value.c_str());
 }
 
 std::string Window::getTitle() const
 {
-	return resource[Arguments::window_title].get();
+	return resource.argument[Arguments::window_title].get();
 }
 
 
