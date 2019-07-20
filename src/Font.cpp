@@ -9,6 +9,7 @@
 #include <cstring>
 
 using namespace PhWidgets;
+using namespace PhWidgets::Drawing;
 
 typedef std::vector<FontDetails> font_families_collection_type;
 
@@ -230,7 +231,7 @@ FontFamily::operator FontDetails() const
     return _fdetails;
 }
 
-FontDef::FontDef(const FontDef &other, typedefs::font_style_bitmask fstyle):
+Font::Font(const Font &other, typedefs::font_style_bitmask fstyle):
     Bold(_bold),
     Family(_ffamily),
     Height(_height),
@@ -274,7 +275,7 @@ FontDef::FontDef(const FontDef &other, typedefs::font_style_bitmask fstyle):
     // PfConvertFontID // These functions convert the font ID pointed to by ptsID into a font name. 
 }
 
-FontDef::FontDef(FontFamily ffamily, std::uint32_t fpoint_size, typedefs::font_style_bitmask fstyle):
+Font::Font(FontFamily ffamily, std::uint32_t fpoint_size, typedefs::font_style_bitmask fstyle):
     Bold(_bold),
     Family(_ffamily),
     Height(_height),
@@ -299,7 +300,7 @@ FontDef::FontDef(FontFamily ffamily, std::uint32_t fpoint_size, typedefs::font_s
     _height = 0;
 }
 
-FontDef::FontDef(font_id_type fid):
+Font::Font(font_id_type fid):
     Bold(_bold),
     Family(_ffamily),
     Height(_height),
@@ -329,7 +330,7 @@ FontDef::FontDef(font_id_type fid):
     _ffamily = FontFamily(fdesc);
 }
 
-FontDef::FontDef(const FontDef &other):
+Font::Font(const Font &other):
     Bold(_bold),
     Family(_ffamily),
     Height(_height),
@@ -346,7 +347,7 @@ FontDef::FontDef(const FontDef &other):
 {
 }
 
-FontDef & FontDef::operator=(const FontDef &other)
+Font & Font::operator=(const Font &other)
 {
     if(&other != this)
     {
@@ -363,24 +364,24 @@ FontDef & FontDef::operator=(const FontDef &other)
     return *this;
 }
 
-bool FontDef::operator==(const FontDef &other) const
+bool Font::operator==(const Font &other) const
 {
     return 
         _fid == other._fid;
 }
 
-bool FontDef::operator!=(const FontDef &other) const
+bool Font::operator!=(const Font &other) const
 {
     return !(*this == other);
 }
 
-bool FontDef::operator<(const FontDef &other) const
+bool Font::operator<(const Font &other) const
 {   
     return 
         _fid < other._fid;
 }
 
-FontDef::operator const font_id_type() const
+Font::operator const font_id_type() const
 {
     return _fid;
 }
@@ -403,20 +404,20 @@ namespace PhWidgets
     }
 }
 
-PhWidgets::typedefs::font_style_bitmask operator|(const PhWidgets::FontStyle::eFontStyle &flag1, const PhWidgets::FontStyle::eFontStyle &flag2)
+PhWidgets::Drawing::typedefs::font_style_bitmask operator|(const PhWidgets::Drawing::FontStyle::eFontStyle &flag1, const PhWidgets::Drawing::FontStyle::eFontStyle &flag2)
 {
-    PhWidgets::typedefs::font_style_bitmask bm(flag1);
+    PhWidgets::Drawing::typedefs::font_style_bitmask bm(flag1);
 	return bm | flag2;
 }
 
-PhWidgets::typedefs::font_style_bitmask operator&(const PhWidgets::FontStyle::eFontStyle &flag1, const PhWidgets::FontStyle::eFontStyle &flag2)
+PhWidgets::Drawing::typedefs::font_style_bitmask operator&(const PhWidgets::Drawing::FontStyle::eFontStyle &flag1, const PhWidgets::Drawing::FontStyle::eFontStyle &flag2)
 {
-	PhWidgets::typedefs::font_style_bitmask bm(flag1);
+	PhWidgets::Drawing::typedefs::font_style_bitmask bm(flag1);
 	return bm & flag2;
 }
 
-PhWidgets::typedefs::font_style_bitmask operator^(const PhWidgets::FontStyle::eFontStyle &flag1, const PhWidgets::FontStyle::eFontStyle &flag2)
+PhWidgets::Drawing::typedefs::font_style_bitmask operator^(const PhWidgets::Drawing::FontStyle::eFontStyle &flag1, const PhWidgets::Drawing::FontStyle::eFontStyle &flag2)
 {
-	PhWidgets::typedefs::font_style_bitmask bm(flag1);
+	PhWidgets::Drawing::typedefs::font_style_bitmask bm(flag1);
 	return bm ^ flag2;
 }
