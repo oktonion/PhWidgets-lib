@@ -166,7 +166,7 @@ namespace PhWidgets
 		//! Properties are used to simplify use of widget resources.
 		//@{
 
-		//! Gets or sets the arm color of the widget.
+		//! Gets or sets the color of the widget when the Button is armed (pressed in).
 		/*!
 			### Property Value ### 
 			
@@ -174,11 +174,28 @@ namespace PhWidgets
 
 			A `Drawing::Color` that represents the arm color of the widget.
 
+			@remark
+			Color will change only if Button ArmFill property is set to `true`.
+
 			@see
+			- ArmFill
 			- Drawing::Colors
 			- Drawing::Color
 		*/
 		phproperty<Drawing::Color>::bind<Button, ArgColor::eArgColor, Arguments::arm_color> ArmColor;
+
+		//! Determines whether or not to use ArmColor as the background color used when the Button is armed (pressed in).
+		/*!
+			### Property Value ### 
+			
+			> **bool**
+
+			`true` if the ArmColor is used; `false` if the ArmColor is not used.
+
+			@see
+			- ArmColor
+		*/
+		phproperty<bool>::bind<Button, ArgUnsignedChar::eArgUnsignedChar, Arguments::arm_fill> ArmFill;
 
 		//@}
 	};

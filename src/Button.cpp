@@ -26,7 +26,8 @@ CHECK_WIDGET(Button);
 Button::Button(int abn):
 	Label(abn),
 	resource(this),
-	ArmColor(this)
+	ArmColor(this),
+	ArmFill(this)
 {
 	check();
 }
@@ -34,7 +35,8 @@ Button::Button(int abn):
 Button::Button(PtWidget_t *wdg):
 	Label(wdg),
 	resource(this),
-	ArmColor(this)
+	ArmColor(this),
+	ArmFill(this)
 {
 	check();
 }
@@ -43,7 +45,8 @@ Button::Button(PtWidget_t *wdg):
 Button::Button(const Button &other):
 	Label(other),
 	resource(this),
-	ArmColor(this)
+	ArmColor(this),
+	ArmFill(this)
 {
 
 }
