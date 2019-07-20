@@ -42,7 +42,7 @@ namespace PhWidgets
 
 		@see
     	- Widget::Anchor
-		- Widget::Flags::Anchor::eAnchorFlags
+		- Widget::Flags::Anchor::eAnchorStyles
 	*/
 	struct AnchorStyles
 	{
@@ -52,10 +52,10 @@ namespace PhWidgets
 
 			### Aliases ###
 			
-			PhWidgets::Widget::Flags::Anchor::eAnchorFlags,
-			PhWidgets::Widget::ThisFlags::Anchor::eAnchorFlags
+			PhWidgets::Widget::Flags::Anchor::eAnchorStyles,
+			PhWidgets::Widget::ThisFlags::Anchor::eAnchorStyles
 		*/
-		enum eAnchorFlags
+		enum eAnchorStyles
 		{
 			LeftAnchoredRight = Pt_LEFT_ANCHORED_RIGHT, //!< Anchors the widget's left extent to the right edge of its parent's canvas. 
 			RightAnchoredRight = Pt_RIGHT_ANCHORED_RIGHT, //!< Anchors the widget's right extent to the right edge of its parent's canvas.
@@ -1221,9 +1221,9 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			> [AnchorStyles::eAnchorFlags](@ref Flags::Anchor::eAnchorFlags) 
+			> [AnchorStyles::eAnchorStyles](@ref Flags::Anchor::eAnchorStyles) 
 
-			A bitwise combination of the Flags::Anchor::eAnchorFlags values.
+			A bitwise combination of the Flags::Anchor::eAnchorStyles values.
 
 			### Examples ###
 
@@ -1250,7 +1250,7 @@ namespace PhWidgets
 			- Dock
 			- Layout
 		*/
-		phbitmask<unsigned, Flags::Anchor::eAnchorFlags, Flags::Anchor::All>::
+		phbitmask<unsigned, Flags::Anchor::eAnchorStyles, Flags::Anchor::All>::
 			bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags> Anchor;
 
 		//! Gets or sets the bevel width of the widget.
@@ -1876,7 +1876,7 @@ namespace PhWidgets
 		typedef
 		cppbitmasks::bitmask<
 			unsigned, 
-			PhWidgets::Widget::Flags::Anchor::eAnchorFlags,
+			PhWidgets::Widget::Flags::Anchor::eAnchorStyles,
 			PhWidgets::Widget::Flags::Anchor::All
 		>
 		anchor_flags_bitmask;
@@ -1895,9 +1895,9 @@ cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> opera
 cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> operator&(const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag1, const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag2);
 cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> operator^(const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag1, const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag2);
 
-PhWidgets::typedefs::anchor_flags_bitmask operator|(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag2);
-PhWidgets::typedefs::anchor_flags_bitmask operator&(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag2);
-PhWidgets::typedefs::anchor_flags_bitmask operator^(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag2);
+PhWidgets::typedefs::anchor_flags_bitmask operator|(const PhWidgets::Widget::Flags::Anchor::eAnchorStyles &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorStyles &flag2);
+PhWidgets::typedefs::anchor_flags_bitmask operator&(const PhWidgets::Widget::Flags::Anchor::eAnchorStyles &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorStyles &flag2);
+PhWidgets::typedefs::anchor_flags_bitmask operator^(const PhWidgets::Widget::Flags::Anchor::eAnchorStyles &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorStyles &flag2);
 
 bool operator==(const PhArea_t &lhs, const PhArea_t &rhs);
 bool operator!=(const PhArea_t &lhs, const PhArea_t &rhs);
