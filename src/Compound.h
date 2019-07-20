@@ -28,7 +28,18 @@ namespace PhWidgets
 		virtual void check();
 						
 	public:
+		//! (constructor) 
+		/*!
+			Constructs a Compound widget by ID.
+			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+		*/
 		Compound(int abn);
+
+		//! (constructor) 
+		/*!
+			Constructs a Compound widget by pointer to widget.
+			@param[in] wdg pointer to Photon widget.
+		*/		
 		Compound(PtWidget_t *wdg);
 		
 		

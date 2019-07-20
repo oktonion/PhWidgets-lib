@@ -97,12 +97,23 @@ namespace PhWidgets
 	public:
 		WidgetResourcesSingleton resource;
 
+		//! (constructor) 
+		/*!
+			Constructs a Text widget by ID.
+			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+		*/
 		Text(int abn);
+
+		//! (constructor) 
+		/*!
+			Constructs a Text widget by pointer to widget.
+			@param[in] wdg pointer to Photon widget.
+		*/		
 		Text(PtWidget_t *wdg);
 
-		Text(const Text &rhs);
+		Text(const Text &other);
 
-		Text &operator=(const Text &rhs);
+		Text &operator=(const Text &other);
 
 		phwidgets_event<Text, Text::Callbacks::modify_notify>	ModifyNotify;
 		phwidgets_event<Text, Text::Callbacks::modify_verify>	ModifyVerify;

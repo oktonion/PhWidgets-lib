@@ -101,6 +101,11 @@ namespace PhWidgets
 	public:
 		WidgetResourcesSingleton resource;
 
+		//! (constructor) 
+		/*!
+			Constructs a OnOffButton widget by ID.
+			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+		*/
 		OnOffButton(int abn);
 		OnOffButton(PtWidget_t* wdg);
 		

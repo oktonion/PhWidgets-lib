@@ -70,7 +70,7 @@ namespace PhWidgets
 		struct ArgInt:
 			public ThisArgs::ArgInt
         { };
-		
+
 		//! Contains resource IDs for callbacks of type `PtCallback_t`.
 		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
@@ -106,12 +106,23 @@ namespace PhWidgets
 	public:
 		WidgetResourcesSingleton resource;
 
+		//! (constructor) 
+		/*!
+			Constructs a NumericInteger widget by ID.
+			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+		*/
 		NumericInteger(int abn);
+
+		//! (constructor) 
+		/*!
+			Constructs a NumericInteger widget by pointer to widget.
+			@param[in] wdg pointer to Photon widget.
+		*/
 		NumericInteger(PtWidget_t *wdg);
 		
-		NumericInteger(const NumericInteger&);
+		NumericInteger(const NumericInteger &other);
 
-		NumericInteger &operator=(const NumericInteger &rhs);
+		NumericInteger &operator=(const NumericInteger &other);
 		
 		phproperty<int>::bind<NumericInteger, ArgInt::eArgInt, Arguments::numeric_value> Value;
 		phproperty<int>::bind<NumericInteger, ArgInt::eArgInt, Arguments::numeric_max> MaxValue;

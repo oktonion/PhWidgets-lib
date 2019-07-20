@@ -114,10 +114,33 @@ namespace PhWidgets
 	public:
 		WidgetResourcesSingleton resource;
 
+		//! (constructor) 
+		/*!
+			Constructs a Numeric widget by ID.
+			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+		*/
 		Numeric(int abn);
+
+		//! (constructor) 
+		/*!
+			Constructs a Numeric widget by pointer to widget.
+			@param[in] wdg pointer to Photon widget.
+		*/
 		Numeric(PtWidget_t *wdg);
 		
-		Numeric(const Numeric &rhs);
+		//! (copy constructor) 
+		/*!
+			Constructs a Numeric widget by copy.
+			@param[in] other another Numeric widget to be used as source to initialize the elements of the container with.
+		*/
+		Numeric(const Numeric &other);
+
+		//! Assigns value in Numeric widget 
+		/*!
+			Replaces the contents of the Numeric widget.
+			@param[in] other another Numeric widget to use as data source.
+		*/
+		Numeric &operator=(const Numeric &other);
 		
 	};
 	

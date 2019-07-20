@@ -324,12 +324,33 @@ namespace PhWidgets
 	public:
 		WidgetResourcesSingleton resource;
 
+		//! (constructor) 
+		/*!
+			Constructs a Container widget by ID.
+			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+		*/
 		Container(int abn);
+
+		//! (constructor) 
+		/*!
+			Constructs a Container widget by pointer to widget.
+			@param[in] wdg pointer to Photon widget.
+		*/		
 		Container(PtWidget_t *wdg);
 
-		Container(const Container &rhs);
+		//! (copy constructor) 
+		/*!
+			Constructs a Container widget by copy.
+			@param[in] other another Container widget to be used as source to initialize the elements of the container with.
+		*/
+		Container(const Container &other);
 
-		Container &operator=(const Container &rhs);
+		//! Assigns value in Container widget 
+		/*!
+			Replaces the contents of the Container widget.
+			@param[in] other another Container widget to use as data source.
+		*/
+		Container &operator=(const Container &other);
 		
 		phwidgets_event<Container, Container::Callbacks::child_added_removed>	ChildAddedRemoved;
 		phwidgets_event<Container, Container::Callbacks::child_getting_focus>	ChildGettingFocus;

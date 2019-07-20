@@ -341,12 +341,33 @@ namespace PhWidgets
 	public:
 		WidgetResourcesSingleton resource;
 
+		//! (constructor) 
+		/*!
+			Constructs a Label widget by ID.
+			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+		*/
 		Label(int abn);
+
+		//! (constructor) 
+		/*!
+			Constructs a Label widget by pointer to widget.
+			@param[in] wdg pointer to Photon widget.
+		*/		
 		Label(PtWidget_t *wdg);
 		
-		Label(const Label&);
+		//! (copy constructor) 
+		/*!
+			Constructs a Label widget by copy.
+			@param[in] other another Label widget to be used as source to initialize the elements of the container with.
+		*/
+		Label(const Label &other);
 
-		Label &operator=(const Label &rhs);
+		//! Assigns value in Label widget 
+		/*!
+			Replaces the contents of the Label widget.
+			@param[in] other another Label widget to use as data source.
+		*/
+		Label &operator=(const Label &other);
 		
 		//! @name Properties
 		//! Properties are used to simplify use of widget resources.

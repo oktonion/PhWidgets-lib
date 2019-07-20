@@ -399,28 +399,28 @@ namespace PhWidgets
 		//! (constructor) 
 		/*!
 			Constructs a Basic widget by ID.
-			\param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
 		*/
 		Basic(int abn);
 
 		//! (constructor) 
 		/*!
 			Constructs a Basic widget by pointer to widget.
-			\param[in] wdg pointer to Photon widget.
+			@param[in] wdg pointer to Photon widget.
 		*/
 		Basic(PtWidget_t *wdg);
 		
 		//! (copy constructor) 
 		/*!
 			Constructs a Basic widget by copy.
-			\param[in] other another Basic widget to be used as source to initialize the elements of the container with.
+			@param[in] other another Basic widget to be used as source to initialize the elements of the container with.
 		*/
 		Basic(const Basic &other);
 
 		//! Assigns value in Basic widget 
 		/*!
 			Replaces the contents of the Basic widget.
-			\param[in] other another Basic widget to use as data source.
+			@param[in] other another Basic widget to use as data source.
 		*/
 		Basic &operator=(const Basic &other);
 

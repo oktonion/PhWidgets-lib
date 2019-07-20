@@ -132,12 +132,23 @@ namespace PhWidgets
 	public:
 		WidgetResourcesSingleton resource;
 
+		//! (constructor) 
+		/*!
+			Constructs a NumericFloat widget by ID.
+			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+		*/
 		NumericFloat(int abn);
+
+		//! (constructor) 
+		/*!
+			Constructs a NumericFloat widget by pointer to widget.
+			@param[in] wdg pointer to Photon widget.
+		*/
 		NumericFloat(PtWidget_t *wdg);
 		
-		NumericFloat(const NumericFloat&);
+		NumericFloat(const NumericFloat &other);
 
-		NumericFloat &operator=(const NumericFloat &rhs);
+		NumericFloat &operator=(const NumericFloat &other);
 		
 		property<double>::bind<NumericFloat, &NumericFloat::getValue, &NumericFloat::setValue> Value;
 		property<double>::bind<NumericFloat, &NumericFloat::getMaxValue, &NumericFloat::setMaxValue> MaxValue;

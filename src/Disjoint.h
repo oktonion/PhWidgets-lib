@@ -113,12 +113,33 @@ namespace PhWidgets
 	public:
 		WidgetResourcesSingleton resource;
 
+		//! (constructor) 
+		/*!
+			Constructs a Disjoint widget by ID.
+			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+		*/
 		Disjoint(int abn);
+
+		//! (constructor) 
+		/*!
+			Constructs a Disjoint widget by pointer to widget.
+			@param[in] wdg pointer to Photon widget.
+		*/
 		Disjoint(PtWidget_t *wdg);
 
-		Disjoint(const Disjoint &rhs);
+		//! (copy constructor) 
+		/*!
+			Constructs a Disjoint widget by copy.
+			@param[in] other another Disjoint widget to be used as source to initialize the elements of the container with.
+		*/
+		Disjoint(const Disjoint &other);
 
-		Disjoint &operator=(const Disjoint &rhs);
+		//! Assigns value in Disjoint widget 
+		/*!
+			Replaces the contents of the Disjoint widget.
+			@param[in] other another Disjoint widget to use as data source.
+		*/
+		Disjoint &operator=(const Disjoint &other);
 		
         //! @name Events
 		//@{ 

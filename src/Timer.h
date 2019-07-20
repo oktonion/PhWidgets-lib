@@ -97,6 +97,7 @@ namespace PhWidgets
 			public ArgPVoid
         { };
 
+		//! Contains resource IDs for all Timer callbacks.
 		struct Callbacks:
 			public Callback,
 			public Widget::Callbacks

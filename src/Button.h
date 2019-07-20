@@ -129,12 +129,33 @@ namespace PhWidgets
 	public:
 		WidgetResourcesSingleton resource;
 
+		//! (constructor) 
+		/*!
+			Constructs a Button widget by ID.
+			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+		*/
 		Button(int abn);
+
+		//! (constructor) 
+		/*!
+			Constructs a Button widget by pointer to widget.
+			@param[in] wdg pointer to Photon widget.
+		*/
 		Button(PtWidget_t *wdg);
 
-		Button(const Button &rhs);
+		//! (copy constructor) 
+		/*!
+			Constructs a Button widget by copy.
+			@param[in] other another Button widget to be used as source to initialize the elements of the container with.
+		*/
+		Button(const Button &other);
 
-		Button &operator=(const Button &rhs);
+		//! Assigns value in Button widget 
+		/*!
+			Replaces the contents of the Button widget.
+			@param[in] other another Button widget to use as data source.
+		*/
+		Button &operator=(const Button &other);
 
 		phproperty<PgColor_t>::bind<Button, ArgColor::eArgColor, Arguments::arm_color> ArmColor;
 	};
