@@ -39,20 +39,17 @@ var NAVTREE =
         [ "Enumerations", "functions_enum.html", null ],
         [ "Enumerator", "functions_eval.html", "functions_eval" ]
       ] ]
-    ] ],
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_basic_8cpp_source.html",
-"class_ph_widgets_1_1_timer.html#struct_ph_widgets_1_1_timer_1_1_this_args",
-"struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic.html#a258299d92b4b17d19ead7ab30554ed41a090c2e5fec8059f20520f536da8ab521",
-"struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689baa28212b74132371ff094491e11fb9180",
-"struct_ph_widgets_1_1_timer_1_1_this_args_1_1_arg_unsigned_long_aaa6a80096307e60b1384a7b4c72c460c.html#aaa6a80096307e60b1384a7b4c72c460ca1307c34cdc6f546afeb00db13dac7060"
+"annotated.html",
+"class_ph_widgets_1_1_widget.html#aeafd68a2c58d7194c149e58fddadd3ed",
+"struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41af052f18d39969daca160c2b6278db6c0",
+"struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689badf5aa832a242357cd67fe6968ee53165",
+"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_dim.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

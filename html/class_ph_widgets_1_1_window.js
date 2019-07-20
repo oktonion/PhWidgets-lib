@@ -39,10 +39,10 @@ var class_ph_widgets_1_1_window =
         ] ]
       ] ]
     ] ],
-    [ "Window", "class_ph_widgets_1_1_window_ac4b4893f0f56035b78c46c7b72af818c.html#ac4b4893f0f56035b78c46c7b72af818c", null ],
-    [ "Window", "class_ph_widgets_1_1_window_a0176909a0c3c98f5fc1afd67e1a424e1.html#a0176909a0c3c98f5fc1afd67e1a424e1", null ],
-    [ "Window", "class_ph_widgets_1_1_window_a51219ab9188d3eeef69a8f597cc8919e.html#a51219ab9188d3eeef69a8f597cc8919e", null ],
-    [ "operator=", "class_ph_widgets_1_1_window_a4ac87eae37bb12194243b4bea906d396.html#a4ac87eae37bb12194243b4bea906d396", null ],
+    [ "Window", "class_ph_widgets_1_1_window_a793d14f2289bb932540159385a0a32b5.html#a793d14f2289bb932540159385a0a32b5", null ],
+    [ "Window", "class_ph_widgets_1_1_window_a481da32d84799814fffe336c2f16c3b8.html#a481da32d84799814fffe336c2f16c3b8", null ],
+    [ "Window", "class_ph_widgets_1_1_window_a78c8be5499f8c0f7fb26a1ba13219054.html#a78c8be5499f8c0f7fb26a1ba13219054", null ],
+    [ "operator=", "class_ph_widgets_1_1_window_afe4b2d3a72e624c467a5f084a1577717.html#afe4b2d3a72e624c467a5f084a1577717", null ],
     [ "resource", "class_ph_widgets_1_1_window_a3ecd7f3a684284f614d06493b6ed1934.html#a3ecd7f3a684284f614d06493b6ed1934", null ],
     [ "Title", "class_ph_widgets_1_1_window_ad08cc3609cd67d5eee5c325b006f4aa1.html#ad08cc3609cd67d5eee5c325b006f4aa1", null ],
     [ "Closing", "class_ph_widgets_1_1_window.html#a945d775b1c5a91f964c1240c23b45fa6", null ],

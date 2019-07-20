@@ -15,7 +15,7 @@ var searchData=
   ['helptopic',['HelpTopic',['../class_ph_widgets_1_1_widget.html#a410640fc73b0aa7d8343bf13cbbb2e1f',1,'PhWidgets::Widget']]],
   ['hex',['hex',['http://en.cppreference.com/w/cpp/io/manip/hex.html',1,'std']]],
   ['hexfloat',['hexfloat',['http://en.cppreference.com/w/cpp/io/manip/fixed.html',1,'std']]],
-  ['hide',['Hide',['../class_ph_widgets_1_1_widget_adeb036e3b469c3736e70793a2d5e6428.html#adeb036e3b469c3736e70793a2d5e6428',1,'PhWidgets::Widget']]],
+  ['hide',['Hide',['../class_ph_widgets_1_1_widget_abf86e2b62783bb165cf0138fefce6114.html#abf86e2b62783bb165cf0138fefce6114',1,'PhWidgets::Widget']]],
   ['high_5fresolution_5fclock',['high_resolution_clock',['http://en.cppreference.com/w/cpp/chrono/high_resolution_clock.html',1,'std::chrono']]],
   ['highlighted',['Highlighted',['../struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda54c99d04ce045f930f27054c22748379',1,'PhWidgets::Widget::ThisFlags']]],
   ['highlihgt_5froundness',['highlihgt_roundness',['../struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_unsigned_char_af11991506a14e199a31d3db84ecdc1c5.html#af11991506a14e199a31d3db84ecdc1c5a2ff105989001775922c8c206c9b0ee59',1,'PhWidgets::Basic::ThisArgs::ArgUnsignedChar']]],

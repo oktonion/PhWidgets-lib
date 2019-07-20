@@ -77,10 +77,10 @@ var class_ph_widgets_1_1_label =
         ] ]
       ] ]
     ] ],
-    [ "Label", "class_ph_widgets_1_1_label_ae1398450cbd789a6c57ea5815dfa0f04.html#ae1398450cbd789a6c57ea5815dfa0f04", null ],
-    [ "Label", "class_ph_widgets_1_1_label_a1a0cf412448e1744b7b9bdc9b9fcdc7b.html#a1a0cf412448e1744b7b9bdc9b9fcdc7b", null ],
-    [ "Label", "class_ph_widgets_1_1_label_ac85a663bed5ae37eb6830c0719867d9e.html#ac85a663bed5ae37eb6830c0719867d9e", null ],
-    [ "operator=", "class_ph_widgets_1_1_label_a646aa2d5485dbb2c457b6d230d22863b.html#a646aa2d5485dbb2c457b6d230d22863b", null ],
+    [ "Label", "class_ph_widgets_1_1_label_a95a0386f281b54c7bf5e7dbdd3d61fb9.html#a95a0386f281b54c7bf5e7dbdd3d61fb9", null ],
+    [ "Label", "class_ph_widgets_1_1_label_a55603174fc3aa59a473b60214b925e2d.html#a55603174fc3aa59a473b60214b925e2d", null ],
+    [ "Label", "class_ph_widgets_1_1_label_afc7c429fac12cd01035bb46b788ac500.html#afc7c429fac12cd01035bb46b788ac500", null ],
+    [ "operator=", "class_ph_widgets_1_1_label_abcb4011afe357ab53f04f55ca89f11b0.html#abcb4011afe357ab53f04f55ca89f11b0", null ],
     [ "resource", "class_ph_widgets_1_1_label_a1458080036dcd6027b53268b5c17d835.html#a1458080036dcd6027b53268b5c17d835", null ],
     [ "Caption", "class_ph_widgets_1_1_label.html#a0aacb570cbd38a2472a878ede2987c57", null ],
     [ "Font", "class_ph_widgets_1_1_label_a62d72eb92232b8e43251034912fd7a37.html#a62d72eb92232b8e43251034912fd7a37", null ],

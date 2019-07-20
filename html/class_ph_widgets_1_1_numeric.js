@@ -18,9 +18,9 @@ var class_ph_widgets_1_1_numeric =
       ] ]
     ] ],
     [ "WidgetResourcesSingleton", "class_ph_widgets_1_1_numeric.html#ad61a1ad5a0865ccecd1907c7be37ff25", null ],
-    [ "Numeric", "class_ph_widgets_1_1_numeric_a4f42159201f720b553ef0ff15ce867c8.html#a4f42159201f720b553ef0ff15ce867c8", null ],
-    [ "Numeric", "class_ph_widgets_1_1_numeric_a41e1ed7c2eae4f8901226f30b164b67e.html#a41e1ed7c2eae4f8901226f30b164b67e", null ],
-    [ "Numeric", "class_ph_widgets_1_1_numeric_aebc7cef0dabd16129814d77d6af6f528.html#aebc7cef0dabd16129814d77d6af6f528", null ],
-    [ "operator=", "class_ph_widgets_1_1_numeric_a8045b8d71c34c31d43be1a32f3a40d2c.html#a8045b8d71c34c31d43be1a32f3a40d2c", null ],
+    [ "Numeric", "class_ph_widgets_1_1_numeric_a8c533e1ab96f7cc1f2961b460b48be8d.html#a8c533e1ab96f7cc1f2961b460b48be8d", null ],
+    [ "Numeric", "class_ph_widgets_1_1_numeric_aa1ae2c6f85f2ab5c31bd633452335293.html#aa1ae2c6f85f2ab5c31bd633452335293", null ],
+    [ "Numeric", "class_ph_widgets_1_1_numeric_a749d10f8e06c8ceca38266f8632e5d9b.html#a749d10f8e06c8ceca38266f8632e5d9b", null ],
+    [ "operator=", "class_ph_widgets_1_1_numeric_a63da114481ead1ad501109d4d7784135.html#a63da114481ead1ad501109d4d7784135", null ],
     [ "resource", "class_ph_widgets_1_1_numeric_a9fc8220e5b44f47461baf214f98e56e4.html#a9fc8220e5b44f47461baf214f98e56e4", null ]
 ];

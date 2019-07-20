@@ -21,10 +21,10 @@ var class_ph_widgets_1_1_numeric_integer =
         ] ]
       ] ]
     ] ],
-    [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer_ae47ad276a9a9c73694ab198cc1644cc2.html#ae47ad276a9a9c73694ab198cc1644cc2", null ],
-    [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer_ac2d577f84178d1f66512659d785e828e.html#ac2d577f84178d1f66512659d785e828e", null ],
-    [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer_ab4b2968987f146df846d15b9f7b0284c.html#ab4b2968987f146df846d15b9f7b0284c", null ],
-    [ "operator=", "class_ph_widgets_1_1_numeric_integer_a8e1ad75e9ecab57ae754831039de0089.html#a8e1ad75e9ecab57ae754831039de0089", null ],
+    [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer_ae2250b59ac592b6caf4f2b587572d3f6.html#ae2250b59ac592b6caf4f2b587572d3f6", null ],
+    [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer_a5ee417013be7382f07eb81742031dc74.html#a5ee417013be7382f07eb81742031dc74", null ],
+    [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer_a1ac0ff9bda1a48b6a73db2b1dbdc0963.html#a1ac0ff9bda1a48b6a73db2b1dbdc0963", null ],
+    [ "operator=", "class_ph_widgets_1_1_numeric_integer_a6fe7d00a9f49ee14cbf863db7d03ac0c.html#a6fe7d00a9f49ee14cbf863db7d03ac0c", null ],
     [ "resource", "class_ph_widgets_1_1_numeric_integer_af9c931de762d4701ce39b8de649ab8ee.html#af9c931de762d4701ce39b8de649ab8ee", null ],
     [ "Value", "class_ph_widgets_1_1_numeric_integer.html#ae906dd2dce69ce576481ddac4a93f0c6", null ],
     [ "MaxValue", "class_ph_widgets_1_1_numeric_integer.html#ab445ece88f569b8bc77a45d72c0efe37", null ],

@@ -333,6 +333,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "PhWidgets::Basic::ThisFlags::Basic", "struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic.html", null ],
+    [ "PhWidgets::Window::ThisCallbacks::Callback", "struct_ph_widgets_1_1_window_1_1_this_callbacks_1_1_callback.html", null ],
     [ "PhWidgets::Basic::ThisCallbacks::Callback", "struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html", [
       [ "PhWidgets::Basic::Callback", "struct_ph_widgets_1_1_basic_1_1_callback.html", [
         [ "PhWidgets::Basic::Callbacks", "struct_ph_widgets_1_1_basic_1_1_callbacks.html", [
@@ -392,7 +393,6 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
-    [ "PhWidgets::Window::ThisCallbacks::Callback", "struct_ph_widgets_1_1_window_1_1_this_callbacks_1_1_callback.html", null ],
     [ "PhWidgets::Drawing::Colors", "struct_ph_widgets_1_1_drawing_1_1_colors.html", [
       [ "PhWidgets::Drawing::Color", "class_ph_widgets_1_1_drawing_1_1_color.html", null ]
     ] ],
@@ -426,41 +426,41 @@ var hierarchy =
       ] ]
     ] ],
     [ "PhWidgets::Widget::ThisFlags::Resize", "struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_resize.html", null ],
-    [ "PhWidgets::Disjoint::ThisArgs", "class_ph_widgets_1_1_disjoint.html#struct_ph_widgets_1_1_disjoint_1_1_this_args", null ],
+    [ "PhWidgets::Text::ThisArgs", "class_ph_widgets_1_1_text.html#struct_ph_widgets_1_1_text_1_1_this_args", null ],
     [ "PhWidgets::ToggleButton::ThisArgs", "class_ph_widgets_1_1_toggle_button.html#struct_ph_widgets_1_1_toggle_button_1_1_this_args", null ],
+    [ "PhWidgets::Label::ThisArgs", "class_ph_widgets_1_1_label.html#struct_ph_widgets_1_1_label_1_1_this_args", null ],
+    [ "PhWidgets::NumericInteger::ThisArgs", "class_ph_widgets_1_1_numeric_integer.html#struct_ph_widgets_1_1_numeric_integer_1_1_this_args", null ],
     [ "PhWidgets::Numeric::ThisArgs", "class_ph_widgets_1_1_numeric.html#struct_ph_widgets_1_1_numeric_1_1_this_args", null ],
     [ "PhWidgets::Button::ThisArgs", "class_ph_widgets_1_1_button.html#struct_ph_widgets_1_1_button_1_1_this_args", null ],
     [ "PhWidgets::Graphic::ThisArgs", "class_ph_widgets_1_1_graphic.html#struct_ph_widgets_1_1_graphic_1_1_this_args", null ],
-    [ "PhWidgets::Timer::ThisArgs", "class_ph_widgets_1_1_timer.html#struct_ph_widgets_1_1_timer_1_1_this_args", null ],
-    [ "PhWidgets::Label::ThisArgs", "class_ph_widgets_1_1_label.html#struct_ph_widgets_1_1_label_1_1_this_args", null ],
     [ "PhWidgets::NumericFloat::ThisArgs", "class_ph_widgets_1_1_numeric_float.html#struct_ph_widgets_1_1_numeric_float_1_1_this_args", null ],
-    [ "PhWidgets::OnOffButton::ThisArgs", "class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_args", null ],
-    [ "PhWidgets::Widget::ThisArgs", "class_ph_widgets_1_1_widget.html#struct_ph_widgets_1_1_widget_1_1_this_args", null ],
-    [ "PhWidgets::Text::ThisArgs", "class_ph_widgets_1_1_text.html#struct_ph_widgets_1_1_text_1_1_this_args", null ],
-    [ "PhWidgets::Container::ThisArgs", "class_ph_widgets_1_1_container.html#struct_ph_widgets_1_1_container_1_1_this_args", null ],
     [ "PhWidgets::Basic::ThisArgs", "class_ph_widgets_1_1_basic.html#struct_ph_widgets_1_1_basic_1_1_this_args", null ],
+    [ "PhWidgets::Widget::ThisArgs", "class_ph_widgets_1_1_widget.html#struct_ph_widgets_1_1_widget_1_1_this_args", null ],
+    [ "PhWidgets::OnOffButton::ThisArgs", "class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_args", null ],
+    [ "PhWidgets::Disjoint::ThisArgs", "class_ph_widgets_1_1_disjoint.html#struct_ph_widgets_1_1_disjoint_1_1_this_args", null ],
+    [ "PhWidgets::Container::ThisArgs", "class_ph_widgets_1_1_container.html#struct_ph_widgets_1_1_container_1_1_this_args", null ],
     [ "PhWidgets::Window::ThisArgs", "class_ph_widgets_1_1_window.html#struct_ph_widgets_1_1_window_1_1_this_args", null ],
-    [ "PhWidgets::NumericInteger::ThisArgs", "class_ph_widgets_1_1_numeric_integer.html#struct_ph_widgets_1_1_numeric_integer_1_1_this_args", null ],
-    [ "PhWidgets::OnOffButton::ThisCallbacks", "class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks", null ],
-    [ "PhWidgets::Widget::ThisCallbacks", "class_ph_widgets_1_1_widget.html#struct_ph_widgets_1_1_widget_1_1_this_callbacks", null ],
+    [ "PhWidgets::Timer::ThisArgs", "class_ph_widgets_1_1_timer.html#struct_ph_widgets_1_1_timer_1_1_this_args", null ],
     [ "PhWidgets::Container::ThisCallbacks", "class_ph_widgets_1_1_container.html#struct_ph_widgets_1_1_container_1_1_this_callbacks", null ],
-    [ "PhWidgets::Timer::ThisCallbacks", "class_ph_widgets_1_1_timer.html#struct_ph_widgets_1_1_timer_1_1_this_callbacks", null ],
-    [ "PhWidgets::Text::ThisCallbacks", "class_ph_widgets_1_1_text.html#struct_ph_widgets_1_1_text_1_1_this_callbacks", null ],
-    [ "PhWidgets::NumericFloat::ThisCallbacks", "class_ph_widgets_1_1_numeric_float.html#struct_ph_widgets_1_1_numeric_float_1_1_this_callbacks", null ],
-    [ "PhWidgets::Disjoint::ThisCallbacks", "class_ph_widgets_1_1_disjoint.html#struct_ph_widgets_1_1_disjoint_1_1_this_callbacks", null ],
-    [ "PhWidgets::NumericInteger::ThisCallbacks", "class_ph_widgets_1_1_numeric_integer.html#struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks", null ],
-    [ "PhWidgets::Basic::ThisCallbacks", "class_ph_widgets_1_1_basic.html#struct_ph_widgets_1_1_basic_1_1_this_callbacks", null ],
+    [ "PhWidgets::Widget::ThisCallbacks", "class_ph_widgets_1_1_widget.html#struct_ph_widgets_1_1_widget_1_1_this_callbacks", null ],
     [ "PhWidgets::Graphic::ThisCallbacks", "class_ph_widgets_1_1_graphic.html#struct_ph_widgets_1_1_graphic_1_1_this_callbacks", null ],
+    [ "PhWidgets::Timer::ThisCallbacks", "class_ph_widgets_1_1_timer.html#struct_ph_widgets_1_1_timer_1_1_this_callbacks", null ],
     [ "PhWidgets::Window::ThisCallbacks", "class_ph_widgets_1_1_window.html#struct_ph_widgets_1_1_window_1_1_this_callbacks", null ],
+    [ "PhWidgets::Text::ThisCallbacks", "class_ph_widgets_1_1_text.html#struct_ph_widgets_1_1_text_1_1_this_callbacks", null ],
+    [ "PhWidgets::Basic::ThisCallbacks", "class_ph_widgets_1_1_basic.html#struct_ph_widgets_1_1_basic_1_1_this_callbacks", null ],
+    [ "PhWidgets::NumericInteger::ThisCallbacks", "class_ph_widgets_1_1_numeric_integer.html#struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks", null ],
+    [ "PhWidgets::NumericFloat::ThisCallbacks", "class_ph_widgets_1_1_numeric_float.html#struct_ph_widgets_1_1_numeric_float_1_1_this_callbacks", null ],
+    [ "PhWidgets::OnOffButton::ThisCallbacks", "class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks", null ],
+    [ "PhWidgets::Disjoint::ThisCallbacks", "class_ph_widgets_1_1_disjoint.html#struct_ph_widgets_1_1_disjoint_1_1_this_callbacks", null ],
     [ "PhWidgets::Basic::ThisFlags", "struct_ph_widgets_1_1_basic_1_1_this_flags.html", [
       [ "PhWidgets::Basic::Flags", "struct_ph_widgets_1_1_basic_1_1_flags.html", null ]
     ] ],
+    [ "PhWidgets::Graphic::ThisFlags", "struct_ph_widgets_1_1_graphic_1_1_this_flags.html", null ],
     [ "PhWidgets::Widget::ThisFlags", "struct_ph_widgets_1_1_widget_1_1_this_flags.html", [
       [ "PhWidgets::Widget::Flags", "struct_ph_widgets_1_1_widget_1_1_flags.html", [
         [ "PhWidgets::Basic::Flags", "struct_ph_widgets_1_1_basic_1_1_flags.html", null ]
       ] ]
     ] ],
-    [ "PhWidgets::Graphic::ThisFlags", "struct_ph_widgets_1_1_graphic_1_1_this_flags.html", null ],
     [ "PhWidgets::Widget", "class_ph_widgets_1_1_widget.html", [
       [ "PhWidgets::Basic", "class_ph_widgets_1_1_basic.html", [
         [ "PhWidgets::Container", "class_ph_widgets_1_1_container.html", [

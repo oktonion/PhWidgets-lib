@@ -7,7 +7,7 @@ var searchData=
   ['hash_5ffunction',['hash_function',['http://en.cppreference.com/w/cpp/container/unordered_map/hash_function.html',1,'std::unordered_map::hash_function()'],['http://en.cppreference.com/w/cpp/container/unordered_multimap/hash_function.html',1,'std::unordered_multimap::hash_function()'],['http://en.cppreference.com/w/cpp/container/unordered_multiset/hash_function.html',1,'std::unordered_multiset::hash_function()'],['http://en.cppreference.com/w/cpp/container/unordered_set/hash_function.html',1,'std::unordered_set::hash_function()']]],
   ['hex',['hex',['http://en.cppreference.com/w/cpp/io/manip/hex.html',1,'std']]],
   ['hexfloat',['hexfloat',['http://en.cppreference.com/w/cpp/io/manip/fixed.html',1,'std']]],
-  ['hide',['Hide',['../class_ph_widgets_1_1_widget_adeb036e3b469c3736e70793a2d5e6428.html#adeb036e3b469c3736e70793a2d5e6428',1,'PhWidgets::Widget']]],
+  ['hide',['Hide',['../class_ph_widgets_1_1_widget_abf86e2b62783bb165cf0138fefce6114.html#abf86e2b62783bb165cf0138fefce6114',1,'PhWidgets::Widget']]],
   ['hours',['hours',['http://en.cppreference.com/w/cpp/chrono/duration/duration.html',1,'std::chrono::hours']]],
   ['hypot',['hypot',['http://en.cppreference.com/w/cpp/numeric/math/hypot.html',1,'std']]]
 ];

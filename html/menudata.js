@@ -120,6 +120,4 @@ var menudata={children:[
 {text:"u",url:"functions_eval_u.html#index_u"},
 {text:"v",url:"functions_eval_v.html#index_v"},
 {text:"w",url:"functions_eval_w.html#index_w"},
-{text:"y",url:"functions_eval_y.html#index_y"}]}]}]},
-{text:"Files",url:"files.html",children:[
-{text:"File List",url:"files.html"}]}]}
+{text:"y",url:"functions_eval_y.html#index_y"}]}]}]}]}

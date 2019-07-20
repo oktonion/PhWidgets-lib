@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['label',['Label',['../class_ph_widgets_1_1_label_ae1398450cbd789a6c57ea5815dfa0f04.html#ae1398450cbd789a6c57ea5815dfa0f04',1,'PhWidgets::Label::Label(int abn)'],['../class_ph_widgets_1_1_label_a1a0cf412448e1744b7b9bdc9b9fcdc7b.html#a1a0cf412448e1744b7b9bdc9b9fcdc7b',1,'PhWidgets::Label::Label(PtWidget_t *wdg)'],['../class_ph_widgets_1_1_label_ac85a663bed5ae37eb6830c0719867d9e.html#ac85a663bed5ae37eb6830c0719867d9e',1,'PhWidgets::Label::Label(const Label &amp;other)']]],
+  ['label',['Label',['../class_ph_widgets_1_1_label_a95a0386f281b54c7bf5e7dbdd3d61fb9.html#a95a0386f281b54c7bf5e7dbdd3d61fb9',1,'PhWidgets::Label::Label(int abn)'],['../class_ph_widgets_1_1_label_a55603174fc3aa59a473b60214b925e2d.html#a55603174fc3aa59a473b60214b925e2d',1,'PhWidgets::Label::Label(PtWidget_t *wdg)'],['../class_ph_widgets_1_1_label_afc7c429fac12cd01035bb46b788ac500.html#afc7c429fac12cd01035bb46b788ac500',1,'PhWidgets::Label::Label(const Label &amp;other)']]],
   ['labs',['labs',['http://en.cppreference.com/w/cpp/numeric/math/abs.html',1,'std']]],
   ['lambda',['lambda',['http://en.cppreference.com/w/cpp/numeric/random/exponential_distribution/lambda.html',1,'std::exponential_distribution']]],
   ['ldexp',['ldexp',['http://en.cppreference.com/w/cpp/numeric/math/ldexp.html',1,'std']]],

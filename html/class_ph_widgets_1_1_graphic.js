@@ -58,10 +58,10 @@ var class_ph_widgets_1_1_graphic =
       ] ]
     ] ],
     [ "ThisFlags", "struct_ph_widgets_1_1_graphic_1_1_this_flags.html", "struct_ph_widgets_1_1_graphic_1_1_this_flags" ],
-    [ "Graphic", "class_ph_widgets_1_1_graphic_ae2ae4aa89e945698d9fb4e4270c235ca.html#ae2ae4aa89e945698d9fb4e4270c235ca", null ],
-    [ "Graphic", "class_ph_widgets_1_1_graphic_a1a1fb8c5ed0068419c1fba31d3a7450c.html#a1a1fb8c5ed0068419c1fba31d3a7450c", null ],
+    [ "Graphic", "class_ph_widgets_1_1_graphic_a254cd083041b6591d1755b4c4c1256fc.html#a254cd083041b6591d1755b4c4c1256fc", null ],
+    [ "Graphic", "class_ph_widgets_1_1_graphic_a9796e9a60b272d8995db147546871dc6.html#a9796e9a60b272d8995db147546871dc6", null ],
     [ "Graphic", "class_ph_widgets_1_1_graphic_ab8dba6bfa5d257dd0151dc4dce251b95.html#ab8dba6bfa5d257dd0151dc4dce251b95", null ],
-    [ "operator=", "class_ph_widgets_1_1_graphic_aa6f79f8dafa0a956b2f4dc49bcce4c4f.html#aa6f79f8dafa0a956b2f4dc49bcce4c4f", null ],
+    [ "operator=", "class_ph_widgets_1_1_graphic_a72077c2ed19d125021a7511785d833d3.html#a72077c2ed19d125021a7511785d833d3", null ],
     [ "resource", "class_ph_widgets_1_1_graphic_ac3f2b0e6b75b3c9a50ef2d790f2f9e8f.html#ac3f2b0e6b75b3c9a50ef2d790f2f9e8f", null ],
     [ "Rescale", "class_ph_widgets_1_1_graphic.html#a143f15255826a7434028fc3f7294782d", null ]
 ];
