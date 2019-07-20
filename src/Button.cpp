@@ -40,17 +40,17 @@ Button::Button(PtWidget_t *wdg):
 }
 
 
-Button::Button(const Button &rhs):
-	Label(rhs),
+Button::Button(const Button &other):
+	Label(other),
 	resource(this),
 	ArmColor(this)
 {
 
 }
 
-Button &Button::operator=(const Button &rhs)
+Button &Button::operator=(const Button &other)
 {
-	static_cast<Label&>(*this) = static_cast<const Label&>(rhs);
+	static_cast<Label&>(*this) = static_cast<const Label&>(other);
 	
 	return *this;
 }

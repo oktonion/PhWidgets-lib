@@ -41,17 +41,17 @@ ToggleButton::ToggleButton(PtWidget_t *wdg):
 	check();
 }
 
-ToggleButton::ToggleButton(const ToggleButton &rhs):
-	Button(rhs),
+ToggleButton::ToggleButton(const ToggleButton &other):
+	Button(other),
 	resource(this),
 	//properties:
 	Checked(this)
 {
 }
 
-ToggleButton &ToggleButton::operator=(const ToggleButton &rhs)
+ToggleButton &ToggleButton::operator=(const ToggleButton &other)
 {
-	static_cast<Button&>(*this) = static_cast<const Button&>(rhs);
+	static_cast<Button&>(*this) = static_cast<const Button&>(other);
 	
 	return *this;
 }

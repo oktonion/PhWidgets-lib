@@ -50,8 +50,8 @@ Text::Text(PtWidget_t *wdg):
 	check();
 }
 
-PhWidgets::Text::Text(const Text & rhs):
-	Label(rhs),
+PhWidgets::Text::Text(const Text & other):
+	Label(other),
 	resource(this),
 	//callbacks:
 	ModifyNotify(this),
@@ -62,9 +62,9 @@ PhWidgets::Text::Text(const Text & rhs):
 {
 }
 
-Text &Text::operator=(const Text &rhs)
+Text &Text::operator=(const Text &other)
 {
-	static_cast<Label&>(*this) = static_cast<const Label&>(rhs);
+	static_cast<Label&>(*this) = static_cast<const Label&>(other);
 	
 	return *this;
 }

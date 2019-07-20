@@ -38,10 +38,17 @@ Numeric::Numeric(PtWidget_t *wdg):
 	check();
 }
 
-PhWidgets::Numeric::Numeric(const Numeric & rhs) :
-	Compound(rhs),
+Numeric::Numeric(const Numeric & other) :
+	Compound(other),
 	resource(this)
 {
+}
+
+Numeric &Numeric::operator=(const Numeric &other)
+{
+	static_cast<Compound&>(*this) = static_cast<const Compound&>(other);
+	
+	return *this;
 }
 
 

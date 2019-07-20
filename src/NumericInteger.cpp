@@ -52,8 +52,8 @@ NumericInteger::NumericInteger(PtWidget_t *wdg):
 	check();
 }
 
-NumericInteger::NumericInteger(const NumericInteger &rhs):
-	Numeric(rhs),
+NumericInteger::NumericInteger(const NumericInteger &other):
+	Numeric(other),
 	resource(this),
 	//properties:
 	Value(this),
@@ -65,9 +65,9 @@ NumericInteger::NumericInteger(const NumericInteger &rhs):
 {
 }
 
-NumericInteger &NumericInteger::operator=(const NumericInteger &rhs)
+NumericInteger &NumericInteger::operator=(const NumericInteger &other)
 {
-	static_cast<Numeric&>(*this) = static_cast<const Numeric&>(rhs);
+	static_cast<Numeric&>(*this) = static_cast<const Numeric&>(other);
 	
 	return *this;
 }

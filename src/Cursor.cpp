@@ -103,17 +103,17 @@ namespace PhWidgets
     }
 
 
-    bool operator==(const Cursors::eCursors &lhs, const CursorDef &rhs)
+    bool operator==(const Cursors::eCursors &lhs, const CursorDef &other)
     {
         return rhs == lhs;
     }
 
-    bool operator!=(const Cursors::eCursors &lhs, const CursorDef &rhs)
+    bool operator!=(const Cursors::eCursors &lhs, const CursorDef &other)
     {
         return rhs != lhs;
     }
 
-    bool operator<(const Cursors::eCursors &lhs, const CursorDef &rhs)
+    bool operator<(const Cursors::eCursors &lhs, const CursorDef &other)
     {
         return CursorDef(lhs) < rhs;
     }

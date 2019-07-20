@@ -52,8 +52,8 @@ Timer::Timer(PtWidget_t *wdg):
 	check();
 }
 
-Timer::Timer(const Timer &rhs):
-	Widget(rhs),
+Timer::Timer(const Timer &other):
+	Widget(other),
 	resource(this),
 	//properties:
 	Initial(this),
@@ -63,9 +63,9 @@ Timer::Timer(const Timer &rhs):
 {
 }
 
-Timer &Timer::operator=(const Timer &rhs)
+Timer &Timer::operator=(const Timer &other)
 {
-	static_cast<Widget&>(*this) = static_cast<const Widget&>(rhs);
+	static_cast<Widget&>(*this) = static_cast<const Widget&>(other);
 	
 	return *this;
 }

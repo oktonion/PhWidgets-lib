@@ -82,8 +82,8 @@ Basic::Basic(PtWidget_t *wdg):
 	check();
 }
 
-Basic::Basic(const Basic &rhs):
-	Widget(rhs),
+Basic::Basic(const Basic &other):
+	Widget(other),
 	resource(this),
 	//properties:
 	BevelColor(this),
@@ -111,9 +111,9 @@ Basic::Basic(const Basic &rhs):
 
 }
 
-Basic &Basic::operator=(const Basic &rhs)
+Basic &Basic::operator=(const Basic &other)
 {
-	static_cast<Widget&>(*this) = static_cast<const Widget&>(rhs);
+	static_cast<Widget&>(*this) = static_cast<const Widget&>(other);
 	
 	return *this;
 }
