@@ -19,6 +19,7 @@
 
 #include "./WidgetResource.hpp"
 #include "./Cursor.h"
+#include "./Color.h"
 
 
 //typedef Ph_rect `PhRect_t`;
@@ -1439,6 +1440,34 @@ namespace PhWidgets
 			- Cursors
 		*/
 		property<CursorDef>::bind<Widget, &Widget::getCursor, &Widget::setCursor> Cursor;
+
+		//! Gets or sets the color of the cursor pointer when it's inside the widget.
+		/*!
+			### Property Value ### 
+			
+			> Drawing::Color
+
+			A Drawing::Color that represents the color of the cursor pointer when it's inside the widget.
+
+			### Examples ###
+
+			@code
+				// You have somewhere:
+				PtWidget_t *ptwidget; // pointer to widget
+
+				// constructing Widget
+				PhWidgets::Widget widget(ptwidget);
+				
+				widget.CursorColor = PhWidgets::Drawing::Colors::AliceBlue;
+			@endcode
+
+			@see
+			- Drawing::Color
+			- Drawing::Colors::eColors
+			- Drawing::Color::FromARGB
+			- Cursors
+		*/
+		phproperty<Drawing::Color>::bind<Widget, Arguments::eArgColor, Arguments::cursor_color> CursorColor;
 
 		//! Gets or sets a value indicating whether the widget can respond to user interaction.
 		/*!
