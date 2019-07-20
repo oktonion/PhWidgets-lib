@@ -322,6 +322,11 @@ namespace PhWidgets
 		virtual void check();
 						
 	public:
+		//! Resources of the Container
+		/*!
+			@see
+			- Widget::resource
+		*/
 		WidgetResourcesSingleton resource;
 
 		//! (constructor) 
@@ -351,12 +356,21 @@ namespace PhWidgets
 			@param[in] other another Container widget to use as data source.
 		*/
 		Container &operator=(const Container &other);
+
+		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
+		//@{
+
+		//@}
 		
+		//! @name Events
+		//@{
 		phwidgets_event<Container, Container::Callbacks::child_added_removed>	ChildAddedRemoved;
 		phwidgets_event<Container, Container::Callbacks::child_getting_focus>	ChildGettingFocus;
 		phwidgets_event<Container, Container::Callbacks::child_losing_focus>	ChildLosingFocus;
 		phwidgets_event<Container, Container::Callbacks::layout>				LayoutChanged;
 		phwidgets_event<Container, Container::Callbacks::resize>				Resize;
+		//@}
 	};
 } // namespace PhWidgets
 

@@ -339,6 +339,11 @@ namespace PhWidgets
 		virtual void check();
 						
 	public:
+		//! Resources of the Label
+		/*!
+			@see
+			- Widget::resource
+		*/
 		WidgetResourcesSingleton resource;
 
 		//! (constructor) 
@@ -397,7 +402,19 @@ namespace PhWidgets
 		*/
 		property<Drawing::Font>::bind<Label, &Label::getFont, &Label::setFont> Font;
 
-		phproperty<PgColor_t>::bind<Label, ArgColor::eArgColor, Arguments::balloon_color> BalloonColor;
+		//! Gets or sets the balloon color of the Label.
+		/*!
+			### Property Value ### 
+			
+			> Drawing::Color
+
+			A `Drawing::Color` that represents the balloon color of the Label.
+
+			@see
+			- Drawing::Colors
+			- Drawing::Color
+		*/
+		phproperty<Drawing::Color>::bind<Label, ArgColor::eArgColor, Arguments::balloon_color> BalloonColor;
 		//@}
 	};
 

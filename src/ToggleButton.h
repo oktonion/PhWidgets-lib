@@ -135,8 +135,12 @@ namespace PhWidgets
 		
 		void Check(bool val = true);
 		void Uncheck(bool val = true);
-				
+
+		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
+		//@{		
 		property<bool>::bind<ToggleButton, &ToggleButton::getChecked, &ToggleButton::setChecked> Checked;
+		//@}
 	};
 	
 } // namespace PhWidgets

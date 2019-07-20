@@ -111,6 +111,11 @@ namespace PhWidgets
 		virtual void check();
 						
 	public:
+		//! Resources of the Disjoint
+		/*!
+			@see
+			- Widget::resource
+		*/
 		WidgetResourcesSingleton resource;
 
 		//! (constructor) 
@@ -140,6 +145,12 @@ namespace PhWidgets
 			@param[in] other another Disjoint widget to use as data source.
 		*/
 		Disjoint &operator=(const Disjoint &other);
+
+		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
+		//@{
+
+		//@}
 		
         //! @name Events
 		//@{ 

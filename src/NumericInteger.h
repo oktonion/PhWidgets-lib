@@ -104,6 +104,11 @@ namespace PhWidgets
 	
 						
 	public:
+		//! Resources of the NumericInteger
+		/*!
+			@see
+			- Widget::resource
+		*/
 		WidgetResourcesSingleton resource;
 
 		//! (constructor) 
@@ -134,9 +139,13 @@ namespace PhWidgets
 		*/
 		NumericInteger &operator=(const NumericInteger &other);
 		
+		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
+		//@{
 		phproperty<int>::bind<NumericInteger, ArgInt::eArgInt, Arguments::numeric_value> Value;
 		phproperty<int>::bind<NumericInteger, ArgInt::eArgInt, Arguments::numeric_max> MaxValue;
 		phproperty<int>::bind<NumericInteger, ArgInt::eArgInt, Arguments::numeric_min> MinValue;
+		//@}
 
 		phwidgets_event<NumericInteger, NumericInteger::Callbacks::numeric_changed>		NumericChanged;
 	};

@@ -424,7 +424,11 @@ namespace PhWidgets
 		*/
 		Basic &operator=(const Basic &other);
 
-		//! Resources of the Basic widget 
+		//! Resources of the Basic
+		/*!
+			@see
+			- Widget::resource
+		*/
 		WidgetResourcesSingleton resource;
 		
 		//! @name Properties

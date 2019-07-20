@@ -42,7 +42,11 @@ namespace PhWidgets
 		*/		
 		Compound(PtWidget_t *wdg);
 		
-		
+		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
+		//@{
+			
+		//@}
 	};
 		
 } // namespace PhWidgets

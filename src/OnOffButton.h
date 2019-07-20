@@ -99,6 +99,11 @@ namespace PhWidgets
 		virtual void check();
 						
 	public:
+		//! Resources of the OnOffButton
+		/*!
+			@see
+			- Widget::resource
+		*/
 		WidgetResourcesSingleton resource;
 
 		//! (constructor) 
@@ -115,8 +120,12 @@ namespace PhWidgets
 		
 		void Check(bool val = true);
 		void Uncheck(bool val = true);
-		
+
+		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
+		//@{
 		phproperty<bool>::bind<OnOffButton, ArgBool::eArgBool, Arguments::onoff_state> Checked;
+		//@}
 
 		phwidgets_event<OnOffButton, OnOffButton::Callbacks::new_value>		NewValue;
 	};

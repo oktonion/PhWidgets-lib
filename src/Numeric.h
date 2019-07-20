@@ -112,6 +112,11 @@ namespace PhWidgets
 		virtual void check();
 						
 	public:
+		//! Resources of the Numeric
+		/*!
+			@see
+			- Widget::resource
+		*/
 		WidgetResourcesSingleton resource;
 
 		//! (constructor) 
@@ -141,6 +146,12 @@ namespace PhWidgets
 			@param[in] other another Numeric widget to use as data source.
 		*/
 		Numeric &operator=(const Numeric &other);
+
+		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
+		//@{
+
+		//@}
 		
 	};
 	

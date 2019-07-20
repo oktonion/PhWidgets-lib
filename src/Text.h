@@ -95,6 +95,11 @@ namespace PhWidgets
 		virtual void check();
 						
 	public:
+		//! Resources of the Text
+		/*!
+			@see
+			- Widget::resource
+		*/
 		WidgetResourcesSingleton resource;
 
 		//! (constructor) 
@@ -124,7 +129,12 @@ namespace PhWidgets
 			@param[in] other another Text widget to use as data source.
 		*/
 		Text &operator=(const Text &other);
+		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
+		//@{
 
+		//@}
+		
 		phwidgets_event<Text, Text::Callbacks::modify_notify>	ModifyNotify;
 		phwidgets_event<Text, Text::Callbacks::modify_verify>	ModifyVerify;
 		phwidgets_event<Text, Text::Callbacks::motion_notify>	MotionNotify;

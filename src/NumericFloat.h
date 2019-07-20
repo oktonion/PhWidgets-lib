@@ -130,6 +130,11 @@ namespace PhWidgets
 
 						
 	public:
+		//! Resources of the NumericFloat
+		/*!
+			@see
+			- Widget::resource
+		*/
 		WidgetResourcesSingleton resource;
 
 		//! (constructor) 
@@ -160,9 +165,13 @@ namespace PhWidgets
 		*/
 		NumericFloat &operator=(const NumericFloat &other);
 		
+		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
+		//@{
 		property<double>::bind<NumericFloat, &NumericFloat::getValue, &NumericFloat::setValue> Value;
 		property<double>::bind<NumericFloat, &NumericFloat::getMaxValue, &NumericFloat::setMaxValue> MaxValue;
 		property<double>::bind<NumericFloat, &NumericFloat::getMinValue, &NumericFloat::setMinValue> MinValue;
+		//@}
 
 		phwidgets_event<NumericFloat, NumericFloat::Callbacks::numeric_changed>		NumericChanged;
 		

@@ -127,6 +127,11 @@ namespace PhWidgets
 
 						
 	public:
+		//! Resources of the Button
+		/*!
+			@see
+			- Widget::resource
+		*/
 		WidgetResourcesSingleton resource;
 
 		//! (constructor) 
@@ -157,7 +162,25 @@ namespace PhWidgets
 		*/
 		Button &operator=(const Button &other);
 
-		phproperty<PgColor_t>::bind<Button, ArgColor::eArgColor, Arguments::arm_color> ArmColor;
+		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
+		//@{
+
+		//! Gets or sets the arm color of the widget.
+		/*!
+			### Property Value ### 
+			
+			> Drawing::Color
+
+			A `Drawing::Color` that represents the arm color of the widget.
+
+			@see
+			- Drawing::Colors
+			- Drawing::Color
+		*/
+		phproperty<Drawing::Color>::bind<Button, ArgColor::eArgColor, Arguments::arm_color> ArmColor;
+
+		//@}
 	};
 
 } // namespace PhWidgets

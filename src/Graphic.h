@@ -357,6 +357,12 @@ namespace PhWidgets
 			- Widget::resource
 		*/
 		WidgetResourcesSingleton resource;
+
+		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
+		//@{
+			
+		//@}
 		
 		//! @name Events
 		//@{

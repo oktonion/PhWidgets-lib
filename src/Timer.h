@@ -160,6 +160,7 @@ namespace PhWidgets
 		using Widget::operator const PtWidget_t*;
 
 		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
 		//! @{
 		phproperty<unsigned long>::bind<Timer, ArgUnsignedLong::eArgUnsignedLong, Arguments::timer_initial> Initial; //!< The time, in milliseconds, before the first timer callback is activated.
 		phproperty<unsigned long>::bind<Timer, ArgUnsignedLong::eArgUnsignedLong, Arguments::timer_repeat> Interval; //!< The time, in milliseconds, for the repeat rate of the timer once the initial time period has expired. 
