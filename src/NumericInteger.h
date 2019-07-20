@@ -17,10 +17,22 @@ namespace PhWidgets
 	{
 	public:
 
+		//! Contains resource IDs for NumericInteger arguments.
 		struct ThisArgs
 		{												
+			//! Contains resource IDs for NumericInteger arguments of type **int**.
 			struct ArgInt
 			{
+				//! Resource IDs for NumericInteger arguments of type **long**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::NumericInteger::Arguments::eArgInt,
+					PhWidgets::NumericInteger::ArgInt::eArgInt
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgInt
 				{
 					numeric_increment = Pt_ARG_NUMERIC_INCREMENT,
@@ -32,10 +44,21 @@ namespace PhWidgets
 
 		};
 
+		//! Contains resource IDs for NumericInteger callbacks.
 		struct ThisCallbacks
 		{
+			//! Contains resource IDs for NumericInteger callbacks of type `PtCallback_t`.
 			struct Callback
 			{
+				//! Resource IDs for NumericInteger arguments of type `PtCallback_t`.
+				/*!
+					### Aliases ###
+					
+					PhWidgets::NumericInteger::Callbacks::eCallback,
+					PhWidgets::NumericInteger::Callback::eCallback
+
+					See Widget::resource for usage description.
+				*/
 				enum eCallback
 				{
 					numeric_changed = Pt_CB_NUMERIC_CHANGED
@@ -43,24 +66,27 @@ namespace PhWidgets
 			};
 		};
 		
+		//! Contains resource IDs for arguments of type **int**.
 		struct ArgInt:
 			public ThisArgs::ArgInt
         { };
-
-		struct Callback :
+		
+		//! Contains resource IDs for callbacks of type `PtCallback_t`.
+		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Numeric::Callback
 		{
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
-			
+		//! Contains resource IDs for all NumericInteger arguments.
 		struct Arguments:
 			public ArgInt,
 			public Numeric::Arguments
         { };
 
-		struct Callbacks :
+		//! Contains resource IDs for all NumericInteger callbacks.
+		struct Callbacks:
 			public Callback,
 			public Numeric::Callbacks
         { };

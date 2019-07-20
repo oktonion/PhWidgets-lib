@@ -301,7 +301,7 @@ namespace PhWidgets
 		{ };
 
 		//! Contains resource IDs for all Graphic callbacks.
-		struct Callbacks :
+		struct Callbacks:
 			public Callback,
 			public Basic::Callbacks
 		{ };

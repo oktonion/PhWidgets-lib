@@ -19,6 +19,7 @@ namespace PhWidgets
 	{
 	public:
 
+		//! Contains resource IDs for all Compound arguments.
 		struct Arguments:
 			public Container::Arguments
         { };

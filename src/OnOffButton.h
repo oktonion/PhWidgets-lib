@@ -17,11 +17,23 @@ namespace PhWidgets
 		public Button
 	{
 	public:
-	
+
+		//! Contains resource IDs for OnOffButton arguments.
 		struct ThisArgs
 		{
+			//! Contains resource IDs for OnOffButton arguments of type **bool**.
 			struct ArgBool
 			{
+				//! Resource IDs for OnOffButton arguments of type **bool**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::OnOffButton::Arguments::eArgBool,
+					PhWidgets::OnOffButton::ArgBool::eArgBool
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgBool
 				{
 					onoff_state = Pt_ARG_ONOFF_STATE
@@ -29,35 +41,49 @@ namespace PhWidgets
 			};
 		};
 
+		//! Contains resource IDs for OnOffButton callbacks.
 		struct ThisCallbacks
 		{
+			//! Contains resource IDs for OnOffButton callbacks of type `PtCallback_t`.
 			struct Callback
 			{
+				//! Resource IDs for OnOffButton arguments of type `PtCallback_t`.
+				/*!
+					### Aliases ###
+					
+					PhWidgets::OnOffButton::Callbacks::eCallback,
+					PhWidgets::OnOffButton::Callback::eCallback
+
+					See Widget::resource for usage description.
+				*/
 				enum eCallback
 				{
 					new_value = Pt_CB_ONOFF_NEW_VALUE
 				};
 			};
 		};
-		
+
+		//! Contains resource IDs for arguments of type **bool**.
 		struct ArgBool:
 			public ThisArgs::ArgBool
         { };
 
-		struct Callback :
+		//! Contains resource IDs for callbacks of type `PtCallback_t`.
+		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Button::Callback
 		{
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
-
+		//! Contains resource IDs for all OnOffButton arguments.
 		struct Arguments:
 			public Button::Arguments,
 			public ArgBool
         { };
 
-		struct Callbacks :
+		//! Contains resource IDs for all OnOffButton callbacks.
+		struct Callbacks:
 			public Callback,
 			public Button::Callbacks
         { };

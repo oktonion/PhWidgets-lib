@@ -19,10 +19,22 @@ namespace PhWidgets
 	{
 	public:
 
+		//! Contains resource IDs for NumericFloat arguments.
 		struct ThisArgs
 		{												
+			//! Contains resource IDs for NumericFloat arguments of type **int**.
 			struct ArgInt
-			{				
+			{
+				//! Resource IDs for NumericFloat arguments of type **long**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::NumericFloat::Arguments::eArgInt,
+					PhWidgets::NumericFloat::ArgInt::eArgInt
+
+					See Widget::resource for usage description.
+				*/				
 				enum eArgInt
 				{
 					numeric_precision = Pt_ARG_NUMERIC_PRECISION
@@ -43,10 +55,21 @@ namespace PhWidgets
 
 		};
 
+		//! Contains resource IDs for NumericFloat callbacks.
 		struct ThisCallbacks
 		{
+			//! Contains resource IDs for NumericFloat callbacks of type `PtCallback_t`.
 			struct Callback
 			{
+				//! Resource IDs for NumericFloat arguments of type `PtCallback_t`.
+				/*!
+					### Aliases ###
+					
+					PhWidgets::NumericFloat::Callbacks::eCallback,
+					PhWidgets::NumericFloat::Callback::eCallback
+
+					See Widget::resource for usage description.
+				*/
 				enum eCallback
 				{
 					numeric_changed = Pt_CB_NUMERIC_CHANGED
@@ -54,6 +77,7 @@ namespace PhWidgets
 			};
 		};
 		
+		//! Contains resource IDs for arguments of type **int**.
 		struct ArgInt:
 			public ThisArgs::ArgInt
         { };
@@ -62,22 +86,23 @@ namespace PhWidgets
 			public ThisArgs::ArgDoubleP
         { };
 
-		struct Callback :
+		//! Contains resource IDs for callbacks of type `PtCallback_t`.
+		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Numeric::Callback
 		{
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
-
-			
+		//! Contains resource IDs for all NumericFloat arguments.
 		struct Arguments:
 			public ArgInt,
 			public ArgDoubleP,
 			public Numeric::Arguments
         { };
 
-		struct Callbacks :
+		//! Contains resource IDs for all NumericFloat callbacks.
+		struct Callbacks:
 			public Callback,
 			public Numeric::Callbacks
         { };

@@ -19,26 +19,61 @@ namespace PhWidgets
 	{
 		
 	public:
+
+		//! Contains resource IDs for Button arguments.
 		struct ThisArgs
 		{
+			//! Contains resource IDs for Button arguments of type `PgColor_t`.
 			struct ArgColor
 			{
+				//! Resource IDs for Button arguments of type `PgColor_t`.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Button::Arguments::eArgColor,
+					PhWidgets::Button::ArgColor::eArgColor
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgColor
 				{
 					arm_color = Pt_ARG_ARM_COLOR
 				};
 			};
 			
+			//! Contains resource IDs for Button arguments of type **unsigned char**.
 			struct ArgUnsignedChar
 			{
+				//! Resource IDs for Button arguments of type **unsigned char**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Button::Arguments::eArgUnsignedChar,
+					PhWidgets::Button::ArgUnsignedChar::eArgUnsignedChar
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgUnsignedChar
 				{
 					arm_fill = Pt_ARG_ARM_FILL
 				};
 			};
 			
+			//! Contains resource IDs for Button arguments of type `PhImage_t`.
 			struct ArgPImage
 			{
+				//! Resource IDs for Button arguments of type `PhImage_t`.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Button::Arguments::eArgPImage,
+					PhWidgets::Button::ArgPImage::eArgPImage
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPImage
 				{
 					arm_image = Pt_ARG_ARM_IMAGE
@@ -46,7 +81,8 @@ namespace PhWidgets
 			};
 			
 		};
-		
+
+		//! Contains resource IDs for arguments of type `PgColor_t`.
 		struct ArgColor:
 			public ArgumentsEx<Label::ArgColor>,
 			public ThisArgs::ArgColor
@@ -54,6 +90,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgColor::eArgColor eArgColor;
 		};
 		
+		//! Contains resource IDs for arguments of type **unsigned char**.
 		struct ArgUnsignedChar:
 			public ArgumentsEx<Label::ArgUnsignedChar>,
 			public ThisArgs::ArgUnsignedChar
@@ -61,6 +98,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgUnsignedChar::eArgUnsignedChar eArgUnsignedChar;
 		};
 		
+		//! Contains resource IDs for arguments of type `PhImage_t`.
 		struct ArgPImage:
 			public ArgumentsEx<Label::ArgPImage>,
 			public ThisArgs::ArgPImage
@@ -68,8 +106,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgPImage::eArgPImage eArgPImage;
 		};
 
-
-
+		//! Contains resource IDs for all Button arguments.
 		struct Arguments:
 			public ArgColor,
 			public ArgUnsignedChar,

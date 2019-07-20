@@ -95,7 +95,7 @@ namespace PhWidgets
         { };
 
         //! Contains resource IDs for all Disjoint callbacks.
-		struct Callbacks :
+		struct Callbacks:
 			public Callback,
 			public Container::Callbacks
         { };

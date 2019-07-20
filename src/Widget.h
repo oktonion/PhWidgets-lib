@@ -829,22 +829,22 @@ namespace PhWidgets
 		//! Contains resource IDs for Widget arguments of type `PhDim_t`.
 		struct ArgDim:
 			public ThisArgs::ArgDim
-		        { };
+		{ };
 
 		//! Contains resource IDs for Widget callbacks of type `PtRawCallback_t`.
 		struct RawCallback:
 			public ThisCallbacks::RawCallback
-		        { };
+		{ };
 
 		//! Contains resource IDs for Widget callbacks of type `PtCallback_t`.
 		struct Callback:
 			public ThisCallbacks::Callback
-		        { };
+		{ };
 
 		//! Contains resource IDs for Widget callbacks of type `PtHotkeyCallback_t`.
 		struct HotkeyCallback:
 			public ThisCallbacks::HotkeyCallback
-		        { };
+		{ };
 
 		//! Contains resource IDs for all Widget arguments.
 		struct Arguments:
@@ -862,19 +862,19 @@ namespace PhWidgets
 			public ArgUnsignedLong, 
 			public ArgUnsignedShort,
 			public ArgDim
-		        { };
+		{ };
 
 		//! Contains resource IDs for all Widget callbacks.
-		struct Callbacks :
+		struct Callbacks:
 			public RawCallback,
 			public Callback,
 			public HotkeyCallback
-		        { };
+		{ };
 
 		//! Contains flags for all Widget resources.
 		struct Flags:
 			public ThisFlags
-		        { };
+		{ };
 
 
 				

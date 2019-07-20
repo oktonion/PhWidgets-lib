@@ -196,7 +196,7 @@ namespace PhWidgets
         { };
 
         //! Contains resource IDs for all Window callbacks.
-		struct Callbacks :
+		struct Callbacks:
 			public Callback,
 			public Disjoint::Callbacks
         { };

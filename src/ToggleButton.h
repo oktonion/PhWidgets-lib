@@ -18,19 +18,41 @@ namespace PhWidgets
 	{
 	public:
 
+		//! Contains resource IDs for ToggleButton arguments.
 		struct ThisArgs
 		{
-												
+			//! Contains resource IDs for ToggleButton arguments of type **unsigned char**.
 			struct ArgUnsignedChar
-			{
+			{				
+				//! Resource IDs for ToggleButton arguments of type **unsigned char**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::ToggleButton::Arguments::eArgUnsignedChar,
+					PhWidgets::ToggleButton::ArgUnsignedChar::eArgUnsignedChar
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgUnsignedChar
 				{
 					indicator_type = Pt_ARG_INDICATOR_TYPE
 				};
 			};	
 			
+			//! Contains resource IDs for ToggleButton arguments of type `PgColor_t`.
 			struct ArgColor
 			{
+				//! Resource IDs for ToggleButton arguments of type `PgColor_t`.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::ToggleButton::Arguments::eArgColor,
+					PhWidgets::ToggleButton::ArgColor::eArgColor
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgColor
 				{
 					indicator_color = Pt_ARG_INDICATOR_COLOR
@@ -39,7 +61,7 @@ namespace PhWidgets
 
 		};
 
-			
+		//! Contains resource IDs for arguments of type **unsigned char**.
 		struct ArgUnsignedChar:
 			public ArgumentsEx<Button::ArgUnsignedChar>,
 			public ThisArgs::ArgUnsignedChar
@@ -47,8 +69,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgUnsignedChar::eArgUnsignedChar eArgUnsignedChar;
 		};
 
-			
-
+		//! Contains resource IDs for arguments of type `PgColor_t`.
 		struct ArgColor:
 			public ArgumentsEx<Button::ArgColor>,
 			public ThisArgs::ArgColor
@@ -56,6 +77,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgColor::eArgColor eArgColor;
 		};
 
+		//! Contains resource IDs for all ToggleButton arguments.
 		struct Arguments:
 			public ArgColor,
 			public ArgUnsignedChar,

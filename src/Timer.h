@@ -21,10 +21,22 @@ namespace PhWidgets
 	public:
 		using Widget::IPhWidgetsProperty;
 
+		//! Contains resource IDs for Timer arguments.
 		struct ThisArgs
 		{												
+			//! Contains resource IDs for Timer arguments of type **unsigned long**.
 			struct ArgUnsignedLong
 			{
+				//! Resource IDs for Timer arguments of type **unsigned long**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Timer::Arguments::eArgUnsignedLong,
+					PhWidgets::Timer::ArgUnsignedLong::eArgUnsignedLong
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgUnsignedLong
 				{
 					timer_initial = Pt_ARG_TIMER_INITIAL, //!< The time, in milliseconds, before the first timer callback is activated. 
@@ -34,10 +46,21 @@ namespace PhWidgets
 
 		};
 
+		//! Contains resource IDs for Timer callbacks.
 		struct ThisCallbacks
 		{
+			//! Contains resource IDs for Timer callbacks of type `PtCallback_t`.
 			struct Callback
 			{
+				//! Resource IDs for Timer arguments of type `PtCallback_t`.
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Timer::Callbacks::eCallback,
+					PhWidgets::Timer::Callback::eCallback
+
+					See Widget::resource for usage description.
+				*/
 				enum eCallback
 				{
 					timer_activate = Pt_CB_TIMER_ACTIVATE //!< A list of PtCallback_t structures that define the callbacks that the widget invokes when the timer has expired. 
@@ -45,6 +68,7 @@ namespace PhWidgets
 			};
 		};
 		
+		//! Contains resource IDs for arguments of type **unsigned long**.
 		struct ArgUnsignedLong:
 			public ThisArgs::ArgUnsignedLong
         { };
@@ -58,20 +82,22 @@ namespace PhWidgets
 
 		Widget::ArgLong;//Pt_ARG_FLAGS
 
-		struct Callback :
+		//! Contains resource IDs for callbacks of type `PtCallback_t`.
+		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Widget::Callback
 		{
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 		
+		//! Contains resource IDs for all Timer arguments.
 		struct Arguments:
 			public ArgUnsignedLong,
 			public Widget::ArgLong,
 			public ArgPVoid
         { };
 
-		struct Callbacks :
+		struct Callbacks:
 			public Callback,
 			public Widget::Callbacks
         { };

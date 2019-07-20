@@ -36,10 +36,22 @@ namespace PhWidgets
 	{
 	public:
 
+		//! Contains resource IDs for Basic arguments.
 		struct ThisArgs
 		{
+			//! Contains resource IDs for Basic arguments of type **unsigned short**.
 			struct ArgUnsignedShort
 			{
+				//! Resource IDs for Basic arguments of type **unsigned short**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Basic::Arguments::eArgUnsignedShort,
+					PhWidgets::Basic::ArgUnsignedShort::eArgUnsignedShort
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgUnsignedShort
 				{
 					margin_height = Pt_ARG_MARGIN_HEIGHT, //!< The amount of vertical space between the widget's canvas and the widget's border. The canvas is the valid drawing area of the widget and is inside all borders and margins.
@@ -47,8 +59,19 @@ namespace PhWidgets
 				};
 			};
 			
+			//! Contains resource IDs for Basic arguments of type **unsigned long**.
 			struct ArgUnsignedLong
 			{
+				//! Resource IDs for Basic arguments of type **unsigned long**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Basic::Arguments::eArgUnsignedLong,
+					PhWidgets::Basic::ArgUnsignedLong::eArgUnsignedLong
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgUnsignedLong
 				{
 					bandwidth_threshold = Pt_ARG_BANDWIDTH_THRESHOLD, //!< Can't be set! In general, it defines a threshold below which a widget optimizes drawing on a system with a slow connection.
@@ -56,8 +79,19 @@ namespace PhWidgets
 				};
 			};
 
+			//! Contains resource IDs for Basic arguments of type `PgColor_t`.
 			struct ArgColor
 			{
+				//! Resource IDs for Basic arguments of type `PgColor_t`.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Basic::Arguments::eArgColor,
+					PhWidgets::Basic::ArgColor::eArgColor
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgColor
 				{
 					bevel_color = Pt_ARG_BEVEL_COLOR, //!< The main color of the bevel.
@@ -72,17 +106,39 @@ namespace PhWidgets
 				};
 			};
 
+			//! Contains resource IDs for Basic arguments of type **char**.
 			struct ArgChar
 			{		
+				//! Resource IDs for Basic arguments of type **char**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Basic::Arguments::eArgChar,
+					PhWidgets::Basic::ArgChar::eArgChar
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgChar
 				{
 					bevel_contrast = Pt_ARG_BEVEL_CONTRAST, //!< This value determines how much the dark and light bevel colors differ from the \link Basic::ArgColor::bevel_color base bevel color\endlink. The higher the value, the greater the difference
 					contrast = Pt_ARG_CONTRAST //!< This value determines how much the dark and light fill colors differ from the \link Basic::ArgColor::fill_color base fill color\endlink. The higher the value, the greater the difference
 				};
 			};
-			
+
+			//! Contains resource IDs for Basic arguments of type `PgPattern_t`.
 			struct ArgPattern
 			{
+				//! Resource IDs for Basic arguments of type `PgPattern_t`.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Basic::Arguments::eArgPattern,
+					PhWidgets::Basic::ArgPattern::eArgPattern
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPattern
 				{
 					fill_pattern = Pt_ARG_FILL_PATTERN, //!< The widget's background pattern.
@@ -90,16 +146,38 @@ namespace PhWidgets
 				};
 			};
 			
+			//! Contains resource IDs for Basic arguments of type **unsigned char**.
 			struct ArgUnsignedChar
 			{
+				//! Resource IDs for Basic arguments of type **unsigned char**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Basic::Arguments::eArgUnsignedChar,
+					PhWidgets::Basic::ArgUnsignedChar::eArgUnsignedChar
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgUnsignedChar
 				{
 					highlihgt_roundness = Pt_ARG_HIGHLIGHT_ROUNDNESS //!< The radius, in pixels, of the widget's borders. The default value of 0 results in square corners.
 				};
 			};
 			
+			//! Contains resource IDs for Basic arguments of type <b>char*</b>.
 			struct ArgPChar
 			{
+				//! Resource IDs for Widget arguments of type <b>char*</b>.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Basic::Arguments::eArgPChar,
+					PhWidgets::Basic::ArgPChar::eArgPChar
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPChar
 				{
 					style = Pt_ARG_STYLE //!< The style to use for this widget instance.
@@ -107,10 +185,21 @@ namespace PhWidgets
 			};	
 		};
 
+		//! Contains resource IDs for Basic callbacks.
 		struct ThisCallbacks
 		{
+			//! Contains resource IDs for Basic callbacks of type `PtCallback_t`.
 			struct Callback
 			{
+				//! Resource IDs for Basic arguments of type `PtCallback_t`.
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Basic::Callbacks::eCallback,
+					PhWidgets::Basic::Callback::eCallback
+
+					See Widget::resource for usage description.
+				*/
 				enum eCallback
 				{
 					activate = Pt_CB_ACTIVATE, 	//!< A list of PtCallback_t structures that define the callbacks that the widget calls when it becomes activated.
@@ -135,12 +224,21 @@ namespace PhWidgets
 			};
 		};
 
+		//! Contains flags for Basic resources.
 		struct ThisFlags
 		{
+			//! Contains flags for Basic resource Basic::Arguments::basic_flags.
 			struct Basic
 			{
+				//! Cursor flags for Basic resource Basic::Arguments::basic_flags.
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Basic::Flags::Basic::eBasic
+				*/
 				enum eBasic
 				{
+
 					// Edge-control bits:
 
 					top_etch = Pt_TOP_ETCH,
@@ -201,13 +299,15 @@ namespace PhWidgets
 			};
 		};
 
+		//! Contains resource IDs for arguments of type **unsigned short**.
 		struct ArgUnsignedShort:
 			public ArgumentsEx<Widget::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort
 		{
 			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShort eArgUnsignedShort;
 		};
-			
+		
+		//! Contains resource IDs for arguments of type **unsigned long**.
 		struct ArgUnsignedLong:
 			public ArgumentsEx<Widget::ArgUnsignedLong>,
 			public ThisArgs::ArgUnsignedLong
@@ -215,6 +315,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgUnsignedLong::eArgUnsignedLong eArgUnsignedLong;
 		};
 
+		//! Contains resource IDs for arguments of type `PgColor_t`.
 		struct ArgColor:
 			public ArgumentsEx<Widget::ArgColor>,
 			public ThisArgs::ArgColor
@@ -222,18 +323,22 @@ namespace PhWidgets
 			typedef ThisArgs::ArgColor::eArgColor eArgColor;
 		};
 
+		//! Contains resource IDs for arguments of type **char**.
 		struct ArgChar:
 			public ThisArgs::ArgChar
         { };
-			
+		
+		//! Contains resource IDs for arguments of type `PgPattern_t`.
 		struct ArgPattern:
 			public ThisArgs::ArgPattern
         { };
 			
+		//! Contains resource IDs for arguments of type **unsigned char**.
 		struct ArgUnsignedChar:
 			public ThisArgs::ArgUnsignedChar
         { };
 
+		//! Contains resource IDs for arguments of type <b>char*</b>.
 		struct ArgPChar:
 			public ArgumentsEx<Widget::ArgPChar>,
 			public ThisArgs::ArgPChar
@@ -241,6 +346,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgPChar::eArgPChar eArgPChar;
 		};	
 
+		//! Contains resource IDs for callbacks of type `PtCallback_t`.
 		struct Callback:
 			public ArgumentsEx<Widget::Callback>,
 			public ThisCallbacks::Callback
@@ -248,6 +354,7 @@ namespace PhWidgets
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
+		//! Contains resource IDs for all Basic arguments.
 		struct Arguments:
 			public ArgUnsignedShort,
 			public ArgUnsignedLong,
@@ -259,11 +366,13 @@ namespace PhWidgets
 			public Widget::Arguments
         { };
 
-		struct Callbacks :
+		//! Contains resource IDs for all Basic callbacks.
+		struct Callbacks:
 			public Callback,
 			public Widget::Callbacks
         { };
 
+		//! Contains flags for all Basic resources.
 		struct Flags:
 			public ThisFlags,
 			public Widget::Flags

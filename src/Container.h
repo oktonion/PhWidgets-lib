@@ -19,77 +19,177 @@ namespace PhWidgets
 	{
 	public:
 
+		//! Contains resource IDs for Container arguments.
 		struct ThisArgs
 		{
-			
+			//! Contains resource IDs for Container arguments of type **long**.
 			struct ArgLong
 			{
+				//! Resource IDs for Container arguments of type **long**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Container::Arguments::eArgLong,
+					PhWidgets::Container::ArgLong::eArgLong
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgLong
 				{
 					container_flags = Pt_ARG_CONTAINER_FLAGS
 				};
 			};
-			
+
+			//! Contains resource IDs for Container arguments of type **int**.
 			struct ArgInt
 			{
+				//! Resource IDs for Container arguments of type **long**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Container::Arguments::eArgInt,
+					PhWidgets::Container::ArgInt::eArgInt
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgInt
 				{
 					layout_type = Pt_ARG_LAYOUT_TYPE
 				};
 			};
 			
+			//! Contains resource IDs for Container arguments of type **bool**.
 			struct ArgBool
 			{
+				//! Resource IDs for Container arguments of type **bool**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Container::Arguments::eArgBool,
+					PhWidgets::Container::ArgBool::eArgBool
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgBool
 				{
 					cursor_override = Pt_ARG_CURSOR_OVERRIDE
 				};
 			};
 
-			
+			//! Contains resource IDs for Container arguments of type `PtFillLayoutInfo_t`.
 			struct ArgPFillLayoutInfo
 			{
+				//! Resource IDs for Container arguments of type `PtFillLayoutInfo_t`.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Container::Arguments::eArgPFillLayoutInfo,
+					PhWidgets::Container::ArgPFillLayoutInfo::eArgPFillLayoutInfo
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPFillLayoutInfo
 				{
 					fill_layout_info = Pt_ARG_FILL_LAYOUT_INFO
 				};
 			};
 			
+			//! Contains resource IDs for Container arguments of type `PtGridLayoutInfo_t`.
 			struct ArgPGridLayoutInfo
 			{
+				//! Resource IDs for Container arguments of type `PtGridLayoutInfo_t`.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Container::Arguments::eArgPGridLayoutInfo,
+					PhWidgets::Container::ArgPGridLayoutInfo::eArgPGridLayoutInfo
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPGridLayoutInfo
 				{
 					grid_layout_info = Pt_ARG_GRID_LAYOUT_INFO
 				};
 			};
 			
+			//! Contains resource IDs for Container arguments of type `PtLayoutDefinition_t`.
 			struct ArgPLayoutDefinition
 			{
+				//! Resource IDs for Container arguments of type `PtLayoutDefinition_t`.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Container::Arguments::eArgPLayoutDefinition,
+					PhWidgets::Container::ArgPLayoutDefinition::eArgPLayoutDefinition
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPLayoutDefinition
 				{
 					layout = Pt_ARG_LAYOUT
 				};
 			};
 			
+			//! Contains resource IDs for Container arguments of type <b>void*</b>.
 			struct ArgPVoid
 			{
+				//! Resource IDs for Container arguments of type <b>void*</b> that are stored in widget.
+
+				/*!
+					@note 
+					This resource is data that is internally stored in widget as a copy.
+
+					### Aliases ###
+					
+					PhWidgets::Container::Arguments::eArgPVoidData,
+					PhWidgets::Container::ArgPVoid::eArgPVoidData
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPVoid
 				{
 					layout_info = Pt_ARG_LAYOUT_INFO
 				};
 			};
-			
+
+			//! Contains resource IDs for Container arguments of type `PtRowLayoutInfo_t`.
 			struct ArgPRowLayoutInfo
 			{
+				//! Resource IDs for Container arguments of type `PtRowLayoutInfo_t`.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Container::Arguments::eArgPRowLayoutInfo,
+					PhWidgets::Container::ArgPRowLayoutInfo::eArgPRowLayoutInfo
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPRowLayoutInfo
 				{
 					row_layout_info = Pt_ARG_ROW_LAYOUT_INFO
 				};
 			};
 
-									
+			//! Contains resource IDs for Container arguments of type <b>char*</b>.
 			struct ArgPChar
 			{
+				//! Resource IDs for Container arguments of type <b>char*</b>.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Container::Arguments::eArgPChar,
+					PhWidgets::Container::ArgPChar::eArgPChar
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPChar
 				{
 					title = Pt_ARG_TITLE,
@@ -99,10 +199,21 @@ namespace PhWidgets
 			
 		};
 
+		//! Contains resource IDs for Container callbacks.
 		struct ThisCallbacks
 		{
+			//! Contains resource IDs for Container callbacks of type `PtCallback_t`.
 			struct Callback
 			{
+				//! Resource IDs for Container arguments of type `PtCallback_t`.
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Container::Callbacks::eCallback,
+					PhWidgets::Container::Callback::eCallback
+
+					See Widget::resource for usage description.
+				*/
 				enum eCallback
 				{
 					child_added_removed = Pt_CB_CHILD_ADDED_REMOVED,
@@ -114,6 +225,7 @@ namespace PhWidgets
 			};
 		};
 			
+		//! Contains resource IDs for arguments of type **long**.
 		struct ArgLong:
 			public ArgumentsEx<Basic::ArgLong>,
 			public ThisArgs::ArgLong
@@ -121,35 +233,42 @@ namespace PhWidgets
 			typedef ThisArgs::ArgLong::eArgLong eArgLong;
 		};
 		
+		//! Contains resource IDs for arguments of type **int**.
 		struct ArgInt:
 			public ThisArgs::ArgInt,
 			public ThisArgs::ArgBool
         { };
 		
+		//! Contains resource IDs for arguments of type `PtFillLayoutInfo_t`.
 		struct ArgPFillLayoutInfo:
 			public ThisArgs::ArgPFillLayoutInfo
         { };
 		
+		//! Contains resource IDs for arguments of type `PtGridLayoutInfo_t`.
 		struct ArgPGridLayoutInfo:
 			public ThisArgs::ArgPGridLayoutInfo
         { };
-		
+
+		//! Contains resource IDs for arguments of type `PtLayoutDefinition_t`.
 		struct ArgPLayoutDefinition:
 			public ThisArgs::ArgPLayoutDefinition
         { };
 		
+		//! Contains resource IDs for arguments of type <b>void*</b>.
 		struct ArgPVoid:
 			public ArgumentsEx<Basic::ArgPVoid>,
 			public ThisArgs::ArgPVoid
 		{
 			typedef ThisArgs::ArgPVoid::eArgPVoid eArgPVoid;
 		};	
-		
+
+		//! Contains resource IDs for arguments of type `PtRowLayoutInfo_t`.
 		struct ArgPRowLayoutInfo:
 			public ThisArgs::ArgPRowLayoutInfo
         { };
 
 
+		//! Contains resource IDs for arguments of type <b>char*</b>.
 		struct ArgPChar:
 			public ArgumentsEx<Basic::ArgPChar>,
 			public ThisArgs::ArgPChar
@@ -157,6 +276,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgPChar::eArgPChar eArgPChar;
 		};	
 
+		//! Contains resource IDs for callbacks of type `PtCallback_t`.
 		struct Callback:
 			public ArgumentsEx<Basic::Callback>,
 			public ThisCallbacks::Callback
@@ -164,6 +284,7 @@ namespace PhWidgets
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
+		//! Contains resource IDs for all Container arguments.
 		struct Arguments:
 			public ArgLong,
 			public ArgInt,
@@ -176,7 +297,8 @@ namespace PhWidgets
 			public Basic::Arguments
         { };
 
-		struct Callbacks :
+		//! Contains resource IDs for all Container callbacks.
+		struct Callbacks:
 			public Callback,
 			public Basic::Callbacks
         { };

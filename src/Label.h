@@ -24,10 +24,23 @@ namespace PhWidgets
 		public Basic
 	{
 	public:
+
+		//! Contains resource IDs for Label arguments.
 		struct ThisArgs
 		{
+			//! Contains resource IDs for Label arguments of type <b>char*</b>.
 			struct ArgPChar
 			{
+				//! Resource IDs for Label arguments of type <b>char*</b>.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Label::Arguments::eArgPChar,
+					PhWidgets::Label::ArgPChar::eArgPChar
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPChar
 				{
 					accel_key = Pt_ARG_ACCEL_KEY,
@@ -37,8 +50,19 @@ namespace PhWidgets
 				};
 			};	
 			
+			//! Contains resource IDs for Label arguments of type `PgColor_t`.
 			struct ArgColor
 			{
+				//! Resource IDs for Label arguments of type `PgColor_t`.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Label::Arguments::eArgColor,
+					PhWidgets::Label::ArgColor::eArgColor
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgColor
 				{
 					balloon_color = Pt_ARG_BALLOON_COLOR,
@@ -48,16 +72,38 @@ namespace PhWidgets
 				};
 			};
 			
+            //! Contains resource IDs for Label arguments of type **short**.
 			struct ArgShort
 			{
+                //! Resource IDs for Label arguments of type **short**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Label::Arguments::eArgShort,
+					PhWidgets::Label::ArgShort::eArgShort
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgShort
 				{
 					balloon_position = Pt_ARG_BALLOON_POSITION
 				};
 			};
-			
+
+			//! Contains resource IDs for Label arguments of type **unsigned short**.
 			struct ArgUnsignedShort
 			{
+				//! Resource IDs for Label arguments of type **unsigned short**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Label::Arguments::eArgUnsignedShort,
+					PhWidgets::Label::ArgUnsignedShort::eArgUnsignedShort
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgUnsignedShort
 				{
 					line_spacing = Pt_ARG_LINE_SPACING,
@@ -68,52 +114,118 @@ namespace PhWidgets
 					undeline_type = Pt_ARG_UNDERLINE_TYPE				
 				};
 			};
-			
+
+			//! Contains resource IDs for Label arguments of type **signed short**.
 			struct ArgSignedShort
 			{
+				//! Resource IDs for Label arguments of type **signed short**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Label::Arguments::eArgSignedShort,
+					PhWidgets::Label::ArgSignedShort::eArgSignedShort
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgSignedShort
 				{
 					secondary_h_align = Pt_ARG_SECONDARY_H_ALIGN,
 					secondary_v_align = Pt_ARG_SECONDARY_V_ALIGN
 				};
 			};
-			
+
+			//! Contains resource IDs for Label arguments of type **unsigned char**.
 			struct ArgUnsignedChar
 			{
+				//! Resource IDs for Label arguments of type **unsigned char**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Label::Arguments::eArgUnsignedChar,
+					PhWidgets::Label::ArgUnsignedChar::eArgUnsignedChar
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgUnsignedChar
 				{
 					horizontal_alignment = Pt_ARG_HORIZONTAL_ALIGNMENT,
 					vertical_alingment = Pt_ARG_VERTICAL_ALIGNMENT
 				};
 			};
-			
-			struct ArgPWidget
+
+			//! Contains resource IDs for Label arguments of type `PtWidget_t * (*)()`.
+			struct ArgPWidgetFunc
 			{
-				enum eArgPWidget
+				//! Resource IDs for Label arguments of type `PtWidget_t * (*)()`.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Label::Arguments::eArgPWidgetFunc,
+					PhWidgets::Label::ArgPWidgetFunc::eArgPWidgetFunc
+
+					See Widget::resource for usage description.
+				*/
+				enum eArgPWidgetFunc
 				{
 					label_baloon = Pt_ARG_LABEL_BALLOON
 				};
 			};
 
+			//! Contains resource IDs for Label arguments of type **char**.
 			struct ArgChar
-			{
+			{		
+				//! Resource IDs for Label arguments of type **char**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Label::Arguments::eArgChar,
+					PhWidgets::Label::ArgChar::eArgChar
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgChar
 				{
 					label_flags = Pt_ARG_LABEL_FLAGS,
 					label_type = Pt_ARG_LABEL_TYPE
 				};
 			};
-			
+
+			//! Contains resource IDs for Label arguments of type `PhImage_t`.
 			struct ArgPImage
 			{
+				//! Resource IDs for Label arguments of type `PhImage_t`.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Label::Arguments::eArgPImage,
+					PhWidgets::Label::ArgPImage::eArgPImage
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPImage
 				{
 					label_image = Pt_ARG_LABEL_IMAGE
 				};
 			};
 			
+			//! Contains resource IDs for Label arguments of type **int**.
 			struct ArgInt
 			{
+				//! Resource IDs for Label arguments of type **long**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Label::Arguments::eArgInt,
+					PhWidgets::Label::ArgInt::eArgInt
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgInt
 				{
 					image_spacing = Pt_ARG_TEXT_IMAGE_SPACING
@@ -122,14 +234,16 @@ namespace PhWidgets
 
 
 		};
-				
+		
+		//! Contains resource IDs for arguments of type <b>char*</b>.
 		struct ArgPChar:
 			public ArgumentsEx<Basic::ArgPChar>,
 			public ThisArgs::ArgPChar
 		{
 			typedef ThisArgs::ArgPChar::eArgPChar eArgPChar;
 		};	
-			
+		
+		//! Contains resource IDs for arguments of type `PgColor_t`.
 		struct ArgColor:
 			public ArgumentsEx<Basic::ArgColor>,
 			public ThisArgs::ArgColor
@@ -137,10 +251,12 @@ namespace PhWidgets
 			typedef ThisArgs::ArgColor::eArgColor eArgColor;
 		};
 
+		//! Contains resource IDs for arguments of type **short**.
 		struct ArgShort:
 			public ThisArgs::ArgShort
         { };	
 
+		//! Contains resource IDs for arguments of type **unsigned short**.
 		struct ArgUnsignedShort:
 			public ArgumentsEx<Basic::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort
@@ -148,10 +264,12 @@ namespace PhWidgets
 			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShort eArgUnsignedShort;
 		};	
 
+		//! Contains resource IDs for arguments of type **signed short**.
 		struct ArgSignedShort:
 			public ThisArgs::ArgSignedShort
         { };	
 
+		//! Contains resource IDs for arguments of type **unsigned char**.
 		struct ArgUnsignedChar:
 			public ArgumentsEx<Basic::ArgUnsignedChar>,
 			public ThisArgs::ArgUnsignedChar
@@ -159,10 +277,12 @@ namespace PhWidgets
 			typedef ThisArgs::ArgUnsignedChar::eArgUnsignedChar eArgUnsignedChar;
 		};
 
-		struct ArgPWidget:
-			public ThisArgs::ArgPWidget
+		//! Contains resource IDs for arguments of type `PtWidget_t * (*)()`.
+		struct ArgPWidgetFunc:
+			public ThisArgs::ArgPWidgetFunc
         { };	
 
+		//! Contains resource IDs for arguments of type **char**.
 		struct ArgChar:
 			public ArgumentsEx<Basic::ArgChar>,
 			public ThisArgs::ArgChar
@@ -170,16 +290,18 @@ namespace PhWidgets
 			typedef ThisArgs::ArgChar::eArgChar eArgChar;
 		};	
 
+		//! Contains resource IDs for arguments of type `PhImage_t`.
 		struct ArgPImage:
 			public ThisArgs::ArgPImage
-        { };	
+        { };
 
+		//! Contains resource IDs for arguments of type **int**.
 		struct ArgInt:
 			public ThisArgs::ArgInt
         { };	
 
 
-
+		//! Contains resource IDs for all Label arguments.
 		struct Arguments:
 			public ArgPChar,
 			public ArgColor,
@@ -187,7 +309,7 @@ namespace PhWidgets
 			public ArgUnsignedShort,
 			public ArgSignedShort,
 			public ArgUnsignedChar,			
-			public ArgPWidget,
+			public ArgPWidgetFunc,
 			public ArgChar,
 			public ArgPImage,
 			public ArgInt,

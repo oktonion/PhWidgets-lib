@@ -23,11 +23,22 @@ namespace PhWidgets
 	{
 	public:
 
+		//! Contains resource IDs for Numeric arguments.
 		struct ThisArgs
 		{
-												
+			//! Contains resource IDs for Numeric arguments of type <b>char*</b>.
 			struct ArgPChar
 			{
+				//! Resource IDs for Numeric arguments of type <b>char*</b>.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Numeric::Arguments::eArgPChar,
+					PhWidgets::Numeric::ArgPChar::eArgPChar
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgPChar
 				{
 					numeric_prefix = Pt_ARG_NUMERIC_PREFIX,
@@ -35,8 +46,19 @@ namespace PhWidgets
 				};
 			};	
 			
+			//! Contains resource IDs for Numeric arguments of type **unsigned short**.
 			struct ArgUnsignedShort
 			{
+				//! Resource IDs for Numeric arguments of type **unsigned short**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Numeric::Arguments::eArgUnsignedShort,
+					PhWidgets::Numeric::ArgUnsignedShort::eArgUnsignedShort
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgUnsignedShort
 				{
 					numeric_spacing = Pt_ARG_NUMERIC_SPACING,
@@ -55,7 +77,7 @@ namespace PhWidgets
 
 		};
 
-			
+		//! Contains resource IDs for arguments of type **unsigned short**.
 		struct ArgUnsignedShort:
 			public ArgumentsEx<Compound::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort,
@@ -64,8 +86,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShort eArgUnsignedShort;
 		};
 
-			
-
+		//! Contains resource IDs for arguments of type <b>char*</b>.
 		struct ArgPChar:
 			public ArgumentsEx<Compound::ArgPChar>,
 			public ThisArgs::ArgPChar
@@ -73,6 +94,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgPChar::eArgPChar eArgPChar;
 		};	
 
+		//! Contains resource IDs for all Numeric arguments.
 		struct Arguments:
 			public ArgUnsignedShort,
 			public ArgPChar,

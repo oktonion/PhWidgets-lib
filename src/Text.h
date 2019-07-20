@@ -21,6 +21,7 @@ namespace PhWidgets
 	{
 	public:
 
+		//! Contains resource IDs for Text arguments.
 		struct ThisArgs
 		{												
 			struct ArgComplex
@@ -33,10 +34,21 @@ namespace PhWidgets
 
 		};
 
+		//! Contains resource IDs for Text callbacks.
 		struct ThisCallbacks
 		{
+			//! Contains resource IDs for Text callbacks of type `PtCallback_t`.
 			struct Callback
 			{
+				//! Resource IDs for Text arguments of type `PtCallback_t`.
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Text::Callbacks::eCallback,
+					PhWidgets::Text::Callback::eCallback
+
+					See Widget::resource for usage description.
+				*/
 				enum eCallback
 				{
 					modify_notify = Pt_CB_MODIFY_NOTIFY,
@@ -52,20 +64,22 @@ namespace PhWidgets
 			public ThisArgs::ArgComplex
         { };
 
-		struct Callback :
+		//! Contains resource IDs for callbacks of type `PtCallback_t`.
+		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Label::Callback
 		{
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
-		
+		//! Contains resource IDs for all Text arguments.
 		struct Arguments:
 			public ArgComplex,
 			public Label::Arguments
         { };
 
-		struct Callbacks :
+		//! Contains resource IDs for all Text callbacks.
+		struct Callbacks:
 			public Callback,
 			public Label::Callbacks
         { };
