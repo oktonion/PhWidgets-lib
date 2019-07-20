@@ -12,22 +12,20 @@ Also library implements easy raw access to 'resources' of Photon Widget and the 
 
 * [Widget](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_widget.html)
 * [Basic](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_basic.html)
-
-  * [Container](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_container.html)
-  * [Compound](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_compound.html)
-  * [Numeric](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_numeric.html)
-
-    * [NumericFloat](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_numeric_float.html)
-
-    * [NumericInteger](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_numeric_integer.html)
-
-  * [Label](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_label.html)
-
-    * [Button](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_button.html)
-      * [OnOffButton](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_on_off_button.html)
-
-      * [ToggleButton](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_toggle_button.html)
-
+* [Timer](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_timer.html)
+* [Container](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_container.html)
+* [Graphic](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_graphic.html)
+* [Label](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_label.html)
+* [Compound](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_compound.html)
+* [Disjoint](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_disjoint.html)
+* [Button](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_button.html)
+* [Text](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_text.html)
+* [Numeric](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_numeric.html)
+* [Window](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_window.html)
+* [OnOffButton](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_on_off_button.html)
+* [ToggleButton](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_toggle_button.html)
+* [NumericFloat](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_numeric_float.html)
+* [NumericInteger](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_numeric_integer.html)
 
 ### Quick start ###
 
