@@ -7,7 +7,7 @@ var searchData=
   ['file',['FILE',['http://en.cppreference.com/w/namespacestd.html#cpp/io/c',1,'std']]],
   ['filebuf',['filebuf',['http://en.cppreference.com/w/cpp/io/basic_filebuf.html',1,'std']]],
   ['fisher_5ff_5fdistribution',['fisher_f_distribution',['http://en.cppreference.com/w/cpp/numeric/random/fisher_f_distribution.html',1,'std']]],
-  ['flags',['Flags',['../struct_ph_widgets_1_1_widget_1_1_flags.html',1,'PhWidgets::Widget']]],
+  ['flags',['Flags',['../struct_ph_widgets_1_1_basic_1_1_flags.html',1,'PhWidgets::Basic::Flags'],['../struct_ph_widgets_1_1_widget_1_1_flags.html',1,'PhWidgets::Widget::Flags']]],
   ['font',['Font',['../class_ph_widgets_1_1_drawing_1_1_font.html',1,'PhWidgets::Drawing']]],
   ['fontcollection',['FontCollection',['../class_ph_widgets_1_1_drawing_1_1_font_collection.html',1,'PhWidgets::Drawing']]],
   ['fontfamily',['FontFamily',['../class_ph_widgets_1_1_drawing_1_1_font_family.html',1,'PhWidgets::Drawing']]],

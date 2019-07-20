@@ -8,6 +8,8 @@ var searchData=
   ['leftanchoredleft',['LeftAnchoredLeft',['../struct_ph_widgets_1_1_anchor_styles_a633ad6c8be39fad6a6787877082c7bb4.html#a633ad6c8be39fad6a6787877082c7bb4adbf1c8146b9741ec2f7d9c7a004e24d5',1,'PhWidgets::AnchorStyles']]],
   ['leftanchoredright',['LeftAnchoredRight',['../struct_ph_widgets_1_1_anchor_styles_a633ad6c8be39fad6a6787877082c7bb4.html#a633ad6c8be39fad6a6787877082c7bb4a8925059e7fac4dc2961fdc55b536ad93',1,'PhWidgets::AnchorStyles']]],
   ['lemonchiffon',['LemonChiffon',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689ba145edec78ce6cafe997e772ad10cdd9b',1,'PhWidgets::Drawing::Colors']]],
+  ['light_5fbevel_5fcolor',['light_bevel_color',['../struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_color_a5f4a5e7aecdbba0e3ce7768bbdb92d10.html#a5f4a5e7aecdbba0e3ce7768bbdb92d10af068b7e682bc0d4b72c158ce26f7f4a7',1,'PhWidgets::Basic::ThisArgs::ArgColor']]],
+  ['light_5ffill_5fcolor',['light_fill_color',['../struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_color_a5f4a5e7aecdbba0e3ce7768bbdb92d10.html#a5f4a5e7aecdbba0e3ce7768bbdb92d10addf276004e78f6874183fd3774761be6',1,'PhWidgets::Basic::ThisArgs::ArgColor']]],
   ['lightblue',['LightBlue',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689bae06608f3fd7f3aa1ef3fe08deb7f2182',1,'PhWidgets::Drawing::Colors']]],
   ['lightcoral',['LightCoral',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689ba751f16277dd756645ad895d572426a8c',1,'PhWidgets::Drawing::Colors']]],
   ['lightcyan',['LightCyan',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689bab1fddeff94ae4629cd9bee22febd1a95',1,'PhWidgets::Drawing::Colors']]],
@@ -27,5 +29,6 @@ var searchData=
   ['line_5fjoin',['line_join',['../struct_ph_widgets_1_1_graphic_1_1_this_args_1_1_arg_unsigned_short_a64ac1a1600b42e792e81769c1ffe27d8.html#a64ac1a1600b42e792e81769c1ffe27d8a1a0b40a58b3a2e9a8e2939c3cf1cd4c3',1,'PhWidgets::Graphic::ThisArgs::ArgUnsignedShort']]],
   ['line_5fwidth',['line_width',['../struct_ph_widgets_1_1_graphic_1_1_this_args_1_1_arg_long_a3a602153c43f04bd0bb6d3b27bb4bc69.html#a3a602153c43f04bd0bb6d3b27bb4bc69aead1a43f9d04f656dc537cdb7515b433',1,'PhWidgets::Graphic::ThisArgs::ArgLong']]],
   ['linen',['Linen',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689bab46eef272ea781921c028316b16fc7ac',1,'PhWidgets::Drawing::Colors']]],
-  ['longwait',['LongWait',['../struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629ca61fdbf318728313c5f18d3ca23854aac',1,'PhWidgets::Cursors']]]
+  ['longwait',['LongWait',['../struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629ca61fdbf318728313c5f18d3ca23854aac',1,'PhWidgets::Cursors']]],
+  ['lost_5ffocus',['lost_focus',['../struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback_a86c56a6d6284e43554110366ed22a7a7.html#a86c56a6d6284e43554110366ed22a7a7af12f4ac54c4dce7db8e2a302774c4ed0',1,'PhWidgets::Basic::ThisCallbacks::Callback']]]
 ];

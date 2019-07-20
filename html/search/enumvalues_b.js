@@ -1,6 +1,8 @@
 var searchData=
 [
   ['magenta',['Magenta',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689babefef72e4ef03c3f9717a2d94f043731',1,'PhWidgets::Drawing::Colors']]],
+  ['margin_5fheight',['margin_height',['../struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_unsigned_short_ad32c6140df7c7d3a31dd990957bd7559.html#ad32c6140df7c7d3a31dd990957bd7559a4a7dbc749ff289169f6a81970b72dbeb',1,'PhWidgets::Basic::ThisArgs::ArgUnsignedShort']]],
+  ['margin_5fwidth',['margin_width',['../struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_unsigned_short_ad32c6140df7c7d3a31dd990957bd7559.html#ad32c6140df7c7d3a31dd990957bd7559a67c66a1e292c373a5fb1d37dcaeb13f2',1,'PhWidgets::Basic::ThisArgs::ArgUnsignedShort']]],
   ['maroon',['Maroon',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689ba08cc41fde7a0fb5b0091b211a10d43a0',1,'PhWidgets::Drawing::Colors']]],
   ['max_5fdim',['max_dim',['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_dim_a996bffa203dcfffe5cf6db42ac70bdcc.html#a996bffa203dcfffe5cf6db42ac70bdcca7b230c121452d2ca405a37490adb27be',1,'PhWidgets::Widget::ThisArgs::ArgDim']]],
   ['max_5fheight',['max_height',['../struct_ph_widgets_1_1_window_1_1_this_args_1_1_arg_short_aee61ff73a21006d690a2dcb4290907cc.html#aee61ff73a21006d690a2dcb4290907ccab4394e5a55820bb7215de13aaa994043',1,'PhWidgets::Window::ThisArgs::ArgShort']]],
@@ -14,6 +16,7 @@ var searchData=
   ['mediumspringgreen',['MediumSpringGreen',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689bab31e9a86e1aca1d4351e6fa1a5616074',1,'PhWidgets::Drawing::Colors']]],
   ['mediumturquoise',['MediumTurquoise',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689ba435b583e550870fb1e1d01a3c79100ee',1,'PhWidgets::Drawing::Colors']]],
   ['mediumvioletred',['MediumVioletRed',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689baf5178ace464fd0b9d1d05df90f57234b',1,'PhWidgets::Drawing::Colors']]],
+  ['menu',['menu',['../struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback_a86c56a6d6284e43554110366ed22a7a7.html#a86c56a6d6284e43554110366ed22a7a7a15a23da437c3f58b1a22e92c482c3f66',1,'PhWidgets::Basic::ThisCallbacks::Callback']]],
   ['menuable',['Menuable',['../struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda2206dbe95f9b40208a6e3abd6eba143d',1,'PhWidgets::Widget::ThisFlags']]],
   ['menubutton',['MenuButton',['../struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda4c2c72a8048cef91b195539693ce3d4c',1,'PhWidgets::Widget::ThisFlags']]],
   ['midnightblue',['MidnightBlue',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689ba1b1213a9de760f4062d068f92de23ebf',1,'PhWidgets::Drawing::Colors']]],

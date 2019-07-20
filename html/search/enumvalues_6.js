@@ -6,6 +6,7 @@ var searchData=
   ['ghostwhite',['GhostWhite',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689baa497111a3f02f2aac950458f5c1ff7b8',1,'PhWidgets::Drawing::Colors']]],
   ['gold',['Gold',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689ba2c02efd3755885ebc151dc0a7f8a5e37',1,'PhWidgets::Drawing::Colors']]],
   ['goldenrod',['Goldenrod',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689ba05918cf4d90d073bc59a86f17cc2476e',1,'PhWidgets::Drawing::Colors']]],
+  ['got_5ffocus',['got_focus',['../struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback_a86c56a6d6284e43554110366ed22a7a7.html#a86c56a6d6284e43554110366ed22a7a7af8029527c2a7e4234f00f603f4744284',1,'PhWidgets::Basic::ThisCallbacks::Callback']]],
   ['graphic_5fflags',['graphic_flags',['../struct_ph_widgets_1_1_graphic_1_1_this_args_1_1_arg_char_a19af9755eb13d256984e9c77dcabcb27.html#a19af9755eb13d256984e9c77dcabcb27a1d416e9a0826e00b61e1fe7f296fb613',1,'PhWidgets::Graphic::ThisArgs::ArgChar']]],
   ['gray',['Gray',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689ba2795031a107edf41577f02875d760e90',1,'PhWidgets::Drawing::Colors']]],
   ['green',['Green',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689ba8e3e1040ddf8eb7a626d5e4fc17d3500',1,'PhWidgets::Drawing::Colors']]],

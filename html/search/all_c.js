@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['label',['Label',['../class_ph_widgets_1_1_label.html',1,'PhWidgets']]],
+  ['label',['Label',['../class_ph_widgets_1_1_label.html',1,'PhWidgets::Label'],['../class_ph_widgets_1_1_label_ae1398450cbd789a6c57ea5815dfa0f04.html#ae1398450cbd789a6c57ea5815dfa0f04',1,'PhWidgets::Label::Label(int abn)'],['../class_ph_widgets_1_1_label_a1a0cf412448e1744b7b9bdc9b9fcdc7b.html#a1a0cf412448e1744b7b9bdc9b9fcdc7b',1,'PhWidgets::Label::Label(PtWidget_t *wdg)'],['../class_ph_widgets_1_1_label_ac85a663bed5ae37eb6830c0719867d9e.html#ac85a663bed5ae37eb6830c0719867d9e',1,'PhWidgets::Label::Label(const Label &amp;other)']]],
   ['labs',['labs',['http://en.cppreference.com/w/cpp/numeric/math/abs.html',1,'std']]],
   ['lambda',['lambda',['http://en.cppreference.com/w/cpp/numeric/random/exponential_distribution/lambda.html',1,'std::exponential_distribution']]],
   ['lavender',['Lavender',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689ba471e2ca7312cf201d973e32360a21b9c',1,'PhWidgets::Drawing::Colors']]],
@@ -20,6 +20,8 @@ var searchData=
   ['less_5fequal',['less_equal',['http://en.cppreference.com/w/cpp/utility/functional/less_equal.html',1,'std']]],
   ['lexicographical_5fcompare',['lexicographical_compare',['http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare.html',1,'std']]],
   ['lgamma',['lgamma',['http://en.cppreference.com/w/cpp/numeric/math/lgamma.html',1,'std']]],
+  ['light_5fbevel_5fcolor',['light_bevel_color',['../struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_color_a5f4a5e7aecdbba0e3ce7768bbdb92d10.html#a5f4a5e7aecdbba0e3ce7768bbdb92d10af068b7e682bc0d4b72c158ce26f7f4a7',1,'PhWidgets::Basic::ThisArgs::ArgColor']]],
+  ['light_5ffill_5fcolor',['light_fill_color',['../struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_color_a5f4a5e7aecdbba0e3ce7768bbdb92d10.html#a5f4a5e7aecdbba0e3ce7768bbdb92d10addf276004e78f6874183fd3774761be6',1,'PhWidgets::Basic::ThisArgs::ArgColor']]],
   ['lightbevelcolor',['LightBevelColor',['../class_ph_widgets_1_1_basic_a29d095a61adc73a5d783e95fc40a0ce7.html#a29d095a61adc73a5d783e95fc40a0ce7',1,'PhWidgets::Basic']]],
   ['lightblue',['LightBlue',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689bae06608f3fd7f3aa1ef3fe08deb7f2182',1,'PhWidgets::Drawing::Colors']]],
   ['lightcoral',['LightCoral',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689ba751f16277dd756645ad895d572426a8c',1,'PhWidgets::Drawing::Colors']]],
@@ -68,6 +70,7 @@ var searchData=
   ['longwait',['LongWait',['../struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629ca61fdbf318728313c5f18d3ca23854aac',1,'PhWidgets::Cursors']]],
   ['lookup_5fclassname',['lookup_classname',['http://en.cppreference.com/w/cpp/regex/regex_traits/lookup_classname.html',1,'std::regex_traits']]],
   ['lookup_5fcollatename',['lookup_collatename',['http://en.cppreference.com/w/cpp/regex/regex_traits/lookup_collatename.html',1,'std::regex_traits']]],
+  ['lost_5ffocus',['lost_focus',['../struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback_a86c56a6d6284e43554110366ed22a7a7.html#a86c56a6d6284e43554110366ed22a7a7af12f4ac54c4dce7db8e2a302774c4ed0',1,'PhWidgets::Basic::ThisCallbacks::Callback']]],
   ['lostfocus',['LostFocus',['../class_ph_widgets_1_1_basic.html#ab9f0b70e979bded9059a3537c8720a45',1,'PhWidgets::Basic']]],
   ['lower_5fbound',['lower_bound',['http://en.cppreference.com/w/cpp/container/multiset/lower_bound.html',1,'std::multiset::lower_bound()'],['http://en.cppreference.com/w/cpp/container/set/lower_bound.html',1,'std::set::lower_bound()'],['http://en.cppreference.com/w/cpp/container/map/lower_bound.html',1,'std::map::lower_bound()'],['http://en.cppreference.com/w/cpp/container/multimap/lower_bound.html',1,'std::multimap::lower_bound()'],['http://en.cppreference.com/w/cpp/algorithm/lower_bound.html',1,'std::lower_bound()']]],
   ['lowest',['lowest',['http://en.cppreference.com/w/cpp/types/numeric_limits/lowest.html',1,'std::numeric_limits']]],

@@ -25,6 +25,10 @@ var searchData=
   ['snow',['Snow',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689bae8b1c389af78bde8a7ef0663b99f6883',1,'PhWidgets::Drawing::Colors']]],
   ['split',['Split',['../struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629ca85c26c5a2e21841ddbd09753f7af8652',1,'PhWidgets::Cursors']]],
   ['springgreen',['SpringGreen',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689baf0a80c7daf85f43437116c087fa374d5',1,'PhWidgets::Drawing::Colors']]],
+  ['static_5fbevel_5fcolors',['static_bevel_colors',['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41aef1397233b54c7b334e2bac1c615e27e',1,'PhWidgets::Basic::ThisFlags::Basic']]],
+  ['static_5fbevels',['static_bevels',['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41afbdc8a935c0fb1a54635b4cb6a6a8e4f',1,'PhWidgets::Basic::ThisFlags::Basic']]],
+  ['static_5fgradient',['static_gradient',['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41ad82eeea24ba525464a46b8ad7cf8f3f8',1,'PhWidgets::Basic::ThisFlags::Basic']]],
   ['steelblue',['SteelBlue',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689ba3d86f46787028b35581772b931903fd4',1,'PhWidgets::Drawing::Colors']]],
+  ['style',['style',['../struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_p_char_a1779f721a0a554c3222922e3f21a50d7.html#a1779f721a0a554c3222922e3f21a50d7ab9664431031e731ae977a25da3392f9d',1,'PhWidgets::Basic::ThisArgs::ArgPChar']]],
   ['sysinfo',['sysinfo',['../struct_ph_widgets_1_1_disjoint_1_1_this_args_1_1_arg_p_sys_info_a99bb7930f82fad89358b226a938df21b.html#a99bb7930f82fad89358b226a938df21ba1413773caf26840fea2c44ae2bcf97d2',1,'PhWidgets::Disjoint::ThisArgs::ArgPSysInfo']]]
 ];
