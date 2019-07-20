@@ -9,7 +9,7 @@
 
 namespace PhWidgets
 {
-	//! A widget that invokes a callback after a given length of time	
+	//! A widget that invokes a callback after a given length of time
 	/*!
 		A Timer widget invokes a callback after an initial and repeated time period, given in milliseconds. 
 		This widget is intended to provide a non-accurate, resourceless time base for your application. 

@@ -8,7 +8,10 @@
 
 namespace PhWidgets
 {
-		
+	//! Integer numeric widget
+	/*!
+		The NumericInteger class lets you specify integer values between given minimum and maximum values. 
+	*/
 	class NumericInteger: //TODO::implement all properties
 		public Numeric
 	{

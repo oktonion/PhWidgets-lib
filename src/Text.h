@@ -10,7 +10,12 @@
 
 namespace PhWidgets
 {
-		
+	//! Single-line text
+	/*!
+		The Photon text widgets let you type textual information into a text-entry box. 
+		The widgets provide basic editing features, so you can alter text that's entered. 
+		They also support a point-and-click model of editing, so that you can operate on blocks of text as a unit.  
+	*/	
 	class Text:
 		public Label
 	{

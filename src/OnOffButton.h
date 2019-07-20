@@ -8,7 +8,11 @@
 
 namespace PhWidgets
 {
-		
+	//! An on/off button that can be set or unset
+	/*!
+		A OnOffButton widget displays an on/off button that can be set or unset. 
+		Instances of this class of widget are typically used in exclusive or nonexclusive groups. 
+	*/	
 	class OnOffButton:
 		public Button
 	{

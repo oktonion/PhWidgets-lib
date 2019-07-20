@@ -9,7 +9,11 @@
 
 namespace PhWidgets
 {
-		
+	//! Layout and geometry management for all container widgets
+	/*!
+		The Container superclass provides layout and geometry management for all container widgets. 
+		It also redirects certain events—such as button presses, releases, repeats, and keys—to the child that has focus. 
+	*/		
 	class Container:
 		public Basic
 	{

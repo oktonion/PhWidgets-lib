@@ -11,7 +11,15 @@
 
 namespace PhWidgets
 {
-	
+	//! A text, bitmap, or image label
+	/*!
+		The Label class provides a text string, bitmap, or image for labeling other widgets. 
+		You can have text pop up in a balloon to provide further meaning to the label. 
+
+		@see
+		- Button
+		- Text
+	*/
 	class Label:
 		public Basic
 	{

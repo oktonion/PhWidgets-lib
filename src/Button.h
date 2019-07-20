@@ -8,7 +8,12 @@
 
 namespace PhWidgets
 {
-		
+	//! A button for initiating an action
+	/*!
+		The Button class draws a button. 
+		Buttons let you initiate an action within your application; 
+		clicking a button invokes an application callback. 
+	*/			
 	class Button:
 		public Label
 	{

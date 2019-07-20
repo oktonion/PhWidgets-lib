@@ -8,7 +8,16 @@
 
 namespace PhWidgets
 {
-		
+	//! A superclass for numeric widgets
+	/*!
+		Numeric is a parent class for all numeric widgets. 
+		It creates a Text widget and arrows to let you interact with the widget. 
+		It also creates some of the base functionality of numeric widgets.
+
+		@see
+		- NumericFloat
+		- NumericInteger
+	*/		
 	class Numeric:
 		public Compound
 	{

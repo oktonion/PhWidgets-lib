@@ -8,7 +8,12 @@
 
 namespace PhWidgets
 {
-		
+	//! Floating-point numeric widget
+	/*!
+		The NumericFloat class is a numeric widget that lets you enter 
+		floating-point values between given minimum and maximum values. 
+		You can also use an incorporated Scrollbar to increase or decrease the value by a set amount. 
+	*/	
 	class NumericFloat:
 		public Numeric
 	{
