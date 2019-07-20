@@ -120,8 +120,18 @@ namespace PhWidgets
 		*/
 		NumericInteger(PtWidget_t *wdg);
 		
+		//! (copy constructor) 
+		/*!
+			Constructs a NumericInteger widget by copy.
+			@param[in] other another NumericInteger widget to be used as source to initialize the elements of the container with.
+		*/
 		NumericInteger(const NumericInteger &other);
 
+		//! Assigns value in NumericInteger widget 
+		/*!
+			Replaces the contents of the NumericInteger widget.
+			@param[in] other another NumericInteger widget to use as data source.
+		*/
 		NumericInteger &operator=(const NumericInteger &other);
 		
 		phproperty<int>::bind<NumericInteger, ArgInt::eArgInt, Arguments::numeric_value> Value;

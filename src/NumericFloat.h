@@ -146,8 +146,18 @@ namespace PhWidgets
 		*/
 		NumericFloat(PtWidget_t *wdg);
 		
+		//! (copy constructor) 
+		/*!
+			Constructs a NumericFloat widget by copy.
+			@param[in] other another NumericFloat widget to be used as source to initialize the elements of the container with.
+		*/
 		NumericFloat(const NumericFloat &other);
 
+		//! Assigns value in NumericFloat widget 
+		/*!
+			Replaces the contents of the NumericFloat widget.
+			@param[in] other another NumericFloat widget to use as data source.
+		*/
 		NumericFloat &operator=(const NumericFloat &other);
 		
 		property<double>::bind<NumericFloat, &NumericFloat::getValue, &NumericFloat::setValue> Value;

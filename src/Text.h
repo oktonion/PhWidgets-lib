@@ -111,8 +111,18 @@ namespace PhWidgets
 		*/		
 		Text(PtWidget_t *wdg);
 
+		//! (copy constructor) 
+		/*!
+			Constructs a Text widget by copy.
+			@param[in] other another Text widget to be used as source to initialize the elements of the container with.
+		*/
 		Text(const Text &other);
 
+		//! Assigns value in Text widget 
+		/*!
+			Replaces the contents of the Text widget.
+			@param[in] other another Text widget to use as data source.
+		*/
 		Text &operator=(const Text &other);
 
 		phwidgets_event<Text, Text::Callbacks::modify_notify>	ModifyNotify;
