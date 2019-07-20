@@ -11,6 +11,59 @@
 
 namespace PhWidgets
 {
+	//! Indicates where the balloon with the Label 's text pops up.
+	/*! 
+		Apply to Label::BalloonPosition property.
+
+		@see
+    	- Label::BalloonPosition
+		- Label::Arguments::balloon_position
+	*/
+	struct BalloonPosition
+	{
+		//! Possible Label balloon positions.
+		/*!
+			@see
+			- Label::BalloonPosition
+			- Label::Arguments::balloon_position
+		*/
+		enum eBalloonPosition
+		{
+			Inplace = Pt_BALLOON_INPLACE, //!< keep Label balloon inplace.
+			Top = Pt_BALLOON_TOP, //!< place Label balloon to top.
+			Left = Pt_BALLOON_LEFT, //!< place Label balloon to left.
+			Right = Pt_BALLOON_RIGHT, //!< place Label balloon to right.
+			Bottom = Pt_BALLOON_BOTTOM //!< place Label balloon to bottom.
+		};
+	};
+
+	//! The type of information displayed by the Label.
+	/*! 
+		Apply to Label::Type property.
+
+		@see
+    	- Label::Type
+		- Label::Arguments::label_type
+	*/
+	struct LabelType
+	{
+		//! Possible type of information displayed by the Label.
+		/*!
+			@see
+			- Label::Type
+			- Label::Arguments::label_type
+			- Label::Arguments::label_image
+			- Label::Text
+		*/
+		enum eLabelType
+		{
+			String = Pt_Z_STRING, //!< Use Label::Text (Label::Argument::text_string resource) to display the text.
+			Image = Pt_IMAGE, //!< Use Label::Image (Label::Argument::label_image resource) to display an image. 
+			TextImage = Pt_TEXT_IMAGE //!< Display the image and text of the Label. 
+									  //!< You can specify the positioning of these two elements relative to each other by setting Label::BalloonPosition property.
+		};
+	};
+
 	//! A text, bitmap, or image label
 	/*!
 		The Label class provides a text string, bitmap, or image for labeling other widgets. 
@@ -327,14 +380,21 @@ namespace PhWidgets
 			Define::Scalar<ThisArgs::ArgShort::eArgShort, short>::
 			Define::Scalar<ThisArgs::ArgSignedShort::eArgSignedShort, signed short>::
 			Define::Scalar<ThisArgs::ArgUnsignedChar::eArgUnsignedChar, unsigned char>::
+			Define::Scalar<ThisArgs::ArgChar::eArgChar, char>::
 
 		resource_type WidgetResourcesSingleton;
 
-		std::string getCaption() const;
-		void setCaption(std::string);
+		std::string getText() const;
+		void setText(std::string);
 
 		Drawing::Font getFont() const;
 		void setFont(Drawing::Font);
+
+		void setBalloonPosition(PhWidgets::BalloonPosition::eBalloonPosition val);
+		PhWidgets::BalloonPosition::eBalloonPosition getBalloonPosition() const;
+
+		void setType(PhWidgets::LabelType::eLabelType val);
+		PhWidgets::LabelType::eLabelType getType() const;
 
 		virtual void check();
 						
@@ -377,28 +437,40 @@ namespace PhWidgets
 		//! @name Properties
 		//! Properties are used to simplify use of widget resources.
 		//@{
-		property<std::string>::bind<Label, &Label::getCaption, &Label::setCaption> Caption;
+
+		//! Gets or sets the text associated with this widget.
+		/*!
+			### Property Value ### 
+			
+			> std::string
+
+			The text associated with this widget.
+			
+			@see
+			- Type
+		*/
+		property<std::string>::bind<Label, &Label::getText, &Label::setText> Text;
 
 		//! Gets or sets the font of the text displayed by the widget.
 		/*!
 			### Property Value ### 
 			
-			> Font
+			> Drawing::Font
 
-			The Font to apply to the text displayed by the widget. The default is the value of the DefaultFont property.
+			The Drawing::Font to apply to the text displayed by the widget. The default is the value of the DefaultFont property.
 			
 			@remark
-			The Font property is an ambient property. 
+			The Label::Font property is an ambient property. 
 			An ambient property is a widget property that, if not set, is retrieved from the parent widget. 
 			For example, a Button will have the same BackColor as its parent PhWidgets::Window by default. 
 			@par
-			Because the Font is immutable (meaning that you cannot adjust any of its properties), 
-			you can only assign the Font property a new Font. However, you can base the new font on the existing font. 
+			Because the Label::Font is immutable (meaning that you cannot adjust any of its properties), 
+			you can only assign the Label::Font property a new Drawing::Font. However, you can base the new font on the existing font. 
 
 			@see
 			- FontChanged
 			- OnFontChanged(PtCallbackInfo_t*)
-			- Font
+			- Drawing::Font
 		*/
 		property<Drawing::Font>::bind<Label, &Label::getFont, &Label::setFont> Font;
 
@@ -415,6 +487,48 @@ namespace PhWidgets
 			- Drawing::Color
 		*/
 		phproperty<Drawing::Color>::bind<Label, ArgColor::eArgColor, Arguments::balloon_color> BalloonColor;
+
+		//! Gets or sets where the balloon with the label's text pops up.
+		/*!
+			### Property Value ### 
+			
+			> BalloonPosition::eBalloonPosition
+
+			Possible values are:
+			- BalloonPosition::Inplace
+			- BalloonPosition::Top
+			- BalloonPosition::Left
+			- BalloonPosition::Right
+			- BalloonPosition::Bottom
+
+			@remark
+			If Label::Type is LabelType::TextImage, this resource also controls the positioning of the text and image elements relative to each other.
+
+			@see
+			- BalloonPosition::eBalloonPosition
+			- Type
+			- LabelType
+		*/
+		property<PhWidgets::BalloonPosition::eBalloonPosition>::
+			bind<Label, &Label::getBalloonPosition, &Label::setBalloonPosition> BalloonPosition;
+
+		//! Gets or sets the type of information displayed by the Label.
+		/*!
+			### Property Value ### 
+			
+			> LabelType::eLabelType
+
+			Possible values are:
+			- LabelType::String
+			- LabelType::Image
+			- LabelType::TextImage
+
+			@see
+			- BalloonPosition
+			- LabelType
+		*/
+		property<PhWidgets::LabelType::eLabelType>::
+			bind<Label, &Label::getType, &Label::setType> Type;
 		//@}
 	};
 

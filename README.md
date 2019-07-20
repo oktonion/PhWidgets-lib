@@ -55,9 +55,9 @@ PtSetResource(label, Pt_ARG_TEXT_STRING, input_text, 0);
 just write this:
 
 ```cpp
-std::string text = label.Caption; //thats it!
+std::string text = label.Text; //thats it!
 
-label.Caption = "test text"; //thats it!
+label.Text = "test text"; //thats it!
 ```
 
 or in case you need a raw access to resource:
