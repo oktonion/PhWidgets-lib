@@ -1,8 +1,0 @@
-var struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_t_00_01_widget_calle1a805a38044ab4cd12fa092c411d91c =
-[
-    [ "WidgetCallbacks", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_t_00_01_widget_call36e0a234ace544453220d1754163230f.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_t_00_01_widget_call36e0a234ace544453220d1754163230f" ],
-    [ "WidgetArguments", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_t_00_01_widget_calle1a805a38044ab4cd12fa092c411d91c.html#a666ab64dd792267c079c84d22ad88c1f", null ],
-    [ "LinkType", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_t_00_01_widget_calle1a805a38044ab4cd12fa092c411d91c.html#ad5a40a3a3bfa594130674261712c19f5", null ],
-    [ "argument", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_t_00_01_widget_calle1a805a38044ab4cd12fa092c411d91c.html#a57c1891c23fb861dc7ef78e68c32be93", null ],
-    [ "callback", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_t_00_01_widget_calle1a805a38044ab4cd12fa092c411d91c.html#a3bd5d6ae9ab0f1e77e0fed4c76e4de5a", null ]
-];

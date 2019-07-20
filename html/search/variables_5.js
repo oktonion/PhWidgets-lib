@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['family',['Family',['../class_ph_widgets_1_1_font_def.html#aced671023ba9cb5824744b0dcddfcc82',1,'PhWidgets::FontDef']]],
-  ['fillcolor',['FillColor',['../class_ph_widgets_1_1_basic_a71ab077dbfe633fe1d1e56928c4be0b3.html#a71ab077dbfe633fe1d1e56928c4be0b3',1,'PhWidgets::Basic']]],
+  ['family',['Family',['../class_ph_widgets_1_1_drawing_1_1_font.html#a941bb3db7ec9fcfd7311bb1e4bdc53b2',1,'PhWidgets::Drawing::Font']]],
+  ['fillcolor',['FillColor',['../class_ph_widgets_1_1_basic_a4727c2df5b987be9d26d0b0fcd595a14.html#a4727c2df5b987be9d26d0b0fcd595a14',1,'PhWidgets::Basic']]],
   ['focused',['Focused',['../class_ph_widgets_1_1_widget_abac05a40b6c9e173b4140f64ba78ac9b.html#abac05a40b6c9e173b4140f64ba78ac9b',1,'PhWidgets::Widget']]],
-  ['font',['Font',['../class_ph_widgets_1_1_label_a2acfc24d679a327463463c04b07c2b53.html#a2acfc24d679a327463463c04b07c2b53',1,'PhWidgets::Label']]]
+  ['font',['Font',['../class_ph_widgets_1_1_label_a62d72eb92232b8e43251034912fd7a37.html#a62d72eb92232b8e43251034912fd7a37',1,'PhWidgets::Label']]]
 ];

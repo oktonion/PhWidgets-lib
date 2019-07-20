@@ -1,25 +1,14 @@
 var searchData=
 [
-  ['activate',['activate',['../struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback_a86c56a6d6284e43554110366ed22a7a7.html#a86c56a6d6284e43554110366ed22a7a7aed9693a9df57fe5c95414302ba590307',1,'PhWidgets::Basic::ThisCallbacks::Callback']]],
-  ['aliceblue',['AliceBlue',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a5365ee720218fc8b7df4c03d57985e0e',1,'PhWidgets::Colors']]],
-  ['all',['all',['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41aa01e1146acd3120bf85d3cf7940039e1',1,'PhWidgets::Basic::ThisFlags::Basic']]],
-  ['all_5fbevels',['all_bevels',['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41a5bd219969fa7747cff2af3bba80cfd99',1,'PhWidgets::Basic::ThisFlags::Basic']]],
-  ['all_5fbottom',['all_bottom',['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41ad1b68a63e37d1e9ceee6f3acf1cfeb71',1,'PhWidgets::Basic::ThisFlags::Basic']]],
-  ['all_5fetches',['all_etches',['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41a3420ce14a9328cbb1f6f35a2a93575eb',1,'PhWidgets::Basic::ThisFlags::Basic']]],
-  ['all_5finlines',['all_inlines',['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41aa757baf2db98b4d0936c943f163af8f1',1,'PhWidgets::Basic::ThisFlags::Basic']]],
-  ['all_5fleft',['all_left',['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41a822b8a4244e69b7b4f5d78e699720d3e',1,'PhWidgets::Basic::ThisFlags::Basic']]],
-  ['all_5foutlines',['all_outlines',['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41af052f18d39969daca160c2b6278db6c0',1,'PhWidgets::Basic::ThisFlags::Basic']]],
-  ['all_5fright',['all_right',['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41a6631c456039b2631545d1be0868fdaae',1,'PhWidgets::Basic::ThisFlags::Basic']]],
-  ['all_5ftop',['all_top',['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic_a258299d92b4b17d19ead7ab30554ed41.html#a258299d92b4b17d19ead7ab30554ed41adf38031829b94f3798c9de12b3912efa',1,'PhWidgets::Basic::ThisFlags::Basic']]],
+  ['aliceblue',['AliceBlue',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689bafd60118919a5dc3b1c5708bf3921a170',1,'PhWidgets::Drawing::Colors']]],
   ['allbuttons',['AllButtons',['../struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbda172b292c022221a165236bcefc67cb85',1,'PhWidgets::Widget::ThisFlags']]],
   ['anchor_5fflags',['anchor_flags',['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_unsigned_af75694a26884be6ee17b25092bdeee97.html#af75694a26884be6ee17b25092bdeee97af295089e84aca61976551c830529ad24',1,'PhWidgets::Widget::ThisArgs::ArgUnsigned']]],
-  ['antialias',['Antialias',['../struct_ph_widgets_1_1_font_style_a0de674057aece715530576da9cc155e3.html#a0de674057aece715530576da9cc155e3a8bd85205c916dcbb5c70232048304237',1,'PhWidgets::FontStyle']]],
-  ['antiquewhite',['AntiqueWhite',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a64a4632d46ce6359721481dde889c294',1,'PhWidgets::Colors']]],
-  ['aqua',['Aqua',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732ad39016e6f5e0c90f7bb5f5b7f7ca5fa8',1,'PhWidgets::Colors']]],
-  ['aquamarine',['Aquamarine',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732aeda6b561b2f95db79330e4ed283699c5',1,'PhWidgets::Colors']]],
+  ['antialias',['Antialias',['../struct_ph_widgets_1_1_drawing_1_1_font_style_a34c81ce9f0eb4ce0730e14e52fbd51ae.html#a34c81ce9f0eb4ce0730e14e52fbd51aea70c7e9bc6e7abae2ae2043dfa28212b6',1,'PhWidgets::Drawing::FontStyle']]],
+  ['antiquewhite',['AntiqueWhite',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689baf2e3890751acbcf0789f71b4a814b511',1,'PhWidgets::Drawing::Colors']]],
+  ['aqua',['Aqua',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689bade9af246076da31dead873be8f77f7ae',1,'PhWidgets::Drawing::Colors']]],
+  ['aquamarine',['Aquamarine',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689baddd280ad4017246ef01399e9555d4efa',1,'PhWidgets::Drawing::Colors']]],
   ['area',['area',['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_area_a8c7ab307c4e0dd7b88aaa96d582bb58e.html#a8c7ab307c4e0dd7b88aaa96d582bb58ea8e458e5e1efaef5d59ed73cb50df44a0',1,'PhWidgets::Widget::ThisArgs::ArgArea']]],
-  ['arm',['arm',['../struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback_a86c56a6d6284e43554110366ed22a7a7.html#a86c56a6d6284e43554110366ed22a7a7a18ea85e8f504678840c3588e28a725c1',1,'PhWidgets::Basic::ThisCallbacks::Callback']]],
   ['arrow',['Arrow',['../struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629cab3bbc49595e29b8ffcb0f6836150f8e5',1,'PhWidgets::Cursors']]],
   ['autohighlight',['Autohighlight',['../struct_ph_widgets_1_1_widget_1_1_this_flags_a1e96d37a1f0837fcd27166fc304bcbbd.html#a1e96d37a1f0837fcd27166fc304bcbbdac863e55c40cd1c225d4bacca67223df0',1,'PhWidgets::Widget::ThisFlags']]],
-  ['azure',['Azure',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a7872c354db4ae159d560af657e405787',1,'PhWidgets::Colors']]]
+  ['azure',['Azure',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689bafbe5d59b48ef7204c7d50b9d508b8a11',1,'PhWidgets::Drawing::Colors']]]
 ];

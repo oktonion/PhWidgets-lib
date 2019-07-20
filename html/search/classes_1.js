@@ -10,8 +10,7 @@ var searchData=
   ['bad_5foptional_5faccess',['bad_optional_access',['http://en.cppreference.com/w/cpp/utility/bad_optional_access.html',1,'std']]],
   ['bad_5ftypeid',['bad_typeid',['http://en.cppreference.com/w/cpp/types/bad_typeid.html',1,'std']]],
   ['bad_5fweak_5fptr',['bad_weak_ptr',['http://en.cppreference.com/w/cpp/memory/bad_weak_ptr.html',1,'std']]],
-  ['baseprevtype',['BasePrevType',['../struct_ph_widgets_1_1detail_1_1def__help_1_1_base_prev_type.html',1,'PhWidgets::detail::def_help']]],
-  ['basic',['Basic',['../class_ph_widgets_1_1_basic.html',1,'PhWidgets::Basic'],['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic.html',1,'PhWidgets::Basic::ThisFlags::Basic']]],
+  ['basic',['Basic',['../class_ph_widgets_1_1_basic.html',1,'PhWidgets']]],
   ['basic_5ffilebuf',['basic_filebuf',['http://en.cppreference.com/w/cpp/io/basic_filebuf.html',1,'std']]],
   ['basic_5ffstream',['basic_fstream',['http://en.cppreference.com/w/cpp/io/basic_fstream.html',1,'std']]],
   ['basic_5ffstream_3c_20char_20_3e',['basic_fstream&lt; char &gt;',['http://en.cppreference.com/w/cpp/io/basic_fstream.html',1,'std']]],
@@ -58,7 +57,5 @@ var searchData=
   ['bit_5fnot',['bit_not',['http://en.cppreference.com/w/cpp/utility/functional/bit_not.html',1,'std']]],
   ['bit_5for',['bit_or',['http://en.cppreference.com/w/cpp/utility/functional/bit_or.html',1,'std']]],
   ['bitset',['bitset',['http://en.cppreference.com/w/cpp/utility/bitset.html',1,'std']]],
-  ['boolean',['Boolean',['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_boolean.html',1,'PhWidgets::detail::def_orig::Boolean&lt; PrevT, LinkT, ResourceT &gt;'],['../struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_boolean.html',1,'PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Boolean&lt; ArgT, ResourceT &gt;']]],
-  ['boolean_3c_20prevt_2c_20argt_2c_20resourcet_20_3e',['Boolean&lt; PrevT, ArgT, ResourceT &gt;',['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_boolean.html',1,'PhWidgets::detail::def_orig']]],
   ['button',['Button',['../class_ph_widgets_1_1_button.html',1,'PhWidgets']]]
 ];

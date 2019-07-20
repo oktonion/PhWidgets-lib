@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.5.xxx</span>
+   &#160;<span id="projectnumber">0.4.0</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -101,10 +101,7 @@ $(document).ready(function(){initNavTree('class_ph_widgets_1_1_widget_a656b5a011
 
 <p>Gets or sets the size and location of the widget including its nonclient elements, in pixels, relative to the parent widget. </p>
 <h3>Property Value</h3>
-<blockquote class="doxtable">
-<p><b>PhArea_t</b> </p>
-</blockquote>
-<p>A <code>PhArea_t</code> in pixels relative to the parent widget that represents the size and location of the widget including its nonclient elements.</p>
+<div class="fragment"><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>Ph_area { </div><div class="line">    PhPoint_t pos;</div><div class="line">    PhDim_t size; </div><div class="line">} PhArea_t;</div></div><!-- fragment --><p>A <code>PhArea_t</code> in pixels relative to the parent widget that represents the size and location of the widget including its nonclient elements.</p>
 <h3>Examples</h3>
 <div class="fragment"><div class="line"><span class="comment">// You have somewhere:</span></div><div class="line">PtWidget_t *ptwidget; <span class="comment">// pointer to widget</span></div><div class="line"></div><div class="line"><span class="comment">// constructing Widget</span></div><div class="line"><a class="code" href="class_ph_widgets_1_1_widget.html">PhWidgets::Widget</a> widget(ptwidget);</div><div class="line"></div><div class="line"><span class="comment">// set the widget size and location using the Bounds property.</span></div><div class="line">PhArea_t bounds;</div><div class="line"></div><div class="line">PhPoint_t pos = {20, 48};</div><div class="line">PhDim_t size = {12, 20};</div><div class="line"></div><div class="line">bounds.pos = pos; <span class="comment">// location</span></div><div class="line">bounds.size = size; <span class="comment">// size</span></div><div class="line">widget.Bounds = bounds;</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="class_ph_widgets_1_1_widget_ab89e2442c065998c3dee8814698274a2.html#ab89e2442c065998c3dee8814698274a2" title="Gets or sets the distance, in pixels, between the top edge of the widget and the top edge of its cont...">Top</a></li>
@@ -114,7 +111,7 @@ $(document).ready(function(){initNavTree('class_ph_widgets_1_1_widget_a656b5a011
 </ul>
 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l01263">1263</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l01333">1333</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>

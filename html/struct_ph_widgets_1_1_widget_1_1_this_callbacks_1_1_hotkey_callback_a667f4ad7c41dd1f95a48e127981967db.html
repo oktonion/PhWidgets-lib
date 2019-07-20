@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.5.xxx</span>
+   &#160;<span id="projectnumber">0.4.0</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -99,12 +99,12 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_widget_1_1_this_
       </table>
 </div><div class="memdoc">
 
-<p>Resource IDs for <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> arguments of type PtHotkeyCallback_t. </p>
+<p>Resource IDs for <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> arguments of type <code>PtHotkeyCallback_t</code>. </p>
 <h3>Aliases</h3>
 <p><a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_hotkey_callback_a667f4ad7c41dd1f95a48e127981967db.html#a667f4ad7c41dd1f95a48e127981967db" title="Resource IDs for Widget arguments of type PtHotkeyCallback_t.">PhWidgets::Widget::Callbacks::eHotkeyCallback</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_hotkey_callback_a667f4ad7c41dd1f95a48e127981967db.html#a667f4ad7c41dd1f95a48e127981967db" title="Resource IDs for Widget arguments of type PtHotkeyCallback_t.">PhWidgets::Widget::HotkeyCallback::eHotkeyCallback</a></p>
 <p>See <a class="el" href="class_ph_widgets_1_1_widget_a7864754d3f767d782c6aa886da5c10cc.html#a7864754d3f767d782c6aa886da5c10cc" title="Resources of the Widget.">Widget::resource</a> for usage description. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a667f4ad7c41dd1f95a48e127981967dbaa0558b71e79d579538d1af1107ecb10e"></a>hotkey&#160;</td><td class="fielddoc"><p>A list of PtHotkeyCallback_t structures. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a667f4ad7c41dd1f95a48e127981967dbaa0558b71e79d579538d1af1107ecb10e"></a>hotkey&#160;</td><td class="fielddoc"><p>A list of <code>PtHotkeyCallback_t</code> structures. </p>
 <p>If the widget receives a key event that matches a structure's key cap and key modifiers, the widget calls the function specified in that structure. If a function isn't specified, the widget invokes its Basic::Callbacks::activate callback list with a reason_subtype of <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_hotkey_callback_a667f4ad7c41dd1f95a48e127981967db.html#a667f4ad7c41dd1f95a48e127981967dbaa0558b71e79d579538d1af1107ecb10e" title="A list of PtHotkeyCallback_t structures.">Widget::Callbacks::hotkey</a>. </p><dl class="section remark"><dt>Remarks</dt><dd>A hotkey isn't invoked if any ancestor of the widget that owns it is blocked. Documentation in progress... </dd></dl>
 </td></tr>
 </table>

@@ -1,7 +1,0 @@
-var struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_c260b8a10a07a0e8dc41c83a2f140a7ca =
-[
-    [ "WidgetCallbacks", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_c89d7241ea67a52b647246c4474900794.html", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_c89d7241ea67a52b647246c4474900794" ],
-    [ "WidgetArguments", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_c260b8a10a07a0e8dc41c83a2f140a7ca.html#a9c8a5472fb82b5bc14b058a4f5b9ac08", null ],
-    [ "LinkType", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_c260b8a10a07a0e8dc41c83a2f140a7ca.html#a66322f9bd4dcc9e46ef01e6e0ae7970a", null ],
-    [ "callback", "struct_ph_widgets_1_1detail_1_1def__orig_1_1_link_type_3_01_widget_arguments_base_00_01_widget_c260b8a10a07a0e8dc41c83a2f140a7ca.html#a9ad03ee6821acb909699d1d53af8f096", null ]
-];

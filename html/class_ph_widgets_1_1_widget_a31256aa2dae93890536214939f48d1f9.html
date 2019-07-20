@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.3.5.xxx</span>
+   &#160;<span id="projectnumber">0.4.0</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -101,15 +101,15 @@ $(document).ready(function(){initNavTree('class_ph_widgets_1_1_widget_a31256aa2d
 
 <p>Gets or sets the absolute coordinates of the upper-left corner of the widget. </p>
 <h3>Property Value</h3>
-<div class="fragment"><div class="line"><span class="keyword">struct </span>Ph_point_t { </div><div class="line">    <span class="keywordtype">short</span> x, y; </div><div class="line">};</div></div><!-- fragment --><p>The <code>PhPoint_t</code> that represents the absolute coordinates of the upper-left corner of the widget.</p>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>PhPoint_t { </div><div class="line">    <span class="keywordtype">short</span> x, y; </div><div class="line">};</div></div><!-- fragment --><p>The <code>PhPoint_t</code> that represents the absolute coordinates of the upper-left corner of the widget.</p>
 <dl class="section remark"><dt>Remarks</dt><dd>Because the <code>PhPoint_t</code> struct is a value type, it is returned by value, meaning accessing the property returns a copy of the upper-left point of the widget. So, adjusting the x or y values of the <code>PhPoint_t</code> returned from this property will not affect the <a class="el" href="class_ph_widgets_1_1_widget_af16788209177491d790900a5f4c2c51a.html#af16788209177491d790900a5f4c2c51a" title="Gets or sets the distance, in pixels, between the left edge of the widget and the left edge of its co...">Widget::Left</a>, <a class="el" href="class_ph_widgets_1_1_widget_aa38d654683ff91c209574da59a4dfc99.html#aa38d654683ff91c209574da59a4dfc99" title="Gets the distance, in pixels, between the right edge of the widget and the left edge of its container...">Widget::Right</a>, <a class="el" href="class_ph_widgets_1_1_widget_ab89e2442c065998c3dee8814698274a2.html#ab89e2442c065998c3dee8814698274a2" title="Gets or sets the distance, in pixels, between the top edge of the widget and the top edge of its cont...">Widget::Top</a>, or <a class="el" href="class_ph_widgets_1_1_widget_a76a70f26b5c9f1e76ab20bebd4d020bb.html#a76a70f26b5c9f1e76ab20bebd4d020bb" title="Gets the distance, in pixels, between the bottom edge of the widget and the top edge of its container...">Widget::Bottom</a> property values of the widget. To adjust these properties set each property value individually, or set the <a class="el" href="class_ph_widgets_1_1_widget_a31256aa2dae93890536214939f48d1f9.html#a31256aa2dae93890536214939f48d1f9" title="Gets or sets the absolute coordinates of the upper-left corner of the widget.">Widget::Position</a> property with a new <code>PhPoint_t</code>. </dd></dl>
-<dl class="section user"><dt></dt><dd>If the <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> is a Form, the <a class="el" href="class_ph_widgets_1_1_widget_a31256aa2dae93890536214939f48d1f9.html#a31256aa2dae93890536214939f48d1f9" title="Gets or sets the absolute coordinates of the upper-left corner of the widget.">Widget::Position</a> property value represents the upper-left corner of the Form in screen coordinates.</dd></dl>
+<dl class="section user"><dt></dt><dd>If the <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> is a <a class="el" href="class_ph_widgets_1_1_window.html" title="An Application window that&#39;s managed by the Photon window manager.">PhWidgets::Window</a>, the <a class="el" href="class_ph_widgets_1_1_widget_a31256aa2dae93890536214939f48d1f9.html#a31256aa2dae93890536214939f48d1f9" title="Gets or sets the absolute coordinates of the upper-left corner of the widget.">Widget::Position</a> property value represents the upper-left corner of the <a class="el" href="class_ph_widgets_1_1_window.html" title="An Application window that&#39;s managed by the Photon window manager.">PhWidgets::Window</a> in screen coordinates.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><ul>
-<li>Form </li>
+<li><a class="el" href="class_ph_widgets_1_1_window.html" title="An Application window that&#39;s managed by the Photon window manager.">Window</a> </li>
 </ul>
 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l01520">1520</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l01634">1634</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
 
 </div>
 </div>

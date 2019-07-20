@@ -9,7 +9,6 @@ var searchData=
   ['normal_5fdistribution',['normal_distribution',['http://en.cppreference.com/w/cpp/numeric/random/normal_distribution.html',1,'std']]],
   ['not_5fequal_5fto',['not_equal_to',['http://en.cppreference.com/w/cpp/utility/functional/not_equal_to.html',1,'std']]],
   ['nothrow_5ft',['nothrow_t',['http://en.cppreference.com/w/namespacestd.html#cpp/memory/new/nothrow_t',1,'std']]],
-  ['notimplemented',['NotImplemented',['../class_ph_widgets_1_1detail_1_1_not_implemented.html',1,'PhWidgets::detail']]],
   ['nullptr_5ft',['nullptr_t',['http://en.cppreference.com/w/namespacestd.html#cpp/types/nullptr_t',1,'std']]],
   ['num_5fget',['num_get',['http://en.cppreference.com/w/cpp/locale/num_get.html',1,'std']]],
   ['num_5fput',['num_put',['http://en.cppreference.com/w/cpp/locale/num_put.html',1,'std']]],

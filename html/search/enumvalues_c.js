@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['navajowhite',['NavajoWhite',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732af0b8d5b147314ef08f1f5fa3242ebe4c',1,'PhWidgets::Colors']]],
-  ['navy',['Navy',['../struct_ph_widgets_1_1_colors_ae8e32c23269ccc3747bb2872d50ed732.html#ae8e32c23269ccc3747bb2872d50ed732a2524f5ea431ea7850a4027c81a4c601d',1,'PhWidgets::Colors']]],
+  ['navajowhite',['NavajoWhite',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689ba11354e47b219f5c9ce747c1aecd91f3e',1,'PhWidgets::Drawing::Colors']]],
+  ['navy',['Navy',['../struct_ph_widgets_1_1_drawing_1_1_colors_a66e11e2ba9a553e16d0051918f07689b.html#a66e11e2ba9a553e16d0051918f07689ba2dd56c5510372f442b2dbb3c2f9c2e28',1,'PhWidgets::Drawing::Colors']]],
   ['no',['No',['../struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629cae90f7514d59d3a72d4692cd6e0ac0448',1,'PhWidgets::Cursors']]],
   ['noinput',['Noinput',['../struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629ca12f26089709efe020d76e2df957523fa',1,'PhWidgets::Cursors']]],
   ['nomove2d',['NoMove2D',['../struct_ph_widgets_1_1_cursors_a10c30c978a8ca9d3926446052931629c.html#a10c30c978a8ca9d3926446052931629ca07b765d3193437746e6daf59e588356f',1,'PhWidgets::Cursors']]],

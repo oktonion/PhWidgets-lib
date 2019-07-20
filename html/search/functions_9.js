@@ -49,7 +49,7 @@ var searchData=
   ['isprint',['isprint',['http://en.cppreference.com/w/cpp/string/byte/isprint.html',1,'std']]],
   ['ispunct',['ispunct',['http://en.cppreference.com/w/cpp/string/byte/ispunct.html',1,'std']]],
   ['isspace',['isspace',['http://en.cppreference.com/w/cpp/string/byte/isspace.html',1,'std']]],
-  ['isstyleavailable',['IsStyleAvailable',['../class_ph_widgets_1_1_font_family_a3fc95a2c342bfb7b820a5111a08df9bf.html#a3fc95a2c342bfb7b820a5111a08df9bf',1,'PhWidgets::FontFamily']]],
+  ['isstyleavailable',['IsStyleAvailable',['../class_ph_widgets_1_1_drawing_1_1_font_family_a7c70120eceddb9b6e472b186eec44aef.html#a7c70120eceddb9b6e472b186eec44aef',1,'PhWidgets::Drawing::FontFamily']]],
   ['istream',['istream',['http://en.cppreference.com/w/cpp/io/basic_istream/basic_istream.html',1,'std::istream']]],
   ['istringstream',['istringstream',['http://en.cppreference.com/w/cpp/io/basic_istringstream/basic_istringstream.html',1,'std::istringstream']]],
   ['istrstream',['istrstream',['http://en.cppreference.com/w/cpp/io/istrstream/istrstream.html',1,'std::istrstream']]],

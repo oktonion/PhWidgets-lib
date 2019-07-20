@@ -2,13 +2,11 @@ var searchData=
 [
   ['id',['id',['http://en.cppreference.com/w/cpp/thread/thread/id.html',1,'std::thread::id'],['http://en.cppreference.com/w/cpp/locale/locale/id.html',1,'std::locale::id']]],
   ['ifstream',['ifstream',['http://en.cppreference.com/w/cpp/io/basic_ifstream.html',1,'std']]],
-  ['image',['Image',['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_image.html',1,'PhWidgets::detail::def_orig::Image&lt; PrevT, LinkT, ResourceT &gt;'],['../struct_ph_widgets_1_1detail_1_1def__help_1_1_define_1_1_image.html',1,'PhWidgets::detail::def_help::Define&lt; PrevT &gt;::Image&lt; ArgT, ResourceT &gt;']]],
-  ['image_3c_20prevt_2c_20argt_2c_20resourcet_20_3e',['Image&lt; PrevT, ArgT, ResourceT &gt;',['../struct_ph_widgets_1_1detail_1_1def__orig_1_1_image.html',1,'PhWidgets::detail::def_orig']]],
   ['independent_5fbits_5fengine',['independent_bits_engine',['http://en.cppreference.com/w/cpp/numeric/random/independent_bits_engine.html',1,'std']]],
   ['initializer_5flist',['initializer_list',['http://en.cppreference.com/w/cpp/utility/initializer_list.html',1,'std']]],
   ['input_5fiterator_5ftag',['input_iterator_tag',['http://en.cppreference.com/w/namespacestd.html#cpp/iterator/iterator_tags',1,'std']]],
   ['insert_5fiterator',['insert_iterator',['http://en.cppreference.com/w/namespacestd.html#cpp/iterator/insert_iterator',1,'std']]],
-  ['installedfontcollection',['InstalledFontCollection',['../class_ph_widgets_1_1_installed_font_collection.html',1,'PhWidgets']]],
+  ['installedfontcollection',['InstalledFontCollection',['../class_ph_widgets_1_1_drawing_1_1_installed_font_collection.html',1,'PhWidgets::Drawing']]],
   ['int16_5ft',['int16_t',['http://en.cppreference.com/w/namespacestd.html#cpp/types/integer',1,'std']]],
   ['int32_5ft',['int32_t',['http://en.cppreference.com/w/namespacestd.html#cpp/types/integer',1,'std']]],
   ['int64_5ft',['int64_t',['http://en.cppreference.com/w/namespacestd.html#cpp/types/integer',1,'std']]],
@@ -29,7 +27,6 @@ var searchData=
   ['invalid_5fargument',['invalid_argument',['http://en.cppreference.com/w/cpp/error/invalid_argument.html',1,'std']]],
   ['ios_5fbase',['ios_base',['http://en.cppreference.com/w/cpp/io/ios_base.html',1,'std']]],
   ['iostream',['iostream',['http://en.cppreference.com/w/cpp/io/basic_iostream.html',1,'std']]],
-  ['iptwidget',['IPtWidget',['../class_ph_widgets_1_1detail_1_1_i_pt_widget.html',1,'PhWidgets::detail']]],
   ['is_5fabstract',['is_abstract',['http://en.cppreference.com/w/namespacestd.html#cpp/types/is_abstract',1,'std']]],
   ['is_5farithmetic',['is_arithmetic',['http://en.cppreference.com/w/namespacestd.html#cpp/types/is_arithmetic',1,'std']]],
   ['is_5farray',['is_array',['http://en.cppreference.com/w/namespacestd.html#cpp/types/is_array',1,'std']]],
@@ -98,7 +95,7 @@ var searchData=
   ['istreambuf_5fiterator',['istreambuf_iterator',['http://en.cppreference.com/w/namespacestd.html#cpp/iterator/istreambuf_iterator',1,'std']]],
   ['istringstream',['istringstream',['http://en.cppreference.com/w/cpp/io/basic_istringstream.html',1,'std']]],
   ['istrstream',['istrstream',['http://en.cppreference.com/w/cpp/io/istrstream.html',1,'std']]],
-  ['iter_5ftype',['iter_type',['http://en.cppreference.com/w/cpp/locale/money_get.html',1,'std::money_get::iter_type'],['http://en.cppreference.com/w/cpp/locale/money_put.html',1,'std::money_put::iter_type'],['http://en.cppreference.com/w/cpp/locale/num_get.html',1,'std::num_get::iter_type'],['http://en.cppreference.com/w/cpp/locale/time_get.html',1,'std::time_get_byname::iter_type'],['http://en.cppreference.com/w/cpp/locale/time_put.html',1,'std::time_put::iter_type'],['http://en.cppreference.com/w/cpp/locale/time_put.html',1,'std::time_put_byname::iter_type'],['http://en.cppreference.com/w/cpp/locale/time_get.html',1,'std::time_get::iter_type'],['http://en.cppreference.com/w/cpp/locale/num_put.html',1,'std::num_put::iter_type']]],
+  ['iter_5ftype',['iter_type',['http://en.cppreference.com/w/cpp/locale/money_get.html',1,'std::money_get::iter_type'],['http://en.cppreference.com/w/cpp/locale/money_put.html',1,'std::money_put::iter_type'],['http://en.cppreference.com/w/cpp/locale/time_get.html',1,'std::time_get_byname::iter_type'],['http://en.cppreference.com/w/cpp/locale/num_get.html',1,'std::num_get::iter_type'],['http://en.cppreference.com/w/cpp/locale/time_put.html',1,'std::time_put::iter_type'],['http://en.cppreference.com/w/cpp/locale/time_get.html',1,'std::time_get::iter_type'],['http://en.cppreference.com/w/cpp/locale/time_put.html',1,'std::time_put_byname::iter_type'],['http://en.cppreference.com/w/cpp/locale/num_put.html',1,'std::num_put::iter_type']]],
   ['iterator',['iterator',['http://en.cppreference.com/w/namespacestd.html#cpp/iterator/iterator',1,'std']]],
   ['iterator_5ftraits',['iterator_traits',['http://en.cppreference.com/w/namespacestd.html#cpp/iterator/iterator_traits',1,'std']]]
 ];
