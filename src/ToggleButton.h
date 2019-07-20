@@ -8,6 +8,28 @@
 
 namespace PhWidgets
 {
+	//! Specifies how the indicator of ToggleButton is drawn.
+	/*! 
+		Apply to ToggleButton::IndicatorType property
+
+		@see
+    	- ToggleButton::IndicatorType
+		- ToggleButton::Arguments::indicator_type
+	*/
+	struct ToggleIndicatorType
+	{
+		//! Toggle indicator types for ToggleButton resource ToggleButton::Arguments::indicator_type.
+		/*!
+			Determines how the indicator of ToggleButton is drawn.
+		*/
+		enum eToggleIndicatorType
+		{
+			Radio = Pt_TOGGLE_RADIO, //!< *
+			Check = Pt_TOGGLE_CHECK, //!< **[x]**
+			Outline = Pt_TOGGLE_OUTLINE //!< I>
+		};
+	};
+
 	//! A toggle switch that's either off or on
 	/*!
 		A ToggleButton widget is like a toggle switch, although it behaves like a button. 
@@ -36,7 +58,8 @@ namespace PhWidgets
 				*/
 				enum eArgUnsignedChar
 				{
-					indicator_type = Pt_ARG_INDICATOR_TYPE
+					indicator_type = Pt_ARG_INDICATOR_TYPE 	//!< Determines how the indicator is drawn. 
+															//!< Possible values are ToggleIndicatorType::Radio, ToggleIndicatorType::Check, ToggleIndicatorType::Outline.
 				};
 			};	
 			
@@ -55,7 +78,7 @@ namespace PhWidgets
 				*/
 				enum eArgColor
 				{
-					indicator_color = Pt_ARG_INDICATOR_COLOR
+					indicator_color = Pt_ARG_INDICATOR_COLOR //!< The fill color for the toggle button's indicator.
 				};
 			};
 
@@ -83,9 +106,6 @@ namespace PhWidgets
 			public ArgUnsignedChar,
 			public Button::Arguments
         { };
-		
-		void setChecked(bool val);
-		bool getChecked() const;
 	
 	protected:
 		typedef ResourceFrom<Button::WidgetResourcesSingleton>::
@@ -96,6 +116,11 @@ namespace PhWidgets
 
 		virtual void check();
 
+		void setChecked(bool val);
+		bool getChecked() const;
+
+		void setIndicatorType(ToggleIndicatorType::eToggleIndicatorType val);
+		ToggleIndicatorType::eToggleIndicatorType getIndicatorType() const;
 						
 	public:
 		//! (constructor) 
@@ -132,14 +157,76 @@ namespace PhWidgets
 			- Widget::resource
 		*/
 		WidgetResourcesSingleton resource;
-		
-		void Check(bool val = true);
-		void Uncheck(bool val = true);
 
 		//! @name Properties
 		//! Properties are used to simplify use of widget resources.
 		//@{		
-		property<bool>::bind<ToggleButton, &ToggleButton::getChecked, &ToggleButton::setChecked> Checked;
+
+		//! Gets or sets whether the ToggleButton is checked.
+		/*!
+			### Property Value ### 
+			
+			> **bool**
+
+			`true` if the ToggleButton is checked; `false` if the ToggleButton is unchecked; The default is `false`.
+
+			@see
+			- IndicatorType
+		*/
+		property<bool>::bind<ToggleButton, &ToggleButton::getChecked, &ToggleButton::setChecked> IsChecked;
+
+		//! Gets or sets the type for the toggle button's indicator.
+		/*!
+			### Property Value ### 
+			
+			> ToggleIndicatorType::eToggleIndicatorType
+
+			Determines how the indicator is drawn.
+
+			Possible values are:
+			- ToggleIndicatorType::Radio 
+			- ToggleIndicatorType::Check 
+			- ToggleIndicatorType::Outline
+
+			### Examples ###
+
+			@code
+				using PhWidgets::ToggleButton;
+				using PhWidgets::ToggleIndicatorType;
+
+				ToggleButton tgbutton(ABN_MYTOGGLE_BUTTON);
+
+				tgbutton.IndicatorType = ToggleIndicatorType::Check;
+				tgbutton.IsChecked = true;
+			@endcode
+		*/
+		property<ToggleIndicatorType::eToggleIndicatorType>::
+			bind<ToggleButton, &ToggleButton::getIndicatorType, &ToggleButton::setIndicatorType> IndicatorType;
+
+		//! Gets or sets the fill color for the toggle button's indicator.
+		/*!
+			### Property Value ### 
+			
+			> Drawing::Color
+
+			The `Drawing::Color` of the toggle button's indicator.
+
+			### Examples ###
+
+			@code
+				using namespace PhWidgets;
+
+				ToggleButton tgbutton(ABN_MYTOGGLE_BUTTON);
+
+				tgbutton.IndicatorColor = Drawing::Color::FromARGB(200, 23, 23);
+				tgbutton.IndicatorType = ToggleIndicatorType::Radio;
+			@endcode
+
+			@see
+			- Drawing::Colors
+			- ToggleIndicatorType
+		*/
+		phproperty<Drawing::Color>::bind<ToggleButton, ThisArgs::ArgColor::eArgColor, Arguments::indicator_color> IndicatorColor;
 		//@}
 	};
 	
