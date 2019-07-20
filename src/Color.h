@@ -350,6 +350,10 @@ namespace PhWidgets
 
                 @remark
                 To create an opaque color, set alpha to 255. To create a semitransparent color, set alpha to any value from 1 through 254.
+
+                @see
+                - Color::FromCMY
+                - Color::FromHSV
             */
             static Color FromARGB(unsigned char alpha, unsigned char red, unsigned char green, unsigned char blue);
 
@@ -359,6 +363,10 @@ namespace PhWidgets
                 @param[in] green The green component. Valid values are 0 through 255.
                 @param[in] blue The blue component. Valid values are 0 through 255.
                 @return The Color that this method creates.
+
+                @see
+                - Color::FromCMY
+                - Color::FromHSV
             */
             static Color FromARGB(unsigned char red, unsigned char green, unsigned char blue);
 
@@ -370,6 +378,10 @@ namespace PhWidgets
                 
                 @remark
                 To create an opaque color, set alpha to 255. To create a semitransparent color, set alpha to any value from 1 through 254.
+
+                @see
+                - Color::FromCMY
+                - Color::FromHSV
             */
             static Color FromARGB(unsigned char alpha, Color color);
 
@@ -383,6 +395,10 @@ namespace PhWidgets
                 The most significant byte (MSB), represented by AA, is the alpha component value. 
                 The second, third, and fourth bytes, represented by RR, GG, and BB, respectively, 
                 are the color components red, green, and blue, respectively.
+
+                @see
+                - Color::FromCMY
+                - Color::FromHSV
             */
             static Color FromARGB(PgColor_t argb);
             //@}
@@ -393,6 +409,10 @@ namespace PhWidgets
                 @param[in] magenta The magenta component. Valid values are 0 through 255.
                 @param[in] yellow The yellow component. Valid values are 0 through 255.
                 @return The Color that this method creates.
+
+                @see
+                - Color::FromARGB
+                - Color::FromHSV
             */
             static Color FromCMY(unsigned char cyan, unsigned char magenta, unsigned char yellow);
 
@@ -403,6 +423,10 @@ namespace PhWidgets
                 @param[in] saturation The saturation. Valid values are 0 through 255.
                 @param[in] value The value. Valid values are 0 through 255.
                 @return The Color that this method creates.
+
+                @see
+                - Color::FromCMY
+                - Color::FromARGB
             */
             static Color FromHSV(unsigned short hue, unsigned char saturation, unsigned char value);
         
@@ -410,7 +434,7 @@ namespace PhWidgets
             /*!
                 @return The 32-bit ARGB value `PgColor_t` of this Color.
             */
-            PgColor_t ToArgb () const;
+            PgColor_t ToARGB () const;
 
             //! Converts to the 32-bit ARGB value of this Color class.
             /*!

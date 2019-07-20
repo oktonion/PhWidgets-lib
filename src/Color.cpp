@@ -51,7 +51,7 @@ namespace PhWidgets
             ColorBase(MakeColorBase(argb))
         { }
 
-        PgColor_t Color::ToArgb () const 
+        PgColor_t Color::ToARGB () const 
         {
             return PgARGB(A, R, G, B);
         }
