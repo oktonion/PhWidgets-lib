@@ -330,7 +330,7 @@ namespace PhWidgets
 			A `Drawing::Color` that represents the main color of the bevel.
 
 			@see
-			- Colors
+			- Drawing::Colors
 			- Drawing::Color
 		*/
 		phproperty<Drawing::Color>::bind<Basic, ArgColor::eArgColor, Arguments::bevel_color> BevelColor;
@@ -352,7 +352,7 @@ namespace PhWidgets
 				// constructing Widget
 				PhWidgets::Basic widget(ptwidget);
 				
-				widget.Color = PhWidgets::Colors::DarkBlue;
+				widget.Color = PhWidgets::Drawing::Colors::DarkBlue;
 			@endcode
 
 			@remark
@@ -362,7 +362,7 @@ namespace PhWidgets
 			if not set, is retrieved from the parent widget. For example, a PhWidgets::Button will have the same Basic::Color as its parent PhWidgets::Window by default. 
 
 			@see
-			- Colors
+			- Drawing::Colors
 			- Drawing::Color
 		*/
 		phproperty<Drawing::Color>::bind<Basic, ArgColor::eArgColor, Arguments::color> Color;
@@ -383,7 +383,7 @@ namespace PhWidgets
 			See Basic::BasicFlags to find out when gradients and borders are rendered for a given widget. 
 
 			@see
-			- Colors
+			- Drawing::Colors
 			- Drawing::Color
 			- BasicFlags
 			- FillColor
@@ -411,7 +411,7 @@ namespace PhWidgets
 			See Basic::BasicFlags to find out when gradients and borders are rendered for a given widget. 
 
 			@see
-			- Colors
+			- Drawing::Colors
 			- Drawing::Color
 			- BasicFlags
 			- FillColor
@@ -427,7 +427,7 @@ namespace PhWidgets
 			
 			> Drawing::Color
 
-			A `Drawing::Color` that represents the fill color of the widget. The default is the value of the PhWidgets::Colors::Black.
+			A `Drawing::Color` that represents the fill color of the widget. The default is the value of the PhWidgets::Drawing::Colors::Black.
 			
 			This color is used as the base color when generating the 
 			Basic::BevelColor, Basic::LightBevelColor, Basic::DarkBevelColor, Basic::LightFillColor, and Basic::DarkFillColor.
@@ -452,7 +452,7 @@ namespace PhWidgets
 			if not set, is retrieved from the parent widget. For example, a PhWidgets::Button will have the same Basic::FillColor as its parent PhWidgets::Window by default. 
 
 			@see
-			- Colors
+			- Drawing::Colors
 			- Drawing::Color
 			- BasicFlags
 			- LightFillColor
@@ -475,7 +475,7 @@ namespace PhWidgets
 
 			@see
 			- Drawing::Color
-			- Colors
+			- Drawing::Colors
 			- BasicFlags
 		*/
 		phproperty<Drawing::Color>::bind<Basic, ArgColor::eArgColor, Arguments::inline_color> InlineColor;
@@ -496,7 +496,7 @@ namespace PhWidgets
 			See Basic::BasicFlags to find out when gradients and borders are rendered for a given widget. 
 
 			@see
-			- Colors
+			- Drawing::Colors
 			- Drawing::Color
 			- BasicFlags
 			- FillColor
@@ -524,7 +524,7 @@ namespace PhWidgets
 			See Basic::BasicFlags to find out when gradients and borders are rendered for a given widget. 
 
 			@see
-			- Colors
+			- Drawing::Colors
 			- Drawing::Color
 			- BasicFlags
 			- FillColor
@@ -571,7 +571,7 @@ namespace PhWidgets
 
 			@see
 			- Drawing::Color
-			- Colors
+			- Drawing::Colors
 			- BasicFlags
 		*/
 		phproperty<Drawing::Color>::bind<Basic, ArgColor::eArgColor, Arguments::outline_color> OutlineColor;
