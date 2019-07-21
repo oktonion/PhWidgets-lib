@@ -4,7 +4,7 @@
 #include <photon/PhT.h>
 #include <photon/PtWidget.h>
 
-#include "./service/stdex/stdex.h"
+#include "./stdex/stdex.h"
 #include "./WidgetEvents.h"
 #include "./WidgetKeys.h"
 

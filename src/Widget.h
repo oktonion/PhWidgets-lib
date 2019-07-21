@@ -16,8 +16,8 @@
 #include "./service/phevent.hpp"
 #include "./service/phbitmask.hpp"
 #include "./service/tag_property.hpp"
+#include "./service/WidgetResource.hpp"
 
-#include "./WidgetResource.hpp"
 #include "./Cursor.h"
 #include "./Color.h"
 
@@ -1585,11 +1585,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			@code
-				struct PhPoint_t { 
-					short x, y; 
-				};
-			@endcode
+			> PhPoint_t
 
 			The `PhPoint_t` that represents the upper-left corner of the widget relative to the upper-left corner of its container.
 
@@ -1611,11 +1607,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			@code
-				struct PhPoint_t { 
-					short x, y; 
-				};
-			@endcode
+			> PhPoint_t
 
 			The `PhPoint_t` that represents the absolute coordinates of the upper-left corner of the widget.
 
@@ -1659,11 +1651,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			@code
-				struct PhDim_t { 
-					unsigned short w, h;
-				};
-			@endcode
+			> PhDim_t
 
 			The `PhDim_t` that represents the height and width of the widget in pixels.
 
