@@ -54,10 +54,10 @@ namespace PhWidgets
 				};
 			};	
 
-			//! Contains resource IDs for Graphic arguments of type `PtColor_t`.
+			//! Contains resource IDs for Graphic arguments of type `PgColor_t`.
             struct ArgColor
 			{
-				//! Resource IDs for Graphic arguments of type `PtColor_t`.
+				//! Resource IDs for Graphic arguments of type `PgColor_t`.
 
 				/*!
 					### Aliases ###
