@@ -32,6 +32,7 @@ Label::Label(int abn):
 	BalloonFillColor(this),
 	BalloonPosition(this),
 	TextAlign(this),
+	TextClippedAlign(this),
 	Type(this),
 	UnderlineColor1(this),
 	UnderlineColor2(this),
@@ -49,6 +50,7 @@ Label::Label(PtWidget_t *wdg):
 	BalloonFillColor(this),
 	BalloonPosition(this),
 	TextAlign(this),
+	TextClippedAlign(this),
 	Type(this),
 	UnderlineColor1(this),
 	UnderlineColor2(this),
@@ -66,6 +68,7 @@ Label::Label(const Label &other):
 	BalloonFillColor(this),
 	BalloonPosition(this),
 	TextAlign(this),
+	TextClippedAlign(this),
 	Type(this),
 	UnderlineColor1(this),
 	UnderlineColor2(this),
@@ -200,6 +203,30 @@ Drawing::ContentAlignment::eContentAlignment Label::getTextAlign() const
 
 	unsigned char v = resource.argument[Arguments::vertical_alingment].get();
 	unsigned char h = resource.argument[Arguments::horizontal_alignment].get();
+
+	return static_cast<Drawing::ContentAlignment::eContentAlignment>(PHWIDGETS_VH(v, h));
+
+	#undef	PHWIDGETS_VH
+}
+
+void Label::setTextClippedAlign(Drawing::ContentAlignment::eContentAlignment val)
+{
+	#define PHWIDGETS_V(v) ((short)(((v) >> 8) & 0xFF))
+	#define PHWIDGETS_H(h) ((short)((h) & 0xFF))
+
+	resource.argument[Arguments::secondary_v_align].set(PHWIDGETS_V(val));
+	resource.argument[Arguments::secondary_h_align].set(PHWIDGETS_H(val));
+
+	#undef PHWIDGETS_V
+	#undef PHWIDGETS_H
+}
+
+Drawing::ContentAlignment::eContentAlignment Label::getTextClippedAlign() const
+{
+	#define	PHWIDGETS_VH(v,h) (((short)((v) & 0xFF) << 8) | (short)((h) & 0xFF))
+
+	unsigned char v = resource.argument[Arguments::secondary_v_align].get();
+	unsigned char h = resource.argument[Arguments::secondary_h_align].get();
 
 	return static_cast<Drawing::ContentAlignment::eContentAlignment>(PHWIDGETS_VH(v, h));
 

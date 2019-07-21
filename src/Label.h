@@ -40,6 +40,8 @@ namespace PhWidgets
 	//! The type of information displayed by the Label.
 	/*! 
 		Apply to Label::Type property.
+		
+		@relates LabelType::eLabelType
 
 		@see
     	- Label::Type
@@ -58,8 +60,8 @@ namespace PhWidgets
 		enum eLabelType
 		{
 			String = Pt_Z_STRING, //!< Use Label::Text (Label::Argument::text_string resource) to display the text.
-			Image = Pt_IMAGE, //!< Use Label::Image (Label::Argument::label_image resource) to display an image. 
-			TextImage = Pt_TEXT_IMAGE //!< Display the image and text of the Label. 
+			Image = Pt_IMAGE, //!< Use Label::Image (Label::Argument::label_image resource) to display an image.
+			TextImage = Pt_TEXT_IMAGE //!< Display the image and text of the Label.
 									  //!< You can specify the positioning of these two elements relative to each other by setting Label::BalloonPosition property.
 		};
 	};
@@ -241,8 +243,8 @@ namespace PhWidgets
 				*/
 				enum eArgSignedShort
 				{
-					secondary_h_align = Pt_ARG_SECONDARY_H_ALIGN, //!< The horizontal alignment for the text string, if the text string is clipped. See Label::TextAlign.
-					secondary_v_align = Pt_ARG_SECONDARY_V_ALIGN //!< The vertical alignment for the text string, if the text string is clipped. See Label::TextAlign.
+					secondary_h_align = Pt_ARG_SECONDARY_H_ALIGN, //!< The horizontal alignment for the text string, if the text string is clipped. See Label::TextClippedAlign.
+					secondary_v_align = Pt_ARG_SECONDARY_V_ALIGN //!< The vertical alignment for the text string, if the text string is clipped. See Label::TextClippedAlign.
 				};
 			};
 
@@ -461,6 +463,9 @@ namespace PhWidgets
 		void setTextAlign(Drawing::ContentAlignment::eContentAlignment val);
 		Drawing::ContentAlignment::eContentAlignment getTextAlign() const;
 
+		void setTextClippedAlign(Drawing::ContentAlignment::eContentAlignment val);
+		Drawing::ContentAlignment::eContentAlignment getTextClippedAlign() const;
+
 		virtual void check();
 						
 	public:
@@ -595,7 +600,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			> Drawing::ContentAlignment
+			> Drawing::ContentAlignment::eContentAlignment
 
 			@remark
 			You can use this property to align the text within a label to match the layout of widgets on your form.
@@ -611,6 +616,28 @@ namespace PhWidgets
 		*/
 		property<Drawing::ContentAlignment::eContentAlignment>::
 			bind<Label, &Label::getTextAlign, &Label::setTextAlign> TextAlign;
+
+		//! Gets or sets the alignment of text in the label if the text string is clipped.
+		/*!
+			### Property Value ### 
+			
+			> Drawing::ContentAlignment::eContentAlignment
+
+			@remark
+			You can use this property to align the text within a label if the text string is clipped to match the layout of widgets on your form.
+			For example, if your widgets are located to the right edge of the labels, 
+			you can set the Label::TextAlign property to one of the right-aligned horizontal alignments 
+			(Drawing::ContentAlignment::TopRight, Drawing::ContentAlignment::MiddleRight, Drawing::ContentAlignment::BottomRight) 
+			and the text will be aligned with the right edge of the labels to align with your widgets.
+			
+			@see
+			- Drawing::ContentAlignment::eContentAlignment
+			- Type
+			- LabelType
+			- TextAlign
+		*/
+		property<Drawing::ContentAlignment::eContentAlignment>::
+			bind<Label, &Label::getTextClippedAlign, &Label::setTextClippedAlign> TextClippedAlign;
 
 		//! Gets or sets the type of information displayed by the Label.
 		/*!
