@@ -8,6 +8,11 @@
 
 namespace PhWidgets
 {
+	/*!
+		@struct PhWidgets::NumericFloat
+		@ingroup Widgets
+	*/
+
 	//! Floating-point numeric widget
 	/*!
 		The NumericFloat class is a numeric widget that lets you enter 
@@ -19,7 +24,7 @@ namespace PhWidgets
 	{
 	public:
 
-		//! Contains resource IDs for NumericFloat arguments.
+		//! Contains resource IDs for NumericFloat arguments. @ingroup Resources
 		struct ThisArgs
 		{												
 			//! Contains resource IDs for NumericFloat arguments of type **int**.
@@ -55,7 +60,7 @@ namespace PhWidgets
 
 		};
 
-		//! Contains resource IDs for NumericFloat callbacks.
+		//! Contains resource IDs for NumericFloat callbacks. @ingroup Resources
 		struct ThisCallbacks
 		{
 			//! Contains resource IDs for NumericFloat callbacks of type `PtCallback_t`.
@@ -77,7 +82,7 @@ namespace PhWidgets
 			};
 		};
 		
-		//! Contains resource IDs for arguments of type **int**.
+		//! Contains resource IDs for arguments of type **int**. @ingroup Resources
 		struct ArgInt:
 			public ThisArgs::ArgInt
         { };
@@ -86,7 +91,7 @@ namespace PhWidgets
 			public ThisArgs::ArgDoubleP
         { };
 
-		//! Contains resource IDs for callbacks of type `PtCallback_t`.
+		//! Contains resource IDs for callbacks of type `PtCallback_t`. @ingroup Resources
 		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Numeric::Callback
@@ -94,14 +99,14 @@ namespace PhWidgets
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
-		//! Contains resource IDs for all NumericFloat arguments.
+		//! Contains resource IDs for all NumericFloat arguments. @ingroup Resources
 		struct Arguments:
 			public ArgInt,
 			public ArgDoubleP,
 			public Numeric::Arguments
         { };
 
-		//! Contains resource IDs for all NumericFloat callbacks.
+		//! Contains resource IDs for all NumericFloat callbacks. @ingroup Resources
 		struct Callbacks:
 			public Callback,
 			public Numeric::Callbacks

@@ -8,6 +8,11 @@
 
 namespace PhWidgets
 {
+	/*!
+		@struct PhWidgets::NumericInteger
+		@ingroup Widgets
+	*/
+
 	//! Integer numeric widget
 	/*!
 		The NumericInteger class lets you specify integer values between given minimum and maximum values. 
@@ -17,7 +22,7 @@ namespace PhWidgets
 	{
 	public:
 
-		//! Contains resource IDs for NumericInteger arguments.
+		//! Contains resource IDs for NumericInteger arguments. @ingroup Resources
 		struct ThisArgs
 		{												
 			//! Contains resource IDs for NumericInteger arguments of type **int**.
@@ -44,7 +49,7 @@ namespace PhWidgets
 
 		};
 
-		//! Contains resource IDs for NumericInteger callbacks.
+		//! Contains resource IDs for NumericInteger callbacks. @ingroup Resources
 		struct ThisCallbacks
 		{
 			//! Contains resource IDs for NumericInteger callbacks of type `PtCallback_t`.
@@ -66,12 +71,12 @@ namespace PhWidgets
 			};
 		};
 		
-		//! Contains resource IDs for arguments of type **int**.
+		//! Contains resource IDs for arguments of type **int**. @ingroup Resources
 		struct ArgInt:
 			public ThisArgs::ArgInt
         { };
 
-		//! Contains resource IDs for callbacks of type `PtCallback_t`.
+		//! Contains resource IDs for callbacks of type `PtCallback_t`. @ingroup Resources
 		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Numeric::Callback
@@ -79,13 +84,13 @@ namespace PhWidgets
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
-		//! Contains resource IDs for all NumericInteger arguments.
+		//! Contains resource IDs for all NumericInteger arguments. @ingroup Resources
 		struct Arguments:
 			public ArgInt,
 			public Numeric::Arguments
         { };
 
-		//! Contains resource IDs for all NumericInteger callbacks.
+		//! Contains resource IDs for all NumericInteger callbacks. @ingroup Resources
 		struct Callbacks:
 			public Callback,
 			public Numeric::Callbacks

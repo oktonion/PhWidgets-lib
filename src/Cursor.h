@@ -6,7 +6,7 @@
 
 namespace PhWidgets
 {
-    //! Provides a collection of standard cursors for use by a Photon microGUI application.
+    //! Provides a collection of standard cursors for use by a Photon microGUI application. @ingroup Values
     struct Cursors
     {
         enum eCursors
@@ -60,7 +60,7 @@ namespace PhWidgets
         };
     };
     
-    //! Represents the image used to paint the mouse pointer.
+    //! Represents the image used to paint the mouse pointer. @ingroup Classes
     class Cursor
     {
     public:

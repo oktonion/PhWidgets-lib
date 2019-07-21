@@ -15,6 +15,8 @@ namespace PhWidgets
 		@see
     	- ToggleButton::IndicatorType
 		- ToggleButton::Arguments::indicator_type
+
+		@ingroup Values
 	*/
 	struct ToggleIndicatorType
 	{
@@ -30,17 +32,22 @@ namespace PhWidgets
 		};
 	};
 
+	/*!
+		@struct PhWidgets::ToggleButton
+		@ingroup Widgets
+	*/
+
 	//! A toggle switch that's either off or on
 	/*!
 		A ToggleButton widget is like a toggle switch, although it behaves like a button. 
-		It has on and off states, and pressing the button inverts the current state of the button. 
+		It has on and off states, and pressing the button inverts the current state of the button.
 	*/		
 	class ToggleButton:
 		public Button
 	{
 	public:
 
-		//! Contains resource IDs for ToggleButton arguments.
+		//! Contains resource IDs for ToggleButton arguments. @ingroup Resources
 		struct ThisArgs
 		{
 			//! Contains resource IDs for ToggleButton arguments of type **unsigned char**.

@@ -29,6 +29,7 @@ namespace PhWidgets
                 PtWidget_t *ptwidget; // pointer to button widget
 
                 using namespace PhWidgets;
+                using namespace PhWidgets::Drawing;
 
                 // constructing Button
                 Button Button1(ptwidget);
@@ -40,6 +41,8 @@ namespace PhWidgets
             @see
             - Label
             - Button
+
+             @ingroup Values
         */
         struct FontStyle
         {
@@ -73,7 +76,7 @@ namespace PhWidgets
             > font_style_bitmask;
         }
 
-        //! Specifies a generic FontFamily object.
+        //! Specifies a generic FontFamily object. @ingroup Classes
         struct GenericFontFamilies
         {
             enum eGenericFontFamilies
@@ -92,6 +95,8 @@ namespace PhWidgets
             @see
             - InstalledFontCollection
             - PrivateFontCollection
+
+            @ingroup Classes
         */
         class FontCollection
         {
@@ -107,7 +112,7 @@ namespace PhWidgets
                 bind_static<&FontCollectionDetail::getFamilies> Families;
         };
 
-        //! Represents the fonts installed on the system. This class cannot be inherited.
+        //! Represents the fonts installed on the system. This class cannot be inherited. @ingroup Classes
         class InstalledFontCollection:
             public FontCollection
         {
@@ -116,10 +121,10 @@ namespace PhWidgets
         };
 
         //! (not implemented)
-        //! Provides a collection of font families built from font files that are provided by the client application.
+        //! Provides a collection of font families built from font files that are provided by the client application. @ingroup Classes
         class PrivateFontCollection;
 
-        //! Defines a group of type faces having a similar basic design and certain variations in styles. This class cannot be inherited.
+        //! Defines a group of type faces having a similar basic design and certain variations in styles. This class cannot be inherited. @ingroup Classes
         class FontFamily
         {
         public:
@@ -222,7 +227,7 @@ namespace PhWidgets
             const std::string &Name;
         };
 
-        //! Defines a particular format for text, including font face, size, and style attributes. This class cannot be inherited.
+        //! Defines a particular format for text, including font face, size, and style attributes. This class cannot be inherited. @ingroup Classes
         class Font
         {
             typedef FontID* font_id_type;

@@ -9,6 +9,11 @@
 
 namespace PhWidgets
 {
+	/*!
+		@struct PhWidgets::Container
+		@ingroup Widgets
+	*/
+
 	//! Layout and geometry management for all container widgets
 	/*!
 		The Container superclass provides layout and geometry management for all container widgets. 
@@ -19,7 +24,7 @@ namespace PhWidgets
 	{
 	public:
 
-		//! Contains resource IDs for Container arguments.
+		//! Contains resource IDs for Container arguments. @ingroup Resources
 		struct ThisArgs
 		{
 			//! Contains resource IDs for Container arguments of type **long**.
@@ -199,7 +204,7 @@ namespace PhWidgets
 			
 		};
 
-		//! Contains resource IDs for Container callbacks.
+		//! Contains resource IDs for Container callbacks. @ingroup Resources
 		struct ThisCallbacks
 		{
 			//! Contains resource IDs for Container callbacks of type `PtCallback_t`.
@@ -225,7 +230,7 @@ namespace PhWidgets
 			};
 		};
 			
-		//! Contains resource IDs for arguments of type **long**.
+		//! Contains resource IDs for arguments of type **long**. @ingroup Resources
 		struct ArgLong:
 			public ArgumentsEx<Basic::ArgLong>,
 			public ThisArgs::ArgLong
@@ -233,28 +238,28 @@ namespace PhWidgets
 			typedef ThisArgs::ArgLong::eArgLong eArgLong;
 		};
 		
-		//! Contains resource IDs for arguments of type **int**.
+		//! Contains resource IDs for arguments of type **int**. @ingroup Resources
 		struct ArgInt:
 			public ThisArgs::ArgInt,
 			public ThisArgs::ArgBool
         { };
 		
-		//! Contains resource IDs for arguments of type `PtFillLayoutInfo_t`.
+		//! Contains resource IDs for arguments of type `PtFillLayoutInfo_t`. @ingroup Resources
 		struct ArgPFillLayoutInfo:
 			public ThisArgs::ArgPFillLayoutInfo
         { };
 		
-		//! Contains resource IDs for arguments of type `PtGridLayoutInfo_t`.
+		//! Contains resource IDs for arguments of type `PtGridLayoutInfo_t`. @ingroup Resources
 		struct ArgPGridLayoutInfo:
 			public ThisArgs::ArgPGridLayoutInfo
         { };
 
-		//! Contains resource IDs for arguments of type `PtLayoutDefinition_t`.
+		//! Contains resource IDs for arguments of type `PtLayoutDefinition_t`. @ingroup Resources
 		struct ArgPLayoutDefinition:
 			public ThisArgs::ArgPLayoutDefinition
         { };
 		
-		//! Contains resource IDs for arguments of type <b>void*</b>.
+		//! Contains resource IDs for arguments of type <b>void*</b>. @ingroup Resources
 		struct ArgPVoid:
 			public ArgumentsEx<Basic::ArgPVoid>,
 			public ThisArgs::ArgPVoid
@@ -262,13 +267,13 @@ namespace PhWidgets
 			typedef ThisArgs::ArgPVoid::eArgPVoid eArgPVoid;
 		};	
 
-		//! Contains resource IDs for arguments of type `PtRowLayoutInfo_t`.
+		//! Contains resource IDs for arguments of type `PtRowLayoutInfo_t`. @ingroup Resources
 		struct ArgPRowLayoutInfo:
 			public ThisArgs::ArgPRowLayoutInfo
         { };
 
 
-		//! Contains resource IDs for arguments of type <b>char*</b>.
+		//! Contains resource IDs for arguments of type <b>char*</b>. @ingroup Resources
 		struct ArgPChar:
 			public ArgumentsEx<Basic::ArgPChar>,
 			public ThisArgs::ArgPChar
@@ -276,7 +281,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgPChar::eArgPChar eArgPChar;
 		};	
 
-		//! Contains resource IDs for callbacks of type `PtCallback_t`.
+		//! Contains resource IDs for callbacks of type `PtCallback_t`. @ingroup Resources
 		struct Callback:
 			public ArgumentsEx<Basic::Callback>,
 			public ThisCallbacks::Callback
@@ -284,7 +289,7 @@ namespace PhWidgets
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
-		//! Contains resource IDs for all Container arguments.
+		//! Contains resource IDs for all Container arguments. @ingroup Resources
 		struct Arguments:
 			public ArgLong,
 			public ArgInt,
@@ -297,7 +302,7 @@ namespace PhWidgets
 			public Basic::Arguments
         { };
 
-		//! Contains resource IDs for all Container callbacks.
+		//! Contains resource IDs for all Container callbacks. @ingroup Resources
 		struct Callbacks:
 			public Callback,
 			public Basic::Callbacks

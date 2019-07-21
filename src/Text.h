@@ -10,18 +10,23 @@
 
 namespace PhWidgets
 {
+	/*!
+		@struct PhWidgets::Text
+		@ingroup Widgets
+	*/
+
 	//! Single-line text
 	/*!
 		The Photon text widgets let you type textual information into a text-entry box. 
 		The widgets provide basic editing features, so you can alter text that's entered. 
-		They also support a point-and-click model of editing, so that you can operate on blocks of text as a unit.  
+		They also support a point-and-click model of editing, so that you can operate on blocks of text as a unit. 
 	*/	
 	class Text:
 		public Label
 	{
 	public:
 
-		//! Contains resource IDs for Text arguments.
+		//! Contains resource IDs for Text arguments. @ingroup Resources
 		struct ThisArgs
 		{												
 			struct ArgComplex
@@ -34,7 +39,7 @@ namespace PhWidgets
 
 		};
 
-		//! Contains resource IDs for Text callbacks.
+		//! Contains resource IDs for Text callbacks. @ingroup Resources
 		struct ThisCallbacks
 		{
 			//! Contains resource IDs for Text callbacks of type `PtCallback_t`.
@@ -59,12 +64,13 @@ namespace PhWidgets
 				};
 			};
 		};
-		
+
+		//! Contains resource IDs for complex arguments. @ingroup Resources
 		struct ArgComplex:
 			public ThisArgs::ArgComplex
         { };
 
-		//! Contains resource IDs for callbacks of type `PtCallback_t`.
+		//! Contains resource IDs for callbacks of type `PtCallback_t`. @ingroup Resources
 		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Label::Callback
@@ -72,13 +78,13 @@ namespace PhWidgets
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
-		//! Contains resource IDs for all Text arguments.
+		//! Contains resource IDs for all Text arguments. @ingroup Resources
 		struct Arguments:
 			public ArgComplex,
 			public Label::Arguments
         { };
 
-		//! Contains resource IDs for all Text callbacks.
+		//! Contains resource IDs for all Text callbacks. @ingroup Resources
 		struct Callbacks:
 			public Callback,
 			public Label::Callbacks

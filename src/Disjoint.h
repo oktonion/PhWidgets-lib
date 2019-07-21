@@ -8,6 +8,11 @@
 
 namespace PhWidgets
 {
+	/*!
+		@struct PhWidgets::Disjoint
+		@ingroup Widgets
+	*/
+
 	//! Superclass for disjoint widgets
 	/*!
 		Disjoint is the superclass for the Widget classes that are disjoint (i.e. are instantiated without a parent).
@@ -20,7 +25,7 @@ namespace PhWidgets
 	{
 	public:
 
-        //! Contains resource IDs for Disjoint arguments.
+        //! Contains resource IDs for Disjoint arguments. @ingroup Resources
 		struct ThisArgs
 		{		
             //! Contains resource IDs for Disjoint arguments of type `PhSysInfo_t`.
@@ -53,7 +58,7 @@ namespace PhWidgets
 			};	
 		};
 
-        //! Contains resource IDs for Disjoint callbacks.
+        //! Contains resource IDs for Disjoint callbacks. @ingroup Resources
 		struct ThisCallbacks
 		{
             //! Contains resource IDs for Disjoint callbacks of type `PtCallback_t`.
@@ -75,12 +80,12 @@ namespace PhWidgets
 			};
 		};
 		
-        //! Contains resource IDs for Disjoint arguments of type `PhSysInfo_t`.
+        //! Contains resource IDs for Disjoint arguments of type `PhSysInfo_t`. @ingroup Resources
 		struct ArgPSysInfo:
 			public ThisArgs::ArgPSysInfo
         { };	
 
-        //! Contains resource IDs for Disjoint callbacks of type `PtCallback_t`.
+        //! Contains resource IDs for Disjoint callbacks of type `PtCallback_t`. @ingroup Resources
 		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Container::Callback
@@ -88,13 +93,13 @@ namespace PhWidgets
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
-        //! Contains resource IDs for all Disjoint arguments.
+        //! Contains resource IDs for all Disjoint arguments. @ingroup Resources
 		struct Arguments:
 			public ArgPSysInfo,
 			public Container::Arguments
         { };
 
-        //! Contains resource IDs for all Disjoint callbacks.
+        //! Contains resource IDs for all Disjoint callbacks. @ingroup Resources
 		struct Callbacks:
 			public Callback,
 			public Container::Callbacks

@@ -8,6 +8,11 @@
 
 namespace PhWidgets
 {
+	/*!
+		@struct PhWidgets::OnOffButton
+		@ingroup Widgets
+	*/
+
 	//! An on/off button that can be set or unset
 	/*!
 		A OnOffButton widget displays an on/off button that can be set or unset. 
@@ -18,7 +23,7 @@ namespace PhWidgets
 	{
 	public:
 
-		//! Contains resource IDs for OnOffButton arguments.
+		//! Contains resource IDs for OnOffButton arguments. @ingroup Resources
 		struct ThisArgs
 		{
 			//! Contains resource IDs for OnOffButton arguments of type **bool**.
@@ -41,7 +46,7 @@ namespace PhWidgets
 			};
 		};
 
-		//! Contains resource IDs for OnOffButton callbacks.
+		//! Contains resource IDs for OnOffButton callbacks. @ingroup Resources
 		struct ThisCallbacks
 		{
 			//! Contains resource IDs for OnOffButton callbacks of type `PtCallback_t`.
@@ -63,12 +68,12 @@ namespace PhWidgets
 			};
 		};
 
-		//! Contains resource IDs for arguments of type **bool**.
+		//! Contains resource IDs for arguments of type **bool**. @ingroup Resources
 		struct ArgBool:
 			public ThisArgs::ArgBool
         { };
 
-		//! Contains resource IDs for callbacks of type `PtCallback_t`.
+		//! Contains resource IDs for callbacks of type `PtCallback_t`. @ingroup Resources
 		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Button::Callback
@@ -76,13 +81,13 @@ namespace PhWidgets
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
-		//! Contains resource IDs for all OnOffButton arguments.
+		//! Contains resource IDs for all OnOffButton arguments. @ingroup Resources
 		struct Arguments:
 			public Button::Arguments,
 			public ArgBool
         { };
 
-		//! Contains resource IDs for all OnOffButton callbacks.
+		//! Contains resource IDs for all OnOffButton callbacks. @ingroup Resources
 		struct Callbacks:
 			public Callback,
 			public Button::Callbacks

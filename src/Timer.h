@@ -9,6 +9,11 @@
 
 namespace PhWidgets
 {
+	/*!
+		@struct PhWidgets::Timer
+		@ingroup Widgets
+	*/
+
 	//! A widget that invokes a callback after a given length of time
 	/*!
 		A Timer widget invokes a callback after an initial and repeated time period, given in milliseconds. 
@@ -21,7 +26,7 @@ namespace PhWidgets
 	public:
 		using Widget::IPhWidgetsProperty;
 
-		//! Contains resource IDs for Timer arguments.
+		//! Contains resource IDs for Timer arguments. @ingroup Resources
 		struct ThisArgs
 		{												
 			//! Contains resource IDs for Timer arguments of type **unsigned long**.
@@ -46,7 +51,7 @@ namespace PhWidgets
 
 		};
 
-		//! Contains resource IDs for Timer callbacks.
+		//! Contains resource IDs for Timer callbacks. @ingroup Resources
 		struct ThisCallbacks
 		{
 			//! Contains resource IDs for Timer callbacks of type `PtCallback_t`.
@@ -68,11 +73,12 @@ namespace PhWidgets
 			};
 		};
 		
-		//! Contains resource IDs for arguments of type **unsigned long**.
+		//! Contains resource IDs for arguments of type **unsigned long**. @ingroup Resources
 		struct ArgUnsignedLong:
 			public ThisArgs::ArgUnsignedLong
         { };
 
+		//! Contains resource IDs for arguments of type <b>void*</b>. @ingroup Resources
 		struct ArgPVoid
 		{
 			static const Widget::ArgPVoid::eArgPVoid pointer;
@@ -80,9 +86,10 @@ namespace PhWidgets
 			static const Widget::ArgPVoid::eArgPVoidData user_data;
 		};
 
+		//! Contains resource IDs for arguments of type **long**. @ingroup Resources
 		Widget::ArgLong;//Pt_ARG_FLAGS
 
-		//! Contains resource IDs for callbacks of type `PtCallback_t`.
+		//! Contains resource IDs for callbacks of type `PtCallback_t`. @ingroup Resources
 		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Widget::Callback
@@ -90,14 +97,14 @@ namespace PhWidgets
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 		
-		//! Contains resource IDs for all Timer arguments.
+		//! Contains resource IDs for all Timer arguments. @ingroup Resources
 		struct Arguments:
 			public ArgUnsignedLong,
 			public Widget::ArgLong,
 			public ArgPVoid
         { };
 
-		//! Contains resource IDs for all Timer callbacks.
+		//! Contains resource IDs for all Timer callbacks. @ingroup Resources
 		struct Callbacks:
 			public Callback,
 			public Widget::Callbacks

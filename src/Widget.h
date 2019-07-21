@@ -28,6 +28,11 @@
 	typedef struct Ph_rect   PhRect_t;
 #endif
 
+// @defgroup Widgets PhWidgets library widgets
+// @defgroup Values PhWidgets library flags and predefined values
+// @defgroup Classes PhWidgets library helper classes
+// @defgroup Resources PhWidgets library resource ID's and raw widgets flags
+
 //! The main namespace for all widgets
 namespace PhWidgets
 {
@@ -43,6 +48,8 @@ namespace PhWidgets
 		@see
     	- Widget::Anchor
 		- Widget::Flags::Anchor::eAnchorStyles
+
+		@ingroup Values
 	*/
 	struct AnchorStyles
 	{
@@ -82,6 +89,11 @@ namespace PhWidgets
 					BalloonsOn
 		};
 	};
+
+	/*!
+		@struct PhWidgets::Widget
+		@ingroup Widgets
+	*/
 
 	//! Superclass for all widgets
 	/*!
@@ -200,7 +212,7 @@ namespace PhWidgets
 			inline phwidgets_event &operator=(phwidgets_event const &);
 		};*/
 
-		//! Contains resource IDs for Widget arguments.
+		//! Contains resource IDs for Widget arguments. @ingroup Resources
 		struct ThisArgs
 		{
 			//! Contains resource IDs for Widget arguments of type `PhArea_t`.
@@ -761,92 +773,92 @@ namespace PhWidgets
 
 		};
 
-		//! Contains resource IDs for Widget arguments of type `PhArea_t`.
+		//! Contains resource IDs for Widget arguments of type `PhArea_t`. @ingroup Resources
 		struct ArgArea:
 			public ThisArgs::ArgArea
         { };
 		
-		//! Contains resource IDs for Widget arguments of type **unsigned**.
+		//! Contains resource IDs for Widget arguments of type **unsigned**. @ingroup Resources
 		struct ArgUnsigned:
 			public ThisArgs::ArgUnsigned
         { };
 		
-		//! Contains resource IDs for Widget arguments of type **unsigned short**.
+		//! Contains resource IDs for Widget arguments of type **unsigned short**. @ingroup Resources
 		struct ArgUnsignedShort:
 			public ThisArgs::ArgUnsignedShort
         { };
 		
-		//! Contains resource IDs for Widget arguments of type **unsigned long**.
+		//! Contains resource IDs for Widget arguments of type **unsigned long**. @ingroup Resources
 		struct ArgUnsignedLong:
 			public ThisArgs::ArgUnsignedLong
         { };
 		
-		//! Contains resource IDs for Widget arguments of type **long**.
+		//! Contains resource IDs for Widget arguments of type **long**. @ingroup Resources
 		struct ArgLong:
 			public ThisArgs::ArgLong
         { };
 
-		//! Contains resource IDs for Widget arguments of type <b>char*</b>.
+		//! Contains resource IDs for Widget arguments of type <b>char*</b>. @ingroup Resources
 		struct ArgPChar:
 			public ThisArgs::ArgPChar
         { };
 		
-		//! Contains resource IDs for Widget arguments of type <b>void*</b>.
+		//! Contains resource IDs for Widget arguments of type <b>void*</b>. @ingroup Resources
 		struct ArgPVoid:
 			public ThisArgs::ArgPVoid
         { };
 
-		//! Contains resource IDs for Widget arguments of type `PhRect_t`.
+		//! Contains resource IDs for Widget arguments of type `PhRect_t`. @ingroup Resources
 		struct ArgRect:
 			public ThisArgs::ArgRect
         { };
 		
-		//! Contains resource IDs for Widget arguments of type `PgColor_t`.
+		//! Contains resource IDs for Widget arguments of type `PgColor_t`. @ingroup Resources
 		struct ArgColor:
 			public ThisArgs::ArgColor
         { };
 		
-		//! Contains resource IDs for Widget arguments of type `PhCursorDef_t`.
+		//! Contains resource IDs for Widget arguments of type `PhCursorDef_t`. @ingroup Resources
 		struct ArgPCursorDef:
 			public ThisArgs::ArgPCursorDef
         { };
 		
-		//! Contains resource IDs for Widget arguments of type `PtGridLayoutData_t`.
+		//! Contains resource IDs for Widget arguments of type `PtGridLayoutData_t`. @ingroup Resources
 		struct ArgPGridLayoutData:
 			public ThisArgs::ArgPGridLayoutData
         { };
 		
-		//! Contains resource IDs for Widget arguments of type `PhPoint_t`.
+		//! Contains resource IDs for Widget arguments of type `PhPoint_t`. @ingroup Resources
 		struct ArgPoint:
 			public ThisArgs::ArgPoint
         { };
 
-		//! Contains resource IDs for Widget arguments of type `PtRowLayoutData_t`.
+		//! Contains resource IDs for Widget arguments of type `PtRowLayoutData_t`. @ingroup Resources
 		struct ArgPRowLayoutData:
 			public ThisArgs::ArgPRowLayoutData
         { };
 
-		//! Contains resource IDs for Widget arguments of type `PhDim_t`.
+		//! Contains resource IDs for Widget arguments of type `PhDim_t`. @ingroup Resources
 		struct ArgDim:
 			public ThisArgs::ArgDim
 		{ };
 
-		//! Contains resource IDs for Widget callbacks of type `PtRawCallback_t`.
+		//! Contains resource IDs for Widget callbacks of type `PtRawCallback_t`. @ingroup Resources
 		struct RawCallback:
 			public ThisCallbacks::RawCallback
 		{ };
 
-		//! Contains resource IDs for Widget callbacks of type `PtCallback_t`.
+		//! Contains resource IDs for Widget callbacks of type `PtCallback_t`. @ingroup Resources
 		struct Callback:
 			public ThisCallbacks::Callback
 		{ };
 
-		//! Contains resource IDs for Widget callbacks of type `PtHotkeyCallback_t`.
+		//! Contains resource IDs for Widget callbacks of type `PtHotkeyCallback_t`. @ingroup Resources
 		struct HotkeyCallback:
 			public ThisCallbacks::HotkeyCallback
 		{ };
 
-		//! Contains resource IDs for all Widget arguments.
+		//! Contains resource IDs for all Widget arguments. @ingroup Resources
 		struct Arguments:
 			public ArgArea,
 			public ArgColor,
@@ -864,14 +876,14 @@ namespace PhWidgets
 			public ArgDim
 		{ };
 
-		//! Contains resource IDs for all Widget callbacks.
+		//! Contains resource IDs for all Widget callbacks. @ingroup Resources
 		struct Callbacks:
 			public RawCallback,
 			public Callback,
 			public HotkeyCallback
 		{ };
 
-		//! Contains flags for all Widget resources.
+		//! Contains flags for all Widget resources. @ingroup Resources
 		struct Flags:
 			public ThisFlags
 		{ };

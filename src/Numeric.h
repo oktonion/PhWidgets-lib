@@ -8,6 +8,11 @@
 
 namespace PhWidgets
 {
+	/*!
+		@struct PhWidgets::Numeric
+		@ingroup Widgets
+	*/
+
 	//! A superclass for numeric widgets
 	/*!
 		Numeric is a parent class for all numeric widgets. 
@@ -23,7 +28,7 @@ namespace PhWidgets
 	{
 	public:
 
-		//! Contains resource IDs for Numeric arguments.
+		//! Contains resource IDs for Numeric arguments. @ingroup Resources
 		struct ThisArgs
 		{
 			//! Contains resource IDs for Numeric arguments of type <b>char*</b>.
@@ -77,7 +82,7 @@ namespace PhWidgets
 
 		};
 
-		//! Contains resource IDs for arguments of type **unsigned short**.
+		//! Contains resource IDs for arguments of type **unsigned short**. @ingroup Resources
 		struct ArgUnsignedShort:
 			public ArgumentsEx<Compound::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort,
@@ -86,7 +91,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShort eArgUnsignedShort;
 		};
 
-		//! Contains resource IDs for arguments of type <b>char*</b>.
+		//! Contains resource IDs for arguments of type <b>char*</b>. @ingroup Resources
 		struct ArgPChar:
 			public ArgumentsEx<Compound::ArgPChar>,
 			public ThisArgs::ArgPChar
@@ -94,7 +99,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgPChar::eArgPChar eArgPChar;
 		};	
 
-		//! Contains resource IDs for all Numeric arguments.
+		//! Contains resource IDs for all Numeric arguments. @ingroup Resources
 		struct Arguments:
 			public ArgUnsignedShort,
 			public ArgPChar,

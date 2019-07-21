@@ -18,6 +18,8 @@ namespace PhWidgets
             - Basic::DarkFillColor
             - Basic::LightBevelColor
             - Basic::DarkBevelColor
+
+             @ingroup Values
         */
         struct Colors
         {
@@ -209,6 +211,8 @@ namespace PhWidgets
             @see
             - Drawing::Colors
             - Basic::Color
+
+             @ingroup Classes
         */
         class Color:
             public Colors,

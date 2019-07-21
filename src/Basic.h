@@ -9,6 +9,11 @@
 
 namespace PhWidgets
 {
+	/*!
+		@struct PhWidgets::Basic
+		@ingroup Widgets
+	*/
+
 	//! A superclass of basic resources for most widgets
 	/*!
 		The Basic superclass provides basic resources for all widgets. It provides the fundamental events for:
@@ -36,7 +41,7 @@ namespace PhWidgets
 	{
 	public:
 
-		//! Contains resource IDs for Basic arguments.
+		//! Contains resource IDs for Basic arguments. @ingroup Resources
 		struct ThisArgs
 		{
 			//! Contains resource IDs for Basic arguments of type **unsigned short**.
@@ -185,7 +190,7 @@ namespace PhWidgets
 			};	
 		};
 
-		//! Contains resource IDs for Basic callbacks.
+		//! Contains resource IDs for Basic callbacks. @ingroup Resources
 		struct ThisCallbacks
 		{
 			//! Contains resource IDs for Basic callbacks of type `PtCallback_t`.
@@ -224,7 +229,7 @@ namespace PhWidgets
 			};
 		};
 
-		//! Contains flags for Basic resources.
+		//! Contains flags for Basic resources. @ingroup Resources
 		struct ThisFlags
 		{
 			//! Contains flags for Basic resource Basic::Arguments::basic_flags.
@@ -299,7 +304,7 @@ namespace PhWidgets
 			};
 		};
 
-		//! Contains resource IDs for arguments of type **unsigned short**.
+		//! Contains resource IDs for arguments of type **unsigned short**. @ingroup Resources
 		struct ArgUnsignedShort:
 			public ArgumentsEx<Widget::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort
@@ -307,7 +312,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShort eArgUnsignedShort;
 		};
 		
-		//! Contains resource IDs for arguments of type **unsigned long**.
+		//! Contains resource IDs for arguments of type **unsigned long**. @ingroup Resources
 		struct ArgUnsignedLong:
 			public ArgumentsEx<Widget::ArgUnsignedLong>,
 			public ThisArgs::ArgUnsignedLong
@@ -315,7 +320,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgUnsignedLong::eArgUnsignedLong eArgUnsignedLong;
 		};
 
-		//! Contains resource IDs for arguments of type `PgColor_t`.
+		//! Contains resource IDs for arguments of type `PgColor_t`. @ingroup Resources
 		struct ArgColor:
 			public ArgumentsEx<Widget::ArgColor>,
 			public ThisArgs::ArgColor
@@ -323,22 +328,22 @@ namespace PhWidgets
 			typedef ThisArgs::ArgColor::eArgColor eArgColor;
 		};
 
-		//! Contains resource IDs for arguments of type **char**.
+		//! Contains resource IDs for arguments of type **char**. @ingroup Resources
 		struct ArgChar:
 			public ThisArgs::ArgChar
         { };
 		
-		//! Contains resource IDs for arguments of type `PgPattern_t`.
+		//! Contains resource IDs for arguments of type `PgPattern_t`. @ingroup Resources
 		struct ArgPattern:
 			public ThisArgs::ArgPattern
         { };
 			
-		//! Contains resource IDs for arguments of type **unsigned char**.
+		//! Contains resource IDs for arguments of type **unsigned char**. @ingroup Resources
 		struct ArgUnsignedChar:
 			public ThisArgs::ArgUnsignedChar
         { };
 
-		//! Contains resource IDs for arguments of type <b>char*</b>.
+		//! Contains resource IDs for arguments of type <b>char*</b>. @ingroup Resources
 		struct ArgPChar:
 			public ArgumentsEx<Widget::ArgPChar>,
 			public ThisArgs::ArgPChar
@@ -346,7 +351,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgPChar::eArgPChar eArgPChar;
 		};	
 
-		//! Contains resource IDs for callbacks of type `PtCallback_t`.
+		//! Contains resource IDs for callbacks of type `PtCallback_t`. @ingroup Resources
 		struct Callback:
 			public ArgumentsEx<Widget::Callback>,
 			public ThisCallbacks::Callback
@@ -354,7 +359,7 @@ namespace PhWidgets
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
-		//! Contains resource IDs for all Basic arguments.
+		//! Contains resource IDs for all Basic arguments. @ingroup Resources
 		struct Arguments:
 			public ArgUnsignedShort,
 			public ArgUnsignedLong,
@@ -366,13 +371,13 @@ namespace PhWidgets
 			public Widget::Arguments
         { };
 
-		//! Contains resource IDs for all Basic callbacks.
+		//! Contains resource IDs for all Basic callbacks. @ingroup Resources
 		struct Callbacks:
 			public Callback,
 			public Widget::Callbacks
         { };
 
-		//! Contains flags for all Basic resources.
+		//! Contains flags for all Basic resources. @ingroup Resources
 		struct Flags:
 			public ThisFlags,
 			public Widget::Flags

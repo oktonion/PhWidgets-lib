@@ -8,6 +8,11 @@
 
 namespace PhWidgets
 {
+	/*!
+		@struct PhWidgets::Button
+		@ingroup Widgets
+	*/
+
 	//! A button for initiating an action
 	/*!
 		The Button class draws a button. 
@@ -20,7 +25,7 @@ namespace PhWidgets
 		
 	public:
 
-		//! Contains resource IDs for Button arguments.
+		//! Contains resource IDs for Button arguments. @ingroup Resources
 		struct ThisArgs
 		{
 			//! Contains resource IDs for Button arguments of type `PgColor_t`.
@@ -82,7 +87,7 @@ namespace PhWidgets
 			
 		};
 
-		//! Contains resource IDs for arguments of type `PgColor_t`.
+		//! Contains resource IDs for arguments of type `PgColor_t`. @ingroup Resources
 		struct ArgColor:
 			public ArgumentsEx<Label::ArgColor>,
 			public ThisArgs::ArgColor
@@ -90,7 +95,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgColor::eArgColor eArgColor;
 		};
 		
-		//! Contains resource IDs for arguments of type **unsigned char**.
+		//! Contains resource IDs for arguments of type **unsigned char**. @ingroup Resources
 		struct ArgUnsignedChar:
 			public ArgumentsEx<Label::ArgUnsignedChar>,
 			public ThisArgs::ArgUnsignedChar
@@ -98,7 +103,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgUnsignedChar::eArgUnsignedChar eArgUnsignedChar;
 		};
 		
-		//! Contains resource IDs for arguments of type `PhImage_t`.
+		//! Contains resource IDs for arguments of type `PhImage_t`. @ingroup Resources
 		struct ArgPImage:
 			public ArgumentsEx<Label::ArgPImage>,
 			public ThisArgs::ArgPImage
@@ -106,7 +111,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgPImage::eArgPImage eArgPImage;
 		};
 
-		//! Contains resource IDs for all Button arguments.
+		//! Contains resource IDs for all Button arguments. @ingroup Resources
 		struct Arguments:
 			public ArgColor,
 			public ArgUnsignedChar,

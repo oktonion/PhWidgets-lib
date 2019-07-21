@@ -8,6 +8,11 @@
 
 namespace PhWidgets
 {
+	/*!
+		@struct PhWidgets::Graphic
+		@ingroup Widgets
+	*/
+
 	//! Common resources for graphical widgets
 	/*!
 		The Graphic superclass provides the common resources used by all graphic widgets. 
@@ -31,7 +36,7 @@ namespace PhWidgets
 	{
 	public:
 
-		//! Contains resource IDs for Graphic arguments.
+		//! Contains resource IDs for Graphic arguments. @ingroup Resources
 		struct ThisArgs
 		{
 			//! Contains resource IDs for Graphic arguments of type **long**.
@@ -174,7 +179,7 @@ namespace PhWidgets
 			
 		};
 
-        //! Contains resource IDs for Graphic callbacks.
+        //! Contains resource IDs for Graphic callbacks. @ingroup Resources
 		struct ThisCallbacks
 		{
             //! Contains resource IDs for Graphic callbacks of type `PtCallback_t`.
@@ -198,7 +203,7 @@ namespace PhWidgets
 			};
 		};
 
-		//! Contains flags for Graphic resources.
+		//! Contains flags for Graphic resources. @ingroup Resources
 		struct ThisFlags
 		{
 			//! Graphics flags for Graphic resource Graphic::Arguments::graphic_flags.
@@ -230,7 +235,7 @@ namespace PhWidgets
 			};
 		};
 
-		//! Contains resource IDs for arguments of type **long**.
+		//! Contains resource IDs for arguments of type **long**. @ingroup Resources
 		struct ArgLong:
 			public ArgumentsEx<Basic::ArgLong>,
 			public ThisArgs::ArgLong
@@ -238,7 +243,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgLong::eArgLong eArgLong;
 		};
 
-		//! Contains resource IDs for arguments of type `PgColor_t`.
+		//! Contains resource IDs for arguments of type `PgColor_t`. @ingroup Resources
 		struct ArgColor:
             public ArgumentsEx<Basic::ArgColor>,
 			public ThisArgs::ArgColor
@@ -246,7 +251,7 @@ namespace PhWidgets
             typedef ThisArgs::ArgColor::eArgColor eArgColor;
 		};	
 
-		//! Contains resource IDs for arguments of type `PgPattern_t`.
+		//! Contains resource IDs for arguments of type `PgPattern_t`. @ingroup Resources
 		struct ArgPattern:
 			public ArgumentsEx<Basic::ArgPattern>,
 			public ThisArgs::ArgPattern
@@ -254,7 +259,7 @@ namespace PhWidgets
             typedef ThisArgs::ArgPattern::eArgPattern eArgPattern;
 		};
 		
-		//! Contains resource IDs for arguments of type **unsigned short**.
+		//! Contains resource IDs for arguments of type **unsigned short**. @ingroup Resources
 		struct ArgUnsignedShort:
 			public ArgumentsEx<Basic::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort
@@ -262,7 +267,7 @@ namespace PhWidgets
             typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShort eArgUnsignedShort;
 		};
 
-		//! Contains resource IDs for arguments of type `PhPoint_t`.
+		//! Contains resource IDs for arguments of type `PhPoint_t`. @ingroup Resources
 		struct ArgPoint:
 			public ArgumentsEx<Basic::ArgPoint>,
 			public ThisArgs::ArgPoint
@@ -270,18 +275,18 @@ namespace PhWidgets
             typedef ThisArgs::ArgPoint::eArgPoint eArgPoint;
 		};
 
-		//! Contains resource IDs for arguments of `PhPoint_t` array.
+		//! Contains resource IDs for arguments of `PhPoint_t` array. @ingroup Resources
 		struct ArgPointArray:
 			public ThisArgs::ArgPointArray
 		{ };
 
-		//! Contains resource IDs for arguments of type **char**.
+		//! Contains resource IDs for arguments of type **char**. @ingroup Resources
 		struct ArgChar:
 			public ArgumentsEx<Basic::ArgChar>,
 			public ThisArgs::ArgChar
         { };
 
-		//! Contains resource IDs for callbacks of type `PtCallback_t`.
+		//! Contains resource IDs for callbacks of type `PtCallback_t`. @ingroup Resources
 		struct Callback:
 			public ArgumentsEx<Basic::Callback>,
 			public ThisCallbacks::Callback
@@ -289,7 +294,7 @@ namespace PhWidgets
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
-		//! Contains resource IDs for all Graphic arguments.
+		//! Contains resource IDs for all Graphic arguments. @ingroup Resources
 		struct Arguments:
 			public ArgLong,
 			public ArgColor,
@@ -300,7 +305,7 @@ namespace PhWidgets
 			public Basic::Arguments
 		{ };
 
-		//! Contains resource IDs for all Graphic callbacks.
+		//! Contains resource IDs for all Graphic callbacks. @ingroup Resources
 		struct Callbacks:
 			public Callback,
 			public Basic::Callbacks

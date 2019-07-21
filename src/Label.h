@@ -18,6 +18,8 @@ namespace PhWidgets
 		@see
     	- Label::BalloonPosition
 		- Label::Arguments::balloon_position
+
+		@ingroup Values
 	*/
 	struct BalloonPosition
 	{
@@ -46,6 +48,8 @@ namespace PhWidgets
 		@see
     	- Label::Type
 		- Label::Arguments::label_type
+
+		@ingroup Values
 	*/
 	struct LabelType
 	{
@@ -75,6 +79,8 @@ namespace PhWidgets
 		- Label::Arguments::underline_type
 		- Label::Arguments::underline1
 		- Label::Arguments::underline2
+
+		@ingroup Values
 	*/
 	struct UnderlineType
 	{
@@ -102,6 +108,8 @@ namespace PhWidgets
 		/*! 
 			@see
 			- Label::TextAlign
+
+			@ingroup Values
 		*/
 		struct ContentAlignment
 		{
@@ -123,6 +131,11 @@ namespace PhWidgets
 		};
 	} // namespace Drawing
 
+	/*!
+		@struct PhWidgets::Label
+		@ingroup Widgets
+	*/
+
 	//! A text, bitmap, or image label
 	/*!
 		The Label class provides a text string, bitmap, or image for labeling other widgets. 
@@ -137,7 +150,7 @@ namespace PhWidgets
 	{
 	public:
 
-		//! Contains resource IDs for Label arguments.
+		//! Contains resource IDs for Label arguments. @ingroup Resources
 		struct ThisArgs
 		{
 			//! Contains resource IDs for Label arguments of type <b>char*</b>.
@@ -349,7 +362,7 @@ namespace PhWidgets
 
 		};
 		
-		//! Contains resource IDs for arguments of type <b>char*</b>.
+		//! Contains resource IDs for arguments of type <b>char*</b>. @ingroup Resources
 		struct ArgPChar:
 			public ArgumentsEx<Basic::ArgPChar>,
 			public ThisArgs::ArgPChar
@@ -357,7 +370,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgPChar::eArgPChar eArgPChar;
 		};	
 		
-		//! Contains resource IDs for arguments of type `PgColor_t`.
+		//! Contains resource IDs for arguments of type `PgColor_t`. @ingroup Resources
 		struct ArgColor:
 			public ArgumentsEx<Basic::ArgColor>,
 			public ThisArgs::ArgColor
@@ -365,12 +378,12 @@ namespace PhWidgets
 			typedef ThisArgs::ArgColor::eArgColor eArgColor;
 		};
 
-		//! Contains resource IDs for arguments of type **short**.
+		//! Contains resource IDs for arguments of type **short**. @ingroup Resources
 		struct ArgShort:
 			public ThisArgs::ArgShort
         { };	
 
-		//! Contains resource IDs for arguments of type **unsigned short**.
+		//! Contains resource IDs for arguments of type **unsigned short**. @ingroup Resources
 		struct ArgUnsignedShort:
 			public ArgumentsEx<Basic::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort
@@ -378,12 +391,12 @@ namespace PhWidgets
 			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShort eArgUnsignedShort;
 		};	
 
-		//! Contains resource IDs for arguments of type **signed short**.
+		//! Contains resource IDs for arguments of type **signed short**. @ingroup Resources
 		struct ArgSignedShort:
 			public ThisArgs::ArgSignedShort
         { };	
 
-		//! Contains resource IDs for arguments of type **unsigned char**.
+		//! Contains resource IDs for arguments of type **unsigned char**. @ingroup Resources
 		struct ArgUnsignedChar:
 			public ArgumentsEx<Basic::ArgUnsignedChar>,
 			public ThisArgs::ArgUnsignedChar
@@ -391,12 +404,12 @@ namespace PhWidgets
 			typedef ThisArgs::ArgUnsignedChar::eArgUnsignedChar eArgUnsignedChar;
 		};
 
-		//! Contains resource IDs for arguments of type `PtWidget_t * (*)()`.
+		//! Contains resource IDs for arguments of type `PtWidget_t * (*)()`. @ingroup Resources
 		struct ArgPWidgetFunc:
 			public ThisArgs::ArgPWidgetFunc
         { };	
 
-		//! Contains resource IDs for arguments of type **char**.
+		//! Contains resource IDs for arguments of type **char**. @ingroup Resources
 		struct ArgChar:
 			public ArgumentsEx<Basic::ArgChar>,
 			public ThisArgs::ArgChar
@@ -404,18 +417,18 @@ namespace PhWidgets
 			typedef ThisArgs::ArgChar::eArgChar eArgChar;
 		};	
 
-		//! Contains resource IDs for arguments of type `PhImage_t`.
+		//! Contains resource IDs for arguments of type `PhImage_t`. @ingroup Resources
 		struct ArgPImage:
 			public ThisArgs::ArgPImage
         { };
 
-		//! Contains resource IDs for arguments of type **int**.
+		//! Contains resource IDs for arguments of type **int**. @ingroup Resources
 		struct ArgInt:
 			public ThisArgs::ArgInt
         { };	
 
 
-		//! Contains resource IDs for all Label arguments.
+		//! Contains resource IDs for all Label arguments. @ingroup Resources
 		struct Arguments:
 			public ArgPChar,
 			public ArgColor,

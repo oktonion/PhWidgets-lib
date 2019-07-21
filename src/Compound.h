@@ -8,18 +8,24 @@
 
 namespace PhWidgets
 {
+	/*!
+		@struct PhWidgets::Compound
+		@ingroup Widgets
+	*/
+
 	//! Superclass for all compound widgets
 	/*!
 		The Compound superclass provides the ability to combine widgets into a compound. 
 		A compound widget can export its subordinate children to let you get and set their resources, 
 		or it can block access to them to provide a “canned” appearance.
+
 	*/		
 	class Compound:
 		public Container
 	{
 	public:
 
-		//! Contains resource IDs for all Compound arguments.
+		//! Contains resource IDs for all Compound arguments. @ingroup Resources
 		struct Arguments:
 			public Container::Arguments
         { };

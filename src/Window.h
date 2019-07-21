@@ -8,6 +8,11 @@
 
 namespace PhWidgets
 {
+	/*!
+		@struct PhWidgets::Window
+		@ingroup Widgets
+	*/
+
 	//! An Application window that's managed by the Photon window manager
 	/*!
 		The Window class provides a top-level container for your applications' widgets. 
@@ -30,15 +35,13 @@ namespace PhWidgets
 		### Setting the Window's title ###
 
 		You can specify the string displayed in the window's title bar by setting the Window::Title property. 
-
-
 	*/
 	class Window:
 		public Disjoint
 	{
 	public:
 
-        //! Contains resource IDs for Window arguments.
+        //! Contains resource IDs for Window arguments. @ingroup Resources
 		struct ThisArgs
 		{		
             //! Contains resource IDs for Window arguments of type **short**.
@@ -158,12 +161,12 @@ namespace PhWidgets
 			};
 		};
 		
-        //! Contains resource IDs for arguments of type **short**.
+        //! Contains resource IDs for arguments of type **short**. @ingroup Resources
 		struct ArgShort:
 			public ThisArgs::ArgShort
         { };	
 
-        //! Contains resource IDs for arguments of type `PgColor_t`.
+        //! Contains resource IDs for arguments of type `PgColor_t`. @ingroup Resources
         struct ArgColor:
 			public ArgumentsEx<Disjoint::ArgColor>,
 			public ThisArgs::ArgColor
@@ -171,7 +174,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgColor::eArgColor eArgColor;
 		};
 
-		//! Contains resource IDs for arguments of type <b>char*<\b>.
+		//! Contains resource IDs for arguments of type <b>char*<\b>. @ingroup Resources
 		struct ArgPChar:
 			public ArgumentsEx<Disjoint::ArgPChar>,
 			public ThisArgs::ArgPChar
@@ -179,7 +182,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgPChar::eArgPChar eArgPChar;
 		};
 
-        //! Contains resource IDs for callbacks of type `PtCallback_t`.
+        //! Contains resource IDs for callbacks of type `PtCallback_t`. @ingroup Resources
 		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Disjoint::Callback
@@ -187,7 +190,7 @@ namespace PhWidgets
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 
-        //! Contains resource IDs for all Window arguments.
+        //! Contains resource IDs for all Window arguments. @ingroup Resources
 		struct Arguments:
 			public ArgShort,
             public ArgColor,
@@ -195,7 +198,7 @@ namespace PhWidgets
 			public Disjoint::Arguments
         { };
 
-        //! Contains resource IDs for all Window callbacks.
+        //! Contains resource IDs for all Window callbacks. @ingroup Resources
 		struct Callbacks:
 			public Callback,
 			public Disjoint::Callbacks
