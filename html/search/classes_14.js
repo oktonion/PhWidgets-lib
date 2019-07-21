@@ -21,6 +21,7 @@ var searchData=
   ['unary_5ffunction',['unary_function',['http://en.cppreference.com/w/namespacestd.html#cpp/utility/functional/unary_function',1,'std']]],
   ['unary_5fnegate',['unary_negate',['http://en.cppreference.com/w/cpp/utility/functional/unary_negate.html',1,'std']]],
   ['underflow_5ferror',['underflow_error',['http://en.cppreference.com/w/cpp/error/underflow_error.html',1,'std']]],
+  ['underlinetype',['UnderlineType',['../struct_ph_widgets_1_1_underline_type.html',1,'PhWidgets']]],
   ['underlying_5ftype',['underlying_type',['http://en.cppreference.com/w/namespacestd.html#cpp/types/underlying_type',1,'std']]],
   ['unexpected_5fhandler',['unexpected_handler',['http://en.cppreference.com/w/namespacestd.html#cpp/error/unexpected_handler',1,'std']]],
   ['uniform_5fint_5fdistribution',['uniform_int_distribution',['http://en.cppreference.com/w/cpp/numeric/random/uniform_int_distribution.html',1,'std']]],

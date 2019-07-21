@@ -2,15 +2,17 @@ var namespace_ph_widgets =
 [
     [ "Drawing", "namespace_ph_widgets_1_1_drawing.html", "namespace_ph_widgets_1_1_drawing" ],
     [ "AnchorStyles", "struct_ph_widgets_1_1_anchor_styles.html", "struct_ph_widgets_1_1_anchor_styles" ],
+    [ "BalloonPosition", "struct_ph_widgets_1_1_balloon_position.html", "struct_ph_widgets_1_1_balloon_position" ],
     [ "Basic", "class_ph_widgets_1_1_basic.html", "class_ph_widgets_1_1_basic" ],
     [ "Button", "class_ph_widgets_1_1_button.html", "class_ph_widgets_1_1_button" ],
     [ "Compound", "class_ph_widgets_1_1_compound.html", "class_ph_widgets_1_1_compound" ],
     [ "Container", "class_ph_widgets_1_1_container.html", "class_ph_widgets_1_1_container" ],
-    [ "CursorDef", "class_ph_widgets_1_1_cursor_def.html", "class_ph_widgets_1_1_cursor_def" ],
+    [ "Cursor", "class_ph_widgets_1_1_cursor.html", "class_ph_widgets_1_1_cursor" ],
     [ "Cursors", "struct_ph_widgets_1_1_cursors.html", "struct_ph_widgets_1_1_cursors" ],
     [ "Disjoint", "class_ph_widgets_1_1_disjoint.html", "class_ph_widgets_1_1_disjoint" ],
     [ "Graphic", "class_ph_widgets_1_1_graphic.html", "class_ph_widgets_1_1_graphic" ],
     [ "Label", "class_ph_widgets_1_1_label.html", "class_ph_widgets_1_1_label" ],
+    [ "LabelType", "struct_ph_widgets_1_1_label_type.html", "struct_ph_widgets_1_1_label_type" ],
     [ "Numeric", "class_ph_widgets_1_1_numeric.html", "class_ph_widgets_1_1_numeric" ],
     [ "NumericFloat", "class_ph_widgets_1_1_numeric_float.html", "class_ph_widgets_1_1_numeric_float" ],
     [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer.html", "class_ph_widgets_1_1_numeric_integer" ],
@@ -18,6 +20,8 @@ var namespace_ph_widgets =
     [ "Text", "class_ph_widgets_1_1_text.html", "class_ph_widgets_1_1_text" ],
     [ "Timer", "class_ph_widgets_1_1_timer.html", "class_ph_widgets_1_1_timer" ],
     [ "ToggleButton", "class_ph_widgets_1_1_toggle_button.html", "class_ph_widgets_1_1_toggle_button" ],
+    [ "ToggleIndicatorType", "struct_ph_widgets_1_1_toggle_indicator_type.html", "struct_ph_widgets_1_1_toggle_indicator_type" ],
+    [ "UnderlineType", "struct_ph_widgets_1_1_underline_type.html", "struct_ph_widgets_1_1_underline_type" ],
     [ "Widget", "class_ph_widgets_1_1_widget.html", "class_ph_widgets_1_1_widget" ],
     [ "Window", "class_ph_widgets_1_1_window.html", "class_ph_widgets_1_1_window" ]
 ];

@@ -1,6 +1,7 @@
 var searchData=
 [
   ['label',['Label',['../class_ph_widgets_1_1_label.html',1,'PhWidgets']]],
+  ['labeltype',['LabelType',['../struct_ph_widgets_1_1_label_type.html',1,'PhWidgets']]],
   ['lconv',['lconv',['http://en.cppreference.com/w/namespacestd.html#cpp/locale/lconv',1,'std']]],
   ['length_5ferror',['length_error',['http://en.cppreference.com/w/cpp/error/length_error.html',1,'std']]],
   ['less',['less',['http://en.cppreference.com/w/cpp/utility/functional/less.html',1,'std']]],

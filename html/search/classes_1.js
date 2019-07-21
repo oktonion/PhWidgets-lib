@@ -10,6 +10,7 @@ var searchData=
   ['bad_5foptional_5faccess',['bad_optional_access',['http://en.cppreference.com/w/cpp/utility/bad_optional_access.html',1,'std']]],
   ['bad_5ftypeid',['bad_typeid',['http://en.cppreference.com/w/cpp/types/bad_typeid.html',1,'std']]],
   ['bad_5fweak_5fptr',['bad_weak_ptr',['http://en.cppreference.com/w/cpp/memory/bad_weak_ptr.html',1,'std']]],
+  ['balloonposition',['BalloonPosition',['../struct_ph_widgets_1_1_balloon_position.html',1,'PhWidgets']]],
   ['basic',['Basic',['../class_ph_widgets_1_1_basic.html',1,'PhWidgets::Basic'],['../struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic.html',1,'PhWidgets::Basic::ThisFlags::Basic']]],
   ['basic_5ffilebuf',['basic_filebuf',['http://en.cppreference.com/w/cpp/io/basic_filebuf.html',1,'std']]],
   ['basic_5ffstream',['basic_fstream',['http://en.cppreference.com/w/cpp/io/basic_fstream.html',1,'std']]],

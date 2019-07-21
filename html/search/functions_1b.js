@@ -18,7 +18,7 @@ var searchData=
   ['_7econdition_5fvariable_5fany',['~condition_variable_any',['http://en.cppreference.com/w/cpp/thread/condition_variable_any/~condition_variable_any.html',1,'std::condition_variable_any']]],
   ['_7ectype',['~ctype',['http://en.cppreference.com/w/cpp/locale/ctype/~ctype.html',1,'std::ctype']]],
   ['_7ectype_5fbyname',['~ctype_byname',['http://en.cppreference.com/w/cpp/locale/ctype_byname.html',1,'std::ctype_byname']]],
-  ['_7ecursordef',['~CursorDef',['../class_ph_widgets_1_1_cursor_def.html#a2877193bd876e1f05a46963a7ba1f3a3',1,'PhWidgets::CursorDef']]],
+  ['_7ecursor',['~Cursor',['../class_ph_widgets_1_1_cursor.html#a048aae1510e2177be2217c7168f446d3',1,'PhWidgets::Cursor']]],
   ['_7edeque',['~deque',['http://en.cppreference.com/w/cpp/container/deque/~deque.html',1,'std::deque']]],
   ['_7edynarray',['~dynarray',['http://en.cppreference.com/w/cpp/container/dynarray/~dynarray.html',1,'std::dynarray']]],
   ['_7eenable_5fshared_5ffrom_5fthis',['~enable_shared_from_this',['http://en.cppreference.com/w/cpp/memory/enable_shared_from_this/~enable_shared_from_this.html',1,'std::enable_shared_from_this']]],

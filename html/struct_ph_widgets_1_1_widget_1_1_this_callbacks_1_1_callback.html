@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_widget_1_1_this_
 </div><!--header-->
 <div class="contents">
 
-<p>Contains resource IDs for <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> callbacks of type <code>PtCallback_t</code>.  
+<p>Contains resource IDs for <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> callbacks of type <code><a class="el" href="group__native.html#struct_pt_callback__t">PtCallback_t</a></code>.  
  <a href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_widget_8h_source.html">Widget.h</a>&gt;</code></p>
@@ -122,25 +122,63 @@ Inheritance diagram for PhWidgets::Widget::ThisCallbacks::Callback:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a88ad66a5ac274d6dbbcd38c03dbe45bc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback_a88ad66a5ac274d6dbbcd38c03dbe45bc.html#a88ad66a5ac274d6dbbcd38c03dbe45bc">eCallback</a> { <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback_a88ad66a5ac274d6dbbcd38c03dbe45bc.html#a88ad66a5ac274d6dbbcd38c03dbe45bcadb260af2c47669c019d7d855b0f01a96">blocked</a> = Pt_CB_BLOCKED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback_a88ad66a5ac274d6dbbcd38c03dbe45bc.html#a88ad66a5ac274d6dbbcd38c03dbe45bcacbb485027a5cdae14cf85a687d4cf31c">destroyed</a> = Pt_CB_DESTROYED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback_a88ad66a5ac274d6dbbcd38c03dbe45bc.html#a88ad66a5ac274d6dbbcd38c03dbe45bcafdd26b8ac829dac58a1340d3531c801c">dnd</a> = Pt_CB_DND, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback_a88ad66a5ac274d6dbbcd38c03dbe45bc.html#a88ad66a5ac274d6dbbcd38c03dbe45bcaf9a7da8a37aa35513f0bd33466c33fb2">is_destroyed</a> = Pt_CB_IS_DESTROYED, 
+<tr class="memitem:a88ad66a5ac274d6dbbcd38c03dbe45bc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bc">eCallback</a> { <br />
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcadb260af2c47669c019d7d855b0f01a96">blocked</a> = Pt_CB_BLOCKED, 
+<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcacbb485027a5cdae14cf85a687d4cf31c">destroyed</a> = Pt_CB_DESTROYED, 
+<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcafdd26b8ac829dac58a1340d3531c801c">dnd</a> = Pt_CB_DND, 
+<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcaf9a7da8a37aa35513f0bd33466c33fb2">is_destroyed</a> = Pt_CB_IS_DESTROYED, 
 <br />
-&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback_a88ad66a5ac274d6dbbcd38c03dbe45bc.html#a88ad66a5ac274d6dbbcd38c03dbe45bca35cad4f675b86ceb6d7732f161b469d0">outbound</a> = Pt_CB_OUTBOUND, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback_a88ad66a5ac274d6dbbcd38c03dbe45bc.html#a88ad66a5ac274d6dbbcd38c03dbe45bca238a5a9c2b402de58f581a8662a4465d">realized</a> = Pt_CB_REALIZED, 
-<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback_a88ad66a5ac274d6dbbcd38c03dbe45bc.html#a88ad66a5ac274d6dbbcd38c03dbe45bcacf523b6524d66436b056577c79ea5d4a">unrealized</a> = Pt_CB_UNREALIZED
+&#160;&#160;<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca35cad4f675b86ceb6d7732f161b469d0">outbound</a> = Pt_CB_OUTBOUND, 
+<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca238a5a9c2b402de58f581a8662a4465d">realized</a> = Pt_CB_REALIZED, 
+<a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcacf523b6524d66436b056577c79ea5d4a">unrealized</a> = Pt_CB_UNREALIZED
 <br />
  }</td></tr>
-<tr class="memdesc:a88ad66a5ac274d6dbbcd38c03dbe45bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resource IDs for <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> arguments of type <code>PtCallback_t</code>.  <a href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback_a88ad66a5ac274d6dbbcd38c03dbe45bc.html#a88ad66a5ac274d6dbbcd38c03dbe45bc">More...</a><br /></td></tr>
+<tr class="memdesc:a88ad66a5ac274d6dbbcd38c03dbe45bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resource IDs for <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> arguments of type <code><a class="el" href="group__native.html#struct_pt_callback__t">PtCallback_t</a></code>.  <a href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bc">More...</a><br /></td></tr>
 <tr class="separator:a88ad66a5ac274d6dbbcd38c03dbe45bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Contains resource IDs for <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> callbacks of type <code>PtCallback_t</code>. </p>
+<div class="textblock"><p>Contains resource IDs for <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> callbacks of type <code><a class="el" href="group__native.html#struct_pt_callback__t">PtCallback_t</a></code>. </p>
 
 <p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00537">537</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a88ad66a5ac274d6dbbcd38c03dbe45bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88ad66a5ac274d6dbbcd38c03dbe45bc">&#9670;&nbsp;</a></span>eCallback</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bc">PhWidgets::Widget::ThisCallbacks::Callback::eCallback</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resource IDs for <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> arguments of type <code><a class="el" href="group__native.html#struct_pt_callback__t">PtCallback_t</a></code>. </p>
+<h3>Aliases</h3>
+<p><a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bc" title="Resource IDs for Widget arguments of type PtCallback_t.">PhWidgets::Widget::Callbacks::eCallback</a>, <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bc" title="Resource IDs for Widget arguments of type PtCallback_t.">PhWidgets::Widget::Callback::eCallback</a></p>
+<p>See <a class="el" href="class_ph_widgets_1_1_widget.html#a7864754d3f767d782c6aa886da5c10cc" title="Resources of the Widget.">Widget::resource</a> for usage description. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a88ad66a5ac274d6dbbcd38c03dbe45bcadb260af2c47669c019d7d855b0f01a96"></a>blocked&#160;</td><td class="fielddoc"><p>A list of <code><a class="el" href="group__native.html#struct_pt_callback__t">PtCallback_t</a></code> structures that define the callbacks that the widget invokes whenever it must ignore an event due to being blocked. Documentation in progress... </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a88ad66a5ac274d6dbbcd38c03dbe45bcacbb485027a5cdae14cf85a687d4cf31c"></a>destroyed&#160;</td><td class="fielddoc"><p>A list of <code><a class="el" href="group__native.html#struct_pt_callback__t">PtCallback_t</a></code> structures that define the callbacks invoked when the widget is marked for destruction and is no longer visible. You can use these callbacks, for example, to adjust the appearance of the widgets around the one being destroyed. In contrast, the <a class="el" href="struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bcaf9a7da8a37aa35513f0bd33466c33fb2">Widget::Callbacks::is_destroyed</a> callbacks are invoked when the widget's resources are actually being released. Documentation in progress... </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a88ad66a5ac274d6dbbcd38c03dbe45bcafdd26b8ac829dac58a1340d3531c801c"></a>dnd&#160;</td><td class="fielddoc"><p>A list of <code><a class="el" href="group__native.html#struct_pt_callback__t">PtCallback_t</a></code> structures that define the callbacks called when a drag-and-drop (Events::dndrop) event is received. Documentation in progress... </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a88ad66a5ac274d6dbbcd38c03dbe45bcaf9a7da8a37aa35513f0bd33466c33fb2"></a>is_destroyed&#160;</td><td class="fielddoc"><p>A list of <code><a class="el" href="group__native.html#struct_pt_callback__t">PtCallback_t</a></code> structures that define the callbacks invoked when the widget's resources are being released. You'll find this resource useful for cleaning up variables or memory associated with the widget. Documentation in progress... </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a88ad66a5ac274d6dbbcd38c03dbe45bca35cad4f675b86ceb6d7732f161b469d0"></a>outbound&#160;</td><td class="fielddoc"><p>A list of <code><a class="el" href="group__native.html#struct_pt_callback__t">PtCallback_t</a></code> structures that define the callbacks invoked when you press the pointer button on the widget and then move out of the "hot spot" with the button still depressed. This callback is particularly useful for initiating drag or drag-and-drop operations. Documentation in progress... </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a88ad66a5ac274d6dbbcd38c03dbe45bca238a5a9c2b402de58f581a8662a4465d"></a>realized&#160;</td><td class="fielddoc"><p>A list of <code><a class="el" href="group__native.html#struct_pt_callback__t">PtCallback_t</a></code> structures that define the callbacks that the widget invokes whenever it is realized. Documentation in progress... </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a88ad66a5ac274d6dbbcd38c03dbe45bcacf523b6524d66436b056577c79ea5d4a"></a>unrealized&#160;</td><td class="fielddoc"><p>A list of <code><a class="el" href="group__native.html#struct_pt_callback__t">PtCallback_t</a></code> structures that define the callbacks that the widget invokes whenever it's unrealized. Documentation in progress... </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_widget_8h_source.html#l00548">548</a> of file <a class="el" href="_widget_8h_source.html">Widget.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

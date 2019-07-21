@@ -6,7 +6,7 @@ var class_ph_widgets_1_1_numeric_integer =
     [ "Callbacks", "struct_ph_widgets_1_1_numeric_integer_1_1_callbacks.html", null ],
     [ "ThisArgs", "class_ph_widgets_1_1_numeric_integer.html#struct_ph_widgets_1_1_numeric_integer_1_1_this_args", [
       [ "ArgInt", "struct_ph_widgets_1_1_numeric_integer_1_1_this_args_1_1_arg_int.html", [
-        [ "eArgInt", "struct_ph_widgets_1_1_numeric_integer_1_1_this_args_1_1_arg_int_a76cd7469e6a08d24b0acf100e62200c4.html#a76cd7469e6a08d24b0acf100e62200c4", [
+        [ "eArgInt", "struct_ph_widgets_1_1_numeric_integer_1_1_this_args_1_1_arg_int.html#a76cd7469e6a08d24b0acf100e62200c4", [
           [ "numeric_increment", "struct_ph_widgets_1_1_numeric_integer_1_1_this_args_1_1_arg_int.html#a76cd7469e6a08d24b0acf100e62200c4a98b21e42ae8ab78ff07a62917a434e1d", null ],
           [ "numeric_max", "struct_ph_widgets_1_1_numeric_integer_1_1_this_args_1_1_arg_int.html#a76cd7469e6a08d24b0acf100e62200c4a24032ba71cb5b8d484acd36a0e5c5fc4", null ],
           [ "numeric_min", "struct_ph_widgets_1_1_numeric_integer_1_1_this_args_1_1_arg_int.html#a76cd7469e6a08d24b0acf100e62200c4a77d57cb94d09d1a0dd18d73ea2299619", null ],
@@ -16,16 +16,16 @@ var class_ph_widgets_1_1_numeric_integer =
     ] ],
     [ "ThisCallbacks", "class_ph_widgets_1_1_numeric_integer.html#struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks", [
       [ "Callback", "struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks_1_1_callback.html", [
-        [ "eCallback", "struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks_1_1_callback_a369b056bc0ed3d8318b49624dc0b41c9.html#a369b056bc0ed3d8318b49624dc0b41c9", [
+        [ "eCallback", "struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks_1_1_callback.html#a369b056bc0ed3d8318b49624dc0b41c9", [
           [ "numeric_changed", "struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks_1_1_callback.html#a369b056bc0ed3d8318b49624dc0b41c9ad97ba624cb2da74735d9d50e4fdc54c6", null ]
         ] ]
       ] ]
     ] ],
-    [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer_ae2250b59ac592b6caf4f2b587572d3f6.html#ae2250b59ac592b6caf4f2b587572d3f6", null ],
-    [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer_a5ee417013be7382f07eb81742031dc74.html#a5ee417013be7382f07eb81742031dc74", null ],
-    [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer_a1ac0ff9bda1a48b6a73db2b1dbdc0963.html#a1ac0ff9bda1a48b6a73db2b1dbdc0963", null ],
-    [ "operator=", "class_ph_widgets_1_1_numeric_integer_a6fe7d00a9f49ee14cbf863db7d03ac0c.html#a6fe7d00a9f49ee14cbf863db7d03ac0c", null ],
-    [ "resource", "class_ph_widgets_1_1_numeric_integer_af9c931de762d4701ce39b8de649ab8ee.html#af9c931de762d4701ce39b8de649ab8ee", null ],
+    [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer.html#ae2250b59ac592b6caf4f2b587572d3f6", null ],
+    [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer.html#a5ee417013be7382f07eb81742031dc74", null ],
+    [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer.html#a1ac0ff9bda1a48b6a73db2b1dbdc0963", null ],
+    [ "operator=", "class_ph_widgets_1_1_numeric_integer.html#a6fe7d00a9f49ee14cbf863db7d03ac0c", null ],
+    [ "resource", "class_ph_widgets_1_1_numeric_integer.html#af9c931de762d4701ce39b8de649ab8ee", null ],
     [ "Value", "class_ph_widgets_1_1_numeric_integer.html#ae906dd2dce69ce576481ddac4a93f0c6", null ],
     [ "MaxValue", "class_ph_widgets_1_1_numeric_integer.html#ab445ece88f569b8bc77a45d72c0efe37", null ],
     [ "MinValue", "class_ph_widgets_1_1_numeric_integer.html#a25ae7043e54c1df629624003d9083505", null ],

@@ -102,17 +102,45 @@ $(document).ready(function(){initNavTree('struct_ph_widgets_1_1_graphic_1_1_this
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a5ea8ee5ce5643352255d08e8db35282e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_graphic_1_1_this_flags_a5ea8ee5ce5643352255d08e8db35282e.html#a5ea8ee5ce5643352255d08e8db35282e">eGraphicFlags</a> { <a class="el" href="struct_ph_widgets_1_1_graphic_1_1_this_flags_a5ea8ee5ce5643352255d08e8db35282e.html#a5ea8ee5ce5643352255d08e8db35282ea175545bbabe564131ca06702a8603eaa">FloatPos</a> = Pt_FLOAT_POS, 
-<a class="el" href="struct_ph_widgets_1_1_graphic_1_1_this_flags_a5ea8ee5ce5643352255d08e8db35282e.html#a5ea8ee5ce5643352255d08e8db35282ea82401f6a01838eb24fc1467d57fd6765">FloatOrigin</a> = Pt_FLOAT_ORIGIN
+<tr class="memitem:a5ea8ee5ce5643352255d08e8db35282e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ph_widgets_1_1_graphic_1_1_this_flags.html#a5ea8ee5ce5643352255d08e8db35282e">eGraphicFlags</a> { <a class="el" href="struct_ph_widgets_1_1_graphic_1_1_this_flags.html#a5ea8ee5ce5643352255d08e8db35282ea175545bbabe564131ca06702a8603eaa">FloatPos</a> = Pt_FLOAT_POS, 
+<a class="el" href="struct_ph_widgets_1_1_graphic_1_1_this_flags.html#a5ea8ee5ce5643352255d08e8db35282ea82401f6a01838eb24fc1467d57fd6765">FloatOrigin</a> = Pt_FLOAT_ORIGIN
  }</td></tr>
-<tr class="memdesc:a5ea8ee5ce5643352255d08e8db35282e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Graphics flags for <a class="el" href="class_ph_widgets_1_1_graphic.html" title="Common resources for graphical widgets.">Graphic</a> resource Graphic::Arguments::graphic_flags.  <a href="struct_ph_widgets_1_1_graphic_1_1_this_flags_a5ea8ee5ce5643352255d08e8db35282e.html#a5ea8ee5ce5643352255d08e8db35282e">More...</a><br /></td></tr>
+<tr class="memdesc:a5ea8ee5ce5643352255d08e8db35282e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Graphics flags for <a class="el" href="class_ph_widgets_1_1_graphic.html" title="Common resources for graphical widgets.">Graphic</a> resource Graphic::Arguments::graphic_flags.  <a href="struct_ph_widgets_1_1_graphic_1_1_this_flags.html#a5ea8ee5ce5643352255d08e8db35282e">More...</a><br /></td></tr>
 <tr class="separator:a5ea8ee5ce5643352255d08e8db35282e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains flags for <a class="el" href="class_ph_widgets_1_1_graphic.html" title="Common resources for graphical widgets.">Graphic</a> resources. </p>
 
 <p class="definition">Definition at line <a class="el" href="_graphic_8h_source.html#l00202">202</a> of file <a class="el" href="_graphic_8h_source.html">Graphic.h</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a5ea8ee5ce5643352255d08e8db35282e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ea8ee5ce5643352255d08e8db35282e">&#9670;&nbsp;</a></span>eGraphicFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="struct_ph_widgets_1_1_graphic_1_1_this_flags.html#a5ea8ee5ce5643352255d08e8db35282e">PhWidgets::Graphic::ThisFlags::eGraphicFlags</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Graphics flags for <a class="el" href="class_ph_widgets_1_1_graphic.html" title="Common resources for graphical widgets.">Graphic</a> resource Graphic::Arguments::graphic_flags. </p>
+<p>The default setting of Graphic::Arguments::graphic_flags resource is 0; that is, no flags have been set.</p>
+<h3>Aliases</h3>
+<p>PhWidgets::Graphic::Flags::eGraphicFlags </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5ea8ee5ce5643352255d08e8db35282ea175545bbabe564131ca06702a8603eaa"></a>FloatPos&#160;</td><td class="fielddoc"><p>Adjust the position and origin of the <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a>, but leave the <a class="el" href="class_ph_widgets_1_1_graphic.html" title="Common resources for graphical widgets.">Graphic</a> in place relative to the widget's parent. The upper left corner of the widget's canvas is at the upper left corner of the bounding box described by the point array. Depending on its resize policy, the widget may resize to fit the rendering. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5ea8ee5ce5643352255d08e8db35282ea82401f6a01838eb24fc1467d57fd6765"></a>FloatOrigin&#160;</td><td class="fielddoc"><p>Adjust the origin of the <a class="el" href="class_ph_widgets_1_1_graphic.html" title="Common resources for graphical widgets.">Graphic</a>, but leave the <a class="el" href="class_ph_widgets_1_1_widget.html" title="Superclass for all widgets.">Widget</a> in place relative to its parent. The upper left corner of the bounding box described by the point array is at the upper left corner of the widget's canvas. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_graphic_8h_source.html#l00212">212</a> of file <a class="el" href="_graphic_8h_source.html">Graphic.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
