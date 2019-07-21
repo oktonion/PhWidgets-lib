@@ -938,8 +938,8 @@ namespace PhWidgets
 
 		short getBottom() const;
 
-		void setCursor(CursorDef);
-		CursorDef getCursor() const;
+		void setCursor(PhWidgets::CursorDef);
+		PhWidgets::CursorDef getCursor() const;
 
 		bool getCanFocus() const;
 
@@ -1439,7 +1439,7 @@ namespace PhWidgets
 			- CursorDef
 			- Cursors
 		*/
-		property<CursorDef>::bind<Widget, &Widget::getCursor, &Widget::setCursor> Cursor;
+		property<PhWidgets::CursorDef>::bind<Widget, &Widget::getCursor, &Widget::setCursor> Cursor;
 
 		//! Gets or sets the color of the cursor pointer when it's inside the widget.
 		/*!
