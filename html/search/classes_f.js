@@ -2,9 +2,10 @@ var searchData=
 [
   ['packaged_5ftask',['packaged_task',['http://en.cppreference.com/w/cpp/thread/packaged_task.html',1,'std']]],
   ['pair',['pair',['http://en.cppreference.com/w/cpp/utility/pair.html',1,'std']]],
-  ['pattern',['pattern',['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::money_base::pattern'],['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::money_put::pattern'],['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::moneypunct_byname::pattern'],['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::moneypunct::pattern'],['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::money_get::pattern']]],
+  ['pattern',['pattern',['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::money_put::pattern'],['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::money_base::pattern'],['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::moneypunct::pattern'],['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::money_get::pattern'],['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::moneypunct_byname::pattern']]],
   ['peta',['peta',['http://en.cppreference.com/w/namespacestd.html#cpp/numeric/ratio/ratio',1,'std']]],
   ['pgcolor_5ft',['PgColor_t',['../group__native.html#struct_pg_color__t',1,'']]],
+  ['pgpattern_5ft',['PgPattern_t',['../group__native.html#struct_pg_pattern__t',1,'']]],
   ['pharea_5ft',['PhArea_t',['../group__native.html#struct_ph_area__t',1,'']]],
   ['phcursordef_5ft',['PhCursorDef_t',['../group__native.html#struct_ph_cursor_def__t',1,'']]],
   ['phdim_5ft',['PhDim_t',['../group__native.html#struct_ph_dim__t',1,'']]],

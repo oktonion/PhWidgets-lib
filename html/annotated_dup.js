@@ -2,6 +2,7 @@ var annotated_dup =
 [
     [ "PhWidgets", "namespace_ph_widgets.html", "namespace_ph_widgets" ],
     [ "PgColor_t", "group__native.html#struct_pg_color__t", null ],
+    [ "PgPattern_t", "group__native.html#struct_pg_pattern__t", null ],
     [ "PhArea_t", "group__native.html#struct_ph_area__t", null ],
     [ "PhCursorDef_t", "group__native.html#struct_ph_cursor_def__t", null ],
     [ "PhDim_t", "group__native.html#struct_ph_dim__t", null ],

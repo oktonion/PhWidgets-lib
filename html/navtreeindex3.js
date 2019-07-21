@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689bab2f930019570727aa0f41839376c01f6":[2,0,0,0,1,0,101],
 "struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689bab2fe44e610c7f5f569359668c2028075":[2,0,0,0,1,0,40],
 "struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689bab31e9a86e1aca1d4351e6fa1a5616074":[2,0,0,0,1,0,87],
 "struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689bab46eef272ea781921c028316b16fc7ac":[2,0,0,0,1,0,78],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7ab9ae2eb228fdbf72c87a03f727b8ab74":[2,0,0,17,4,0,0,0],
 "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7ac73921a0f4e72903230653ac3b189579":[2,0,0,17,4,0,0,2],
 "struct_ph_widgets_1_1_text_1_1_this_callbacks_1_1_callback.html#a73b36a02bf32c8c355847eeb97d8f0e7af89118c8741cbd3f975fed2f37aaedc7":[2,0,0,17,4,0,0,1],
-"struct_ph_widgets_1_1_timer_1_1_arg_unsigned_long.html":[2,0,0,18,1],
-"struct_ph_widgets_1_1_timer_1_1_arguments.html":[2,0,0,18,0]
+"struct_ph_widgets_1_1_timer_1_1_arg_unsigned_long.html":[2,0,0,18,1]
 };
