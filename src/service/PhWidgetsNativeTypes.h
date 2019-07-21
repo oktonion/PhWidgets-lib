@@ -106,7 +106,7 @@
         The type of data, which indicates the data structure used.
     
     @remark
-    Use PhWidgets::Cursor to manipulate widget cursor.
+    Use PhWidgets::Cursor and PhWidgets::Widget::Cursor property to manipulate widget cursor resource.
 */
 
 /*!
@@ -141,7 +141,7 @@
         The bitmap image data, as a series of 1-bit-per-pixel planes. 
     
     @remark
-    Use PhWidgets::Cursor to manipulate widget cursor.
+    Use PhWidgets::Cursor and PhWidgets::Widget::Cursor property to manipulate widget cursor resource.
 */
 
 /*!
