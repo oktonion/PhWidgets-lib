@@ -64,6 +64,63 @@ namespace PhWidgets
 		};
 	};
 
+	//! The type of Label underline.
+	/*! 
+		Apply to Label::UnderlineType property.
+
+		@see
+		- Label::UnderlineType
+		- Label::Arguments::underline_type
+		- Label::Arguments::underline1
+		- Label::Arguments::underline2
+	*/
+	struct UnderlineType
+	{
+		//! Possible type of Label underline.
+		/*!
+			@see
+			- Label::UnderlineType
+			- Label::Arguments::underline_type
+			- Label::Arguments::underline1
+			- Label::Arguments::underline2
+		*/
+		enum eUnderlineType
+		{		
+			NoUline = Pt_NO_ULINE, //!< no
+			DoubleUline = Pt_DOUBLE_ULINE, //!< (use with underline color)
+			SingleUline = Pt_SINGLE_ULINE, //!< (use with underline color)
+			UlineEtchedIn = Pt_ULINE_ETCHED_IN, //!< (use with border color)
+			UlineEtchedOut = Pt_ULINE_ETCHED_OUT //!< (use with border color)
+		};
+	};
+
+	namespace Drawing
+	{
+		//! Specifies alignment of content on the drawing surface.
+		/*! 
+			@see
+			- Label::TextAlign
+		*/
+		struct ContentAlignment
+		{
+			#define	PHWIDGETS_VH(v,h) (((short)((v) & 0xFF) << 8) | (short)((h) & 0xFF))
+			//! Possible alignment of content on the drawing surface.
+			enum eContentAlignment
+			{		
+				BottomCenter = 	PHWIDGETS_VH(Pt_BOTTOM, Pt_CENTER), //!< Content is vertically aligned at the bottom, and horizontally aligned at the center.
+				BottomLeft = 	PHWIDGETS_VH(Pt_BOTTOM, Pt_LEFT), //!< Content is vertically aligned at the bottom, and horizontally aligned on the left.
+				BottomRight = 	PHWIDGETS_VH(Pt_BOTTOM, Pt_RIGHT), //!< Content is vertically aligned at the bottom, and horizontally aligned on the right.
+				MiddleCenter = 	PHWIDGETS_VH(Pt_CENTER, Pt_CENTER), //!< Content is vertically aligned in the middle, and horizontally aligned at the center.
+				MiddleLeft = 	PHWIDGETS_VH(Pt_CENTER, Pt_LEFT), //!< Content is vertically aligned in the middle, and horizontally aligned on the left.
+				MiddleRight = 	PHWIDGETS_VH(Pt_CENTER, Pt_RIGHT), //!< Content is vertically aligned in the middle, and horizontally aligned on the right.
+				TopCenter = 	PHWIDGETS_VH(Pt_TOP	  , Pt_CENTER), //!< Content is vertically aligned at the top, and horizontally aligned at the center.
+				TopLeft = 		PHWIDGETS_VH(Pt_TOP	  , Pt_LEFT), //!< Content is vertically aligned at the top, and horizontally aligned on the left.
+				TopRight = 		PHWIDGETS_VH(Pt_TOP	  , Pt_RIGHT)  //!< Content is vertically aligned at the top, and horizontally aligned on the right.
+			};
+			#undef	PHWIDGETS_VH
+		};
+	} // namespace Drawing
+
 	//! A text, bitmap, or image label
 	/*!
 		The Label class provides a text string, bitmap, or image for labeling other widgets. 
@@ -96,10 +153,11 @@ namespace PhWidgets
 				*/
 				enum eArgPChar
 				{
-					accel_key = Pt_ARG_ACCEL_KEY,
-					balloon_text = Pt_ARG_BALLOON_TEXT,
-					text_font = Pt_ARG_TEXT_FONT,
-					text_string = Pt_ARG_TEXT_STRING
+					accel_key = Pt_ARG_ACCEL_KEY, //!< The accelerator key to underline within the widget's text string. You typically use this resource for hotkeys.
+					balloon_text = Pt_ARG_BALLOON_TEXT, //!< The text string to display in the balloon. If left blank, the Label::Text is used for balloons. 
+					text_font = Pt_ARG_TEXT_FONT, //!< The font used for the label's text string. See Label::Font.
+					text_string = Pt_ARG_TEXT_STRING //!< The text string to be displayed if Label::Arguments::label_type is LabelType::String or LabelType::Image, 
+													 //!< as well as the text to display in the balloon if Label::Arguments::balloon_text is blank. See Label::Text.
 				};
 			};	
 			
@@ -118,10 +176,10 @@ namespace PhWidgets
 				*/
 				enum eArgColor
 				{
-					balloon_color = Pt_ARG_BALLOON_COLOR,
-					balloon_fill_color = Pt_ARG_BALLOON_FILL_COLOR,
-					underline1 = Pt_ARG_UNDERLINE1,
-					underline2 = Pt_ARG_UNDERLINE2
+					balloon_color = Pt_ARG_BALLOON_COLOR, //!< The balloon's text color. See Label::BalloonColor.
+					balloon_fill_color = Pt_ARG_BALLOON_FILL_COLOR, //!< The balloon's fill color. See Label::BalloonFillColor.
+					underline1 = Pt_ARG_UNDERLINE1, //!< The underline color for the first line. See Label::UnderlineColor1.
+					underline2 = Pt_ARG_UNDERLINE2 //!< The underline color for the second line. See Label::UnderlineColor2.
 				};
 			};
 			
@@ -140,7 +198,7 @@ namespace PhWidgets
 				*/
 				enum eArgShort
 				{
-					balloon_position = Pt_ARG_BALLOON_POSITION
+					balloon_position = Pt_ARG_BALLOON_POSITION //!< Indicates where the balloon with the label's text pops up. See Label::BalloonPosition.
 				};
 			};
 
@@ -159,12 +217,12 @@ namespace PhWidgets
 				*/
 				enum eArgUnsignedShort
 				{
-					line_spacing = Pt_ARG_LINE_SPACING,
-					margin_botton = Pt_ARG_MARGIN_BOTTOM,
-					margin_left = Pt_ARG_MARGIN_LEFT,
-					margin_right = Pt_ARG_MARGIN_RIGHT,
-					margin_top = Pt_ARG_MARGIN_TOP,
-					undeline_type = Pt_ARG_UNDERLINE_TYPE				
+					line_spacing = Pt_ARG_LINE_SPACING, //!< The space, in pixels, between the lines of text in the label.
+					margin_botton = Pt_ARG_MARGIN_BOTTOM, //!< The amount of space between the bottom of the label's canvas and the canvas defined by the Basic widget.
+					margin_left = Pt_ARG_MARGIN_LEFT, //!< The amount of space between the left side of the label's canvas and the canvas defined by the Basic widget.
+					margin_right = Pt_ARG_MARGIN_RIGHT, //!< The amount of space between the right side of the label's canvas and the canvas defined by the Basic widget.
+					margin_top = Pt_ARG_MARGIN_TOP, //!< The amount of space between the top of the label's canvas and the canvas defined by the Basic widget.
+					undeline_type = Pt_ARG_UNDERLINE_TYPE //!< The type of underline. See Label::UnderlineType.
 				};
 			};
 
@@ -183,8 +241,8 @@ namespace PhWidgets
 				*/
 				enum eArgSignedShort
 				{
-					secondary_h_align = Pt_ARG_SECONDARY_H_ALIGN,
-					secondary_v_align = Pt_ARG_SECONDARY_V_ALIGN
+					secondary_h_align = Pt_ARG_SECONDARY_H_ALIGN, //!< The horizontal alignment for the text string, if the text string is clipped. See Label::TextAlign.
+					secondary_v_align = Pt_ARG_SECONDARY_V_ALIGN //!< The vertical alignment for the text string, if the text string is clipped. See Label::TextAlign.
 				};
 			};
 
@@ -203,8 +261,8 @@ namespace PhWidgets
 				*/
 				enum eArgUnsignedChar
 				{
-					horizontal_alignment = Pt_ARG_HORIZONTAL_ALIGNMENT,
-					vertical_alingment = Pt_ARG_VERTICAL_ALIGNMENT
+					horizontal_alignment = Pt_ARG_HORIZONTAL_ALIGNMENT, //!< The horizontal alignment for the text string. See Label::TextAlign.
+					vertical_alingment = Pt_ARG_VERTICAL_ALIGNMENT //!< The vertical alignment for the text string. See Label::TextAlign.
 				};
 			};
 
@@ -223,7 +281,8 @@ namespace PhWidgets
 				*/
 				enum eArgPWidgetFunc
 				{
-					label_baloon = Pt_ARG_LABEL_BALLOON
+					label_baloon = Pt_ARG_LABEL_BALLOON //!< By default, when you pause the pointer over this widget, the widget displays a small balloon. 
+														//!< If you want to change the look of the balloon, you can use this resource to override the default inflate function. 
 				};
 			};
 
@@ -396,6 +455,12 @@ namespace PhWidgets
 		void setType(PhWidgets::LabelType::eLabelType val);
 		PhWidgets::LabelType::eLabelType getType() const;
 
+		void setUnderlineType(PhWidgets::UnderlineType::eUnderlineType val);
+		PhWidgets::UnderlineType::eUnderlineType getUnderlineType() const;
+
+		void setTextAlign(Drawing::ContentAlignment::eContentAlignment val);
+		Drawing::ContentAlignment::eContentAlignment getTextAlign() const;
+
 		virtual void check();
 						
 	public:
@@ -462,7 +527,7 @@ namespace PhWidgets
 			@remark
 			The Label::Font property is an ambient property. 
 			An ambient property is a widget property that, if not set, is retrieved from the parent widget. 
-			For example, a Button will have the same BackColor as its parent PhWidgets::Window by default. 
+			For example, a Button will have the same BackColor as its parent PhWidgets::Window by default.
 			@par
 			Because the Label::Font is immutable (meaning that you cannot adjust any of its properties), 
 			you can only assign the Label::Font property a new Drawing::Font. However, you can base the new font on the existing font. 
@@ -488,6 +553,20 @@ namespace PhWidgets
 		*/
 		phproperty<Drawing::Color>::bind<Label, ArgColor::eArgColor, Arguments::balloon_color> BalloonColor;
 
+		//! Gets or sets the balloon fill color of the Label.
+		/*!
+			### Property Value ### 
+			
+			> Drawing::Color
+
+			A `Drawing::Color` that represents the balloon fill color of the Label.
+
+			@see
+			- Drawing::Colors
+			- Drawing::Color
+		*/
+		phproperty<Drawing::Color>::bind<Label, ArgColor::eArgColor, Arguments::balloon_fill_color> BalloonFillColor;
+
 		//! Gets or sets where the balloon with the label's text pops up.
 		/*!
 			### Property Value ### 
@@ -512,6 +591,27 @@ namespace PhWidgets
 		property<PhWidgets::BalloonPosition::eBalloonPosition>::
 			bind<Label, &Label::getBalloonPosition, &Label::setBalloonPosition> BalloonPosition;
 
+		//! Gets or sets the alignment of text in the label.
+		/*!
+			### Property Value ### 
+			
+			> Drawing::ContentAlignment
+
+			@remark
+			You can use this property to align the text within a label to match the layout of widgets on your form.
+			For example, if your widgets are located to the right edge of the labels, 
+			you can set the Label::TextAlign property to one of the right-aligned horizontal alignments 
+			(Drawing::ContentAlignment::TopRight, Drawing::ContentAlignment::MiddleRight, Drawing::ContentAlignment::BottomRight) 
+			and the text will be aligned with the right edge of the labels to align with your widgets.
+			
+			@see
+			- Drawing::ContentAlignment::eContentAlignment
+			- Type
+			- LabelType
+		*/
+		property<Drawing::ContentAlignment::eContentAlignment>::
+			bind<Label, &Label::getTextAlign, &Label::setTextAlign> TextAlign;
+
 		//! Gets or sets the type of information displayed by the Label.
 		/*!
 			### Property Value ### 
@@ -529,6 +629,58 @@ namespace PhWidgets
 		*/
 		property<PhWidgets::LabelType::eLabelType>::
 			bind<Label, &Label::getType, &Label::setType> Type;
+
+		//! Gets or sets the underline color for the first line of the Label.
+		/*!
+			### Property Value ### 
+			
+			> Drawing::Color
+
+			A `Drawing::Color` that represents the underline color for the first line of the Label.
+
+			@see
+			- UnderlineType
+			- Drawing::Colors
+			- Drawing::Color
+			- UnderlineColor2
+		*/
+		phproperty<Drawing::Color>::bind<Label, ArgColor::eArgColor, Arguments::underline1> UnderlineColor1;
+
+		//! Gets or sets the underline color for the second line of the Label.
+		/*!
+			### Property Value ### 
+			
+			> Drawing::Color
+
+			A `Drawing::Color` that represents the underline color for the second line of the Label.
+
+			@see
+			- UnderlineType
+			- Drawing::Colors
+			- Drawing::Color
+			- UnderlineColor1
+		*/
+		phproperty<Drawing::Color>::bind<Label, ArgColor::eArgColor, Arguments::underline2> UnderlineColor2;
+
+		//! Gets or sets the type of underline.
+		/*!
+			### Property Value ### 
+			
+			> UnderlineType::eUnderlineType
+
+			Possible values are:
+			- UnderlineType::NoUline
+			- UnderlineType::DoubleUline
+			- UnderlineType::SingleUline
+			- UnderlineType::UlineEtchedIn
+			- UnderlineType::UlineEtchedOut
+
+			@see
+			- UnderlineColor1
+			- UnderlineColor2
+		*/
+		property<PhWidgets::UnderlineType::eUnderlineType>::
+			bind<Label, &Label::getUnderlineType, &Label::setUnderlineType> UnderlineType;
 		//@}
 	};
 

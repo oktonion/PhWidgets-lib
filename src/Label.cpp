@@ -29,8 +29,13 @@ Label::Label(int abn):
 	Text(this),
 	Font(this),
 	BalloonColor(this),
+	BalloonFillColor(this),
 	BalloonPosition(this),
-	Type(this)
+	TextAlign(this),
+	Type(this),
+	UnderlineColor1(this),
+	UnderlineColor2(this),
+	UnderlineType(this)
 {
 	check();
 }
@@ -41,8 +46,13 @@ Label::Label(PtWidget_t *wdg):
 	Text(this),
 	Font(this),
 	BalloonColor(this),
+	BalloonFillColor(this),
 	BalloonPosition(this),
-	Type(this)
+	TextAlign(this),
+	Type(this),
+	UnderlineColor1(this),
+	UnderlineColor2(this),
+	UnderlineType(this)
 {
 	check();
 }
@@ -53,8 +63,13 @@ Label::Label(const Label &other):
 	Text(this),
 	Font(this),
 	BalloonColor(this),
+	BalloonFillColor(this),
 	BalloonPosition(this),
-	Type(this)
+	TextAlign(this),
+	Type(this),
+	UnderlineColor1(this),
+	UnderlineColor2(this),
+	UnderlineType(this)
 {
 	
 }
@@ -126,7 +141,7 @@ void Label::setType(PhWidgets::LabelType::eLabelType val)
 
 PhWidgets::LabelType::eLabelType Label::getType() const
 {
-	short result = resource.argument[Arguments::label_type].get();
+	char result = resource.argument[Arguments::label_type].get();
 	switch(result)
 	{
 		case LabelType::Image:
@@ -139,4 +154,54 @@ PhWidgets::LabelType::eLabelType Label::getType() const
 			throw(std::invalid_argument("Label::Type is invalid."));
 	}
 	return static_cast<LabelType::eLabelType>(result);
+}
+
+void Label::setUnderlineType(PhWidgets::UnderlineType::eUnderlineType val)
+{
+	resource.argument[Arguments::undeline_type].set(val);
+}
+
+PhWidgets::UnderlineType::eUnderlineType Label::getUnderlineType() const
+{
+	unsigned short result = resource.argument[Arguments::undeline_type].get();
+	switch(result)
+	{
+		case UnderlineType::DoubleUline:
+			break;
+		case UnderlineType::NoUline:
+			break;
+		case UnderlineType::SingleUline:
+			break;
+		case UnderlineType::UlineEtchedIn:
+			break;
+		case UnderlineType::UlineEtchedOut:
+			break;
+		default:
+			throw(std::invalid_argument("Label::UnderlineType is invalid."));
+	}
+	return static_cast<UnderlineType::eUnderlineType>(result);
+}
+
+void Label::setTextAlign(Drawing::ContentAlignment::eContentAlignment val)
+{
+	#define PHWIDGETS_V(v) ((short)(((v) >> 8) & 0xFF))
+	#define PHWIDGETS_H(h) ((short)((h) & 0xFF))
+
+	resource.argument[Arguments::vertical_alingment].set(PHWIDGETS_V(val));
+	resource.argument[Arguments::horizontal_alignment].set(PHWIDGETS_H(val));
+
+	#undef PHWIDGETS_V
+	#undef PHWIDGETS_H
+}
+
+Drawing::ContentAlignment::eContentAlignment Label::getTextAlign() const
+{
+	#define	PHWIDGETS_VH(v,h) (((short)((v) & 0xFF) << 8) | (short)((h) & 0xFF))
+
+	unsigned char v = resource.argument[Arguments::vertical_alingment].get();
+	unsigned char h = resource.argument[Arguments::horizontal_alignment].get();
+
+	return static_cast<Drawing::ContentAlignment::eContentAlignment>(PHWIDGETS_VH(v, h));
+
+	#undef	PHWIDGETS_VH
 }
