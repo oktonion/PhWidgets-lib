@@ -238,7 +238,7 @@ namespace PhWidgets
 			typedef ThisArgs::ArgLong::eArgLong eArgLong;
 		};
 
-		//! Contains resource IDs for arguments of type `PtColor_t`.
+		//! Contains resource IDs for arguments of type `PgColor_t`.
 		struct ArgColor:
             public ArgumentsEx<Basic::ArgColor>,
 			public ThisArgs::ArgColor
