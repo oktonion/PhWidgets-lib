@@ -569,7 +569,7 @@ short PhWidgets::Widget::getBottom() const
 	return getLocation().y + Height;
 }
 
-void PhWidgets::Widget::setCursor(PhWidgets::CursorDef cursor)
+void PhWidgets::Widget::setCursor(PhWidgets::Cursor cursor)
 {
 	if(cursor._def)
 	{
@@ -582,7 +582,7 @@ void PhWidgets::Widget::setCursor(PhWidgets::CursorDef cursor)
 	resource.argument[Arguments::cursor_type].set(cursor._cursor);
 }	
 
-PhWidgets::CursorDef PhWidgets::Widget::getCursor() const
+PhWidgets::Cursor PhWidgets::Widget::getCursor() const
 {
 	const unsigned short cursor = resource.argument[Arguments::cursor_type].get();
 

@@ -938,8 +938,8 @@ namespace PhWidgets
 
 		short getBottom() const;
 
-		void setCursor(PhWidgets::CursorDef);
-		PhWidgets::CursorDef getCursor() const;
+		void setCursor(PhWidgets::Cursor);
+		PhWidgets::Cursor getCursor() const;
 
 		bool getCanFocus() const;
 
@@ -1400,9 +1400,9 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			> PhWidgets::CursorDef
+			> PhWidgets::Cursor
 
-			A CursorDef that represents the cursor to display when the mouse pointer is over the widget.
+			A Cursor that represents the cursor to display when the mouse pointer is over the widget.
 
 			### Examples ###
 
@@ -1417,7 +1417,7 @@ namespace PhWidgets
 			@endcode
 
 			@note
-			CursorDef could also be constructed from PhCursorDef_t 
+			Cursor could also be constructed from PhCursorDef_t 
 			so you can assign your own defined PhCursorDef_t structure to this property.
 
 			@code
@@ -1433,13 +1433,13 @@ namespace PhWidgets
 			@endcode
 
 			@remark
-			Assign a CursorDef to the Widget::Cursor property of the widget to change the cursor displayed when the mouse pointer is over the widget.
+			Assign a PhWidgets::Cursor to the Widget::Cursor property of the widget to change the cursor displayed when the mouse pointer is over the widget.
 
 			@see
-			- CursorDef
+			- PhWidgets::Cursor
 			- Cursors
 		*/
-		property<PhWidgets::CursorDef>::bind<Widget, &Widget::getCursor, &Widget::setCursor> Cursor;
+		property<PhWidgets::Cursor>::bind<Widget, &Widget::getCursor, &Widget::setCursor> Cursor;
 
 		//! Gets or sets the color of the cursor pointer when it's inside the widget.
 		/*!
