@@ -159,6 +159,15 @@
 */
 
 /*!
+    @struct PgPattern_t
+
+    > `typedef char *PgPattern_t;`
+
+    @remark
+    Some shady param that is not covered in Photon documentation.
+*/
+
+/*!
     @struct PtGridLayoutData_t
     
     Defines additional layout data for the widget when its container widget uses a PtGridLayout type layout.
