@@ -48,8 +48,8 @@ Window::Window(PtWidget_t *wdg):
 	check();
 }
 
-Window::Window(const Window & rhs):
-	Disjoint(rhs),
+Window::Window(const Window & other):
+	Disjoint(other),
 	resource(this),
 	//properties:
 	Title(this),
@@ -59,9 +59,9 @@ Window::Window(const Window & rhs):
 {
 }
 
-Window &Window::operator=(const Window &rhs)
+Window &Window::operator=(const Window &other)
 {
-	static_cast<Disjoint&>(*this) = static_cast<const Disjoint&>(rhs);
+	static_cast<Disjoint&>(*this) = static_cast<const Disjoint&>(other);
 	
 	return *this;
 }

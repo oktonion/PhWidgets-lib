@@ -42,17 +42,17 @@ Disjoint::Disjoint(PtWidget_t *wdg):
 	check();
 }
 
-Disjoint::Disjoint(const Disjoint & rhs):
-	Container(rhs),
+Disjoint::Disjoint(const Disjoint & other):
+	Container(other),
 	resource(this),
 	//callbacks:
 	SysInfo(this)
 {
 }
 
-Disjoint &Disjoint::operator=(const Disjoint &rhs)
+Disjoint &Disjoint::operator=(const Disjoint &other)
 {
-	static_cast<Container&>(*this) = static_cast<const Container&>(rhs);
+	static_cast<Container&>(*this) = static_cast<const Container&>(other);
 	
 	return *this;
 }

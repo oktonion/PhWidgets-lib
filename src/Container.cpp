@@ -50,8 +50,8 @@ Container::Container(PtWidget_t *wdg):
 	check();
 }
 
-PhWidgets::Container::Container(const Container & rhs):
-	Basic(rhs),
+PhWidgets::Container::Container(const Container & other):
+	Basic(other),
 	resource(this),
 	//callbacks:
 	ChildAddedRemoved(this),
@@ -62,9 +62,9 @@ PhWidgets::Container::Container(const Container & rhs):
 {
 }
 
-Container &Container::operator=(const Container &rhs)
+Container &Container::operator=(const Container &other)
 {
-	static_cast<Basic&>(*this) = static_cast<const Basic&>(rhs);
+	static_cast<Basic&>(*this) = static_cast<const Basic&>(other);
 	
 	return *this;
 }

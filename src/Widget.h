@@ -16,8 +16,8 @@
 #include "./service/phevent.hpp"
 #include "./service/phbitmask.hpp"
 #include "./service/tag_property.hpp"
+#include "./service/WidgetResource.hpp"
 
-#include "./WidgetResource.hpp"
 #include "./Cursor.h"
 #include "./Color.h"
 
@@ -27,6 +27,11 @@
 #ifndef __QNXNTO__
 	typedef struct Ph_rect   PhRect_t;
 #endif
+
+// @defgroup Widgets PhWidgets library widgets
+// @defgroup Values PhWidgets library flags and predefined values
+// @defgroup Classes PhWidgets library helper classes
+// @defgroup Resources PhWidgets library resource ID's and raw widgets flags
 
 //! The main namespace for all widgets
 namespace PhWidgets
@@ -42,7 +47,9 @@ namespace PhWidgets
 
 		@see
     	- Widget::Anchor
-		- Widget::Flags::Anchor::eAnchorFlags
+		- Widget::Flags::Anchor::eAnchorStyles
+
+		@ingroup Values
 	*/
 	struct AnchorStyles
 	{
@@ -52,10 +59,10 @@ namespace PhWidgets
 
 			### Aliases ###
 			
-			PhWidgets::Widget::Flags::Anchor::eAnchorFlags,
-			PhWidgets::Widget::ThisFlags::Anchor::eAnchorFlags
+			PhWidgets::Widget::Flags::Anchor::eAnchorStyles,
+			PhWidgets::Widget::ThisFlags::Anchor::eAnchorStyles
 		*/
-		enum eAnchorFlags
+		enum eAnchorStyles
 		{
 			LeftAnchoredRight = Pt_LEFT_ANCHORED_RIGHT, //!< Anchors the widget's left extent to the right edge of its parent's canvas. 
 			RightAnchoredRight = Pt_RIGHT_ANCHORED_RIGHT, //!< Anchors the widget's right extent to the right edge of its parent's canvas.
@@ -82,6 +89,11 @@ namespace PhWidgets
 					BalloonsOn
 		};
 	};
+
+	/*!
+		@struct PhWidgets::Widget
+		@ingroup Widgets
+	*/
 
 	//! Superclass for all widgets
 	/*!
@@ -200,7 +212,7 @@ namespace PhWidgets
 			inline phwidgets_event &operator=(phwidgets_event const &);
 		};*/
 
-		//! Contains resource IDs for Widget arguments.
+		//! Contains resource IDs for Widget arguments. @ingroup Resources
 		struct ThisArgs
 		{
 			//! Contains resource IDs for Widget arguments of type `PhArea_t`.
@@ -761,92 +773,92 @@ namespace PhWidgets
 
 		};
 
-		//! Contains resource IDs for Widget arguments of type `PhArea_t`.
+		//! Contains resource IDs for Widget arguments of type `PhArea_t`. @ingroup Resources
 		struct ArgArea:
 			public ThisArgs::ArgArea
         { };
 		
-		//! Contains resource IDs for Widget arguments of type **unsigned**.
+		//! Contains resource IDs for Widget arguments of type **unsigned**. @ingroup Resources
 		struct ArgUnsigned:
 			public ThisArgs::ArgUnsigned
         { };
 		
-		//! Contains resource IDs for Widget arguments of type **unsigned short**.
+		//! Contains resource IDs for Widget arguments of type **unsigned short**. @ingroup Resources
 		struct ArgUnsignedShort:
 			public ThisArgs::ArgUnsignedShort
         { };
 		
-		//! Contains resource IDs for Widget arguments of type **unsigned long**.
+		//! Contains resource IDs for Widget arguments of type **unsigned long**. @ingroup Resources
 		struct ArgUnsignedLong:
 			public ThisArgs::ArgUnsignedLong
         { };
 		
-		//! Contains resource IDs for Widget arguments of type **long**.
+		//! Contains resource IDs for Widget arguments of type **long**. @ingroup Resources
 		struct ArgLong:
 			public ThisArgs::ArgLong
         { };
 
-		//! Contains resource IDs for Widget arguments of type <b>char*</b>.
+		//! Contains resource IDs for Widget arguments of type <b>char*</b>. @ingroup Resources
 		struct ArgPChar:
 			public ThisArgs::ArgPChar
         { };
 		
-		//! Contains resource IDs for Widget arguments of type <b>void*</b>.
+		//! Contains resource IDs for Widget arguments of type <b>void*</b>. @ingroup Resources
 		struct ArgPVoid:
 			public ThisArgs::ArgPVoid
         { };
 
-		//! Contains resource IDs for Widget arguments of type `PhRect_t`.
+		//! Contains resource IDs for Widget arguments of type `PhRect_t`. @ingroup Resources
 		struct ArgRect:
 			public ThisArgs::ArgRect
         { };
 		
-		//! Contains resource IDs for Widget arguments of type `PgColor_t`.
+		//! Contains resource IDs for Widget arguments of type `PgColor_t`. @ingroup Resources
 		struct ArgColor:
 			public ThisArgs::ArgColor
         { };
 		
-		//! Contains resource IDs for Widget arguments of type `PhCursorDef_t`.
+		//! Contains resource IDs for Widget arguments of type `PhCursorDef_t`. @ingroup Resources
 		struct ArgPCursorDef:
 			public ThisArgs::ArgPCursorDef
         { };
 		
-		//! Contains resource IDs for Widget arguments of type `PtGridLayoutData_t`.
+		//! Contains resource IDs for Widget arguments of type `PtGridLayoutData_t`. @ingroup Resources
 		struct ArgPGridLayoutData:
 			public ThisArgs::ArgPGridLayoutData
         { };
 		
-		//! Contains resource IDs for Widget arguments of type `PhPoint_t`.
+		//! Contains resource IDs for Widget arguments of type `PhPoint_t`. @ingroup Resources
 		struct ArgPoint:
 			public ThisArgs::ArgPoint
         { };
 
-		//! Contains resource IDs for Widget arguments of type `PtRowLayoutData_t`.
+		//! Contains resource IDs for Widget arguments of type `PtRowLayoutData_t`. @ingroup Resources
 		struct ArgPRowLayoutData:
 			public ThisArgs::ArgPRowLayoutData
         { };
 
-		//! Contains resource IDs for Widget arguments of type `PhDim_t`.
+		//! Contains resource IDs for Widget arguments of type `PhDim_t`. @ingroup Resources
 		struct ArgDim:
 			public ThisArgs::ArgDim
-		        { };
+		{ };
 
-		//! Contains resource IDs for Widget callbacks of type `PtRawCallback_t`.
+		//! Contains resource IDs for Widget callbacks of type `PtRawCallback_t`. @ingroup Resources
 		struct RawCallback:
 			public ThisCallbacks::RawCallback
-		        { };
+		{ };
 
-		//! Contains resource IDs for Widget callbacks of type `PtCallback_t`.
+		//! Contains resource IDs for Widget callbacks of type `PtCallback_t`. @ingroup Resources
 		struct Callback:
 			public ThisCallbacks::Callback
-		        { };
+		{ };
 
-		//! Contains resource IDs for Widget callbacks of type `PtHotkeyCallback_t`.
+		//! Contains resource IDs for Widget callbacks of type `PtHotkeyCallback_t`. @ingroup Resources
 		struct HotkeyCallback:
 			public ThisCallbacks::HotkeyCallback
-		        { };
+		{ };
 
-		//! Contains resource IDs for all Widget arguments.
+		//! Contains resource IDs for all Widget arguments. @ingroup Resources
 		struct Arguments:
 			public ArgArea,
 			public ArgColor,
@@ -862,19 +874,19 @@ namespace PhWidgets
 			public ArgUnsignedLong, 
 			public ArgUnsignedShort,
 			public ArgDim
-		        { };
+		{ };
 
-		//! Contains resource IDs for all Widget callbacks.
-		struct Callbacks :
+		//! Contains resource IDs for all Widget callbacks. @ingroup Resources
+		struct Callbacks:
 			public RawCallback,
 			public Callback,
 			public HotkeyCallback
-		        { };
+		{ };
 
-		//! Contains flags for all Widget resources.
+		//! Contains flags for all Widget resources. @ingroup Resources
 		struct Flags:
 			public ThisFlags
-		        { };
+		{ };
 
 
 				
@@ -938,8 +950,8 @@ namespace PhWidgets
 
 		short getBottom() const;
 
-		void setCursor(CursorDef);
-		CursorDef getCursor() const;
+		void setCursor(PhWidgets::Cursor);
+		PhWidgets::Cursor getCursor() const;
 
 		bool getCanFocus() const;
 
@@ -1221,9 +1233,9 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			> [AnchorStyles::eAnchorFlags](@ref Flags::Anchor::eAnchorFlags) 
+			> [AnchorStyles::eAnchorStyles](@ref Flags::Anchor::eAnchorStyles) 
 
-			A bitwise combination of the Flags::Anchor::eAnchorFlags values.
+			A bitwise combination of the Flags::Anchor::eAnchorStyles values.
 
 			### Examples ###
 
@@ -1250,7 +1262,7 @@ namespace PhWidgets
 			- Dock
 			- Layout
 		*/
-		phbitmask<unsigned, Flags::Anchor::eAnchorFlags, Flags::Anchor::All>::
+		phbitmask<unsigned, Flags::Anchor::eAnchorStyles, Flags::Anchor::All>::
 			bind<Widget, ArgUnsigned::eArgUnsigned, ArgUnsigned::anchor_flags> Anchor;
 
 		//! Gets or sets the bevel width of the widget.
@@ -1400,9 +1412,9 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			> PhWidgets::CursorDef
+			> PhWidgets::Cursor
 
-			A CursorDef that represents the cursor to display when the mouse pointer is over the widget.
+			A Cursor that represents the cursor to display when the mouse pointer is over the widget.
 
 			### Examples ###
 
@@ -1417,7 +1429,7 @@ namespace PhWidgets
 			@endcode
 
 			@note
-			CursorDef could also be constructed from PhCursorDef_t 
+			Cursor could also be constructed from PhCursorDef_t 
 			so you can assign your own defined PhCursorDef_t structure to this property.
 
 			@code
@@ -1433,13 +1445,13 @@ namespace PhWidgets
 			@endcode
 
 			@remark
-			Assign a CursorDef to the Widget::Cursor property of the widget to change the cursor displayed when the mouse pointer is over the widget.
+			Assign a PhWidgets::Cursor to the Widget::Cursor property of the widget to change the cursor displayed when the mouse pointer is over the widget.
 
 			@see
-			- CursorDef
+			- PhWidgets::Cursor
 			- Cursors
 		*/
-		property<CursorDef>::bind<Widget, &Widget::getCursor, &Widget::setCursor> Cursor;
+		property<PhWidgets::Cursor>::bind<Widget, &Widget::getCursor, &Widget::setCursor> Cursor;
 
 		//! Gets or sets the color of the cursor pointer when it's inside the widget.
 		/*!
@@ -1585,11 +1597,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			@code
-				struct PhPoint_t { 
-					short x, y; 
-				};
-			@endcode
+			> PhPoint_t
 
 			The `PhPoint_t` that represents the upper-left corner of the widget relative to the upper-left corner of its container.
 
@@ -1611,11 +1619,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			@code
-				struct PhPoint_t { 
-					short x, y; 
-				};
-			@endcode
+			> PhPoint_t
 
 			The `PhPoint_t` that represents the absolute coordinates of the upper-left corner of the widget.
 
@@ -1659,11 +1663,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			@code
-				struct PhDim_t { 
-					unsigned short w, h;
-				};
-			@endcode
+			> PhDim_t
 
 			The `PhDim_t` that represents the height and width of the widget in pixels.
 
@@ -1876,7 +1876,7 @@ namespace PhWidgets
 		typedef
 		cppbitmasks::bitmask<
 			unsigned, 
-			PhWidgets::Widget::Flags::Anchor::eAnchorFlags,
+			PhWidgets::Widget::Flags::Anchor::eAnchorStyles,
 			PhWidgets::Widget::Flags::Anchor::All
 		>
 		anchor_flags_bitmask;
@@ -1895,9 +1895,9 @@ cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> opera
 cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> operator&(const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag1, const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag2);
 cppbitmasks::bitmask<long, PhWidgets::Widget::Flags::Resize::eResizeFlags> operator^(const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag1, const PhWidgets::Widget::Flags::Resize::eResizeFlags &flag2);
 
-PhWidgets::typedefs::anchor_flags_bitmask operator|(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag2);
-PhWidgets::typedefs::anchor_flags_bitmask operator&(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag2);
-PhWidgets::typedefs::anchor_flags_bitmask operator^(const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorFlags &flag2);
+PhWidgets::typedefs::anchor_flags_bitmask operator|(const PhWidgets::Widget::Flags::Anchor::eAnchorStyles &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorStyles &flag2);
+PhWidgets::typedefs::anchor_flags_bitmask operator&(const PhWidgets::Widget::Flags::Anchor::eAnchorStyles &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorStyles &flag2);
+PhWidgets::typedefs::anchor_flags_bitmask operator^(const PhWidgets::Widget::Flags::Anchor::eAnchorStyles &flag1, const PhWidgets::Widget::Flags::Anchor::eAnchorStyles &flag2);
 
 bool operator==(const PhArea_t &lhs, const PhArea_t &rhs);
 bool operator!=(const PhArea_t &lhs, const PhArea_t &rhs);

@@ -52,8 +52,8 @@ NumericFloat::NumericFloat(PtWidget_t *wdg):
 	check();
 }
 
-NumericFloat::NumericFloat(const NumericFloat &rhs):
-	Numeric(rhs),
+NumericFloat::NumericFloat(const NumericFloat &other):
+	Numeric(other),
 	resource(this),
 	//properties:
 	Value(this),
@@ -64,9 +64,9 @@ NumericFloat::NumericFloat(const NumericFloat &rhs):
 {
 }
 
-NumericFloat &NumericFloat::operator=(const NumericFloat &rhs)
+NumericFloat &NumericFloat::operator=(const NumericFloat &other)
 {
-	static_cast<Numeric&>(*this) = static_cast<const Numeric&>(rhs);
+	static_cast<Numeric&>(*this) = static_cast<const Numeric&>(other);
 	
 	return *this;
 }

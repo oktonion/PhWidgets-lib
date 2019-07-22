@@ -8,12 +8,24 @@
 
 namespace PhWidgets
 {
-		
+	/*!
+		@struct PhWidgets::Compound
+		@ingroup Widgets
+	*/
+
+	//! Superclass for all compound widgets
+	/*!
+		The Compound superclass provides the ability to combine widgets into a compound. 
+		A compound widget can export its subordinate children to let you get and set their resources, 
+		or it can block access to them to provide a “canned” appearance.
+
+	*/		
 	class Compound:
 		public Container
 	{
 	public:
 
+		//! Contains resource IDs for all Compound arguments. @ingroup Resources
 		struct Arguments:
 			public Container::Arguments
         { };
@@ -22,10 +34,25 @@ namespace PhWidgets
 		virtual void check();
 						
 	public:
+		//! (constructor) 
+		/*!
+			Constructs a Compound widget by ID.
+			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
+		*/
 		Compound(int abn);
+
+		//! (constructor) 
+		/*!
+			Constructs a Compound widget by pointer to widget.
+			@param[in] wdg pointer to Photon widget.
+		*/		
 		Compound(PtWidget_t *wdg);
 		
-		
+		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
+		//@{
+			
+		//@}
 	};
 		
 } // namespace PhWidgets

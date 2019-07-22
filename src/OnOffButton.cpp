@@ -45,8 +45,8 @@ OnOffButton::OnOffButton(PtWidget_t *wdg):
 	check();
 }
 
-OnOffButton::OnOffButton(const OnOffButton &rhs):
-	Button(rhs),
+OnOffButton::OnOffButton(const OnOffButton &other):
+	Button(other),
 	resource(this),
 	//properties:
 	Checked(this),
@@ -55,9 +55,9 @@ OnOffButton::OnOffButton(const OnOffButton &rhs):
 {
 }
 
-OnOffButton &OnOffButton::operator=(const OnOffButton &rhs)
+OnOffButton &OnOffButton::operator=(const OnOffButton &other)
 {
-	static_cast<Button&>(*this) = static_cast<const Button&>(rhs);
+	static_cast<Button&>(*this) = static_cast<const Button&>(other);
 	
 	return *this;
 }

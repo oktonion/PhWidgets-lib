@@ -1,6 +1,6 @@
 # PhWidgets-lib
-### lightweight fast C++ interface library for QNX Photon microGUI
 
+### lightweight fast C++ interface library for QNX Photon microGUI
 
 PhWidgets is an Object-Oriented C++ library interface for the QNX 6 Photon Application Builder Widgets. Full support of PhAB for QNX 6.5 .
 
@@ -10,36 +10,38 @@ Also library implements easy raw access to 'resources' of Photon Widget and the 
 
 ### Implemented widgets ###
 
+![Hierarchy](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_widget.png)
+
 * [Widget](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_widget.html)
 * [Basic](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_basic.html)
-
-  * [Container](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_container.html)
-  * [Compound](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_compound.html)
-  * [Numeric](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_numeric.html)
-
-    * [NumericFloat](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_numeric_float.html)
-
-    * [NumericInteger](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_numeric_integer.html)
-
-  * [Label](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_label.html)
-
-    * [Button](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_button.html)
-      * [OnOffButton](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_on_off_button.html)
-
-      * [ToggleButton](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_toggle_button.html)
-
+* [Timer](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_timer.html)
+* [Container](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_container.html)
+* [Graphic](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_graphic.html)
+* [Label](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_label.html)
+* [Compound](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_compound.html)
+* [Disjoint](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_disjoint.html)
+* [Button](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_button.html)
+* [Text](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_text.html)
+* [Numeric](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_numeric.html)
+* [Window](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_window.html)
+* [OnOffButton](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_on_off_button.html)
+* [ToggleButton](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_toggle_button.html)
+* [NumericFloat](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_numeric_float.html)
+* [NumericInteger](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_numeric_integer.html)
 
 ### Quick start ###
 
 Now if you have a pointer to standart Photon widget (PtWidget_t*) or it's ABN_ id then with this library widgets are now simple and convenient, just do:
-```
+
+```cpp
 PtWidget_t *label_widget;
 
 PhWidgets::Label label(label_widget);// from now on you could manage 'label_widget' with this object 'label'
 ```
 
 instead of this:
-```
+
+```cpp
 PtWidget_t *label = widget;
 PtArg_t arg;
 PtSetArg( &arg, Pt_ARG_TEXT_STRING, 0, 0 );
@@ -51,21 +53,24 @@ PtSetResource(label, Pt_ARG_TEXT_STRING, input_text, 0);
 ```
 
 just write this:
-```
-std::string text = label.Caption; //thats it!
 
-label.Caption = "test text"; //thats it!
+```cpp
+std::string text = label.Text; //thats it!
+
+label.Text = "test text"; //thats it!
 ```
 
 or in case you need a raw access to resource:
-```
+
+```cpp
 const char *text = label.resource.argument[Label::Arguments::text_string].get();
 
 label.resource.argument[Label::Arguments::text_string].set("test text");
 ```
 
 for callbacks instead of:
-```
+
+```cpp
 int push_button_cb( PtWidget_t *, void *, PtCallbackInfo_t *);//callback is defined somewhere
 
 PtCallback_t callbacks[] = { {push_button_cb, NULL} };
@@ -74,25 +79,28 @@ PtAddCallbacks(button, Pt_CB_ACTIVATE, callbacks, 1);
 ```
 
 just write that:
-```
+
+```cpp
 int push_button_cb( PtWidget_t *, void *, PtCallbackInfo_t *);//callback is defined somewhere
 
 button.Activate += push_button_cb; //simple as that!
 ```
 
 or in case you need a raw access to callback:
-```
+
+```cpp
 int push_button_cb( PtWidget_t *, void *, PtCallbackInfo_t *);//callback is defined somewhere
 
 button.resource.callback[Button::Callbacks::activate].add(push_button_cb);
 ```
 
 # Build
+
 To build lib execute '.makelib.sh' - directory slib will contain your library with all headers and source code needed.
 
 # Install
-- To install lib to PhAB project simply call '.exportlib.sh' with path to your project directory as 1st parameter. 
-- To install manually copy 'include' directory and 'AbWidgetsWrap.cpp' to your PhAB project destination ('AbWidgetsWrap.cpp' **should be** in the same dir as PhAB project headers 'ablibs.h' and 'abimport.h' to be compiled). Place library 'libphwidgets.a' where you store the lib-files (f.e. '$ProjectDir\x86\o\' and '$ProjectDir\x86\o-g\' for x86 platform). 
+
+-To install lib to PhAB project simply call '.exportlib.sh' with path to your project directory as 1st parameter.
+-To install manually copy 'include' directory and 'AbWidgetsWrap.cpp' to your PhAB project destination ('AbWidgetsWrap.cpp' **should be** in the same dir as PhAB project headers 'ablibs.h' and 'abimport.h' to be compiled). Place library 'libphwidgets.a' where you store the lib-files (f.e. '$ProjectDir\x86\o\' and '$ProjectDir\x86\o-g\' for x86 platform).
 
 **Do not forget to include 'libphwidgets.a' to your project build!**
-

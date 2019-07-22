@@ -6,7 +6,7 @@
 
 namespace PhWidgets
 {
-    //! Provides a collection of standard cursors for use by a Photon microGUI application.
+    //! Provides a collection of standard cursors for use by a Photon microGUI application. @ingroup Values
     struct Cursors
     {
         enum eCursors
@@ -60,8 +60,8 @@ namespace PhWidgets
         };
     };
     
-    //! Represents the image used to paint the mouse pointer.
-    class CursorDef
+    //! Represents the image used to paint the mouse pointer. @ingroup Classes
+    class Cursor
     {
     public:
         
@@ -69,55 +69,55 @@ namespace PhWidgets
 
         //! (constructor) 
 		/*!
-			Initializes a new instance of the CursorDef class from the specified default cursor ID.
+			Initializes a new instance of the Cursor class from the specified default cursor ID.
 			@param[in] cursor default cursor ID (see PhWidgets::Cursors::eCursors).
 		*/
-		CursorDef(Cursors::eCursors cursor = Cursors::Default);
+		Cursor(Cursors::eCursors cursor = Cursors::Default);
 
 		//! (constructor) 
 		/*!
-			Initializes a new instance of the CursorDef class from the specified cursor definition.
+			Initializes a new instance of the Cursor class from the specified cursor definition.
 			@param[in] def cursor definition.
 		*/
-		CursorDef(const PhCursorDef_t &def);
+		Cursor(const PhCursorDef_t &def);
 
 		//! (copy constructor) 
 		/*!
-			Constructs a CursorDef by copy.
-			@param[in] other another CursorDef to be used as source to initialize the elements of the container with.
+			Constructs a Cursor by copy.
+			@param[in] other another Cursor to be used as source to initialize the elements of the container with.
 		*/
-		CursorDef(const CursorDef &other);
+		Cursor(const Cursor &other);
 
         //! (destructor)
-        ~CursorDef();
+        ~Cursor();
 		
-		//! Assigns value in CursorDef 
+		//! Assigns value in Cursor 
 		/*!
 			Replaces the contents of the Cursor.
-			@param[in] other another CursorDef to use as data source.
+			@param[in] other another Cursor to use as data source.
 		*/
-		CursorDef &operator=(const CursorDef &other);
+		Cursor &operator=(const Cursor &other);
 
 		//! Compares Cursors
 		/*!
 			Compares the Cursors by their definitions.
-			@param[in] other CursorDef whose contents to compare.
+			@param[in] other Cursor whose contents to compare.
 		*/
-		bool operator==(const CursorDef &other) const;
+		bool operator==(const Cursor &other) const;
 
         //! Compares Cursors
 		/*!
 			Compares the Cursors by their definitions.
-			@param[in] other CursorDef whose contents to compare.
+			@param[in] other Cursor whose contents to compare.
 		*/
-		bool operator!=(const CursorDef &other) const;
+		bool operator!=(const Cursor &other) const;
 
 		//! Compares Cursors
 		/*!
 			Compares the Cursors by their definitions.
-			@param[in] other CursorDef whose contents to compare.
+			@param[in] other Cursor whose contents to compare.
 		*/
-		bool operator<(const CursorDef &other) const;
+		bool operator<(const Cursor &other) const;
 
         operator const PhCursorDef_t*() const;
 
@@ -128,9 +128,9 @@ namespace PhWidgets
         friend class Widget;
     };
 
-    bool operator==(const Cursors::eCursors &lhs, const CursorDef &rhs);
-    bool operator!=(const Cursors::eCursors &lhs, const CursorDef &rhs);
-    bool operator<(const Cursors::eCursors &lhs, const CursorDef &rhs);
+    bool operator==(const Cursors::eCursors &lhs, const Cursor &rhs);
+    bool operator!=(const Cursors::eCursors &lhs, const Cursor &rhs);
+    bool operator<(const Cursors::eCursors &lhs, const Cursor &rhs);
 } // namespace PhWidgets
 
 

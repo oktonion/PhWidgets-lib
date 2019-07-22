@@ -9,7 +9,12 @@
 
 namespace PhWidgets
 {
-	//! A widget that invokes a callback after a given length of time	
+	/*!
+		@struct PhWidgets::Timer
+		@ingroup Widgets
+	*/
+
+	//! A widget that invokes a callback after a given length of time
 	/*!
 		A Timer widget invokes a callback after an initial and repeated time period, given in milliseconds. 
 		This widget is intended to provide a non-accurate, resourceless time base for your application. 
@@ -21,10 +26,22 @@ namespace PhWidgets
 	public:
 		using Widget::IPhWidgetsProperty;
 
+		//! Contains resource IDs for Timer arguments. @ingroup Resources
 		struct ThisArgs
 		{												
+			//! Contains resource IDs for Timer arguments of type **unsigned long**.
 			struct ArgUnsignedLong
 			{
+				//! Resource IDs for Timer arguments of type **unsigned long**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Timer::Arguments::eArgUnsignedLong,
+					PhWidgets::Timer::ArgUnsignedLong::eArgUnsignedLong
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgUnsignedLong
 				{
 					timer_initial = Pt_ARG_TIMER_INITIAL, //!< The time, in milliseconds, before the first timer callback is activated. 
@@ -34,10 +51,21 @@ namespace PhWidgets
 
 		};
 
+		//! Contains resource IDs for Timer callbacks. @ingroup Resources
 		struct ThisCallbacks
 		{
+			//! Contains resource IDs for Timer callbacks of type `PtCallback_t`.
 			struct Callback
 			{
+				//! Resource IDs for Timer arguments of type `PtCallback_t`.
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Timer::Callbacks::eCallback,
+					PhWidgets::Timer::Callback::eCallback
+
+					See Widget::resource for usage description.
+				*/
 				enum eCallback
 				{
 					timer_activate = Pt_CB_TIMER_ACTIVATE //!< A list of PtCallback_t structures that define the callbacks that the widget invokes when the timer has expired. 
@@ -45,10 +73,12 @@ namespace PhWidgets
 			};
 		};
 		
+		//! Contains resource IDs for arguments of type **unsigned long**. @ingroup Resources
 		struct ArgUnsignedLong:
 			public ThisArgs::ArgUnsignedLong
         { };
 
+		//! Contains resource IDs for arguments of type <b>void*</b>. @ingroup Resources
 		struct ArgPVoid
 		{
 			static const Widget::ArgPVoid::eArgPVoid pointer;
@@ -56,22 +86,26 @@ namespace PhWidgets
 			static const Widget::ArgPVoid::eArgPVoidData user_data;
 		};
 
+		//! Contains resource IDs for arguments of type **long**. @ingroup Resources
 		Widget::ArgLong;//Pt_ARG_FLAGS
 
-		struct Callback :
+		//! Contains resource IDs for callbacks of type `PtCallback_t`. @ingroup Resources
+		struct Callback:
 			public ArgumentsEx<ThisCallbacks::Callback>,
 			public Widget::Callback
 		{
 			typedef ThisCallbacks::Callback::eCallback eCallback;
 		};
 		
+		//! Contains resource IDs for all Timer arguments. @ingroup Resources
 		struct Arguments:
 			public ArgUnsignedLong,
 			public Widget::ArgLong,
 			public ArgPVoid
         { };
 
-		struct Callbacks :
+		//! Contains resource IDs for all Timer callbacks. @ingroup Resources
+		struct Callbacks:
 			public Callback,
 			public Widget::Callbacks
         { };
@@ -133,6 +167,7 @@ namespace PhWidgets
 		using Widget::operator const PtWidget_t*;
 
 		//! @name Properties
+		//! Properties are used to simplify use of widget resources.
 		//! @{
 		phproperty<unsigned long>::bind<Timer, ArgUnsignedLong::eArgUnsignedLong, Arguments::timer_initial> Initial; //!< The time, in milliseconds, before the first timer callback is activated.
 		phproperty<unsigned long>::bind<Timer, ArgUnsignedLong::eArgUnsignedLong, Arguments::timer_repeat> Interval; //!< The time, in milliseconds, for the repeat rate of the timer once the initial time period has expired. 

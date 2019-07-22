@@ -42,17 +42,17 @@ Graphic::Graphic(PtWidget_t *wdg):
 	check();
 }
 
-PhWidgets::Graphic::Graphic(const Graphic & rhs):
-	Basic(rhs),
+PhWidgets::Graphic::Graphic(const Graphic & other):
+	Basic(other),
 	resource(this),
 	//callbacks:
 	Rescale(this)
 {
 }
 
-Graphic &Graphic::operator=(const Graphic &rhs)
+Graphic &Graphic::operator=(const Graphic &other)
 {
-	static_cast<Basic&>(*this) = static_cast<const Basic&>(rhs);
+	static_cast<Basic&>(*this) = static_cast<const Basic&>(other);
 	
 	return *this;
 }

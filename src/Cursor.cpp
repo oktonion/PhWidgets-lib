@@ -7,18 +7,18 @@
 
 namespace PhWidgets
 {
-    CursorDef::CursorDef(Cursors::eCursors cursor):
+    Cursor::Cursor(Cursors::eCursors cursor):
         _def(nullptr),
         _cursor(cursor)
     { }
 
-    CursorDef::CursorDef(const PhCursorDef_t &def):
+    Cursor::Cursor(const PhCursorDef_t &def):
         _def(new PhCursorDef_t())
     { 
         (*_def) = def;
     }
 
-    CursorDef::CursorDef(const CursorDef &other):
+    Cursor::Cursor(const Cursor &other):
         _def(nullptr)
     {
         if(nullptr != other._def)
@@ -32,12 +32,12 @@ namespace PhWidgets
         _cursor = other._cursor;
     }
     
-    CursorDef::~CursorDef()
+    Cursor::~Cursor()
     {
         delete _def;
     }
     
-    CursorDef &CursorDef::operator=(const CursorDef &other)
+    Cursor &Cursor::operator=(const Cursor &other)
     {
         if(&other == this)
             return *this;
@@ -59,7 +59,7 @@ namespace PhWidgets
         return *this;
     }
 
-    bool CursorDef::operator==(const CursorDef &other) const
+    bool Cursor::operator==(const Cursor &other) const
     {
         if(&other == this)
             return true;
@@ -77,12 +77,12 @@ namespace PhWidgets
         return false;
     }
 
-    bool CursorDef::operator!=(const CursorDef &other) const
+    bool Cursor::operator!=(const Cursor &other) const
     {
         return !(*this == other);
     }
 
-    bool CursorDef::operator<(const CursorDef &other) const
+    bool Cursor::operator<(const Cursor &other) const
     {
         if(&other == this)
             return false;
@@ -97,24 +97,24 @@ namespace PhWidgets
         return std::less<PhCursorDef_t*>()(_def, other._def);
     }
 
-    CursorDef::operator const PhCursorDef_t*() const
+    Cursor::operator const PhCursorDef_t*() const
     {
         return _def;
     }
 
 
-    bool operator==(const Cursors::eCursors &lhs, const CursorDef &rhs)
+    bool operator==(const Cursors::eCursors &lhs, const Cursor &rhs)
     {
         return rhs == lhs;
     }
 
-    bool operator!=(const Cursors::eCursors &lhs, const CursorDef &rhs)
+    bool operator!=(const Cursors::eCursors &lhs, const Cursor &rhs)
     {
         return rhs != lhs;
     }
 
-    bool operator<(const Cursors::eCursors &lhs, const CursorDef &rhs)
+    bool operator<(const Cursors::eCursors &lhs, const Cursor &rhs)
     {
-        return CursorDef(lhs) < rhs;
+        return Cursor(lhs) < rhs;
     }
 }

@@ -26,7 +26,8 @@ CHECK_WIDGET(Button);
 Button::Button(int abn):
 	Label(abn),
 	resource(this),
-	ArmColor(this)
+	ArmColor(this),
+	ArmFill(this)
 {
 	check();
 }
@@ -34,23 +35,25 @@ Button::Button(int abn):
 Button::Button(PtWidget_t *wdg):
 	Label(wdg),
 	resource(this),
-	ArmColor(this)
+	ArmColor(this),
+	ArmFill(this)
 {
 	check();
 }
 
 
-Button::Button(const Button &rhs):
-	Label(rhs),
+Button::Button(const Button &other):
+	Label(other),
 	resource(this),
-	ArmColor(this)
+	ArmColor(this),
+	ArmFill(this)
 {
 
 }
 
-Button &Button::operator=(const Button &rhs)
+Button &Button::operator=(const Button &other)
 {
-	static_cast<Label&>(*this) = static_cast<const Label&>(rhs);
+	static_cast<Label&>(*this) = static_cast<const Label&>(other);
 	
 	return *this;
 }
