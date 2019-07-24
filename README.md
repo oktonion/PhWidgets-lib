@@ -31,7 +31,7 @@ Also library implements easy raw access to 'resources' of Photon Widget and the 
 
 ### Quick start ###
 
-Now if you have a pointer to standart Photon widget (PtWidget_t*) or it's ABN_ id then with this library widgets are now simple and convenient, just do:
+Now if you have a pointer to standard Photon widget (PtWidget_t*) or it's ABN_ id then with this library widgets are now simple and convenient, just do:
 
 ```cpp
 PtWidget_t *label_widget;
