@@ -448,6 +448,7 @@ namespace PhWidgets
 	protected:
 
 		typedef ResourceFrom<Basic::WidgetResourcesSingleton>::
+			Define::Image<ArgPImage::eArgPImage>::
 			Define::String<ThisArgs::ArgPChar::eArgPChar>::
 			Define::Color<ThisArgs::ArgColor::eArgColor>::
 			Define::Scalar<ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short>::
