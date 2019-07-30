@@ -389,4 +389,53 @@
     - PhWidgets::Widget::Unrealized
 */
 
+/*!
+    @struct PhImage_t
+    
+    Data and characteristics of an image.
+
+    The PhImage_t structure describes the data and characteristics of an image. 
+    When you give an image to a Label subclass widget, this is the structure you must provide.
+    The members include at least: 
+    
+    ### Members ###
+    
+    > int type
+        The graphic type; @see PhWidgets::Drawing::ImageType
+    > unsigned long image_tag 
+        The image-data tag, a cyclic redundancy check (CRC) that's used extensively by phrelay (see the QNX Neutrino Utilities Reference) to cache images.
+    > int bpl 
+        The number of bytes in each line of the image. 
+    > PhDim_t size
+        A PhDim_t structure that defines the size of the image. 
+    > unsigned long palette_tag 
+        The palette-data tag. 
+    > int colors 
+        The number of colors in the image. 
+    > PgAlpha_t *alpha
+        The image alpha map that's used if the source alpha map option is enabled. 
+    > PgColor_t transparent
+        The color to mask out when drawing.
+    > char flags 
+        The image flags.
+    > char ghost_bpl 
+        The number of bytes per line for the ghosting bitmap. 
+    > char *ghost_bitmap  
+        A pointer to the transparency mask for ghosting an image. The leftmost pixel corresponds to the top bit of the first byte in the mask. 
+    > int mask_bpl  
+        The number of bytes per line for the transparency mask. 
+    > char *mask_bm  
+        A pointer to the transparency mask. The leftmost pixel corresponds to the top bit of the first byte in the mask. 
+    > PgColor_t *palette  
+        The image palette. 
+    > char *image   
+        The image pixel data. 
+    
+    @remark
+    Use PhWidgets::Drawing::Image to manipulate widget cursor resource.
+
+    @see 
+    - Label::Image
+*/
+
 //!@}
