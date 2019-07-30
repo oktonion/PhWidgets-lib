@@ -394,14 +394,14 @@
     
     Data and characteristics of an image.
 
-    The PhImage_t structure describes the data and characteristics of an image. 
-    When you give an image to a Label subclass widget, this is the structure you must provide.
+    The PhImage_t structure describes the data and characteristics of an PhWidgets::Image. 
+    When you give an image to a PhWidgets::Label subclass widget, this is the structure you must provide.
     The members include at least: 
     
     ### Members ###
     
     > int type
-        The graphic type; @see PhWidgets::Drawing::ImageType
+        The graphic type; see PhWidgets::Drawing::ImageType
     > unsigned long image_tag 
         The image-data tag, a cyclic redundancy check (CRC) that's used extensively by phrelay (see the QNX Neutrino Utilities Reference) to cache images.
     > int bpl 
