@@ -4,6 +4,8 @@
 
 #include "service/stdex/stdex.h"
 
+#include <ios>
+
 using namespace PhWidgets;
 using namespace PhWidgets::Drawing;
 
@@ -31,6 +33,11 @@ Image Image::FromFile(std::string filename)
     Image result(dummy_image);
 
     result._image = PxLoadImage(filename.c_str(), NULL);
+
+    if(NULL == result._image)
+        throw(std::ios_base::failure(std::string("PhWidgets::Image: cannot load the file")));
+
+    result._image->flags |= Ph_RELEASE_IMAGE_ALL;
 
     return result;
 }

@@ -222,6 +222,7 @@ namespace PhWidgets
 		    /*!
 			    @param[in] filename A string that contains the name of the file from which to create the Image.
                 @returns The Image this method creates.
+                @throws std::ios_base::failure
 
                 @remark
                 Photon has built-in encoders and decoders that support the following file types:
