@@ -43,7 +43,7 @@ namespace PhWidgets
 				*/
 				enum eArgColor
 				{
-					arm_color = Pt_ARG_ARM_COLOR
+					arm_color = Pt_ARG_ARM_COLOR //!< The background color used when the button is armed (pressed in).
 				};
 			};
 			
@@ -62,7 +62,7 @@ namespace PhWidgets
 				*/
 				enum eArgUnsignedChar
 				{
-					arm_fill = Pt_ARG_ARM_FILL
+					arm_fill = Pt_ARG_ARM_FILL //!< Determines whether or not to use Arguments::arm_color as the background color when the button is armed (pressed in).
 				};
 			};
 			
@@ -81,7 +81,9 @@ namespace PhWidgets
 				*/
 				enum eArgPImage
 				{
-					arm_image = Pt_ARG_ARM_IMAGE
+					arm_image = Pt_ARG_ARM_IMAGE  //!< A pointer to a PhImage_t structure
+												  //!< that defines the image to use when the button is armed. 
+												  //!< It's used only if the label type (Label::Type) is LabelType::Image or LabelType::TextImage.
 				};
 			};
 			
@@ -180,7 +182,7 @@ namespace PhWidgets
 			A `Drawing::Color` that represents the arm color of the widget.
 
 			@remark
-			Color will change only if Button ArmFill property is set to `true`.
+			Color will change only if Button::ArmFill property is set to `true`.
 
 			@see
 			- ArmFill
@@ -189,13 +191,13 @@ namespace PhWidgets
 		*/
 		phproperty<Drawing::Color>::bind<Button, ArgColor::eArgColor, Arguments::arm_color> ArmColor;
 
-		//! Determines whether or not to use ArmColor as the background color used when the Button is armed (pressed in).
+		//! Determines whether or not to use Button::ArmColor as the background color when the Button is armed (pressed in).
 		/*!
 			### Property Value ### 
 			
 			> **bool**
 
-			`true` if the ArmColor is used; `false` if the ArmColor is not used.
+			`true` if the Button::ArmColor is used; `false` if the Button::ArmColor is not used.
 
 			@see
 			- ArmColor
