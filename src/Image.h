@@ -4,6 +4,8 @@
 #include <photon/PhT.h>
 #include <photon/PtT.h>
 
+#include <string>
+
 namespace PhWidgets
 {
     namespace Drawing
@@ -165,6 +167,92 @@ namespace PhWidgets
             //@}
         };
     } // namespace Drawing
+
+    namespace Drawing
+    {
+        //! An abstract base class that provides functionality for the Drawing::Bitmap class.
+        /*!
+            @remark
+            To draw an Image on a Form, you should use one of the Drawing::Graphics::DrawImage methods.
+
+            @see
+            - Drawing::ImageType
+            - Label::Image
+
+             @ingroup Classes
+        */
+        class Image
+        {
+        public:
+		    //! (copy constructor) 
+		    /*!
+			    Constructs an Image from PhImage_t.
+			    @param[in] image PhImage_t to be used as source to initialize the elements of the container with.
+
+                @attention
+                Image class makes copy of image provided so input PhImage_t remains untouched.
+
+                @remark
+                You can create an Image using Image::FromFile(), Image::FromHbitmap(), Image::FromStream() functions.
+
+                @see
+                - Image::FromFile()
+                - Image::FromHbitmap()
+                - Image::FromStream()
+            */
+            Image(const PhImage_t &image);
+
+            //! (copy constructor) 
+		    /*!
+			    Constructs an Image by copy.
+			    @param[in] other Another Image to be used as source to initialize the elements of the container with.
+
+                @remark
+                You can create an Image using Image::FromFile(), Image::FromHbitmap(), Image::FromStream() functions.
+
+                @see
+                - Image::FromFile()
+                - Image::FromHbitmap()
+                - Image::FromStream()
+            */
+            Image(const Image &other);
+
+
+		    //! Creates an Image from the specified file.
+		    /*!
+			    @param[in] filename A string that contains the name of the file from which to create the Image.
+                @returns The Image this method creates.
+
+                @remark
+                Photon has built-in encoders and decoders that support the following file types:
+                - BMP
+                - GIF
+                - JPEG
+                - PNG
+                - PCX
+                - SGI
+
+                The file remains locked until the Image is disposed.
+
+                @note
+                The Image class does not support alpha transparency in bitmaps. To enable alpha transparency, use PNG images with 32 bits per pixel.
+
+                @see
+                - Image::FromHbitmap()
+                - Image::FromStream()
+            */
+            static Image FromFile(std::string filename);
+
+            //! Converts to the `PhImage_t` struct.
+            /*!
+                @return The `PhImage_t` struct with copy of the Image.
+            */
+            operator PhImage_t () const;
+
+        private:
+            PhImage_t *_image;
+        };
+    }
 } // namespace PhWidgets
 
 #endif // PHWIDGETS_IMAGE_H
