@@ -191,9 +191,9 @@ namespace PhWidgets
 			// The fourth argument is 0.
 			// The widget copies the image structure (but not any memory pointed to by the PhImage_t members) into its internal memory when you call PtSetResources(). 
 			inline 
-			int setImage(const void *pimage)
+			int setImage(const PtImage_t &image)
 			{
-				return setAlloc(pimage, 0);
+				return setAlloc(&image, 0);
 			}
 
 			// When setting an array value, the third argument to PtSetArg() is the address of the array. 
@@ -731,12 +731,34 @@ namespace PhWidgets
 
 		template<class ArgT, class ResourceT>
 		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::image_type, ResourceT> :
-			private NotImplemented//WidgetResourceBase<ArgT>
+			private WidgetResourceBase<ArgT>
 		{
-			typedef WidgetResourceGroupType::WidgetArgumentGroupType::image_type resource_group_type;
-			typedef ResourceT resource_type;
+			typedef WidgetResourceGroupType::image_type resource_group_type;
+			typedef
+			typename stdex::conditional< 
+				stdex::is_void<ResourceT>::value,
+				PhImage_t,
+				ResourceT
+			>::type resource_type;
 
-			// not impelemented
+			WidgetArgument(IPtWidget *widget, ArgT arg) :
+				WidgetResourceBase<ArgT>(widget, arg)
+			{}
+
+			~WidgetArgument()
+			{}
+
+			inline 
+			int set(resource_type &image)
+			{
+				return setImage(image);
+			}
+
+			inline 
+			const resource_type& get() const
+			{
+				return *WidgetResourceBase<ArgT>::template getStruct<resource_type>();
+			}
 		};
 
 		template<class ArgT, class ResourceT>
@@ -1768,7 +1790,7 @@ namespace PhWidgets
 				typedef def_help::Define<resource_type> Define;
 			};
 
-			template<class PrevT, class LinkT, class ResourceT>
+			template<class PrevT, class LinkT, class ResourceT = void>
 			struct Image
 			{
 				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
@@ -1862,7 +1884,7 @@ namespace PhWidgets
 				template<class ArgT, class ResourceT>
 				struct Function : def_orig::Function<PrevT, ArgT, ResourceT> {};
 
-				template<class ArgT, class ResourceT>
+				template<class ArgT, class ResourceT = void>
 				struct Image : def_orig::Image<PrevT, ArgT, ResourceT> {};
 
 				template<class ArgT, class ResourceT = void>
