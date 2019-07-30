@@ -394,7 +394,7 @@
     
     Data and characteristics of an image.
 
-    The PhImage_t structure describes the data and characteristics of an PhWidgets::Image. 
+    The PhImage_t structure describes the data and characteristics of an PhWidgets::Drawing::Image. 
     When you give an image to a PhWidgets::Label subclass widget, this is the structure you must provide.
     The members include at least: 
     
@@ -413,7 +413,7 @@
     > int colors 
         The number of colors in the image. 
     > PgAlpha_t *alpha
-        The image alpha map that's used if the source alpha map option is enabled. 
+        The image alpha map that's used if the source alpha map option is enabled. Members are undocumented.
     > PgColor_t transparent
         The color to mask out when drawing.
     > char flags 
@@ -432,7 +432,7 @@
         The image pixel data. 
     
     @remark
-    Use PhWidgets::Drawing::Image to manipulate Label::Image property.
+    Use PhWidgets::Drawing::Image to manipulate Label::Image property and widget image resources as general.
 
     @see 
     - Label::Image

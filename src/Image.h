@@ -135,7 +135,35 @@ namespace PhWidgets
             DirectImageType,
             GradientImageType,
             PaletteImageType
-        { };
+        { 
+            //! @name Members
+            //@{
+            /*!
+                - ImageType::BitmapBackfill 
+                - ImageType::BitmapTransparent
+            */
+           using BitmapImageType::eBitmapImageType;
+            /*!
+                - ImageType::ImageDirect1555
+                - ImageType::ImageDirect4444
+                - ImageType::ImageDirect444
+                - ImageType::ImageDirect565
+                - ImageType::ImageDirect8888
+                - ImageType::ImageDirect888
+            */
+           using DirectImageType::eDirectImageType;
+            /*!
+                - ImageType::ImageGradientByte
+                - ImageType::ImageGradientNibble
+            */
+           using GradientImageType::eGradientImageType;
+            /*!
+                - ImageType::ImagePaletteByte
+                - ImageType::ImagePaletteNibble
+            */
+           using PaletteImageType::ePaletteImageType;
+            //@}
+        };
     } // namespace Drawing
 } // namespace PhWidgets
 
