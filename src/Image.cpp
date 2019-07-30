@@ -9,37 +9,48 @@
 using namespace PhWidgets;
 using namespace PhWidgets::Drawing;
 
-namespace
-{
-    static const PhImage_t dummy_image;
+Image::Image(const PhImage_t &image):
+    _image(nullptr),
+    Size(image.size),
+    Width(Size.w),
+    Height(Size.h)
+{ 
+    PhImage_t tmp = image;
+    _image = PiDuplicateImage(&tmp, Pi_SHMEM);
 }
 
-Image::Image(const PhImage_t &image):
-    _image(nullptr)
-{ 
-    if(&image != &dummy_image)
-    {
-        PhImage_t tmp = image;
-        _image = PiDuplicateImage(&tmp, Pi_SHMEM);
-    }
+struct Image::ImageInfo
+{
+    PhImage_t *image;
+};
+
+Image::Image(const ImageInfo &image_info):
+    Size(image_info.image->size),
+    Width(Size.w),
+    Height(Size.h)
+{
+
 }
 
 Image::Image(const Image &other):
-    _image(other._image)
+    _image(other._image),
+    Size(other.Size),
+    Width(other.Width),
+    Height(other.Height)
 { }
 
 Image Image::FromFile(std::string filename)
 {
-    Image result(dummy_image);
+    ImageInfo image_info;
 
-    result._image = PxLoadImage(filename.c_str(), NULL);
+    image_info.image = PxLoadImage(filename.c_str(), NULL);
 
-    if(NULL == result._image)
+    if(NULL == image_info.image)
         throw(std::ios_base::failure(std::string("PhWidgets::Image: cannot load the file")));
 
-    result._image->flags |= Ph_RELEASE_IMAGE_ALL;
+    image_info.image->flags |= Ph_RELEASE_IMAGE_ALL;
 
-    return result;
+    return Image(image_info);
 }
 
 

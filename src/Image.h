@@ -217,6 +217,53 @@ namespace PhWidgets
             */
             Image(const Image &other);
 
+            //! @name Properties
+            //! @{ 
+
+            //! Gets the width and height, in pixels, of this Image.
+            /*!
+                ### Property Value ### 
+                
+                > PhDim_t
+
+                The `PhDim_t` that represents the width and height, in pixels, of this image.
+
+                @see 
+                - Width
+                - Height
+            */
+            const PhDim_t Size;
+
+            //! Gets the width, in pixels, of this Image.
+            /*!
+                ### Property Value ### 
+                
+                > **unsigned short**
+
+                The width, in pixels, of this Image.
+
+                @see 
+                - Size
+                - Height
+            */
+            const unsigned short Width;
+
+            //! Gets the height, in pixels, of this Image.
+            /*!
+                ### Property Value ### 
+                
+                > **unsigned short**
+
+                The height, in pixels, of this Image.
+
+                @see 
+                - Size
+                - Width
+            */
+            const unsigned short Height;
+            
+            //! @}    
+
 
 		    //! Creates an Image from the specified file.
 		    /*!
@@ -252,6 +299,10 @@ namespace PhWidgets
 
         private:
             PhImage_t *_image;
+
+            struct ImageInfo;
+
+            Image(const ImageInfo&);
         };
     }
 } // namespace PhWidgets
