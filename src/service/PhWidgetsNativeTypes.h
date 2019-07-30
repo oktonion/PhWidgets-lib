@@ -432,7 +432,7 @@
         The image pixel data. 
     
     @remark
-    Use PhWidgets::Drawing::Image to manipulate widget cursor resource.
+    Use PhWidgets::Drawing::Image to manipulate Label::Image property.
 
     @see 
     - Label::Image
