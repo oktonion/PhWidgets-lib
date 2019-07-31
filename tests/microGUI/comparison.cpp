@@ -24,6 +24,44 @@ TEST_CASE("Testing comparison of two Widgets") {
     CHECK(w1 != w2);
     CHECK(w2 != w1);
 
-    CHECK(w1 < w2);
-    CHECK(w2 > w1);
+    CHECK_FALSE(w1_ != w1);
+    CHECK_FALSE(w1 != w1_);
+    CHECK_FALSE(w1 == w2);
+    CHECK_FALSE(w2 == w1);
+
+    CHECK_FALSE(w1 > w1);
+    CHECK_FALSE(w2 > w2);
+    CHECK_FALSE(w1 < w1);
+    CHECK_FALSE(w2 < w2);
+
+    CHECK(w1 >= w1);
+    CHECK(w2 >= w2);
+    CHECK(w1 <= w1);
+    CHECK(w2 <= w2);
+
+    if(w1 <= w2)
+    {
+        CHECK(w1 <= w2);
+        CHECK(w2 >= w1);
+    }
+    if(w1 >= w2)
+    {
+        CHECK(w1 >= w2);
+        CHECK(w2 <= w1);
+    }
+
+    if(w1 < w2)
+    {
+        CHECK_MESSAGE(((w1 <= w2) && (w1 < w2)), "(w1 <= w2) && (w1 < w2)");
+        CHECK_MESSAGE(((w2 >= w1) && (w2 > w1)), "(w2 >= w1) && (w2 > w1)");
+        CHECK_FALSE(w1 > w2);
+        CHECK_FALSE(w2 == w1);
+    }
+    if(w1 > w2)
+    {
+        CHECK_MESSAGE(((w1 >= w2) && (w1 > w2)), "(w1 >= w2) && (w1 > w2)");
+        CHECK_MESSAGE(((w2 <= w1) && (w2 < w1)), "(w2 <= w1) && (w2 < w1)");
+        CHECK_FALSE(w1 < w2);
+        CHECK_FALSE(w1 == w2);
+    }
 }
