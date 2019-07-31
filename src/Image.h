@@ -115,7 +115,7 @@ namespace PhWidgets
                 ImagePaletteByte = Pg_IMAGE_PALETTE_BYTE, //!< This format packs 1 pixel per byte, allowing up to 256 colors. 
                                                           //!< This format indexes directly into the current palette;
                                                           //!< If no palette is set, the function chooses colors from the global palette; this may cause colors to look different on each system.
-                ImagePaletteNibble = Pg_IMAGE_PALETTE_NIBBLE, //!< This format packs 2 pixels per byte, allowing up to 16 colors. 
+                ImagePaletteNibble = Pg_IMAGE_PALETTE_NIBBLE  //!< This format packs 2 pixels per byte, allowing up to 16 colors. 
                                                               //!< The first pixel is in the upper half of the byte, the second is in the lower half. 
                                                               //!< These pixel values index directly into the current palette. 
                                                               //!< If no palette is set, the function chooses colors from the global palette.
