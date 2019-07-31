@@ -357,31 +357,75 @@ bool Widget::operator<(const Widget &other) const
 	if(&other == this)
 		return false;
 	
-	return std::less<PtWidget_t*>()(widget(), other.widget());
+	const PtWidget_t 
+		*this_widget = widget(),
+		*other_widget = other.widget();
+	
+	if(this_widget == other_widget)
+		return false;
+	
+	std::ptrdiff_t
+		this_widget_address = this_widget - static_cast<PtWidget_t*>(nullptr),
+		other_widget_address = other_widget - static_cast<PtWidget_t*>(nullptr);
+	
+	return std::less<std::ptrdiff_t>()(this_widget_address, other_widget_address);
 }
 
 bool Widget::operator<=(const Widget &other) const
 {
 	if(&other == this)
 		return true;
+
+	const PtWidget_t 
+		*this_widget = widget(),
+		*other_widget = other.widget();
 	
-	return std::less_equal<PtWidget_t*>()(widget(), other.widget());
+	if(this_widget == other_widget)
+		return true;
+	
+	std::ptrdiff_t
+		this_widget_address = this_widget - static_cast<PtWidget_t*>(nullptr),
+		other_widget_address = other_widget - static_cast<PtWidget_t*>(nullptr);
+	
+	return std::less_equal<std::ptrdiff_t>()(this_widget_address, other_widget_address);
 }
 
 bool Widget::operator>(const Widget &other) const
 {
 	if(&other == this)
 		return false;
+
+	const PtWidget_t 
+		*this_widget = widget(),
+		*other_widget = other.widget();
 	
-	return std::greater<PtWidget_t*>()(widget(), other.widget());
+	if(this_widget == other_widget)
+		return false;
+	
+	std::ptrdiff_t
+		this_widget_address = this_widget - static_cast<PtWidget_t*>(nullptr),
+		other_widget_address = other_widget - static_cast<PtWidget_t*>(nullptr);
+
+	return std::greater<std::ptrdiff_t>()(this_widget_address, other_widget_address);
 }
 
 bool Widget::operator>=(const Widget &other) const
 {
 	if(&other == this)
 		return true;
+
+	const PtWidget_t 
+		*this_widget = widget(),
+		*other_widget = other.widget();
 	
-	return std::greater_equal<PtWidget_t*>()(widget(), other.widget());
+	if(this_widget == other_widget)
+		return true;
+	
+	std::ptrdiff_t
+		this_widget_address = this_widget - static_cast<PtWidget_t*>(nullptr),
+		other_widget_address = other_widget - static_cast<PtWidget_t*>(nullptr);
+	
+	return std::greater_equal<std::ptrdiff_t>()(this_widget_address, other_widget_address);
 }
 
 PtWidget_t* Widget::get() const
