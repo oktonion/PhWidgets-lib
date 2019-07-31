@@ -1,4 +1,4 @@
-#include "./microGUI/phwidgets_init.cpp"
+#include "./microGUI/1phwidgets_init.cpp"
 
 #include "./microGUI/testsuit.h"
 
@@ -11,7 +11,7 @@
 #include "./microGUI/font_collection.cpp"
 #include "./microGUI/font_def.cpp"
 #include "./microGUI/font_family.cpp"
-#include "./microGUI/phwidgets_init.cpp"
+#include "./microGUI/1phwidgets_init.cpp"
 #include "./microGUI/prop_allowdrop.cpp"
 #include "./microGUI/prop_anchor.cpp"
 #include "./microGUI/prop_basic_size.cpp"
@@ -24,4 +24,5 @@
 #include "./microGUI/prop_cursor.cpp"
 #include "./microGUI/prop_enabled.cpp"
 #include "./microGUI/prop_focused.cpp"
+#include "./microGUI/prop_image.cpp"
 #include "./microGUI/swap_idiom.cpp"

@@ -1,4 +1,4 @@
-#include "./phwidgets_init.cpp"
+#include "./1phwidgets_init.cpp"
 
 #include "./testsuit.h"
 
@@ -14,5 +14,5 @@ TEST_CASE("Testing Label::Image property") {
 
     Label label(PhWidgetsGetWidget<&PtLabel>());
 
-    label.Image = Image::LoadFromFile("resources/img.bmp");
+    label.Image = Image::FromFile("resources/img.bmp");
 }
