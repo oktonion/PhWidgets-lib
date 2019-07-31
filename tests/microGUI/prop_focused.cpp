@@ -3,7 +3,7 @@
 #include "./testsuit.h"
 
 #include <Widget.h>
-#include <photon/PtWindow.h>
+#include <Window.h>
 
 
 TEST_CASE("Testing Widget::Focused property"){
@@ -13,13 +13,13 @@ TEST_CASE("Testing Widget::Focused property"){
     SUBCASE("Window Focused test"){
         REQUIRE(PhWidgetsGetWidget<&PtWindow>());
 
-        Widget widget(PhWidgetsGetWidget<&PtWindow>());
+        Window window(PhWidgetsGetWidget<&PtWindow>());
 
-        REQUIRE(widget.CanFocus);
+        REQUIRE(window.CanFocus);
         
-        CHECK(widget.Focused == false);
-        CHECK(widget.Focus() == true);
-        CHECK_EQ(true, widget.Focused);
+        CHECK(window.Focused == false);
+        CHECK(window.Focus() == true);
+        CHECK_EQ(true, window.Focused);
     }
 
     SUBCASE("Button Focused test"){
