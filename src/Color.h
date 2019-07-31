@@ -173,21 +173,7 @@ namespace PhWidgets
             //! @}
         };
 
-        template<bool>
-        struct ColorImpl;
-        typedef ColorImpl<((1&0xFF) == 1)> ColorBase;
-        
-        template<>
-        struct ColorImpl<false>
-        {
-            PgColor_t A : 8;
-            PgColor_t R : 8;
-            PgColor_t G : 8;
-            PgColor_t B : 8;
-        };
-
-        template<>
-        struct ColorImpl<true>
+        struct ColorBase
         {
             PgColor_t B : 8;
             PgColor_t G : 8;
