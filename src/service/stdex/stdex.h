@@ -1,3 +1,5 @@
+#pragma GCC system_header
+
 #include "./include/core.h"
 //#include "./include/ratio.hpp"
 #include "./include/string.hpp"
