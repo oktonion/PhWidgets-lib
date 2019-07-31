@@ -15,11 +15,15 @@ TEST_CASE("Testing Widget::Focused property"){
 
         Window window(PhWidgetsGetWidget<&PtWindow>());
 
+        window.Enabled = true;
+        window.resource.argument[Window::Arguments::flags].set(Widget::Flags::GetsFocus, true);
+
+        REQUIRE(window.Enabled);
         REQUIRE(window.CanFocus);
         
         CHECK(window.Focused == false);
         CHECK(window.Focus() == true);
-        CHECK_EQ(true, window.Focused);
+        CHECK(window.Focused == true);
     }
 
     SUBCASE("Button Focused test"){
@@ -27,6 +31,9 @@ TEST_CASE("Testing Widget::Focused property"){
         
         Button button(PhWidgetsGetWidget<&PtButton>());
 
+        button.Enabled = true;
+
+        REQUIRE(button.Enabled);
         REQUIRE(button.CanFocus);
         
         CHECK(button.Focused == false);
