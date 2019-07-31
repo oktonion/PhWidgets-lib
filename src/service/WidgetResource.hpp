@@ -10,8 +10,6 @@
 
 #include <cstddef> // std::size_t
 
-struct PtImage_t;
-
 namespace PhWidgets
 {
 	struct WidgetResourceGroupType
@@ -193,7 +191,7 @@ namespace PhWidgets
 			// The fourth argument is 0.
 			// The widget copies the image structure (but not any memory pointed to by the PhImage_t members) into its internal memory when you call PtSetResources(). 
 			inline 
-			int setImage(const PtImage_t &image)
+			int setImage(const PhImage_t &image)
 			{
 				return setAlloc(&image, 0);
 			}

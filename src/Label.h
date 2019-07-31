@@ -7,6 +7,7 @@
 
 #include "./Basic.h"
 #include "./Font.h"
+#include "./Image.h"
 
 
 namespace PhWidgets
@@ -459,6 +460,9 @@ namespace PhWidgets
 
 		resource_type WidgetResourcesSingleton;
 
+		Drawing::Image getImage() const;
+		void setImage(Drawing::Image);
+
 		std::string getText() const;
 		void setText(std::string);
 
@@ -517,10 +521,23 @@ namespace PhWidgets
 			@param[in] other another Label widget to use as data source.
 		*/
 		Label &operator=(const Label &other);
-		
+
 		//! @name Properties
 		//! Properties are used to simplify use of widget resources.
 		//@{
+
+		//! Gets or sets the Image associated with this widget.
+		/*!
+			### Property Value ### 
+			
+			> Drawing::Image
+
+			The Drawing::Image associated with this widget.
+			
+			@see
+			- Type
+		*/
+		property<Drawing::Image>::bind<Label, &Label::getImage, &Label::setImage> Image;
 
 		//! Gets or sets the text associated with this widget.
 		/*!

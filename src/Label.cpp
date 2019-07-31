@@ -26,6 +26,8 @@ CHECK_WIDGET(Label);
 Label::Label(int abn):
 	Basic(abn),
 	resource(this),
+	//properties:
+	Image(this),
 	Text(this),
 	Font(this),
 	BalloonColor(this),
@@ -44,6 +46,8 @@ Label::Label(int abn):
 Label::Label(PtWidget_t *wdg):
 	Basic(wdg),
 	resource(this),
+	//properties:
+	Image(this),
 	Text(this),
 	Font(this),
 	BalloonColor(this),
@@ -62,6 +66,8 @@ Label::Label(PtWidget_t *wdg):
 Label::Label(const Label &other):
 	Basic(other),
 	resource(this),
+	//properties:
+	Image(this),
 	Text(this),
 	Font(this),
 	BalloonColor(this),
@@ -82,6 +88,17 @@ Label &Label::operator=(const Label &other)
 	static_cast<Basic&>(*this) = static_cast<const Basic&>(other);
 	
 	return *this;
+}
+
+Drawing::Image Label::getImage() const
+{
+	return resource.argument[Arguments::label_image].get();
+}
+
+void Label::setImage(Drawing::Image image)
+{
+	PhImage_t result = image;
+	resource.argument[Arguments::label_image].set(result);
 }
 
 std::string Label::getText() const
