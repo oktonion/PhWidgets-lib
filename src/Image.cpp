@@ -10,10 +10,10 @@ using namespace PhWidgets;
 using namespace PhWidgets::Drawing;
 
 Image::Image(const PhImage_t &image):
-    _image(nullptr),
     Size(image.size),
     Width(Size.w),
-    Height(Size.h)
+    Height(Size.h),
+    _image(nullptr)
 { 
     PhImage_t tmp = image;
     _image = PiDuplicateImage(&tmp, Pi_SHMEM);
@@ -27,16 +27,15 @@ struct Image::ImageInfo
 Image::Image(const ImageInfo &image_info):
     Size(image_info.image->size),
     Width(Size.w),
-    Height(Size.h)
-{
-
-}
+    Height(Size.h),
+    _image(image_info.image)
+{ }
 
 Image::Image(const Image &other):
-    _image(other._image),
     Size(other.Size),
     Width(other.Width),
-    Height(other.Height)
+    Height(other.Height),
+    _image(other._image)
 { }
 
 Image Image::FromFile(std::string filename)
