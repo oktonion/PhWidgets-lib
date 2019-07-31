@@ -6,7 +6,7 @@
 
 TEST_CASE("Testing FontCollections classes"){
 
-    using namespace PhWidgets;
+    using PhWidgets::Drawing::InstalledFontCollection;
     
     InstalledFontCollection ifc;
 

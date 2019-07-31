@@ -7,7 +7,7 @@
 
 TEST_CASE("Testing Font class"){
 
-    using namespace PhWidgets;
+    using namespace PhWidgets::Drawing;
     
     CHECK_THROWS(Font fd(0)); // should throw std::invalid_argument
 

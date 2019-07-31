@@ -10,7 +10,7 @@
 
 TEST_CASE("Testing FontFamily class"){
 
-    using namespace PhWidgets;
+    using namespace PhWidgets::Drawing;
     
     REQUIRE(FontCollection::Families().size() != 0);
 

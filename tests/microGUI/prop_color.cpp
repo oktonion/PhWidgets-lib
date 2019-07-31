@@ -14,8 +14,8 @@ TEST_CASE("Testing Basic::Color property"){
     
     Basic widget(PhWidgetsGetWidget<&PtButton>());
 
-    widget.Color = Colors::Blue;
+    widget.Color = Drawing::Colors::Blue;
     
-    CHECK(widget.Color == Colors::Blue);
-    CHECK(Colors::Blue == widget.Color);
+    CHECK(widget.Color == Drawing::Colors::Blue);
+    CHECK(Drawing::Colors::Blue == widget.Color);
 }
