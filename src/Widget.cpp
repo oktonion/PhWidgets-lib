@@ -9,7 +9,6 @@
 #include "Widget.h"
 
 #include "./service/PhWidgetsFunc.h"
-#include "./service/PhWidgetsTypes.h"
 
 
 #include <iostream>

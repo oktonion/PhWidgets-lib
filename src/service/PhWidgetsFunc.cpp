@@ -1,5 +1,4 @@
 #include "PhWidgetsFunc.h"
-#include "PhWidgetsTypes.h"
 
 #include <Pt.h>
 extern PtWidgetClassRef_t *PtOSContainer;
