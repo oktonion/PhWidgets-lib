@@ -10,6 +10,8 @@
 
 #include <cstddef> // std::size_t
 
+struct PtImage_t;
+
 namespace PhWidgets
 {
 	struct WidgetResourceGroupType
