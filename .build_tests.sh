@@ -29,7 +29,7 @@ for file in ./tests/$testgroup/*.cpp; do
   filename=$(basename -- "$file")
   filename="${filename%.*}"
   echo "compiling test c++03 $filename"
-  if ! $COMPILER -Vgcc_ntox86 -lang-c++ $coption -pedantic $exclude_warn $file -I./slib/PhWidgets/include/ -L./slib/PhWidgets/ -lAp -lph -lm -lphwidgets -o "./tests/bin/$filename"; then
+  if ! $COMPILER -Vgcc_ntox86 -lang-c++ $coption -pedantic $exclude_warn $file -I./slib/PhWidgets/include/ -L./slib/PhWidgets/ -lAp -lph -lm -lphexlib -lphwidgets -o "./tests/bin/$filename"; then
     build_ok=0
   fi
 done
