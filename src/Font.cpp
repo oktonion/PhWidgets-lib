@@ -388,19 +388,22 @@ Font::operator const font_id_type() const
 
 namespace PhWidgets
 {
-    bool operator==(const GenericFontFamilies::eGenericFontFamilies &lhs, const FontFamily &rhs)
+    namespace Drawing
     {
-        return rhs == lhs;
-    }
+        bool operator==(const GenericFontFamilies::eGenericFontFamilies &lhs, const FontFamily &rhs)
+        {
+            return rhs == lhs;
+        }
 
-    bool operator!=(const GenericFontFamilies::eGenericFontFamilies &lhs, const FontFamily &rhs)
-    {
-        return rhs != lhs;
-    }
+        bool operator!=(const GenericFontFamilies::eGenericFontFamilies &lhs, const FontFamily &rhs)
+        {
+            return rhs != lhs;
+        }
 
-    bool operator<(const GenericFontFamilies::eGenericFontFamilies &lhs, const FontFamily &rhs)
-    {
-        return FontFamily(lhs) < rhs;
+        bool operator<(const GenericFontFamilies::eGenericFontFamilies &lhs, const FontFamily &rhs)
+        {
+            return FontFamily(lhs) < rhs;
+        }
     }
 }
 
