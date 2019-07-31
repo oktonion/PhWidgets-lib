@@ -447,6 +447,7 @@ namespace PhWidgets
             operator PgColor_t () const;
         };
 
+        // == operators
         inline
         bool operator==(const PgColor_t &pg_color, Colors::eColors ph_color)
         {
@@ -466,53 +467,81 @@ namespace PhWidgets
         }
 
         inline
-        bool operator!=(const PgColor_t &pg_color, Colors::eColors ph_color)
-        {
-            return !(pg_color == ph_color);
-        }
-
-        inline
-        bool operator<(const PgColor_t &pg_color, Colors::eColors ph_color)
-        {
-            if (pg_color == ph_color)
-                return false;
-            return pg_color < static_cast<PgColor_t>(ph_color);
-        }
-
-        inline
-        bool operator<=(const PgColor_t &pg_color, Colors::eColors ph_color)
-        {
-            if (pg_color == ph_color)
-                return true;
-            return pg_color < static_cast<PgColor_t>(ph_color);
-        }
-
-        inline
-        bool operator>(const PgColor_t &pg_color, Colors::eColors ph_color)
-        {
-            if (pg_color == ph_color)
-                return false;
-            return pg_color > static_cast<PgColor_t>(ph_color);
-        }
-
-        inline
-        bool operator>=(const PgColor_t &pg_color, Colors::eColors ph_color)
-        {
-            if (pg_color == ph_color)
-                return true;
-            return pg_color > static_cast<PgColor_t>(ph_color);
-        }
-
-        inline
         bool operator==(Colors::eColors ph_color, const PgColor_t &pg_color)
         {
             return (pg_color == ph_color);
         }
 
         inline
+        bool operator==(const PgColor_t &pg_color, const Color &ph_color)
+        {
+            return (pg_color == static_cast<PgColor_t>(ph_color));
+        }
+
+        inline
+        bool operator==(const Color &ph_color, const PgColor_t &pg_color)
+        {
+            return (pg_color == ph_color);  
+        }
+
+        inline
+        bool operator==(const Color &ph_color, Colors::eColors ph_ecolor)
+        {
+            PgColor_t pg_color = ph_color;
+            return (pg_color == ph_ecolor);  
+        }
+
+        inline
+        bool operator==(Colors::eColors ph_ecolor, const Color &ph_color)
+        {
+            PgColor_t pg_color = ph_color;
+            return (pg_color == ph_ecolor);   
+        }
+
+        // != operators
+        inline
+        bool operator!=(const PgColor_t &pg_color, Colors::eColors ph_color)
+        {
+            return !(pg_color == ph_color);
+        }
+
+        inline
         bool operator!=(Colors::eColors ph_color, const PgColor_t &pg_color)
         {
             return !(ph_color == pg_color);
+        }
+
+        inline
+        bool operator!=(const PgColor_t &pg_color, const Color &ph_color)
+        {
+            return !(pg_color == ph_color);
+        }
+
+        inline
+        bool operator!=(const Color &ph_color, const PgColor_t &pg_color)
+        {
+            return !(pg_color == ph_color);
+        }
+
+        inline
+        bool operator!=(const Color &ph_color, Colors::eColors ph_ecolor)
+        {
+            return !(ph_color == ph_ecolor);  
+        }
+
+        inline
+        bool operator!=(Colors::eColors ph_ecolor, const Color &ph_color)
+        {
+            return !(ph_color == ph_ecolor);   
+        }
+
+        // < operators
+        inline
+        bool operator<(const PgColor_t &pg_color, Colors::eColors ph_color)
+        {
+            if (pg_color == ph_color)
+                return false;
+            return pg_color < static_cast<PgColor_t>(ph_color);
         }
 
         inline
@@ -524,83 +553,11 @@ namespace PhWidgets
         }
 
         inline
-        bool operator<=(Colors::eColors ph_color, const PgColor_t &pg_color)
-        {
-            if (pg_color == ph_color)
-                return true;
-            return static_cast<PgColor_t>(ph_color) < pg_color;
-        }
-
-        inline
-        bool operator>(Colors::eColors ph_color, const PgColor_t &pg_color)
-        {
-            if (pg_color == ph_color)
-                return false;
-            return static_cast<PgColor_t>(ph_color) > pg_color;
-        }
-
-        inline
-        bool operator>=(Colors::eColors ph_color, const PgColor_t &pg_color)
-        {
-            if (pg_color == ph_color)
-                return true;
-            return static_cast<PgColor_t>(ph_color) > pg_color;
-        }
-
-        inline
-        bool operator==(const PgColor_t &pg_color, const Color &ph_color)
-        {
-            return (pg_color == static_cast<PgColor_t>(ph_color));
-        }
-
-        inline
-        bool operator!=(const PgColor_t &pg_color, const Color &ph_color)
-        {
-            return !(pg_color == ph_color);
-        }
-
-        inline
         bool operator<(const PgColor_t &pg_color, const Color &ph_color)
         {
             if (pg_color == ph_color)
                 return false;
             return pg_color < static_cast<PgColor_t>(ph_color);
-        }
-
-        inline
-        bool operator<=(const PgColor_t &pg_color, const Color &ph_color)
-        {
-            if (pg_color == ph_color)
-                return true;
-            return pg_color < static_cast<PgColor_t>(ph_color);
-        }
-
-        inline
-        bool operator>(const PgColor_t &pg_color, const Color &ph_color)
-        {
-            if (pg_color == ph_color)
-                return false;
-            return pg_color > static_cast<PgColor_t>(ph_color);
-        }
-
-        inline
-        bool operator>=(const PgColor_t &pg_color, const Color &ph_color)
-        {
-            if (pg_color == ph_color)
-                return true;
-            return pg_color > static_cast<PgColor_t>(ph_color);
-        }
-
-        inline
-        bool operator==(const Color &ph_color, const PgColor_t &pg_color)
-        {
-            return (pg_color == ph_color);  
-        }
-
-        inline
-        bool operator!=(const Color &ph_color, const PgColor_t &pg_color)
-        {
-            return !(pg_color == ph_color);
         }
 
         inline
@@ -612,11 +569,93 @@ namespace PhWidgets
         }
 
         inline
+        bool operator<(const Color &ph_color, Colors::eColors ph_ecolor)
+        {
+            if (ph_color == ph_ecolor)
+                return false;
+            return static_cast<PgColor_t>(ph_color) < ph_ecolor; 
+        }
+
+        inline
+        bool operator<(Colors::eColors ph_ecolor, const Color &ph_color)
+        {
+            if (ph_color == ph_ecolor)
+                return false;
+            return ph_ecolor < static_cast<PgColor_t>(ph_color); 
+        }
+
+        // <= operators
+        inline
+        bool operator<=(const PgColor_t &pg_color, Colors::eColors ph_color)
+        {
+            if (pg_color == ph_color)
+                return true;
+            return pg_color < static_cast<PgColor_t>(ph_color);
+        }
+
+        inline
+        bool operator<=(Colors::eColors ph_color, const PgColor_t &pg_color)
+        {
+            if (pg_color == ph_color)
+                return true;
+            return static_cast<PgColor_t>(ph_color) < pg_color;
+        }
+
+        inline
+        bool operator<=(const PgColor_t &pg_color, const Color &ph_color)
+        {
+            if (pg_color == ph_color)
+                return true;
+            return pg_color < static_cast<PgColor_t>(ph_color);
+        }
+
+        inline
         bool operator<=(const Color &ph_color, const PgColor_t &pg_color)
         {
             if (pg_color == ph_color)
                 return true;
             return static_cast<PgColor_t>(ph_color) < pg_color;
+        }
+
+        inline
+        bool operator<=(const Color &ph_color, Colors::eColors ph_ecolor)
+        {
+            if (ph_color == ph_ecolor)
+                return true;
+            return static_cast<PgColor_t>(ph_color) < ph_ecolor; 
+        }
+
+        inline
+        bool operator<=(Colors::eColors ph_ecolor, const Color &ph_color)
+        {
+            if (ph_color == ph_ecolor)
+                return true;
+            return ph_ecolor < static_cast<PgColor_t>(ph_color); 
+        }
+
+        // > operators
+        inline
+        bool operator>(const PgColor_t &pg_color, Colors::eColors ph_color)
+        {
+            if (pg_color == ph_color)
+                return false;
+            return pg_color > static_cast<PgColor_t>(ph_color);
+        }
+
+        inline
+        bool operator>(Colors::eColors ph_color, const PgColor_t &pg_color)
+        {
+            if (pg_color == ph_color)
+                return false;
+            return static_cast<PgColor_t>(ph_color) > pg_color;
+        }
+
+        inline
+        bool operator>(const PgColor_t &pg_color, const Color &ph_color)
+        {
+            if (pg_color == ph_color)
+                return false;
+            return pg_color > static_cast<PgColor_t>(ph_color);
         }
 
         inline
@@ -628,11 +667,68 @@ namespace PhWidgets
         }
 
         inline
+        bool operator>(const Color &ph_color, Colors::eColors ph_ecolor)
+        {
+            if (ph_color == ph_ecolor)
+                return false;
+            return static_cast<PgColor_t>(ph_color) > ph_ecolor; 
+        }
+
+        inline
+        bool operator>(Colors::eColors ph_ecolor, const Color &ph_color)
+        {
+            if (ph_color == ph_ecolor)
+                return false;
+            return ph_ecolor > static_cast<PgColor_t>(ph_color); 
+        }
+
+        // >= operators
+        inline
+        bool operator>=(const PgColor_t &pg_color, Colors::eColors ph_color)
+        {
+            if (pg_color == ph_color)
+                return true;
+            return pg_color > static_cast<PgColor_t>(ph_color);
+        }
+
+        inline
+        bool operator>=(Colors::eColors ph_color, const PgColor_t &pg_color)
+        {
+            if (pg_color == ph_color)
+                return true;
+            return static_cast<PgColor_t>(ph_color) > pg_color;
+        }
+
+        inline
+        bool operator>=(const PgColor_t &pg_color, const Color &ph_color)
+        {
+            if (pg_color == ph_color)
+                return true;
+            return pg_color > static_cast<PgColor_t>(ph_color);
+        }
+
+        inline
         bool operator>=(const Color &ph_color, const PgColor_t &pg_color)
         {
             if (pg_color == ph_color)
                 return true;
             return static_cast<PgColor_t>(ph_color) > pg_color;
+        }
+
+        inline
+        bool operator>=(const Color &ph_color, Colors::eColors ph_ecolor)
+        {
+            if (ph_color == ph_ecolor)
+                return true;
+            return static_cast<PgColor_t>(ph_color) > ph_ecolor; 
+        }
+
+        inline
+        bool operator>=(Colors::eColors ph_ecolor, const Color &ph_color)
+        {
+            if (ph_color == ph_ecolor)
+                return true;
+            return ph_ecolor > static_cast<PgColor_t>(ph_color); 
         }
     } // namespace Drawing
 } // namespace PhWidgets

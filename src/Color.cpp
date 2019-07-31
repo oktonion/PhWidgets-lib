@@ -43,7 +43,11 @@ namespace PhWidgets
 
         static const ColorBase MakeColorBase(const PgColor_t &argb)
         {
-            const ColorBase result = {PgAlphaValue(argb), PgRedValue(argb), PgGreenValue(argb), PgBlueValue(argb)};
+            ColorBase result;
+            result.A = PgAlphaValue(argb);
+            result.R = PgRedValue(argb);
+            result.G = PgGreenValue(argb);
+            result.B = PgBlueValue(argb);
             return result;
         }
 
