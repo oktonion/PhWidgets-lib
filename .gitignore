@@ -97,3 +97,6 @@ PhWidgets-cppcheck-build-dir/*
 
 # tests binaries
 /tests/bin/*
+
+# fuse
+*.fuse_*
