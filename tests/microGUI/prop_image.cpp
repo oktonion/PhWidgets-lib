@@ -14,5 +14,11 @@ TEST_CASE("Testing Label::Image property") {
 
     Label label(PhWidgetsGetWidget<&PtLabel>());
 
-    label.Image = Image::FromFile("resources/img.bmp");
+    MESSAGE("Trying to load beautiful Lenna into PhWidgets::Drawing::Image");
+    Image lenna = Image::FromFile("./../service/resources/lenna1.bmp");
+
+    CHECK_NOTHROW(label.Image = lenna);
+
+    CHECK(label.Image().Width == 512);
+    CHECK(512 == label.Image().Height);
 }
