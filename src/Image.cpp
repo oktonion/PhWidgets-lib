@@ -99,7 +99,7 @@ Image Image::FromFile(std::string filename)
             msg = stdex::generic_category().message(errno);
         }
 
-        throw(std::ios_base::failure(std::string("PhWidgets::Drawing::Image::FromFile(") + filename + ")" + msg));
+        throw(std::ios_base::failure(std::string("PhWidgets::Drawing::Image::FromFile(") + filename + ") " + msg));
     }
 
     image_info.image->flags |= Ph_RELEASE_IMAGE_ALL;
