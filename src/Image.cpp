@@ -17,8 +17,11 @@ Image::Image(const PhImage_t &image):
     Height(Size.h),
     _image(nullptr)
 { 
-    PhImage_t tmp = image;
-    _image = PiDuplicateImage(&tmp, Pi_SHMEM);
+    if(image.image != nullptr)
+    {
+        PhImage_t tmp = image;
+        _image = PiDuplicateImage(&tmp, Pi_SHMEM);
+    }
 }
 
 struct Image::ImageInfo
@@ -99,7 +102,7 @@ Image Image::FromFile(std::string filename)
             msg = stdex::generic_category().message(errno);
         }
 
-        throw(std::ios_base::failure(std::string("PhWidgets::Drawing::Image::FromFile(") + filename + ") " + msg));
+        throw(std::ios_base::failure(std::string("PhWidgets::Drawing::Image::FromFile(") + filename + "): " + msg));
     }
 
     image_info.image->flags |= Ph_RELEASE_IMAGE_ALL;
@@ -108,7 +111,10 @@ Image Image::FromFile(std::string filename)
 }
 
 
-Image::operator PhImage_t () const
+Image::operator PhImage_t* () const
 {
-    return (*PiDuplicateImage(_image, Pi_SHMEM));
+    if(nullptr != _image)
+        return _image;//(PiDuplicateImage(_image, Pi_SHMEM));
+    else
+        return nullptr;
 }

@@ -92,12 +92,23 @@ Label &Label::operator=(const Label &other)
 
 Drawing::Image Label::getImage() const
 {
-	return resource.argument[Arguments::label_image].get();
+	PhImage_t *result = resource.argument[Arguments::label_image].get();
+
+	if(nullptr != result)
+		return Drawing::Image(*result);
+	else
+	{
+		PhImage_t empty;
+		empty.image = nullptr;
+		empty.size.w = 0;
+		empty.size.h = 0;
+		return Drawing::Image(empty);
+	}
 }
 
 void Label::setImage(Drawing::Image image)
 {
-	PhImage_t result = image;
+	PhImage_t *result = image;
 	resource.argument[Arguments::label_image].set(result);
 }
 
