@@ -1,6 +1,7 @@
 #include "Label.h"
 
 #include <stdexcept>
+#include <cassert>
 
 using namespace PhWidgets;
 
@@ -109,6 +110,7 @@ Drawing::Image Label::getImage() const
 void Label::setImage(Drawing::Image image)
 {
 	PhImage_t *result = image;
+	assert(result != nullptr);
 	resource.argument[Arguments::label_image].set(result);
 }
 
