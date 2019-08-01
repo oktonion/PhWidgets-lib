@@ -71,6 +71,7 @@ if [ $compilefail == 0 ]; then
 	mkdir -p "$outlocation"
 	mkdir -p "$outlocation/$libname"
 
+	ar -x ./src/service/stdex/lib/libstdex.a
 
 	if(ar rsc "$outlocation/$libname/$binname" *.o)
 	then
