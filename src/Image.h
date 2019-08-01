@@ -291,11 +291,11 @@ namespace PhWidgets
             */
             static Image FromFile(std::string filename);
 
-            //! Converts to the `PhImage_t` struct.
+            //! Converts to the pointer to `PhImage_t` struct.
             /*!
-                @return The `PhImage_t` struct with copy of the Image.
+                @return The pointer to `PhImage_t` struct with the Image or nullptr.
             */
-            operator PhImage_t () const;
+            operator PhImage_t* () const;
 
         private:
             PhImage_t *_image;

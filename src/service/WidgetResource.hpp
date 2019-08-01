@@ -191,9 +191,9 @@ namespace PhWidgets
 			// The fourth argument is 0.
 			// The widget copies the image structure (but not any memory pointed to by the PhImage_t members) into its internal memory when you call PtSetResources(). 
 			inline 
-			int setImage(const PhImage_t &image)
+			int setImage(const PhImage_t *pimage)
 			{
-				return setAlloc(&image, 0);
+				return setAlloc(pimage, 0);
 			}
 
 			// When setting an array value, the third argument to PtSetArg() is the address of the array. 
@@ -737,7 +737,7 @@ namespace PhWidgets
 			typedef
 			typename stdex::conditional< 
 				stdex::is_void<ResourceT>::value,
-				PhImage_t,
+				PhImage_t*,
 				ResourceT
 			>::type resource_type;
 
@@ -749,15 +749,15 @@ namespace PhWidgets
 			{}
 
 			inline 
-			int set(resource_type &image)
+			int set(const resource_type pimage)
 			{
-				return setImage(image);
+				return setImage(pimage);
 			}
 
 			inline 
-			const resource_type& get() const
+			const resource_type get() const
 			{
-				return *WidgetResourceBase<ArgT>::template getStruct<resource_type>();
+				return WidgetResourceBase<ArgT>::template getAlloc<resource_type>();
 			}
 		};
 
