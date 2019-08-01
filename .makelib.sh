@@ -89,7 +89,17 @@ if [ $compilefail == 0 ]; then
 				
 				hcount=$((hcount+1));
 			done
-			
+
+			for i in $(find ./src/ -type f ! -name "*.*"); do
+				hdir=$(dirname $i);
+				hdir=$(echo $hdir | sed -e "s/.\/src/.\/slib\/$libname\/include/g");
+				
+				mkdir -p  $hdir;
+				cp -f $i $hdir;
+				
+				hcount=$((hcount+1));
+			done
+
 			cp "./etc/AbWidgetsWrap.cpp" "$outlocation/"
 			cp "./etc/.linklib.sh" "$outlocation/$libname/"
 			chmod a+rwx "$outlocation/$libname/.linklib.sh"
