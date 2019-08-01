@@ -6,6 +6,7 @@
 
 #include <ios>
 #include <map>
+#include <cstring>
 
 using namespace PhWidgets;
 using namespace PhWidgets::Drawing;
@@ -47,7 +48,7 @@ namespace
     stdex::mutex warning_messages_mtx;
     std::map<stdex::thread::id, std::string> warning_messages;
 
-    static void *warning( char *msg )
+    static void *px_warning( char *msg )
     {
         stdex::unique_lock<stdex::mutex> lock(warning_messages_mtx);
         warning_messages[stdex::this_thread::get_id()] = msg;
@@ -55,7 +56,7 @@ namespace
         return NULL;
     }
 
-    static void *error( char *msg )
+    static void *px_error( char *msg )
     {
         stdex::unique_lock<stdex::mutex> lock(error_messages_mtx);
         error_messages[stdex::this_thread::get_id()] = msg;
@@ -63,7 +64,7 @@ namespace
         return NULL;
     }
 
-    static void *progress( int percent )
+    static void *px_progress( int percent )
     {
         return NULL;
     }
@@ -79,9 +80,9 @@ Image Image::FromFile(std::string filename)
     std::memset( &methods, 0, sizeof( PxMethods_t ) );
     methods.flags = PX_LOAD;
 
-    methods.px_warning  = warning;
-    methods.px_error    = error;
-    methods.px_progress = progress;
+    methods.px_warning  = px_warning;
+    methods.px_error    = px_error;
+    methods.px_progress = px_progress;
 
     image_info.image = PxLoadImage(filename.c_str(), &methods);
 
@@ -98,7 +99,7 @@ Image Image::FromFile(std::string filename)
             msg = stdex::generic_category().message(errno);
         }
 
-        throw(std::ios_base::failure(std::string("PhWidgets::Image: ") + msg));
+        throw(std::ios_base::failure(std::string("PhWidgets::Drawing::Image::FromFile(") + filename + ")" + msg));
     }
 
     image_info.image->flags |= Ph_RELEASE_IMAGE_ALL;
