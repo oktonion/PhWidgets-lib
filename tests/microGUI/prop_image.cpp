@@ -14,6 +14,8 @@ TEST_CASE("Testing Label::Image property") {
 
     Label label(PhWidgetsGetWidget<&PtLabel>());
 
+    CHECK_THROWS(Image::FromFile("there/is/no/such/file.porn"));
+
     MESSAGE("Trying to load beautiful Lenna into PhWidgets::Drawing::Image");
 
     SUBCASE("BMP image test"){
