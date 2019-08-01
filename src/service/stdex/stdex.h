@@ -7,6 +7,7 @@
 #include "./include/type_traits.hpp"
 //#include "./include/condition_variable.hpp"
 #include "./include/type_zero.hpp"
+#include "./include/thread.hpp"
 
 namespace std
 {
