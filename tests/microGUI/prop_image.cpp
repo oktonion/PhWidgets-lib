@@ -3,7 +3,7 @@
 #include "./testsuit.h"
 
 #include <Label.h>
-#include <photon/PtWindow.h>
+#include <photon/PxImage.h>
 
 
 TEST_CASE("Testing Label::Image property") {
@@ -14,9 +14,9 @@ TEST_CASE("Testing Label::Image property") {
 
     Label label(PhWidgetsGetWidget<&PtLabel>());
 
-    label.Type = LabelType::Image;
+    //label.Type = LabelType::Image;
 
-    REQUIRE(label.Type == LabelType::Image);
+    //REQUIRE(label.Type == LabelType::Image);
 
     CHECK_THROWS(Image::FromFile("there/is/no/such/file.porn"));
 
