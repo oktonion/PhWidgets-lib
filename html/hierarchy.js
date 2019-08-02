@@ -88,6 +88,9 @@ var hierarchy =
         [ "PhWidgets::Window::Arguments", "struct_ph_widgets_1_1_window_1_1_arguments.html", null ]
       ] ]
     ] ],
+    [ "PhWidgets::Text::ArgComplex", "struct_ph_widgets_1_1_text_1_1_arg_complex.html", [
+      [ "PhWidgets::Text::Arguments", "struct_ph_widgets_1_1_text_1_1_arguments.html", null ]
+    ] ],
     [ "PhWidgets::Widget::ThisArgs::ArgDim", "struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_dim.html", [
       [ "PhWidgets::Widget::ArgDim", "struct_ph_widgets_1_1_widget_1_1_arg_dim.html", [
         [ "PhWidgets::Widget::Arguments", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
@@ -237,6 +240,9 @@ var hierarchy =
         [ "PhWidgets::Container::Arguments", "struct_ph_widgets_1_1_container_1_1_arguments.html", null ]
       ] ]
     ] ],
+    [ "PhWidgets::Timer::ArgPVoid", "struct_ph_widgets_1_1_timer_1_1_arg_p_void.html", [
+      [ "PhWidgets::Timer::Arguments", "struct_ph_widgets_1_1_timer_1_1_arguments.html", null ]
+    ] ],
     [ "PhWidgets::Widget::ThisArgs::ArgPVoid", "struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_p_void.html", [
       [ "PhWidgets::Widget::ArgPVoid", "struct_ph_widgets_1_1_widget_1_1_arg_p_void.html", [
         [ "PhWidgets::Widget::Arguments", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
@@ -334,6 +340,9 @@ var hierarchy =
     ] ],
     [ "PhWidgets::BalloonPosition", "struct_ph_widgets_1_1_balloon_position.html", null ],
     [ "PhWidgets::Basic::ThisFlags::Basic", "struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic.html", null ],
+    [ "PhWidgets::Drawing::BitmapImageType", "struct_ph_widgets_1_1_drawing_1_1_bitmap_image_type.html", [
+      [ "PhWidgets::Drawing::ImageType", "struct_ph_widgets_1_1_drawing_1_1_image_type.html", null ]
+    ] ],
     [ "PhWidgets::Basic::ThisCallbacks::Callback", "struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html", [
       [ "PhWidgets::Basic::Callback", "struct_ph_widgets_1_1_basic_1_1_callback.html", [
         [ "PhWidgets::Basic::Callbacks", "struct_ph_widgets_1_1_basic_1_1_callbacks.html", [
@@ -401,6 +410,9 @@ var hierarchy =
     [ "PhWidgets::Cursor", "class_ph_widgets_1_1_cursor.html", null ],
     [ "PhWidgets::Widget::ThisFlags::Cursor", "struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_cursor.html", null ],
     [ "PhWidgets::Cursors", "struct_ph_widgets_1_1_cursors.html", null ],
+    [ "PhWidgets::Drawing::DirectImageType", "struct_ph_widgets_1_1_drawing_1_1_direct_image_type.html", [
+      [ "PhWidgets::Drawing::ImageType", "struct_ph_widgets_1_1_drawing_1_1_image_type.html", null ]
+    ] ],
     [ "PhWidgets::Widget::ThisFlags::Extended", "struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_extended.html", null ],
     [ "PhWidgets::Drawing::Font", "class_ph_widgets_1_1_drawing_1_1_font.html", null ],
     [ "PhWidgets::Drawing::FontCollection", "class_ph_widgets_1_1_drawing_1_1_font_collection.html", [
@@ -409,18 +421,26 @@ var hierarchy =
     [ "PhWidgets::Drawing::FontFamily", "class_ph_widgets_1_1_drawing_1_1_font_family.html", null ],
     [ "PhWidgets::Drawing::FontStyle", "struct_ph_widgets_1_1_drawing_1_1_font_style.html", null ],
     [ "PhWidgets::Drawing::GenericFontFamilies", "struct_ph_widgets_1_1_drawing_1_1_generic_font_families.html", null ],
+    [ "PhWidgets::Drawing::GradientImageType", "struct_ph_widgets_1_1_drawing_1_1_gradient_image_type.html", [
+      [ "PhWidgets::Drawing::ImageType", "struct_ph_widgets_1_1_drawing_1_1_image_type.html", null ]
+    ] ],
     [ "PhWidgets::Widget::ThisCallbacks::HotkeyCallback", "struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_hotkey_callback.html", [
       [ "PhWidgets::Widget::HotkeyCallback", "struct_ph_widgets_1_1_widget_1_1_hotkey_callback.html", [
         [ "PhWidgets::Widget::Callbacks", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", null ]
       ] ]
     ] ],
+    [ "PhWidgets::Drawing::Image", "class_ph_widgets_1_1_drawing_1_1_image.html", null ],
     [ "PhWidgets::LabelType", "struct_ph_widgets_1_1_label_type.html", null ],
+    [ "PhWidgets::Drawing::PaletteImageType", "struct_ph_widgets_1_1_drawing_1_1_palette_image_type.html", [
+      [ "PhWidgets::Drawing::ImageType", "struct_ph_widgets_1_1_drawing_1_1_image_type.html", null ]
+    ] ],
     [ "PgColor_t", "group__native.html#struct_pg_color__t", null ],
     [ "PgPattern_t", "group__native.html#struct_pg_pattern__t", null ],
     [ "PhArea_t", "group__native.html#struct_ph_area__t", null ],
     [ "PhCursorDef_t", "group__native.html#struct_ph_cursor_def__t", null ],
     [ "PhDim_t", "group__native.html#struct_ph_dim__t", null ],
     [ "PhEvent_t", "group__native.html#struct_ph_event__t", null ],
+    [ "PhImage_t", "group__native.html#struct_ph_image__t", null ],
     [ "PhPoint_t", "group__native.html#struct_ph_point__t", null ],
     [ "PhRect_t", "group__native.html#struct_ph_rect__t", null ],
     [ "PhRegionDataHdr_t", "group__native.html#struct_ph_region_data_hdr__t", null ],
@@ -445,39 +465,39 @@ var hierarchy =
       ] ]
     ] ],
     [ "PhWidgets::Widget::ThisFlags::Resize", "struct_ph_widgets_1_1_widget_1_1_this_flags_1_1_resize.html", null ],
-    [ "PhWidgets::Timer::ThisArgs", "class_ph_widgets_1_1_timer.html#struct_ph_widgets_1_1_timer_1_1_this_args", null ],
-    [ "PhWidgets::OnOffButton::ThisArgs", "class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_args", null ],
-    [ "PhWidgets::ToggleButton::ThisArgs", "class_ph_widgets_1_1_toggle_button.html#struct_ph_widgets_1_1_toggle_button_1_1_this_args", null ],
-    [ "PhWidgets::Window::ThisArgs", "class_ph_widgets_1_1_window.html#struct_ph_widgets_1_1_window_1_1_this_args", null ],
-    [ "PhWidgets::Disjoint::ThisArgs", "class_ph_widgets_1_1_disjoint.html#struct_ph_widgets_1_1_disjoint_1_1_this_args", null ],
-    [ "PhWidgets::Graphic::ThisArgs", "class_ph_widgets_1_1_graphic.html#struct_ph_widgets_1_1_graphic_1_1_this_args", null ],
-    [ "PhWidgets::Label::ThisArgs", "class_ph_widgets_1_1_label.html#struct_ph_widgets_1_1_label_1_1_this_args", null ],
-    [ "PhWidgets::Numeric::ThisArgs", "class_ph_widgets_1_1_numeric.html#struct_ph_widgets_1_1_numeric_1_1_this_args", null ],
-    [ "PhWidgets::Basic::ThisArgs", "class_ph_widgets_1_1_basic.html#struct_ph_widgets_1_1_basic_1_1_this_args", null ],
-    [ "PhWidgets::Button::ThisArgs", "class_ph_widgets_1_1_button.html#struct_ph_widgets_1_1_button_1_1_this_args", null ],
     [ "PhWidgets::Widget::ThisArgs", "class_ph_widgets_1_1_widget.html#struct_ph_widgets_1_1_widget_1_1_this_args", null ],
-    [ "PhWidgets::NumericInteger::ThisArgs", "class_ph_widgets_1_1_numeric_integer.html#struct_ph_widgets_1_1_numeric_integer_1_1_this_args", null ],
-    [ "PhWidgets::Text::ThisArgs", "class_ph_widgets_1_1_text.html#struct_ph_widgets_1_1_text_1_1_this_args", null ],
-    [ "PhWidgets::Container::ThisArgs", "class_ph_widgets_1_1_container.html#struct_ph_widgets_1_1_container_1_1_this_args", null ],
+    [ "PhWidgets::Button::ThisArgs", "class_ph_widgets_1_1_button.html#struct_ph_widgets_1_1_button_1_1_this_args", null ],
+    [ "PhWidgets::ToggleButton::ThisArgs", "class_ph_widgets_1_1_toggle_button.html#struct_ph_widgets_1_1_toggle_button_1_1_this_args", null ],
+    [ "PhWidgets::OnOffButton::ThisArgs", "class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_args", null ],
     [ "PhWidgets::NumericFloat::ThisArgs", "class_ph_widgets_1_1_numeric_float.html#struct_ph_widgets_1_1_numeric_float_1_1_this_args", null ],
+    [ "PhWidgets::Label::ThisArgs", "class_ph_widgets_1_1_label.html#struct_ph_widgets_1_1_label_1_1_this_args", null ],
+    [ "PhWidgets::Basic::ThisArgs", "class_ph_widgets_1_1_basic.html#struct_ph_widgets_1_1_basic_1_1_this_args", null ],
+    [ "PhWidgets::Disjoint::ThisArgs", "class_ph_widgets_1_1_disjoint.html#struct_ph_widgets_1_1_disjoint_1_1_this_args", null ],
+    [ "PhWidgets::Container::ThisArgs", "class_ph_widgets_1_1_container.html#struct_ph_widgets_1_1_container_1_1_this_args", null ],
+    [ "PhWidgets::Window::ThisArgs", "class_ph_widgets_1_1_window.html#struct_ph_widgets_1_1_window_1_1_this_args", null ],
+    [ "PhWidgets::Timer::ThisArgs", "class_ph_widgets_1_1_timer.html#struct_ph_widgets_1_1_timer_1_1_this_args", null ],
+    [ "PhWidgets::NumericInteger::ThisArgs", "class_ph_widgets_1_1_numeric_integer.html#struct_ph_widgets_1_1_numeric_integer_1_1_this_args", null ],
+    [ "PhWidgets::Graphic::ThisArgs", "class_ph_widgets_1_1_graphic.html#struct_ph_widgets_1_1_graphic_1_1_this_args", null ],
+    [ "PhWidgets::Numeric::ThisArgs", "class_ph_widgets_1_1_numeric.html#struct_ph_widgets_1_1_numeric_1_1_this_args", null ],
+    [ "PhWidgets::Text::ThisArgs", "class_ph_widgets_1_1_text.html#struct_ph_widgets_1_1_text_1_1_this_args", null ],
+    [ "PhWidgets::Container::ThisCallbacks", "class_ph_widgets_1_1_container.html#struct_ph_widgets_1_1_container_1_1_this_callbacks", null ],
+    [ "PhWidgets::Basic::ThisCallbacks", "class_ph_widgets_1_1_basic.html#struct_ph_widgets_1_1_basic_1_1_this_callbacks", null ],
+    [ "PhWidgets::Text::ThisCallbacks", "class_ph_widgets_1_1_text.html#struct_ph_widgets_1_1_text_1_1_this_callbacks", null ],
+    [ "PhWidgets::Disjoint::ThisCallbacks", "class_ph_widgets_1_1_disjoint.html#struct_ph_widgets_1_1_disjoint_1_1_this_callbacks", null ],
+    [ "PhWidgets::OnOffButton::ThisCallbacks", "class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks", null ],
     [ "PhWidgets::Widget::ThisCallbacks", "class_ph_widgets_1_1_widget.html#struct_ph_widgets_1_1_widget_1_1_this_callbacks", null ],
+    [ "PhWidgets::Window::ThisCallbacks", "class_ph_widgets_1_1_window.html#struct_ph_widgets_1_1_window_1_1_this_callbacks", null ],
+    [ "PhWidgets::Graphic::ThisCallbacks", "class_ph_widgets_1_1_graphic.html#struct_ph_widgets_1_1_graphic_1_1_this_callbacks", null ],
     [ "PhWidgets::NumericInteger::ThisCallbacks", "class_ph_widgets_1_1_numeric_integer.html#struct_ph_widgets_1_1_numeric_integer_1_1_this_callbacks", null ],
     [ "PhWidgets::Timer::ThisCallbacks", "class_ph_widgets_1_1_timer.html#struct_ph_widgets_1_1_timer_1_1_this_callbacks", null ],
-    [ "PhWidgets::OnOffButton::ThisCallbacks", "class_ph_widgets_1_1_on_off_button.html#struct_ph_widgets_1_1_on_off_button_1_1_this_callbacks", null ],
-    [ "PhWidgets::Window::ThisCallbacks", "class_ph_widgets_1_1_window.html#struct_ph_widgets_1_1_window_1_1_this_callbacks", null ],
-    [ "PhWidgets::Disjoint::ThisCallbacks", "class_ph_widgets_1_1_disjoint.html#struct_ph_widgets_1_1_disjoint_1_1_this_callbacks", null ],
-    [ "PhWidgets::Basic::ThisCallbacks", "class_ph_widgets_1_1_basic.html#struct_ph_widgets_1_1_basic_1_1_this_callbacks", null ],
     [ "PhWidgets::NumericFloat::ThisCallbacks", "class_ph_widgets_1_1_numeric_float.html#struct_ph_widgets_1_1_numeric_float_1_1_this_callbacks", null ],
-    [ "PhWidgets::Container::ThisCallbacks", "class_ph_widgets_1_1_container.html#struct_ph_widgets_1_1_container_1_1_this_callbacks", null ],
-    [ "PhWidgets::Text::ThisCallbacks", "class_ph_widgets_1_1_text.html#struct_ph_widgets_1_1_text_1_1_this_callbacks", null ],
-    [ "PhWidgets::Graphic::ThisCallbacks", "class_ph_widgets_1_1_graphic.html#struct_ph_widgets_1_1_graphic_1_1_this_callbacks", null ],
+    [ "PhWidgets::Basic::ThisFlags", "struct_ph_widgets_1_1_basic_1_1_this_flags.html", [
+      [ "PhWidgets::Basic::Flags", "struct_ph_widgets_1_1_basic_1_1_flags.html", null ]
+    ] ],
     [ "PhWidgets::Widget::ThisFlags", "struct_ph_widgets_1_1_widget_1_1_this_flags.html", [
       [ "PhWidgets::Widget::Flags", "struct_ph_widgets_1_1_widget_1_1_flags.html", [
         [ "PhWidgets::Basic::Flags", "struct_ph_widgets_1_1_basic_1_1_flags.html", null ]
       ] ]
-    ] ],
-    [ "PhWidgets::Basic::ThisFlags", "struct_ph_widgets_1_1_basic_1_1_this_flags.html", [
-      [ "PhWidgets::Basic::Flags", "struct_ph_widgets_1_1_basic_1_1_flags.html", null ]
     ] ],
     [ "PhWidgets::Graphic::ThisFlags", "struct_ph_widgets_1_1_graphic_1_1_this_flags.html", null ],
     [ "PhWidgets::ToggleIndicatorType", "struct_ph_widgets_1_1_toggle_indicator_type.html", null ],

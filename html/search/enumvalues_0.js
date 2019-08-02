@@ -20,6 +20,9 @@ var searchData=
   ['aquamarine',['Aquamarine',['../struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689baddd280ad4017246ef01399e9555d4efa',1,'PhWidgets::Drawing::Colors']]],
   ['area',['area',['../struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_area.html#a8c7ab307c4e0dd7b88aaa96d582bb58ea8e458e5e1efaef5d59ed73cb50df44a0',1,'PhWidgets::Widget::ThisArgs::ArgArea']]],
   ['arm',['arm',['../struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7a18ea85e8f504678840c3588e28a725c1',1,'PhWidgets::Basic::ThisCallbacks::Callback']]],
+  ['arm_5fcolor',['arm_color',['../struct_ph_widgets_1_1_button_1_1_this_args_1_1_arg_color.html#aad1efd141dcd0f2399baf6a86368eb78a9314e1471582e2d3139f0efe418f609d',1,'PhWidgets::Button::ThisArgs::ArgColor']]],
+  ['arm_5ffill',['arm_fill',['../struct_ph_widgets_1_1_button_1_1_this_args_1_1_arg_unsigned_char.html#afaaf075edbc76b27b7a4f2565930b523a2c23e33edc50c44ea9f227b306ac3ce3',1,'PhWidgets::Button::ThisArgs::ArgUnsignedChar']]],
+  ['arm_5fimage',['arm_image',['../struct_ph_widgets_1_1_button_1_1_this_args_1_1_arg_p_image.html#a5924c516242ee2fc1c107f470b3f91f0a35bb22fea656fd995a6c5a120dae6288',1,'PhWidgets::Button::ThisArgs::ArgPImage']]],
   ['arrow',['Arrow',['../struct_ph_widgets_1_1_cursors.html#a10c30c978a8ca9d3926446052931629cab3bbc49595e29b8ffcb0f6836150f8e5',1,'PhWidgets::Cursors']]],
   ['autohighlight',['Autohighlight',['../struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbdac863e55c40cd1c225d4bacca67223df0',1,'PhWidgets::Widget::ThisFlags']]],
   ['azure',['Azure',['../struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689bafbe5d59b48ef7204c7d50b9d508b8a11',1,'PhWidgets::Drawing::Colors']]]

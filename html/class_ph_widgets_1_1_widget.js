@@ -178,6 +178,7 @@ var class_ph_widgets_1_1_widget =
     [ "IsRealized", "class_ph_widgets_1_1_widget.html#ae7d4d331f66eb7807ad54057d3a1fe46", null ],
     [ "Left", "class_ph_widgets_1_1_widget.html#af16788209177491d790900a5f4c2c51a", null ],
     [ "Location", "class_ph_widgets_1_1_widget.html#a185eb01b846e20c7ba986da2e0663ee8", null ],
+    [ "Parent", "class_ph_widgets_1_1_widget.html#a0378457f6a4cace0b2eba9e49289c332", null ],
     [ "Position", "class_ph_widgets_1_1_widget.html#a31256aa2dae93890536214939f48d1f9", null ],
     [ "Right", "class_ph_widgets_1_1_widget.html#aa38d654683ff91c209574da59a4dfc99", null ],
     [ "Size", "class_ph_widgets_1_1_widget.html#aa070988cb796124ca4d6294f32f5970a", null ],

@@ -7,6 +7,7 @@ var annotated_dup =
     [ "PhCursorDef_t", "group__native.html#struct_ph_cursor_def__t", null ],
     [ "PhDim_t", "group__native.html#struct_ph_dim__t", null ],
     [ "PhEvent_t", "group__native.html#struct_ph_event__t", null ],
+    [ "PhImage_t", "group__native.html#struct_ph_image__t", null ],
     [ "PhPoint_t", "group__native.html#struct_ph_point__t", null ],
     [ "PhRect_t", "group__native.html#struct_ph_rect__t", null ],
     [ "PhRegionDataHdr_t", "group__native.html#struct_ph_region_data_hdr__t", null ],

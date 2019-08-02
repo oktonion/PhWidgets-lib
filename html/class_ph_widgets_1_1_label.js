@@ -82,6 +82,7 @@ var class_ph_widgets_1_1_label =
     [ "Label", "class_ph_widgets_1_1_label.html#afc7c429fac12cd01035bb46b788ac500", null ],
     [ "operator=", "class_ph_widgets_1_1_label.html#abcb4011afe357ab53f04f55ca89f11b0", null ],
     [ "resource", "class_ph_widgets_1_1_label.html#a1458080036dcd6027b53268b5c17d835", null ],
+    [ "Image", "class_ph_widgets_1_1_label.html#abbe0b601bba0bea7c785a3e81413c2b9", null ],
     [ "Text", "class_ph_widgets_1_1_label.html#a12989ac968cb598809e70579a8a9cd45", null ],
     [ "Font", "class_ph_widgets_1_1_label.html#a62d72eb92232b8e43251034912fd7a37", null ],
     [ "BalloonColor", "class_ph_widgets_1_1_label.html#a4b73312ca694f205d75c41e1e4dea886", null ],

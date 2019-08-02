@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.4.0</span>
+   &#160;<span id="projectnumber">0.4.1</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -120,13 +120,13 @@ Public Types</h2></td></tr>
 <div class="textblock"><p>Specifies style information applied to text. </p>
 <h3>Examples</h3>
 <p>The following code example demonstrates how to set the <a class="el" href="class_ph_widgets_1_1_drawing_1_1_font.html" title="Defines a particular format for text, including font face, size, and style attributes....">Font</a> property of a button to a new bold-style font using the <a class="el" href="struct_ph_widgets_1_1_drawing_1_1_font_style.html#a34c81ce9f0eb4ce0730e14e52fbd51ae">FontStyle::eFontStyle</a> enumeration. Create a form containing a button named Button1 and paste the following code into it.</p>
-<div class="fragment"><div class="line"><span class="comment">// You have somewhere:</span></div><div class="line"><a class="code" href="group__native.html#struct_pt_widget__t">PtWidget_t</a> *ptwidget; <span class="comment">// pointer to button widget</span></div><div class="line"></div><div class="line"><span class="keyword">using namespace </span><a class="code" href="namespace_ph_widgets.html">PhWidgets</a>;</div><div class="line"></div><div class="line"><span class="comment">// constructing Button</span></div><div class="line"><a class="code" href="class_ph_widgets_1_1_button.html">Button</a> Button1(ptwidget);</div><div class="line"></div><div class="line"><span class="keywordflow">if</span> (Button1.Font().Style != <a class="code" href="struct_ph_widgets_1_1_drawing_1_1_font_style.html#a34c81ce9f0eb4ce0730e14e52fbd51aeae65cd6942b1020cc842bd60b8ae4176f">FontStyle::Bold</a>)</div><div class="line">    Button1.Font = Font(FontFamily::Generic, 12.0f, <a class="code" href="struct_ph_widgets_1_1_drawing_1_1_font_style.html#a34c81ce9f0eb4ce0730e14e52fbd51aeae65cd6942b1020cc842bd60b8ae4176f">FontStyle::Bold</a>);</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><ul>
+<div class="fragment"><div class="line"><span class="comment">// You have somewhere:</span></div><div class="line"><a class="code" href="group__native.html#struct_pt_widget__t">PtWidget_t</a> *ptwidget; <span class="comment">// pointer to button widget</span></div><div class="line"></div><div class="line"><span class="keyword">using namespace </span><a class="code" href="namespace_ph_widgets.html">PhWidgets</a>;</div><div class="line"><span class="keyword">using namespace </span><a class="code" href="namespace_ph_widgets_1_1_drawing.html">PhWidgets::Drawing</a>;</div><div class="line"></div><div class="line"><span class="comment">// constructing Button</span></div><div class="line"><a class="code" href="class_ph_widgets_1_1_button.html">Button</a> Button1(ptwidget);</div><div class="line"></div><div class="line"><span class="keywordflow">if</span> (Button1.Font().Style != <a class="code" href="struct_ph_widgets_1_1_drawing_1_1_font_style.html#a34c81ce9f0eb4ce0730e14e52fbd51aeae65cd6942b1020cc842bd60b8ae4176f">FontStyle::Bold</a>)</div><div class="line">    Button1.Font = <a class="code" href="class_ph_widgets_1_1_drawing_1_1_font.html">Font</a>(FontFamily::Generic, 12.0f, <a class="code" href="struct_ph_widgets_1_1_drawing_1_1_font_style.html#a34c81ce9f0eb4ce0730e14e52fbd51aeae65cd6942b1020cc842bd60b8ae4176f">FontStyle::Bold</a>);</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="class_ph_widgets_1_1_label.html" title="A text, bitmap, or image label.">Label</a></li>
 <li><a class="el" href="class_ph_widgets_1_1_button.html" title="A button for initiating an action.">Button</a> </li>
 </ul>
 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_font_8h_source.html#l00044">44</a> of file <a class="el" href="_font_8h_source.html">Font.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_font_8h_source.html#l00047">47</a> of file <a class="el" href="_font_8h_source.html">Font.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a34c81ce9f0eb4ce0730e14e52fbd51ae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a34c81ce9f0eb4ce0730e14e52fbd51ae">&#9670;&nbsp;</a></span>eFontStyle</h2>
@@ -158,7 +158,7 @@ Public Types</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_font_8h_source.html#l00046">46</a> of file <a class="el" href="_font_8h_source.html">Font.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_font_8h_source.html#l00049">49</a> of file <a class="el" href="_font_8h_source.html">Font.h</a>.</p>
 
 </div>
 </div>

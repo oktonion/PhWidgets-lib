@@ -15,5 +15,6 @@ var group__native =
     [ "PtRawCallback_t", "group__native.html#struct_pt_raw_callback__t", null ],
     [ "PtHotkeyCallback_t", "group__native.html#struct_pt_hotkey_callback__t", null ],
     [ "PtCallbackInfo_t", "group__native.html#struct_pt_callback_info__t", null ],
-    [ "PhEvent_t", "group__native.html#struct_ph_event__t", null ]
+    [ "PhEvent_t", "group__native.html#struct_ph_event__t", null ],
+    [ "PhImage_t", "group__native.html#struct_ph_image__t", null ]
 ];

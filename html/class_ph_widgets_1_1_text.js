@@ -1,5 +1,6 @@
 var class_ph_widgets_1_1_text =
 [
+    [ "ArgComplex", "struct_ph_widgets_1_1_text_1_1_arg_complex.html", null ],
     [ "Arguments", "struct_ph_widgets_1_1_text_1_1_arguments.html", null ],
     [ "Callback", "struct_ph_widgets_1_1_text_1_1_callback.html", "struct_ph_widgets_1_1_text_1_1_callback" ],
     [ "Callbacks", "struct_ph_widgets_1_1_text_1_1_callbacks.html", null ],

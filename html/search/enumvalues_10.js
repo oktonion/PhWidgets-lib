@@ -2,7 +2,7 @@ var searchData=
 [
   ['radio',['Radio',['../struct_ph_widgets_1_1_toggle_indicator_type.html#a8a2bc07b7b527f8a17e93142c337882da5745ba8ce535fa1d0353ef14fa336d10',1,'PhWidgets::ToggleIndicatorType']]],
   ['raw',['raw',['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_raw_callback.html#a0d3c0b29a907371fcfb4e217b5e45036a9f50e1f23ba0a546e9030dd9b5896106',1,'PhWidgets::Widget::ThisCallbacks::RawCallback']]],
-  ['realized',['realized',['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca238a5a9c2b402de58f581a8662a4465d',1,'PhWidgets::Widget::ThisCallbacks::Callback::realized()'],['../struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbda06bd1e86b0b86f5263bdde9697c930d0',1,'PhWidgets::Widget::ThisFlags::Realized()']]],
+  ['realized',['Realized',['../struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbda06bd1e86b0b86f5263bdde9697c930d0',1,'PhWidgets::Widget::ThisFlags::Realized()'],['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_callback.html#a88ad66a5ac274d6dbbcd38c03dbe45bca238a5a9c2b402de58f581a8662a4465d',1,'PhWidgets::Widget::ThisCallbacks::Callback::realized()']]],
   ['realizing',['Realizing',['../struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbda7d1e7254597654b4a01ced60f93544fd',1,'PhWidgets::Widget::ThisFlags']]],
   ['red',['Red',['../struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba4897015981b06755a20dcfc6e91a8ca0',1,'PhWidgets::Drawing::Colors']]],
   ['region',['Region',['../struct_ph_widgets_1_1_widget_1_1_this_flags.html#a1e96d37a1f0837fcd27166fc304bcbbda6ee73708786747e169042ad328968fb7',1,'PhWidgets::Widget::ThisFlags']]],

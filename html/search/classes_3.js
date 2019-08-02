@@ -7,6 +7,7 @@ var searchData=
   ['default_5frandom_5fengine',['default_random_engine',['http://en.cppreference.com/w/namespacestd.html#cpp/numeric/random',1,'std']]],
   ['defer_5flock_5ft',['defer_lock_t',['http://en.cppreference.com/w/namespacestd.html#cpp/thread/lock_tag_t',1,'std']]],
   ['deque',['deque',['http://en.cppreference.com/w/cpp/container/deque.html',1,'std']]],
+  ['directimagetype',['DirectImageType',['../struct_ph_widgets_1_1_drawing_1_1_direct_image_type.html',1,'PhWidgets::Drawing']]],
   ['discard_5fblock_5fengine',['discard_block_engine',['http://en.cppreference.com/w/cpp/numeric/random/discard_block_engine.html',1,'std']]],
   ['discrete_5fdistribution',['discrete_distribution',['http://en.cppreference.com/w/cpp/numeric/random/discrete_distribution.html',1,'std']]],
   ['disjoint',['Disjoint',['../class_ph_widgets_1_1_disjoint.html',1,'PhWidgets']]],

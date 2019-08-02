@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PhWidgets library
-   &#160;<span id="projectnumber">0.4.0</span>
+   &#160;<span id="projectnumber">0.4.1</span>
    </div>
    <div id="projectbrief">lightweight fast C++ interface library for QNX Photon microGUI</div>
   </td>
@@ -128,6 +128,8 @@ Classes</h2></td></tr>
 <tr class="separator:struct_pt_callback_info__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:struct_ph_event__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__native.html#struct_ph_event__t">PhEvent_t</a></td></tr>
 <tr class="separator:struct_ph_event__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:struct_ph_image__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__native.html#struct_ph_image__t">PhImage_t</a></td></tr>
+<tr class="separator:struct_ph_image__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>All members of this group are located at global namespace </p>
@@ -259,7 +261,7 @@ Classes</h2></td></tr>
 <p>unsigned short type </p>
 </blockquote>
 <p>The type of data, which indicates the data structure used.</p>
-<dl class="section remark"><dt>Remarks</dt><dd>Use <a class="el" href="class_ph_widgets_1_1_cursor.html" title="Represents the image used to paint the mouse pointer.">PhWidgets::Cursor</a> to manipulate widget cursor. </dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Use <a class="el" href="class_ph_widgets_1_1_cursor.html" title="Represents the image used to paint the mouse pointer.">PhWidgets::Cursor</a> and <a class="el" href="class_ph_widgets_1_1_widget.html#af5f78fa5287b09605f2695cb89965a21" title="Gets or sets the cursor that is displayed when the mouse pointer is over the widget.">PhWidgets::Widget::Cursor</a> property to manipulate widget cursor resource. </dd></dl>
 </div>
 </div>
 </div>
@@ -308,7 +310,7 @@ Classes</h2></td></tr>
 <p>char images </p>
 </blockquote>
 <p>The bitmap image data, as a series of 1-bit-per-pixel planes.</p>
-<dl class="section remark"><dt>Remarks</dt><dd>Use <a class="el" href="class_ph_widgets_1_1_cursor.html" title="Represents the image used to paint the mouse pointer.">PhWidgets::Cursor</a> to manipulate widget cursor. </dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Use <a class="el" href="class_ph_widgets_1_1_cursor.html" title="Represents the image used to paint the mouse pointer.">PhWidgets::Cursor</a> and <a class="el" href="class_ph_widgets_1_1_widget.html#af5f78fa5287b09605f2695cb89965a21" title="Gets or sets the cursor that is displayed when the mouse pointer is over the widget.">PhWidgets::Widget::Cursor</a> property to manipulate widget cursor resource. </dd></dl>
 </div>
 </div>
 </div>
@@ -638,6 +640,79 @@ Classes</h2></td></tr>
 <li><a class="el" href="class_ph_widgets_1_1_widget.html#a28553628e9f78524e5ccfc953f51e7e8" title="Occurs when the widget is realized.">PhWidgets::Widget::Realized</a></li>
 <li><a class="el" href="class_ph_widgets_1_1_widget.html#ae27308698b401a2a45b3cd527a739576" title="Raises the Widget::Destroyed event.">PhWidgets::Widget::OnDestroyed</a></li>
 <li><a class="el" href="class_ph_widgets_1_1_widget.html#ae4ca4ac33bb23e81372eb8df5b5664c6" title="Occurs when the widget is unrealized.">PhWidgets::Widget::Unrealized</a> </li>
+</ul>
+</dd></dl>
+</div>
+</div>
+</div>
+<a name="struct_ph_image__t" id="struct_ph_image__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#struct_ph_image__t">&#9670;&nbsp;</a></span>PhImage_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct PhImage_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Data and characteristics of an image.</p>
+<p>The <a class="el" href="group__native.html#struct_ph_image__t">PhImage_t</a> structure describes the data and characteristics of an <a class="el" href="class_ph_widgets_1_1_drawing_1_1_image.html" title="An abstract base class that provides functionality for the Drawing::Bitmap class.">PhWidgets::Drawing::Image</a>. When you give an image to a <a class="el" href="class_ph_widgets_1_1_label.html" title="A text, bitmap, or image label.">PhWidgets::Label</a> subclass widget, this is the structure you must provide. The members include at least:</p>
+<h3>Members</h3>
+<blockquote class="doxtable">
+<p>int type </p>
+</blockquote>
+<p>The graphic type; see <a class="el" href="struct_ph_widgets_1_1_drawing_1_1_image_type.html" title="Provides a collection of all image types for use by a Photon microGUI application.">PhWidgets::Drawing::ImageType</a> </p><blockquote class="doxtable">
+<p>unsigned long image_tag </p>
+</blockquote>
+<p>The image-data tag, a cyclic redundancy check (CRC) that's used extensively by phrelay (see the QNX Neutrino Utilities Reference) to cache images. </p><blockquote class="doxtable">
+<p>int bpl </p>
+</blockquote>
+<p>The number of bytes in each line of the image. </p><blockquote class="doxtable">
+<p><a class="el" href="group__native.html#struct_ph_dim__t">PhDim_t</a> size </p>
+</blockquote>
+<p>A <a class="el" href="group__native.html#struct_ph_dim__t">PhDim_t</a> structure that defines the size of the image. </p><blockquote class="doxtable">
+<p>unsigned long palette_tag </p>
+</blockquote>
+<p>The palette-data tag. </p><blockquote class="doxtable">
+<p>int colors </p>
+</blockquote>
+<p>The number of colors in the image. </p><blockquote class="doxtable">
+<p>PgAlpha_t *alpha </p>
+</blockquote>
+<p>The image alpha map that's used if the source alpha map option is enabled. Members are undocumented. </p><blockquote class="doxtable">
+<p><a class="el" href="group__native.html#struct_pg_color__t">PgColor_t</a> transparent </p>
+</blockquote>
+<p>The color to mask out when drawing. </p><blockquote class="doxtable">
+<p>char flags </p>
+</blockquote>
+<p>The image flags. </p><blockquote class="doxtable">
+<p>char ghost_bpl </p>
+</blockquote>
+<p>The number of bytes per line for the ghosting bitmap. </p><blockquote class="doxtable">
+<p>char *ghost_bitmap</p>
+<p></p>
+</blockquote>
+<p>A pointer to the transparency mask for ghosting an image. The leftmost pixel corresponds to the top bit of the first byte in the mask. </p><blockquote class="doxtable">
+<p>int mask_bpl</p>
+<p></p>
+</blockquote>
+<p>The number of bytes per line for the transparency mask. </p><blockquote class="doxtable">
+<p>char *mask_bm</p>
+<p></p>
+</blockquote>
+<p>A pointer to the transparency mask. The leftmost pixel corresponds to the top bit of the first byte in the mask. </p><blockquote class="doxtable">
+<p><a class="el" href="group__native.html#struct_pg_color__t">PgColor_t</a> *palette</p>
+<p></p>
+</blockquote>
+<p>The image palette. </p><blockquote class="doxtable">
+<p>char *image</p>
+<p></p>
+</blockquote>
+<p>The image pixel data.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>Use <a class="el" href="class_ph_widgets_1_1_drawing_1_1_image.html" title="An abstract base class that provides functionality for the Drawing::Bitmap class.">PhWidgets::Drawing::Image</a> to manipulate Label::Image property and widget image resources as general.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><ul>
+<li>Label::Image </li>
 </ul>
 </dd></dl>
 </div>

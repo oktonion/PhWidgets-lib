@@ -20,7 +20,7 @@ var searchData=
   ['ratio_5fnot_5fequal',['ratio_not_equal',['http://en.cppreference.com/w/namespacestd.html#cpp/numeric/ratio/ratio_not_equal',1,'std']]],
   ['ratio_5fsubtract',['ratio_subtract',['http://en.cppreference.com/w/namespacestd.html#cpp/numeric/ratio/ratio_subtract',1,'std']]],
   ['raw_5fstorage_5fiterator',['raw_storage_iterator',['http://en.cppreference.com/w/cpp/memory/raw_storage_iterator.html',1,'std']]],
-  ['rawcallback',['RawCallback',['../struct_ph_widgets_1_1_widget_1_1_raw_callback.html',1,'PhWidgets::Widget::RawCallback'],['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_raw_callback.html',1,'PhWidgets::Widget::ThisCallbacks::RawCallback']]],
+  ['rawcallback',['RawCallback',['../struct_ph_widgets_1_1_widget_1_1_this_callbacks_1_1_raw_callback.html',1,'PhWidgets::Widget::ThisCallbacks::RawCallback'],['../struct_ph_widgets_1_1_widget_1_1_raw_callback.html',1,'PhWidgets::Widget::RawCallback']]],
   ['recursive_5fmutex',['recursive_mutex',['http://en.cppreference.com/w/cpp/thread/recursive_mutex.html',1,'std']]],
   ['recursive_5ftimed_5fmutex',['recursive_timed_mutex',['http://en.cppreference.com/w/cpp/thread/recursive_timed_mutex.html',1,'std']]],
   ['reference',['reference',['http://en.cppreference.com/w/cpp/utility/bitset/reference.html',1,'std::bitset']]],

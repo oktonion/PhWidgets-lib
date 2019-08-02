@@ -2,7 +2,8 @@ var searchData=
 [
   ['packaged_5ftask',['packaged_task',['http://en.cppreference.com/w/cpp/thread/packaged_task.html',1,'std']]],
   ['pair',['pair',['http://en.cppreference.com/w/cpp/utility/pair.html',1,'std']]],
-  ['pattern',['pattern',['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::money_put::pattern'],['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::money_base::pattern'],['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::moneypunct::pattern'],['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::money_get::pattern'],['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::moneypunct_byname::pattern']]],
+  ['paletteimagetype',['PaletteImageType',['../struct_ph_widgets_1_1_drawing_1_1_palette_image_type.html',1,'PhWidgets::Drawing']]],
+  ['pattern',['pattern',['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::money_base::pattern'],['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::moneypunct_byname::pattern'],['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::money_put::pattern'],['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::moneypunct::pattern'],['http://en.cppreference.com/w/cpp/locale/money_base.html',1,'std::money_get::pattern']]],
   ['peta',['peta',['http://en.cppreference.com/w/namespacestd.html#cpp/numeric/ratio/ratio',1,'std']]],
   ['pgcolor_5ft',['PgColor_t',['../group__native.html#struct_pg_color__t',1,'']]],
   ['pgpattern_5ft',['PgPattern_t',['../group__native.html#struct_pg_pattern__t',1,'']]],
@@ -10,6 +11,7 @@ var searchData=
   ['phcursordef_5ft',['PhCursorDef_t',['../group__native.html#struct_ph_cursor_def__t',1,'']]],
   ['phdim_5ft',['PhDim_t',['../group__native.html#struct_ph_dim__t',1,'']]],
   ['phevent_5ft',['PhEvent_t',['../group__native.html#struct_ph_event__t',1,'']]],
+  ['phimage_5ft',['PhImage_t',['../group__native.html#struct_ph_image__t',1,'']]],
   ['phpoint_5ft',['PhPoint_t',['../group__native.html#struct_ph_point__t',1,'']]],
   ['phrect_5ft',['PhRect_t',['../group__native.html#struct_ph_rect__t',1,'']]],
   ['phregiondatahdr_5ft',['PhRegionDataHdr_t',['../group__native.html#struct_ph_region_data_hdr__t',1,'']]],

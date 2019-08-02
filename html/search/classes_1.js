@@ -57,6 +57,7 @@ var searchData=
   ['bit_5fand',['bit_and',['http://en.cppreference.com/w/cpp/utility/functional/bit_and.html',1,'std']]],
   ['bit_5fnot',['bit_not',['http://en.cppreference.com/w/cpp/utility/functional/bit_not.html',1,'std']]],
   ['bit_5for',['bit_or',['http://en.cppreference.com/w/cpp/utility/functional/bit_or.html',1,'std']]],
+  ['bitmapimagetype',['BitmapImageType',['../struct_ph_widgets_1_1_drawing_1_1_bitmap_image_type.html',1,'PhWidgets::Drawing']]],
   ['bitset',['bitset',['http://en.cppreference.com/w/cpp/utility/bitset.html',1,'std']]],
   ['button',['Button',['../class_ph_widgets_1_1_button.html',1,'PhWidgets']]]
 ];
