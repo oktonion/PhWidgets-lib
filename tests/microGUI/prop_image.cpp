@@ -3,7 +3,7 @@
 #include "./testsuit.h"
 
 #include <Label.h>
-#include <photon/PxImage.h>
+#include <Window.h>
 
 
 TEST_CASE("Testing Label::Image property") {
@@ -12,8 +12,13 @@ TEST_CASE("Testing Label::Image property") {
     using namespace PhWidgets;
     using Drawing::Image;
 
-    Label label(PhWidgetsGetWidget<&PtLabel>());
+    Window window(PhWidgetsGetWidget<&PtWindow>());
 
+    window.Show();
+
+    Label label(PhWidgetsGetWidget<&PtLabel>());
+    
+    label.Parent = window;
     //label.Type = LabelType::Image;
 
     //REQUIRE(label.Type == LabelType::Image);
@@ -31,6 +36,7 @@ TEST_CASE("Testing Label::Image property") {
 
         CHECK(label.Image().Width == 512);
         CHECK(512 == label.Image().Height);
+
     }
 
     SUBCASE("PNG image test: Trying to load beautiful Lenna into PhWidgets::Drawing::Image"){
