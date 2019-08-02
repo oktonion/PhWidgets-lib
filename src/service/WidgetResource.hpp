@@ -475,11 +475,18 @@ namespace PhWidgets
 			inline
 			typename stdex::enable_if<
 				stdex::is_pointer<T>::value == true, 
-				typename stdex::remove_cv<T>::type const
+				const
+				typename stdex::remove_pointer<
+					typename stdex::remove_cv<T>::type
+				>::type*
 			>::type getAlloc() const
 			{
-				typedef typename stdex::remove_cv<T>::type type;
-				return getPointer<const type>();
+				typedef
+				const
+				typename stdex::remove_pointer<
+					typename stdex::remove_cv<T>::type
+				>::type* type;
+				return getPointer<type>();
 			}
 
 			inline PtCallbackList_t *getLink() const
@@ -737,7 +744,7 @@ namespace PhWidgets
 			typedef
 			typename stdex::conditional< 
 				stdex::is_void<ResourceT>::value,
-				PhImage_t*,
+				const PhImage_t*,
 				ResourceT
 			>::type resource_type;
 
@@ -749,13 +756,13 @@ namespace PhWidgets
 			{}
 
 			inline 
-			int set(const resource_type pimage)
+			int set(resource_type pimage)
 			{
 				return setImage(pimage);
 			}
 
 			inline 
-			const resource_type get() const
+			resource_type get() const
 			{
 				return WidgetResourceBase<ArgT>::template getAlloc<resource_type>();
 			}
