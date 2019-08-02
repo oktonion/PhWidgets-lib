@@ -978,6 +978,9 @@ namespace PhWidgets
 		bool getVisible() const;
 
 		bool getIsRealized() const;
+
+		void setParent(PtWidget_t*);
+		PtWidget_t* getParent() const;
 						
 	public:
 		//! (constructor) 
@@ -1614,6 +1617,41 @@ namespace PhWidgets
 			- Window
 		*/		
 		property<PhPoint_t>::bind<Widget, &Widget::getLocation, &Widget::setLocation> Location;
+
+		//! Gets or sets the parent container of the widget.
+		/*!
+			### Property Value ### 
+			
+			> PtWidget_t*
+
+			The `PtWidget_t*` that represents the parent or container widget of the widget.
+
+			@remark
+			Setting the Parent property value to **nullptr** removes the widget from the Widget.WidgetCollection of its current parent widget.
+
+			@note
+			This property may and will return **nullptr** if current widget has no parent.
+			Always check `widget.Parent != nullptr` before assingning this property to Widget class
+			if you are unsure that widget have parent at first place.
+			In case of empty parent (**nullptr** returned) code like `Widget parent = other_widget.Parent;`
+			will throw the `std::invalid_argument` exception.
+
+			### Examples ###
+
+			@code
+				PhWidgets::Button button(ptwidget);
+				PhWidgets::Window main_window(ABN_MAIN_WINDOW);
+
+				if(nullptr == button.Parent) // check if button have parent
+					button.Parent = main_window; // setting parent
+
+			@endcode
+
+			@see
+			- Window
+			- Container
+		*/
+		property<PtWidget_t*>::bind<Widget, &Widget::getParent, &Widget::setParent> Parent;
 
 		//! Gets or sets the absolute coordinates of the upper-left corner of the widget.
 		/*!

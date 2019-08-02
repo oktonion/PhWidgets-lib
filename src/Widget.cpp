@@ -159,6 +159,7 @@ Widget::Widget(int abn):
 	IsRealized(this),
 	Left(this),
 	Location(this),
+	Parent(this),
 	Position(this),
 	Right(this),
 	Size(this),
@@ -208,6 +209,7 @@ Widget::Widget(PtWidget_t* wdg):
 	IsRealized(this),
 	Left(this),
 	Location(this),
+	Parent(this),
 	Position(this),
 	Right(this),
 	Size(this),
@@ -294,6 +296,7 @@ Widget::Widget(const Widget &other):
 	IsRealized(this),
 	Left(this),
 	Location(this),
+	Parent(this),
 	Position(this),
 	Right(this),
 	Size(this),
@@ -694,6 +697,18 @@ void PhWidgets::Widget::setLeft(short x)
 short PhWidgets::Widget::getLeft() const
 {
 	return getLocation().x;
+}
+
+void Widget::setParent(PtWidget_t *parent)
+{
+	widget()->parent = parent;
+}
+
+PtWidget_t * Widget::getParent() const
+{
+	PtWidget_t *wdg = widget();
+
+	return PtWidgetParent(wdg);
 }
 
 void Widget::setTag(const void *tag, std::size_t size)
