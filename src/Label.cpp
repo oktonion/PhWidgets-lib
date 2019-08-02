@@ -93,7 +93,7 @@ Label &Label::operator=(const Label &other)
 
 Drawing::Image Label::getImage() const
 {
-	PhImage_t *result = resource.argument[Arguments::label_image].get();
+	const PhImage_t *result = resource.argument[Arguments::label_image].get();
 
 	if(nullptr != result)
 		return Drawing::Image(*result);
