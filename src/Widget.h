@@ -1631,7 +1631,7 @@ namespace PhWidgets
 
 			@note
 			This property may and will return **nullptr** if current widget has no parent.
-			Always check `widget.Parent != nullptr` before assingning this property to Widget class
+			Always check `widget.Parent() != nullptr` before assingning this property to Widget class
 			if you are unsure that widget have parent at first place.
 			In case of empty parent (**nullptr** returned) code like `Widget parent = other_widget.Parent;`
 			will throw the `std::invalid_argument` exception.
@@ -1642,7 +1642,7 @@ namespace PhWidgets
 				PhWidgets::Button button(ptwidget);
 				PhWidgets::Window main_window(ABN_MAIN_WINDOW);
 
-				if(nullptr == button.Parent) // check if button have parent
+				if( nullptr == button.Parent() ) // check if button have parent
 					button.Parent = main_window; // setting parent
 
 			@endcode
