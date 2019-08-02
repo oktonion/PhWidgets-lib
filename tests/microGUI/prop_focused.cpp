@@ -2,7 +2,7 @@
 
 #include "./testsuit.h"
 
-#include <Widget.h>
+#include <Button.h>
 #include <Window.h>
 
 
