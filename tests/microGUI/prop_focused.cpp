@@ -20,10 +20,10 @@ TEST_CASE("Testing Widget::Focused property"){
 
         REQUIRE(window.Enabled);
         REQUIRE(window.CanFocus);
-        
-        CHECK(window.Focused == false);
+
+        CHECK(false == window.Focused);
         CHECK(window.Focus() == true);
-        CHECK(window.Focused == true);
+        CHECK_EQ(window.Focused, true);
     }
 
     SUBCASE("Button Focused test"){
