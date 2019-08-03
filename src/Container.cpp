@@ -76,21 +76,25 @@ Container &Container::operator=(const Container &other)
 	return *this;
 }
 
-Widget Container::getActiveWidget() const
+namespace
 {
-	typedef std::set<Widget>::iterator iterator;
-
-	std::set<Widget> widgets = Widgets;
-
-	struct 
+	struct predicate
 	{
-		bool operator()(const Widget &widget)
+		bool operator()(const Widget &widget) const
 		{
 			return widget.Focused;
 		}
-	} predicate;
+	};
+}
 
-	iterator it = std::find_if(widgets.begin(), widgets.end(), predicate);
+
+Widget Container::getActiveWidget() const
+{
+	typedef std::set<Widget>::const_iterator const_iterator;
+
+	std::set<Widget> widgets = Widgets;
+
+	const_iterator it = std::find_if(widgets.begin(), widgets.end(), predicate());
 
 	if(it == widgets.end())
 		return *this;
