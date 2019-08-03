@@ -1786,11 +1786,24 @@ namespace PhWidgets
 
 
 			@code
+				using namespace PhWidgets;
+
 				// constructing Widget
-				PhWidgets::Widget widget(ptwidget);
+				Button button(ptwidget);
 				
-				widget.Tag = PhWidgets::Colors::Red;
-				PgColor_t color = Tag;
+				// note the difference - type passed to Widget::Tag property should be
+				// the same as requested type
+
+				// with Drawing::Colors::eColors enum:
+
+				button.Tag = Drawing::Colors::Red;
+				Drawing::Colors::eColor tag_color = button.Tag;
+				Drawing::Color color = tag_color;
+
+				// now lets try the same but with PhWidgets::Drawing::Color class:
+
+				button.Tag = Drawing::Color::FromARGB(0, 255, 0, 128); // constructing PhWidgets::Drawing::Color class
+				Drawing::Color color2 = button.Tag;
 			@endcode
 
 			@note
