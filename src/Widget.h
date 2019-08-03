@@ -10,6 +10,7 @@
 #include <map>
 #include <string>
 #include <list>
+#include <set>
 
 #include "./service/stdex/stdex.h"
 #include "./service/phproperty.hpp"
@@ -981,6 +982,8 @@ namespace PhWidgets
 
 		void setParent(PtWidget_t*);
 		PtWidget_t* getParent() const;
+
+		std::set<Widget> getWidgets() const;
 						
 	public:
 		//! (constructor) 
@@ -1071,8 +1074,57 @@ namespace PhWidgets
 		//! Sets input focus to the widget.
 		/*!
 			@return `true` if the input focus request was successful; otherwise, `false`.
+
+			### Examples ###
+
+			@code
+				// Set focus to the widget, if it can receive focus.
+				if(widget.CanFocus)
+				{
+					widget.Focus();
+				}
+			@endcode
+
+			@remark
+			The Focus() method returns `true` if the widget successfully received input focus. 
+			The widget can have the input focus while not displaying any visual cues of having the focus. 
+			This behavior is primarily observed by the nonselectable widgets listed below, or any widgets derived from them.
+			@par
+			A widget can be selected and receive input focus if all the following are true: 
+			the Widget::Flags::Selectable value of Widget::WidgetFlags is set to true, 
+			it is contained in another widget, and all its parent widgets are both visible and enabled.
+			@par
+			The Photon microGUI widgets in the following list are not selectable. 
+			Widgets derived from these widgets are also not selectable.
+
+			- Panel
+			- GroupBox
+			- PictureBox
+			- ProgressBar
+			- Splitter
+			- Label
+			- LinkLabel (when there is no link present in the control)
 		*/
 		bool Focus();
+
+		//! Retrieves the next widget forward or back in the tab order of child widgets.
+		/*!
+			@param[in] widget The Widget to start the search with.
+			@param[in] forward `true` to search forward in the tab order; `false` to search backward.
+			@return The next Widget in the tab order.
+
+			@throws std::out_of_range
+
+			@remark
+			The GetNextWidget() method is dependent on tab order. 
+			To iterate through all widgets of a container, including nested widgets, use the Widget::Widgets property. 
+			To get or set the active widget of a container widget, use the Container::ActiveWidget property.
+
+			@see
+			- Container::ActiveWidget
+			- Widgets
+		*/
+		Widget GetNextWidget(Widget widget, bool forward = true) const;
 
 		//@{
 		//! Sets the bounds of the widget to the specified location and size.
@@ -1096,6 +1148,16 @@ namespace PhWidgets
 		/*!
 			The Select method activates the widget if the widget's Widget::Flags::Selectable flag of Widget::Arguments::flags is set true, 
 			it is contained in another widget, and all its parent widget are both visible and enabled.
+
+			### Examples ###
+
+			@code
+				// Select the widget, if it can be selected.
+				if(widget.CanSelect)
+				{
+					widget.Select();
+				}
+			@endcode
 		*/
 		void Select();
 
@@ -1106,6 +1168,7 @@ namespace PhWidgets
 			@note
 			Some widgets (for example, menus) have Widget::Flags::DelayRealize set in their Widget::Arguments::flags.
 			Such delay-realized widgets aren't visibly rendered when their ancestors are realized. 
+			@par
 			Although they're present in the hierarchy, 
 			delay-realized widgets become visible only when the application realizes them specifically with a call to Realize(). 
 			An application might do this, for example, if the user requested it to activate a menu.
@@ -1131,7 +1194,7 @@ namespace PhWidgets
 		/*!
 			@remark
 			Hiding the widget is equivalent to setting the Widget::Visible property to `false`. 
-			After the Widget::Hide method is called, the Widget::Visible property returns a value of `false` until the Widget::Show method is called.
+			After the Hide() method is called, the Widget::Visible property returns a value of `false` until the Show() method is called.
 
 			@see
 			- Show()
@@ -1143,7 +1206,7 @@ namespace PhWidgets
 		/*!
 			@remark
 			Showing the widget is equivalent to setting the Widget::Visible property to `true`. 
-			After the Widget::Show method is called, the Widget::Visible property returns a value of `true` until the Widget::Hide method is called.
+			After the Show() method is called, the Widget::Visible property returns a value of `true` until the Hide() method is called.
 			
 			@see
 			- Hide()
@@ -1191,7 +1254,7 @@ namespace PhWidgets
 			@endcode
 
 			For convenient use of resources each widget has properties and events. 
-			So the code snippet above could shrink to:
+			So with properties the code snippet above could shrink to:
 			@code
 				// You have somewhere:
 				PtWidget_t *ptwidget; // pointer to widget
@@ -1310,12 +1373,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			@code
-				typedef struct Ph_area { 
-					PhPoint_t pos;
-					PhDim_t size; 
-				} PhArea_t;
-			@endcode
+			> PhArea_t
 
 			A `PhArea_t` in pixels relative to the parent widget that represents the size and location of the widget including its nonclient elements.
 
@@ -1363,7 +1421,7 @@ namespace PhWidgets
 			@see
 			- Enabled
 			- Visible
-			- Focus
+			- Focus()
 			- Focused
 			- CanSelect
 		*/
@@ -1382,10 +1440,10 @@ namespace PhWidgets
 			is contained in another widget, the widget itself is visible and enabled, and all its parent widget are visible and enabled.
 
 			@see
-			- Select
+			- Select()
 			- Enabled
 			- Visible
-			- Focus
+			- Focus()
 			- CanFocus
 		*/
 		property<bool, property<>::ro>::bind<Widget, &Widget::getCanSelect> CanSelect;
@@ -1401,11 +1459,11 @@ namespace PhWidgets
 			@remark
 			You can use this property to determine whether a widget or any of the widgets contained within it has the input focus. 
 			To determine whether the widget has focus, regardless of whether any of its child widgets have focus, use the Widget::Focused property. 
-			To give a widget the input focus, use the Widget::Focus or Widget::Select methods.
+			To give a widget the input focus, use the Focus() or Select() methods.
 
 			@see
 			- CanFocus
-			- Focus
+			- Focus()
 			- Focused
 			- CanSelect
 		*/
@@ -1423,12 +1481,14 @@ namespace PhWidgets
 
 			@code
 				// You have somewhere:
-				PtWidget_t *ptwidget; // pointer to widget
+				PtWidget_t *ptwidget; // pointer to button widget
 
-				// constructing Widget
-				PhWidgets::Widget widget(ptwidget);
-				
-				widget.Cursor = PhWidgets::Cursors::Hand;
+				// constructing Button
+				PhWidgets::Button button(ptwidget);
+
+				// Display the hand cursor when the mouse pointer
+   				// is over the button. 
+				button.Cursor = PhWidgets::Cursors::Hand;
 			@endcode
 
 			@note
@@ -1436,6 +1496,12 @@ namespace PhWidgets
 			so you can assign your own defined PhCursorDef_t structure to this property.
 
 			@code
+				// You have somewhere:
+				PtWidget_t *ptwidget; // pointer to widget
+
+				// constructing Widget
+				PhWidgets::Widget widget(ptwidget);
+
 				PhCursorDef_t curdef;
 				
 				curdef.size1.x = curdef.size2.x = BMP_WIDTH;
@@ -1468,18 +1534,21 @@ namespace PhWidgets
 
 			@code
 				// You have somewhere:
-				PtWidget_t *ptwidget; // pointer to widget
+				PtWidget_t *ptwidget; // pointer to OnOffButton widget
 
-				// constructing Widget
-				PhWidgets::Widget widget(ptwidget);
+				// constructing OnOffButton
+				PhWidgets::OnOffButton oo_button(ptwidget);
 				
-				widget.CursorColor = PhWidgets::Drawing::Colors::AliceBlue;
+				// Display the crosshair cursor of AliceBlue color
+   				// when the mouse pointer is over the button. 
+				oo_button.Cursor = PhWidgets::Cursors::Cross;
+				oo_button.CursorColor = PhWidgets::Drawing::Colors::AliceBlue;
 			@endcode
 
 			@see
 			- Drawing::Color
 			- Drawing::Colors::eColors
-			- Drawing::Color::FromARGB
+			- Drawing::Color::FromARGB()
 			- Cursors
 		*/
 		phproperty<Drawing::Color>::bind<Widget, Arguments::eArgColor, Arguments::cursor_color> CursorColor;
@@ -1493,19 +1562,19 @@ namespace PhWidgets
 			`true` if the widget can respond to user interaction; otherwise, `false`. The default is `true`.
 
 			@remark
-			With the Enabled property, you can enable or disable widgets at run time. 
+			With the Widget::Enabled property, you can enable or disable widgets at run time. 
 			For example, you can disable widgets that do not apply to the current state of the application. 
 			You can also disable a widget to restrict its use. 
-			For example, a button can be disabled to prevent the user from clicking it. 
+			For example, a Button can be disabled to prevent the user from clicking it. 
 			If a widget is disabled, it cannot be selected.  
 			@par
-			When a container widget has its enabled property set to `false`, 
+			When a Container widget has its Widget::Enabled property set to `false`, 
 			all its contained widgets are disabled, as well. 
 			For example, 
 			if the user clicks on any of the widgets contained in a disabled Container widget, no events are raised. 
 
 			@note
-			Setting the Enabled property to `false` does not disable the application's widget box or prevent the application window from receiving the focus.
+			Setting the Widget::Enabled property to `false` does not disable the application's widget box or prevent the application Window from receiving the focus.
 
 			@see 
 			- Container
@@ -1522,7 +1591,7 @@ namespace PhWidgets
 
 			@see 
 			- CanFocus
-			- Focus
+			- Focus()
 			- CanSelect
 			- ContainsFocus
 		*/
@@ -1570,6 +1639,7 @@ namespace PhWidgets
 			`true` if the widget is realized; otherwise, `false`.
 
 			@see 
+			- Realize()
 			- Enabled
 			- CanFocus
 			- Hide()
@@ -1586,7 +1656,7 @@ namespace PhWidgets
 			An `short` representing the distance, in pixels, between the left edge of the widget and the left edge of its container's client area.
 
 			@remark
-			The value of this property is equivalent to the 'x' value of the Widget::Location property value of the widget.
+			The value of this property is equivalent to the `x` value of the Widget::Location property value of the widget.
 			@par
 			Changes made to the Widget::Width and Widget::Left property values cause the Widget::Right property value of the widget to change.
 
@@ -1607,7 +1677,7 @@ namespace PhWidgets
 			@remark
 			Because the `PhPoint_t` struct is a value type, it is returned by value, 
 			meaning accessing the property returns a copy of the upper-left point of the widget. 
-			So, adjusting the x or y values of the `PhPoint_t` returned from this property will not affect the 
+			So, adjusting the `x` or `y` values of the `PhPoint_t` returned from this property will not affect the 
 			Widget::Left, Widget::Right, Widget::Top, or Widget::Bottom property values of the widget. 
 			To adjust these properties set each property value individually, or set the Widget::Location property with a new `PhPoint_t`. 
 			@par
@@ -1622,19 +1692,17 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			> PtWidget_t*
+			> PtWidget_t *
 
-			The `PtWidget_t*` that represents the parent or container widget of the widget.
+			The pointer to `PtWidget_t` that represents the parent or container widget of the widget.
 
 			@remark
-			Setting the Parent property value to **nullptr** removes the widget from the Widget.WidgetCollection of its current parent widget.
+			Setting the Wodget::Parent property value to **nullptr** removes the widget from the Widget.WidgetCollection of its current parent widget.
 
 			@note
 			This property may and will return **nullptr** if current widget has no parent.
-			Always check `widget.Parent != nullptr` before assingning this property to Widget class
+			Always check `widget.Parent() != nullptr` before assingning this property to Widget class
 			if you are unsure that widget have parent at first place.
-			In case of empty parent (**nullptr** returned) code like `Widget parent = other_widget.Parent;`
-			will throw the `std::invalid_argument` exception.
 
 			### Examples ###
 
@@ -1642,7 +1710,7 @@ namespace PhWidgets
 				PhWidgets::Button button(ptwidget);
 				PhWidgets::Window main_window(ABN_MAIN_WINDOW);
 
-				if(nullptr == button.Parent) // check if button have parent
+				if( nullptr == button.Parent() ) // check if button have parent
 					button.Parent = main_window; // setting parent
 
 			@endcode
@@ -1664,7 +1732,7 @@ namespace PhWidgets
 			@remark
 			Because the `PhPoint_t` struct is a value type, it is returned by value, 
 			meaning accessing the property returns a copy of the upper-left point of the widget. 
-			So, adjusting the x or y values of the `PhPoint_t` returned from this property will not affect the 
+			So, adjusting the `x` or `y` values of the `PhPoint_t` returned from this property will not affect the 
 			Widget::Left, Widget::Right, Widget::Top, or Widget::Bottom property values of the widget. 
 			To adjust these properties set each property value individually, or set the Widget::Position property with a new `PhPoint_t`. 
 			@par
@@ -1708,7 +1776,7 @@ namespace PhWidgets
 			@remark
 			Because the `PhDim_t` struct is a value type, it is returned by value, 
 			meaning accessing the property returns a copy of the size of the widget. 
-			So, adjusting the 'w' or 'h' values of the `PhDim_t` returned from this property will not affect the 
+			So, adjusting the `w` or `h` values of the `PhDim_t` returned from this property will not affect the 
 			Widget::Width or Widget::Height property values of the widget. 
 			To adjust these properties set each property value individually, or set the Widget::Size property with a new `PhDim_t`. 
 
@@ -1735,11 +1803,24 @@ namespace PhWidgets
 
 
 			@code
+				using namespace PhWidgets;
+
 				// constructing Widget
-				PhWidgets::Widget widget(ptwidget);
+				Button button(ptwidget);
 				
-				widget.Tag = PhWidgets::Colors::Red;
-				PgColor_t color = Tag;
+				// note the difference - type passed to Widget::Tag property should be
+				// the same as requested type
+
+				// with Drawing::Colors::eColors enum:
+
+				button.Tag = Drawing::Colors::Red;
+				Drawing::Colors::eColor tag_color = button.Tag;
+				Drawing::Color color = tag_color;
+
+				// now lets try the same but with PhWidgets::Drawing::Color class:
+
+				button.Tag = Drawing::Color::FromARGB(0, 255, 0, 128); // constructing PhWidgets::Drawing::Color class
+				Drawing::Color color2 = button.Tag;
 			@endcode
 
 			@note
@@ -1813,7 +1894,7 @@ namespace PhWidgets
 
 			@remark
 			Any pointer can be assigned to this property. 
-			A common use for the Tag property is to store data that is closely associated with the widget. 
+			A common use for the Widget::Tag property is to store data that is closely associated with the widget. 
 			@par
 			For example, if you have a widget that displays different colors, 
 			you might store a pointer to struct that contains the set of defined colors in that widget's Widget::Tag property 
@@ -1833,7 +1914,7 @@ namespace PhWidgets
 			An `short` representing the distance, in pixels, between the top edge of the widget and the top edge of its container's client area.
 
 			@remark
-			The value of this property is equivalent to the 'y' value of the Widget::Location property value of the widget.
+			The value of this property is equivalent to the `y` value of the Widget::Location property value of the widget.
 			@par
 			Changes made to the Widget::Height and Widget::Top property values cause the Widget::Bottom property value of the widget to change.
 
@@ -1862,6 +1943,41 @@ namespace PhWidgets
 		*/
 		property<bool>::bind<Widget, &Widget::getVisible, &Widget::setVisible> Visible;
 
+		//! Gets the list of widgets contained within the widget.
+		/*!
+			### Property Value ### 
+			
+			> std::set<PhWidgets::Widget>
+
+			A `std::set<PhWidgets::Widget>` representing the list of widgets contained within the widget.
+
+			@remark
+			A Widget can act as a parent to a list of widgets. 
+			For example, when several widgets are added to a Window, 
+			each of the widgets is a member of the `std::set<PhWidgets::Widget>` assigned to the Widget::Widgets property of the Window, 
+			which is derived from the Widget class.
+			@par
+			You can manipulate the widgets in the `std::set<PhWidgets::Widget>` assigned
+			to the Widget::Widgets property by using the methods available in the `std::set<PhWidgets::Widget>` class.
+			@par
+			When adding several widgets to a parent widget, 
+			it is recommended that you call the SuspendLayout() method before initializing the widgets to be added. 
+			After adding the widgets to the parent widget, 
+			call the ResumeLayout() method. 
+			Doing so will increase the performance of applications with many widgets.
+			@par
+			Use the Widget::Widgets property to iterate through all widgets of a form, including nested widgets. 
+			Use the GetNextWidget() method to retrieve the previous or next child widget in the tab order. 
+			Use the ActiveWidget() property to get or set the active widget of a container widget.
+
+			@see 
+			- GetNextWidget()
+			- Containter::ActiveWidget
+			- SuspendLayout()
+			- ResumeLayout()
+		*/
+		property<std::set<PhWidgets::Widget>, property<>::ro>::bind<Widget, &Widget::getWidgets> Widgets;
+
 		//! Gets or sets the width of the widget.
 		/*!
 			### Property Value ### 
@@ -1880,7 +1996,32 @@ namespace PhWidgets
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::width> Width;
 
 		phbitmask<unsigned long, Flags::Extended::eExFlags>::bind<Widget, ArgUnsignedLong::eArgUnsignedLong, ArgUnsignedLong::eflags>	ExtendedFlags; //!< Gets or sets extended flags inherited by all widgets. See Flags::Extended::eExFlags.
-		phbitmask<long, Flags::eFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::flags>													WidgetFlags; //!< Gets or sets flags inherited by all widgets. See Flags::eFlags.
+
+		//! Gets or sets flags inherited by all widgets.
+		/*! 
+			### Property Value ### 
+			
+			> Flags::eFlags
+
+			Flags that specifiy the style and behavior of a widget.
+			
+			@note
+			This is bitmask property so you can use bitwise operations on it.
+
+			@remark
+			Widgets use this property to specify the style and behavior of the widget. 
+			For example, the following line of code would enable ability to be selected.
+
+			### Examples ###
+
+			@code
+				widget.WidgetFlags |= Widget::Flags::Selectable;
+			@endcode
+
+			@see 
+			- Widget::Flags::eFlags
+		*/
+		phbitmask<long, Flags::eFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::flags>													WidgetFlags;
 		phbitmask<long, Flags::Resize::eResizeFlags>::bind<Widget, ArgLong::eArgLong, ArgLong::resize_flags>							ResizeFlags; //!< Gets or sets flags to control a widget's resize policy. See Flags::Resize::eResizeFlags.	
 		//@}
 

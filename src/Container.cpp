@@ -1,6 +1,7 @@
 #include "Container.h"
 
 #include <stdexcept>
+#include <algorithm>
 
 
 using namespace PhWidgets;
@@ -27,6 +28,8 @@ CHECK_WIDGET(Container);
 Container::Container(int abn):
 	Basic(abn),
 	resource(this),
+	//properties:
+	ActiveWidget(this),
 	//callbacks:
 	ChildAddedRemoved(this),
 	ChildGettingFocus(this),
@@ -40,6 +43,8 @@ Container::Container(int abn):
 Container::Container(PtWidget_t *wdg):
 	Basic(wdg),
 	resource(this),
+	//properties:
+	ActiveWidget(this),
 	//callbacks:
 	ChildAddedRemoved(this),
 	ChildGettingFocus(this),
@@ -53,6 +58,8 @@ Container::Container(PtWidget_t *wdg):
 PhWidgets::Container::Container(const Container & other):
 	Basic(other),
 	resource(this),
+	//properties:
+	ActiveWidget(this),
 	//callbacks:
 	ChildAddedRemoved(this),
 	ChildGettingFocus(this),
@@ -67,6 +74,44 @@ Container &Container::operator=(const Container &other)
 	static_cast<Basic&>(*this) = static_cast<const Basic&>(other);
 	
 	return *this;
+}
+
+Widget Container::getActiveWidget() const
+{
+	typedef std::set<Widget>::iterator iterator;
+
+	std::set<Widget> widgets = Widgets;
+
+	struct 
+	{
+		bool operator()(const Widget &widget)
+		{
+			return widget.Focused;
+		}
+	} predicate;
+
+	iterator it = std::find_if(widgets.begin(), widgets.end(), predicate);
+
+	if(it == widgets.end())
+		return *this;
+
+	return *it;
+}
+
+void Container::setActiveWidget(Widget widget)
+{
+	typedef std::set<Widget>::iterator iterator;
+
+	std::set<Widget> widgets = Widgets;
+
+	iterator it = widgets.find(widget);
+
+	if(it == widgets.end())
+		throw(std::invalid_argument("PhWidgets::Containter::ActiveWidget: cannot set widget passed as active"));
+	
+	Widget &result = const_cast<Widget&>(*it);
+
+	result.Select();
 }
 
 

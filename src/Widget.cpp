@@ -166,6 +166,7 @@ Widget::Widget(int abn):
 	Tag(this),
 	Top(this),
 	Visible(this),
+	Widgets(this),
 	Width(this),
 	//flags:
 	ExtendedFlags(this),
@@ -216,6 +217,7 @@ Widget::Widget(PtWidget_t* wdg):
 	Tag(this),
 	Top(this),
 	Visible(this),
+	Widgets(this),
 	Width(this),
 	//flags:
 	ExtendedFlags(this),
@@ -303,6 +305,7 @@ Widget::Widget(const Widget &other):
 	Tag(this),
 	Top(this),
 	Visible(this),
+	Widgets(this),
 	Width(this),
 	//flags:
 	ExtendedFlags(this),
@@ -504,6 +507,21 @@ bool Widget::Focus()
 		return PtWindowFocus(widget()) == 0;
 
 	return PtGiveFocus(widget(), nullptr) != nullptr;
+}
+
+Widget Widget::GetNextWidget(Widget widget, bool forward) const
+{
+	PtWidget_t *this_widget = this->widget();
+
+	PtWidget_t *result = 
+		forward ? 
+			PtWidgetChildFront(this_widget):
+			PtWidgetChildBack(this_widget);
+	
+	if(NULL == result)
+		throw(std::out_of_range("PhWidgets::Widget::GetNextWidget(): widget has no children"));
+
+	return result;
 }
 
 void Widget::Select()
@@ -762,6 +780,24 @@ bool Widget::getVisible() const
 bool Widget::getIsRealized() const
 {
 	return PtWidgetIsRealized ( widget() ) != 0;
+}
+
+std::set<Widget> Widget::getWidgets() const
+{
+	std::set<Widget> result;
+	PtWidget_t *this_widget = widget();
+
+	PtWidget_t *front = PtWidgetChildFront(this_widget);
+
+	if(NULL == front)
+		return result;
+	
+	for(PtWidget_t *next = front; next != NULL; next = PtWidgetBrotherBehind(next))
+	{
+		result.insert(next);
+	}
+
+	return result;
 }
 
 cppbitmasks::bitmask<unsigned long, PhWidgets::Widget::Flags::Extended::eExFlags> operator|(const PhWidgets::Widget::Flags::Extended::eExFlags &flag1, const PhWidgets::Widget::Flags::Extended::eExFlags &flag2)

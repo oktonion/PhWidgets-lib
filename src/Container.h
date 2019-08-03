@@ -325,6 +325,9 @@ namespace PhWidgets
 		resource_type WidgetResourcesSingleton;
 
 		virtual void check();
+
+		Widget getActiveWidget() const; 
+		void setActiveWidget(Widget);
 						
 	public:
 		//! Resources of the Container
@@ -366,6 +369,31 @@ namespace PhWidgets
 		//! Properties are used to simplify use of widget resources.
 		//@{
 
+		//! Gets or sets the active widget on the Container widget.
+		/*!
+			### Property Value ### 
+			
+			> Widget
+
+			The Widget that is currently active on the Container.
+
+			@throws std::invalid_argument
+
+			@remark
+			The Container::ActiveWidget property activates or retrieves the active widget on the Container widget.
+			@par
+			In order to receive a valid value from this property, 
+			the object that calls it must either contain or be contained in the widget it is calling. 
+			If one form tries to call another form's ActiveWidget properties, it will receive an undefined value. 
+			In this case, you need to define your own communication mechanism between the forms to pass this data.
+
+			@see 
+			- GetNextWidget()
+			- Widgets
+		*/
+		property<Widget>::
+			bind<Container, &Container::getActiveWidget, &Container::setActiveWidget> ActiveWidget;
+		
 		//@}
 		
 		//! @name Events
