@@ -10,6 +10,7 @@
 #include <map>
 #include <string>
 #include <list>
+#include <set>
 
 #include "./service/stdex/stdex.h"
 #include "./service/phproperty.hpp"
@@ -981,6 +982,8 @@ namespace PhWidgets
 
 		void setParent(PtWidget_t*);
 		PtWidget_t* getParent() const;
+
+		std::set<Widget> getWidgets() const;
 						
 	public:
 		//! (constructor) 
@@ -1103,6 +1106,25 @@ namespace PhWidgets
 			- LinkLabel (when there is no link present in the control)
 		*/
 		bool Focus();
+
+		//! Retrieves the next widget forward or back in the tab order of child widgets.
+		/*!
+			@param[in] widget The Widget to start the search with.
+			@param[in] forward `true` to search forward in the tab order; `false` to search backward.
+			@return The next Widget in the tab order.
+
+			@throws std::out_of_range
+
+			@remark
+			The GetNextWidget() method is dependent on tab order. 
+			To iterate through all widgets of a container, including nested widgets, use the Widget::Widgets property. 
+			To get or set the active widget of a container widget, use the Container::ActiveWidget property.
+
+			@see
+			- Container::ActiveWidget
+			- Widgets
+		*/
+		Widget GetNextWidget(Widget widget, bool forward = true) const;
 
 		//@{
 		//! Sets the bounds of the widget to the specified location and size.
@@ -1351,12 +1373,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			@code
-				typedef struct Ph_area { 
-					PhPoint_t pos;
-					PhDim_t size; 
-				} PhArea_t;
-			@endcode
+			> PhArea_t
 
 			A `PhArea_t` in pixels relative to the parent widget that represents the size and location of the widget including its nonclient elements.
 
@@ -1925,6 +1942,41 @@ namespace PhWidgets
 			- Show()
 		*/
 		property<bool>::bind<Widget, &Widget::getVisible, &Widget::setVisible> Visible;
+
+		//! Gets the list of widgets contained within the widget.
+		/*!
+			### Property Value ### 
+			
+			> std::set<PhWidgets::Widget>
+
+			A `std::set<PhWidgets::Widget>` representing the list of widgets contained within the widget.
+
+			@remark
+			A Widget can act as a parent to a list of widgets. 
+			For example, when several widgets are added to a Window, 
+			each of the widgets is a member of the `std::set<PhWidgets::Widget>` assigned to the Widget::Widgets property of the Window, 
+			which is derived from the Widget class.
+			@par
+			You can manipulate the widgets in the `std::set<PhWidgets::Widget>` assigned
+			to the Widget::Widgets property by using the methods available in the `std::set<PhWidgets::Widget>` class.
+			@par
+			When adding several widgets to a parent widget, 
+			it is recommended that you call the SuspendLayout() method before initializing the widgets to be added. 
+			After adding the widgets to the parent widget, 
+			call the ResumeLayout() method. 
+			Doing so will increase the performance of applications with many widgets.
+			@par
+			Use the Widget::Widgets property to iterate through all widgets of a form, including nested widgets. 
+			Use the GetNextWidget() method to retrieve the previous or next child widget in the tab order. 
+			Use the ActiveWidget() property to get or set the active widget of a container widget.
+
+			@see 
+			- GetNextWidget()
+			- Containter::ActiveWidget
+			- SuspendLayout()
+			- ResumeLayout()
+		*/
+		property<std::set<PhWidgets::Widget>, property<>::ro>::bind<Widget, &Widget::getWidgets> Widgets;
 
 		//! Gets or sets the width of the widget.
 		/*!
