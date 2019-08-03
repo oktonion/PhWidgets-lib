@@ -255,13 +255,14 @@ namespace PhWidgets
 
         template<class T>
         inline
+        const
         typename type_traits::remove_cv<T>
-        ::type const get_ptr(T) const
+        ::type get_ptr(T) const
         {
-            typedef typename type_traits::remove_cv<T>::type const type;
+            typedef const typename type_traits::remove_cv<T>::type type;
 
             value_type value = (_obj->*Getter)();
-            type result = reinterpret_cast<type>(value);
+            type result = dynamic_cast<type>(value);
 
             #ifdef PH_WIDGETS_DEBUG_BUILD
             {
@@ -296,7 +297,7 @@ namespace PhWidgets
             false == type_traits::is_same<const T*, const void*>::value
         >::type set_ptr(const T *value, std::size_t size, priority_tag<1>)
         {
-            typedef typename type_traits::remove_cv<T>::type const type;
+            typedef const typename type_traits::remove_cv<T>::type type;
 
             (_obj->*Setter)(value, size);
 
