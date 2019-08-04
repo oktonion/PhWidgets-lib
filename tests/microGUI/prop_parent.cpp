@@ -20,14 +20,19 @@ TEST_CASE("Testing Widget::Parent property"){
 
         REQUIRE(!window.Parent);
         
-        window.Parent = window;
+        CHECK_THROWS({
+            window.Parent = window;
+        });
         
-        CHECK(window.Parent == window);
-        CHECK(window.Parent);
+        CHECK((window.Parent() == nullptr));
+        CHECK(!window.Parent);
 
         REQUIRE(button.Parent);
         
-        button.Parent = window;
+        CHECK_NOTHROW({
+            button.Parent = window;
+        });
+        
         
         CHECK(button.Parent == window);
         CHECK(button.Parent);
@@ -42,7 +47,9 @@ TEST_CASE("Testing Widget::Parent property"){
 
         CHECK(widgets.find(button2) != widgets.end());
 
-        button2.Parent = nullptr;
+        CHECK_NOTHROW({
+            button2.Parent = nullptr;
+        });
 
         CHECK((nullptr == button2.Parent()));
 
@@ -50,7 +57,9 @@ TEST_CASE("Testing Widget::Parent property"){
 
         CHECK(widgets.find(button2) == widgets.end());
 
-        button2.Parent = window;
+        CHECK_NOTHROW({
+            button2.Parent = window;
+        });
 
         CHECK((nullptr != button2.Parent()));
 
