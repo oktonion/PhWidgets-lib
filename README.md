@@ -11,26 +11,8 @@ Also library implements easy raw access to 'resources' of Photon Widget and the 
 
 ### Implemented widgets ###
 
- <div class="center">
-  <img src="https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_widget.png" usemap="#PhWidgets::Widget_map" alt="">
-  <map id="PhWidgets::Widget_map" name="PhWidgets::Widget_map">
-<area href="https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_basic.html" title="A superclass of basic resources for most widgets." alt="PhWidgets::Basic" shape="rect" coords="346,56,509,80">
-<area href="https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_timer.html" title="A widget that invokes a callback after a given length of time." alt="PhWidgets::Timer" shape="rect" coords="519,56,682,80">
-<area href="https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_container.html" title="Layout and geometry management for all container widgets." alt="PhWidgets::Container" shape="rect" coords="173,112,336,136">
-<area href="https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_graphic.html" title="Common resources for graphical widgets." alt="PhWidgets::Graphic" shape="rect" coords="346,112,509,136">
-<area href="https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_label.html" title="A text, bitmap, or image label." alt="PhWidgets::Label" shape="rect" coords="605,112,768,136">
-<area href="class_ph_widgets_1_1_compound.html" title="Superclass for all compound widgets." alt="PhWidgets::Compound" shape="rect" coords="86,168,249,192">
-<area href="https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_disjoint.html" title="Superclass for disjoint widgets." alt="PhWidgets::Disjoint" shape="rect" coords="259,168,422,192">
-<area href="https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_button.html" title="A button for initiating an action." alt="PhWidgets::Button" shape="rect" coords="519,168,682,192">
-<area href="https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_text.html" title="Single-line text." alt="PhWidgets::Text" shape="rect" coords="692,168,855,192">
-<area href="https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_numeric.html" title="A superclass for numeric widgets." alt="PhWidgets::Numeric" shape="rect" coords="86,224,249,248">
-<area href="https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_window.html" title="An Application window that's managed by the Photon window manager." alt="PhWidgets::Window" shape="rect" coords="259,224,422,248">
-<area href="https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_on_off_button.html" title="An on/off button that can be set or unset." alt="PhWidgets::OnOffButton" shape="rect" coords="432,224,595,248">
-<area href="https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_toggle_button.html" title="A toggle switch that's either off or on." alt="PhWidgets::ToggleButton" shape="rect" coords="605,224,768,248">
-<area href="https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_numeric_float.html" title="Floating-point numeric widget." alt="PhWidgets::NumericFloat" shape="rect" coords="0,280,163,304">
-<area href="https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_numeric_integer.html" title="Integer numeric widget." alt="PhWidgets::NumericInteger" shape="rect" coords="173,280,336,304">
-  </map>
-</div>
+ ![Hierarchy](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_widget.png)
+
 
 * [Widget](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_widget.html)
 * [Basic](https://oktonion.github.io/PhWidgets-lib/html/class_ph_widgets_1_1_basic.html)
