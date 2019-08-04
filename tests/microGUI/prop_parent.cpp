@@ -47,11 +47,19 @@ TEST_CASE("Testing Widget::Parent property"){
 
         CHECK(widgets.find(button2) != widgets.end());
 
-        CHECK_NOTHROW({
+        CHECK_THROWS({
             button2.Parent = nullptr;
         });
 
-        CHECK((nullptr == button2.Parent()));
+        CHECK((nullptr != button2.Parent()));
+
+        Window window2 = PtCreateWidget(PtWindow, window, 0, NULL);
+
+        CHECK((window == window2.Parent()));
+
+        CHECK_NOTHROW({
+            button2.Parent = window2;
+        });
 
         widgets = window.Widgets;
 
@@ -71,7 +79,11 @@ TEST_CASE("Testing Widget::Parent property"){
 
         widgets = window.Widgets;
 
-        CHECK(widgets.find(button2) == widgets.end());
+        CHECK_THROWS({
+            widgets.find(button2) == widgets.end();
+        });
+
+        PtDestroyWidget(window2);
     }
 
 }
