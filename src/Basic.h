@@ -406,14 +406,14 @@ namespace PhWidgets
 			Constructs a Basic widget by ID.
 			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
 		*/
-		Basic(int abn);
+		explicit Basic(int abn);
 
 		//! (constructor) 
 		/*!
 			Constructs a Basic widget by pointer to widget.
 			@param[in] wdg pointer to Photon widget.
 		*/
-		Basic(PtWidget_t *wdg);
+		explicit Basic(PtWidget_t *wdg);
 		
 		//! (copy constructor) 
 		/*!

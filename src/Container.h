@@ -342,14 +342,14 @@ namespace PhWidgets
 			Constructs a Container widget by ID.
 			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
 		*/
-		Container(int abn);
+		explicit Container(int abn);
 
 		//! (constructor) 
 		/*!
 			Constructs a Container widget by pointer to widget.
 			@param[in] wdg pointer to Photon widget.
 		*/		
-		Container(PtWidget_t *wdg);
+		explicit Container(PtWidget_t *wdg);
 
 		//! (copy constructor) 
 		/*!

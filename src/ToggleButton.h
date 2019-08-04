@@ -135,14 +135,14 @@ namespace PhWidgets
 			Constructs a ToggleButton by ID.
 			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
 		*/
-		ToggleButton(int abn);
+		explicit ToggleButton(int abn);
 
 		//! (constructor) 
 		/*!
 			Constructs a ToggleButton by pointer to widget.
 			@param[in] wdg pointer to Photon widget.
 		*/
-		ToggleButton(PtWidget_t *wdg);
+		explicit ToggleButton(PtWidget_t *wdg);
 		
 		//! (copy constructor) 
 		/*!

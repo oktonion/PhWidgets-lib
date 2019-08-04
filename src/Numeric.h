@@ -129,14 +129,14 @@ namespace PhWidgets
 			Constructs a Numeric widget by ID.
 			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
 		*/
-		Numeric(int abn);
+		explicit Numeric(int abn);
 
 		//! (constructor) 
 		/*!
 			Constructs a Numeric widget by pointer to widget.
 			@param[in] wdg pointer to Photon widget.
 		*/
-		Numeric(PtWidget_t *wdg);
+		explicit Numeric(PtWidget_t *wdg);
 		
 		//! (copy constructor) 
 		/*!
