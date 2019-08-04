@@ -64,7 +64,8 @@ PtWidget_t *Widget::widget() const
 	{
 		PtWidget_t *instance = ApGetInstance(_widget);
 		if(nullptr == instance)
-			throw(std::logic_error("PhWidgets::Widget::widget: invalid widget pointer."));
+			throw(
+				std::logic_error("PhWidgets::Widget::widget(): invalid widget pointer."));
 		int abn = ApName(_widget);
 		if(-1 != abn)
 			return ApGetWidgetPtr(instance, abn);
@@ -103,7 +104,8 @@ PtWidget_t *Widget::widget() const
 
 		if(nullptr == wdg)
 		{
-			throw(std::invalid_argument((std::string("Widget::widget: can not find widget with ABN ") + std::to_string(_abn)).c_str()));
+			throw(
+				std::logic_error(std::string("PhWidgets::Widget::widget(): can not find widget with ABN ") + std::to_string(_abn) + "."));
 		}
 	}
 	
@@ -123,7 +125,7 @@ PtWidget_t *Widget::widget() const
 	return wdg;
 }
 
-#define FORM_THROW_MESSAGE(xxx) (std::string("PhWidgets::") + std::string(#xxx": wrong class of photon widget - got \'") + WidgetClassName(widget()) + "\' instead of \'Pt"#xxx"\'").c_str()
+#define FORM_THROW_MESSAGE(xxx) (std::string("PhWidgets::") + std::string(#xxx": wrong class of photon widget - got \'") + WidgetClassName(widget()) + "\' instead of \'Pt"#xxx"\'.").c_str()
 #define WIDGET_IS_CLASS_MEMBER(xxx) \
 	if(PtWidgetIsClassMember( widget(), Pt##xxx ) != true)\
 		throw(std::invalid_argument(FORM_THROW_MESSAGE(xxx)));
