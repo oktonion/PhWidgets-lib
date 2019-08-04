@@ -1699,8 +1699,12 @@ namespace PhWidgets
 
 			The pointer to `PtWidget_t` that represents the parent or container widget of the widget.
 
+			@throws
+			std::logic_error in case widget couldn't be reparented;
+			std::invalid_argument in case bad parent widget passed.
+
 			@remark
-			Setting the Wodget::Parent property value to **nullptr** removes the widget from the Widget::Widgets of its current parent widget.
+			Setting the Widget::Parent property value to **nullptr** removes the widget from the Widget::Widgets of its current parent widget.
 
 			@note
 			This property may and will return **nullptr** if current widget has no parent.

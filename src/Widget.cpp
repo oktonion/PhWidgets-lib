@@ -17,6 +17,11 @@
 #include <utility>
 #include <cassert>
 
+namespace PhWidgets
+{
+    const char * WidgetClassName(PtWidget_t *wdg);
+	const char * WidgetName(PtWidget_t *wdg);
+};
 
 using namespace PhWidgets;
 
@@ -59,7 +64,7 @@ PtWidget_t *Widget::widget() const
 	{
 		PtWidget_t *instance = ApGetInstance(_widget);
 		if(nullptr == instance)
-			throw(std::invalid_argument("Widget::widget: invalid widget pointer"));
+			throw(std::logic_error("PhWidgets::Widget::widget: invalid widget pointer."));
 		int abn = ApName(_widget);
 		if(-1 != abn)
 			return ApGetWidgetPtr(instance, abn);
@@ -118,12 +123,7 @@ PtWidget_t *Widget::widget() const
 	return wdg;
 }
 
-namespace PhWidgets
-{
-    const char * WidgetClassName(PtWidget_t *wdg);
-}
-
-#define FORM_THROW_MESSAGE(xxx) (std::string(#xxx": wrong class of photon widget - got \'") + WidgetClassName(widget()) + "\' instead of \'Pt"#xxx"\'").c_str()
+#define FORM_THROW_MESSAGE(xxx) (std::string("PhWidgets::") + std::string(#xxx": wrong class of photon widget - got \'") + WidgetClassName(widget()) + "\' instead of \'Pt"#xxx"\'").c_str()
 #define WIDGET_IS_CLASS_MEMBER(xxx) \
 	if(PtWidgetIsClassMember( widget(), Pt##xxx ) != true)\
 		throw(std::invalid_argument(FORM_THROW_MESSAGE(xxx)));
@@ -184,7 +184,7 @@ Widget::Widget(int abn):
 
 {
 	if(abn < 0)
-		throw(std::invalid_argument("Widget::Widget: invalid ABN is passed"));
+		throw(std::invalid_argument("PhWidgets::Widget::Widget: invalid ABN is passed."));
 	check();
 }
 
@@ -235,7 +235,7 @@ Widget::Widget(PtWidget_t* wdg):
 
 {
 	if(nullptr == wdg)
-		throw(std::invalid_argument("Widget::Widget: nullptr passed"));
+		throw(std::invalid_argument("PhWidgets::Widget::Widget: nullptr passed."));
 
 	static std::map<PtWidget_t*, int> &abws = ABW();
 	static std::vector< std::set<PtWidget_t*> > &abns = ABN();
@@ -520,7 +520,8 @@ Widget Widget::GetNextWidget(Widget widget, bool forward) const
 			PtWidgetChildBack(this_widget);
 	
 	if(NULL == result)
-		throw(std::out_of_range("PhWidgets::Widget::GetNextWidget(): widget has no children"));
+		throw(
+			std::out_of_range(std::string("PhWidgets::Widget::GetNextWidget(): \'") + WidgetClassName(this_widget) + "\' widget has no children"));
 
 	return result;
 }
@@ -564,7 +565,8 @@ bool Widget::getAllowDrop() const
 void Widget::setEnabled(bool val)
 {
 	if(resource.argument[Arguments::flags].set(Flags::Blocked | Flags::Ghost, !val) != 0)
-		throw(std::invalid_argument("Widget::setEnabled: Can not set flags of a widget."));
+		throw(
+			std::invalid_argument(std::string("PhWidets::Widget::Enabled: \'") + WidgetClassName(widget()) + "\' - cannot set flags of a widget."));
 }
 
 bool Widget::getEnabled() const
@@ -728,10 +730,31 @@ void Widget::setParent(PtWidget_t *parent)
 	int err = PtReparentWidget(this_widget, parent);
 	if(0 == err)
 		return;
+
+	// error handling
+
+	std::string err_mesage = 
+		std::string("PhWidgets::Widget::Parent: cannot set parent for \'") + 
+		WidgetName(this_widget) + 
+		"\' - ";
 	
-	throw(
+	if(Pt_NO_PARENT == parent)
+	{
+		throw(
+		std::logic_error(
+			err_mesage + "\'" + WidgetClassName(this_widget) + "\' widget should have a parent."));
+	}
+
+	if(false == PtIsContainer(parent))
+	{
+		throw(
 		std::invalid_argument(
-			"PhWidgets::Widget::Parent: cannot set parent - argument passed is not a containter or widget couldn't be reparented"));
+			err_mesage + "\'" + WidgetClassName(parent) + "\' widget passed is not a container."));
+	}
+
+	throw(
+	std::logic_error(
+		err_mesage + "\'" + WidgetClassName(this_widget) + "\' widget couldn't be reparented."));
 }
 
 PtWidget_t * Widget::getParent() const
