@@ -736,7 +736,9 @@ void Widget::setParent(PtWidget_t *parent)
 	// error handling
 
 	std::string err_mesage = 
-		std::string("PhWidgets::Widget::Parent: cannot set parent for \'") + 
+		std::string("PhWidgets::Widget::Parent: cannot set \'") +
+		((Pt_NO_PARENT == parent) ? "nullptr" : WidgetName(parent)) +
+		"\' as a parent for \'" + 
 		WidgetName(this_widget) + 
 		"\' - ";
 	
