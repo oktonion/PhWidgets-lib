@@ -1,6 +1,7 @@
 #include "PhWidgetsFunc.h"
 
 #include <Pt.h>
+#include <Ap.h>
 extern PtWidgetClassRef_t *PtOSContainer;
 extern PtWidgetClassRef_t *PtClient;
 /*extern*/ PtWidgetClassRef_t *PtMtrend;
@@ -95,5 +96,15 @@ namespace PhWidgets
         RETURN_PHWIDGETS_CLASS_NAME(wdg, PtWindow);
 
         return "Unknown";
+    }
+
+    const char * WidgetName(PtWidget_t *wdg)
+    {
+        const char *name = ApInstanceName(wdg);
+
+        if(NULL == name)
+            name = WidgetClassName(wdg);
+        
+        return name;
     }
 }
