@@ -496,6 +496,29 @@ void Widget::BringToFront()
 	PtWidgetToFront(widget());
 }
 
+bool Widget::Contains(const Widget &widget)
+{
+	PtWidget_t *this_widget = this->widget();
+
+	if(false == PtIsContainer(this_widget))
+		return false;
+	
+	PtWidget_t *front = PtWidgetChildFront(this_widget);
+
+	if(NULL == front)
+		return false;
+	
+	PtWidget_t *other_widget = widget.widget();
+
+	for(PtWidget_t *next = front; next != NULL; next = PtWidgetBrotherBehind(next))
+	{
+		if(next == other_widget)
+			return true;
+	}
+
+	return false;
+}
+
 void Widget::SetBounds(short x, short y, unsigned short width, unsigned short height)
 {
 	PhDim_t size;
@@ -525,18 +548,25 @@ bool Widget::Focus()
 	return PtGiveFocus(widget(), nullptr) != nullptr;
 }
 
-Widget Widget::GetNextWidget(Widget widget, bool forward) const
+Widget Widget::GetNextWidget(const Widget &widget, bool forward) const
 {
 	PtWidget_t *this_widget = this->widget();
 
 	PtWidget_t *result = 
 		forward ? 
-			PtWidgetChildFront(this_widget):
-			PtWidgetChildBack(this_widget);
+			PtWidgetBrotherInFront(this_widget):
+			PtWidgetBrotherBehind(this_widget);
 	
 	if(NULL == result)
-		throw(
-			std::out_of_range(std::string("PhWidgets::Widget::GetNextWidget(): \'") + WidgetClassName(this_widget) + "\' widget has no children"));
+	{
+		result = 
+		forward ? 
+			PtWidgetBrotherBehind(this_widget):
+			PtWidgetBrotherInFront(this_widget);
+	}
+
+	if(NULL == result)
+		return *this;
 
 	return Widget(result);
 }

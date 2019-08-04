@@ -1092,6 +1092,36 @@ namespace PhWidgets
 		*/
 		void BringToFront();
 
+		//! Retrieves a value indicating whether the specified widget is a child of the widget.
+		/*!
+			@param[in] widget The Widget to evaluate.
+			@returns `true` if the specified widget is a child of the widget; otherwise, `false`.
+
+			### Examples ###
+
+			The following code example ensures that a Label is visible by calling its BringToFront() method. 
+			This example requires that you have a Window `main_window` with a Label named `label1`.
+
+			@code
+				void MakeLabelVisible()
+				{
+					// If the window contains label1, bring it 
+					// to the front to make sure it is visible.
+					
+					if(main_window.Contains(label1))
+					{
+						label1.BringToFront();
+					}
+				}
+			@endcode
+
+			@see
+			- BringToFront()
+			- SendToBack()
+			- Widgets
+		*/
+		bool Contains(const Widget &widget);
+
 		//! Sets input focus to the widget.
 		/*!
 			@return `true` if the input focus request was successful; otherwise, `false`.
@@ -1145,7 +1175,7 @@ namespace PhWidgets
 			- Container::ActiveWidget
 			- Widgets
 		*/
-		Widget GetNextWidget(Widget widget, bool forward = true) const;
+		Widget GetNextWidget(const Widget &widget, bool forward = true) const;
 
 		//! Sends the widget to the back of the z-order.
 		/*!
