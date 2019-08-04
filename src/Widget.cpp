@@ -525,7 +525,7 @@ Widget Widget::GetNextWidget(Widget widget, bool forward) const
 		throw(
 			std::out_of_range(std::string("PhWidgets::Widget::GetNextWidget(): \'") + WidgetClassName(this_widget) + "\' widget has no children"));
 
-	return result;
+	return Widget(result);
 }
 
 void Widget::Select()
@@ -833,7 +833,7 @@ std::set<Widget> Widget::getWidgets() const
 	
 	for(PtWidget_t *next = front; next != NULL; next = PtWidgetBrotherBehind(next))
 	{
-		result.insert(next);
+		result.insert(Widget(next));
 	}
 
 	return result;
