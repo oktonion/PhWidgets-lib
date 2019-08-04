@@ -39,14 +39,14 @@ namespace PhWidgets
 			Constructs a Compound widget by ID.
 			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
 		*/
-		Compound(int abn);
+		explicit Compound(int abn);
 
 		//! (constructor) 
 		/*!
 			Constructs a Compound widget by pointer to widget.
 			@param[in] wdg pointer to Photon widget.
 		*/		
-		Compound(PtWidget_t *wdg);
+		explicit Compound(PtWidget_t *wdg);
 		
 		//! @name Properties
 		//! Properties are used to simplify use of widget resources.

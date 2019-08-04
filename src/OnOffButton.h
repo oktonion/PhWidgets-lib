@@ -116,12 +116,28 @@ namespace PhWidgets
 			Constructs a OnOffButton widget by ID.
 			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
 		*/
-		OnOffButton(int abn);
-		OnOffButton(PtWidget_t* wdg);
-		
-		OnOffButton(const OnOffButton&);
+		explicit OnOffButton(int abn);
 
-		OnOffButton &operator=(const OnOffButton &rhs);
+		//! (constructor) 
+		/*!
+			Constructs a OnOffButton widget by pointer to widget.
+			@param[in] wdg pointer to Photon widget.
+		*/	
+		explicit OnOffButton(PtWidget_t* wdg);
+		
+		//! (copy constructor) 
+		/*!
+			Constructs a OnOffButton widget by copy.
+			@param[in] other another OnOffButton widget to be used as source to initialize the elements of the container with.
+		*/
+		OnOffButton(const OnOffButton &other);
+
+		//! Assigns value in OnOffButton widget 
+		/*!
+			Replaces the contents of the OnOffButton widget.
+			@param[in] other another OnOffButton widget to use as data source.
+		*/
+		OnOffButton &operator=(const OnOffButton &other);
 		
 		void Check(bool val = true);
 		void Uncheck(bool val = true);
@@ -129,7 +145,20 @@ namespace PhWidgets
 		//! @name Properties
 		//! Properties are used to simplify use of widget resources.
 		//@{
+
+		//! Gets or set a value indicating whether the OnOffButton is in the checked state.
+		/*!
+			### Property Value ### 
+			
+			> **bool**
+
+			`true` if the OnOffButton is in the checked state; otherwise, `false`. The default value is `false`.
+			
+			@see
+			- Type
+		*/
 		phproperty<bool>::bind<OnOffButton, ArgBool::eArgBool, Arguments::onoff_state> Checked;
+		
 		//@}
 
 		phwidgets_event<OnOffButton, OnOffButton::Callbacks::new_value>		NewValue;

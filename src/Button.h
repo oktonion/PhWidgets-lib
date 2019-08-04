@@ -146,14 +146,14 @@ namespace PhWidgets
 			Constructs a Button widget by ID.
 			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
 		*/
-		Button(int abn);
+		explicit Button(int abn);
 
 		//! (constructor) 
 		/*!
 			Constructs a Button widget by pointer to widget.
 			@param[in] wdg pointer to Photon widget.
 		*/
-		Button(PtWidget_t *wdg);
+		explicit Button(PtWidget_t *wdg);
 
 		//! (copy constructor) 
 		/*!

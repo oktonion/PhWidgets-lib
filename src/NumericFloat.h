@@ -147,14 +147,14 @@ namespace PhWidgets
 			Constructs a NumericFloat widget by ID.
 			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
 		*/
-		NumericFloat(int abn);
+		explicit NumericFloat(int abn);
 
 		//! (constructor) 
 		/*!
 			Constructs a NumericFloat widget by pointer to widget.
 			@param[in] wdg pointer to Photon widget.
 		*/
-		NumericFloat(PtWidget_t *wdg);
+		explicit NumericFloat(PtWidget_t *wdg);
 		
 		//! (copy constructor) 
 		/*!

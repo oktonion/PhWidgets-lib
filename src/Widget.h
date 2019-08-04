@@ -1023,6 +1023,13 @@ namespace PhWidgets
 		*/
 		Widget &operator=(const Widget &other);
 
+		//! Assigns value in Widget 
+		/*!
+			Replaces the contents of the Widget.
+			@param[in] wdg pointer to Photon widget.
+		*/
+		Widget &operator=(PtWidget_t *wdg);
+
 		//! Compares Widgets
 		/*!
 			Compares the Widgets by their Photon widget pointers.

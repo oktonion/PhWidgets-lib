@@ -499,14 +499,14 @@ namespace PhWidgets
 			Constructs a Label widget by ID.
 			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
 		*/
-		Label(int abn);
+		explicit Label(int abn);
 
 		//! (constructor) 
 		/*!
 			Constructs a Label widget by pointer to widget.
 			@param[in] wdg pointer to Photon widget.
 		*/		
-		Label(PtWidget_t *wdg);
+		explicit Label(PtWidget_t *wdg);
 		
 		//! (copy constructor) 
 		/*!
@@ -543,7 +543,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			> std::string
+			> `std::string`
 
 			The text associated with this widget.
 			

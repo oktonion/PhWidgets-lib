@@ -333,14 +333,14 @@ namespace PhWidgets
 			Constructs a Graphic by ID.
 			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
 		*/
-		Graphic(int abn);
+		explicit Graphic(int abn);
 
 		//! (constructor) 
 		/*!
 			Constructs a Graphic by pointer to widget.
 			@param[in] wdg pointer to Photon widget.
 		*/
-		Graphic(PtWidget_t *wdg);
+		explicit Graphic(PtWidget_t *wdg);
 
 		//! (copy constructor) 
 		/*!

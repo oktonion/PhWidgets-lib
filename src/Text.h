@@ -113,14 +113,14 @@ namespace PhWidgets
 			Constructs a Text widget by ID.
 			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
 		*/
-		Text(int abn);
+		explicit Text(int abn);
 
 		//! (constructor) 
 		/*!
 			Constructs a Text widget by pointer to widget.
 			@param[in] wdg pointer to Photon widget.
 		*/		
-		Text(PtWidget_t *wdg);
+		explicit Text(PtWidget_t *wdg);
 
 		//! (copy constructor) 
 		/*!

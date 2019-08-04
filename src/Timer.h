@@ -129,14 +129,14 @@ namespace PhWidgets
 			Constructs a Timer widget by ID.
 			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
 		*/
-		Timer(int abn);
+		explicit Timer(int abn);
 
 		//! (constructor) 
 		/*!
 			Constructs a Timer widget by pointer to widget.
 			@param[in] wdg pointer to Photon widget.
 		*/
-		Timer(PtWidget_t *wdg);
+		explicit Timer(PtWidget_t *wdg);
 
 		//! (copy constructor) 
 		/*!

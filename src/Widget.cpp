@@ -348,6 +348,15 @@ Widget &Widget::operator=(const Widget &other)
 	return *this;
 }
 
+Widget &Widget::operator=(PtWidget_t *wdg)
+{
+	Widget tmp(wdg);
+
+	tmp.swap(*this);
+	
+	return *this;
+}
+
 bool Widget::operator==(const Widget &other) const
 {
 	if(&other == this)
