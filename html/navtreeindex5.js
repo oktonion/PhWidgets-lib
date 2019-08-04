@@ -1,5 +1,8 @@
 var NAVTREEINDEX5 =
 {
+"struct_ph_widgets_1_1_window_1_1_this_args_1_1_arg_short.html":[2,0,0,23,6,2],
+"struct_ph_widgets_1_1_window_1_1_this_args_1_1_arg_short.html#aee61ff73a21006d690a2dcb4290907cc":[2,0,0,23,6,2,0],
+"struct_ph_widgets_1_1_window_1_1_this_args_1_1_arg_short.html#aee61ff73a21006d690a2dcb4290907cca5c0110ee8af15b970803d305bf65d1c3":[2,0,0,23,6,2,0,1],
 "struct_ph_widgets_1_1_window_1_1_this_args_1_1_arg_short.html#aee61ff73a21006d690a2dcb4290907cca67721ae436a35490160718dbbc070102":[2,0,0,23,6,2,0,3],
 "struct_ph_widgets_1_1_window_1_1_this_args_1_1_arg_short.html#aee61ff73a21006d690a2dcb4290907ccab4394e5a55820bb7215de13aaa994043":[2,0,0,23,6,2,0,0],
 "struct_ph_widgets_1_1_window_1_1_this_args_1_1_arg_short.html#aee61ff73a21006d690a2dcb4290907ccab62355c1bb1fa4519e66b18f16983b19":[2,0,0,23,6,2,0,2],

@@ -41,6 +41,7 @@ var searchData=
   ['binomial_5fdistribution',['binomial_distribution',['http://en.cppreference.com/w/cpp/numeric/random/binomial_distribution/binomial_distribution.html',1,'std::binomial_distribution']]],
   ['bitset',['bitset',['http://en.cppreference.com/w/cpp/utility/bitset/bitset.html',1,'std::bitset']]],
   ['boolalpha',['boolalpha',['http://en.cppreference.com/w/cpp/io/manip/boolalpha.html',1,'std']]],
+  ['bringtofront',['BringToFront',['../class_ph_widgets_1_1_widget.html#a161acd7e9e64b46a2094dc9d81f9c6dd',1,'PhWidgets::Widget']]],
   ['bsearch',['bsearch',['http://en.cppreference.com/w/cpp/algorithm/bsearch.html',1,'std']]],
   ['btowc',['btowc',['http://en.cppreference.com/w/cpp/string/multibyte/btowc.html',1,'std']]],
   ['bucket',['bucket',['http://en.cppreference.com/w/cpp/container/unordered_map/bucket.html',1,'std::unordered_map::bucket()'],['http://en.cppreference.com/w/cpp/container/unordered_multimap/bucket.html',1,'std::unordered_multimap::bucket()'],['http://en.cppreference.com/w/cpp/container/unordered_multiset/bucket.html',1,'std::unordered_multiset::bucket()'],['http://en.cppreference.com/w/cpp/container/unordered_set/bucket.html',1,'std::unordered_set::bucket()']]],

@@ -114,6 +114,7 @@ var searchData=
   ['bottomleft',['BottomLeft',['../struct_ph_widgets_1_1_drawing_1_1_content_alignment.html#ab595f55a72875eecd4fd8637cea7176aa1b603249b7599608713cd289b3ffeea2',1,'PhWidgets::Drawing::ContentAlignment']]],
   ['bottomright',['BottomRight',['../struct_ph_widgets_1_1_drawing_1_1_content_alignment.html#ab595f55a72875eecd4fd8637cea7176aaa5845df97fe22caa7e019313b5c75445',1,'PhWidgets::Drawing::ContentAlignment']]],
   ['bounds',['Bounds',['../class_ph_widgets_1_1_widget.html#a656b5a01176fbeca758563be9eab9bef',1,'PhWidgets::Widget']]],
+  ['bringtofront',['BringToFront',['../class_ph_widgets_1_1_widget.html#a161acd7e9e64b46a2094dc9d81f9c6dd',1,'PhWidgets::Widget']]],
   ['brown',['Brown',['../struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba1489126da8a77157919f0c2ac4c27ae1',1,'PhWidgets::Drawing::Colors']]],
   ['bsearch',['bsearch',['http://en.cppreference.com/w/cpp/algorithm/bsearch.html',1,'std']]],
   ['btowc',['btowc',['http://en.cppreference.com/w/cpp/string/multibyte/btowc.html',1,'std']]],
