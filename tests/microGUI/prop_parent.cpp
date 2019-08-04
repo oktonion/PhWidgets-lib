@@ -37,7 +37,7 @@ TEST_CASE("Testing Widget::Parent property"){
         CHECK(button.Parent == window);
         CHECK(button.Parent);
 
-        Button button2 = PtCreateWidget(PtButton, window, 0, NULL);
+        Button button2(PtCreateWidget(PtButton, window, 0, NULL));
 
         CHECK(button2.Parent == window);
         CHECK(window == button2.Parent);
@@ -53,7 +53,7 @@ TEST_CASE("Testing Widget::Parent property"){
 
         CHECK((nullptr != button2.Parent()));
 
-        Window window2 = PtCreateWidget(PtWindow, window, 0, NULL);
+        Window window2(PtCreateWidget(PtWindow, window, 0, NULL));
 
         CHECK((window == window2.Parent()));
 

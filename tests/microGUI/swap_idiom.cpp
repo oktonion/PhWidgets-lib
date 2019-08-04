@@ -21,6 +21,9 @@ TEST_CASE("Testing swap idiom of Widget") {
 
     Widget tmp = widget1;
 
+    tmp = widget1;
+    tmp = widget1.get();
+
     CHECK(tmp == widget1);
     CHECK(widget1 == tmp);
     CHECK(widget2 != tmp);

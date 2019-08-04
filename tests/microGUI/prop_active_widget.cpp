@@ -15,7 +15,7 @@ TEST_CASE("Testing Container::ActiveWidget property") {
     
     Widget active_widget = container;
 
-    Button button = PtCreateWidget(PtButton, container, 0, NULL);
+    Button button(PtCreateWidget(PtButton, container, 0, NULL));
 
     container.ActiveWidget = button;
 
