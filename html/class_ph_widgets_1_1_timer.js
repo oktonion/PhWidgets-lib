@@ -26,6 +26,7 @@ var class_ph_widgets_1_1_timer =
     [ "operator=", "class_ph_widgets_1_1_timer.html#a7472515539495a02ab5584a3967e79ac", null ],
     [ "OnActivate", "class_ph_widgets_1_1_timer.html#a2ec84bbcba28b7c79e43015a2c23de23", null ],
     [ "operator=", "class_ph_widgets_1_1_timer.html#a31fc7bcb1b3ee821ab32d9c9544a4a84", null ],
+    [ "operator=", "class_ph_widgets_1_1_timer.html#a8222b203ecc218459afae37b92275726", null ],
     [ "operator==", "class_ph_widgets_1_1_timer.html#a2af7ba1a60e66faeb7166fc8045309ee", null ],
     [ "operator<", "class_ph_widgets_1_1_timer.html#a1e21fa01f728cc20e4c61bad8eda0e9e", null ],
     [ "resource", "class_ph_widgets_1_1_timer.html#acf082dcda938f796a0a0b82544108bc8", null ],

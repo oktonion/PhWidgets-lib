@@ -136,6 +136,7 @@ var class_ph_widgets_1_1_widget =
     [ "Widget", "class_ph_widgets_1_1_widget.html#acef62a8cd63d533f7030521f470ac008", null ],
     [ "swap", "class_ph_widgets_1_1_widget.html#a06c801efb8f217ea4cb960538f16daaf", null ],
     [ "operator=", "class_ph_widgets_1_1_widget.html#a31fc7bcb1b3ee821ab32d9c9544a4a84", null ],
+    [ "operator=", "class_ph_widgets_1_1_widget.html#a8222b203ecc218459afae37b92275726", null ],
     [ "operator==", "class_ph_widgets_1_1_widget.html#a2af7ba1a60e66faeb7166fc8045309ee", null ],
     [ "operator!=", "class_ph_widgets_1_1_widget.html#a444795af956763ae3dfd79db410455b6", null ],
     [ "operator<", "class_ph_widgets_1_1_widget.html#a1e21fa01f728cc20e4c61bad8eda0e9e", null ],

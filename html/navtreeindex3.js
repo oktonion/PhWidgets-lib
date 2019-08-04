@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba893af33f2306159f9f5efe2b8baa7fbe":[2,0,0,0,2,0,132],
+"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba896848116edf3f070e205c026f535345":[2,0,0,0,2,0,73],
 "struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba89f700110717322c26d433b2356896c9":[2,0,0,0,2,0,52],
 "struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba8d428fe46b8cb0a77a175374c90a2701":[2,0,0,0,2,0,58],
 "struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba8d5058a18bd2776cdcc7c2aedb6f713c":[2,0,0,0,2,0,10],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "struct_ph_widgets_1_1_numeric_float_1_1_arguments.html":[2,0,0,14,1],
 "struct_ph_widgets_1_1_numeric_float_1_1_callback.html":[2,0,0,14,2],
 "struct_ph_widgets_1_1_numeric_float_1_1_callback.html#aca238f4cab4d1fbe9177f95649d096e3":[2,0,0,14,2,0],
-"struct_ph_widgets_1_1_numeric_float_1_1_callbacks.html":[2,0,0,14,3],
-"struct_ph_widgets_1_1_numeric_float_1_1_this_args_1_1_arg_int.html":[2,0,0,14,4,0],
-"struct_ph_widgets_1_1_numeric_float_1_1_this_args_1_1_arg_int.html#aaba2db38b68eeb618b8a9cb19d7492ef":[2,0,0,14,4,0,0]
+"struct_ph_widgets_1_1_numeric_float_1_1_callbacks.html":[2,0,0,14,3]
 };
