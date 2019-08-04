@@ -31,6 +31,38 @@ TEST_CASE("Testing Widget::Parent property"){
         
         CHECK(button.Parent == window);
         CHECK(button.Parent);
+
+        Button button2 = PtCreateWidget(PtButton, window, 0, NULL);
+
+        CHECK(button2.Parent == window);
+        CHECK(window == button2.Parent);
+        CHECK(button2.Parent);
+
+        std::set<Widget> widgets = window.Widgets;
+
+        CHECK(widgets.find(button2) != widgets.end());
+
+        button2.Parent = nullptr;
+
+        CHECK((nullptr == button2.Parent()));
+
+        widgets = window.Widgets;
+
+        CHECK(widgets.find(button2) == widgets.end());
+
+        button2.Parent = window;
+
+        CHECK((nullptr != button2.Parent()));
+
+        widgets = window.Widgets;
+
+        CHECK(widgets.find(button2) != widgets.end());
+
+        PtDestroyWidget(button2);
+
+        widgets = window.Widgets;
+
+        CHECK(widgets.find(button2) == widgets.end());
     }
 
 }

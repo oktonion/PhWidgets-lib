@@ -12,6 +12,7 @@
 #include "./microGUI/font_def.cpp"
 #include "./microGUI/font_family.cpp"
 #include "./microGUI/1phwidgets_init.cpp"
+#include "./microGUI/prop_active_widget.cpp"
 #include "./microGUI/prop_allowdrop.cpp"
 #include "./microGUI/prop_anchor.cpp"
 #include "./microGUI/prop_basic_size.cpp"
@@ -26,4 +27,5 @@
 #include "./microGUI/prop_focused.cpp"
 #include "./microGUI/prop_image.cpp"
 #include "./microGUI/prop_parent.cpp"
+#include "./microGUI/prop_widgets.cpp"
 #include "./microGUI/swap_idiom.cpp"

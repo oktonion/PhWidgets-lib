@@ -18,7 +18,6 @@ TEST_CASE("Testing Label::Image property") {
 
     Label label(PhWidgetsGetWidget<&PtLabel>());
     
-    label.Parent = window;
     //label.Type = LabelType::Image;
 
     //REQUIRE(label.Type == LabelType::Image);
