@@ -491,6 +491,10 @@ void PhWidgets::Widget::OnUnrealized( PtCallbackInfo_t * info)
 	resource.callback[Callback::unrealized].raise(info);
 }
 
+void Widget::BringToFront()
+{
+	PtWidgetToFront(widget());
+}
 
 void Widget::SetBounds(short x, short y, unsigned short width, unsigned short height)
 {
@@ -535,6 +539,11 @@ Widget Widget::GetNextWidget(Widget widget, bool forward) const
 			std::out_of_range(std::string("PhWidgets::Widget::GetNextWidget(): \'") + WidgetClassName(this_widget) + "\' widget has no children"));
 
 	return Widget(result);
+}
+
+void Widget::SendToBack()
+{
+	PtWidgetToBack(widget());
 }
 
 void Widget::Select()

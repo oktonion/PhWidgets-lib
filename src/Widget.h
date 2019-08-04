@@ -1081,6 +1081,17 @@ namespace PhWidgets
 		//! Converts Widget to constant Photon widget pointer
 		operator const PtWidget_t*() const;
 
+		//! Brings the widget to the front of the z-order.
+		/*!
+			The widget is moved to the front of the z-order. 
+			If the widget is a child of another widget, the child widget is moved to the front of the z-order. 
+			BringToFront() does not make a widget a top-level widget, and it does not raise the Widget::Paint event.
+
+			@see
+			- SendToBack()
+		*/
+		void BringToFront();
+
 		//! Sets input focus to the widget.
 		/*!
 			@return `true` if the input focus request was successful; otherwise, `false`.
@@ -1113,7 +1124,7 @@ namespace PhWidgets
 			- ProgressBar
 			- Splitter
 			- Label
-			- LinkLabel (when there is no link present in the control)
+			- LinkLabel (when there is no link present in the widget)
 		*/
 		bool Focus();
 
@@ -1135,6 +1146,20 @@ namespace PhWidgets
 			- Widgets
 		*/
 		Widget GetNextWidget(Widget widget, bool forward = true) const;
+
+		//! Sends the widget to the back of the z-order.
+		/*!
+			The widget is moved to the back of the z-order. 
+			If the widget is a child of another widget, the child widget is moved to the back of the z-order. 
+			If the widget is a top-level widget, this method will not work correctly unless the widget is active. 
+			A top-level widget is a widget, such as a Form, that is not a child of another widget. 
+			An active widget is a visible widget that has input focus. 
+			To use the SendToBack() method with an inactive, top-level widget, first call the BringToFront() method on the widget.
+
+			@see
+			- BringToFront()
+		*/
+		void SendToBack();
 
 		//@{
 		//! Sets the bounds of the widget to the specified location and size.
