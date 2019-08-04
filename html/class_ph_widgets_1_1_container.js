@@ -75,6 +75,7 @@ var class_ph_widgets_1_1_container =
     [ "Container", "class_ph_widgets_1_1_container.html#ad1408e2f1b1f6aacfba4bf808ed8eb6a", null ],
     [ "operator=", "class_ph_widgets_1_1_container.html#aacd333bffc49ac80bc883f21ecbd5781", null ],
     [ "resource", "class_ph_widgets_1_1_container.html#a113df6faec7f94505a628e8840e95bec", null ],
+    [ "ActiveWidget", "class_ph_widgets_1_1_container.html#afa146e4f223cbb2fabc7a635b3d183f6", null ],
     [ "ChildAddedRemoved", "class_ph_widgets_1_1_container.html#a33b353d03cf7e473acb84b912fe54381", null ],
     [ "ChildGettingFocus", "class_ph_widgets_1_1_container.html#a06d5ed84c45f61f95d757a96a1e628a2", null ],
     [ "ChildLosingFocus", "class_ph_widgets_1_1_container.html#aeac02d4942769e400f90908b76d98ff6", null ],

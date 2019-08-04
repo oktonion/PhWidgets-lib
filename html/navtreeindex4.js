@@ -1,5 +1,10 @@
 var NAVTREEINDEX4 =
 {
+"struct_ph_widgets_1_1_numeric_float_1_1_this_args_1_1_arg_int.html#aaba2db38b68eeb618b8a9cb19d7492efa4a2d9ed24b8990b02d790e80b4a7b63f":[2,0,0,14,4,0,0,0],
+"struct_ph_widgets_1_1_numeric_float_1_1_this_callbacks_1_1_callback.html":[2,0,0,14,5,0],
+"struct_ph_widgets_1_1_numeric_float_1_1_this_callbacks_1_1_callback.html#ac9605c2b8771bd8f126a40644119d158":[2,0,0,14,5,0,0],
+"struct_ph_widgets_1_1_numeric_float_1_1_this_callbacks_1_1_callback.html#ac9605c2b8771bd8f126a40644119d158a8ae2d61e7b3e707212a00f7f00e3b11d":[2,0,0,14,5,0,0,0],
+"struct_ph_widgets_1_1_numeric_integer_1_1_arg_int.html":[2,0,0,15,0],
 "struct_ph_widgets_1_1_numeric_integer_1_1_arguments.html":[2,0,0,15,1],
 "struct_ph_widgets_1_1_numeric_integer_1_1_callback.html":[2,0,0,15,2],
 "struct_ph_widgets_1_1_numeric_integer_1_1_callback.html#a2e019a634db7c03d76d0df044936d56b":[2,0,0,15,2,0],
@@ -244,10 +249,5 @@ var NAVTREEINDEX4 =
 "struct_ph_widgets_1_1_window_1_1_this_args_1_1_arg_short.html#aee61ff73a21006d690a2dcb4290907cc":[2,0,0,23,6,2,0],
 "struct_ph_widgets_1_1_window_1_1_this_args_1_1_arg_short.html#aee61ff73a21006d690a2dcb4290907cca5c0110ee8af15b970803d305bf65d1c3":[2,0,0,23,6,2,0,1],
 "struct_ph_widgets_1_1_window_1_1_this_args_1_1_arg_short.html#aee61ff73a21006d690a2dcb4290907cca67721ae436a35490160718dbbc070102":[2,0,0,23,6,2,0,3],
-"struct_ph_widgets_1_1_window_1_1_this_args_1_1_arg_short.html#aee61ff73a21006d690a2dcb4290907ccab4394e5a55820bb7215de13aaa994043":[2,0,0,23,6,2,0,0],
-"struct_ph_widgets_1_1_window_1_1_this_args_1_1_arg_short.html#aee61ff73a21006d690a2dcb4290907ccab62355c1bb1fa4519e66b18f16983b19":[2,0,0,23,6,2,0,2],
-"struct_ph_widgets_1_1_window_1_1_this_callbacks_1_1_callback.html":[2,0,0,23,7,0],
-"struct_ph_widgets_1_1_window_1_1_this_callbacks_1_1_callback.html#a78a86d97150d7945885f465dd6c2ac4b":[2,0,0,23,7,0,0],
-"struct_ph_widgets_1_1_window_1_1_this_callbacks_1_1_callback.html#a78a86d97150d7945885f465dd6c2ac4ba04184064590dfa305862d0b046c370ee":[2,0,0,23,7,0,0,1],
-"struct_ph_widgets_1_1_window_1_1_this_callbacks_1_1_callback.html#a78a86d97150d7945885f465dd6c2ac4ba84bef2bcf3305751e3280377eaef4ffe":[2,0,0,23,7,0,0,2]
+"struct_ph_widgets_1_1_window_1_1_this_args_1_1_arg_short.html#aee61ff73a21006d690a2dcb4290907ccab4394e5a55820bb7215de13aaa994043":[2,0,0,23,6,2,0,0]
 };

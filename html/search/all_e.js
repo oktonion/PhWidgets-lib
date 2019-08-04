@@ -27,7 +27,7 @@ var searchData=
   ['noboolalpha',['noboolalpha',['http://en.cppreference.com/w/cpp/io/manip/boolalpha.html',1,'std']]],
   ['noinput',['Noinput',['../struct_ph_widgets_1_1_cursors.html#a10c30c978a8ca9d3926446052931629ca12f26089709efe020d76e2df957523fa',1,'PhWidgets::Cursors']]],
   ['nomove2d',['NoMove2D',['../struct_ph_widgets_1_1_cursors.html#a10c30c978a8ca9d3926446052931629ca07b765d3193437746e6daf59e588356f',1,'PhWidgets::Cursors']]],
-  ['none',['none',['http://en.cppreference.com/w/cpp/utility/bitset/all_any_none.html',1,'std::bitset::none()'],['../struct_ph_widgets_1_1_cursors.html#a10c30c978a8ca9d3926446052931629ca75f16912c9dfa5b53c63f4819d84ef34',1,'PhWidgets::Cursors::None()'],['../struct_ph_widgets_1_1_anchor_styles.html#a1cb52d6801479b0df0d56f18f6a0f834a83656712705e3d829addd0c90fa0152c',1,'PhWidgets::AnchorStyles::None()']]],
+  ['none',['None',['../struct_ph_widgets_1_1_cursors.html#a10c30c978a8ca9d3926446052931629ca75f16912c9dfa5b53c63f4819d84ef34',1,'PhWidgets::Cursors::None()'],['../struct_ph_widgets_1_1_anchor_styles.html#a1cb52d6801479b0df0d56f18f6a0f834a83656712705e3d829addd0c90fa0152c',1,'PhWidgets::AnchorStyles::None()'],['http://en.cppreference.com/w/cpp/utility/bitset/all_any_none.html',1,'std::bitset::none()']]],
   ['none_5fof',['none_of',['http://en.cppreference.com/w/cpp/algorithm/all_any_none_of.html',1,'std']]],
   ['normal_5fdistribution',['normal_distribution',['http://en.cppreference.com/w/cpp/numeric/random/normal_distribution.html',1,'std::normal_distribution'],['http://en.cppreference.com/w/cpp/numeric/random/normal_distribution/normal_distribution.html',1,'std::normal_distribution::normal_distribution()']]],
   ['noshowbase',['noshowbase',['http://en.cppreference.com/w/cpp/io/manip/showbase.html',1,'std']]],

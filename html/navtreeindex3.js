@@ -1,5 +1,10 @@
 var NAVTREEINDEX3 =
 {
+"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba89f700110717322c26d433b2356896c9":[2,0,0,0,2,0,52],
+"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba8d428fe46b8cb0a77a175374c90a2701":[2,0,0,0,2,0,58],
+"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba8d5058a18bd2776cdcc7c2aedb6f713c":[2,0,0,0,2,0,10],
+"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba8e049bcf07748836d49ec6cb3be72459":[2,0,0,0,2,0,21],
+"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba8e3e1040ddf8eb7a626d5e4fc17d3500":[2,0,0,0,2,0,51],
 "struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba90e88610d600fcd5a70725903fe605ca":[2,0,0,0,2,0,60],
 "struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba94956cb0f2152bcf5e58ffb41818de56":[2,0,0,0,2,0,91],
 "struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba94a52a49ce11ef4ad163b0c1fd9ce9df":[2,0,0,0,2,0,85],
@@ -244,10 +249,5 @@ var NAVTREEINDEX3 =
 "struct_ph_widgets_1_1_numeric_float_1_1_callback.html#aca238f4cab4d1fbe9177f95649d096e3":[2,0,0,14,2,0],
 "struct_ph_widgets_1_1_numeric_float_1_1_callbacks.html":[2,0,0,14,3],
 "struct_ph_widgets_1_1_numeric_float_1_1_this_args_1_1_arg_int.html":[2,0,0,14,4,0],
-"struct_ph_widgets_1_1_numeric_float_1_1_this_args_1_1_arg_int.html#aaba2db38b68eeb618b8a9cb19d7492ef":[2,0,0,14,4,0,0],
-"struct_ph_widgets_1_1_numeric_float_1_1_this_args_1_1_arg_int.html#aaba2db38b68eeb618b8a9cb19d7492efa4a2d9ed24b8990b02d790e80b4a7b63f":[2,0,0,14,4,0,0,0],
-"struct_ph_widgets_1_1_numeric_float_1_1_this_callbacks_1_1_callback.html":[2,0,0,14,5,0],
-"struct_ph_widgets_1_1_numeric_float_1_1_this_callbacks_1_1_callback.html#ac9605c2b8771bd8f126a40644119d158":[2,0,0,14,5,0,0],
-"struct_ph_widgets_1_1_numeric_float_1_1_this_callbacks_1_1_callback.html#ac9605c2b8771bd8f126a40644119d158a8ae2d61e7b3e707212a00f7f00e3b11d":[2,0,0,14,5,0,0,0],
-"struct_ph_widgets_1_1_numeric_integer_1_1_arg_int.html":[2,0,0,15,0]
+"struct_ph_widgets_1_1_numeric_float_1_1_this_args_1_1_arg_int.html#aaba2db38b68eeb618b8a9cb19d7492ef":[2,0,0,14,4,0,0]
 };

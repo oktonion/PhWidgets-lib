@@ -9,6 +9,7 @@ var searchData=
   ['acos',['acos',['http://en.cppreference.com/w/cpp/numeric/math/acos.html',1,'std']]],
   ['acosh',['acosh',['http://en.cppreference.com/w/cpp/numeric/math/acosh.html',1,'std']]],
   ['activate',['activate',['../struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7aed9693a9df57fe5c95414302ba590307',1,'PhWidgets::Basic::ThisCallbacks::Callback::activate()'],['../class_ph_widgets_1_1_basic.html#a65f954e2ff0a85db86c4b3c3cae5da84',1,'PhWidgets::Basic::Activate()']]],
+  ['activewidget',['ActiveWidget',['../class_ph_widgets_1_1_container.html#afa146e4f223cbb2fabc7a635b3d183f6',1,'PhWidgets::Container']]],
   ['add',['add',['../class_ph_widgets_1_1_widget_1_1phwidgets__event.html#abce0c139dba506607d0d1358061317d6',1,'PhWidgets::Widget::phwidgets_event']]],
   ['add_5fconst',['add_const',['http://en.cppreference.com/w/namespacestd.html#cpp/types/add_cv',1,'std']]],
   ['add_5fcv',['add_cv',['http://en.cppreference.com/w/namespacestd.html#cpp/types/add_cv',1,'std']]],

@@ -64,5 +64,6 @@ var searchData=
   ['duration',['duration',['http://en.cppreference.com/w/cpp/chrono/duration/duration.html',1,'std::chrono::duration']]],
   ['duration_5fcast',['duration_cast',['http://en.cppreference.com/w/cpp/chrono/duration/duration_cast.html',1,'std::chrono']]],
   ['dynamic_5fpointer_5fcast',['dynamic_pointer_cast',['http://en.cppreference.com/w/cpp/memory/shared_ptr/pointer_cast.html',1,'std']]],
+  ['dynamic_5fwidget_5fcast',['dynamic_widget_cast',['../namespace_ph_widgets.html#aba1ed1fa58fd213e35a898935271fac3',1,'PhWidgets']]],
   ['dynarray',['dynarray',['http://en.cppreference.com/w/cpp/container/dynarray/dynarray.html',1,'std::dynarray']]]
 ];

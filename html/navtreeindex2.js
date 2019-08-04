@@ -1,5 +1,10 @@
 var NAVTREEINDEX2 =
 {
+"struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7acd37bb0743bfca906c9da9bf71225264":[2,0,0,3,12,0,0,6],
+"struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7aed9693a9df57fe5c95414302ba590307":[2,0,0,3,12,0,0,0],
+"struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7af12f4ac54c4dce7db8e2a302774c4ed0":[2,0,0,3,12,0,0,4],
+"struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html#a86c56a6d6284e43554110366ed22a7a7af8029527c2a7e4234f00f603f4744284":[2,0,0,3,12,0,0,3],
+"struct_ph_widgets_1_1_basic_1_1_this_flags.html":[2,0,0,3,13],
 "struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic.html":[2,0,0,3,13,0],
 "struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic.html#a258299d92b4b17d19ead7ab30554ed41":[2,0,0,3,13,0,0],
 "struct_ph_widgets_1_1_basic_1_1_this_flags_1_1_basic.html#a258299d92b4b17d19ead7ab30554ed41a04cb72aa7f95c409643c3c115c266b11":[2,0,0,3,13,0,0,4],
@@ -244,10 +249,5 @@ var NAVTREEINDEX2 =
 "struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba82f4544afdf1a1dbee293907e3eaf12e":[2,0,0,0,2,0,124],
 "struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba89085a50beb1dbbb69de262174decd39":[2,0,0,0,2,0,111],
 "struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba893af33f2306159f9f5efe2b8baa7fbe":[2,0,0,0,2,0,132],
-"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba896848116edf3f070e205c026f535345":[2,0,0,0,2,0,73],
-"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba89f700110717322c26d433b2356896c9":[2,0,0,0,2,0,52],
-"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba8d428fe46b8cb0a77a175374c90a2701":[2,0,0,0,2,0,58],
-"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba8d5058a18bd2776cdcc7c2aedb6f713c":[2,0,0,0,2,0,10],
-"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba8e049bcf07748836d49ec6cb3be72459":[2,0,0,0,2,0,21],
-"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba8e3e1040ddf8eb7a626d5e4fc17d3500":[2,0,0,0,2,0,51]
+"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba896848116edf3f070e205c026f535345":[2,0,0,0,2,0,73]
 };
