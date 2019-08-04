@@ -94,6 +94,42 @@ int push_button_cb( PtWidget_t *, void *, PtCallbackInfo_t *);//callback is defi
 button.resource.callback[Button::Callbacks::activate].add(push_button_cb);
 ```
 
+More complex use case:
+
+```cpp
+// You have constructed somewhere PhWidgets::Button button1
+{
+    using namespace PhWidgets;
+
+    Containter button1_containter = button1.Parent;
+
+    std::set<Widget> widgets = button1_containter.Widgets;
+
+    // turn all buttons of the button1 parent red
+    // except for button1
+    // change cursors of all buttons respectively
+
+    for(std::set<Widget>::iterator iterator it = widgets.begin(); it != widgets.end(); ++it)
+    {
+        if(nullptr == dynamic_widget_cast<Button>(*it))
+            continue;
+        
+        Button button = *it;
+        if(button != button1)
+        {
+            button.Color = Drawing::Colors::Red;
+            button.Cursor = Cursors::No;
+        }
+        else
+        {
+            button.Color = Drawing::Colors::Green;
+            button.Cursor = Cursors::Finger;
+        }
+        
+    }
+}
+```
+
 # Build
 
 To build lib execute '.makelib.sh' - directory slib will contain your library with all headers and source code needed.
