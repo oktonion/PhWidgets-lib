@@ -100,6 +100,9 @@ namespace PhWidgets
 	/*!
 		Widget is the fundamental superclass. 
 		All widgets belong to a subclass of Widget. 
+
+		@see
+		- dynamic_widget_cast()
 	*/	
 	class Widget:
 		protected detail::IPtWidget,
@@ -1697,7 +1700,7 @@ namespace PhWidgets
 			The pointer to `PtWidget_t` that represents the parent or container widget of the widget.
 
 			@remark
-			Setting the Wodget::Parent property value to **nullptr** removes the widget from the Widget.WidgetCollection of its current parent widget.
+			Setting the Wodget::Parent property value to **nullptr** removes the widget from the Widget::Widgets of its current parent widget.
 
 			@note
 			This property may and will return **nullptr** if current widget has no parent.
@@ -1947,7 +1950,7 @@ namespace PhWidgets
 		/*!
 			### Property Value ### 
 			
-			> std::set<PhWidgets::Widget>
+			> `std::set<PhWidgets::Widget>`
 
 			A `std::set<PhWidgets::Widget>` representing the list of widgets contained within the widget.
 
@@ -1968,13 +1971,14 @@ namespace PhWidgets
 			@par
 			Use the Widget::Widgets property to iterate through all widgets of a form, including nested widgets. 
 			Use the GetNextWidget() method to retrieve the previous or next child widget in the tab order. 
-			Use the ActiveWidget() property to get or set the active widget of a container widget.
+			Use the Container::ActiveWidget property to get or set the active widget of a Container widget.
 
 			@see 
 			- GetNextWidget()
-			- Containter::ActiveWidget
+			- Container::ActiveWidget
 			- SuspendLayout()
 			- ResumeLayout()
+			- dynamic_widget_cast()
 		*/
 		property<std::set<PhWidgets::Widget>, property<>::ro>::bind<Widget, &Widget::getWidgets> Widgets;
 
@@ -2049,6 +2053,63 @@ namespace PhWidgets
 		
 
 	};
+
+	//! Dynamic cast of PhWidgets::Widget.
+	/*!
+		@param[in] widget The Widget to cast.
+		@return PtWidget_t *
+
+		Perform **dynamic_cast** on input widget and returns corresponding valid pointer to PtWidget_t
+		or **nullptr** if cast cannot be performed.
+
+		### Examples ###
+
+		For the following example there should be `PhWidgets::Window main_window` somewhere.
+		@code
+			using namespace PhWidgets;
+
+			std::set<Widget> widgets = main_window.Widgets;
+
+			// turn all buttons of the form red
+			for(std::set<Widget>::iterator iterator it = widgets.begin(); it != widgets.end(); ++it)
+			{
+				if(nullptr != dynamic_widget_cast<Button>(*it))
+				{
+					Button button = *it;
+					button.Color = Drawing::Colors::Red;
+				}
+			}
+		@endcode
+		
+		@see
+		- Widget
+		- Widget::Widgets
+	*/
+#ifdef __DOXYGEN__ // ugly hack for Doxygen docs
+	template<class WidgetT>
+	PtWidget_t* dynamic_widget_cast(const Widget &widget);
+#else
+	template<class WidgetT>
+	inline
+	PtWidget_t* dynamic_widget_cast(
+		typename
+		stdex::enable_if<
+			cppproperties::detail::is_convertable<
+				typename stdex::remove_cv<WidgetT>::type, 
+				Widget&
+			>::value,
+			const Widget&
+		>::type widget) throw()
+	try
+	{
+		WidgetT result = widget;
+		return result;
+	}
+	catch(const std::exception&)
+	{
+		return nullptr;
+	}
+#endif
 
 	namespace typedefs
 	{

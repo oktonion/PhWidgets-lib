@@ -459,7 +459,7 @@ namespace PhWidgets
 			
 			> Drawing::Color
 
-			A `Drawing::Color` that represents the foreground or drawing color of the widget. The default is the value of the PhWidgets::Colors::Black.
+			A `Drawing::Color` that represents the foreground or drawing color of the widget. The default is the value of the PhWidgets::Drawing::Colors::Black.
 
 			### Examples ###
 

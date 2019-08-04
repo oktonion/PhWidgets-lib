@@ -15,6 +15,7 @@
 #include <stdexcept>
 #include <algorithm>
 #include <utility>
+#include <cassert>
 
 
 using namespace PhWidgets;
@@ -719,14 +720,25 @@ short PhWidgets::Widget::getLeft() const
 
 void Widget::setParent(PtWidget_t *parent)
 {
-	widget()->parent = parent;
+	if(!parent)
+		parent = Pt_NO_PARENT;
+	
+	PtWidget_t *this_widget = widget();
+
+	int err = PtReparentWidget(this_widget, parent);
+	if(0 == err)
+		return;
+	
+	throw(
+		std::invalid_argument(
+			"PhWidgets::Widget::Parent: cannot set parent - argument passed is not a containter or widget couldn't be reparented"));
 }
 
 PtWidget_t * Widget::getParent() const
 {
 	PtWidget_t *wdg = widget();
-
-	return PtWidgetParent(wdg);
+	PtWidget_t *result = PtWidgetParent(wdg);
+	return ( (result == Pt_NO_PARENT) ? nullptr : result );
 }
 
 void Widget::setTag(const void *tag, std::size_t size)
