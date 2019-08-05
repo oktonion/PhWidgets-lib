@@ -20,7 +20,7 @@ print "> Making EXE-File..."
 
 mkdir -p "old"
 mv -f $binname "old/$binname"
-g++ $coption -o $binname *.o config -L ./src/include/ -l Ap
+g++ $coption -o $binname *.o config -L ./src/include/ -lAp -lph -lm
 
 print "> Deleting temporary objects..."
 
