@@ -15,7 +15,7 @@ namespace PhWidgets
 		throw(std::invalid_argument(FORM_THROW_MESSAGE(xxx)));
 
 #define CHECK_WIDGET(xxx) \
-void xxx::check() \
+void TextWidget::check() \
 { \
 	WIDGET_IS_CLASS_MEMBER(xxx); \
 }
@@ -23,7 +23,7 @@ void xxx::check() \
 CHECK_WIDGET(Text);
 
 
-Text::Text(int abn):
+TextWidget::TextWidget(int abn):
 	Label(abn),
 	resource(this),
 	//callbacks:
@@ -37,7 +37,7 @@ Text::Text(int abn):
 	check();
 }
 
-Text::Text(PtWidget_t *wdg):
+TextWidget::TextWidget(PtWidget_t *wdg):
 	Label(wdg),
 	resource(this),
 	//callbacks:
@@ -50,7 +50,7 @@ Text::Text(PtWidget_t *wdg):
 	check();
 }
 
-PhWidgets::Text::Text(const Text & other):
+TextWidget::TextWidget(const TextWidget & other):
 	Label(other),
 	resource(this),
 	//callbacks:
@@ -62,7 +62,7 @@ PhWidgets::Text::Text(const Text & other):
 {
 }
 
-Text &Text::operator=(const Text &other)
+TextWidget &TextWidget::operator=(const TextWidget &other)
 {
 	static_cast<Label&>(*this) = static_cast<const Label&>(other);
 	

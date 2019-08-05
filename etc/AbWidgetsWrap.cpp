@@ -21,7 +21,6 @@
 //$PROJ/src/PhWidgets/include/service/header.h
 
 #include "./PhWidgets/include/service/PhWidgetsFunc.h"
-#include "./PhWidgets/include/service/PhWidgetsTypes.h"
 #include "./PhWidgets/include/service/stdex/stdex.h"
 
 namespace PhWidgets

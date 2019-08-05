@@ -85,6 +85,9 @@ src/.vscode/launch.json
 # Visual Studio Code files
 *.vscode*
 
+# Visual Studio files
+*.vs*
+
 # old library
 /old/*
 /slib/*
@@ -100,3 +103,4 @@ PhWidgets-cppcheck-build-dir/*
 
 # fuse
 *.fuse_*
+CppProperties.json
