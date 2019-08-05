@@ -27,5 +27,6 @@
 #include "./microGUI/prop_focused.cpp"
 #include "./microGUI/prop_image.cpp"
 #include "./microGUI/prop_parent.cpp"
+#include "./microGUI/prop_text.cpp"
 #include "./microGUI/prop_widgets.cpp"
 #include "./microGUI/swap_idiom.cpp"
