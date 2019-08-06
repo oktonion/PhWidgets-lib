@@ -6,6 +6,38 @@
 #include <vector>
 #include <iostream>
 
+std::map<int, ApDBWidgetInfo_t> widgets;
+std::map<int, std::vector<int>/**/> hierarchy;
+
+void print_root_widgets(std::vector<int> & root_widgets)
+{
+    for (std::size_t i = 0; i < root_widgets.size(); ++i)
+    {
+        int widget_index = root_widgets[i];
+        ApDBWidgetInfo_t root_wi = widgets[widget_index];
+        
+
+        std::vector<int>& child_widgets = hierarchy[widget_index];
+
+        if (std::string(root_wi.wgt_name) == std::string(root_wi.wgt_class))
+            continue;
+
+        if (child_widgets.size())
+        {
+            std::cout << std::string((root_wi.level - 1) * 2, ' ') << "struct " << root_wi.wgt_name << " : " << std::endl << 
+                std::string((root_wi.level - 1) * 4, ' ') << "public PhWidgets::" << (root_wi.wgt_class + 2) << std::endl <<
+                "{" << std::endl <<  std::string((root_wi.level - 1) * 2, ' ') ;
+            print_root_widgets(child_widgets);
+
+            std::cout << std::string((root_wi.level - 1) * 2, ' ') << "};" << std::endl;
+        }
+        else
+        {
+            std::cout << std::string((root_wi.level - 1) * 2, ' ') << (root_wi.wgt_class + 2) << " " << root_wi.wgt_name  << ";" << std::endl;
+        }
+    }
+}
+
 int main(int argc, const char* argv[])
 {
     if (argc == 1)
@@ -20,8 +52,6 @@ int main(int argc, const char* argv[])
     ApDBWidgetInfo_t wi;
 
     std::fstream fs;
-    std::map<int, ApDBWidgetInfo_t> widgets;
-    std::map<int, std::vector<int>/**/> hierarchy;
 
     for (int i = 0; ApGetDBWidgetInfo(dbase, i, &wi); ++i)
     {
@@ -29,24 +59,17 @@ int main(int argc, const char* argv[])
             i, wi.wgt_name, wi.wgt_class, wi.parent_index,
             wi.level);*/
         widgets[i] = wi;
-        hierarchy[wi.level].push_back(i);
+        hierarchy[wi.parent_index].push_back(i);
     }
+
+    if (hierarchy.begin() == hierarchy.end())
+        return 0;
     
     typedef std::map<int, std::vector<int>/**/>::iterator hierarchy_iterator;
 
-    for (hierarchy_iterator it = hierarchy.begin(); it != hierarchy.end(); ++it)
-    {
-        ApDBWidgetInfo_t twi = widgets[it->first];
-        std::cout << std::string(it->first * 2, ' ') << "struct " << twi.wgt_class << " " << twi.wgt_name << "{" << std::endl;
+    std::vector<int>& root_widgets = hierarchy.begin()->second;
 
-        for (size_t i = 0; i < it->second.size(); ++i)
-        {
-            ApDBWidgetInfo_t wi = widgets[ it->second[i] ];
-            std::cout << std::string(it->first * 4, ' ') << wi.wgt_class << " " << twi.wgt_name << ";" << std::endl;
-        }
-
-        std::cout << std::string(it->first * 4, ' ') << "};" << std::endl;
-    }
+    print_root_widgets(root_widgets);
 
 
     return 0;
