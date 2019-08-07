@@ -5,12 +5,24 @@
 #include <map>
 #include <vector>
 #include <iostream>
+#include <set>
+#include <algorithm>
+#include <cctype>
+
+std::map<std::string, std::string> phwidgets_includes;
+std::string phwidgets_default_include = "<Widget.h> // PhWidgets::Widget class";
+std::set<std::string> widget_includes;
 
 std::map<int, ApDBWidgetInfo_t> widgets;
 std::map<int, std::vector<int>/**/> hierarchy;
 int last_child_id = -1;
 
 std::fstream header, source;
+
+void init_phwidgets_includes()
+{
+    phwidgets_includes["PtWidget"] = "<Widget.h> // PhWidgets::Widget class";
+}
 
 void print_root_widgets(std::vector<int> & root_widgets)
 {
@@ -27,11 +39,18 @@ void print_root_widgets(std::vector<int> & root_widgets)
 
         if (root_wi.level == 1)
         {
-            header << std::string((root_wi.level - 1) * 2, ' ') << "struct " << root_wi.wgt_name << " : " << std::endl <<
-                std::string((root_wi.level - 1) * 2, ' ') << "    public PhWidgets::" << (root_wi.wgt_class + 2) << std::endl <<
-                "{" << std::endl <<  std::string((root_wi.level - 1) * 2, ' ') ;
+            bool is_parent = child_widgets.size();
+            if (is_parent)
+            {
+                header << std::endl;
+                source << std::endl;
+            }
 
-            source << std::string((root_wi.level - 1) * 2, ' ') << root_wi.wgt_name << "::" << root_wi.wgt_name << "() :" << std::endl <<
+            header << std::string((root_wi.level) * 2, ' ') << "struct " << root_wi.wgt_name << " : " << std::endl <<
+                std::string((root_wi.level) * 2, ' ') << "    public PhWidgets::" << (root_wi.wgt_class + 2) << std::endl <<
+                "{" << std::endl;
+
+            source << std::string((root_wi.level) * 2, ' ') << root_wi.wgt_name << "::" << root_wi.wgt_name << "() :" << std::endl <<
                 "    PhWidgets::" << (root_wi.wgt_class + 2) << "(ABN_" << root_wi.wgt_name;
 
             if (child_widgets.size())
@@ -40,29 +59,75 @@ void print_root_widgets(std::vector<int> & root_widgets)
                 last_child_id = child_widgets.back();
 
                 print_root_widgets(child_widgets);
+
+                header << std::endl;
             }
 
             source << ")" << std::endl;
 
-            header << std::string((root_wi.level - 1) * 2, ' ') << "};" << std::endl;
+            header << std::string((root_wi.level) * 2, ' ') << "};" << std::endl;
 
-            source << std::string((root_wi.level - 1) * 2, ' ') << "{ }" << std::endl;
+            source << std::string((root_wi.level) * 2, ' ') << "{ }" << std::endl;
         }
         else
         {
-            header << std::string((root_wi.level - 1) * 2, ' ') << "PhWidgets::" << (root_wi.wgt_class + 2) << " " << root_wi.wgt_name << ";" << std::endl;
+            bool is_parent = child_widgets.size();
+            if (is_parent)
+            {
+                header << std::endl;
+                source << std::endl;
+            }
+
+            header << std::string((root_wi.level) * 2, ' ') << "PhWidgets::" << (root_wi.wgt_class + 2) << " " << root_wi.wgt_name << ";" << (is_parent ? "// :" : "") << std::endl;
 
             source << "    " << root_wi.wgt_name << "(ABN_" << root_wi.wgt_name;
 
             if(widget_index != last_child_id)
                 source << ")," << std::endl;
-         
 
-            print_root_widgets(child_widgets);
+            if (child_widgets.size())
+            {
+                print_root_widgets(child_widgets);
+
+                header << std::string((root_wi.level) * 2, ' ') << "// end of "  << root_wi.wgt_name << std::endl << std::endl;
+            }
 
         }
     }
 }
+
+std::vector<std::string> splitpath(
+    const std::string& str
+    , const std::set<char> delimiters)
+{
+    std::vector<std::string> result;
+
+    char const* pch = str.c_str();
+    char const* start = pch;
+    for (; *pch; ++pch)
+    {
+        if (delimiters.find(*pch) != delimiters.end())
+        {
+            if (start != pch)
+            {
+                std::string str(start, pch);
+                result.push_back(str);
+            }
+            else
+            {
+                result.push_back("");
+            }
+            start = pch + 1;
+        }
+    }
+    result.push_back(start);
+
+    return result;
+}
+
+struct convert_to_upper {
+    void operator()(char& c) const { c = std::toupper(c); }
+};
 
 int main(int argc, const char* argv[])
 {
@@ -86,6 +151,11 @@ int main(int argc, const char* argv[])
             wi.level);*/
         widgets[i] = wi;
         hierarchy[wi.parent_index].push_back(i);
+        std::string winclude = phwidgets_includes[wi.wgt_class];
+        if (winclude.length())
+            widget_includes.insert(winclude);
+        else
+            widget_includes.insert(phwidgets_default_include);
     }
 
     if (hierarchy.begin() == hierarchy.end())
@@ -95,14 +165,42 @@ int main(int argc, const char* argv[])
 
     std::vector<int>& root_widgets = hierarchy.begin()->second;
 
-    source.open("./Widget.cpp", std::fstream::out);
-    header.open("./Widget.h", std::fstream::out);
+    std::string
+        file_name_with_ext,
+        file_name;
+
+    {
+        std::set<char> delims;
+        delims.insert('/');
+
+        std::vector<std::string> path = splitpath(argv[1], delims);
+        file_name_with_ext = path.back();
+
+        delims.clear();
+        delims.insert('.');
+        path = splitpath(file_name_with_ext, delims);
+        file_name = path.size() ? path.front() : file_name_with_ext;
+
+        source.open((std::string("./") + file_name + ".cpp").c_str(), std::fstream::out);
+        header.open((std::string("./") + file_name + ".h").c_str(), std::fstream::out);
+    }
 
     if (!source || !header)
         return -1;
 
-    source << "#include \"Widget.h\"" << std::endl << "#include <abimport.h>" << std::endl << "#include <ablibs.h>" << std::endl << std::endl << "using namespace PhGUI;" << std::endl << std::endl;
-    header << "#ifndef PHGUI_WIDGET_H" << std::endl << "#define PHGUI_WIDGET_H" << std::endl << std::endl << "namespace PhGUI" << std::endl << "{" << std::endl;
+    std::string header_guard = std::string("PHGUI_") + file_name + "_H";
+
+    std::for_each(header_guard.begin(), header_guard.end(), convert_to_upper());
+
+    source << "#include \"" << (file_name + ".h") << "\"" << std::endl << std::endl << "#include <abimport.h>" << std::endl << "#include <ablibs.h>" << std::endl << std::endl << "using namespace PhGUI;" << std::endl << std::endl;
+    header << "#ifndef " << header_guard << std::endl << "#define " << header_guard << std::endl;
+    
+    for (std::set<std::string>::iterator it = widget_includes.begin(); it != widget_includes.end(); ++it)
+    {
+        header << "#include " << (*it) << std::endl;
+    }
+
+    header << std::endl << "namespace PhGUI" << std::endl << "{" << std::endl;
 
     print_root_widgets(root_widgets);
 
