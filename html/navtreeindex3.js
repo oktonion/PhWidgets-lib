@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba755aede26acab41b6e9d1686ea21da45":[2,0,0,0,2,0,119],
 "struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba7749d952ed9158e6574272a4413e47d7":[2,0,0,0,2,0,53],
 "struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba82f4544afdf1a1dbee293907e3eaf12e":[2,0,0,0,2,0,124],
 "struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba89085a50beb1dbbb69de262174decd39":[2,0,0,0,2,0,111],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "struct_ph_widgets_1_1_numeric_1_1_this_args_1_1_arg_unsigned_short.html#a4c65011a69b305abd8dcbece1766eba9":[2,0,0,13,3,1,0],
 "struct_ph_widgets_1_1_numeric_1_1_this_args_1_1_arg_unsigned_short.html#a4c65011a69b305abd8dcbece1766eba9a1a6bc7e5e2798f0e2541cd4df124a48d":[2,0,0,13,3,1,0,1],
 "struct_ph_widgets_1_1_numeric_1_1_this_args_1_1_arg_unsigned_short.html#a4c65011a69b305abd8dcbece1766eba9a5d075c41b298a55990dbd155c9990310":[2,0,0,13,3,1,0,0],
-"struct_ph_widgets_1_1_numeric_float_1_1_arg_int.html":[2,0,0,14,0],
-"struct_ph_widgets_1_1_numeric_float_1_1_arguments.html":[2,0,0,14,1]
+"struct_ph_widgets_1_1_numeric_float_1_1_arg_int.html":[2,0,0,14,0]
 };

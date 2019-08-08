@@ -85,7 +85,12 @@ src/.vscode/launch.json
 # Visual Studio Code files
 *.vscode*
 
+# Visual Studio files
+*.vs/*
+
 # old library
 /old/*
 /slib/*
 *.tar
+
+CppProperties.json

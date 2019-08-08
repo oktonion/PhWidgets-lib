@@ -174,6 +174,7 @@ var NAVTREEINDEX1 =
 "namespace_ph_widgets_1_1_drawing.html":[2,0,0,0],
 "namespacemembers.html":[1,1,0],
 "namespacemembers_func.html":[1,1,1],
+"namespacemembers_type.html":[1,1,2],
 "namespaces.html":[1,0],
 "namespacestd.html":[1,0,1],
 "pages.html":[],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_unsigned_long.html#aaddb3bc5670528b0f37bdc4124208564abe13ee4b8f638bfcc112e03a83b03e0a":[2,0,0,3,11,5,0,1],
 "struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_unsigned_short.html":[2,0,0,3,11,6],
 "struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_unsigned_short.html#ad32c6140df7c7d3a31dd990957bd7559":[2,0,0,3,11,6,0],
-"struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_unsigned_short.html#ad32c6140df7c7d3a31dd990957bd7559a4a7dbc749ff289169f6a81970b72dbeb":[2,0,0,3,11,6,0,0],
-"struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_unsigned_short.html#ad32c6140df7c7d3a31dd990957bd7559a67c66a1e292c373a5fb1d37dcaeb13f2":[2,0,0,3,11,6,0,1]
+"struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_unsigned_short.html#ad32c6140df7c7d3a31dd990957bd7559a4a7dbc749ff289169f6a81970b72dbeb":[2,0,0,3,11,6,0,0]
 };

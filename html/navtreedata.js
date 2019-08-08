@@ -1,18 +1,17 @@
 /*
-@ @licstart  The following is the entire license notice for the
+@licstart  The following is the entire license notice for the
 JavaScript code in this file.
 
-Copyright (C) 1997-2017 by Dimitri van Heesch
+Copyright (C) 1997-2019 by Dimitri van Heesch
 
 This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
+it under the terms of version 2 of the GNU General Public License as published by
+the Free Software Foundation
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
@@ -29,7 +28,8 @@ var NAVTREE =
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ]
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Typedefs", "namespacemembers_type.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -52,10 +52,10 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "class_ph_widgets_1_1_widget.html#a035653a11b43dc468898fdcca8c179de",
-"struct_ph_widgets_1_1_basic_1_1_this_callbacks_1_1_callback.html",
-"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba7749d952ed9158e6574272a4413e47d7",
-"struct_ph_widgets_1_1_numeric_float_1_1_callback.html",
-"struct_ph_widgets_1_1_window_1_1_this_args_1_1_arg_short.html"
+"struct_ph_widgets_1_1_basic_1_1_this_args_1_1_arg_unsigned_short.html#ad32c6140df7c7d3a31dd990957bd7559a67c66a1e292c373a5fb1d37dcaeb13f2",
+"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba755aede26acab41b6e9d1686ea21da45",
+"struct_ph_widgets_1_1_numeric_float_1_1_arguments.html",
+"struct_ph_widgets_1_1_window_1_1_this_args_1_1_arg_p_char.html#a9a3ff46cf181d9b2ad3da096303235d8ad8b449b7b2aac60f47ba9d0e511f3c48"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
