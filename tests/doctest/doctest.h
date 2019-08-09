@@ -482,6 +482,7 @@ DOCTEST_CLANG_SUPPRESS_WARNING("-Wc++98-compat-pedantic")
 #define DOCTEST_NOINLINE 
 #define DOCTEST_UNUSED 
 #define DOCTEST_ALIGNMENT(x)
+#define DOCTEST_CONFIG_USE_IOSFWD
 #else
 #error ""
 #endif // MSVC
@@ -3394,6 +3395,13 @@ DOCTEST_MAKE_STD_HEADERS_CLEAN_FROM_WARNINGS_ON_WALL_BEGIN
 #if !DOCTEST_MSVC
 #include <stdint.h>
 #endif // !MSVC
+
+#ifdef __BORLANDC__
+namespace std
+{
+ using ::strcmp;
+}
+#endif // __BORLANDC__
 
 DOCTEST_MAKE_STD_HEADERS_CLEAN_FROM_WARNINGS_ON_WALL_END
 
