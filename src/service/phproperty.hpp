@@ -59,7 +59,7 @@ namespace PhWidgets
 		struct bind_internal :
 			public cpp_property_t::template bind<WidgetClassT, Getter>
 		{
-			bind_internal(WidgetClassT *parent) :
+			explicit bind_internal(WidgetClassT *parent) :
 				cpp_property_t::template bind<WidgetClassT, Getter>(parent)
 			{}
 
@@ -82,7 +82,7 @@ namespace PhWidgets
 			> cpp_bind_t;
 
 		public:
-			bind(WidgetClassT *parent) :
+			explicit bind(WidgetClassT *parent) :
 				cpp_bind_t(parent)
 			{}
 
@@ -103,7 +103,7 @@ namespace PhWidgets
 		struct bind_internal :
 			public cpp_property_t::template bind<WidgetClassT, Getter, Setter>
 		{
-			bind_internal(WidgetClassT *parent) :
+			explicit bind_internal(WidgetClassT *parent) :
 				cpp_property_t::template bind<WidgetClassT, Getter, Setter>(parent)
 			{}
 
@@ -127,7 +127,7 @@ namespace PhWidgets
 			> cpp_bind_t;
 
 		public:
-			bind(WidgetClassT *parent) :
+			explicit bind(WidgetClassT *parent) :
 				cpp_bind_t(parent)
 			{}
 			
@@ -166,7 +166,7 @@ namespace PhWidgets
 			> cpp_bind_t;
 
 		public:
-			bind(WidgetClassT *parent) :
+			explicit bind(WidgetClassT *parent) :
 				cpp_bind_t(parent)
 			{}
 			

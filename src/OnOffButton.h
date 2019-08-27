@@ -157,7 +157,7 @@ namespace PhWidgets
 			@see
 			- Type
 		*/
-		phproperty<bool>::bind<OnOffButton, ArgBool::eArgBool, Arguments::onoff_state> Checked;
+		phproperty<bool>::bind<OnOffButton, ArgBool::eArgBool, Arguments::onoff_state> IsChecked;
 		
 		//@}
 

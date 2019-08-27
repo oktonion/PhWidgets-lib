@@ -27,7 +27,7 @@ OnOffButton::OnOffButton(int abn):
 	Button(abn),
 	resource(this),
 	//properties:
-	Checked(this),
+	IsChecked(this),
 	//callbacks:
 	NewValue(this)
 {
@@ -38,7 +38,7 @@ OnOffButton::OnOffButton(PtWidget_t *wdg):
 	Button(wdg),
 	resource(this),
 	//properties:
-	Checked(this),
+	IsChecked(this),
 	//callbacks:
 	NewValue(this)
 {
@@ -49,7 +49,7 @@ OnOffButton::OnOffButton(const OnOffButton &other):
 	Button(other),
 	resource(this),
 	//properties:
-	Checked(this),
+	IsChecked(this),
 	//callbacks:
 	NewValue(this)
 {
