@@ -25,6 +25,6 @@ var class_ph_widgets_1_1_on_off_button =
     [ "Check", "class_ph_widgets_1_1_on_off_button.html#ad738bc1ece7dba09ec5f39e90785d006", null ],
     [ "Uncheck", "class_ph_widgets_1_1_on_off_button.html#a5bb7e4d3f1f4e27e4b3b9993763d5236", null ],
     [ "resource", "class_ph_widgets_1_1_on_off_button.html#ad6252159ffb086f86c49a43aa9039c71", null ],
-    [ "Checked", "class_ph_widgets_1_1_on_off_button.html#a437abfdc6ed98631e7dba37efafb4600", null ],
+    [ "IsChecked", "class_ph_widgets_1_1_on_off_button.html#ac8bc4e9689af4ba77d0e5e285dfacdc3", null ],
     [ "NewValue", "class_ph_widgets_1_1_on_off_button.html#ad2ca5db307e400c92ed766a0a94c0623", null ]
 ];
