@@ -419,7 +419,7 @@ namespace cppproperties
 			typedef typename detail::property_info<ValueT, ParentT>::const_reference const_reference;
 
 			inline
-			bind(parent_type *parent) :
+			explicit bind(parent_type *parent) :
 				_obj(parent)
 			{}
 
@@ -533,7 +533,7 @@ namespace cppproperties
 			typedef typename detail::property_info<ValueT>::reference reference;
 			typedef typename detail::property_info<ValueT>::const_reference const_reference;
 			
-			bind(parent_type *parent) :
+			explicit bind(parent_type *parent) :
 				_obj(parent)
 			{}
 
@@ -637,7 +637,7 @@ namespace cppproperties
 			typedef typename detail::property_info<ValueT>::reference reference;
 			typedef typename detail::property_info<ValueT>::const_reference const_reference;
 
-			bind(parent_type *parent) :
+			explicit bind(parent_type *parent) :
 				_obj(parent)
 			{}
 

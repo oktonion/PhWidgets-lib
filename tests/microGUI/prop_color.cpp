@@ -18,4 +18,9 @@ TEST_CASE("Testing Basic::Color property"){
     
     CHECK(widget.Color == Drawing::Colors::Blue);
     CHECK(Drawing::Colors::Blue == widget.Color);
+
+    widget.Color = Pg_BLACK;
+
+    CHECK(widget.Color == Pg_BLACK);
+    CHECK(Pg_BLACK == widget.Color);
 }
