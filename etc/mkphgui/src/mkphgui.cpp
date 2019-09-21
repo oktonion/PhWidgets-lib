@@ -22,6 +22,20 @@ std::fstream header, source;
 void init_phwidgets_includes()
 {
     phwidgets_includes["PtWidget"] = "<Widget.h> // PhWidgets::Widget class";
+    phwidgets_includes["PtBasic"] = "<Basic.h> // PhWidgets::Basic class";
+    phwidgets_includes["PtButton"] = "<Button.h> // PhWidgets::Button class";
+    phwidgets_includes["PtCompound"] = "<Compound.h> // PhWidgets::Compound class";
+    phwidgets_includes["PtContainer"] = "<Container.h> // PhWidgets::Container class";
+    phwidgets_includes["PtDisjoint"] = "<Disjoint.h> // PhWidgets::Disjoint class";
+    phwidgets_includes["PtGraphic"] = "<Graphic.h> // PhWidgets::Graphic class";
+    phwidgets_includes["PtLabel"] = "<Label.h> // PhWidgets::Label class";
+    phwidgets_includes["PtNumeric"] = "<Numeric.h> // PhWidgets::Numeric class";
+    phwidgets_includes["PtNumericFloat"] = "<NumericFloat.h> // PhWidgets::NumericFloat class";
+    phwidgets_includes["PtOnOffButton"] = "<OnOffButton.h> // PhWidgets::OnOffButton class";
+    phwidgets_includes["PtText"] = "<Text.h> // PhWidgets::Text class";
+    phwidgets_includes["PtTimer"] = "<Timer.h> // PhWidgets::Timer class";
+    phwidgets_includes["PtToggleButton"] = "<ToggleButton.h> // PhWidgets::ToggleButton class";
+    phwidgets_includes["PtWindow"] = "<Window.h> // PhWidgets::Window class";
 }
 
 void print_root_widgets(std::vector<int> & root_widgets)
@@ -134,6 +148,7 @@ int main(int argc, const char* argv[])
     if (argc == 1)
         return 0;
 
+    init_phwidgets_includes();
 
     ApDBase_t *dbase = ApOpenDBaseFile(argv[1]);
 
@@ -205,7 +220,7 @@ int main(int argc, const char* argv[])
     print_root_widgets(root_widgets);
 
     header << "} // namespace PhGUI" << std::endl;
-    header << "#endif // PHGUI_WIDGET_H" << std::endl;
+    header << "#endif // " << header_guard << std::endl;
 
 
     return 0;
