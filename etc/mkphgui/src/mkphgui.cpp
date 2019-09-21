@@ -220,7 +220,7 @@ int main(int argc, const char* argv[])
     print_root_widgets(root_widgets);
 
     header << "} // namespace PhGUI" << std::endl;
-    header << "#endif // PHGUI_WIDGET_H" << std::endl;
+    header << "#endif // " << header_guard << std::endl;
 
 
     return 0;
