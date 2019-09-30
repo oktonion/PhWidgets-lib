@@ -145,7 +145,7 @@ struct convert_to_upper {
 
 int main(int argc, const char* argv[])
 {
-    if (argc == 1)
+    if (argc < 2)
         return 0;
 
     init_phwidgets_includes();
@@ -153,11 +153,12 @@ int main(int argc, const char* argv[])
     ApDBase_t *dbase = ApOpenDBaseFile(argv[1]);
 
     if (NULL == dbase)
+    {
+        std::cout << "Cannot open dbase file '" << argv[1] << "'.";
         return -1;
+    }
 
     ApDBWidgetInfo_t wi;
-
-    std::fstream fs;
 
     for (int i = 0; ApGetDBWidgetInfo(dbase, i, &wi); ++i)
     {
@@ -201,7 +202,10 @@ int main(int argc, const char* argv[])
     }
 
     if (!source || !header)
+    {
+        std::cout << "Cannot create header/source files pair for '" << file_name << "'.";
         return -1;
+    }
 
     std::string header_guard = std::string("PHGUI_") + file_name + "_H";
 
