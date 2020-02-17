@@ -1942,7 +1942,7 @@ namespace detail {
 #ifdef DOCTEST_CONFIG_WITH_RVALUE_REFERENCES
         ContextScope(ContextScope &&other) : lambda_(other.lambda_) {}
 #else
-        ContextScope(ContextScope &other) : lambda_(other.lambda_) {}
+        ContextScope(const ContextScope &other) : lambda_(other.lambda_) {}
 #endif
 
         void stringify(std::ostream* s) const DOCTEST_OVERRIDE { lambda_(s); }
@@ -1983,7 +1983,7 @@ namespace detail {
     //template<typename>
     struct ContextScopeLambda
     {
-        doctest::detail::MessageBuilder mb_name;
+        mutable doctest::detail::MessageBuilder mb_name;
         std::string expr;
         
         ContextScopeLambda(const char *file, int line, std::string expression_):
@@ -1991,7 +1991,7 @@ namespace detail {
             expr(expression_)
         {}
 
-        void operator()(std::ostream* s_name) {
+        void operator()(std::ostream* s_name) const {
             mb_name.m_stream = s_name;
             mb_name << expr;
         };
@@ -4666,6 +4666,7 @@ namespace detail {
 
     // for sorting tests by suite/file/line
     bool suiteOrderComparator(const TestCase* lhs, const TestCase* rhs) {
+        using namespace std;
         const int res = strcmp(lhs->m_test_suite, rhs->m_test_suite);
         if(res != 0)
             return res < 0;
@@ -5980,7 +5981,7 @@ namespace detail{
         void logTestStart() {
             if(hasLoggedCurrentTestStart)
                 return;
-
+            using namespace std;
             separator_to_stream();
             file_line_to_stream(s, tc->m_file, tc->m_line, "\n");
             if(tc->m_description)
