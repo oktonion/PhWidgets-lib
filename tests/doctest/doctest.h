@@ -1206,7 +1206,7 @@ namespace detail
 
 #ifdef DOCTEST_NO_CPP11_COMPAT
     template<class... T>
-    struct strip_types{typedef std::tuple<T> type;};
+    struct strip_types{typedef std::tuple<T...> type;};
 
     template <typename T1, typename T2,
           typename T3, typename T4,
