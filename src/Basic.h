@@ -4,7 +4,7 @@
 #include <photon/PtBasic.h>
 
 #include "./Widget.h"
-#include "./Color.h"
+#include "./Drawing/Color.h"
 
 
 namespace PhWidgets

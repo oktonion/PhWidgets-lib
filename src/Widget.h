@@ -20,7 +20,7 @@
 #include "./service/WidgetResource.hpp"
 
 #include "./Cursor.h"
-#include "./Color.h"
+#include "./Drawing/Color.h"
 
 
 //typedef Ph_rect `PhRect_t`;

@@ -6,8 +6,8 @@
 #include <string>
 
 #include "./Basic.h"
-#include "./Font.h"
-#include "./Image.h"
+#include "./Drawing/Font.h"
+#include "./Drawing/Image.h"
 
 
 namespace PhWidgets
