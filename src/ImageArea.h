@@ -4,7 +4,7 @@
 #include <photon/PtImageArea.h>
 
 #include "./Container.h"
-
+#include "./Drawing/Image.h"
 
 namespace PhWidgets
 {
@@ -202,19 +202,13 @@ namespace PhWidgets
 		
 		//! Contains resource IDs for arguments of type **short**. @ingroup Resources
 		struct ArgShort:
-			public ArgumentsEx<Container::ArgShort>,
 			public ThisArgs::ArgShort
-		{
-            typedef ThisArgs::ArgShort::eArgShort eArgShort;
-		};
+		{ };
 
 		//! Contains resource IDs for arguments of type `PhImage_t`. @ingroup Resources
 		struct ArgPImage:
-			public ArgumentsEx<Container::ArgPImage>,
 			public ThisArgs::ArgPImage
-		{
-            typedef ThisArgs::ArgPImage::eArgPImage eArgPImage;
-		};
+		{ };
 
 		//! Contains resource IDs for arguments of `PhRect_t` array. @ingroup Resources
 		struct ArgRect:
@@ -247,6 +241,12 @@ namespace PhWidgets
 			public Callback,
 			public Container::Callbacks
 		{ };
+
+		//! Contains flags for all ImageArea resources. @ingroup Resources
+		struct Flags:
+			public ThisFlags,
+			public Container::Flags
+        { };
 
 	protected:
 		typedef ResourceFrom<Container::WidgetResourcesSingleton>::

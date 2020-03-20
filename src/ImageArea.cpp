@@ -1,5 +1,7 @@
 #include "ImageArea.h"
 
+#include "./service/stdex/stdex.h"
+
 #include <stdexcept>
 #include <cassert>
 
@@ -32,7 +34,6 @@ ImageArea::ImageArea(int abn):
     GridColor(this),
     GridThreshold(this),
 	Image(this),
-    ImageLocation(this),
     ZoomingFactor(this),
     //events:
     Drag(this),
@@ -51,7 +52,6 @@ ImageArea::ImageArea(PtWidget_t *wdg):
     GridColor(this),
     GridThreshold(this),
 	Image(this),
-    ImageLocation(this),
     ZoomingFactor(this),
     //events:
     Drag(this),
@@ -70,7 +70,6 @@ ImageArea::ImageArea(const ImageArea &other):
     GridColor(this),
     GridThreshold(this),
 	Image(this),
-    ImageLocation(this),
     ZoomingFactor(this),
     //events:
     Drag(this),
@@ -109,4 +108,16 @@ void ImageArea::setImage(Drawing::Image image)
 	PhImage_t *result = image;
 	assert(result != nullptr);
 	resource.argument[Arguments::imagearea_image].set(result);
+}
+
+void ImageArea::setAutoScale(bool val)
+{
+	if(resource.argument[Arguments::flags].set(Flags::Autoscale, val) != 0)
+		throw(
+			std::invalid_argument(std::string("PhWidets::ImageArea::AutoScale: \'") + WidgetClassName(widget()) + "\' - cannot set flags of a widget."));
+}
+
+bool ImageArea::getAutoScale() const
+{
+	return resource.argument[Arguments::imagearea_flags].get(Flags::Autoscale);
 }
