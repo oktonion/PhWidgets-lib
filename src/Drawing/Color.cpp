@@ -1,9 +1,8 @@
 #include "Color.h"
 
-#include "./../service/stdex/stdex.h"
-
-#include <cstring>
 #include <functional>
+
+#include "./../service/stdex/stdex.h"
 
 namespace PhWidgets
 {
