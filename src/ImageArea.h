@@ -210,7 +210,7 @@ namespace PhWidgets
 			public ThisArgs::ArgPImage
 		{ };
 
-		//! Contains resource IDs for arguments of `PhRect_t` array. @ingroup Resources
+		//! Contains resource IDs for arguments of type `PhRect_t`. @ingroup Resources
 		struct ArgRect:
 			public ArgumentsEx<Container::ArgRect>,
 			public ThisArgs::ArgRect
