@@ -28,8 +28,8 @@ ComboBox::ComboBox(int abn):
 	Compound(abn),
 	resource(this),
     //properties:
-    DroppedDown(this),
-    DropDownStyle(this)
+    DropDownStyle(this),
+    DroppedDown(this)
 {
 	check();
 }
@@ -38,8 +38,8 @@ ComboBox::ComboBox(PtWidget_t *wdg):
 	Compound(wdg),
 	resource(this),
     //properties:
-    DroppedDown(this),
-    DropDownStyle(this)
+    DropDownStyle(this),
+    DroppedDown(this)
 {
 	check();
 }
@@ -48,8 +48,8 @@ ComboBox::ComboBox(const ComboBox & other) :
 	Compound(other),
 	resource(this),
     //properties:
-    DroppedDown(this),
-    DropDownStyle(this)
+    DropDownStyle(this),
+    DroppedDown(this)
 {
 }
 
