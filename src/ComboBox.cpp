@@ -51,6 +51,42 @@ ComboBox &ComboBox::operator=(const ComboBox &other)
 	return *this;
 }
 
+PhWidgets::ComboBoxStyle::eComboBoxStyle ComboBox::getDropDownStyle() const // TODO: BS, need to be tested and redone
+{
+    bool 
+        is_static_list = resource.argument[Arguments::cbox_flags].get(Flags::StaticList),
+        is_editable = Enabled;
+    
+    if(is_static_list)
+        return ComboBoxStyle::Simple;
+    if(is_editable)
+        return ComboBoxStyle::DropDown;
+    
+    return ComboBoxStyle::DropDownList;
+}
+
+void ComboBox::setDropDownStyle(PhWidgets::ComboBoxStyle::eComboBoxStyle val) // TODO: BS, need to be tested and redone
+{
+    int result = 0;
+    switch (val)
+    {
+    case ComboBoxStyle::Simple:
+        result = resource.argument[Arguments::cbox_flags].set(Flags::StaticList, true);
+        break;
+    case ComboBoxStyle::DropDown:
+        result = resource.argument[Arguments::cbox_flags].set(Flags::StaticList, false);
+        break;
+    case ComboBoxStyle::DropDownList:
+        result = resource.argument[Arguments::cbox_flags].set(Flags::StaticList, false);
+        break;
+    default:
+        break;
+    }
+
+	if(result != 0)
+		throw(
+			std::invalid_argument(std::string("PhWidets::ComboBox::DropDownStyle: \'") + WidgetClassName(widget()) + "\' - cannot set flags of a widget."));
+}
 
 cppbitmasks::bitmask<unsigned short, PhWidgets::ComboBox::Flags::eComboBoxFlags> operator|(const PhWidgets::ComboBox::Flags::eComboBoxFlags &flag1, const PhWidgets::ComboBox::Flags::eComboBoxFlags &flag2)
 {

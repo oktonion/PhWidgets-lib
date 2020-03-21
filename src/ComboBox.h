@@ -10,6 +10,37 @@
 
 namespace PhWidgets
 {
+	//! Specifies the ComboBox style.
+	/*! 
+		Apply to ComboBox::DropDownStyle property.
+
+		@see
+		- ComboBox::DropDownStyle
+
+		@ingroup Values
+	*/
+	struct ComboBoxStyle
+	{
+		//! Possible ComboBox style.
+		/*!
+            @remark
+            The ComboBox::DropDownStyle property specifies whether the list is always displayed or whether the list is displayed in a drop-down. 
+            The ComboBox::DropDownStyle property also specifies whether the text portion can be edited.
+
+			@see
+			- ComboBox::DropDownStyle
+		*/
+		enum eComboBoxStyle
+		{		
+			DropDown = 1, //!< Specifies that the list is displayed by clicking the down arrow and that the text portion is editable. 
+                          //!< This means that the user can enter a new value and is not limited to selecting an existing value in the list.
+			DropDownList = 2, //!< Specifies that the list is displayed by clicking the down arrow and that the text portion is not editable. 
+                              //!< This means that the user cannot enter a new value. Only values already in the list can be selected.
+			Simple = 0 //!< Specifies that the list is always visible and that the text portion is editable. 
+                       //!< This means that the user can enter a new value and is not limited to selecting an existing value in the list.
+		};
+	};
+
 	/*!
 		@struct PhWidgets::ComboBox
 		@ingroup Widgets
@@ -219,6 +250,11 @@ namespace PhWidgets
 		resource_type WidgetResourcesSingleton;
 
 		virtual void check();
+
+        //for properties:
+
+        PhWidgets::ComboBoxStyle::eComboBoxStyle getDropDownStyle() const;
+        void setDropDownStyle(PhWidgets::ComboBoxStyle::eComboBoxStyle);
 						
 	public:
 		//! Resources of the ComboBox
@@ -259,6 +295,20 @@ namespace PhWidgets
 		//! @name Properties
 		//! Properties are used to simplify use of widget resources.
 		//@{
+
+		//! Gets or sets a value specifying the style of the combo box.
+		/*!
+			### Property Value ### 
+			
+			> ComboBoxStyle::eComboBoxStyle
+
+			Possible values are:
+			- ComboBoxStyle::DropDown
+			- ComboBoxStyle::DropDownList
+			- ComboBoxStyle::Simple
+		*/
+		property<PhWidgets::ComboBoxStyle::eComboBoxStyle>::
+			bind<ComboBox, &ComboBox::getDropDownStyle, &ComboBox::setDropDownStyle> DropDownStyle;
 
 		//@}
 		
