@@ -439,4 +439,43 @@
     - PhWidgets::ImageArea::Image
 */
 
+/*!
+    @struct FontDetails
+    
+    Information about the font.
+
+    The members include at least: 
+    
+    ### Members ###
+    
+    > FontDescription desc
+        Textual name of the font family (e.g. Helvetica). 
+    > FontName stem 
+        Base stem of the font family (e.g. helv). 
+    > short losize
+        Lowest point size available for this font. If losize and hisize are both 0, the font is scalable. 
+    > short hisize
+        Highest point size available for this font. If hisize and losize are both 0, the font is scalable. 
+    > unsigned short flags 
+        Various stylistic/attribute flags for this font family:
+
+    - PHFONT_INFO_ALIAS — the entry is a mapping or virtual font, like TextFont.
+    - PHFONT_INFO_BLDITC — bold italic style.
+    - PHFONT_INFO_BOLD — bold style.
+    - PHFONT_INFO_DECORATIVE — decorative style.
+    - PHFONT_INFO_FIXED — fixed-width font.
+    - PHFONT_INFO_ITALIC — italic style.
+    - PHFONT_INFO_PLAIN — plain/regular style.
+    - PHFONT_INFO_PROP — proportional-width font.
+    - PHFONT_INFO_SANSERIF — sans-serif font.
+    - PHFONT_INFO_SERIF — serif font.
+    
+    @remark
+    Use PhWidgets::Drawing::Font to manipulate widget fonts.
+
+    @see
+    - PhWidgets::Drawing::Font
+    - PhWidgets::Drawing::FontFamily
+*/
+
 //!@}
