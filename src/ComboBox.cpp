@@ -26,21 +26,30 @@ CHECK_WIDGET(ComboBox);
 
 ComboBox::ComboBox(int abn):
 	Compound(abn),
-	resource(this)
+	resource(this),
+    //properties:
+    DroppedDown(this),
+    DropDownStyle(this)
 {
 	check();
 }
 
 ComboBox::ComboBox(PtWidget_t *wdg):
 	Compound(wdg),
-	resource(this)
+	resource(this),
+    //properties:
+    DroppedDown(this),
+    DropDownStyle(this)
 {
 	check();
 }
 
 ComboBox::ComboBox(const ComboBox & other) :
 	Compound(other),
-	resource(this)
+	resource(this),
+    //properties:
+    DroppedDown(this),
+    DropDownStyle(this)
 {
 }
 
