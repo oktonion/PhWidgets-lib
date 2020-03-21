@@ -121,3 +121,21 @@ bool ImageArea::getAutoScale() const
 {
 	return resource.argument[Arguments::imagearea_flags].get(Flags::Autoscale);
 }
+
+cppbitmasks::bitmask<unsigned short, PhWidgets::ImageArea::Flags::eImageAreaFlags> operator|(const PhWidgets::ImageArea::Flags::eImageAreaFlags &flag1, const PhWidgets::ImageArea::Flags::eImageAreaFlags &flag2)
+{
+	cppbitmasks::bitmask<unsigned short, PhWidgets::ImageArea::Flags::eImageAreaFlags> bm(flag1);
+	return bm | flag2;
+}
+
+cppbitmasks::bitmask<unsigned short, PhWidgets::ImageArea::Flags::eImageAreaFlags> operator&(const PhWidgets::ImageArea::Flags::eImageAreaFlags &flag1, const PhWidgets::ImageArea::Flags::eImageAreaFlags &flag2)
+{
+	cppbitmasks::bitmask<unsigned short, PhWidgets::ImageArea::Flags::eImageAreaFlags> bm(flag1);
+	return bm & flag2;
+}
+
+cppbitmasks::bitmask<unsigned short, PhWidgets::ImageArea::Flags::eImageAreaFlags> operator^(const PhWidgets::ImageArea::Flags::eImageAreaFlags &flag1, const PhWidgets::ImageArea::Flags::eImageAreaFlags &flag2)
+{
+	cppbitmasks::bitmask<unsigned short, PhWidgets::ImageArea::Flags::eImageAreaFlags> bm(flag1);
+	return bm ^ flag2;
+}

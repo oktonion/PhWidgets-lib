@@ -419,5 +419,9 @@ namespace PhWidgets
 	};
 } // namespace PhWidgets
 
+cppbitmasks::bitmask<unsigned short, PhWidgets::ImageArea::Flags::eImageAreaFlags> operator|(const PhWidgets::ImageArea::Flags::eImageAreaFlags &flag1, const PhWidgets::ImageArea::Flags::eImageAreaFlags &flag2);
+cppbitmasks::bitmask<unsigned short, PhWidgets::ImageArea::Flags::eImageAreaFlags> operator&(const PhWidgets::ImageArea::Flags::eImageAreaFlags &flag1, const PhWidgets::ImageArea::Flags::eImageAreaFlags &flag2);
+cppbitmasks::bitmask<unsigned short, PhWidgets::ImageArea::Flags::eImageAreaFlags> operator^(const PhWidgets::ImageArea::Flags::eImageAreaFlags &flag1, const PhWidgets::ImageArea::Flags::eImageAreaFlags &flag2);
+
 
 #endif // PHWIDGETS_IMAGE_AREA_H
