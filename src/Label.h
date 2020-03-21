@@ -469,19 +469,19 @@ namespace PhWidgets
 		Drawing::Font getFont() const;
 		void setFont(Drawing::Font);
 
-		void setBalloonPosition(PhWidgets::BalloonPosition::eBalloonPosition val);
+		void setBalloonPosition(PhWidgets::BalloonPosition::eBalloonPosition);
 		PhWidgets::BalloonPosition::eBalloonPosition getBalloonPosition() const;
 
-		void setType(PhWidgets::LabelType::eLabelType val);
+		void setType(PhWidgets::LabelType::eLabelType);
 		PhWidgets::LabelType::eLabelType getType() const;
 
-		void setUnderlineType(PhWidgets::UnderlineType::eUnderlineType val);
+		void setUnderlineType(PhWidgets::UnderlineType::eUnderlineType);
 		PhWidgets::UnderlineType::eUnderlineType getUnderlineType() const;
 
-		void setTextAlign(Drawing::ContentAlignment::eContentAlignment val);
+		void setTextAlign(Drawing::ContentAlignment::eContentAlignment);
 		Drawing::ContentAlignment::eContentAlignment getTextAlign() const;
 
-		void setTextClippedAlign(Drawing::ContentAlignment::eContentAlignment val);
+		void setTextClippedAlign(Drawing::ContentAlignment::eContentAlignment);
 		Drawing::ContentAlignment::eContentAlignment getTextClippedAlign() const;
 
 		virtual void check();

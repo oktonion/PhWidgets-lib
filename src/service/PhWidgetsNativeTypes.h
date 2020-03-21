@@ -432,10 +432,11 @@
         The image pixel data. 
     
     @remark
-    Use PhWidgets::Drawing::Image to manipulate Label::Image property and widget image resources as general.
+    Use PhWidgets::Drawing::Image to manipulate PhWidgets::Label::Image property and widget image resources as general.
 
     @see 
-    - Label::Image
+    - PhWidgets::Label::Image
+    - PhWidgets::ImageArea::Image
 */
 
 //!@}
