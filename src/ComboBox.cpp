@@ -88,6 +88,25 @@ void ComboBox::setDropDownStyle(PhWidgets::ComboBoxStyle::eComboBoxStyle val) //
 			std::invalid_argument(std::string("PhWidets::ComboBox::DropDownStyle: \'") + WidgetClassName(widget()) + "\' - cannot set flags of a widget."));
 }
 
+bool ComboBox::getDroppedDown() const
+{
+    return resource.argument[Arguments::cbox_flags].get(Flags::IsOpened);
+}
+
+void ComboBox::setDroppedDown(bool val)
+{
+    if(val)
+        PtComboBoxListOpen(widget());
+    else
+        PtComboBoxListClose(widget());
+}
+
+void ComboBox::AddItem(std::string item, unsigned int pos)
+{
+    const char *item_cstr = item.c_str();
+    PtListAddItems(widget(), &item_cstr, 1, pos);
+}
+
 cppbitmasks::bitmask<unsigned short, PhWidgets::ComboBox::Flags::eComboBoxFlags> operator|(const PhWidgets::ComboBox::Flags::eComboBoxFlags &flag1, const PhWidgets::ComboBox::Flags::eComboBoxFlags &flag2)
 {
 	cppbitmasks::bitmask<unsigned short, PhWidgets::ComboBox::Flags::eComboBoxFlags> bm(flag1);

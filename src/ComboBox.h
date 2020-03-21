@@ -183,7 +183,7 @@ namespace PhWidgets
 			{
 				AltDown = Pt_COMBOBOX_ALT_DOWN, //!< Enable the Alt-↓ keychord, which displays the list and highlights the item corresponding to the current text.
 				MaxWidth = Pt_COMBOBOX_MAX_WIDTH, //!< Make the combo box size itself to fit the longest list item. 
-				IsOpen = Pt_COMBOBOX_OPEN,  //!< (read-only) If this bit is set, the list is currently open. 
+				IsOpened = Pt_COMBOBOX_OPEN,  //!< (read-only) If this bit is set, the list is currently open. 
                 StaticList = Pt_COMBOBOX_STATIC,  //!< Make the list field static and remove the drop button. 
                                                   //!< If this bit is off, the list field is visible only when the drop button is pressed. 
                 ListAbove = Pt_COMBOBOX_TOP  //!< Place the list field above the text field. 
@@ -255,6 +255,9 @@ namespace PhWidgets
 
         PhWidgets::ComboBoxStyle::eComboBoxStyle getDropDownStyle() const;
         void setDropDownStyle(PhWidgets::ComboBoxStyle::eComboBoxStyle);
+
+        bool getDroppedDown() const;
+        void setDroppedDown(bool);
 						
 	public:
 		//! Resources of the ComboBox
@@ -292,6 +295,19 @@ namespace PhWidgets
 		*/
 		ComboBox &operator=(const ComboBox &other);
 
+		//! Adds an item to the drop-down list of items. 
+		/*!
+			@param[in] item The string to add to the drop-down list.
+            @param[in] pos The position of item in the drop-down list.
+
+            Call AddItem to add a string to the drop-down list.
+
+			@remark
+            List positions start at 1, not 0. If you specify a position of 0, the items are added to the end of the list.
+            If you add new items in between existing items, the rest of the items are moved down the list. 
+		*/
+		void AddItem(std::string item, unsigned int pos = 0);
+
 		//! @name Properties
 		//! Properties are used to simplify use of widget resources.
 		//@{
@@ -309,6 +325,17 @@ namespace PhWidgets
 		*/
 		property<PhWidgets::ComboBoxStyle::eComboBoxStyle>::
 			bind<ComboBox, &ComboBox::getDropDownStyle, &ComboBox::setDropDownStyle> DropDownStyle;
+
+		//! Gets or sets a value indicating whether the combo box is displaying its drop-down portion.
+		/*!
+			### Property Value ### 
+			
+			> **bool**
+
+			`true` if the drop-down portion is displayed; otherwise, `false`. The default is `false`.
+		*/
+		property<bool>::
+			bind<ComboBox, &ComboBox::getDroppedDown, &ComboBox::setDroppedDown> DroppedDown;
 
 		//@}
 		
