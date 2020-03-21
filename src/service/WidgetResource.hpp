@@ -1919,7 +1919,11 @@ namespace PhWidgets
 		struct Define :
 			detail::def_help::Define<PrevT>
 		{};
-
+		
+		template<class PrevTNext>
+		struct And :
+			ResourceFrom<PrevTNext>
+		{};
 	};
 }
 
