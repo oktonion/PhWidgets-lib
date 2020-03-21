@@ -4,6 +4,8 @@
 #include <photon/PtComboBox.h>
 
 #include "./Compound.h"
+#include "./Text.h"
+//#include "./List.h"
 
 
 namespace PhWidgets
@@ -163,6 +165,8 @@ namespace PhWidgets
 		//! Contains resource IDs for arguments of type **unsigned short**. @ingroup Resources
 		struct ArgUnsignedShort:
 			public ArgumentsEx<Compound::ArgUnsignedShort>,
+            public ArgumentsEx<Text::ArgUnsignedShort>,
+            //public ArgumentsEx<List::ArgUnsignedShort>,
 			public ThisArgs::ArgUnsignedShort
 		{
 			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShort eArgUnsignedShort;
@@ -171,6 +175,7 @@ namespace PhWidgets
 		//! Contains resource IDs for arguments of type **unsigned long**. @ingroup Resources
 		struct ArgUnsignedLong:
 			public ArgumentsEx<Compound::ArgUnsignedLong>,
+            //public ArgumentsEx<List::ArgUnsignedLong>,
 			public ThisArgs::ArgUnsignedLong
 		{
 			typedef ThisArgs::ArgUnsignedLong::eArgUnsignedLong eArgUnsignedLong;
@@ -181,22 +186,30 @@ namespace PhWidgets
 		struct Arguments:
 			public ArgUnsignedShort,
 			public ArgUnsignedLong,
-			public Compound::Arguments
+			public Compound::Arguments,
+            //public List::Arguments,
+            public Text::Arguments
         { };
 
 		//! Contains resource IDs for all ComboBox callbacks. @ingroup Resources
 		struct Callbacks:
 			public Callback,
-			public Compound::Callbacks
+			public Compound::Callbacks,
+            //public List::Callbacks,
+            public Text::Callbacks
 		{ };
 
 		//! Contains flags for all ComboBox resources. @ingroup Resources
 		struct Flags:
 			public ThisFlags,
 			public Compound::Flags
+            //public List::Flags
         { };
 
+    protected:
 		typedef ResourceFrom<Compound::WidgetResourcesSingleton>::
+                //And<List::WidgetResourcesSingleton>::
+                And<Text::WidgetResourcesSingleton>::
 			Define::Scalar<ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short>::
 			Define::Color<ThisArgs::ArgUnsignedLong::eArgUnsignedLong, unsigned long>:: // that's right - color of unsigned long
             Define::Flag<ThisArgs::ArgUnsignedLong::eArgUnsignedLongFlag, unsigned long>::
@@ -205,7 +218,6 @@ namespace PhWidgets
 
 		resource_type WidgetResourcesSingleton;
 
-	protected:
 		virtual void check();
 						
 	public:
