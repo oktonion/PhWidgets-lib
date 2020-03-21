@@ -444,6 +444,11 @@
     
     Information about the font.
 
+    FontDetails describes the available
+    point sizes (0,0 indicates scalable)
+    for a font, as well as the foundry
+    assigned descriptive name. 
+
     The members include at least: 
     
     ### Members ###
