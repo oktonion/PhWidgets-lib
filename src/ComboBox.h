@@ -300,7 +300,7 @@ namespace PhWidgets
 			@param[in] item The string to add to the drop-down list.
             @param[in] pos The position of item in the drop-down list.
 
-            Call AddItem to add a string to the drop-down list.
+            Call [AddItem(std::string item)](@ref ComboBox::AddItem) to add a string to the end of drop-down list.
 
 			@remark
             List positions start at 1, not 0. If you specify a position of 0, the items are added to the end of the list.
