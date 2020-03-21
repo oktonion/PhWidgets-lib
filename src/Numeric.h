@@ -87,6 +87,27 @@ namespace PhWidgets
 			};
 		};
 
+        //! Contains flags for Numeric resources. @ingroup Resources
+		struct ThisFlags
+		{
+			//! Numeric flags for Numeric resource Numeric::Arguments::cbox_flags.
+			/*!
+				The default setting of Numeric::Arguments::numeric_flags resource is 0; that is, no flags have been set. 
+
+				### Aliases ###
+				
+				PhWidgets::Numeric::Flags::eNumericFlags
+			*/
+			enum eNumericFlags
+			{
+				AutoHighlight = Pt_NUMERIC_AUTO_HIGHLIGHT, //!< Autohighlight text when selected. 
+				EnableUpDown = Pt_NUMERIC_ENABLE_UPDOWN, //!< Display the up/down buttons. 
+				Hexadecimal = Pt_NUMERIC_HEXADECIMAL,  //!< Display the value as a hexadecimal number (applies only to NumericInteger). 
+                UseSeparators = Pt_NUMERIC_USE_SEPARATORS,  //!< Insert comma separators in values (e.g. 1,000).
+                Wrap = Pt_NUMERIC_WRAP  //!< Wrap numbers from minimum to maximum and from maximum to minimum.
+			};
+		};
+
 		//! Contains resource IDs for arguments of type **unsigned short**. @ingroup Resources
 		struct ArgUnsignedShort:
 			public ArgumentsEx<Compound::ArgUnsignedShort>,
@@ -109,6 +130,12 @@ namespace PhWidgets
 			public ArgUnsignedShort,
 			public ArgPChar,
 			public Compound::Arguments
+        { };
+
+		//! Contains flags for all Numeric resources. @ingroup Resources
+		struct Flags:
+			public ThisFlags,
+			public Compound::Flags
         { };
 
 		typedef ResourceFrom<Compound::WidgetResourcesSingleton>::
@@ -166,6 +193,10 @@ namespace PhWidgets
 	};
 	
 } // namespace PhWidgets
+
+cppbitmasks::bitmask<unsigned short, PhWidgets::Numeric::Flags::eNumericFlags> operator|(const PhWidgets::Numeric::Flags::eNumericFlags &flag1, const PhWidgets::Numeric::Flags::eNumericFlags &flag2);
+cppbitmasks::bitmask<unsigned short, PhWidgets::Numeric::Flags::eNumericFlags> operator&(const PhWidgets::Numeric::Flags::eNumericFlags &flag1, const PhWidgets::Numeric::Flags::eNumericFlags &flag2);
+cppbitmasks::bitmask<unsigned short, PhWidgets::Numeric::Flags::eNumericFlags> operator^(const PhWidgets::Numeric::Flags::eNumericFlags &flag1, const PhWidgets::Numeric::Flags::eNumericFlags &flag2);
 
 
 #endif // PHWIDGETS_NUMERIC_H

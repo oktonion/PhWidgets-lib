@@ -52,3 +52,20 @@ Numeric &Numeric::operator=(const Numeric &other)
 }
 
 
+cppbitmasks::bitmask<unsigned short, PhWidgets::Numeric::Flags::eNumericFlags> operator|(const PhWidgets::Numeric::Flags::eNumericFlags &flag1, const PhWidgets::Numeric::Flags::eNumericFlags &flag2)
+{
+	cppbitmasks::bitmask<unsigned short, PhWidgets::Numeric::Flags::eNumericFlags> bm(flag1);
+	return bm | flag2;
+}
+
+cppbitmasks::bitmask<unsigned short, PhWidgets::Numeric::Flags::eNumericFlags> operator&(const PhWidgets::Numeric::Flags::eNumericFlags &flag1, const PhWidgets::Numeric::Flags::eNumericFlags &flag2)
+{
+	cppbitmasks::bitmask<unsigned short, PhWidgets::Numeric::Flags::eNumericFlags> bm(flag1);
+	return bm & flag2;
+}
+
+cppbitmasks::bitmask<unsigned short, PhWidgets::Numeric::Flags::eNumericFlags> operator^(const PhWidgets::Numeric::Flags::eNumericFlags &flag1, const PhWidgets::Numeric::Flags::eNumericFlags &flag2)
+{
+	cppbitmasks::bitmask<unsigned short, PhWidgets::Numeric::Flags::eNumericFlags> bm(flag1);
+	return bm ^ flag2;
+}
