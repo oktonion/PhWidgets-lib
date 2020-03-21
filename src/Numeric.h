@@ -69,26 +69,31 @@ namespace PhWidgets
 					numeric_spacing = Pt_ARG_NUMERIC_SPACING,
 					numeric_updown_width = Pt_ARG_NUMERIC_UPDOWN_WIDTH
 				};
-			};
-			
-			struct ArgUnsignedShortFlag
-			{
+
+				//! Resource IDs for Numeric flags of type **unsigned short**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Numeric::Arguments::eArgUnsignedShortFlag,
+					PhWidgets::Numeric::ArgUnsignedShort::eArgUnsignedShortFlag
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgUnsignedShortFlag
 				{
 					numeric_flags = Pt_ARG_NUMERIC_FLAGS
 				};
 			};
-
-
 		};
 
 		//! Contains resource IDs for arguments of type **unsigned short**. @ingroup Resources
 		struct ArgUnsignedShort:
 			public ArgumentsEx<Compound::ArgUnsignedShort>,
-			public ThisArgs::ArgUnsignedShort,
-			public ThisArgs::ArgUnsignedShortFlag
+			public ThisArgs::ArgUnsignedShort
 		{
 			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShort eArgUnsignedShort;
+			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShortFlag eArgUnsignedShortFlag;
 		};
 
 		//! Contains resource IDs for arguments of type <b>char*</b>. @ingroup Resources
