@@ -295,7 +295,7 @@
     ### Members ###
  
     > unsigned short key_sym_cap
-        Depending on the specified flags, this member contains either the symbol or cap of the key to be interpreted as a hotkey. For valid key_sym_cap values, see <photon/PkKeyDef.h>. 
+        Depending on the specified flags, this member contains either the symbol or cap of the key to be interpreted as a hotkey. For valid key_sym_cap values, see `<photon/PkKeyDef.h>`. 
     > short flags
         Determines how key_sym_cap is interpreted and whether or not key_mods is used.
     > unsigned long key_mods
@@ -481,6 +481,164 @@
     @see
     - PhWidgets::Drawing::Font
     - PhWidgets::Drawing::FontFamily
+*/
+
+/*!
+    @struct PhEventRegion_t
+    
+    Data structure describing the emitter and collector of an event
+
+    The PhEventRegion_t structure describes the emitter and the collector of events. 
+    It contains at least the following members: 
+    
+    ### Members ###
+    
+    > PhRid_t rid 
+        The ID of a region. This member lets an application determine which of its regions emitted or collected an event. 
+        The following constants are defined in `<photon/PhT.h>`:
+
+    - Ph_DEV_RID — the ID of the device region.
+    - Ph_ROOT_RID — the ID of the root region.
+
+    > long handle 
+        The user-definable handle that the application specifies when it opens the region. 
+        Applications can use handle to quickly pass a small amount of information along with events. 
+        For example, the widget (Pt*()) functions use handle internally.
+        If the region described by a PhEventRegion_t structure isn't owned by the application that collected the event, 
+        then the Photon Manager sets handle to 0. 
+
+    
+    @remark
+    Use PhWidgets::Drawing::Font to manipulate widget fonts.
+
+    @see
+    - PhWidgets::Drawing::Font
+    - PhWidgets::Drawing::FontFamily
+*/
+
+/*!
+    @struct PhRid_t
+
+    > `typedef long PhRid_t;`
+
+    The ID of a region.
+*/
+
+/*!
+    @struct FontDescription
+
+    > `typedef char FontDescription[MAX_DESC_LENGTH];`
+
+    Textual name of the font family.
+*/
+
+/*!
+    @struct FontName
+
+    > `typedef char FontName[MAX_FONT_TAG];`
+
+    Base stem of the font family.
+*/
+
+/*!
+    @struct FontFilename
+
+    > `typedef char FontFilename[NAME_MAX + 16];`
+
+    Textual name of the font file name.
+*/
+
+/*!
+    @struct PgAlpha_t
+    
+    The image alpha map.
+
+    This data structure is undocumented but it contains at least the following members: 
+    
+    ### Members ###
+    
+    > long unsigned	alpha_op 
+        ~undocumented~
+
+    > PgMap_t src_alpha_map
+        ~undocumented~ (some alpha map)
+
+    > PgGradient_t src_alpha_gradient
+        ~undocumented~ (some alpha gradient)
+
+    > char unsigned	src_global_alpha
+        ~undocumented~ (some source alpha value)
+
+    > char unsigned	dest_global_alpha
+        ~undocumented~ (some destination alpha value)
+*/
+
+/*!
+    @struct PgMap_t
+    
+    Alpha blend map type.
+
+    The PgMap_t structure defines an alpha blend map. Its members include:  
+    
+    ### Members ###
+    
+    > PhDim_t dim
+        A PhDim_t structure that defines the size of area covered by the map, in pixels. 
+
+    > short unsigned bpl
+        The number of bytes per line. 
+
+    > short unsigned bpp
+        The number of bits per pixel. 
+
+    > char *map
+        A pointer to the map itself.    
+*/
+
+/*!
+    @struct PgGradient_t
+    
+    The gradient alpha.
+
+    This data structure is undocumented but it contains at least the following members: 
+    
+    ### Members ###
+    
+    > int gradient_type
+        - Pg_GRAD_NOGRADIENT
+        - Pg_GRAD_VECTOR
+        - Pg_GRAD_RADIAL 
+        etc.
+
+    > int transition_type
+        - Pg_GRAD_TABLE 
+        - Pg_GRAD_LINEAR 
+        etc.
+
+    > int rotation
+        Rotation of the gradient band in degrees. 0 means that the gradient
+        band is perpendicular to the gradient vector. Rotation only effects
+        vector gradients.
+
+    > PhPoint_t start_point
+        The start-point of the gradient vector or the center for radial gradients.
+        The effective start_point of the gradient vector is automatically recomputed
+        if a non-zero rotation is specified.
+
+    > PhPoint_t end_point
+        The end-point of the gradient vector  / end.x == radius for radial gradients.
+
+    > PgColor_t start_color
+        Color at the start-point of the gradient vector.
+
+    > PgColor_t end_color
+        Color at the end-point of the gradient vector.
+
+    > int table_size
+        Number of entries in the transition table.
+
+    > char unsigned * transition_table
+        table[i-1] = percentage of end-color at the start of the i-th color segment. 0% - 100%.
 */
 
 //!@}
