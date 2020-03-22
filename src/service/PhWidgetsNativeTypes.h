@@ -171,7 +171,34 @@
     > `typedef char *PgPattern_t;`
 
     @remark
-    Some shady param that is not covered in Photon documentation.
+    The dither pattern is an array of 8 bytes, aligned with the upper-left corner of the application's region. 
+    This pattern repeats itself every 8 pixels horizontally and every 8 pixels vertically.
+
+    Possible values:
+
+    - Pg_PAT_DEFAULT
+    - Pg_PAT_HALF
+    - Pg_PAT_BACK_HALF
+    - Pg_PAT_CHECKB8
+    - Pg_PAT_CHECKB4
+    - Pg_PAT_DIAMOND
+    - Pg_PAT_HORIZ8
+    - Pg_PAT_HORIZ4
+    - Pg_PAT_HORIZ2
+    - Pg_PAT_VERT8
+    - Pg_PAT_VERT4
+    - Pg_PAT_VERT2
+    - Pg_PAT_DIAGF8
+    - Pg_PAT_DIAGF4
+    - Pg_PAT_DIAGB8
+    - Pg_PAT_DIAGB4
+    - Pg_PAT_BRICK
+    - Pg_PAT_WEAVE
+    - Pg_PAT_RXHATCH8
+    - Pg_PAT_RXHATCH4
+    - Pg_PAT_RXHATCH2
+    - Pg_PAT_DXHATCH8
+    - Pg_PAT_DXHATCH4
 */
 
 /*!
@@ -424,7 +451,18 @@
     > PgColor_t transparent
         The color to mask out when drawing.
     > char flags 
-        The image flags.
+        The image flags. The valid bits are:     
+
+    - Ph_RELEASE_IMAGE — free the image data.
+    - Ph_RELEASE_PALETTE — free the palette data.
+    - Ph_RELEASE_TRANSPARENCY_MASK — free the transparency mask bitmap.
+    - Ph_RELEASE_GHOST_BITMAP — free the bitmap used for ghosting.
+    - Ph_RELEASE_IMAGE_ALL — free all the above.
+    - Ph_USE_TRANSPARENCY — make the image transparent by using the color specified by the transparent member as the key for a chroma operation.
+    
+    A widget automatically frees the memory pointed to by the PhImage_t members if these bits are set.
+
+
     > char ghost_bpl 
         The number of bytes per line for the ghosting bitmap. 
     > char *ghost_bitmap  
