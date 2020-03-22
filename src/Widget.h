@@ -1149,9 +1149,9 @@ namespace PhWidgets
 			The Photon microGUI widgets in the following list are not selectable. 
 			Widgets derived from these widgets are also not selectable.
 
-			- Panel
+			- Pane
 			- GroupBox
-			- PictureBox
+			- ImageArea
 			- ProgressBar
 			- Splitter
 			- Label
