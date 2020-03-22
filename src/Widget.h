@@ -1178,6 +1178,20 @@ namespace PhWidgets
 		*/
 		Widget GetNextWidget(const Widget &widget, bool forward = true) const;
 
+		//! Forces the widget to invalidate its client area and (optionaly) immediately redraw itself.
+		/*!
+			@param[in] immediately `true` to force the Widget immediately redraw itself; `false` to delay redraw for next system draw call.
+
+			@note
+			Due to Photon microGUI drawing routine calling Refresh(true) on widget forces 
+			not only this widget but also all other areas waiting for the redraw to be updated immidiately.
+			So this may cause some performance issues.
+
+			@see
+			- BringToFront()
+		*/
+		void Refresh(bool immediately = false) const;
+
 		//! Sends the widget to the back of the z-order.
 		/*!
 			The widget is moved to the back of the z-order. 

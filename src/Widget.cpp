@@ -574,6 +574,15 @@ Widget Widget::GetNextWidget(const Widget &widget, bool forward) const
 	return Widget(result);
 }
 
+void Widget::Refresh(bool immediately) const
+{
+	if(0 != PtDamageWidget(widget()))
+		return;
+		
+	if(immediately)
+		PtFlush();
+}
+
 void Widget::SendToBack()
 {
 	PtWidgetToBack(widget());
