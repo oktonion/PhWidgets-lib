@@ -811,8 +811,12 @@ void Widget::setParent(PtWidget_t *parent)
 
 PtWidget_t * Widget::getParent() const
 {
+
 	PtWidget_t *wdg = widget();
-	PtWidget_t *result = PtWidgetParent(wdg);
+	PtWidget_t *result = PtValidParent(wdg, PtWidgetClass(wdg));
+	if(result == wdg)
+		result = PtWidgetParent(wdg);
+
 	return ( (result == Pt_NO_PARENT) ? nullptr : result );
 }
 
