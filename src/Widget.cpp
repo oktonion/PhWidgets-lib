@@ -157,6 +157,7 @@ Widget::Widget(int abn):
 	Enabled(this),
 	Focused(this),
 	HasChildren(this),
+	HasParent(this),
 	Height(this),
 	HelpTopic(this),
 	IsRealized(this),
@@ -208,6 +209,7 @@ Widget::Widget(PtWidget_t* wdg):
 	Enabled(this),
 	Focused(this),
 	HasChildren(this),
+	HasParent(this),
 	Height(this),
 	HelpTopic(this),
 	IsRealized(this),
@@ -296,6 +298,7 @@ Widget::Widget(const Widget &other):
 	Enabled(this),
 	Focused(this),
 	HasChildren(this),
+	HasParent(this),
 	Height(this),
 	HelpTopic(this),
 	IsRealized(this),
@@ -747,6 +750,11 @@ bool Widget::getFocused() const
 bool Widget::hasChildren() const
 {
 	return (PtWidgetChildFront(widget()) != NULL);
+}
+
+bool Widget::hasParent() const
+{
+	return Parent() != nullptr;
 }
 
 short PhWidgets::Widget::getRight() const

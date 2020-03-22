@@ -966,6 +966,7 @@ namespace PhWidgets
 		bool getFocused() const;
 
 		bool hasChildren() const;
+		bool hasParent() const;
 
 		void setLeft(short);
 		short getLeft() const;
@@ -1675,6 +1676,19 @@ namespace PhWidgets
 		*/
 		property<bool, property<>::ro>::bind<Widget, &Widget::hasChildren> HasChildren;
 
+		//! Gets a value indicating whether the widget has parent.
+		/*!
+			### Property Value ### 
+			
+			> **bool**
+
+			`true` if the widget has parent; otherwise, `false`.
+
+			@see 
+			- Parent
+		*/
+		property<bool, property<>::ro>::bind<Widget, &Widget::hasParent> HasParent;
+
 		//! Gets or sets the height of the widget.
 		/*!
 			### Property Value ### 
@@ -1692,8 +1706,15 @@ namespace PhWidgets
 		*/
 		phproperty<unsigned short>::bind<Widget, Arguments::eArgUnsignedShort, Arguments::height> Height;
 
-		
-		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic> HelpTopic; //!< Gets or sets the help topic of the widget.
+		//! Gets or sets the help topic of the widget.
+		/*!
+			### Property Value ### 
+			
+			> std::string
+
+			The help topic of the widget.
+		*/		
+		property<std::string>::bind<Widget, &Widget::getHelpTopic, &Widget::setHelpTopic> HelpTopic;
 
 		//! Gets or sets a value indicating whether the widget is realized.
 		/*!
@@ -1770,17 +1791,31 @@ namespace PhWidgets
 
 			@note
 			This property may and will return **nullptr** if current widget has no parent.
-			Always check `widget.Parent() != nullptr` before assingning this property to Widget class
+			Check `widget.HasParent` before assingning this property to Widget class
 			if you are unsure that widget have parent at first place.
 
 			### Examples ###
 
 			@code
-				PhWidgets::Button button(ptwidget);
-				PhWidgets::Window main_window(ABN_MAIN_WINDOW);
+				bool ReparentWidget(const PhWidgets::Widget &src, PhWidgets::Widget &dst)
+				{
+					if(src.HasParent == false) // check if button have parent
+						return false;
+					
+					dst.Parent = src.Parent; // setting parent
 
-				if( nullptr == button.Parent() ) // check if button have parent
-					button.Parent = main_window; // setting parent
+					return true;
+				}
+
+				int Button1Callback(PtWidget_t *ptwidget,  void *, PtCallbackInfo_t * )
+				{
+					PhWidgets::Button button1(ptwidget);
+					PhWidgets::Window main_window(ABN_MAIN_WINDOW);
+
+					ReparentWidget(main_window, button1);
+
+					return 0;
+				}
 
 			@endcode
 
