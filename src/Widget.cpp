@@ -574,13 +574,50 @@ Widget Widget::GetNextWidget(const Widget &widget, bool forward) const
 	return Widget(result);
 }
 
-void Widget::Refresh(bool immediately) const
+void Widget::Invalidate(PhRect_t rc, bool invalidateChildren)
 {
-	if(0 != PtDamageWidget(widget()))
-		return;
+	PtWidget_t *this_widget = this->widget();
+
+	PtDamageExtent(this_widget, &rc);
+
+	if(invalidateChildren)
+	{
+		PtWidget_t *front = PtWidgetChildFront(this_widget);
+
+		if(NULL == front)
+			return;
 		
-	if(immediately)
-		PtFlush();
+		for(PtWidget_t *next = front; next != NULL; next = PtWidgetBrotherBehind(next))
+		{
+			PtDamageExtent(next, &rc);
+		}
+	}
+}
+
+void Widget::Invalidate(bool invalidateChildren)
+{
+	PtWidget_t *this_widget = this->widget();
+
+	PtDamageWidget(this_widget);
+
+	if(invalidateChildren)
+	{
+		PtWidget_t *front = PtWidgetChildFront(this_widget);
+
+		if(NULL == front)
+			return;
+		
+		for(PtWidget_t *next = front; next != NULL; next = PtWidgetBrotherBehind(next))
+		{
+			PtDamageWidget(next);
+		}
+	}
+}
+
+void Widget::Refresh()
+{
+	Invalidate(true);
+	Update();
 }
 
 void Widget::SendToBack()
@@ -611,6 +648,11 @@ void Widget::Hide()
 void Widget::Show()
 {
 	Realize(); // TODO::redone to move widget
+}
+
+void Widget::Update()
+{
+	PtFlush();
 }
 
 //for properties:

@@ -1178,19 +1178,89 @@ namespace PhWidgets
 		*/
 		Widget GetNextWidget(const Widget &widget, bool forward = true) const;
 
-		//! Forces the widget to invalidate its client area and (optionaly) immediately redraw itself.
+		//! Conceals the widget from the user.
 		/*!
-			@param[in] immediately `true` to force the Widget immediately redraw itself; `false` to delay redraw for next system draw call.
+			@remark
+			Hiding the widget is equivalent to setting the Widget::Visible property to `false`. 
+			After the Hide() method is called, the Widget::Visible property returns a value of `false` until the Show() method is called.
+
+			@see
+			- Show()
+			- Visible
+		*/
+		void Hide();
+
+		//! Invalidates a specific region of the widget and causes a paint message to be sent to the widget.
+		/*!
+			@param[in] rc The [Rectangle](@ref PhRect_t) to invalidate.
+			@param[in] invalidateChildren `true` to invalidate the widget's child widgets; otherwise, `false`.
+
+			Invalidates the specified region of the widget 
+			(adds it to the widget's update region, which is the area that will be repainted at the next paint operation), 
+			and causes a paint message to be sent to the widget.
+			Optionally, invalidates the child widgets assigned to the widget.
+
+			@remark
+			Calling the Invalidate() method does not force a synchronous paint so there is no performance penalty; 
+			to force a synchronous paint, call the Update() method after calling the Invalidate() method. 
+			When this method is called with no parameters, the entire client area is added to the update region.
+
+			@see
+			- Refresh()
+			- Update()
+		*/
+		void Invalidate(PhRect_t rc, bool invalidateChildren = false);
+
+		//! Invalidates a specific region of the widget and causes a paint message to be sent to the widget.
+		/*!
+			@param[in] invalidateChildren `true` to invalidate the widget's child widgets; otherwise, `false`.
+
+			Invalidates a specific region of the widget and causes a paint message to be sent to the widget.
+			Optionally, invalidates the child widgets assigned to the widget.
+
+			@remark
+			Calling the Invalidate() method does not force a synchronous paint so there is no performance penalty; 
+			to force a synchronous paint, call the Update() method after calling the Invalidate() method. 
+			When this method is called with no parameters, the entire client area is added to the update region.
+
+			@see
+			- Refresh()
+			- Update()
+		*/
+		void Invalidate(bool invalidateChildren = false);
+
+		//! Make the widget and its children visible and possibly interactive.
+		/*!
+			Make a widget and its children visible to the user and possibly interactive. 
 
 			@note
-			Due to Photon microGUI drawing routine calling Refresh(true) on widget forces 
-			not only this widget but also all other areas waiting for the redraw to be updated immidiately.
+			Some widgets (for example, menus) have Widget::Flags::DelayRealize set in their Widget::Arguments::flags.
+			Such delay-realized widgets aren't visibly rendered when their ancestors are realized. 
+			@par
+			Although they're present in the hierarchy, 
+			delay-realized widgets become visible only when the application realizes them specifically with a call to Realize(). 
+			An application might do this, for example, if the user requested it to activate a menu.
+
+			@return `true` if the realize request was successful; otherwise, `false`.
+
+			@see
+			- Unrealize()
+		*/
+		bool Realize();
+
+		//! Forces the widget to invalidate its client area and immediately redraw itself and any child widgets.
+		/*!
+			@note
+			Due to Photon microGUI drawing routine calling Refresh() on widget forces 
+			not only this widget and its children
+			but also all other areas waiting for the redraw to be updated immidiately.
 			So this may cause some performance issues.
 
 			@see
-			- BringToFront()
+			- Invalidate()
+			- Update()
 		*/
-		void Refresh(bool immediately = false) const;
+		void Refresh();
 
 		//! Sends the widget to the back of the z-order.
 		/*!
@@ -1241,47 +1311,6 @@ namespace PhWidgets
 		*/
 		void Select();
 
-		//! Make the widget and its children visible and possibly interactive.
-		/*!
-			Make a widget and its children visible to the user and possibly interactive. 
-
-			@note
-			Some widgets (for example, menus) have Widget::Flags::DelayRealize set in their Widget::Arguments::flags.
-			Such delay-realized widgets aren't visibly rendered when their ancestors are realized. 
-			@par
-			Although they're present in the hierarchy, 
-			delay-realized widgets become visible only when the application realizes them specifically with a call to Realize(). 
-			An application might do this, for example, if the user requested it to activate a menu.
-
-			@return `true` if the realize request was successful; otherwise, `false`.
-		*/
-		bool Realize();
-
-		//! Unrealizes the widget and all its children.
-		/*!
-			The widgets are removed from the display, and the widget engine will no longer invoke their callbacks.
-			Unrealized widgets still exist in the widget hierarchy and can be realized again. 
-
-			@note
-			Unrealizing and realizing a widget can take some time. 
-			If you want to hide a widget quickly, you can set its Widget::Visible property to `false`.
-
-			@return `true` if the unrealize request was successful; otherwise, `false`.
-		*/
-		bool Unrealize();
-
-		//! Conceals the widget from the user.
-		/*!
-			@remark
-			Hiding the widget is equivalent to setting the Widget::Visible property to `false`. 
-			After the Hide() method is called, the Widget::Visible property returns a value of `false` until the Show() method is called.
-
-			@see
-			- Show()
-			- Visible
-		*/
-		void Hide();
-
 		//! Displays the widget to the user.
 		/*!
 			@remark
@@ -1293,6 +1322,52 @@ namespace PhWidgets
 			- Visible
 		*/
 		void Show();
+
+		//! Unrealizes the widget and all its children.
+		/*!
+			The widgets are removed from the display, and the widget engine will no longer invoke their callbacks.
+			Unrealized widgets still exist in the widget hierarchy and can be realized again. 
+
+			@note
+			Unrealizing and realizing a widget can take some time. 
+			If you want to hide a widget quickly, you can set its Widget::Visible property to `false`.
+
+			@return `true` if the unrealize request was successful; otherwise, `false`.
+
+			@see
+			- Realize()
+		*/
+		bool Unrealize();
+
+		//! Causes the Photon microGUI to redraw the all invalidated regions.
+		/*!
+			Executes any pending requests for painting.
+
+			@remark
+			There are two ways to repaint a window and its contents:
+
+			- You can use one of the overloads of the Invalidate() method with the Update() method.
+			- You can call the Refresh() method, which forces the widget to redraw itself and all its children. 
+			This is equivalent to call [Invalidate(true)]( @ref Widget::Invalidate(bool)) method and using it with Update().
+
+			The Invalidate() method governs what gets painted or repainted. 
+			The Update() method governs when the painting or repainting occurs. 
+			If you use the Invalidate() and Update() methods together rather than calling Refresh(), 
+			what gets repainted depends on which overload of Invalidate() you use. 
+			The Update() method just forces the widget to be painted immediately, 
+			but the Invalidate() method governs what gets painted when you call the Update() method.
+
+			@note
+			Due to Photon microGUI drawing routine calling Update() on widget forces 
+			not only this widget and its children
+			but also all other areas waiting for the redraw to be updated immidiately.
+			So this may cause some performance issues.
+
+			@see
+			- Refresh()
+			- Invalidate()
+		*/
+		static void Update();
 
 		//! Resources of the Widget
 		/*!
