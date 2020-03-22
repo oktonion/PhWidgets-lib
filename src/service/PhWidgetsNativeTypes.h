@@ -144,7 +144,7 @@
         The color of the second bitplane. You can't have more than two bitplanes. 
     > char bytesperline2
         The number of bytes per line for the second bitmap plane. 
-    > char images
+    > char images[1]
         The bitmap image data, as a series of 1-bit-per-pixel planes. 
     
     @remark
