@@ -314,6 +314,24 @@ namespace PhWidgets
 		*/
 		void Clear();
 
+		//! Remove specific item from a list.
+		/*!
+			@param[in] item The string to remove from the drop-down list.
+
+			@remark
+            If there is more than one item with the same text then all items will be removed.
+		*/
+		void RemoveItem(std::string item);
+
+		//! Remove specific item from a list at specified position.
+		/*!
+			@param[in] pos The position of item in the drop-down list.
+
+			@remark
+            List positions start at 1, not 0.
+		*/
+		void RemoveItemAt(unsigned int pos);
+
 		//! Replaces an item in the drop-down list of items. 
 		/*!
 			@param[in] item The string to replace in the drop-down list.

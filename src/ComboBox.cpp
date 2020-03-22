@@ -121,6 +121,17 @@ void ComboBox::Clear()
     PtListDeleteAllItems(widget());
 }
 
+void ComboBox::RemoveItem(std::string item)
+{
+    const char *item_cstr = item.c_str();
+    PtListDeleteItems(widget(), &item_cstr, 1);
+}
+
+void ComboBox::RemoveItemAt(unsigned int pos)
+{
+    PtListDeleteItemPos(widget(), 1, pos);
+}
+
 void ComboBox::ReplaceItem(std::string item, unsigned int pos)
 {
     const char *item_cstr = item.c_str();
