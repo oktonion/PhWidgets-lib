@@ -116,6 +116,17 @@ void ComboBox::AddItem(std::string item, unsigned int pos)
     PtListAddItems(widget(), &item_cstr, 1, pos);
 }
 
+void ComboBox::Clear()
+{
+    PtListDeleteAllItems(widget());
+}
+
+void ComboBox::ReplaceItem(std::string item, unsigned int pos)
+{
+    const char *item_cstr = item.c_str();
+    PtListReplaceItemPos(widget(), &item_cstr, 1, pos);
+}
+
 cppbitmasks::bitmask<unsigned short, PhWidgets::ComboBox::Flags::eComboBoxFlags> operator|(const PhWidgets::ComboBox::Flags::eComboBoxFlags &flag1, const PhWidgets::ComboBox::Flags::eComboBoxFlags &flag2)
 {
 	cppbitmasks::bitmask<unsigned short, PhWidgets::ComboBox::Flags::eComboBoxFlags> bm(flag1);

@@ -308,6 +308,22 @@ namespace PhWidgets
 		*/
 		void AddItem(std::string item, unsigned int pos = 0);
 
+		//! Deletes all of the items from the drop-down list.
+		/*!
+			Empties the drop-down list so that it contains no items.
+		*/
+		void Clear();
+
+		//! Replaces an item in the drop-down list of items. 
+		/*!
+			@param[in] item The string to replace in the drop-down list.
+            @param[in] pos The position of item in the drop-down list.
+
+			@remark
+            List positions start at 1, not 0. 
+		*/
+		void ReplaceItem(std::string item, unsigned int pos);
+
 		//! @name Properties
 		//! Properties are used to simplify use of widget resources.
 		//@{
