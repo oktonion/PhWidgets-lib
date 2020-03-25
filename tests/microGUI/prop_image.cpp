@@ -1,6 +1,6 @@
 #include "./1phwidgets_init.cpp"
 
-#include "./testsuit.h"
+#include "./testsuit/testsuit.h"
 
 #include <Label.h>
 #include <Window.h>
@@ -28,7 +28,7 @@ TEST_CASE("Testing Label::Image property") {
 
         CHECK_NOTHROW({
         	
-        	label.Image = Image::FromFile("./tests/service/resources/lenna.bmp");
+        	label.Image = Image::FromFile("./tests/microGUI/testsuit/resources/lenna.bmp");
         });
 
         CHECK(label.Image());
@@ -42,7 +42,7 @@ TEST_CASE("Testing Label::Image property") {
 
         CHECK_NOTHROW({
 
-            label.Image = Image::FromFile("./tests/service/resources/lenna.png");
+            label.Image = Image::FromFile("./tests/microGUI/testsuit/resources/lenna.png");
         });
 
         CHECK(label.Image());
@@ -55,7 +55,7 @@ TEST_CASE("Testing Label::Image property") {
 
         CHECK_NOTHROW({
 
-            label.Image = Image::FromFile("./tests/service/resources/banana.jpg");
+            label.Image = Image::FromFile("./tests/microGUI/testsuit/resources/banana.jpg");
         });
 
         CHECK(label.Image());
@@ -68,7 +68,7 @@ TEST_CASE("Testing Label::Image property") {
 
         CHECK_NOTHROW({
             
-            label.Image = Image::FromFile("./tests/service/resources/banana.gif");
+            label.Image = Image::FromFile("./tests/microGUI/testsuit/resources/banana.gif");
         });
 
         CHECK(label.Image());
@@ -81,7 +81,7 @@ TEST_CASE("Testing Label::Image property") {
 
         CHECK_NOTHROW({
 
-            label.Image = Image::FromFile("./tests/service/resources/marbles.pcx");
+            label.Image = Image::FromFile("./tests/microGUI/testsuit/resources/marbles.pcx");
         });
 
         CHECK(label.Image());
@@ -94,7 +94,7 @@ TEST_CASE("Testing Label::Image property") {
 
         CHECK_NOTHROW({
 
-            label.Image = Image::FromFile("./tests/service/resources/girl.sgi");
+            label.Image = Image::FromFile("./tests/microGUI/testsuit/resources/girl.sgi");
         });
 
         CHECK(label.Image());

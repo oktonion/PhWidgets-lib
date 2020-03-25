@@ -1,7 +1,7 @@
 #ifndef PHWIDGETS_INIT_TEST
 #define PHWIDGETS_INIT_TEST
 
-#include "testsuit.h"
+#include "testsuit/testsuit.h"
 
 #include <Pt.h>
 

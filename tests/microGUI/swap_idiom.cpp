@@ -1,6 +1,6 @@
 #include "./1phwidgets_init.cpp"
 
-#include "./testsuit.h"
+#include "./testsuit/testsuit.h"
 
 #include <Widget.h>
 #include <Button.h>

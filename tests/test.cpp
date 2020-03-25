@@ -1,6 +1,6 @@
 #include "./microGUI/1phwidgets_init.cpp"
 
-#include "./microGUI/testsuit.h"
+#include "./microGUI/testsuit/testsuit.h"
 
 #include <Widget.h>
 #include <photon/PtWindow.h>
