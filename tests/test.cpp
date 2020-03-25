@@ -7,6 +7,8 @@
 
 #include "./service/properties.cpp"
 
+#include "./generator/generator.cpp"
+
 #include "./microGUI/comparison.cpp"
 #include "./microGUI/font_collection.cpp"
 #include "./microGUI/font_def.cpp"
