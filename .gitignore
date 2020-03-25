@@ -104,3 +104,6 @@ PhWidgets-cppcheck-build-dir/*
 # fuse
 *.fuse_*
 CppProperties.json
+
+# artifacts
+artifacts/*
