@@ -10,14 +10,12 @@
 #include <cctype>
 
 std::map<std::string, std::string> phwidgets_includes;
-std::string phwidgets_default_include = "<Widget.h> // PhWidgets::Widget class";
+const std::string phwidgets_default_include = "<Widget.h> // PhWidgets::Widget class";
 std::set<std::string> widget_includes;
 
 std::map<int, ApDBWidgetInfo_t> widgets;
 std::map<int, std::vector<int>/**/> hierarchy;
 int last_child_id = -1;
-
-std::fstream header, source;
 
 void init_phwidgets_includes()
 {
@@ -42,7 +40,7 @@ void init_phwidgets_includes()
     phwidgets_includes["PtWindow"] = "<Window.h> // PhWidgets::Window class";
 }
 
-void print_root_widgets(std::vector<int> & root_widgets)
+void print_root_widgets(std::vector<int> & root_widgets, std::fstream &header, std::fstream &source)
 {
     for (std::size_t i = 0; i < root_widgets.size(); ++i)
     {
@@ -51,9 +49,13 @@ void print_root_widgets(std::vector<int> & root_widgets)
         
 
         std::vector<int>& child_widgets = hierarchy[widget_index];
-
-        if (std::string(root_wi.wgt_name) == std::string(root_wi.wgt_class))
-            continue;
+        
+        bool is_nameless_widget = 
+                std::string(root_wi.wgt_name) == std::string(root_wi.wgt_class),
+             is_implemented_class =
+                (phwidgets_includes.count(root_wi.wgt_class) && 
+                 phwidgets_includes[root_wi.wgt_class].length() &&
+                 phwidgets_includes[root_wi.wgt_class] != phwidgets_default_include);
 
         if (root_wi.level == 1)
         {
@@ -64,50 +66,60 @@ void print_root_widgets(std::vector<int> & root_widgets)
                 source << std::endl;
             }
 
-            header << std::string((root_wi.level) * 2, ' ') << "struct " << root_wi.wgt_name << " : " << std::endl <<
-                std::string((root_wi.level) * 2, ' ') << "    public PhWidgets::" << (root_wi.wgt_class + 2) << std::endl <<
-                "{" << std::endl;
+            if(!is_nameless_widget)
+            header << 
+                std::string((root_wi.level) * 2, ' ') << "struct " << root_wi.wgt_name << " : " << std::endl <<
+                std::string((root_wi.level) * 2, ' ') << "    public PhWidgets::" << 
+                    (is_implemented_class ? (root_wi.wgt_class + 2) : "Widget") << std::endl <<
+                std::string((root_wi.level) * 2, ' ') << "{" << std::endl;
+                
 
-            source << std::string((root_wi.level) * 2, ' ') << root_wi.wgt_name << "::" << root_wi.wgt_name << "() :" << std::endl <<
-                "    PhWidgets::" << (root_wi.wgt_class + 2) << "(ABN_" << root_wi.wgt_name;
+            if(!is_nameless_widget)
+            source << 
+                root_wi.wgt_name << "::" << root_wi.wgt_name << "() :" << std::endl <<
+                "    PhWidgets::" << (is_implemented_class ? (root_wi.wgt_class + 2) : "Widget") 
+                    << "(ABN_" << root_wi.wgt_name << ")" << std::endl;;
 
-            if (child_widgets.size())
+            if (child_widgets.size() && !is_nameless_widget)
             {
-                source << ")," << std::endl;
                 last_child_id = child_widgets.back();
 
-                print_root_widgets(child_widgets);
+                print_root_widgets(child_widgets, header, source);
 
                 header << std::endl;
             }
 
-            source << ")" << std::endl;
 
-            header << std::string((root_wi.level) * 2, ' ') << "};" << std::endl;
-
-            source << std::string((root_wi.level) * 2, ' ') << "{ }" << std::endl;
+            if(!is_nameless_widget)
+            header << 
+                std::string((root_wi.level) * 2, ' ') << "};" << std::endl;
+            if(!is_nameless_widget)
+            source << 
+                std::string((root_wi.level) * 2, ' ') << "{ }" << std::endl;
         }
         else
         {
             bool is_parent = child_widgets.size();
-            if (is_parent)
+            if (is_parent && !is_nameless_widget)
             {
                 header << std::endl;
                 source << std::endl;
             }
 
-            header << std::string((root_wi.level) * 2, ' ') << "PhWidgets::" << (root_wi.wgt_class + 2) << " " << root_wi.wgt_name << ";" << (is_parent ? "// :" : "") << std::endl;
-
-            source << "    " << root_wi.wgt_name << "(ABN_" << root_wi.wgt_name;
-
-            if(widget_index != last_child_id)
-                source << ")," << std::endl;
+            if(!is_nameless_widget)
+            header << 
+                std::string((root_wi.level) * 2, ' ') << "PhWidgets::" << 
+                    (is_implemented_class ? (root_wi.wgt_class + 2) : "Widget") << " " << root_wi.wgt_name << ";" << (is_parent ? "// :" : "") << std::endl;
+            
+            if(!is_nameless_widget)
+            source << "    ," << root_wi.wgt_name << "(ABN_" << root_wi.wgt_name << ")" << std::endl;
 
             if (child_widgets.size())
             {
-                print_root_widgets(child_widgets);
-
-                header << std::string((root_wi.level) * 2, ' ') << "// end of "  << root_wi.wgt_name << std::endl << std::endl;
+                print_root_widgets(child_widgets, header, source);
+                if(!is_nameless_widget)
+                header << 
+                    std::string((root_wi.level) * 2, ' ') << "// end of "  << root_wi.wgt_name << std::endl << std::endl;
             }
 
         }
@@ -149,6 +161,8 @@ struct convert_to_upper {
 
 int main(int argc, const char* argv[])
 {
+    std::fstream header, source;
+
     if (argc < 2)
         return 0;
 
@@ -185,8 +199,6 @@ int main(int argc, const char* argv[])
     
     typedef std::map<int, std::vector<int>/**/>::iterator hierarchy_iterator;
 
-    std::vector<int>& root_widgets = hierarchy.begin()->second;
-
     std::string
         file_name_with_ext,
         file_name;
@@ -217,17 +229,40 @@ int main(int argc, const char* argv[])
 
     std::for_each(header_guard.begin(), header_guard.end(), convert_to_upper());
 
-    source << "#include \"" << (file_name + ".h") << "\"" << std::endl << std::endl << "#include <abimport.h>" << std::endl << "#include <ablibs.h>" << std::endl << std::endl << "using namespace PhGUI;" << std::endl << std::endl;
-    header << "#ifndef " << header_guard << std::endl << "#define " << header_guard << std::endl;
+    source << 
+        "#include \"" << (file_name + ".h") << "\"" << std::endl <<
+        std::endl << 
+        "#include <abimport.h>" << std::endl 
+        << "#include <ablibs.h>" << std::endl 
+        << std::endl << "using namespace PhGUI;" 
+        << std::endl 
+        << std::endl;
+
+    header << 
+        "#ifndef " << header_guard << std::endl <<
+        "#define " << header_guard << std::endl;
     
     for (std::set<std::string>::iterator it = widget_includes.begin(); it != widget_includes.end(); ++it)
     {
         header << "#include " << (*it) << std::endl;
     }
 
-    header << std::endl << "namespace PhGUI" << std::endl << "{" << std::endl;
+    header << 
+        std::endl << "namespace PhGUI" << 
+        std::endl << "{" << 
+        "using namespace PhWidgets;" << std::endl <<
+        std::endl;
 
-    print_root_widgets(root_widgets);
+    for (hierarchy_iterator it = hierarchy.begin(); it != hierarchy.end(); ++it)
+    {
+        std::vector<int>& root_widgets = it->second;
+        if(root_widgets.size())
+        {
+            print_root_widgets(root_widgets, header, source);
+            break;
+        }
+        
+    }
 
     header << "} // namespace PhGUI" << std::endl;
     header << "#endif // " << header_guard << std::endl;
