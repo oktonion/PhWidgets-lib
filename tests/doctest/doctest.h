@@ -404,14 +404,29 @@ DOCTEST_MSVC_SUPPRESS_WARNING(26812) // Prefer 'enum class' over 'enum'
 #define DOCTEST_NO_CPP11_COMPAT
 #endif // c++11 stuff
 
-#if defined(DOCTEST_NO_CPP11_COMPAT)
-DOCTEST_CLANG_SUPPRESS_WARNING("-Wc++98-compat")
-DOCTEST_CLANG_SUPPRESS_WARNING("-Wc++98-compat-pedantic")
-#define DOCTEST_OVERRIDE override
+#ifndef DOCTEST_CONFIG_WITH_NOEXCEPT
+#if DOCTEST_CLANG && DOCTEST_CLANG_HAS_FEATURE(cxx_noexcept)
+#define DOCTEST_CONFIG_WITH_NOEXCEPT
+#endif // clang
+#if DOCTEST_GCC >= DOCTEST_COMPILER(4, 6, 0) && defined(__GXX_EXPERIMENTAL_CXX0X__)
+#define DOCTEST_CONFIG_WITH_NOEXCEPT
+#endif // GCC
+#if DOCTEST_MSVC >= DOCTEST_COMPILER(19, 0, 23026)
+#define DOCTEST_CONFIG_WITH_NOEXCEPT
+#endif // MSVC
+#endif // DOCTEST_CONFIG_WITH_NOEXCEPT
+
+#ifdef DOCTEST_CONFIG_WITH_NOEXCEPT
 #define DOCTEST_NOEXCEPT noexcept
+#define DOCTEST_OVERRIDE override
 #else
 #define DOCTEST_OVERRIDE
 #define DOCTEST_NOEXCEPT throw()
+#endif // DOCTEST_CONFIG_WITH_NOEXCEPT
+
+#if defined(DOCTEST_NO_CPP11_COMPAT)
+DOCTEST_CLANG_SUPPRESS_WARNING("-Wc++98-compat")
+DOCTEST_CLANG_SUPPRESS_WARNING("-Wc++98-compat-pedantic")
 #endif // DOCTEST_NO_CPP11_COMPAT
 
 #if DOCTEST_MSVC && !defined(DOCTEST_CONFIG_WINDOWS_SEH)
@@ -565,6 +580,7 @@ DOCTEST_GCC_SUPPRESS_WARNING_POP
 #else // DOCTEST_CONFIG_USE_STD_HEADERS
 
 #include <string>
+#include <sstream>
 
 #if DOCTEST_CLANG
 // to detect if libc++ is being used with clang (the _LIBCPP_VERSION identifier)
@@ -3722,13 +3738,24 @@ DOCTEST_MAKE_STD_HEADERS_CLEAN_FROM_WARNINGS_ON_WALL_END
 #define DOCTEST_CONFIG_OPTIONS_PREFIX "dt-"
 #endif
 
-#ifndef DOCTEST_THREAD_LOCAL
-#ifdef DOCTEST_NO_CPP11_COMPAT
+#ifndef DOCTEST_CONFIG_WITH_THREAD_LOCAL
+#if DOCTEST_CLANG && DOCTEST_CLANG_HAS_FEATURE(cxx_thread_local)
+#define DOCTEST_CONFIG_WITH_THREAD_LOCAL
+#endif // clang
+#if DOCTEST_GCC >= DOCTEST_COMPILER(4, 8, 0) && defined(__GXX_EXPERIMENTAL_CXX0X__)
+#define DOCTEST_CONFIG_WITH_THREAD_LOCAL
+#endif // GCC
+#if DOCTEST_MSVC >= DOCTEST_COMPILER(19, 0, 23026)
+#define DOCTEST_CONFIG_WITH_THREAD_LOCAL
+#endif // MSVC
+#endif // DOCTEST_CONFIG_WITH_THREAD_LOCAL
+
+#ifdef DOCTEST_CONFIG_WITH_THREAD_LOCAL
 #define DOCTEST_THREAD_LOCAL thread_local
 #else
 #define DOCTEST_THREAD_LOCAL
-#endif
-#endif
+#endif // DOCTEST_CONFIG_WITH_THREAD_LOCAL
+
 
 #ifdef DOCTEST_CONFIG_NO_UNPREFIXED_OPTIONS
 #define DOCTEST_OPTIONS_PREFIX_DISPLAY DOCTEST_CONFIG_OPTIONS_PREFIX
@@ -3881,9 +3908,9 @@ namespace detail {
         int numAssertsFailedCurrentTest_atomic;
 #endif // DOCTEST_NO_CPP11_COMPAT
 
-        ContextState(): 
-            filters(9), currentTest(0), ah(0),
+        ContextState():   
             numAssertsCurrentTest_atomic(0), numAssertsFailedCurrentTest_atomic(0),
+            filters(9), currentTest(0), ah(0), 
             subcasesCurrentMaxLevel(0), should_reenter(false),
             shouldLogCurrentException(true)
         {}
@@ -4508,7 +4535,7 @@ namespace detail {
         m_signature.m_name = name;
         m_signature.m_line = line;
         ContextState* s = g_cs;
-
+        if(!s)return;
         // check subcase filters
         if(s->subcasesStack.size() < size_t(s->subcase_filter_levels)) {
             if(!matchesAny(m_signature.m_name, s->filters[6], true, s->case_sensitive))
@@ -5542,7 +5569,7 @@ namespace detail{
     }
 
     XmlWriter::XmlWriter( std::ostream& os ) : 
-        m_os( os ), m_tagIsOpen(false), m_needsNewline(false)
+        m_tagIsOpen(false), m_needsNewline(false), m_os(os)
     {
         writeDeclaration();
     }
@@ -5666,8 +5693,8 @@ namespace detail{
 
         XmlReporter(const ContextOptions& co)
                 : xml(*co.cout)
-                , tc(0)
-                , opt(co) {}
+                , opt(co)
+                , tc(0) {}
 
         void log_contexts() {
             int num_contexts = get_num_active_contexts();
