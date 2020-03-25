@@ -106,4 +106,24 @@ PhWidgets-cppcheck-build-dir/*
 CppProperties.json
 
 # artifacts
-artifacts/*
+/artifacts/*
+
+# test app
+tests/generator/testsuit/resources/test_app/abapp.dfn
+tests/generator/testsuit/resources/test_app/abapp.wsp
+tests/generator/testsuit/resources/test_app/common.mk
+tests/generator/testsuit/resources/test_app/Makefile
+tests/generator/testsuit/resources/test_app/src/abdefine.h
+tests/generator/testsuit/resources/test_app/src/abevents.h
+tests/generator/testsuit/resources/test_app/src/abimport.h
+tests/generator/testsuit/resources/test_app/src/abLfiles
+tests/generator/testsuit/resources/test_app/src/ablibs.h
+tests/generator/testsuit/resources/test_app/src/ablinks.h
+tests/generator/testsuit/resources/test_app/src/abmain.c
+tests/generator/testsuit/resources/test_app/src/abvars.h
+tests/generator/testsuit/resources/test_app/src/abWfiles
+tests/generator/testsuit/resources/test_app/src/abwidgets.h
+tests/generator/testsuit/resources/test_app/src/indLfiles
+tests/generator/testsuit/resources/test_app/src/proto.h
+tests/generator/testsuit/resources/test_app/src/Usemsg
+tests/generator/testsuit/resources/test_app/wgt/Icon.wgti
