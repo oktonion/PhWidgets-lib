@@ -193,12 +193,19 @@ namespace PhWidgets
 			};
 		};
 
+	private:
+		struct ArgUnsignedShortBase:
+			public ArgumentsEx<Compound::ArgUnsignedShort>,
+			public ThisArgs::ArgUnsignedShort
+		{
+			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShort eArgUnsignedShort;
+		};
+	public:
 		//! Contains resource IDs for arguments of type **unsigned short**. @ingroup Resources
 		struct ArgUnsignedShort:
-			public ArgumentsEx<Compound::ArgUnsignedShort>,
             public ArgumentsEx<Text::ArgUnsignedShort>,
-            //public ArgumentsEx<List::ArgUnsignedShort>,
-			public ThisArgs::ArgUnsignedShort
+            //public ArgumentsEx<List::ArgUnsignedShort>
+			public ArgumentsEx<ArgUnsignedShortBase>
 		{
 			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShort eArgUnsignedShort;
 		};
@@ -212,6 +219,22 @@ namespace PhWidgets
 			typedef ThisArgs::ArgUnsignedLong::eArgUnsignedLong eArgUnsignedLong;
             typedef ThisArgs::ArgUnsignedLong::eArgUnsignedLongFlag eArgUnsignedLongFlag;
 		};	
+	private:
+		struct CallbackBase:
+			public ArgumentsEx<Compound::Callback>,
+			public ThisCallbacks::Callback
+		{
+			typedef ThisCallbacks::Callback::eCallback eCallback;
+		};
+	public:
+		//! Contains resource IDs for callbacks of type `PtCallback_t`. @ingroup Resources
+		struct Callback:
+			public ArgumentsEx<Text::Callback>,
+			//public ArgumentsEx<List::Callback>,
+			public ArgumentsEx<CallbackBase>
+		{
+			typedef ThisCallbacks::Callback::eCallback eCallback;
+		};
 
 		//! Contains resource IDs for all ComboBox arguments. @ingroup Resources
 		struct Arguments:
@@ -225,7 +248,6 @@ namespace PhWidgets
 		//! Contains resource IDs for all ComboBox callbacks. @ingroup Resources
 		struct Callbacks:
 			public Callback,
-			public Compound::Callbacks,
             //public List::Callbacks,
             public Text::Callbacks
 		{ };
