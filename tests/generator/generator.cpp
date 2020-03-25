@@ -8,8 +8,11 @@
 #include <string>
 
 #include <unistd.h>
+#include <cstdlib>
 
-TEST_CASE("Checking generation of UI"){
+bool all_ok = false;
+
+TEST_CASE("Checks of generation of UI"){
 
     std::string program_path;
     {
@@ -21,9 +24,62 @@ TEST_CASE("Checking generation of UI"){
     const char *argv[3];
 
     argv[0] = program_path.c_str();
-    argv[1] = "./tests/generator/testsuit/resources/test_app/wgt/TEST_WINDOW.wgtw";
-    argv[2] = "./tests/generator/artifacts/";
-    
-    CHECK(0 == mkphgui_main(argc, argv));
+
+    struct mkphguiRAII
+    {
+        ~mkphguiRAII() 
+        {
+            widgets.clear();
+            hierarchy.clear();
+            last_child_id = -1;
+        }
+    };
+
+    SUBCASE("TEST_WINDOW"){
+        
+        mkphguiRAII mkphguiRAII_;
+
+        argv[1] = "./tests/generator/testsuit/resources/test_app/wgt/TEST_WINDOW.wgtw";
+        argv[2] = "./tests/generator/artifacts/";
+        
+        CHECK(0 == mkphgui_main(argc, argv));
+        
+    }
+
+    SUBCASE("Dialog0"){
+
+        mkphguiRAII mkphguiRAII_;
+
+        argv[1] = "./tests/generator/testsuit/resources/test_app/wgt/Dialog0.wgtd";
+        argv[2] = "./tests/generator/artifacts/";
+        
+        CHECK(0 == mkphgui_main(argc, argv));
+    }
+
+    SUBCASE("Menu0"){
+        
+        mkphguiRAII mkphguiRAII_;
+
+        argv[1] = "./tests/generator/testsuit/resources/test_app/wgt/Menu0.wgtm";
+        argv[2] = "./tests/generator/artifacts/";
+        
+        CHECK(0 == mkphgui_main(argc, argv));
+    }
+
+    SUBCASE("Picture0"){
+        
+        mkphguiRAII mkphguiRAII_;
+
+        argv[1] = "./tests/generator/testsuit/resources/test_app/wgt/Picture0.wgtp";
+        argv[2] = "./tests/generator/artifacts/";
+        
+        CHECK(0 == mkphgui_main(argc, argv));
+    }
+
+    SUBCASE("Generating test for UI"){
+
+        REQUIRE(0 != std::system("./tests/generator/build_consumer.sh"));
+        
+    }
 }
 
