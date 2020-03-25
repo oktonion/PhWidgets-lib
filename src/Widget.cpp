@@ -157,6 +157,7 @@ Widget::Widget(int abn):
 	Enabled(this),
 	Focused(this),
 	HasChildren(this),
+	HasParent(this),
 	Height(this),
 	HelpTopic(this),
 	IsRealized(this),
@@ -208,6 +209,7 @@ Widget::Widget(PtWidget_t* wdg):
 	Enabled(this),
 	Focused(this),
 	HasChildren(this),
+	HasParent(this),
 	Height(this),
 	HelpTopic(this),
 	IsRealized(this),
@@ -296,6 +298,7 @@ Widget::Widget(const Widget &other):
 	Enabled(this),
 	Focused(this),
 	HasChildren(this),
+	HasParent(this),
 	Height(this),
 	HelpTopic(this),
 	IsRealized(this),
@@ -571,6 +574,52 @@ Widget Widget::GetNextWidget(const Widget &widget, bool forward) const
 	return Widget(result);
 }
 
+void Widget::Invalidate(PhRect_t rc, bool invalidateChildren)
+{
+	PtWidget_t *this_widget = this->widget();
+
+	PtDamageExtent(this_widget, &rc);
+
+	if(invalidateChildren)
+	{
+		PtWidget_t *front = PtWidgetChildFront(this_widget);
+
+		if(NULL == front)
+			return;
+		
+		for(PtWidget_t *next = front; next != NULL; next = PtWidgetBrotherBehind(next))
+		{
+			PtDamageExtent(next, &rc);
+		}
+	}
+}
+
+void Widget::Invalidate(bool invalidateChildren)
+{
+	PtWidget_t *this_widget = this->widget();
+
+	PtDamageWidget(this_widget);
+
+	if(invalidateChildren)
+	{
+		PtWidget_t *front = PtWidgetChildFront(this_widget);
+
+		if(NULL == front)
+			return;
+		
+		for(PtWidget_t *next = front; next != NULL; next = PtWidgetBrotherBehind(next))
+		{
+			PtDamageWidget(next);
+		}
+	}
+}
+
+void Widget::Refresh()
+{
+	Invalidate(true);
+	Update();
+}
+
 void Widget::SendToBack()
 {
 	PtWidgetToBack(widget());
@@ -599,6 +648,11 @@ void Widget::Hide()
 void Widget::Show()
 {
 	Realize(); // TODO::redone to move widget
+}
+
+void Widget::Update()
+{
+	PtFlush();
 }
 
 //for properties:
@@ -749,6 +803,11 @@ bool Widget::hasChildren() const
 	return (PtWidgetChildFront(widget()) != NULL);
 }
 
+bool Widget::hasParent() const
+{
+	return Parent() != nullptr;
+}
+
 short PhWidgets::Widget::getRight() const
 {
 	return getLocation().x + Width;
@@ -811,8 +870,12 @@ void Widget::setParent(PtWidget_t *parent)
 
 PtWidget_t * Widget::getParent() const
 {
+
 	PtWidget_t *wdg = widget();
-	PtWidget_t *result = PtWidgetParent(wdg);
+	PtWidget_t *result = PtValidParent(wdg, PtWidgetClass(wdg));
+	if(result == wdg)
+		result = PtWidgetParent(wdg);
+
 	return ( (result == Pt_NO_PARENT) ? nullptr : result );
 }
 

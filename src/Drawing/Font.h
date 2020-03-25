@@ -2,8 +2,8 @@
 #ifndef PHWIDGETS_FONT_H
 #define PHWIDGETS_FONT_H
 
-#include "./service/property.hpp"
-#include "./service/bitmask.hpp"
+#include "./../service/property.hpp"
+#include "./../service/bitmask.hpp"
 
 #include <photon/Pf.h>
 
@@ -65,14 +65,14 @@ namespace PhWidgets
             cppbitmasks::bitmask<
                 unsigned short,    
                 FontStyle::eFontStyle, 
-                FontStyle::Antialias |
-                FontStyle::Bitmap |
-                FontStyle::Bold |
-                FontStyle::DoubleUnderline |
-                FontStyle::Italic |
-                FontStyle::Regular |
-                FontStyle::Scalable |
-                FontStyle::Underline
+                static_cast<unsigned short>(FontStyle::Antialias)       |
+                static_cast<unsigned short>(FontStyle::Bitmap)          |
+                static_cast<unsigned short>(FontStyle::Bold)            |
+                static_cast<unsigned short>(FontStyle::DoubleUnderline) |
+                static_cast<unsigned short>(FontStyle::Italic)          |
+                static_cast<unsigned short>(FontStyle::Regular)         |
+                static_cast<unsigned short>(FontStyle::Scalable)        |
+                static_cast<unsigned short>(FontStyle::Underline)
             > font_style_bitmask;
         }
 

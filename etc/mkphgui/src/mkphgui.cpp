@@ -21,20 +21,24 @@ std::fstream header, source;
 
 void init_phwidgets_includes()
 {
-    phwidgets_includes["PtWidget"] = "<Widget.h> // PhWidgets::Widget class";
     phwidgets_includes["PtBasic"] = "<Basic.h> // PhWidgets::Basic class";
     phwidgets_includes["PtButton"] = "<Button.h> // PhWidgets::Button class";
+    phwidgets_includes["PtComboBox"] = "<ComboBox.h> // PhWidgets::ComboBox class";
     phwidgets_includes["PtCompound"] = "<Compound.h> // PhWidgets::Compound class";
     phwidgets_includes["PtContainer"] = "<Container.h> // PhWidgets::Container class";
     phwidgets_includes["PtDisjoint"] = "<Disjoint.h> // PhWidgets::Disjoint class";
     phwidgets_includes["PtGraphic"] = "<Graphic.h> // PhWidgets::Graphic class";
+    phwidgets_includes["PtImageArea"] = "<ImageArea.h> // PhWidgets::ImageArea class";
     phwidgets_includes["PtLabel"] = "<Label.h> // PhWidgets::Label class";
     phwidgets_includes["PtNumeric"] = "<Numeric.h> // PhWidgets::Numeric class";
     phwidgets_includes["PtNumericFloat"] = "<NumericFloat.h> // PhWidgets::NumericFloat class";
+    phwidgets_includes["PtNumericInteger"] = "<NumericInteger.h> // PhWidgets::NumericInteger class";
     phwidgets_includes["PtOnOffButton"] = "<OnOffButton.h> // PhWidgets::OnOffButton class";
+    phwidgets_includes["PtPane"] = "<Pane.h> // PhWidgets::Pane class";
     phwidgets_includes["PtText"] = "<Text.h> // PhWidgets::Text class";
     phwidgets_includes["PtTimer"] = "<Timer.h> // PhWidgets::Timer class";
     phwidgets_includes["PtToggleButton"] = "<ToggleButton.h> // PhWidgets::ToggleButton class";
+    phwidgets_includes["PtWidget"] = "<Widget.h> // PhWidgets::Widget class";
     phwidgets_includes["PtWindow"] = "<Window.h> // PhWidgets::Window class";
 }
 
@@ -145,7 +149,7 @@ struct convert_to_upper {
 
 int main(int argc, const char* argv[])
 {
-    if (argc == 1)
+    if (argc < 2)
         return 0;
 
     init_phwidgets_includes();
@@ -153,11 +157,12 @@ int main(int argc, const char* argv[])
     ApDBase_t *dbase = ApOpenDBaseFile(argv[1]);
 
     if (NULL == dbase)
+    {
+        std::cout << "Cannot open dbase file '" << argv[1] << "'.";
         return -1;
+    }
 
     ApDBWidgetInfo_t wi;
-
-    std::fstream fs;
 
     for (int i = 0; ApGetDBWidgetInfo(dbase, i, &wi); ++i)
     {
@@ -201,7 +206,10 @@ int main(int argc, const char* argv[])
     }
 
     if (!source || !header)
+    {
+        std::cout << "Cannot create header/source files pair for '" << file_name << "'.";
         return -1;
+    }
 
     std::string header_guard = std::string("PHGUI_") + file_name + "_H";
 

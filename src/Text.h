@@ -91,14 +91,14 @@ namespace PhWidgets
 			public Label::Callbacks
         { };
 		
-	protected:
 		typedef ResourceFrom<Label::WidgetResourcesSingleton>::
 			Define::Struct<ThisArgs::ArgComplex::eArgComplex, PtTextControl_t>::
 
 			Define::Link<ThisCallbacks::Callback::eCallback, PtCallback_t*>::
 
 		resource_type WidgetResourcesSingleton;
-
+	
+	protected:
 		virtual void check();
 						
 	public:

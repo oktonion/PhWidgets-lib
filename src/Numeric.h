@@ -69,26 +69,52 @@ namespace PhWidgets
 					numeric_spacing = Pt_ARG_NUMERIC_SPACING,
 					numeric_updown_width = Pt_ARG_NUMERIC_UPDOWN_WIDTH
 				};
-			};
-			
-			struct ArgUnsignedShortFlag
-			{
+
+				//! Resource IDs for Numeric flags of type **unsigned short**.
+
+				/*!
+					### Aliases ###
+					
+					PhWidgets::Numeric::Arguments::eArgUnsignedShortFlag,
+					PhWidgets::Numeric::ArgUnsignedShort::eArgUnsignedShortFlag
+
+					See Widget::resource for usage description.
+				*/
 				enum eArgUnsignedShortFlag
 				{
 					numeric_flags = Pt_ARG_NUMERIC_FLAGS
 				};
 			};
+		};
 
+        //! Contains flags for Numeric resources. @ingroup Resources
+		struct ThisFlags
+		{
+			//! Numeric flags for Numeric resource Numeric::Arguments::cbox_flags.
+			/*!
+				The default setting of Numeric::Arguments::numeric_flags resource is 0; that is, no flags have been set. 
 
+				### Aliases ###
+				
+				PhWidgets::Numeric::Flags::eNumericFlags
+			*/
+			enum eNumericFlags
+			{
+				AutoHighlight = Pt_NUMERIC_AUTO_HIGHLIGHT, //!< Autohighlight text when selected. 
+				EnableUpDown = Pt_NUMERIC_ENABLE_UPDOWN, //!< Display the up/down buttons. 
+				Hexadecimal = Pt_NUMERIC_HEXADECIMAL,  //!< Display the value as a hexadecimal number (applies only to NumericInteger). 
+                UseSeparators = Pt_NUMERIC_USE_SEPARATORS,  //!< Insert comma separators in values (e.g. 1,000).
+                Wrap = Pt_NUMERIC_WRAP  //!< Wrap numbers from minimum to maximum and from maximum to minimum.
+			};
 		};
 
 		//! Contains resource IDs for arguments of type **unsigned short**. @ingroup Resources
 		struct ArgUnsignedShort:
 			public ArgumentsEx<Compound::ArgUnsignedShort>,
-			public ThisArgs::ArgUnsignedShort,
-			public ThisArgs::ArgUnsignedShortFlag
+			public ThisArgs::ArgUnsignedShort
 		{
 			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShort eArgUnsignedShort;
+			typedef ThisArgs::ArgUnsignedShort::eArgUnsignedShortFlag eArgUnsignedShortFlag;
 		};
 
 		//! Contains resource IDs for arguments of type <b>char*</b>. @ingroup Resources
@@ -106,10 +132,16 @@ namespace PhWidgets
 			public Compound::Arguments
         { };
 
+		//! Contains flags for all Numeric resources. @ingroup Resources
+		struct Flags:
+			public ThisFlags,
+			public Compound::Flags
+        { };
+
 		typedef ResourceFrom<Compound::WidgetResourcesSingleton>::
 			Define::String<ThisArgs::ArgPChar::eArgPChar>::
 			Define::Scalar<ThisArgs::ArgUnsignedShort::eArgUnsignedShort, unsigned short>::
-			Define::Flag<ThisArgs::ArgUnsignedShortFlag::eArgUnsignedShortFlag, unsigned short>::
+			Define::Flag<ThisArgs::ArgUnsignedShort::eArgUnsignedShortFlag, unsigned short>::
 
 		resource_type WidgetResourcesSingleton;
 
@@ -161,6 +193,10 @@ namespace PhWidgets
 	};
 	
 } // namespace PhWidgets
+
+cppbitmasks::bitmask<unsigned short, PhWidgets::Numeric::Flags::eNumericFlags> operator|(const PhWidgets::Numeric::Flags::eNumericFlags &flag1, const PhWidgets::Numeric::Flags::eNumericFlags &flag2);
+cppbitmasks::bitmask<unsigned short, PhWidgets::Numeric::Flags::eNumericFlags> operator&(const PhWidgets::Numeric::Flags::eNumericFlags &flag1, const PhWidgets::Numeric::Flags::eNumericFlags &flag2);
+cppbitmasks::bitmask<unsigned short, PhWidgets::Numeric::Flags::eNumericFlags> operator^(const PhWidgets::Numeric::Flags::eNumericFlags &flag1, const PhWidgets::Numeric::Flags::eNumericFlags &flag2);
 
 
 #endif // PHWIDGETS_NUMERIC_H
