@@ -156,6 +156,8 @@ int main(int argc, const char* argv[])
 
     ApDBase_t *dbase = ApOpenDBaseFile(argv[1]);
 
+    std::string output_dir = argc > 2? argv[2] : "./";
+
     if (NULL == dbase)
     {
         std::cout << "Cannot open dbase file '" << argv[1] << "'.";
@@ -201,13 +203,13 @@ int main(int argc, const char* argv[])
         path = splitpath(file_name_with_ext, delims);
         file_name = path.size() ? path.front() : file_name_with_ext;
 
-        source.open((std::string("./") + file_name + ".cpp").c_str(), std::fstream::out);
-        header.open((std::string("./") + file_name + ".h").c_str(), std::fstream::out);
+        source.open((output_dir + file_name + ".cpp").c_str(), std::fstream::out);
+        header.open((output_dir + file_name + ".h").c_str(), std::fstream::out);
     }
 
     if (!source || !header)
     {
-        std::cout << "Cannot create header/source files pair for '" << file_name << "'.";
+        std::cout << "Cannot create header/source files pair for '" << file_name << "' in '" << output_dir << "'.";
         return -1;
     }
 
