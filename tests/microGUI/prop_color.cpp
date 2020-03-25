@@ -3,7 +3,7 @@
 #include "./testsuit.h"
 
 #include <Basic.h>
-#include <Color.h>
+#include <Drawing/Color.h>
 #include <photon/PtButton.h>
 
 

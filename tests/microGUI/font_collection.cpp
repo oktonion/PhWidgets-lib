@@ -2,7 +2,7 @@
 
 #include "./testsuit.h"
 
-#include <Font.h>
+#include <Drawing/Font.h>
 
 TEST_CASE("Testing FontCollections classes"){
 

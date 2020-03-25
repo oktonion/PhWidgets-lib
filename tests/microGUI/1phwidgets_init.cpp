@@ -11,6 +11,7 @@
 #include <Button.h>
 #include <Label.h>
 #include <Text.h>
+#include <ComboBox.h>
 
 namespace PhWidgets
 {
@@ -37,6 +38,7 @@ TEST_CASE("Testing photon microGUI library initialization"){
 
     REQUIRE_MESSAGE(0 == PhWidgetsPtInit, "Photon App requires connection to Photon server.");
 
+
 	PtWidget_t *ptwidget_ptr = PhWidgetsCreateWidget<&PtWindow>(Pt_NO_PARENT, 0, NULL);
 
     REQUIRE(ptwidget_ptr);
@@ -60,6 +62,12 @@ TEST_CASE("Testing photon microGUI library initialization"){
     REQUIRE(ptwidget_ptr);
 
     REQUIRE_NOTHROW_MESSAGE(PhWidgets::Text t(ptwidget_ptr), "Constructor of Text from PtWidget_t failed");
+
+	ptwidget_ptr = PhWidgetsCreateWidget<&PtComboBox>(ptwidget_ptr, 0, NULL);
+
+    REQUIRE(ptwidget_ptr);
+
+    REQUIRE_NOTHROW_MESSAGE(PhWidgets::ComboBox cb(ptwidget_ptr), "Constructor of ComboBox from PtWidget_t failed");
 }
 
 #endif // PHWIDGETS_INIT_TEST

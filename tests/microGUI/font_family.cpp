@@ -2,7 +2,7 @@
 
 #include "./testsuit.h"
 
-#include <Font.h>
+#include <Drawing/Font.h>
 
 #include <algorithm>
 #include <vector>
