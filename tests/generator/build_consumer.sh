@@ -45,7 +45,9 @@ filename=$(basename -- "$file")
 filename="${filename%.*}"
 echo "compiling test c++03 $filename"
 if ! $COMPILER -Vgcc_ntox86 -lang-c++ $coption -pedantic $exclude_warn $file -I./slib/PhWidgets/include/ -I./ -L./tests/generator/artifacts/obj/ -L./slib/PhWidgets/  -lAp -lph -lm -lphexlib -lphwidgets -lartifacts -o "./tests/bin/$filename"; then
-build_ok=0
+  build_ok=0
+else
+  phabbind ./tests/bin/$filename tests/generator/testsuit/resources/test_app/wgt/Dialog0.wgtd tests/generator/testsuit/resources/test_app/wgt/Icon.wgti tests/generator/testsuit/resources/test_app/wgt/Picture0.wgtp tests/generator/testsuit/resources/test_app/wgt/TEST_WINDOW.wgtw
 fi
 
 if [ $build_ok -eq 0 ]; then

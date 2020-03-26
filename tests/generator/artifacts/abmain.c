@@ -1,3 +1,4 @@
+#define BUILDENV_qss
 extern "C"
 {
     #define main abmain

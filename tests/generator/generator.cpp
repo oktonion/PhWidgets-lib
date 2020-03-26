@@ -9,6 +9,7 @@
 
 #include <unistd.h>
 #include <cstdlib>
+#include <cstdio>
 
 bool all_ok = false;
 
@@ -77,9 +78,20 @@ TEST_CASE("Checks of generation of UI"){
     }
 
     SUBCASE("Generating test for UI"){
-
+        
         REQUIRE(0 == std::system("./tests/generator/build_consumer.sh"));
-        REQUIRE(0 == std::system("./tests/bin/consumer"));
+
+        struct RemoveConsumer
+        {
+            ~RemoveConsumer() {
+                std::remove("./tests/bin/consumer");
+            }
+        }RemoveConsumerRAII;
+
+        std::cout << "running generated test consumer" << std::endl;
+
+        REQUIRE(0 == std::system("chmod a+rwx ./tests/bin/consumer"));
+        REQUIRE(0 == std::system("./tests/bin/consumer -nv -nc"));
     }
 }
 
