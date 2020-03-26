@@ -78,8 +78,8 @@ TEST_CASE("Checks of generation of UI"){
 
     SUBCASE("Generating test for UI"){
 
-        REQUIRE(0 != std::system("./tests/generator/build_consumer.sh"));
-        
+        REQUIRE(0 == std::system("./tests/generator/build_consumer.sh"));
+        REQUIRE(0 == std::system("./tests/bin/consumer"));
     }
 }
 

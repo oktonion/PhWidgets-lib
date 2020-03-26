@@ -5,19 +5,20 @@
 #include "./artifacts/Picture0.h"
 #include "./artifacts/TEST_WINDOW.h"
 
-#include "./artifacts/Dialog0.cpp"
-#include "./artifacts/Menu0.cpp"
-#include "./artifacts/Picture0.cpp"
-#include "./artifacts/TEST_WINDOW.cpp"
-
 TEST_CASE("Checking using of generated UI"){
 
     using namespace PhGUI;
 
     SUBCASE("TEST_WINDOW"){
         
+        CHECK_NOTHROW({
+            TEST_WINDOW test_window;
+        });        
+        
         TEST_WINDOW test_window;    
         
+        CHECK(test_window.Left == 0);
+        CHECK((nullptr == test_window.Parent()));
     }
 
     SUBCASE("Dialog0"){
