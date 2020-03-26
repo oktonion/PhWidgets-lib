@@ -9,11 +9,11 @@ namespace PhWidgets
 {
 	PtWidget_t* GetABW(int n);
 	std::vector<PtWidget_t*> GetABW();
-	size_t GetABWCount();
+	std::size_t GetABWCount();
 }
 
-#undef AbGetABW
-#define AbGetABW( n ) PhWidgets::GetABW( n )
-#define AbGetABWS() PhWidgets::GetABW()
+//#undef AbGetABW
+//#define AbGetABW( n ) PhWidgets::GetABW( n )
+//#define AbGetABWS() PhWidgets::GetABW()
 
 #endif
