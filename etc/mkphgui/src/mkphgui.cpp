@@ -71,7 +71,8 @@ void print_root_widgets(std::vector<int> & root_widgets, std::fstream &header, s
                 std::string((root_wi.level) * 2, ' ') << "struct " << root_wi.wgt_name << " : " << std::endl <<
                 std::string((root_wi.level) * 2, ' ') << "    public PhWidgets::" << 
                     (is_implemented_class ? (root_wi.wgt_class + 2) : "Widget") << std::endl <<
-                std::string((root_wi.level) * 2, ' ') << "{" << std::endl;
+                std::string((root_wi.level) * 2, ' ') << "{" << std::endl <<
+                root_wi.wgt_name << "(); // (constructor)" << std::endl;
                 
 
             if(!is_nameless_widget)
@@ -232,11 +233,13 @@ int main(int argc, const char* argv[])
     source << 
         "#include \"" << (file_name + ".h") << "\"" << std::endl <<
         std::endl << 
-        "#include <abimport.h>" << std::endl 
-        << "#include <ablibs.h>" << std::endl 
-        << std::endl << "using namespace PhGUI;" 
-        << std::endl 
-        << std::endl;
+        "#include <Ap.h>" << std::endl <<
+        "#include <Pt.h>" << std::endl <<
+        "#include <abimport.h>" << std::endl  << 
+        "#include <ablibs.h>" << std::endl  << 
+        std::endl << "using namespace PhGUI;" << 
+        std::endl << 
+        std::endl;
 
     header << 
         "#ifndef " << header_guard << std::endl <<
