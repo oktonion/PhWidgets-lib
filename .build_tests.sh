@@ -5,7 +5,7 @@ echo "\023333;4m"
 
 build_ok=1
 exclude_warn=""
-COMPILER=qcc
+COMPILER=QCC
 testgroup=""
 
 if [[ $COMPILER = *"clang"* ]]; then
