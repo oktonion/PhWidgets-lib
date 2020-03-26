@@ -106,7 +106,7 @@ PhWidgets-cppcheck-build-dir/*
 CppProperties.json
 
 # artifacts
-*/artifacts/*
+tests/generator/artifacts/*
 
 # test app
 tests/generator/testsuit/resources/test_app/x86/*
