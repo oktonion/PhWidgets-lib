@@ -1263,58 +1263,6 @@ namespace PhWidgets
 			}
 
 		};
-
-		template< class WidgetRawCallbacksT, class WidgetFilterCallbacksT, class EventT, class ResourceT >
-		struct WidgetEventsBase
-		{
-	
-			struct WidgetRawCallbacks :
-				public WidgetRawCallbacksT
-
-			{
-				using WidgetRawCallbacksT::operator [];
-
-				inline WidgetRawCallback<EventT, ResourceT> operator [](const EventT indx) const
-				{
-					typedef WidgetRawCallbacksBase Base; 
-					
-					return static_cast<const Base*>(this)->resource<EventT, ResourceT>(indx);
-				}
-
-			protected:
-
-
-				friend class WidgetEventsBase<WidgetRawCallbacksT, WidgetFilterCallbacksT, EventT, ResourceT>;
-
-				template<class, class, class, class, class>
-				friend class ArgumentType;
-
-				template<class, class, class, class, class>
-				friend class LinkType;
-
-				WidgetRawCallbacks(IPtWidget *widget) :
-					WidgetRawCallbacksT(widget)
-				{
-				}
-
-				~WidgetRawCallbacks()
-				{
-				}
-			};
-
-			WidgetArguments argument;
-			WidgetCallbacks callback;
-
-			LinkType(IPtWidget *widget) :
-				argument(widget),
-				callback(widget)
-			{}
-
-
-		private:
-			LinkType(const LinkType&);
-		
-		};
 		
 		
 		namespace def_help
@@ -1332,7 +1280,7 @@ namespace PhWidgets
 
 		namespace def_orig
 		{
-			template< class WidgetArgumentsT, class WidgetCallbacksT, class WidgetRawCallbacksT, class WidgetFilterCallbacksT, class WidgetHotkeyCallbacksT, class LinkT, class ResourceT >
+			template< class WidgetArgumentsT, class WidgetCallbacksT, class LinkT, class ResourceT >
 			struct LinkType
 			{
 				struct WidgetCallbacks :
@@ -1367,9 +1315,6 @@ namespace PhWidgets
 				};
 
 				typedef WidgetArgumentsT WidgetArguments;
-				typedef WidgetRawCallbacksT WidgetRawCallbacks;
-				typedef WidgetFilterCallbacksT WidgetFilterCallbacks;
-				typedef WidgetHotkeyCallbacksT WidgetHotkeyCallbacks;
 
 				WidgetArguments argument;
 				WidgetCallbacks callback;
