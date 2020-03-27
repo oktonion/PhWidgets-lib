@@ -34,7 +34,6 @@ Examples:
 /* Local headers */
 #include "ablibs.h"
 #include "abimport.h"
-#include "proto.h"
 #include "abwidgets.h"
 #include "abdefine.h"
 #include "abevents.h"
