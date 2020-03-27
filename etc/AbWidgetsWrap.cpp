@@ -13,30 +13,26 @@
 
 
 #include <photon/PtWidget.h>
+
 #include <vector>
+#include <cstddef>
 
 #include "ablibs.h"
 #include "abimport.h"
-
-//$PROJ/src/PhWidgets/include/service/header.h
-
-#include "./PhWidgets/include/service/PhWidgetsFunc.h"
-#include "./PhWidgets/include/service/PhWidgetsTypes.h"
-#include "./PhWidgets/include/service/stdex/h/code_extensions.h"
 
 namespace PhWidgets
 {
 	namespace internal
 	{
-		template<typename T, size_t N>
-		inline PtWidget_t* GetABW(size_t n, T (&AbWidgets)[N])
+		template<typename T, std::size_t N>
+		inline PtWidget_t* GetABW(std::size_t n, T (&AbWidgets)[N])
 		{
-			PtWidget_t *widget = n < N ? AbWidgets[n].wgt : nullptr;
+			PtWidget_t *widget = n < N ? AbGetABW(n) : 0;
 			
 			return widget;
 		}
 
-		template<typename T, size_t N>
+		template<typename T, std::size_t N>
 		inline std::vector<PtWidget_t*> GetABW(T (&AbWidgets)[N])
 		{
 			std::vector<PtWidget_t*> widgets;
@@ -55,9 +51,9 @@ namespace PhWidgets
 	PtWidget_t* GetABW(int n)
 	{
 		if(n < 0)
-			return nullptr;
+			return 0;
 			
-		return internal::GetABW(size_t(n), AbWidgets);
+		return internal::GetABW(std::size_t(n), AbWidgets);
 	}
 
 	std::vector<PtWidget_t*> GetABW()
@@ -67,6 +63,6 @@ namespace PhWidgets
 
 	size_t GetABWCount()
 	{
-		return countof(AbWidgets);
+		return sizeof(AbWidgets) / sizeof(AbWidgets[0]);
 	}
 }

@@ -8,42 +8,59 @@
 
 namespace PhWidgets
 {
-	template<class MaskT, class FlagT>
+	template<class MaskT, class FlagT, MaskT Mask = ~(MaskT())>
 	class phbitmask
 	{
 		template<class WidgetClassT, class ArgumentT, ArgumentT ArgumentID>
-		class bind_internal :
-			private phproperty<MaskT>::template bind<WidgetClassT, ArgumentT, ArgumentID>
+		class bind_internal
 		{
-			typedef cppbitmasks::bitmask<MaskT, FlagT> value_t;
-			typedef phproperty<MaskT> ph_property_t;
+			typedef MaskT mask_type;
+			typedef phproperty<mask_type> ph_property_t;
 			typedef typename ph_property_t::template bind<WidgetClassT, ArgumentT, ArgumentID> ph_bind_t;
 
+			ph_bind_t _value;
+
 		public:
+			typedef cppbitmasks::bitmask<MaskT, FlagT, Mask> value_type;
+
 			bind_internal(WidgetClassT *parent) :
-				ph_bind_t(parent)
+				_value(parent)
 			{}
 
-			inline void set(value_t value)
+			inline 
+			void set(value_type value)
 			{
-				static_cast<ph_bind_t*>(this)->set(value);
+				_value.set(value);
 			}
 
-			inline value_t get() const
+			inline 
+			value_type get() const
 			{
-				value_t bm;
-				MaskT mask = static_cast<ph_bind_t*>(this)->get();
+				value_type bm;
+				mask_type mask = _value.get();
 				std::memcpy(&bm, &mask, sizeof(MaskT));
 				return bm;
 			}
 
-			inline operator value_t() const { return get(); }
+			inline
+			bool has(value_type value) const
+			{
+				return get().has(value);
+			}
 
-			inline bind_internal &operator=(value_t value) { set(value); return *this; }
+			inline 
+			operator value_type() const { return get(); }
+			inline 
+			operator mask_type() const { return get(); }
 
-			inline value_t operator()(void) const { return get(); }
+			inline 
+			bind_internal &operator=(value_type value) { set(value); return *this; }
 
-			inline void operator()(value_t value) { set(value); return *this; }
+			inline 
+			value_type operator()(void) const { return get(); }
+
+			inline 
+			void operator()(value_type value) { set(value); return *this; }
 		};
 		
 	public:

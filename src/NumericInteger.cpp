@@ -1,14 +1,27 @@
 #include "NumericInteger.h"
-#include "./service/mystd/my_exception.h"
+
+#include <stdexcept>
 
 
 using namespace PhWidgets;
 
-void NumericInteger::check()
+namespace PhWidgets
 {
-	if(PtWidgetIsClassMember( widget(), PtNumericInteger ) != true)
-		throw(std::mystd::exception("NumericInteger: widget is not PtNumericInteger."));
+    const char * WidgetClassName(PtWidget_t *wdg);
 }
+
+#define FORM_THROW_MESSAGE(xxx) (std::string("PhWidgets::") + std::string(#xxx": wrong class of photon widget - got \'") + WidgetClassName(widget()) + "\' instead of \'Pt"#xxx"\'.").c_str()
+#define WIDGET_IS_CLASS_MEMBER(xxx) \
+	if(PtWidgetIsClassMember( widget(), Pt##xxx ) != true)\
+		throw(std::invalid_argument(FORM_THROW_MESSAGE(xxx)));
+
+#define CHECK_WIDGET(xxx) \
+void xxx::check() \
+{ \
+	WIDGET_IS_CLASS_MEMBER(xxx); \
+}
+
+CHECK_WIDGET(NumericInteger);
 
 
 NumericInteger::NumericInteger(int abn):
@@ -39,8 +52,8 @@ NumericInteger::NumericInteger(PtWidget_t *wdg):
 	check();
 }
 
-NumericInteger::NumericInteger(const NumericInteger &rhs):
-	Numeric(rhs),
+NumericInteger::NumericInteger(const NumericInteger &other):
+	Numeric(other),
 	resource(this),
 	//properties:
 	Value(this),
@@ -52,9 +65,9 @@ NumericInteger::NumericInteger(const NumericInteger &rhs):
 {
 }
 
-NumericInteger &NumericInteger::operator=(const NumericInteger &rhs)
+NumericInteger &NumericInteger::operator=(const NumericInteger &other)
 {
-	static_cast<Numeric&>(*this) = static_cast<const Numeric&>(rhs);
+	static_cast<Numeric&>(*this) = static_cast<const Numeric&>(other);
 	
 	return *this;
 }

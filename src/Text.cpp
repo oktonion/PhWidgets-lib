@@ -1,16 +1,29 @@
 #include "Text.h"
-#include "./service/mystd/my_exception.h"
+
+#include <stdexcept>
 
 using namespace PhWidgets;
 
-void Text::check()
+namespace PhWidgets
 {
-	if(PtWidgetIsClassMember( widget(), PtText ) != true)
-		throw(std::mystd::exception("Text: widget is not PtText."));
+    const char * WidgetClassName(PtWidget_t *wdg);
 }
 
+#define FORM_THROW_MESSAGE(xxx) (std::string("PhWidgets::") + std::string(#xxx": wrong class of photon widget - got \'") + WidgetClassName(widget()) + "\' instead of \'Pt"#xxx"\'.").c_str()
+#define WIDGET_IS_CLASS_MEMBER(xxx) \
+	if(PtWidgetIsClassMember( widget(), Pt##xxx ) != true)\
+		throw(std::invalid_argument(FORM_THROW_MESSAGE(xxx)));
 
-Text::Text(int abn):
+#define CHECK_WIDGET(xxx) \
+void TextWidget::check() \
+{ \
+	WIDGET_IS_CLASS_MEMBER(xxx); \
+}
+
+CHECK_WIDGET(Text);
+
+
+TextWidget::TextWidget(int abn):
 	Label(abn),
 	resource(this),
 	//callbacks:
@@ -24,7 +37,7 @@ Text::Text(int abn):
 	check();
 }
 
-Text::Text(PtWidget_t *wdg):
+TextWidget::TextWidget(PtWidget_t *wdg):
 	Label(wdg),
 	resource(this),
 	//callbacks:
@@ -37,8 +50,8 @@ Text::Text(PtWidget_t *wdg):
 	check();
 }
 
-PhWidgets::Text::Text(const Text & rhs):
-	Label(rhs),
+TextWidget::TextWidget(const TextWidget & other):
+	Label(other),
 	resource(this),
 	//callbacks:
 	ModifyNotify(this),
@@ -49,9 +62,9 @@ PhWidgets::Text::Text(const Text & rhs):
 {
 }
 
-Text &Text::operator=(const Text &rhs)
+TextWidget &TextWidget::operator=(const TextWidget &other)
 {
-	static_cast<Label&>(*this) = static_cast<const Label&>(rhs);
+	static_cast<Label&>(*this) = static_cast<const Label&>(other);
 	
 	return *this;
 }

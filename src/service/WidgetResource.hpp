@@ -4,9 +4,11 @@
 #include <photon/PhT.h>
 #include <photon/PtWidget.h>
 
-#include "./service/stdex/stdex.h"
+#include "./stdex/stdex.h"
 #include "./WidgetEvents.h"
 #include "./WidgetKeys.h"
+
+#include <cstddef> // std::size_t
 
 namespace PhWidgets
 {
@@ -38,18 +40,18 @@ namespace PhWidgets
 		};
 
 
-		typedef WidgetArgumentGroupType::alloc_type			alloc_type;
-		typedef WidgetArgumentGroupType::array_type			array_type;
-		typedef WidgetArgumentGroupType::boolean_type		boolean_type;
-		typedef WidgetArgumentGroupType::color_type			color_type;
-		typedef WidgetArgumentGroupType::complex_type		complex_type;
-		typedef WidgetArgumentGroupType::flag_type			flag_type;
-		typedef WidgetArgumentGroupType::function_type		function_type;
-		typedef WidgetArgumentGroupType::image_type			image_type;
-		typedef WidgetArgumentGroupType::pointer_type		pointer_type;
-		typedef WidgetArgumentGroupType::scalar_type		scalar_type;
-		typedef WidgetArgumentGroupType::string_type		string_type;
-		typedef WidgetArgumentGroupType::struct_type		struct_type;
+		typedef WidgetArgumentGroupType::alloc_type			alloc_type; // An arbitrarily sized memory object 
+		typedef WidgetArgumentGroupType::array_type			array_type; // An array 
+		typedef WidgetArgumentGroupType::boolean_type		boolean_type; // A bit that's either on or off 
+		typedef WidgetArgumentGroupType::color_type			color_type; // A color 
+		typedef WidgetArgumentGroupType::complex_type		complex_type; // A resource that's handled in a special way; see below. 
+		typedef WidgetArgumentGroupType::flag_type			flag_type; // A value in which each bit has a different meaning
+		typedef WidgetArgumentGroupType::function_type		function_type; // A pointer to a function 
+		typedef WidgetArgumentGroupType::image_type			image_type; // A pointer to a PhImage_t structure 
+		typedef WidgetArgumentGroupType::pointer_type		pointer_type; // A pointer to an address that you specify 
+		typedef WidgetArgumentGroupType::scalar_type		scalar_type; // A value that can be represented within a single long
+		typedef WidgetArgumentGroupType::string_type		string_type; // A null-terminated string 
+		typedef WidgetArgumentGroupType::struct_type		struct_type; // A fixed-size data type, usually a structure, float, or double
 
 		typedef WidgetCallbackGroupType::callback_type		callback_type;
 		typedef WidgetCallbackGroupType::raw_type			callback_raw_type;
@@ -62,10 +64,11 @@ namespace PhWidgets
 		class IPtWidget
 		{
 		public:
+			virtual ~IPtWidget() {}
 			virtual PtWidget_t *widget() const = 0;
 		};
 
-		template<typename ArgT>
+		template<class ArgT>
 		class WidgetResourceBase
 		{
 		protected:
@@ -78,17 +81,90 @@ namespace PhWidgets
 				_rwidget(widget)
 			{}
 
-			inline int setScalar(const void *scval)
+			// A value that can be represented within a single long
+			// When setting a scalar value, you should specify the value as the third argument to PtSetArg(). 
+			// The fourth argument isn't used and should be set to 0. 
+			// When you call PtSetResources(), the widget copies the scalar value into its own internal data structure.
+			template<class T>
+			inline
+			typename
+			stdex::enable_if<
+				sizeof(T) <= sizeof(long), 
+				int
+			>::type setScalar(T scval)
 			{
 				return PtSetResource(_rwidget->widget(), _arg, scval, 0);
 			}
 
-			inline int setColor(PgColor_t color)
+			// A color
+			// Same as scalar.
+			inline 
+			int setColor(PgColor_t color)
 			{
-				return setScalar(reinterpret_cast<const void*>(color));
+				switch(color)
+				{
+				case Pg_BLACK:
+					break;	
+				case Pg_DGRAY:
+					break;	
+				case Pg_MGRAY:
+					break;	
+				case Pg_GRAY:
+					break;	
+				case Pg_WHITE:
+					break;	
+				case Pg_RED	:
+					break;	
+				case Pg_GREEN:
+					break;	
+				case Pg_BLUE:
+					break;	
+				case Pg_YELLOW:
+					break;	
+				case Pg_MAGENTA:
+					break;	
+				case Pg_CYAN:
+					break;	
+				case Pg_DGREEN:
+					break;	
+				case Pg_DCYAN:
+					break;	
+				case Pg_DBLUE:
+					break;	
+				case Pg_BROWN:
+					break;	
+				case Pg_PURPLE:
+					break;	
+				case Pg_CELIDON:
+					break;	
+				default:
+					{
+						const PgColorModel_t * cm = PgGetColorModel();
+
+						if(!(cm && cm->id != Pg_CM_RGB->id))
+						{
+							color &= 0x00FFFFFF;
+						}
+						break;
+					}
+				}
+
+				/*PgColor_t in[] = {color};
+				PgColor_t out[] = {color};
+				if( 0 == PgColorMatch(1, in, out))
+					color = out[0];*/
+
+				return setScalar(color);
 			}
 
-			inline int setString(const char *str)
+			// A null-terminated string
+			// Setting a string value is similar to setting a scalar value; 
+			// you specify the string as the third argument to the PtSetArg() macro. 
+			// The fourth argument is the number of bytes to copy; 
+			// if it's 0, strlen() is used to determine the length of the string. 
+			// When you call PtSetResources(), the widget copies the string into its own internal data structure. 
+			inline 
+			int setString(const char *str)
 			{
 				return setScalar(str);
 			}
@@ -98,97 +174,143 @@ namespace PhWidgets
 			return PtSetResource(widget(), _arg, str, wcslen(str));
 			}*/
 
-			inline int setAlloc(const void **pdata, size_t size)//pointer to data and size of data
+			// An arbitrarily sized memory object
+			// Some resources are designed to store an allocated block of memory.
+			// To set this resource, pass a pointer to the data as the third argument to PtSetArg(). 
+			// The fourth argument is the size of the block of memory, in bytes.
+			// The widget copies the number of bytes given into its internal memory when you call PtSetResources().
+			inline 
+			int setAlloc(const void *pdata, std::size_t size)//pointer to data and size of data
 			{
 				return PtSetResource(_rwidget->widget(), _arg, pdata, size);
 			}
 
-			inline int setImage(const void **pimage)
+			// Image resources are designed to store a PhImage_t structure.
+			// To set this resource, create and initialize the PhImage_t structure, 
+			// and pass a pointer to it as the third argument to PtSetArg(). 
+			// The fourth argument is 0.
+			// The widget copies the image structure (but not any memory pointed to by the PhImage_t members) into its internal memory when you call PtSetResources(). 
+			inline 
+			int setImage(const PhImage_t *pimage)
 			{
 				return setAlloc(pimage, 0);
 			}
 
-			template<typename T, size_t count>
-			inline int setArray(T(&arr)[count])
+			// When setting an array value, the third argument to PtSetArg() is the address of the array. 
+			// The fourth argument is the number of elements in the array.
+			// The widget copies the contents of the array into its own internal data structure when you call PtSetResources().
+			template<class T, std::size_t count>
+			inline 
+			int setArray(T(&arr)[count])
 			{
 				return PtSetResource(_rwidget->widget(), _arg, arr, count);
 			}
 
-			inline int setArray(const void *parr, size_t count)
+			inline 
+			int setArray(const void *parr, std::size_t count)
 			{
 				return PtSetResource(_rwidget->widget(), _arg, parr, count);
 			}
 
-			inline int setFlag(long flag, long bits)
+			// When setting a flag, the third argument to PtSetArg() is a bit field specifying the value of the bits to be set. 
+			// The fourth argument is a bit mask indicating which elements of the bit field should be used.
+			// When you call PtSetResources(), the widget uses the bit mask to determine which bits of its internal flag resource representation to alter. 
+			// It takes the bit values from the value specified.
+			inline 
+			int setFlag(long flag, long bits)
 			{
 				return PtSetResource(_rwidget->widget(), _arg, bits, flag);
 			}
 
-			inline int setFlag(long flag, bool on)
+			inline 
+			int setFlag(long flag, bool on)
 			{
 				return PtSetResource(_rwidget->widget(), _arg, on ? Pt_TRUE : Pt_FALSE, flag);
 			}
 
-			inline int setPointer(const void *p)
+			// When setting a pointer resource, the pointer must be given as the third argument to PtSetArg(). 
+			// The fourth argument is ignored and should be set to 0.
+			// When you call PtSetResources(), the widget simply does a shallow copy of the pointer into the resource.
+			// The widget doesn't make a copy of the memory referenced by the pointer; 
+			// don't free the memory while the widget is still referencing it.
+			// The widget copies the value of the pointer into its internal memory when you call PtSetResources(). 
+			inline 
+			int setPointer(const void *p)
 			{
 				return setScalar(p);
 			}
 
-			inline int setStruct(const void *pdata)
+			// When setting a struct resource, pass the address of the data as the third argument to PtSetArg(). 
+			// The fourth argument isn't used and should be set to 0. 
+			// The widget copies the data into its internal memory when you call PtSetResources(). 
+			inline 
+			int setStruct(const void *pdata)
 			{
-				return setPointer(pdata);
+				return setScalar(pdata); // photon will make a deep copy only if argument ID is known to be struct
 			}
 
-			inline int setBoolean(bool val)
+			// When setting a Boolean value, you should specify the value as the third argument to PtSetArg(), 
+			// using 0 for false, and a nonzero value for true. The fourth argument isn't used, and should be set to 0. 
+			// When you call PtSetResources(), the widget clears or sets one bit in its own internal data structure depending on whether or not the value is zero. 
+			inline 
+			int setBoolean(bool val)
 			{
 				return PtSetResource(_rwidget->widget(), _arg, val ? 1 : 0, 0);
 			}
 
-			template<size_t count>
-			inline void addLink(PtCallback_t const (&callbacks)[count])
+			template<std::size_t count>
+			inline 
+			void addLink(PtCallback_t const (&callbacks)[count])
 			{
 				PtAddCallbacks(_rwidget->widget(), _arg, callbacks, count);
 			}
 
-			inline void addLink(PtCallback_t callback)
+			inline 
+			void addLink(PtCallback_t callback)
 			{
 				PtCallback_t callbacks [] = { callback };
 
 				addLink(callbacks);
 			}
 
-			inline void addLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
+			inline 
+			void addLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
 			{
 				PtAddCallback(_rwidget->widget(), _arg, callback, data);
 			}
 
-			template<size_t count>
-			inline void addLinkBefore(PtRawCallback_t const (&callbacks)[count])
+			template<std::size_t count>
+			inline
+			void addLinkBefore(PtRawCallback_t const (&callbacks)[count])
 			{
 				PtAddFilterCallbacks(_rwidget->widget(), callbacks, count);
 			}
 
-			template<size_t count>
-			inline void addLinkAfter(PtRawCallback_t const (&callbacks)[count])
+			template<std::size_t count>
+			inline 
+			void addLinkAfter(PtRawCallback_t const (&callbacks)[count])
 			{
 				PtAddEventHandlers(_rwidget->widget(), callbacks, count);
 			}
 
-			inline void addLinkBefore(PtRawCallback_t callback)
+			inline 
+			void addLinkBefore(PtRawCallback_t callback)
 			{
 				PtRawCallback_t callbacks [] = { callback };
 
 				addLinkBefore(callbacks);
 			}
 
-			inline void addLinkAfter(PtRawCallback_t callback)
+			inline 
+			void addLinkAfter(PtRawCallback_t callback)
 			{
 				PtRawCallback_t callbacks[] = { callback };
 
 				addLinkAfter(callbacks);
 			}
 
-			inline void addLinkBefore(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
+			inline 
+			void addLinkBefore(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
 			{
 				// Invoked before the event is processed by the widget. 
 				// They let you perform actions based on the event before the widget sees it. 
@@ -196,99 +318,134 @@ namespace PhWidgets
 				PtAddFilterCallback(_rwidget->widget(), _arg, callback, data);
 			}
 
-			inline void addLinkAfter(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
+			inline 
+			void addLinkAfter(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
 			{
 				// invoked after the widget has processed the event, even if the widget's class methods consume it
 				PtAddEventHandler(_rwidget->widget(), _arg, callback, data); 
 			}
 
-			inline void addLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), KeyModes::eKeyModes keymode = KeyModes::none, bool chained = false, void *data = nullptr)
+			inline 
+			void addLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), KeyModes::eKeyModes keymode = KeyModes::none, bool chained = false, void *data = nullptr)
 			{
 				PtAddHotkeyHandler(_rwidget->widget(), _arg, keymode, chained ? Pt_HOTKEY_CHAINED : 0, data, callback);
 			}
 
-			template<size_t count>
-			inline void removeLink(PtCallback_t const (&callbacks)[count])
+			template<std::size_t count>
+			inline 
+			void removeLink(PtCallback_t const (&callbacks)[count])
 			{
 				PtRemoveCallbacks(_rwidget->widget(), _arg, callbacks, count);
 			}
 
-			inline void removeLink(PtCallback_t callback)
+			inline 
+			void removeLink(PtCallback_t callback)
 			{
 				PtCallback_t callbacks [] = { callback };
 
 				removeLink(callbacks);
 			}
 
-			inline void removeLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
+			inline 
+			void removeLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
 			{
 				PtRemoveCallback(_rwidget->widget(), _arg, callback, data);
 			}
 
-			template<size_t count>
-			inline void removeLinkBefore(PtRawCallback_t const (&callbacks)[count])
+			template<std::size_t count>
+			inline 
+			void removeLinkBefore(PtRawCallback_t const (&callbacks)[count])
 			{
 				PtRemoveFilterHandlers(_rwidget->widget(), callbacks, count);
 			}
 
-			template<size_t count>
-			inline void removeLinkAfter(PtRawCallback_t const (&callbacks)[count])
+			template<std::size_t count>
+			inline 
+			void removeLinkAfter(PtRawCallback_t const (&callbacks)[count])
 			{
 				PtRemoveEventHandlers(_rwidget->widget(), callbacks, count);
 			}
 
-			inline void removeLinkBefore(PtRawCallback_t callback)
+			inline 
+			void removeLinkBefore(PtRawCallback_t callback)
 			{
 				PtRawCallback_t callbacks [] = { callback };
 
 				removeLinkBefore(callbacks);
 			}
 
-			inline void removeLinkAfter(PtRawCallback_t callback)
+			inline 
+			void removeLinkAfter(PtRawCallback_t callback)
 			{
 				PtRawCallback_t callbacks[] = { callback };
 
 				removeLinkAfter(callbacks);
 			}
 
-			inline void removeLinkBefore(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
+			inline 
+			void removeLinkBefore(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
 			{
 				PtRemoveFilterCallback(_rwidget->widget(), _arg, callback, data);
 			}
 
-			inline void removeLinkAfter(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
+			inline 
+			void removeLinkAfter(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), void *data = nullptr)
 			{
 				PtRemoveEventHandler(_rwidget->widget(), _arg, callback, data);
 			}
 
-			inline void removeLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), KeyModes::eKeyModes keymode = KeyModes::none, bool chained = false, void *data = nullptr)
+			inline 
+			void removeLink(int(*callback)(PtWidget_t *, void *, PtCallbackInfo_t *), KeyModes::eKeyModes keymode = KeyModes::none, bool chained = false, void *data = nullptr)
 			{
 				PtRemoveHotkeyHandler(_rwidget->widget(), _arg, keymode, chained ? Pt_HOTKEY_CHAINED : 0, data, callback);
 			}
 
-			template<typename T>
-			inline T getScalar() const
+			// The value argument to PtSetArg() is the address of a pointer of the appropriate C type.
+			// len isn't used.
+			// When PtGetResources() is called, 
+			// the pointer specified is set to point to the same data as the widget's internal pointer. 
+			// The data is external(!) to the widget; 
+			// you might be able to modify it, depending on the resource. 
+			template<class T>
+			inline
+			typename stdex::enable_if<
+				stdex::is_pointer<T>::value, 
+				T
+			>::type getPointer() const
 			{
-				PtArg_t arg;
+				T value = nullptr;
+				PtArg_t args[1];
 
-				PtSetArg(&arg, _arg, 0, 0);
-				PtGetResources(_rwidget->widget(), 1, &arg);
+				PtSetArg(&args[0], _arg, &value, 0);
+				PtGetResources(_rwidget->widget(), 1, args);
 
-				return static_cast<T>(arg.value);
+				return value;
 			}
 
-			template<typename T>
-			inline T getString() const
+			// When using the pointer method to get a scalar, array, or flag resource, 
+			// the widget always gives a pointer to an internal widget data structure. 
+			// In the argument list element you set up using PtSetArg(), 
+			// you must provide the address of a variable to which the internal data pointer can be assigned. 
+			template<class T>
+			inline
+			typename stdex::enable_if<
+				stdex::is_pointer<T>::value == false, 
+				typename stdex::remove_cv<T>::type const &
+			>::type getScalar() const
 			{
-				PtArg_t arg;
-
-				PtSetArg(&arg, _arg, 0, 0);
-				PtGetResources(_rwidget->widget(), 1, &arg);
-
-				return static_cast<T>(reinterpret_cast<char*>(arg.value));
+				return *getPointer<const T*>();
+			}
+ 
+			inline
+			const char* getString() const
+			{
+				return getPointer<const char*>();
 			}
 
-			inline bool getBoolean() const
+			// If you set the value and len arguments to PtSetArg() to zero, 
+			// PtGetResources() returns the resource's value (converted to long) as 0 (false) or 1 (true)
+			inline 
+			bool getBoolean() const
 			{
 				PtArg_t arg;
 
@@ -298,30 +455,38 @@ namespace PhWidgets
 				return (arg.value != 0);
 			}
 
-
-			template<typename T>
-			inline T* getStruct() const
+			// If you set the value and len arguments to PtSetArg() to zero, 
+			// PtGetResources() returns the resource's value (converted to long) as Address of the data 
+			template<class T>
+			inline
+			typename stdex::enable_if<
+				stdex::is_pointer<T>::value == false, 
+				const T*
+			>::type getStruct() const
 			{
-				T *p = nullptr;
-				PtArg_t arg;
-
-				PtSetArg(&arg, _arg, &p, 0);
-				PtGetResources(_rwidget->widget(), 1, &arg);
-
-				return p;
+				return getPointer<const T*>();
 			}
 
-
-			template<typename T>
-			inline T* getAlloc() const
+			// The value argument to PtSetArg() is the address of a pointer of the appropriate type 
+			// (the type is determined by the data given to the widget when this resource is set). 
+			// The len isn't used.
+			// When PtGetResources() is called, the pointer specified is set to point to the widget's internal data. 
+			template<class T>
+			inline
+			typename stdex::enable_if<
+				stdex::is_pointer<T>::value == true, 
+				const
+				typename stdex::remove_pointer<
+					typename stdex::remove_cv<T>::type
+				>::type*
+			>::type getAlloc() const
 			{
-				T *p = nullptr;
-				PtArg_t arg;
-
-				PtSetArg(&arg, _arg, &p, 0);
-				PtGetResources(_rwidget->widget(), 1, &arg);
-
-				return p;
+				typedef
+				const
+				typename stdex::remove_pointer<
+					typename stdex::remove_cv<T>::type
+				>::type* type;
+				return getPointer<type>();
 			}
 
 			inline PtCallbackList_t *getLink() const
@@ -355,7 +520,7 @@ namespace PhWidgets
 			{
 				PtCallbackList_t *cl = this->getLink();
 
-				if (nullptr == cl)
+				if (!cl)
 					return;
 
 				PtWidget_t *w = _rwidget->widget();
@@ -370,21 +535,30 @@ namespace PhWidgets
 			{}
 		};
 
-		template<typename ArgT, class ResourceGroupT, class ResourceT>
-		struct WidgetArgument :
-			private WidgetResourceBase<ArgT>
-		{
-			typedef WidgetResourceGroupType::unknown_type resource_group_type;
+		template<class ArgT, class ResourceGroupT, class ResourceT>
+		struct WidgetArgument;
 
-			// not impelemented
-		};
-
-		template<typename ArgT>//const void * always
-		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::alloc_type, const void *> :
+		template<class ArgT, class ResourceT> // pointer always
+		struct WidgetArgument<
+			ArgT, 
+			typename stdex::enable_if<
+				(
+					stdex::is_pointer<ResourceT>::value ||
+					stdex::is_void<ResourceT>::value 
+				),
+				WidgetResourceGroupType::alloc_type
+			>::type,
+			ResourceT
+		> :
 			private WidgetResourceBase<ArgT>
 		{
 			typedef WidgetResourceGroupType::WidgetArgumentGroupType::alloc_type resource_group_type;
-			typedef const void * resource_type;
+			typedef 
+			typename stdex::conditional< 
+				stdex::is_void<ResourceT>::value,
+				const void *,
+				typename stdex::remove_cv<ResourceT>::type const // const pointer
+			>::type resource_type;
 
 			WidgetArgument(IPtWidget *widget, ArgT arg) :
 				WidgetResourceBase<ArgT>(widget, arg)
@@ -394,53 +568,26 @@ namespace PhWidgets
 			{}
 
 
-			inline int set(const void *pdata, size_t size)
+			inline 
+			int set(resource_type pdata, std::size_t size)
 			{
 				return this->setAlloc(&pdata, size);
 			}
 
-			inline int set(const void *pdata)
+			inline 
+			typename stdex::enable_if<
+				stdex::is_same<resource_type, const void*>::value,
+				int
+			>::type set(resource_type pdata)
 			{
-				return this->setPointer(pdata);
+				typedef typename stdex::remove_pointer<resource_type>::type type;
+				return this->setAlloc(pdata, sizeof(type));
 			}
 
-			inline const void* get() const
+			inline 
+			resource_type get() const
 			{
-				//return this->getAlloc<const void>();
-				return nullptr;
-			}
-
-		};
-
-		template<typename ArgT>//const void * always
-		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::alloc_type, void> :
-			private WidgetResourceBase<ArgT>
-		{
-			typedef WidgetResourceGroupType::WidgetArgumentGroupType::alloc_type resource_group_type;
-			typedef const void * resource_type;
-
-			WidgetArgument(IPtWidget *widget, ArgT arg) :
-				WidgetResourceBase<ArgT>(widget, arg)
-			{}
-
-			~WidgetArgument()
-			{}
-
-
-			inline int set(const void *pdata, size_t size)
-			{
-				return this->setAlloc(&pdata, size);
-			}
-
-			inline int set(const void *pdata)
-			{
-				return this->setPointer(pdata);
-			}
-
-			inline const void* get() const
-			{
-				//return this->getAlloc<const void>();
-				return nullptr;
+				return WidgetResourceBase<ArgT>::template getAlloc<resource_type>();
 			}
 
 		};
@@ -451,7 +598,7 @@ namespace PhWidgets
 			~NotImplemented();
 		};
 
-		template<typename ArgT, class ResourceT>
+		template<class ArgT, class ResourceT>
 		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::array_type, ResourceT> :
 			private NotImplemented//WidgetResourceBase<ArgT>
 		{
@@ -461,22 +608,44 @@ namespace PhWidgets
 			// not impelemented
 		};
 
-		template<typename ArgT, class ResourceT>
-		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::boolean_type, ResourceT> :
-			private NotImplemented//WidgetResourceBase<ArgT>
+		template<class ArgT, class ResourceT>
+		struct WidgetArgument<ArgT, WidgetResourceGroupType::boolean_type, ResourceT> :
+			private WidgetResourceBase<ArgT>
 		{
-			typedef WidgetResourceGroupType::WidgetArgumentGroupType::boolean_type resource_group_type;
+			typedef WidgetResourceGroupType::boolean_type resource_group_type;
 			typedef ResourceT resource_type;
 
-			// not impelemented
+			WidgetArgument(IPtWidget *widget, ArgT arg) :
+				WidgetResourceBase<ArgT>(widget, arg)
+			{}
+
+			~WidgetArgument()
+			{}
+
+			inline
+			int set(resource_type value)
+			{
+				return this->setBoolean(value);
+			}
+
+			inline
+			resource_type get() const
+			{
+				return this->getBoolean();
+			}
 		};
 
-		template<typename ArgT, class ResourceT>
+		template<class ArgT, class ResourceT>
 		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::color_type, ResourceT> :
 			private WidgetResourceBase<ArgT>
 		{
-			typedef WidgetResourceGroupType::WidgetArgumentGroupType::color_type resource_group_type;
-			typedef ResourceT resource_type;
+			typedef WidgetResourceGroupType::color_type resource_group_type;
+			typedef
+			typename stdex::conditional< 
+				stdex::is_void<ResourceT>::value,
+				PgColor_t,
+				ResourceT
+			>::type resource_type;
 
 			WidgetArgument(IPtWidget *widget, ArgT arg) :
 				WidgetResourceBase<ArgT>(widget, arg)
@@ -485,47 +654,20 @@ namespace PhWidgets
 			~WidgetArgument()
 			{}
 
-			inline int set(resource_type color)
+			inline 
+			int set(resource_type color)
 			{
-				return this->setColor(color);
+				return setColor(color);
 			}
 
-			inline resource_type get() const
+			inline 
+			resource_type get() const
 			{
-				//return this->getScalar<PgColor_t>();
-				return resource_type();
+				return WidgetResourceBase<ArgT>::template getScalar<PgColor_t>();
 			}
-
 		};
 
-		template<typename ArgT>
-		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::color_type, void> :
-			private WidgetResourceBase<ArgT>
-		{
-			typedef WidgetResourceGroupType::WidgetArgumentGroupType::color_type resource_group_type;
-			typedef PgColor_t resource_type;
-
-			WidgetArgument(IPtWidget *widget, ArgT arg) :
-				WidgetResourceBase<ArgT>(widget, arg)
-			{}
-
-			~WidgetArgument()
-			{}
-
-			inline int set(resource_type color)
-			{
-				return this->setColor(color);
-			}
-
-			inline resource_type get() const
-			{
-				//return this->getScalar<PgColor_t>();
-				return resource_type();
-			}
-
-		};
-
-		template<typename ArgT, class ResourceT>
+		template<class ArgT, class ResourceT>
 		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::complex_type, ResourceT> :
 			private NotImplemented//WidgetResourceBase<ArgT>
 		{
@@ -537,11 +679,11 @@ namespace PhWidgets
 
 		namespace flag_detail
 		{
-			template<typename T> struct mask_type { typedef long type; };
+			template<class T> struct mask_type { typedef long type; };
 			template<> struct mask_type<bool> { typedef bool type; };
 		}
 
-		template<typename ArgT, class ResourceT>
+		template<class ArgT, class ResourceT>
 		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::flag_type, ResourceT> :
 			private WidgetResourceBase<ArgT>
 		{
@@ -556,13 +698,13 @@ namespace PhWidgets
 			{}
 
 
-			template<typename A1, typename A2>
+			template<class A1, typename A2>
 			inline int set(A1 flag, A2 mask)
 			{
 				return this->setFlag(flag, static_cast<typename flag_detail::mask_type<A2>::type>(mask));
 			}
 			
-			template<typename A1>
+			template<class A1>
 			inline int set(A1 bitmask)
 			{
 				int err = this->setFlag(bitmask, true);
@@ -573,11 +715,10 @@ namespace PhWidgets
 
 			inline resource_type get() const
 			{
-				//return this->getScalar<resource_type>();
-				return resource_type();
+				return WidgetResourceBase<ArgT>::template getScalar<resource_type>();
 			}
 
-			template<typename A1>
+			template<class A1>
 			inline bool get(A1 flag) const
 			{
 				return ((get() & flag) == flag);
@@ -585,7 +726,7 @@ namespace PhWidgets
 
 		};
 
-		template<typename ArgT, class ResourceT>
+		template<class ArgT, class ResourceT>
 		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::function_type, ResourceT> :
 			private NotImplemented//WidgetResourceBase<ArgT>
 		{
@@ -595,28 +736,90 @@ namespace PhWidgets
 			// not impelemented
 		};
 
-		template<typename ArgT, class ResourceT>
+		template<class ArgT, class ResourceT>
 		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::image_type, ResourceT> :
-			private NotImplemented//WidgetResourceBase<ArgT>
+			private WidgetResourceBase<ArgT>
 		{
-			typedef WidgetResourceGroupType::WidgetArgumentGroupType::image_type resource_group_type;
-			typedef ResourceT resource_type;
+			typedef WidgetResourceGroupType::image_type resource_group_type;
+			typedef
+			typename stdex::conditional< 
+				stdex::is_void<ResourceT>::value,
+				const PhImage_t*,
+				ResourceT
+			>::type resource_type;
 
-			// not impelemented
+			WidgetArgument(IPtWidget *widget, ArgT arg) :
+				WidgetResourceBase<ArgT>(widget, arg)
+			{}
+
+			~WidgetArgument()
+			{}
+
+			inline 
+			int set(resource_type pimage)
+			{
+				return setImage(pimage);
+			}
+
+			inline 
+			resource_type get() const
+			{
+				return WidgetResourceBase<ArgT>::template getAlloc<resource_type>();
+			}
 		};
 
-		template<typename ArgT, class ResourceT>
-		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::pointer_type, ResourceT> :
-			private NotImplemented//WidgetResourceBase<ArgT>
+		template<class ArgT, class ResourceT>
+		struct WidgetArgument<
+			ArgT, 
+			typename
+			stdex::enable_if<
+				(
+					stdex::is_pointer<ResourceT>::value ||
+					stdex::is_void<ResourceT>::value
+				),
+				WidgetResourceGroupType::pointer_type
+			>::type,
+			ResourceT
+		> :
+			private WidgetResourceBase<ArgT>
 		{
-			typedef WidgetResourceGroupType::WidgetArgumentGroupType::pointer_type resource_group_type;
-			typedef ResourceT resource_type;
+			typedef WidgetResourceGroupType::pointer_type resource_group_type;
+			typedef
+			typename stdex::conditional< 
+				stdex::is_void<ResourceT>::value,
+				void *,
+				ResourceT
+			>::type resource_type;
 
-			// not impelemented
+			WidgetArgument(IPtWidget *widget, ArgT arg) :
+				WidgetResourceBase<ArgT>(widget, arg)
+			{}
+
+			~WidgetArgument()
+			{}
+
+			inline
+			int set(resource_type value)
+			{
+				return this->setPointer(value);
+			}
+
+			inline
+			resource_type get() const
+			{
+				return WidgetResourceBase<ArgT>::template getPointer<resource_type>();
+			}
 		};
 
-		template<typename ArgT, class ResourceT>
-		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::scalar_type, ResourceT> :
+		template<class ArgT, class ResourceT>
+		struct WidgetArgument<
+				ArgT, 
+				typename stdex::enable_if<
+					sizeof(ResourceT) <= sizeof(long), // make shure that Resource type fits in long or goto basic WidgetArgument
+					 WidgetResourceGroupType::scalar_type
+				>::type,
+				ResourceT
+		> :
 			private WidgetResourceBase<ArgT>
 		{
 			typedef WidgetResourceGroupType::WidgetArgumentGroupType::scalar_type resource_group_type;
@@ -629,90 +832,70 @@ namespace PhWidgets
 			~WidgetArgument()
 			{}
 
-
-			template<typename T>
-			inline int set(T value)
+			inline
+			int set(resource_type value)
 			{
-				return this->setScalar(reinterpret_cast<const void*>(static_cast<resource_type>(value)));
+				return this->setScalar(value);
 			}
 
-			inline resource_type get() const
+			inline
+			resource_type get() const
 			{
-				//return this->getScalar<resource_type>();
-				return resource_type();
+				return WidgetResourceBase<ArgT>::template getScalar<resource_type>();
 			}
 		};
 
-		template<typename ArgT>//const char * always
-		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::string_type, const char *> :
+		template<class ArgT, class ResourceT>//const char * always
+		struct WidgetArgument<
+				ArgT, 
+				typename stdex::enable_if<
+					(
+						stdex::is_same<typename stdex::remove_cv<ResourceT>::type, char*>::value ||// make shure that Resource type is const char*
+						stdex::is_void<ResourceT>::value // or void; if not goto basic WidgetArgument
+					),
+					WidgetResourceGroupType::string_type
+				>::type,
+				ResourceT
+		> :
 			private WidgetResourceBase<ArgT>
 		{
-			typedef WidgetResourceGroupType::WidgetArgumentGroupType::string_type resource_group_type;
+			typedef WidgetResourceGroupType::string_type resource_group_type;
 			typedef const char * resource_type;
 
 			WidgetArgument(IPtWidget *widget, ArgT arg) :
 				WidgetResourceBase<ArgT>(widget, arg)
 			{}
 
-			typedef const char * argument_t;
-
 			~WidgetArgument()
 			{}
 
-
-			inline int set(const char *str)
+			inline 
+			int set(resource_type str)
 			{
 				return this->setString(str);
 			}
 
-			inline const char* get() const
+			inline 
+			resource_type get() const
 			{
-				//return this->getString<const char*>();
-				return nullptr;
+				return this->getString();
 			}
 
 		};
 
-		template<typename ArgT>//const char * always
-		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::string_type, void> :
+		template<class ArgT, class ResourceT>
+		struct WidgetArgument<
+			ArgT, 
+			typename stdex::enable_if<
+				stdex::is_pointer<ResourceT>::value == false,
+				WidgetResourceGroupType::struct_type
+			>::type,
+			ResourceT
+		> :
 			private WidgetResourceBase<ArgT>
 		{
-			typedef WidgetResourceGroupType::WidgetArgumentGroupType::string_type resource_group_type;
-			typedef const char * resource_type;
-
-			WidgetArgument(IPtWidget *widget, ArgT arg) :
-				WidgetResourceBase<ArgT>(widget, arg)
-			{}
-
-			typedef const char * argument_t;
-
-			~WidgetArgument()
-			{}
-
-
-			inline int set(const char *str)
-			{
-				return this->setString(str);
-			}
-
-			inline const char* get() const
-			{
-				//return this->getString<const char*>();
-				return nullptr;
-			}
-
-		};
-
-		template<typename ArgT, class ResourceT>
-		struct WidgetArgument<ArgT, WidgetResourceGroupType::WidgetArgumentGroupType::struct_type, ResourceT> :
-			private WidgetResourceBase<ArgT>
-		{
-		private:
-			template<typename T> struct remove_p { typedef T type; };
-			template<typename T> struct remove_p<T*> { typedef T type; };
-
 		public:
-			typedef WidgetResourceGroupType::WidgetArgumentGroupType::struct_type resource_group_type;
+			typedef WidgetResourceGroupType::struct_type resource_group_type;
 			typedef ResourceT resource_type;
 
 			WidgetArgument(IPtWidget *widget, ArgT arg) :
@@ -723,39 +906,31 @@ namespace PhWidgets
 			{}
 
 
-			template<typename T>
-			inline int set(const T &value)
+			inline 
+			int set(resource_type value)
 			{
-				return this->setStruct(reinterpret_cast<const void*>(&static_cast<const resource_type&>(value)));
+				return this->setStruct(&value);
 			}
 
-			template<typename T>
-			inline int set(T *value)
+			template<class T>
+			inline 
+			int set(const T &value)
 			{
-				return this->setStruct(reinterpret_cast<const void*>(static_cast<const resource_type>(value)));
+				return this->setStruct(&static_cast<const resource_type&>(value));
 			}
 
-			inline resource_type get() const
+			inline 
+			const resource_type& get() const
 			{
-				//typedef remove_p<resource_type>::type ret_t;
-				
-				//ret_t *ptr = this->getStruct<ret_t>();
-				//return *get(ptr);
-				
-				return resource_type();
+				return *WidgetResourceBase<ArgT>::template getStruct<resource_type>();
 			}
-
-		private:
-
-			inline resource_type* get(resource_type *&ptr) { return ptr; }
-			inline resource_type* get(resource_type &ptr) { return &ptr; }
 		};
 
 		struct WidgetArgumentsBase
 		{
 			//friend class WidgetResourcesSingleton;			
 
-			/*template<typename ArgT>
+			/*template<class ArgT>
 			static std::map<ArgT, WidgetArgument <ArgT> >  &_resources()
 			{
 				static std::map<ArgT, WidgetArgument <ArgT> >  resources;
@@ -766,7 +941,7 @@ namespace PhWidgets
 		protected:
 
 			/*
-			template<typename ArgT>
+			template<class ArgT>
 			WidgetArgument<ArgT> &operator [](const ArgT indx) const
 			{
 				static std::map<ArgT, WidgetArgument <ArgT> >  &resources = _resources<ArgT>();
@@ -780,7 +955,7 @@ namespace PhWidgets
 			}
 			*/
 
-			/*template<typename ArgT>
+			/*template<class ArgT>
 			inline WidgetArgument<ArgT> operator [](const ArgT indx) const
 			{
 				return WidgetArgument <ArgT> ( _widget, indx );
@@ -806,7 +981,7 @@ namespace PhWidgets
 			}
 		};
 
-		template<typename LinkT, class ResourceT = PtCallback_t*>
+		template<class LinkT, class ResourceT = PtCallback_t*>
 		struct WidgetCallback :
 			private WidgetResourceBase<LinkT>
 		{
@@ -853,7 +1028,7 @@ namespace PhWidgets
 		};
 
 		/*
-		template<typename LinkT>
+		template<class LinkT>
 		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type, PtHotkeyCallback_t*> :
 			private WidgetResourceBase<LinkT>
 		{
@@ -889,7 +1064,7 @@ namespace PhWidgets
 			}
 		};
 
-		template<typename LinkT>
+		template<class LinkT>
 		struct WidgetCallback<LinkT, WidgetResourceGroupType::WidgetCallbackGroupType::hotkey_type, void> :
 			private WidgetResourceBase<LinkT>
 		{
@@ -951,7 +1126,7 @@ namespace PhWidgets
 
 		};
 
-		template<typename EventT = Events::eEvents, class ResourceT = PtRawCallback_t*>
+		template<class EventT = Events::eEvents, class ResourceT = PtRawCallback_t*>
 		struct WidgetRawCallback:
 			private WidgetResourceBase<EventT>
 		{
@@ -1020,7 +1195,7 @@ namespace PhWidgets
 
 		};
 
-		template<typename EventT = Events::eEvents, class ResourceT = PtRawCallback_t*>
+		template<class EventT = Events::eEvents, class ResourceT = PtRawCallback_t*>
 		struct WidgetFilterCallback:
 			private WidgetResourceBase<EventT>
 		{
@@ -1677,7 +1852,7 @@ namespace PhWidgets
 				typedef def_help::Define<resource_type> Define;
 			};
 
-			template<class PrevT, class LinkT, class ResourceT>
+			template<class PrevT, class LinkT, class ResourceT = void>
 			struct Image
 			{
 				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
@@ -1688,7 +1863,7 @@ namespace PhWidgets
 				typedef def_help::Define<resource_type> Define;
 			};
 
-			template<class PrevT, class LinkT, class ResourceT>
+			template<class PrevT, class LinkT, class ResourceT = void>
 			struct Pointer
 			{
 				typedef typename PrevT::WidgetCallbacks prev_widget_callbacks_type;
@@ -1771,10 +1946,10 @@ namespace PhWidgets
 				template<class ArgT, class ResourceT>
 				struct Function : def_orig::Function<PrevT, ArgT, ResourceT> {};
 
-				template<class ArgT, class ResourceT>
+				template<class ArgT, class ResourceT = void>
 				struct Image : def_orig::Image<PrevT, ArgT, ResourceT> {};
 
-				template<class ArgT, class ResourceT>
+				template<class ArgT, class ResourceT = void>
 				struct Pointer : def_orig::Pointer<PrevT, ArgT, ResourceT> {};
 
 				template<class ArgT, class ResourceT>
@@ -1799,7 +1974,11 @@ namespace PhWidgets
 		struct Define :
 			detail::def_help::Define<PrevT>
 		{};
-
+		
+		template<class PrevTNext>
+		struct And :
+			ResourceFrom<PrevTNext>
+		{};
 	};
 }
 

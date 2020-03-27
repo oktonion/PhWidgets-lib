@@ -1,20 +1,35 @@
 #include "ToggleButton.h"
-#include "./service/mystd/my_exception.h"
+
+#include <stdexcept>
 
 using namespace PhWidgets;
 
-void ToggleButton::check()
+namespace PhWidgets
 {
-	if(PtWidgetIsClassMember( widget(), PtToggleButton ) != true)
-		throw(std::mystd::exception("ToggleButton: widget is not PtToggleButton."));
+    const char * WidgetClassName(PtWidget_t *wdg);
 }
+
+#define FORM_THROW_MESSAGE(xxx) (std::string("PhWidgets::") + std::string(#xxx": wrong class of photon widget - got \'") + WidgetClassName(widget()) + "\' instead of \'Pt"#xxx"\'.").c_str()
+#define WIDGET_IS_CLASS_MEMBER(xxx) \
+	if(PtWidgetIsClassMember( widget(), Pt##xxx ) != true)\
+		throw(std::invalid_argument(FORM_THROW_MESSAGE(xxx)));
+
+#define CHECK_WIDGET(xxx) \
+void xxx::check() \
+{ \
+	WIDGET_IS_CLASS_MEMBER(xxx); \
+}
+
+CHECK_WIDGET(ToggleButton);
 
 
 ToggleButton::ToggleButton(int abn):
 	Button(abn),
 	resource(this),
 	//properties:
-	Checked(this)
+	IsChecked(this),
+	IndicatorType(this),
+	IndicatorColor(this)
 {
 	check();
 }
@@ -23,37 +38,28 @@ ToggleButton::ToggleButton(PtWidget_t *wdg):
 	Button(wdg),
 	resource(this),
 	//properties:
-	Checked(this)
+	IsChecked(this),
+	IndicatorType(this),
+	IndicatorColor(this)
 {
 	check();
 }
 
-ToggleButton::ToggleButton(const ToggleButton &rhs):
-	Button(rhs),
+ToggleButton::ToggleButton(const ToggleButton &other):
+	Button(other),
 	resource(this),
 	//properties:
-	Checked(this)
+	IsChecked(this),
+	IndicatorType(this),
+	IndicatorColor(this)
 {
 }
 
-ToggleButton &ToggleButton::operator=(const ToggleButton &rhs)
+ToggleButton &ToggleButton::operator=(const ToggleButton &other)
 {
-	static_cast<Button&>(*this) = static_cast<const Button&>(rhs);
+	static_cast<Button&>(*this) = static_cast<const Button&>(other);
 	
 	return *this;
-}
-
-
-void ToggleButton::Check(bool val)
-{
-	if(val)
-		resource.argument[Arguments::flags].set(Pt_SET, true);
-}
-
-void ToggleButton::Uncheck(bool val)
-{
-	if(val)
-		resource.argument[Arguments::flags].set(Pt_SET, false);
 }
 
 void ToggleButton::setChecked(bool val)
@@ -66,5 +72,27 @@ void ToggleButton::setChecked(bool val)
 bool ToggleButton::getChecked() const
 {
 	return resource.argument[Arguments::flags].get(Pt_SET);
+}
+
+void ToggleButton::setIndicatorType(ToggleIndicatorType::eToggleIndicatorType val)
+{
+	resource.argument[Arguments::indicator_type].set(val);
+}
+
+ToggleIndicatorType::eToggleIndicatorType ToggleButton::getIndicatorType() const
+{
+	unsigned char result = resource.argument[Arguments::indicator_type].get();
+	switch(result)
+	{
+		case ToggleIndicatorType::Check:
+			break;
+		case ToggleIndicatorType::Outline:
+			break;
+		case ToggleIndicatorType::Radio:
+			break;
+		default:
+			throw(std::invalid_argument("ToggleButton::IndicatorType is invalid."));
+	}
+	return static_cast<ToggleIndicatorType::eToggleIndicatorType>(result);
 }
 

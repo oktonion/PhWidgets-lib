@@ -1,12 +1,15 @@
-#ifndef STDEX_H
-#define STDEX_H
+#pragma GCC system_header
 
-//std:
-#include "h/basic_string_ex.h"
-#include "h/code_extensions.h"
-#include "h/types_ex.h"
+#include "./include/core.h"
+//#include "./include/ratio.hpp"
+#include "./include/string.hpp"
+#include "./include/system_error.hpp"
+#include "./include/type_traits.hpp"
+//#include "./include/condition_variable.hpp"
+#include "./include/type_zero.hpp"
+#include "./include/thread.hpp"
 
-//stdex:
-#include "h/type_zero.hpp"
-
-#endif
+namespace std
+{
+    using namespace stdex;
+}

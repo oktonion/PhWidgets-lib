@@ -25,6 +25,7 @@ if [ "$1" == "debug" ]
 	print "	Warning: DEBUG compile configuration!"
 fi
 
+
 compilefail=0
 
 for i in $(find ./src/ -name "*.cpp"); do 
@@ -36,7 +37,7 @@ for i in $(find ./src/ -name "*.cpp"); do
 	done
 	
 	print "	Compile $fname"; 
-	$compiler -lang-c++ -Wall $coption -c $i -o $fname; 
+	$compiler -Vgcc_ntox86 -lang-c++ $coption -Wall -c $i -o $fname; 
 	
 	if [ $? -ne 0 ]; then
 		compilefail=2;
@@ -70,6 +71,7 @@ if [ $compilefail == 0 ]; then
 	mkdir -p "$outlocation"
 	mkdir -p "$outlocation/$libname"
 
+	ar -x ./src/service/stdex/lib/libstdex.a
 
 	if(ar rsc "$outlocation/$libname/$binname" *.o)
 	then
@@ -87,7 +89,17 @@ if [ $compilefail == 0 ]; then
 				
 				hcount=$((hcount+1));
 			done
-			
+
+			for i in $(find ./src/ -type f ! -name "*.*"); do
+				hdir=$(dirname $i);
+				hdir=$(echo $hdir | sed -e "s/.\/src/.\/slib\/$libname\/include/g");
+				
+				mkdir -p  $hdir;
+				cp -f $i $hdir;
+				
+				hcount=$((hcount+1));
+			done
+
 			cp "./etc/AbWidgetsWrap.cpp" "$outlocation/"
 			cp "./etc/.linklib.sh" "$outlocation/$libname/"
 			chmod a+rwx "$outlocation/$libname/.linklib.sh"

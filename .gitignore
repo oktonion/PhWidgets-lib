@@ -85,7 +85,39 @@ src/.vscode/launch.json
 # Visual Studio Code files
 *.vscode*
 
+# Visual Studio files
+*.vs*
+
 # old library
 /old/*
 /slib/*
 *.tar
+
+# cppcheck files
+*.a1
+*.cppcheck
+PhWidgets-cppcheck-build-dir/*
+
+# tests binaries
+/tests/bin/*
+
+# fuse
+*.fuse_*
+CppProperties.json
+
+# artifacts
+tests/generator/artifacts/*
+
+# test app
+tests/generator/testsuit/resources/test_app/x86/*
+tests/generator/testsuit/resources/test_app/abapp.dfn
+tests/generator/testsuit/resources/test_app/abapp.wsp
+tests/generator/testsuit/resources/test_app/common.mk
+tests/generator/testsuit/resources/test_app/Makefile
+tests/generator/testsuit/resources/test_app/src/abplatform
+tests/generator/testsuit/resources/test_app/src/abLfiles
+tests/generator/testsuit/resources/test_app/src/abWfiles
+tests/generator/testsuit/resources/test_app/src/indLfiles
+tests/generator/testsuit/resources/test_app/src/proto.h
+tests/generator/testsuit/resources/test_app/src/Usemsg
+tests/generator/testsuit/resources/test_app/wgt/Icon.wgti

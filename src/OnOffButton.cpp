@@ -1,20 +1,33 @@
 #include "OnOffButton.h"
-#include "./service/mystd/my_exception.h"
+
+#include <stdexcept>
 
 
 using namespace PhWidgets;
 
-void OnOffButton::check()
+namespace PhWidgets
 {
-	if(PtWidgetIsClassMember( widget(), PtOnOffButton ) != true)
-		throw(std::mystd::exception("OnOffButton: widget is not PtOnOffButton."));
+    const char * WidgetClassName(PtWidget_t *wdg);
 }
+
+#define FORM_THROW_MESSAGE(xxx) (std::string("PhWidgets::") + std::string(#xxx": wrong class of photon widget - got \'") + WidgetClassName(widget()) + "\' instead of \'Pt"#xxx"\'.").c_str()
+#define WIDGET_IS_CLASS_MEMBER(xxx) \
+	if(PtWidgetIsClassMember( widget(), Pt##xxx ) != true)\
+		throw(std::invalid_argument(FORM_THROW_MESSAGE(xxx)));
+
+#define CHECK_WIDGET(xxx) \
+void xxx::check() \
+{ \
+	WIDGET_IS_CLASS_MEMBER(xxx); \
+}
+
+CHECK_WIDGET(OnOffButton);
 
 OnOffButton::OnOffButton(int abn):
 	Button(abn),
 	resource(this),
 	//properties:
-	Checked(this),
+	IsChecked(this),
 	//callbacks:
 	NewValue(this)
 {
@@ -25,26 +38,26 @@ OnOffButton::OnOffButton(PtWidget_t *wdg):
 	Button(wdg),
 	resource(this),
 	//properties:
-	Checked(this),
+	IsChecked(this),
 	//callbacks:
 	NewValue(this)
 {
 	check();
 }
 
-OnOffButton::OnOffButton(const OnOffButton &rhs):
-	Button(rhs),
+OnOffButton::OnOffButton(const OnOffButton &other):
+	Button(other),
 	resource(this),
 	//properties:
-	Checked(this),
+	IsChecked(this),
 	//callbacks:
 	NewValue(this)
 {
 }
 
-OnOffButton &OnOffButton::operator=(const OnOffButton &rhs)
+OnOffButton &OnOffButton::operator=(const OnOffButton &other)
 {
-	static_cast<Button&>(*this) = static_cast<const Button&>(rhs);
+	static_cast<Button&>(*this) = static_cast<const Button&>(other);
 	
 	return *this;
 }
