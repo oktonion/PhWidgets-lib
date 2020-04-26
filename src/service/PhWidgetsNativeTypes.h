@@ -14,21 +14,28 @@
 
     @code
         // You have somewhere:
-        PtWidget_t *ptwidget; // pointer to widget
+        PtWidget_t *ptwidget; // pointer to PtButton widget
         int ptwidget_realized_callback( PtWidget_t *, void *, PtCallbackInfo_t *); // callback
 
         // constructing Widget
-        PhWidgets::Widget widget(ptwidget);
+        PhWidgets::Button button1(ptwidget);
         
         // set of widget width
-        widget.Width = 10;
+        button1.Width = 10;
 
         // add callback
-        widget.Realized += ptwidget_realized_callback;
+        button1.Realized += ptwidget_realized_callback;
+
+        // bring button to front (set as most top widget)
+        button1.BringToFront();
     @endcode
 
     @see
     - PhWidgets::Widget
+    - PhWidgets::Button
+    - PhWidgets::Label
+    - PhWidgets::ComboBox
+    - PhWidgets
 */
 
 /*!
@@ -137,7 +144,7 @@
         The color of the second bitplane. You can't have more than two bitplanes. 
     > char bytesperline2
         The number of bytes per line for the second bitmap plane. 
-    > char images
+    > char images[1]
         The bitmap image data, as a series of 1-bit-per-pixel planes. 
     
     @remark
@@ -164,7 +171,34 @@
     > `typedef char *PgPattern_t;`
 
     @remark
-    Some shady param that is not covered in Photon documentation.
+    The dither pattern is an array of 8 bytes, aligned with the upper-left corner of the application's region. 
+    This pattern repeats itself every 8 pixels horizontally and every 8 pixels vertically.
+
+    Possible values:
+
+    - Pg_PAT_DEFAULT
+    - Pg_PAT_HALF
+    - Pg_PAT_BACK_HALF
+    - Pg_PAT_CHECKB8
+    - Pg_PAT_CHECKB4
+    - Pg_PAT_DIAMOND
+    - Pg_PAT_HORIZ8
+    - Pg_PAT_HORIZ4
+    - Pg_PAT_HORIZ2
+    - Pg_PAT_VERT8
+    - Pg_PAT_VERT4
+    - Pg_PAT_VERT2
+    - Pg_PAT_DIAGF8
+    - Pg_PAT_DIAGF4
+    - Pg_PAT_DIAGB8
+    - Pg_PAT_DIAGB4
+    - Pg_PAT_BRICK
+    - Pg_PAT_WEAVE
+    - Pg_PAT_RXHATCH8
+    - Pg_PAT_RXHATCH4
+    - Pg_PAT_RXHATCH2
+    - Pg_PAT_DXHATCH8
+    - Pg_PAT_DXHATCH4
 */
 
 /*!
@@ -295,7 +329,7 @@
     ### Members ###
  
     > unsigned short key_sym_cap
-        Depending on the specified flags, this member contains either the symbol or cap of the key to be interpreted as a hotkey. For valid key_sym_cap values, see <photon/PkKeyDef.h>. 
+        Depending on the specified flags, this member contains either the symbol or cap of the key to be interpreted as a hotkey. For valid key_sym_cap values, see `<photon/PkKeyDef.h>`. 
     > short flags
         Determines how key_sym_cap is interpreted and whether or not key_mods is used.
     > unsigned long key_mods
@@ -417,7 +451,18 @@
     > PgColor_t transparent
         The color to mask out when drawing.
     > char flags 
-        The image flags.
+        The image flags. The valid bits are:     
+
+    - Ph_RELEASE_IMAGE — free the image data.
+    - Ph_RELEASE_PALETTE — free the palette data.
+    - Ph_RELEASE_TRANSPARENCY_MASK — free the transparency mask bitmap.
+    - Ph_RELEASE_GHOST_BITMAP — free the bitmap used for ghosting.
+    - Ph_RELEASE_IMAGE_ALL — free all the above.
+    - Ph_USE_TRANSPARENCY — make the image transparent by using the color specified by the transparent member as the key for a chroma operation.
+    
+    A widget automatically frees the memory pointed to by the PhImage_t members if these bits are set.
+
+
     > char ghost_bpl 
         The number of bytes per line for the ghosting bitmap. 
     > char *ghost_bitmap  
@@ -432,10 +477,239 @@
         The image pixel data. 
     
     @remark
-    Use PhWidgets::Drawing::Image to manipulate Label::Image property and widget image resources as general.
+    Use PhWidgets::Drawing::Image to manipulate PhWidgets::Label::Image property and widget image resources as general.
 
     @see 
-    - Label::Image
+    - PhWidgets::Label::Image
+    - PhWidgets::ImageArea::Image
+*/
+
+/*!
+    @struct FontDetails
+    
+    Information about the font.
+
+    FontDetails describes the available
+    point sizes (0,0 indicates scalable)
+    for a font, as well as the foundry
+    assigned descriptive name. 
+
+    The members include at least: 
+    
+    ### Members ###
+    
+    > FontDescription desc
+        Textual name of the font family (e.g. Helvetica). 
+    > FontName stem 
+        Base stem of the font family (e.g. helv). 
+    > short losize
+        Lowest point size available for this font. If losize and hisize are both 0, the font is scalable. 
+    > short hisize
+        Highest point size available for this font. If hisize and losize are both 0, the font is scalable. 
+    > unsigned short flags 
+        Various stylistic/attribute flags for this font family:
+
+    - PHFONT_INFO_ALIAS — the entry is a mapping or virtual font, like TextFont.
+    - PHFONT_INFO_BLDITC — bold italic style.
+    - PHFONT_INFO_BOLD — bold style.
+    - PHFONT_INFO_DECORATIVE — decorative style.
+    - PHFONT_INFO_FIXED — fixed-width font.
+    - PHFONT_INFO_ITALIC — italic style.
+    - PHFONT_INFO_PLAIN — plain/regular style.
+    - PHFONT_INFO_PROP — proportional-width font.
+    - PHFONT_INFO_SANSERIF — sans-serif font.
+    - PHFONT_INFO_SERIF — serif font.
+    
+    @remark
+    Use PhWidgets::Drawing::Font to manipulate widget fonts.
+
+    @see
+    - PhWidgets::Drawing::Font
+    - PhWidgets::Drawing::FontFamily
+*/
+
+/*!
+    @struct PhEventRegion_t
+    
+    Data structure describing the emitter and collector of an event
+
+    The PhEventRegion_t structure describes the emitter and the collector of events. 
+    It contains at least the following members: 
+    
+    ### Members ###
+    
+    > PhRid_t rid 
+        The ID of a region. This member lets an application determine which of its regions emitted or collected an event. 
+        The following constants are defined in `<photon/PhT.h>`:
+
+    - Ph_DEV_RID — the ID of the device region.
+    - Ph_ROOT_RID — the ID of the root region.
+
+    > long handle 
+        The user-definable handle that the application specifies when it opens the region. 
+        Applications can use handle to quickly pass a small amount of information along with events. 
+        For example, the widget (Pt*()) functions use handle internally.
+        If the region described by a PhEventRegion_t structure isn't owned by the application that collected the event, 
+        then the Photon Manager sets handle to 0. 
+
+    
+    @remark
+    Use PhWidgets::Drawing::Font to manipulate widget fonts.
+
+    @see
+    - PhWidgets::Drawing::Font
+    - PhWidgets::Drawing::FontFamily
+*/
+
+/*!
+    @struct PhRid_t
+
+    > `typedef long PhRid_t;`
+
+    The ID of a region.
+*/
+
+/*!
+    @struct FontDescription
+
+    > `typedef char FontDescription[MAX_DESC_LENGTH];`
+
+    Textual name of the font family.
+*/
+
+/*!
+    @struct FontName
+
+    > `typedef char FontName[MAX_FONT_TAG];`
+
+    Base stem of the font family.
+*/
+
+/*!
+    @struct FontFilename
+
+    > `typedef char FontFilename[NAME_MAX + 16];`
+
+    Textual name of the font file name.
+*/
+
+/*!
+    @struct PgAlpha_t
+    
+    The image alpha map.
+
+    This data structure is undocumented but it contains at least the following members: 
+    
+    ### Members ###
+    
+    > long unsigned	alpha_op 
+        ~undocumented~
+
+    > PgMap_t src_alpha_map
+        ~undocumented~ (some alpha map)
+
+    > PgGradient_t src_alpha_gradient
+        ~undocumented~ (some alpha gradient)
+
+    > char unsigned	src_global_alpha
+        ~undocumented~ (some source alpha value)
+
+    > char unsigned	dest_global_alpha
+        ~undocumented~ (some destination alpha value)
+*/
+
+/*!
+    @struct PgMap_t
+    
+    Alpha blend map type.
+
+    The PgMap_t structure defines an alpha blend map. Its members include:  
+    
+    ### Members ###
+    
+    > PhDim_t dim
+        A PhDim_t structure that defines the size of area covered by the map, in pixels. 
+
+    > short unsigned bpl
+        The number of bytes per line. 
+
+    > short unsigned bpp
+        The number of bits per pixel. 
+
+    > char *map
+        A pointer to the map itself.    
+*/
+
+/*!
+    @struct PgGradient_t
+    
+    The gradient alpha.
+
+    This data structure is undocumented but it contains at least the following members: 
+    
+    ### Members ###
+    
+    > int gradient_type
+        - Pg_GRAD_NOGRADIENT
+        - Pg_GRAD_VECTOR
+        - Pg_GRAD_RADIAL 
+        - etc.
+
+    > int transition_type
+        - Pg_GRAD_TABLE 
+        - Pg_GRAD_LINEAR 
+        - etc.
+
+    > int rotation
+        Rotation of the gradient band in degrees. 0 means that the gradient
+        band is perpendicular to the gradient vector. Rotation only effects
+        vector gradients.
+
+    > PhPoint_t start_point
+        The start-point of the gradient vector or the center for radial gradients.
+        The effective start_point of the gradient vector is automatically recomputed
+        if a non-zero rotation is specified.
+
+    > PhPoint_t end_point
+        The end-point of the gradient vector  / end.x == radius for radial gradients.
+
+    > PgColor_t start_color
+        Color at the start-point of the gradient vector.
+
+    > PgColor_t end_color
+        Color at the end-point of the gradient vector.
+
+    > int table_size
+        Number of entries in the transition table.
+
+    > char unsigned * transition_table
+        table[i-1] = percentage of end-color at the start of the i-th color segment. 0% - 100%.
+*/
+
+/*!
+    @struct ApInfo_t
+    
+    Data structure for information passed to PhAB callbacks and setup functions.
+
+    This structure is used as the second argument to most functions generated by PhAB, including code callbacks and module-setup functions. 
+    
+    ### Members ###
+    
+    > short reason
+        - ABR_PRE_REALIZE
+            Pre-realize setup function 
+        - ABR_POST_REALIZE
+            Post-realize setup function 
+        - ABR_CODE
+            Code-type callback 
+        - ABR_DONE
+            Done-type callback 
+        - ABR_CANCEL
+            Cancel-type callback 
+
+    > PtWidget_t *widget
+        A pointer to the widget that invoked the callback function. 
+        This is very useful in setup functions to determine which widget initiated the link callback.
 */
 
 //!@}

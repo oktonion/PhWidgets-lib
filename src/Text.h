@@ -21,7 +21,8 @@ namespace PhWidgets
 		The widgets provide basic editing features, so you can alter text that's entered. 
 		They also support a point-and-click model of editing, so that you can operate on blocks of text as a unit. 
 	*/	
-	class Text:
+	typedef
+	class TextWidget:
 		public Label
 	{
 	public:
@@ -90,14 +91,14 @@ namespace PhWidgets
 			public Label::Callbacks
         { };
 		
-	protected:
 		typedef ResourceFrom<Label::WidgetResourcesSingleton>::
 			Define::Struct<ThisArgs::ArgComplex::eArgComplex, PtTextControl_t>::
 
 			Define::Link<ThisCallbacks::Callback::eCallback, PtCallback_t*>::
 
 		resource_type WidgetResourcesSingleton;
-
+	
+	protected:
 		virtual void check();
 						
 	public:
@@ -113,40 +114,40 @@ namespace PhWidgets
 			Constructs a Text widget by ID.
 			@param[in] abn ID given by PhAB to widget (like 'ABN_WIDGET_NAME').
 		*/
-		explicit Text(int abn);
+		explicit TextWidget(int abn);
 
 		//! (constructor) 
 		/*!
 			Constructs a Text widget by pointer to widget.
 			@param[in] wdg pointer to Photon widget.
 		*/		
-		explicit Text(PtWidget_t *wdg);
+		explicit TextWidget(PtWidget_t *wdg);
 
 		//! (copy constructor) 
 		/*!
 			Constructs a Text widget by copy.
 			@param[in] other another Text widget to be used as source to initialize the elements of the container with.
 		*/
-		Text(const Text &other);
+		TextWidget(const TextWidget &other);
 
 		//! Assigns value in Text widget 
 		/*!
 			Replaces the contents of the Text widget.
 			@param[in] other another Text widget to use as data source.
 		*/
-		Text &operator=(const Text &other);
+		TextWidget &operator=(const TextWidget &other);
 		//! @name Properties
 		//! Properties are used to simplify use of widget resources.
 		//@{
 
 		//@}
 		
-		phwidgets_event<Text, Text::Callbacks::modify_notify>	ModifyNotify;
-		phwidgets_event<Text, Text::Callbacks::modify_verify>	ModifyVerify;
-		phwidgets_event<Text, Text::Callbacks::motion_notify>	MotionNotify;
-		phwidgets_event<Text, Text::Callbacks::motion_verify>	MotionVerify;
-		phwidgets_event<Text, Text::Callbacks::text_changed> 	TextChanged;
-	};
+		phwidgets_event<TextWidget, TextWidget::Callbacks::modify_notify>	ModifyNotify;
+		phwidgets_event<TextWidget, TextWidget::Callbacks::modify_verify>	ModifyVerify;
+		phwidgets_event<TextWidget, TextWidget::Callbacks::motion_notify>	MotionNotify;
+		phwidgets_event<TextWidget, TextWidget::Callbacks::motion_verify>	MotionVerify;
+		phwidgets_event<TextWidget, TextWidget::Callbacks::text_changed> 	TextChanged;
+	} Text;
 	
 }  // namespace PhWidgets
 

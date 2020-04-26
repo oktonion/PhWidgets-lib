@@ -2,11 +2,11 @@
 
 #include <photon/PxImage.h>
 
-#include "service/stdex/stdex.h"
+#include "./../service/stdex/stdex.h"
 
+#include <cstring>
 #include <ios>
 #include <map>
-#include <cstring>
 
 using namespace PhWidgets;
 using namespace PhWidgets::Drawing;
@@ -80,7 +80,10 @@ Image Image::FromFile(std::string filename)
 
     PxMethods_t methods;
 
-    std::memset( &methods, 0, sizeof( PxMethods_t ) );
+    {
+        using namespace std;
+        memset( &methods, 0, sizeof( PxMethods_t ) );
+    }
     methods.flags = PX_LOAD;
 
     methods.px_warning  = px_warning;
