@@ -16,6 +16,7 @@ var class_ph_widgets_1_1_text =
         ] ]
       ] ]
     ] ],
+    [ "WidgetResourcesSingleton", "class_ph_widgets_1_1_text.html#a335ff77915730438c7dcd9ac9b55d42d", null ],
     [ "Text", "class_ph_widgets_1_1_text.html#acdac60745c1fa384a37d4ada9cc4bac6", null ],
     [ "Text", "class_ph_widgets_1_1_text.html#afcc1bca91a588824bc1845afe5b4fec2", null ],
     [ "Text", "class_ph_widgets_1_1_text.html#af9593bfdb0c7960561cd39cb953bae27", null ],

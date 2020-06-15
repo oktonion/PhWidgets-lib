@@ -16,5 +16,15 @@ var group__native =
     [ "PtHotkeyCallback_t", "group__native.html#struct_pt_hotkey_callback__t", null ],
     [ "PtCallbackInfo_t", "group__native.html#struct_pt_callback_info__t", null ],
     [ "PhEvent_t", "group__native.html#struct_ph_event__t", null ],
-    [ "PhImage_t", "group__native.html#struct_ph_image__t", null ]
+    [ "PhImage_t", "group__native.html#struct_ph_image__t", null ],
+    [ "FontDetails", "group__native.html#struct_font_details", null ],
+    [ "PhEventRegion_t", "group__native.html#struct_ph_event_region__t", null ],
+    [ "PhRid_t", "group__native.html#struct_ph_rid__t", null ],
+    [ "FontDescription", "group__native.html#struct_font_description", null ],
+    [ "FontName", "group__native.html#struct_font_name", null ],
+    [ "FontFilename", "group__native.html#struct_font_filename", null ],
+    [ "PgAlpha_t", "group__native.html#struct_pg_alpha__t", null ],
+    [ "PgMap_t", "group__native.html#struct_pg_map__t", null ],
+    [ "PgGradient_t", "group__native.html#struct_pg_gradient__t", null ],
+    [ "ApInfo_t", "group__native.html#struct_ap_info__t", null ]
 ];
