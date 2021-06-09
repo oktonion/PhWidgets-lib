@@ -111,7 +111,7 @@ More complex use case:
     // except for button1
     // change cursors of all buttons respectively
 
-    for(std::set<Widget>::iterator iterator it = widgets.begin(); it != widgets.end(); ++it)
+    for(std::set<Widget>::iterator it = widgets.begin(); it != widgets.end(); ++it)
     {
         if(nullptr == dynamic_widget_cast<Button>(*it))
             continue;
