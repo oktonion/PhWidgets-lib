@@ -50,6 +50,7 @@
 
     > short x
         X-axis coordinate. 
+
     > short y 
         Y-axis coordinate.
     
@@ -70,6 +71,7 @@
 
     > unsigned short w
         Width of the area. 
+
     > unsigned short h 
         Height of the area.
 
@@ -90,6 +92,7 @@
 
     > PhPoint_t pos
         Upper-left corner of the area. 
+
     > PhDim_t size 
         Size of the area. 
 
@@ -109,6 +112,7 @@
 
     > unsigned short len
         The length of the data, in bytes. The data immediately follows the PhRegionDataHdr_t structure in the region's block of data. 
+
     > unsigned short type
         The type of data, which indicates the data structure used.
     
@@ -128,22 +132,31 @@
     
     > PhRegionDataHdr_t hdr
         A pointer to a PhRegionDataHdr_t structure that defines the region data header. 
+
     > PhPoint_t size1
         The dimensions of the first bitmap plane, in pixels. 
+
     > PhPoint_t offset1
         The position of the upper-left corner of the first plane of the bitmap, relative to the hot spot. 
+
     > PgColor_t color1
         The color of the first bitmap plane. 
+
     > char bytesperline1
         The number of bytes per line for the first bitmap plane. 
+
     > PhPoint_t size2
         The dimensions of the second bitmap plane, in pixels. 
+
     > PhPoint_t offset2
         The position of the upper-left corner of the second plane of the bitmap, relative to the hot spot. 
+
     > PgColor_t color2
         The color of the second bitplane. You can't have more than two bitplanes. 
+
     > char bytesperline2
         The number of bytes per line for the second bitmap plane. 
+
     > char images[1]
         The bitmap image data, as a series of 1-bit-per-pixel planes. 
     
@@ -230,6 +243,7 @@
         Contains w (width) and h (height) hints for this child widget. 
         Think of these hints as a user defined minimum size, even if the widget could be smaller. 
         Set w and h to 0 if you just want to apply flags to this child.
+
     > short flags
         Flags used by PtRowLayoutData_t.
     
@@ -249,6 +263,7 @@
     
     > PhPoint_t ul
         Upper-left corner. 
+
     > PhPoint_t lr
         Lower-right corner.
     
@@ -268,6 +283,7 @@
     
     > int (*event_f)( PtWidget_t *, void *, PtCallbackInfo_t * )
         A pointer to the callback function. 
+
     > void *data
         A pointer to data that you want to pass as the second parameter to the callback function when it's invoked.
 
@@ -308,8 +324,10 @@
     
     > event_mask
         A bitmap that specifies which events trigger the function specified in `event_f`. See PhEvent_t.
+
     > int (*event_f)( PtWidget_t *, void *, PtCallbackInfo_t * )
         A pointer to the callback function. 
+
     > void *data
         A pointer to data that you want to pass as the second parameter to the callback function when it's invoked.
     
@@ -330,15 +348,20 @@
  
     > unsigned short key_sym_cap
         Depending on the specified flags, this member contains either the symbol or cap of the key to be interpreted as a hotkey. For valid key_sym_cap values, see `<photon/PkKeyDef.h>`. 
+    
     > short flags
         Determines how key_sym_cap is interpreted and whether or not key_mods is used.
+   
     > unsigned long key_mods
         Key modifiers that must be active for the key to be considered a hotkey.
+    
     > PtWidget_t *widget
         If `event_f` is NULL, the widget member's activate callback is invoked with a reason_subtype of `Pt_CB_HOTKEY`. 
         If the `widget` member is NULL when the hotkey is attached, it's set to the widget that the hotkey is attached to. 
+    
     > void *data
         A pointer to any data that you want to pass as the second argument to the callback function. 
+    
     > int (*event_f)( PtWidget_t *, void *, PtCallbackInfo_t * )
         A pointer to the hotkey function. 
         If `event_f` is NULL when the hotkey is activated, 
@@ -364,10 +387,13 @@
     
     > unsigned long reason
         The reason why this callback was invoked. 
+
     > unsigned long reason_subtype
-        If there are different ways to invoke the callback, this member indicates which one. 
+        If there are different ways to invoke the callback, this member indicates which one.
+
     > PhEvent_t *event
         A pointer to a PhEvent_t structure that describes the event that caused this callback to be invoked.
+
     > void *cbdata
         A pointer to callback-specific data. 
 
@@ -391,26 +417,36 @@
     
     > unsigned long type
         A predefined event type. 
+
     > unsigned short subtype
         Further information about the event. 
+
     > unsigned short processing_flags
         Flags used or set in processing the event. These flags are ignored when you emit an event, and always zero in a received event. 
+    
     > PhEventRegion_t emitter
         A PhEventRegion_t structure identifying the region that emitted the event. 
+    
     > PhEventRegion_t collector
         A PhEventRegion_t structure identifying the region that collected the event. 
         When your process has many regions open, collector lets you distinguish which of its regions was involved. 
+    
     > unsigned short input_group
         The number of the input group. A value of 0 means there's no input group. 
+    
     > unsigned short flags
         Event-modifier flags.
+    
     > unsigned long timestamp
         When the event was emitted, in milliseconds. The Photon Manager generates this member. 
+    
     > PhPoint_t translation
         A PhPoint_t structure that specifies the translation between the emitting region's origin and the collecting region's origin. 
         An application uses this member to convert coordinates that are relative to the emitter's region to coordinates that are relative to the collector's region. 
+    
     > unsigned short num_rects
         The number of rectangles associated with the event.
+    
     > unsigned short data_len
         The length of the data associated with the event. Since event data is optional, you can set data_len to 0 when there's no data.
     
@@ -436,20 +472,28 @@
     
     > int type
         The graphic type; see PhWidgets::Drawing::ImageType
+    
     > unsigned long image_tag 
         The image-data tag, a cyclic redundancy check (CRC) that's used extensively by phrelay (see the QNX Neutrino Utilities Reference) to cache images.
+    
     > int bpl 
         The number of bytes in each line of the image. 
+    
     > PhDim_t size
         A PhDim_t structure that defines the size of the image. 
+    
     > unsigned long palette_tag 
         The palette-data tag. 
+    
     > int colors 
         The number of colors in the image. 
+    
     > PgAlpha_t *alpha
         The image alpha map that's used if the source alpha map option is enabled. Members are undocumented.
+    
     > PgColor_t transparent
         The color to mask out when drawing.
+    
     > char flags 
         The image flags. The valid bits are:     
 
@@ -465,14 +509,19 @@
 
     > char ghost_bpl 
         The number of bytes per line for the ghosting bitmap. 
+    
     > char *ghost_bitmap  
         A pointer to the transparency mask for ghosting an image. The leftmost pixel corresponds to the top bit of the first byte in the mask. 
+    
     > int mask_bpl  
         The number of bytes per line for the transparency mask. 
+    
     > char *mask_bm  
         A pointer to the transparency mask. The leftmost pixel corresponds to the top bit of the first byte in the mask. 
+    
     > PgColor_t *palette  
         The image palette. 
+    
     > char *image   
         The image pixel data. 
     
@@ -500,12 +549,16 @@
     
     > FontDescription desc
         Textual name of the font family (e.g. Helvetica). 
+    
     > FontName stem 
         Base stem of the font family (e.g. helv). 
+    
     > short losize
         Lowest point size available for this font. If losize and hisize are both 0, the font is scalable. 
+    
     > short hisize
         Highest point size available for this font. If hisize and losize are both 0, the font is scalable. 
+    
     > unsigned short flags 
         Various stylistic/attribute flags for this font family:
 
