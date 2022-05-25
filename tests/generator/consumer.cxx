@@ -72,7 +72,7 @@ TEST_CASE("Checking using of generated UI"){
 
     SUBCASE("TEST_WINDOW"){
 
-        //REQUIRE(_Ap_.Ap_base_wgt);
+        REQUIRE(_Ap_.Ap_base_wgt);
 
         CHECK_NOTHROW({
             PhGUI::TEST_WINDOW test_window;
