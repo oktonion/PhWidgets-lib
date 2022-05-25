@@ -70,25 +70,27 @@ TEST_CASE("Checking using of generated UI"){
         
         CHECK(test_window.Left == 0);
         CHECK((nullptr == test_window.Parent()));
+
+        CHECK(test_window.TEST_BUTTON.Enabled == true);
     }
 
     SUBCASE("Dialog0"){
 
-        CHECK_NOTHROW({
+        CHECK_THROWS({
             PhGUI::Dialog0 dialog0;
         });
     }
 
     SUBCASE("Menu0"){
 
-        CHECK_NOTHROW({
+        CHECK_THROWS({
             PhGUI::Menu0 menu0;
         });
     }
 
     SUBCASE("Picture0"){
         
-        CHECK_NOTHROW({
+        CHECK_THROWS({
             PhGUI::Picture0 picture0;
         });
     }
