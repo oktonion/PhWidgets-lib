@@ -9,6 +9,7 @@ if [[ $COMPILER = *"clang"* ]]; then
 fi
 
 mkdir ./tests/generator/artifacts/obj/
+cp ./slib/AbWidgetsWrap.cpp ./tests/generator/artifacts/AbWidgetsWrap.cpp
 
 for file in ./tests/generator/artifacts/*.c*; do
   filename=$(basename -- "$file")
@@ -18,6 +19,8 @@ for file in ./tests/generator/artifacts/*.c*; do
     build_ok=0
   fi
 done
+
+rm ./tests/generator/artifacts/AbWidgetsWrap.cpp
 
 if [ $build_ok -eq 0 ]; then
   echo "artifacts lib build failed"

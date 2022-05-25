@@ -8,6 +8,14 @@
 #include <Ap.h>
 #include <Ph.h>
 
+extern "C"
+{
+    #define ApOptions ApOptionsDisabled
+    #include "./testsuit/resources/test_app/src/abimport.h"
+    #include "./testsuit/resources/test_app/src/abevents.h"
+    #undef ApOptions
+}
+
 #include <unistd.h>
 #include <cstdlib>
 
@@ -32,20 +40,31 @@ static int PhotonInit()
     argv[0] = &cwd[0];
     _Ap_.Ap_winstate = 0;
 
-    ApInitialize( argc, argv, &AbContext );
-	//PtExit( 0 );
+    int err = ApInitialize( argc, argv, &AbContext );
+    if (err) return err;
 
-	return 0;
+    ApLinkWindow( NULL, &AbApplLinks[0], NULL );
+
+    return 0;
+	//PtExit( 0 );
 } 
 
-
+namespace PhWidgets {
+    std::size_t GetABWCount();
+    std::vector<PtWidget_t*> GetABW();
+}
 
 
 TEST_CASE("Checking using of generated UI"){
 
     REQUIRE_MESSAGE(0 == PhWidgetsPtInit, "Photon App requires connection to Photon server.");
 
-    static const int PhWidgetsApInit = PhotonInit();
+    REQUIRE(PhWidgets::GetABWCount() > 0);
+    REQUIRE(PhWidgets::GetABW().size() > 0);
+
+    std::cout << "ABW count = " << PhWidgets::GetABWCount() << std::endl;
+
+    const int PhWidgetsApInit = PhotonInit();
 
     REQUIRE(PhWidgetsApInit == 0);
 
@@ -53,7 +72,7 @@ TEST_CASE("Checking using of generated UI"){
 
     SUBCASE("TEST_WINDOW"){
 
-        REQUIRE(_Ap_.Ap_base_wgt);
+        //REQUIRE(_Ap_.Ap_base_wgt);
 
         CHECK_NOTHROW({
             PhGUI::TEST_WINDOW test_window;
