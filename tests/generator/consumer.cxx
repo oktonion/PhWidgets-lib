@@ -1,4 +1,6 @@
+#define main doctest_main
 #include "./testsuit/testsuit.h"
+#undef main
 
 #include "./artifacts/Dialog0.h"
 #include "./artifacts/Menu0.h"
@@ -19,13 +21,14 @@ extern "C"
 #include <unistd.h>
 #include <cstdlib>
 
-#ifndef PH_WIDGETS_INIT_COMPLETED
-static const int PhWidgetsPtInit = PtInit(NULL);
-#define PH_WIDGETS_INIT_COMPLETED
-#endif
 
 static int PhotonInit()
 {
+    #ifndef PH_WIDGETS_INIT_COMPLETED
+    static const int PhWidgetsPtInit = 0;//PtInit(NULL);
+    #define PH_WIDGETS_INIT_COMPLETED
+    #endif
+
     if(-1 == PhWidgetsPtInit)
     {
         std::cout << "PhotonInit failed" << std::endl;
@@ -46,7 +49,6 @@ static int PhotonInit()
     ApLinkWindow( NULL, &AbApplLinks[0], NULL );
 
     return 0;
-	//PtExit( 0 );
 } 
 
 namespace PhWidgets {
@@ -57,7 +59,7 @@ namespace PhWidgets {
 
 TEST_CASE("Checking using of generated UI"){
 
-    REQUIRE_MESSAGE(0 == PhWidgetsPtInit, "Photon App requires connection to Photon server.");
+    //REQUIRE_MESSAGE(0 == PhWidgetsPtInit, "Photon App requires connection to Photon server.");
 
     REQUIRE(PhWidgets::GetABWCount() > 0);
     REQUIRE(PhWidgets::GetABW().size() > 0);
@@ -97,6 +99,18 @@ TEST_CASE("Checking using of generated UI"){
     SUBCASE("Picture0"){
 
         PhGUI::Picture0 picture0;
+    }
+}
+
+extern "C"
+{
+    int main ( int argc, char *argv[] )
+    {
+        int err = doctest_main(argc, argv);
+
+        PtExit( 0 );
+
+        return err;
     }
 }
 
