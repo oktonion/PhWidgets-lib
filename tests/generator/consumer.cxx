@@ -24,16 +24,6 @@ extern "C"
 
 static int PhotonInit()
 {
-    #ifndef PH_WIDGETS_INIT_COMPLETED
-    static const int PhWidgetsPtInit = 0;//PtInit(NULL);
-    #define PH_WIDGETS_INIT_COMPLETED
-    #endif
-
-    if(-1 == PhWidgetsPtInit)
-    {
-        std::cout << "PhotonInit failed" << std::endl;
-        return -1;
-    }
     static char cwd[PATH_MAX];
     getcwd(cwd, PATH_MAX);
 
@@ -59,14 +49,10 @@ namespace PhWidgets {
 
 TEST_CASE("Checking using of generated UI"){
 
-    //REQUIRE_MESSAGE(0 == PhWidgetsPtInit, "Photon App requires connection to Photon server.");
-
     REQUIRE(PhWidgets::GetABWCount() > 0);
     REQUIRE(PhWidgets::GetABW().size() > 0);
 
-    std::cout << "ABW count = " << PhWidgets::GetABWCount() << std::endl;
-
-    const int PhWidgetsApInit = PhotonInit();
+    static const int PhWidgetsApInit = PhotonInit();
 
     REQUIRE(PhWidgetsApInit == 0);
 
@@ -88,17 +74,23 @@ TEST_CASE("Checking using of generated UI"){
 
     SUBCASE("Dialog0"){
 
-        PhGUI::Dialog0 dialog0;
+        CHECK_NOTHROW({
+            PhGUI::Dialog0 dialog0;
+        });
     }
 
     SUBCASE("Menu0"){
-        
-        PhGUI::Menu0 menu0;
+
+        CHECK_NOTHROW({
+            PhGUI::Menu0 menu0;
+        });
     }
 
     SUBCASE("Picture0"){
-
-        PhGUI::Picture0 picture0;
+        
+        CHECK_NOTHROW({
+            PhGUI::Picture0 picture0;
+        });
     }
 }
 
