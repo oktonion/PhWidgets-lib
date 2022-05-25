@@ -8,9 +8,6 @@
 
 #include "Widget.h"
 
-#include "./service/PhWidgetsFunc.h"
-
-
 #include <iostream>
 #include <stdexcept>
 #include <algorithm>
@@ -21,20 +18,58 @@ namespace PhWidgets
 {
     const char * WidgetClassName(PtWidget_t *wdg);
 	const char * WidgetName(PtWidget_t *wdg);
+
+	namespace internal
+	{
+		struct enable_ABW;
+
+		template<class T>
+		PtWidget_t* GetABW(int n)
+		{
+			return 0;
+		}
+
+		template<class T>
+		std::vector<PtWidget_t*> GetABW()
+		{
+			return std::vector<PtWidget_t*>();
+		}
+
+		template<class T>
+		std::size_t GetABWCount()
+		{
+			return 0;
+		}
+	}
+
+	PtWidget_t* GetABW(int n)
+	{
+		return internal::GetABW<internal::enable_ABW>(n);
+	}
+
+	std::vector<PtWidget_t*> GetABW()
+	{
+		return internal::GetABW<internal::enable_ABW>();
+	}
+
+	std::size_t GetABWCount()
+	{
+		return internal::GetABWCount<internal::enable_ABW>();
+	}
 };
 
 using namespace PhWidgets;
 
-std::map<PtWidget_t*, int> &ABW()
+static std::map<PtWidget_t*, int> &ABW()
 {
 	static std::map<PtWidget_t*, int> widgets;
 	
 	return widgets;
 }
 
-std::vector< std::set<PtWidget_t*> > &ABN()
+static std::vector< std::set<PtWidget_t*> > &ABN()
 {
-	static std::vector< std::set<PtWidget_t*> > widgets(GetABWCount());
+	static std::vector< std::set<PtWidget_t*> > widgets(PhWidgets::GetABWCount());
 	
 	return widgets;
 }
@@ -79,7 +114,7 @@ PtWidget_t *Widget::widget() const
 	static std::map<PtWidget_t*, int> &abws = ABW();
 	static std::vector< std::set<PtWidget_t*> > &abns = ABN();
 	
-	PtWidget_t *wdg = GetABW(_abn);
+	PtWidget_t *wdg = PhWidgets::GetABW(_abn);
 
 	if(nullptr == wdg || _widget != wdg)
 	{
@@ -252,7 +287,7 @@ Widget::Widget(PtWidget_t* wdg):
 	}
 	else
 	{
-		std::vector<PtWidget_t*> widgets = GetABW();
+		std::vector<PtWidget_t*> widgets = PhWidgets::GetABW();
 		
 		abws.clear();
 			
@@ -642,11 +677,60 @@ bool Widget::Unrealize()
 
 void Widget::Hide()
 {
+	PtWidget_t *ptr = widget();
+	if (PtWidgetIsClassMember(ptr, PtWindow))
+	{
+		struct lambdas
+		{
+			static int PtWindowHide( PtWidget_t *widget )
+			{
+				PhWindowEvent_t WE;
+				using namespace std;
+
+				memset( &WE, 0, sizeof (WE));
+				WE.event_f = Ph_WM_HIDE;
+				WE.rid     = PtWidgetRid( widget );
+				WE.event_state =  Ph_WM_EVSTATE_HIDE;
+				return PtForwardWindowEvent( &WE );
+			}
+		};
+
+		int err = lambdas::PtWindowHide(ptr);
+
+		(void)(err);
+
+		return;
+	}
 	Unrealize(); // TODO::redone to move widget
 }
 
 void Widget::Show()
 {
+	PtWidget_t *ptr = widget();
+	if (PtWidgetIsClassMember(ptr, PtWindow))
+	{
+		struct lambdas
+		{
+			static int PtWindowShow( PtWidget_t *widget )
+			{
+				PhWindowEvent_t WE;
+				using namespace std;
+
+				memset( &WE, 0, sizeof (WE));
+				WE.event_f = Ph_WM_RESTORE;
+				WE.rid     = PtWidgetRid( widget );
+				WE.event_state =  Ph_WM_EVSTATE_UNHIDE;
+				return PtForwardWindowEvent( &WE );
+			}
+		};
+
+		int err = lambdas::PtWindowShow(ptr);
+
+		(void)(err);
+
+		return;
+	}
+
 	Realize(); // TODO::redone to move widget
 }
 
@@ -663,7 +747,10 @@ void Widget::setAllowDrop(bool val)
 
 bool Widget::getAllowDrop() const
 {
-	return resource.argument[Arguments::flags].get(Flags::Selectable);
+	bool 
+		realized = resource.argument[Arguments::flags].get(Flags::Realized),
+		selectable = resource.argument[Arguments::flags].get(Flags::Selectable);
+	return (realized && selectable);
 }
 
 void Widget::setEnabled(bool val)
@@ -675,7 +762,11 @@ void Widget::setEnabled(bool val)
 
 bool Widget::getEnabled() const
 {
-	return resource.argument[Arguments::flags].get(Flags::Blocked) == false;
+	bool
+	    realized = resource.argument[Arguments::flags].get(Flags::Realized),
+		blocked = resource.argument[Arguments::flags].get(Flags::Blocked);
+
+	return (realized && !blocked);
 }
 
 void PhWidgets::Widget::setHelpTopic(std::string val)
@@ -768,16 +859,18 @@ PhWidgets::Cursor PhWidgets::Widget::getCursor() const
 bool Widget::getCanFocus() const
 {
 	bool 
+	    realized = resource.argument[Arguments::flags].get(Flags::Realized),
 		disabled = resource.argument[Arguments::flags].get(Flags::Blocked),
 		obscured = resource.argument[Arguments::flags].get(Flags::Obscured),
 		gets_focus = resource.argument[Arguments::flags].get(Flags::GetsFocus);
 
-	return !(disabled || obscured) && gets_focus;
+	return !(disabled || obscured || !realized) && gets_focus;
 }
 
 bool Widget::getCanSelect() const
 {
 	bool 
+	    realized = resource.argument[Arguments::flags].get(Flags::Realized),
 		disabled = resource.argument[Arguments::flags].get(Flags::Blocked),
 		obscured = resource.argument[Arguments::flags].get(Flags::Obscured),
 		highlighted = resource.argument[Arguments::flags].get(Flags::Highlighted),
@@ -785,7 +878,7 @@ bool Widget::getCanSelect() const
 		has_parent = (PtWidgetParent(widget()) != nullptr);
 		//autohighlight = resource.argument[Arguments::flags].get(Flags::Autohighlight);
 
-	return (!disabled && !obscured && highlighted && has_parent && selectable);
+	return (realized && !disabled && !obscured && highlighted && has_parent && selectable);
 }
 
 bool Widget::getContainsFocus() const
@@ -795,7 +888,11 @@ bool Widget::getContainsFocus() const
 
 bool Widget::getFocused() const
 {
-	return PtIsFocused( widget() ) == 2;
+	PtWidget_t *ptr = widget();
+
+	if (PtWidgetIsClassMember(ptr, PtWindow))
+		return PtWindowGetState(ptr) == Ph_WM_STATE_ISFOCUS;
+	return PtIsFocused( ptr ) == 2;
 }
 
 bool Widget::hasChildren() const

@@ -1,5 +1,3 @@
-#include "PhWidgetsFunc.h"
-
 #include <Pt.h>
 #include <Ap.h>
 extern PtWidgetClassRef_t *PtOSContainer;
@@ -9,8 +7,6 @@ extern PtWidgetClassRef_t *PtClient;
 /*extern*/ PtWidgetClassRef_t *PtScrollBar;
 extern PtWidgetClassRef_t *PtServer;
 /*extern*/ PtWidgetClassRef_t *PtWebClient;
-
-using namespace PhWidgets;
 
 #define STRINGIZE_NX(A) #A
 #define STRINGIZE(A) STRINGIZE_NX(A)
