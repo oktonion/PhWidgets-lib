@@ -72,6 +72,11 @@ TEST_CASE("Checking using of generated UI"){
         CHECK((nullptr == test_window.Parent()));
 
         CHECK(test_window.TEST_BUTTON.Enabled == true);
+
+        CHECK(test_window.TEST_NUMERIC_FLOAT.Value == 0.f);
+        test_window.TEST_NUMERIC_FLOAT.Value = 1.1f;
+
+        CHECK(test_window.TEST_NUMERIC_FLOAT.Value == 1.1f);
     }
 
     SUBCASE("Dialog0"){
