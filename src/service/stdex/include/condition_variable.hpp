@@ -6,232 +6,316 @@
 #endif // _MSC_VER > 1000
 
 // stdex includes
-#include "./mutex"
-#include "./chrono"
+#include "./chrono.hpp"
+#include "./system_error.hpp"
 
 // POSIX includes
 #include <pthread.h>
 
 // std includes
 #include <memory>
+#include <limits>
+
+#if defined(_DEBUG) || defined(DEBUG)
+    #include <iostream> // for logging
+#endif
 
 #ifdef _STDEX_NATIVE_CPP11_SUPPORT
 
 #define _STDEX_DELETED_FUNCTION =delete
 #define _STDEX_NOEXCEPT_FUNCTION noexcept
+#define _STDEX_NOEXCEPT(args) noexcept(args)
 
 #else
 
 #define _STDEX_DELETED_FUNCTION 
 #define _STDEX_NOEXCEPT_FUNCTION throw()
+#define _STDEX_NOEXCEPT(args)
 
 #endif
 
+// <mutex.hpp> forward declarations
 namespace stdex
 {
-	/// cv_status
-	struct cv_status
-	{
-		enum cv_status_t { no_timeout, timeout };
+    class mutex;
 
-		cv_status(cv_status_t cvstat) :
-			_cvstat(cvstat)
-		{
+    template<class _Tp>
+    class unique_lock;
 
-		}
+    namespace detail
+    {
+        pthread_mutex_t* _lock_mutex_native_handle(const unique_lock<mutex>&);
+        bool _lock_owns_lock(const unique_lock<mutex>&);
+    } // namespace detail
 
-		operator cv_status_t() const
-		{
-			return _cvstat;
-		}
+} // namespace stdex
 
-		private:
-			cv_status_t _cvstat;
-	};
+namespace stdex
+{
+    namespace detail
+    {
+        template<class _Tp>
+        static void _throw_system_error(const _Tp &_errc)
+        {
+            throw stdex::system_error(
+                stdex::make_error_code(_errc));
+        }
+    }
 
-	//! Condition variable class.
-	//! This is a signaling object for synchronizing the execution flow for
-	//! several threads. Example usage:
-	//! @code
-	//! // Shared data and associated mutex and condition variable objects
-	//! int count;
-	//! mutex m;
-	//! condition_variable cond;
-	//!
-	//! // Wait for the counter to reach a certain number
-	//! void wait_counter(int targetCount)
-	//! {
-	//!   lock_guard<mutex> guard(m);
-	//!   while(count < targetCount)
-	//!     cond.wait(m);
-	//! }
-	//!
-	//! // Increment the counter, and notify waiting threads
-	//! void increment()
-	//! {
-	//!   lock_guard<mutex> guard(m);
-	//!   ++ count;
-	//!   cond.notify_all();
-	//! }
-	//! @endcode
-	class condition_variable 
-	{
-		typedef chrono::system_clock clock_t;
+    /// cv_status
+    struct cv_status
+    {
+        enum cv_status_t { no_timeout, timeout };
 
-	public:
-		typedef pthread_cond_t* native_handle_type;
+        cv_status(cv_status_t _cvs) :
+            _cvstat(_cvs)
+        {
 
-		//! Constructor.
-		condition_variable() _STDEX_NOEXCEPT_FUNCTION
-		{
-			pthread_cond_init(&_condition_handle, NULL);
-		}
+        }
 
-		//! Destructor.
-		~condition_variable() _STDEX_NOEXCEPT_FUNCTION
-		{
-			pthread_cond_destroy(&_condition_handle);
-		}
+        operator cv_status_t() const
+        {
+            return _cvstat;
+        }
 
-		//! Wait for the condition.
-		//! The function will block the calling thread until the condition variable
-		//! is woken by @c notify_one(), @c notify_all() or a spurious wake up.
-		inline void wait(unique_lock<mutex> &lock) _STDEX_NOEXCEPT_FUNCTION
-		{
-			int _e = pthread_cond_wait(&_condition_handle, lock.mutex()->native_handle());
+        private:
+            cv_status_t _cvstat;
+    };
 
-			if (_e)
-				std::terminate();
-		}
+    namespace detail
+    {
+        template<class _Clock, class _Dur, class _WaitUntilClock>
+        struct _sync_unknown_clock
+        {
+            typedef _Clock _Clock_local;
+            typedef _Dur _Dur_local;
+            typedef typename _Clock_local::time_point _Clock_time_point;
 
-		template<class _Predicate>
-		void wait(unique_lock<mutex>& lock, _Predicate _p)
-		{
-			while (!_p())
-				wait(lock);
-		}
+            static chrono::time_point<_WaitUntilClock, _Dur_local> sync_clock_tp(const chrono::time_point<_Clock_local, _Dur_local>& _atime, ...)
+            {
+                const _Clock_time_point _c_entry = _Clock_local::now();
+                const typename _WaitUntilClock::time_point _s_entry = _WaitUntilClock::now();
 
-		template<class _Duration>
-		cv_status wait_until(unique_lock<mutex> &lock, const chrono::time_point<clock_t, _Duration> &atime)
-		{
-			return wait_until_impl(lock, atime);
-		}
+                _Dur_local _delta = (_atime - _c_entry);
+                return (_s_entry + stdex::chrono::duration_cast<typename _WaitUntilClock::duration>(_delta));
+            }
 
-		template<class _Clock, class _Duration>
-		cv_status wait_until(unique_lock<mutex> &lock, const chrono::time_point<_Clock, _Duration> &atime)
-		{
-			// DR 887 - Sync unknown clock to known clock.
-			const typename _Clock::time_point c_entry = _Clock::now();
-			const clock_t::time_point s_entry = clock_t::now();
+            static const chrono::time_point<_WaitUntilClock, _Dur_local>& sync_clock_tp(const chrono::time_point<_WaitUntilClock, _Dur_local>& _atime, int)
+            {
+                return _atime;
+            }
+        };
+    }
 
-			return wait_until_impl(lock, (s_entry + (atime - c_entry)));
-		}
+    class condition_variable 
+    {
+    public:
+        typedef pthread_cond_t* native_handle_type;
 
-		template<class _Clock, class _Duration, class _Predicate>
-		bool wait_until(unique_lock<mutex> &lock, const chrono::time_point<_Clock, _Duration> &atime, _Predicate _p)
-		{
-			while (!_p())
-				if (wait_until(lock, atime) == cv_status::timeout)
-					return _p();
-			return true;
-		}
+        condition_variable()
+        {
+            int _err = 
+                pthread_cond_init(&_condition_handle, NULL);
 
-		template<class _Rep, class _Period>
-		cv_status wait_for(unique_lock<mutex> &lock, const chrono::duration<_Rep, _Period> &rtime)
-		{
-			return wait_for_impl(lock, rtime);
-		}
+            if (0 != _err)
+                throw(
+                    stdex::system_error( 
+                        stdex::make_error_code(stdex::errc::errc_t(_err)) 
+                    )
+                );
+        }
 
-		template<class _Rep, class _Period, class _Predicate>
-		bool wait_for(unique_lock<mutex> &lock, const chrono::duration<_Rep, _Period> &rtime, _Predicate _p)
-		{
-			return wait_until(lock, clock_t::now() + chrono::duration_cast<clock_t::duration>(rtime), _p);
-		}
+        ~condition_variable() _STDEX_NOEXCEPT(false)
+        {
+            int _err = 
+                pthread_cond_destroy(&_condition_handle);
 
-		native_handle_type native_handle()
-		{
-			return &_condition_handle;
-		}
+            if (0 != _err)
+                detail::_throw_system_error(stdex::errc::errc_t(_err));
+        }
 
-		//! Notify one thread that is waiting for the condition.
-		//! If at least one thread is blocked waiting for this condition variable,
-		//! one will be woken up.
-		//! @note Only threads that started waiting prior to this call will be
-		//! woken up.
-		inline void notify_one() _STDEX_NOEXCEPT_FUNCTION
-		{
-			pthread_cond_signal(&_condition_handle);
-		}
+        inline void wait(unique_lock<mutex> &_lock) _STDEX_NOEXCEPT_FUNCTION
+        {
+            int _err = 
+                pthread_cond_wait(&_condition_handle, detail::_lock_mutex_native_handle(_lock));
 
-		//! Notify all threads that are waiting for the condition.
-		//! All threads that are blocked waiting for this condition variable will
-		//! be woken up.
-		//! @note Only threads that started waiting prior to this call will be
-		//! woken up.
-		inline void notify_all() _STDEX_NOEXCEPT_FUNCTION
-		{
-			pthread_cond_broadcast(&_condition_handle);
-		}
+            if (0 != _err)
+            {
+            #if defined(_DEBUG) || defined(DEBUG)
+                std::cerr << stdex::error_code(
+                    stdex::make_error_code(stdex::errc::errc_t(_err))
+                ).message() << std::endl;
+            #endif
+                std::terminate();
+            }
+        }
 
-	private:
+        template<class _Predicate>
+        void wait(unique_lock<mutex>& _lock, _Predicate _p)
+        {
+            while (!_p())
+                wait(_lock);
+        }
 
-		template<class _Dur>
-		cv_status wait_until_impl(unique_lock<mutex> &lock, const chrono::time_point<clock_t, _Dur> &atime)
-		{
-			if (!lock.owns_lock())
-				std::terminate();
+        template<class _Clock, class _Duration>
+        cv_status wait_until(unique_lock<mutex> &_lock, const chrono::time_point<_Clock, _Duration> &_atime)
+        {
+            return wait_until_impl(_lock, _atime);
+        }
 
-			chrono::time_point<clock_t, chrono::seconds> _s = chrono::time_point_cast<chrono::seconds>(atime);
-			chrono::nanoseconds _ns = chrono::duration_cast<chrono::nanoseconds>(atime - _s);
+        template<class _Clock, class _Duration, class _Predicate>
+        bool wait_until(unique_lock<mutex> &_lock, const chrono::time_point<_Clock, _Duration> &_atime, _Predicate _p)
+        {
+            while (!_p())
+                if (wait_until(_lock, _atime) == cv_status::timeout)
+                    return _p();
+            return true;
+        }
 
-			timespec ts;
-			ts.tv_sec = static_cast<stdex::time_t>(_s.time_since_epoch().count());
-			ts.tv_nsec = static_cast<long>(_ns.count());
+        template<class _Rep, class _Period>
+        cv_status wait_for(unique_lock<mutex> &_lock, const chrono::duration<_Rep, _Period> &_rtime)
+        {
+            return wait_for_impl(_lock, _rtime);
+        }
 
-			/*int res = */pthread_cond_timedwait(&_condition_handle, lock.mutex()->native_handle(), &ts);
+        template<class _Rep, class _Period, class _Predicate>
+        bool wait_for(unique_lock<mutex> &_lock, const chrono::duration<_Rep, _Period> &_rtime, _Predicate _p)
+        {
+            typedef chrono::system_clock sync_clock;
 
-			return (clock_t::now() < atime
-				? cv_status::no_timeout : cv_status::timeout);
-		}
+            sync_clock::time_point _atime =
+                sync_clock::now() + chrono::duration_cast<sync_clock::duration>(_rtime);
 
-		template<class _Rep, class _Period>
-		cv_status wait_for_impl(unique_lock<mutex> &lock, const chrono::duration<_Rep, _Period> &rtime)
-		{
-			clock_t::time_point start_time_point = clock_t::now();
+            // exactly the same as wait_until with predicate
+            while (!_p())
+                if (wait_until(_lock, _atime) == cv_status::timeout)
+                    return _p();
+            return true;
+        }
 
-			if (!lock.owns_lock())
-				std::terminate();
+        native_handle_type native_handle()
+        {
+            return &_condition_handle;
+        }
 
-			chrono::seconds rs = chrono::duration_cast<chrono::seconds>(rtime);
-			chrono::nanoseconds rns = chrono::duration_cast<chrono::nanoseconds>(rtime - rs);
+        inline void notify_one() _STDEX_NOEXCEPT_FUNCTION
+        {
+            pthread_cond_signal(&_condition_handle);
+        }
 
-			timespec ts;
+        inline void notify_all() _STDEX_NOEXCEPT_FUNCTION
+        {
+            pthread_cond_broadcast(&_condition_handle);
+        }
 
-			ts.tv_sec = static_cast<stdex::time_t>(rs.count());
-			ts.tv_nsec = static_cast<long>(rns.count());
+    private:
 
-			chrono::time_point<clock_t, chrono::seconds> _sec = chrono::time_point_cast<chrono::seconds>(start_time_point);
-			chrono::nanoseconds _nsec = chrono::duration_cast<chrono::nanoseconds>(start_time_point - _sec);
+        template<class _Clock, class _Dur>
+        cv_status wait_until_impl(unique_lock<mutex> &_lock, const chrono::time_point<_Clock, _Dur> &_atime)
+        {
+            if (!detail::_lock_owns_lock(_lock))
+                std::terminate();
 
-			ts.tv_sec += static_cast<stdex::time_t>(_sec.time_since_epoch().count());
-			ts.tv_nsec += static_cast<long>(_nsec.count());
+            typedef chrono::system_clock wait_until_clock;
 
-			int res = pthread_cond_timedwait(&_condition_handle, lock.mutex()->native_handle(), &ts);
+            // DR 887 - Sync unknown clock to known clock.
 
-			return (clock_t::now() - start_time_point < rtime
-				? cv_status::no_timeout : cv_status::timeout);
-		}
 
-		pthread_cond_t _condition_handle;
+            wait_until_clock::time_point _tp = chrono::time_point_cast<wait_until_clock::duration>(
+                    detail::_sync_unknown_clock<_Clock, _Dur, wait_until_clock>::sync_clock_tp(_atime, 0)
+                );
 
-		condition_variable(const condition_variable&) _STDEX_DELETED_FUNCTION;
-		condition_variable& operator=(const condition_variable&) _STDEX_DELETED_FUNCTION;
-	};
+            if (_tp < wait_until_clock::now())
+                return cv_status::timeout;
 
-	void notify_all_at_thread_exit(condition_variable &cond, unique_lock<mutex> &lk); 
+            stdex::timespec _tp_as_ts = 
+                wait_until_clock::to_timespec(
+                    _tp
+                );
+            
+            ::timespec _ts;
+
+            _ts.tv_nsec = _tp_as_ts.tv_nsec;
+            _ts.tv_sec = _tp_as_ts.tv_sec;
+
+            int _err =
+                pthread_cond_timedwait(&_condition_handle, detail::_lock_mutex_native_handle(_lock), &_ts);
+
+        #ifdef ETIMEDOUT
+            if(_err && _err != ETIMEDOUT)
+            {
+            #if defined(_DEBUG) || defined(DEBUG)
+                std::cerr << stdex::error_code(
+                    stdex::make_error_code(stdex::errc::errc_t(_err))
+                ).message() << std::endl;
+            #endif
+                std::terminate();
+            }
+        #endif
+
+            return (wait_until_clock::now() < _tp
+                ? cv_status::no_timeout : cv_status::timeout);
+        }
+
+        template<class _Rep, class _Period>
+        cv_status wait_for_impl(unique_lock<mutex> &_lock, chrono::duration<_Rep, _Period> _rtime)
+        {
+            if (!detail::_lock_owns_lock(_lock))
+                std::terminate();
+
+            if (_rtime.count() < 0)
+                return cv_status::timeout;
+
+            typedef chrono::system_clock time_measurment_clock;
+            typedef chrono::system_clock wait_for_clock;
+
+            if (ratio_greater<time_measurment_clock::period, _Period>::value)
+                ++_rtime;
+
+            time_measurment_clock::time_point 
+                _start_time_point = time_measurment_clock::now(),
+                _end_time_point = _start_time_point + stdex::chrono::duration_cast<time_measurment_clock::duration>(_rtime);
+
+            stdex::timespec _tp_as_ts =
+                wait_for_clock::to_timespec(wait_for_clock::now() + stdex::chrono::duration_cast<wait_for_clock::duration>(_rtime));
+
+            ::timespec _ts;
+            _ts.tv_sec = _tp_as_ts.tv_sec;
+            _ts.tv_nsec = _tp_as_ts.tv_nsec;
+
+            if ((time_measurment_clock::now() - _start_time_point) > _rtime)
+                return cv_status::timeout;
+
+            int _err = 
+                pthread_cond_timedwait(&_condition_handle, detail::_lock_mutex_native_handle(_lock), &_ts);
+            
+        #ifdef ETIMEDOUT
+            if(_err && _err != ETIMEDOUT)
+            {
+            #if defined(_DEBUG) || defined(DEBUG)
+                std::cerr << stdex::error_code(
+                    stdex::make_error_code(stdex::errc::errc_t(_err))
+                ).message() << std::endl;
+            #endif
+                std::terminate();
+            }
+        #endif
+
+            return (time_measurment_clock::now() - _start_time_point < _rtime
+                ? cv_status::no_timeout : cv_status::timeout);
+        }
+
+        pthread_cond_t _condition_handle;
+
+        condition_variable(const condition_variable&) _STDEX_DELETED_FUNCTION;
+        condition_variable& operator=(const condition_variable&) _STDEX_DELETED_FUNCTION;
+    };
+
+    void notify_all_at_thread_exit(condition_variable &cond, unique_lock<mutex> &lk); 
 } // namespace stdex
 
 #undef _STDEX_DELETED_FUNCTION
 #undef _STDEX_NOEXCEPT_FUNCTION
+#undef _STDEX_NOEXCEPT
 
 #endif // _STDEX_CONDITION_VARIABLE_H
