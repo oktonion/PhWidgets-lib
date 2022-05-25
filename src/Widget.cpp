@@ -41,24 +41,44 @@ namespace PhWidgets
 			return 0;
 		}
 
-		PtWidget_t* (*GetABW_n_impl)(int) = &internal::GetABW_n<internal::enable_ABW>;
-		std::vector<PtWidget_t*>  (*GetABW_impl)() = &internal::GetABW<internal::enable_ABW>;
-		std::size_t (*GetABWCount_impl)() = &internal::GetABWCount<internal::enable_ABW>;
+		typedef PtWidget_t* (*GetABW_n_impl_type)(int);
+		typedef std::vector<PtWidget_t*>  (*GetABW_impl_type)();
+		typedef std::size_t (*GetABWCount_impl_type)();
+
+
+		GetABW_n_impl_type &GetABW_n_impl() {
+			static GetABW_n_impl_type value = 0;
+			return value;
+		}
+		GetABW_impl_type &GetABW_impl() {
+			static GetABW_impl_type value = 0;
+			return value;
+		}
+		GetABWCount_impl_type &GetABWCount_impl() {
+			static GetABWCount_impl_type value = 0;
+			return value;
+		}
 	}
 
 	PtWidget_t* GetABW(int n)
 	{
-		return internal::GetABW_n_impl(n);
+		if (internal::GetABW_n_impl())
+			return internal::GetABW_n_impl()(n);
+		return internal::GetABW_n<internal::enable_ABW>(n);
 	}
 
 	std::vector<PtWidget_t*> GetABW()
 	{
-		return internal::GetABW_impl();
+		if (internal::GetABW_impl())
+			return internal::GetABW_impl()();
+		return internal::GetABW<internal::enable_ABW>();
 	}
 
 	std::size_t GetABWCount()
 	{
-		return internal::GetABWCount_impl();
+		if (internal::GetABWCount_impl())
+			return internal::GetABWCount_impl()();
+		return internal::GetABWCount<internal::enable_ABW>();
 	}
 };
 

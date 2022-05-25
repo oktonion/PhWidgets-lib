@@ -74,16 +74,20 @@ namespace PhWidgets
 			return sizeof(AbWidgets) / sizeof(AbWidgets[0]);
 		}
 
-		extern PtWidget_t* (*GetABW_n_impl)(int);
-		extern std::vector<PtWidget_t*>  (*GetABW_impl)();
-		extern std::size_t (*GetABWCount_impl)();
+		typedef PtWidget_t* (*GetABW_n_impl_type)(int);
+		typedef std::vector<PtWidget_t*>  (*GetABW_impl_type)();
+		typedef std::size_t (*GetABWCount_impl_type)();
+
+		GetABW_n_impl_type &GetABW_n_impl();
+		GetABW_impl_type &GetABW_impl();
+		GetABWCount_impl_type &GetABWCount_impl();
 
 		struct InitABW_impl
 		{
 			InitABW_impl() {
-					GetABW_n_impl =  &internal::GetABW_n<internal::enable_ABW>;
-					GetABW_impl = &internal::GetABW<internal::enable_ABW>;
-					GetABWCount_impl = &internal::GetABWCount<internal::enable_ABW>;
+					GetABW_n_impl() =  &internal::GetABW_n<internal::enable_ABW>;
+					GetABW_impl() = &internal::GetABW<internal::enable_ABW>;
+					GetABWCount_impl() = &internal::GetABWCount<internal::enable_ABW>;
 			}
 		} initABW_impl;
 	} // namespace internal
