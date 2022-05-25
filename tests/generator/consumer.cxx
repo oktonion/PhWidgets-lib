@@ -11,9 +11,10 @@
 #include <unistd.h>
 #include <cstdlib>
 
-static const int PhWidgetsPtInit = 0;//PtInit(NULL);
-
-
+#ifndef PH_WIDGETS_INIT_COMPLETED
+static const int PhWidgetsPtInit = PtInit(NULL);
+#define PH_WIDGETS_INIT_COMPLETED
+#endif
 
 static int PhotonInit()
 {
@@ -22,11 +23,11 @@ static int PhotonInit()
         std::cout << "PhotonInit failed" << std::endl;
         return -1;
     }
-    char cwd[PATH_MAX];
+    static char cwd[PATH_MAX];
     getcwd(cwd, PATH_MAX);
 
     int argc = 1;
-    char *argv[1];
+    static char *argv[1];
 
     argv[0] = &cwd[0];
     _Ap_.Ap_winstate = 0;
@@ -42,7 +43,7 @@ static int PhotonInit()
 
 TEST_CASE("Checking using of generated UI"){
 
-    REQUIRE(PhWidgetsPtInit == 0);
+    REQUIRE_MESSAGE(0 == PhWidgetsPtInit, "Photon App requires connection to Photon server.");
 
     static const int PhWidgetsApInit = PhotonInit();
 

@@ -13,26 +13,12 @@
 #include <Text.h>
 #include <ComboBox.h>
 
-namespace PhWidgets
-{
-	PtWidget_t* GetABW(int n)
-	{
-	    return 0;
-	}
-
-	std::vector<PtWidget_t*> GetABW()
-	{
-        std::vector<PtWidget_t*> tmp;
-		return tmp;
-	}
-
-	std::size_t GetABWCount()
-	{
-		return 0;
-	}
-}
-
+#ifndef PH_WIDGETS_INIT_COMPLETED
 static const int PhWidgetsPtInit = PtInit(NULL);
+#define PH_WIDGETS_INIT_COMPLETED
+#endif
+
+
 
 TEST_CASE("Testing photon microGUI library initialization"){
 
