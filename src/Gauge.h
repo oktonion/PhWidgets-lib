@@ -82,7 +82,7 @@ namespace PhWidgets
 				*/
 				enum eArgChar
 				{
-					gauge_orientation = Pt_ARG_GAUGE_ORIENTATION, //!< Indicates whether the gauge will be drawn vertically or horizontally. @see PhWidgets::Gauge::Flags::Orientation::eOrientation
+					gauge_orientation = Pt_ARG_GAUGE_ORIENTATION //!< Indicates whether the gauge will be drawn vertically or horizontally. @see PhWidgets::Gauge::Flags::Orientation::eOrientation
 				};
 			};
 
@@ -102,7 +102,7 @@ namespace PhWidgets
 				enum eArgUnsignedChar
 				{
 					gauge_horizontal_align = Pt_ARG_GAUGE_H_ALIGN, //!< Controls horizontal alignment. @see PhWidgets::Gauge::Flags::Alignment::eHorizontal
-                    gauge_vertical_align = Pt_ARG_GAUGE_V_ALIGN, //!< Controls vertical alignment. @see PhWidgets::Gauge::Flags::Alignment::eVertical
+                    gauge_vertical_align = Pt_ARG_GAUGE_V_ALIGN //!< Controls vertical alignment. @see PhWidgets::Gauge::Flags::Alignment::eVertical
 				};
 			};
 
