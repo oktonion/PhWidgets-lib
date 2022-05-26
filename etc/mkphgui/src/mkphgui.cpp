@@ -25,6 +25,7 @@ void init_phwidgets_includes()
     phwidgets_includes["PtCompound"]        = "<Compound.h> // PhWidgets::Compound class";
     phwidgets_includes["PtContainer"]       = "<Container.h> // PhWidgets::Container class";
     phwidgets_includes["PtDisjoint"]        = "<Disjoint.h> // PhWidgets::Disjoint class";
+    phwidgets_includes["PtGauge"]           = "<Gauge.h> // PhWidgets::Gauge class";
     phwidgets_includes["PtGraphic"]         = "<Graphic.h> // PhWidgets::Graphic class";
     phwidgets_includes["PtImageArea"]       = "<ImageArea.h> // PhWidgets::ImageArea class";
     phwidgets_includes["PtLabel"]           = "<Label.h> // PhWidgets::Label class";

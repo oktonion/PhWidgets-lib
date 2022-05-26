@@ -49,7 +49,7 @@ namespace PhWidgets
 			//! Contains resource IDs for Container arguments of type **int**.
 			struct ArgInt
 			{
-				//! Resource IDs for Container arguments of type **long**.
+				//! Resource IDs for Container arguments of type **int**.
 
 				/*!
 					### Aliases ###
