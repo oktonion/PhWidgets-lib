@@ -17,7 +17,10 @@ if [ "$1" == "debug" ]
 	then
 	coption=-g
 	print "	Warning: DEBUG compile configuration!"
-  testgroup=$2
+  if [ "$2" != "" ]
+  then
+    testgroup=$2
+  fi
 elif [ "$1" == "clear" ]
   then
   rm -rf ./tests/bin
@@ -25,6 +28,11 @@ elif [ "$1" == "clear" ]
 elif [ "$1" != "" ]
   then
   testgroup=$1
+  if [ "$2" == "debug" ]
+    then
+    coption=-g
+    print "	Warning: DEBUG compile configuration!"
+  fi
 fi
 
 for file in ./tests/$testgroup/*.cpp; do
