@@ -213,7 +213,7 @@ bool FontFamily::operator!=(const FontFamily &other) const
 bool FontFamily::operator<(const FontFamily &other) const
 {
     using namespace std;
-    return memcmp(&_fdetails, &other._fdetails, sizeof(FontDetails));
+    return memcmp(&_fdetails, &other._fdetails, sizeof(FontDetails)) < 0;
 }
 
 int FontFamily::GetLineSpacing(typedefs::font_style_bitmask fstyle) const
@@ -366,8 +366,13 @@ Font & Font::operator=(const Font &other)
 
 bool Font::operator==(const Font &other) const
 {
-    return 
-        _fid == other._fid;
+    return (
+        _bold == other._bold &&
+        _italic == other._italic &&
+        _size == other._size &&
+        _fname == other._fname &&
+        _ffamily == other._ffamily
+    );
 }
 
 bool Font::operator!=(const Font &other) const
@@ -377,8 +382,18 @@ bool Font::operator!=(const Font &other) const
 
 bool Font::operator<(const Font &other) const
 {   
-    return 
-        _fid < other._fid;
+    if (_bold < other._bold)
+        return true;
+    if (_italic < other._italic)
+        return true;
+    if (_size < other._size)
+        return true;
+    if (_fname < other._fname)
+        return true;
+    if (_ffamily < other._ffamily)
+        return true;
+
+    return false;
 }
 
 Font::operator const font_id_type() const
