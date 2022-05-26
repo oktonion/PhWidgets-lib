@@ -53,7 +53,7 @@ TEST_CASE("Testing Gauge properties"){
 
         CHECK(gauge.Suffix() == std::string(""));
 
-        gauge.Prefix = "Missisipi 1";
+        gauge.Suffix = "Missisipi 1";
         CHECK(gauge.Suffix() == std::string("Missisipi 1"));
 
         gauge.Suffix = "Missisipi 2";
