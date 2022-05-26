@@ -73,7 +73,7 @@ void print_root_widgets(std::vector<int> & root_widgets, std::fstream &header, s
                 std::string((root_wi.level) * 2, ' ') << "    public PhWidgets::" << 
                     (is_implemented_class ? (root_wi.wgt_class + 2) : "Widget") << std::endl <<
                 std::string((root_wi.level) * 2, ' ') << "{" << std::endl <<
-                root_wi.wgt_name << "(); // (constructor)" << std::endl;
+                std::string((root_wi.level) * 4, ' ') << root_wi.wgt_name << "(); // (constructor)" << std::endl;
                 
 
             if(!is_nameless_widget)
@@ -253,8 +253,8 @@ int main(int argc, const char* argv[])
 
     header << 
         std::endl << "namespace PhGUI" << 
-        std::endl << "{" << 
-        "using namespace PhWidgets;" << std::endl <<
+        std::endl << "{" << std::endl << 
+        "  using namespace PhWidgets;" << std::endl <<
         std::endl;
 
     for (hierarchy_iterator it = hierarchy.begin(); it != hierarchy.end(); ++it)
