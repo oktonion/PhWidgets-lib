@@ -1,3 +1,4 @@
+
 mkdir ./tests/bin
 
 echo "\023331;0m"
