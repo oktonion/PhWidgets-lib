@@ -116,7 +116,12 @@ void Label::setImage(Drawing::Image image)
 
 std::string Label::getText() const
 {
-	return resource.argument[Arguments::text_string].get();
+	const char *text_string = 
+		resource.argument[Arguments::text_string].get();
+	
+	if (text_string)
+		return text_string;
+	return "";
 }
 
 void Label::setText(std::string caption)

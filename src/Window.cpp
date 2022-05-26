@@ -74,7 +74,11 @@ void Window::setTitle(std::string value)
 
 std::string Window::getTitle() const
 {
-	return resource.argument[Arguments::window_title].get();
+	const char *window_title =
+		resource.argument[Arguments::window_title].get();
+	
+	if (window_title) return window_title;
+	return "";
 }
 
 

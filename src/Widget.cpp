@@ -800,7 +800,10 @@ void PhWidgets::Widget::setHelpTopic(std::string val)
 
 std::string PhWidgets::Widget::getHelpTopic() const
 {
-	return resource.argument[Arguments::help_topic].get();
+	const char *help_topic =
+		resource.argument[Arguments::help_topic].get();
+	if (help_topic) return help_topic;
+	return "";
 }
 
 void PhWidgets::Widget::setLocation(PhPoint_t location)
