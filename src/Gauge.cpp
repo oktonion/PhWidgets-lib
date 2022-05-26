@@ -96,7 +96,11 @@ void Gauge::setFont(Drawing::Font fdef)
 
 std::string Gauge::getPrefix() const
 {
-	return resource.argument[Arguments::value_prefix].get();
+	const char *prefix = 
+		resource.argument[Arguments::value_prefix].get();
+	if (prefix)
+		return prefix;
+	return "";
 }
 
 void Gauge::setPrefix(std::string text)
@@ -106,7 +110,11 @@ void Gauge::setPrefix(std::string text)
 
 std::string Gauge::getSuffix() const
 {
-	return resource.argument[Arguments::value_suffix].get();
+	const char *suffix = 
+		resource.argument[Arguments::value_suffix].get();
+	if (suffix)
+		return suffix;
+	return "";
 }
 
 void Gauge::setSuffix(std::string text)
