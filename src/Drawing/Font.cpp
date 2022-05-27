@@ -8,6 +8,8 @@
 #include <stdexcept>
 #include <cstring>
 
+#include "./../service/stdex/stdex.h"
+
 using namespace PhWidgets;
 using namespace PhWidgets::Drawing;
 
@@ -49,12 +51,11 @@ const typename T::size_type LevensteinDistance(const T &source,
 
 FontDetails GetAnyFontFamily(const char *cname, int FontFamilyID)
 {
-    static font_families_collection_type families;
+    font_families_collection_type families;
     int count = PfQueryFonts(PHFONT_ALL_SYMBOLS, FontFamilyID, NULL, 0);
     if(-1 == count)
         return FontDetails();
 
-    if(families.size() != 1)
     {
         families.resize(count);
         FontDetails *data = &families.front();
@@ -202,7 +203,10 @@ FontFamily & FontFamily::operator=(const FontFamily &other)
 bool FontFamily::operator==(const FontFamily &other) const
 {
     using namespace std;
-    return (0 == memcmp(&_fdetails, &other._fdetails, sizeof(FontDetails)));
+    FontDescription lhs_desc = {0}, rhs_desc = {0};
+    memcpy(&lhs_desc[0], &_fdetails.desc[0], sizeof(FontDescription) - 1);
+    memcpy(&rhs_desc[0], &other._fdetails.desc[0], sizeof(FontDescription) - 1);
+    return (strcmp(lhs_desc, rhs_desc) == 0);
 }
 
 bool FontFamily::operator!=(const FontFamily &other) const
@@ -213,7 +217,10 @@ bool FontFamily::operator!=(const FontFamily &other) const
 bool FontFamily::operator<(const FontFamily &other) const
 {
     using namespace std;
-    return memcmp(&_fdetails, &other._fdetails, sizeof(FontDetails)) < 0;
+    FontDescription lhs_desc = {0}, rhs_desc = {0};
+    memcpy(&lhs_desc[0], &_fdetails.desc[0], sizeof(FontDescription) - 1);
+    memcpy(&rhs_desc[0], &other._fdetails.desc[0], sizeof(FontDescription) - 1);
+    return (strcmp(lhs_desc, rhs_desc) < 0);
 }
 
 int FontFamily::GetLineSpacing(typedefs::font_style_bitmask fstyle) const
