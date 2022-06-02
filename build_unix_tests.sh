@@ -50,8 +50,10 @@ else
   for file in ./tests/$testgroup/*.cpp; do
     filename=$(basename -- "$file")
     filename="${filename%.*}"
-    echo "compiling test c++03 $filename"
-    if ! $COMPILER -std=c++03 -pedantic $exclude_warn $file -I./src/ $build_libs -o "./tests/bin/$filename"; then
+    foldername=$(dirname -- "$file")
+    foldername=$(basename -- "$foldername")
+    echo "compiling test c++03 $foldername:$filename"
+    if ! $COMPILER -std=c++03 -pedantic $exclude_warn $file -I./src/ $build_libs -o "./tests/bin/$foldername:$filename"; then
       build_ok=0
     fi
   done
@@ -65,8 +67,10 @@ fi
 for file in ./tests/$testgroup/*.cpp; do
   filename=$(basename -- "$file")
   filename="${filename%.*}"
-  echo "compiling test c++98 $filename"
-  if ! $COMPILER -std=c++98 -pedantic $exclude_warn $file -I./src/ $build_libs -o "./tests/bin/$filename"; then
+  foldername=$(dirname -- "$file")
+  foldername=$(basename -- "$foldername")
+  echo "compiling test c++98 $foldername:$filename"
+  if ! $COMPILER -std=c++98 -pedantic $exclude_warn $file -I./src/ $build_libs -o "./tests/bin/$foldername:$filename"; then
     build_ok=0
   fi
 done
