@@ -359,15 +359,15 @@ namespace cppproperties
 		virtual void set(ValueT) = 0;
 	};
 
-	template<class ValueT, 
+	template<class ChildT, class ValueT,
 		const detail::property_flag::e_property_flag Flag = 
-			static_cast<const detail::property_flag::e_property_flag>(detail::flag_chooser<ValueT>::flag)>
+			static_cast<const detail::property_flag::e_property_flag>(detail::flag_chooser<typename ChildT::value_type>::flag)>
 	struct property_traits {};
 
 	template<class ValueT = void,
 		const detail::property_flag::e_property_flag Flag = 
 			static_cast<const detail::property_flag::e_property_flag>(detail::flag_chooser<ValueT>::flag)>
-	class property{};
+	class property;
 
 	//property<void>:
 	template<>
@@ -398,7 +398,9 @@ namespace cppproperties
 	template<class ValueT>
 	class property<ValueT, detail::property_flag::ro>: //ValueT == const...
 		public virtual Ipropertyr<typename detail::property_info<ValueT>::const_reference>,
-		public property_traits<typename detail::property_info<ValueT>::const_reference, detail::property_flag::ro>
+		public property_traits<
+			property<ValueT, detail::property_flag::ro>, 
+			typename detail::property_info<ValueT>::const_reference, detail::property_flag::ro>
 	{
 		typedef Ipropertyr_without_backdoor<typename detail::property_info<ValueT>::value_type> Ipropertyr_without_backdoor_type;
 	public:
@@ -409,7 +411,7 @@ namespace cppproperties
 		template<class ParentT, typename detail::property_info<ValueT, ParentT>::getter_t Getter>
 		class bind:
 			public virtual Ipropertyr_without_backdoor_type,
-			public property_traits<typename Ipropertyr_without_backdoor_type::value_type, detail::property_flag::ro>
+			public property_traits<bind<ParentT, Getter>, typename Ipropertyr_without_backdoor_type::value_type, detail::property_flag::ro>
 		{
 			typedef typename detail::remove_const<ParentT>::type const parent_type;
 			
@@ -449,7 +451,7 @@ namespace cppproperties
 		template<typename detail::property_info<ValueT, void>::getter_t Getter>
 		class bind_static:
 			public virtual Ipropertyr_without_backdoor_type,
-			public property_traits<typename Ipropertyr_without_backdoor_type::value_type, detail::property_flag::ro>
+			public property_traits<bind_static<Getter>, typename Ipropertyr_without_backdoor_type::value_type, detail::property_flag::ro>
 		{
 		public:
 			typedef typename Ipropertyr_without_backdoor_type::value_type value_type;
@@ -514,7 +516,9 @@ namespace cppproperties
 	class property<ValueT, detail::property_flag::rw>: //ValueT != const...
 		public virtual Ipropertyr<typename detail::property_info<ValueT>::reference>,
 		public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
-		public property_traits<typename detail::property_info<ValueT>::reference, detail::property_flag::rw>
+		public property_traits<
+			property<ValueT, detail::property_flag::rw>, 
+			typename detail::property_info<ValueT>::reference, detail::property_flag::rw>
 	{
 	public:
 		typedef typename detail::property_info<ValueT>::value_type value_type;
@@ -525,7 +529,7 @@ namespace cppproperties
 		class bind:
 			public virtual Ipropertyr<typename detail::property_info<ValueT>::value_type>,
 			public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
-			public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::rw>
+			public property_traits<bind<ParentT, Getter, Setter>, typename detail::property_info<ValueT>::value_type, detail::property_flag::rw>
 		{
 			typedef typename detail::remove_const<ParentT>::type parent_type;
 		public:
@@ -619,7 +623,7 @@ namespace cppproperties
 	template<class ValueT>
 	class property<ValueT, detail::property_flag::wo>: //ValueT != const...
 		public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
-		public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::wo>
+		public property_traits<property<ValueT, detail::property_flag::wo>, typename detail::property_info<ValueT>::value_type, detail::property_flag::wo>
 	{
 	public:
 		typedef typename detail::property_info<ValueT>::value_type value_type;
@@ -629,7 +633,7 @@ namespace cppproperties
 		template<class ParentT, typename detail::property_info<ValueT, ParentT>::setter_t Setter>
 		class bind:
 			public Ipropertyw<typename detail::property_info<ValueT>::value_type>,
-			public property_traits<typename detail::property_info<ValueT>::value_type, detail::property_flag::wo>
+			public property_traits<bind<ParentT, Setter>, typename detail::property_info<ValueT>::value_type, detail::property_flag::wo>
 		{
 			typedef typename detail::remove_const<ParentT>::type parent_type;
 		public:
@@ -1208,6 +1212,125 @@ namespace cppproperties
 			}
 		};
 
+		template<class ChildT, class ValueT, bool>
+		struct arithmetic_property_trait_impl
+		{
+			inline
+			ChildT& operator+() const
+            {
+				ChildT &that = *(ChildT*)(this);
+                return that;
+            }
+
+			inline
+			ChildT& operator-() const
+            {
+				ChildT &that = *(ChildT*)(this);
+				typename ChildT::value_type tmp = 
+					that.get();
+				that.set(-tmp);
+				return that;
+            }
+
+			inline
+			ChildT &operator++() 
+			{
+				ChildT &that = *(ChildT*)(this);
+				typename ChildT::value_type tmp = 
+					that.get();
+				tmp++;
+				that.set(tmp);
+				return that;
+			}
+
+			inline
+			ChildT& operator++(int)
+			{ return ++(*this); }
+
+			inline
+			ChildT &operator--() 
+			{
+				ChildT &that = *(ChildT*)(this);
+				typename ChildT::value_type tmp = 
+					that.get();
+				tmp--;
+				that.set(tmp);
+				return that;
+			}
+
+			inline
+			ChildT& operator--(int)
+			{ return --(*this); }
+
+			inline
+			ChildT &operator+=(ValueT value)
+            {
+				ChildT &that = *(ChildT*)(this);
+				typename ChildT::value_type tmp = 
+					that.get();
+				tmp += value;
+				that.set(tmp);
+				return that;
+            }
+
+			inline
+            ChildT &operator-=(ValueT value)
+            {
+				ChildT &that = *(ChildT*)(this);
+				typename ChildT::value_type tmp = 
+					that.get();
+				tmp -= value;
+				that.set(tmp);
+				return that;
+            }
+
+
+			inline
+            ChildT &operator*=(const ValueT value)
+            {
+				ChildT &that = *(ChildT*)(this);
+				typename ChildT::value_type tmp = 
+					that.get();
+				tmp *= value;
+				that.set(tmp);
+				return that;
+            }
+
+
+			inline
+            ChildT &operator/=(const ValueT value)
+            {
+				ChildT &that = *(ChildT*)(this);
+				typename ChildT::value_type tmp = 
+					that.get();
+				tmp /= value;
+				that.set(tmp);
+				return that;
+            }
+
+
+			/*inline
+            ChildT &operator%=(
+				typename
+				conditional<
+					bool( stdex::is_floating_point<typename ChildT::value_type>::value == bool(false) ),
+					const typename ChildT::value_type&,
+					class _disabled1&
+				>::type value
+            )
+            {
+				ChildT &that = *(ChildT*)(this);
+				typename ChildT::value_type tmp = 
+					that.get();
+				tmp %= value;
+				that.set(tmp);
+				return that;
+            }*/
+		};
+
+		template<class ChildT, class ValueT>
+		struct arithmetic_property_trait_impl<ChildT, ValueT, false> {};
+
 		template<class T>
 		struct size_property_trait:
 			size_property_trait_impl<T, has_size_type<typename remove_reference<T>::type>::value>
@@ -1244,20 +1367,28 @@ namespace cppproperties
 		struct dereference_property_trait<T*&>:
 			dereference_property_trait_impl<T*&>
 		{ };
+
+		template<class ChildT, class ValueT>
+		struct arithmetic_property_trait
+			: public arithmetic_property_trait_impl<ChildT, ValueT, stdex::is_arithmetic<ValueT>::value>
+		{
+
+		};
 	}
 
-	template<class ValueT>
-	struct property_traits<ValueT, property<>::ro>:
+	template<class ChildT, class ValueT>
+	struct property_traits<ChildT, ValueT, property<>::ro>:
 		detail::size_property_trait<ValueT>,
 		detail::const_begin_end_property_trait<ValueT>,
 		detail::dereference_property_trait<ValueT>
 	{ };
 
-	template<class ValueT>
-	struct property_traits<ValueT, property<>::rw>:
+	template<class ChildT, class ValueT>
+	struct property_traits<ChildT, ValueT, property<>::rw>:
 		detail::size_property_trait<ValueT>,
 		detail::begin_end_property_trait<ValueT>,
-		detail::dereference_property_trait<ValueT>
+		detail::dereference_property_trait<ValueT>,
+		detail::arithmetic_property_trait<ChildT, ValueT>
 	{ };
 
 
