@@ -22,7 +22,22 @@ TEST_CASE("Testing Gauge properties"){
 
     REQUIRE(PhWidgetsGetWidget<&PtGauge>());
 
-    SUBCASE("Gauge Prefix property"){
+    SUBCASE("Gauge::Value property"){
+
+        Gauge gauge(PhWidgetsGetWidget<&PtGauge>());
+
+        CHECK(0 == gauge.Value.get());
+
+        CHECK(gauge.Value == 0);
+
+        gauge.Value = 20;
+        CHECK(gauge.Value == 20);
+
+        gauge.Value++;;
+        CHECK(gauge.Value == 21);
+    }
+
+    SUBCASE("Gauge::Prefix property"){
 
         Gauge gauge(PhWidgetsGetWidget<&PtGauge>());
 
@@ -37,7 +52,7 @@ TEST_CASE("Testing Gauge properties"){
         CHECK(std::string("Missisipi 2") == gauge.Prefix());
     }
 
-    SUBCASE("Gauge Suffix property"){
+    SUBCASE("Gauge::Suffix property"){
         
         Gauge gauge(PhWidgetsGetWidget<&PtGauge>());
 
@@ -52,7 +67,7 @@ TEST_CASE("Testing Gauge properties"){
         CHECK(std::string("Missisipi 2") == gauge.Suffix());
     }
 
-    SUBCASE("Gauge Font property"){
+    SUBCASE("Gauge::Font property"){
 
         using PhWidgets::Drawing::Font;
         using PhWidgets::Drawing::GenericFontFamilies;
