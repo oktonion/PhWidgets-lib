@@ -46,13 +46,15 @@ esac
 
 if [[ $COMPILER = *"g++-4."* ]]; then
   echo "c++03 option is not supported"
+elif [[ $COMPILER = *"g++-3."* ]]; then
+  echo "c++03 option is not supported"
 else
   for file in ./tests/$testgroup/*.cpp; do
     filename=$(basename -- "$file")
     filename="${filename%.*}"
     foldername=$(dirname -- "$file")
     foldername=$(basename -- "$foldername")
-    echo "compiling test c++03 $foldername:$filename"
+    echo "$(date): compiling test c++03 $foldername:$filename"
     if ! $COMPILER -std=c++03 -pedantic $exclude_warn $file -I./src/ $build_libs -o "./tests/bin/$foldername:$filename"; then
       build_ok=0
     fi
@@ -69,7 +71,7 @@ for file in ./tests/$testgroup/*.cpp; do
   filename="${filename%.*}"
   foldername=$(dirname -- "$file")
   foldername=$(basename -- "$foldername")
-  echo "compiling test c++98 $foldername:$filename"
+  echo "$(date): compiling test c++98 $foldername:$filename"
   if ! $COMPILER -std=c++98 -pedantic $exclude_warn $file -I./src/ $build_libs -o "./tests/bin/$foldername:$filename"; then
     build_ok=0
   fi

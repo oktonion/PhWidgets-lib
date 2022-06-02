@@ -40,7 +40,7 @@ for file in ./tests/$testgroup/*.cpp; do
   filename="${filename%.*}"
   foldername=$(dirname -- "$file")
   foldername=$(basename -- "$foldername")
-  echo "compiling test c++03 $foldername:$filename"
+  echo "$(date): compiling test c++03 $foldername:$filename"
   if ! $COMPILER -Vgcc_ntox86 -lang-c++ $coption -pedantic $exclude_warn $file -I./slib/PhWidgets/include/ -I./ -L./slib/PhWidgets/ -lAp -lph -lm -lphexlib -lphwidgets -o "./tests/bin/$foldername:$filename"; then
     build_ok=0
   fi
