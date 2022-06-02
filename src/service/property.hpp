@@ -692,6 +692,7 @@ namespace cppproperties
 		typename 
 		detail::enable_if<
 			(
+				!stdex::is_same<OtherValueT, property>::value &&
 				detail::has_equal<value_type, OtherValueT>::value/* ||
 				(
 					detail::is_convertable<OtherValueT, value_type>::value &&
@@ -712,6 +713,7 @@ namespace cppproperties
 		typename 
 		detail::enable_if<
 			(
+				!stdex::is_same<OtherValueT, property>::value &&
 				detail::has_not_equal<value_type, OtherValueT>::value/* ||
 				(
 					detail::is_convertable<OtherValueT, value_type>::value &&
@@ -732,6 +734,7 @@ namespace cppproperties
 		typename 
 		detail::enable_if<
 			(
+				!stdex::is_same<OtherValueT, property>::value &&
 				detail::has_less<value_type, OtherValueT>::value/* ||
 				(
 					detail::is_convertable<OtherValueT, value_type>::value &&
@@ -752,6 +755,7 @@ namespace cppproperties
 		typename 
 		detail::enable_if<
 			(
+				!stdex::is_same<OtherValueT, property>::value &&
 				detail::has_greater<value_type, OtherValueT>::value/* ||
 				(
 					detail::is_convertable<OtherValueT, value_type>::value &&
@@ -772,6 +776,7 @@ namespace cppproperties
 		typename 
 		detail::enable_if<
 			(
+				!stdex::is_same<OtherValueT, property>::value &&
 				detail::has_less_equal<value_type, OtherValueT>::value/* ||
 				(
 					detail::is_convertable<OtherValueT, value_type>::value &&
@@ -792,6 +797,7 @@ namespace cppproperties
 		typename 
 		detail::enable_if<
 			(
+				!stdex::is_same<OtherValueT, property>::value &&
 				detail::has_greater_equal<value_type, OtherValueT>::value/* ||
 				(
 					detail::is_convertable<OtherValueT, value_type>::value &&
