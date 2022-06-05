@@ -114,7 +114,7 @@ int RemoveValidWidget(PtWidget_t *wdg, void *, PtCallbackInfo_t *)
 
 void AddDestroyedLink(PtWidget_t *wdg, int(*callback)( PtWidget_t *, void *, PtCallbackInfo_t * ))
 {
-	PtAddCallback(wdg, Widget::Callbacks::destroyed, callback, nullptr);
+	PtAddCallback(wdg, Widget::Callbacks<>::Destroyed, callback, nullptr);
 }
 
 PtWidget_t *Widget::widget() const
