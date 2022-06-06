@@ -127,7 +127,7 @@ namespace PhWidgets
         //! An event, which raise a notification to registered subscribers (event handlers) that something of interest has occurred.
 
         //! Event handlers must be Widget::callback_t type or convertable to it.
-        template<class ParentT, typename ParentT::template Callbacks<>::Callback CallbackID>
+        template<class ParentT, typename ParentT::template Callbacks<PtCallback_t>::Callback CallbackID>
         class phwidgets_event
         {
             
@@ -662,8 +662,8 @@ namespace PhWidgets
             } type;
         };
 
-        template<int TypeID, bool Dummy>
-        struct Arguments<void, ResourceTypeTag<TypeID>, Dummy>
+        template<int TypeID>
+        struct Arguments<void, ResourceTypeTag<TypeID>/**/>
             : Arguments<PhArea_t, ResourceTypeTag<__LINE__>/**/>
             , Arguments<unsigned, ResourceTypeTag<__LINE__>/**/>
             , Arguments<unsigned short, ResourceTypeTag<__LINE__>/**/>
@@ -1451,7 +1451,7 @@ namespace PhWidgets
 
             @see 
             - Widget::ThisFlags::Highlighted
-            - Basic::ThisFlags::Basic::eBasic
+            - Basic::ThisFlags::Basic::type
         */
         phproperty<unsigned short>::bind<Widget, Arguments<unsigned short>::Scalar, Arguments<unsigned short>::BevelWidth>    BevelWidth; 
         

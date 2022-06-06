@@ -153,20 +153,20 @@ void PhWidgets::Basic::OnRepeat(PtCallbackInfo_t * info)
 	resource.callback[Callback::repeat].raise(info);
 }
 
-cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator|(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2)
+cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::type> operator|(const PhWidgets::Basic::Flags::Basic::type &flag1, const PhWidgets::Basic::Flags::Basic::type &flag2)
 {
-	cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> bm(flag1);
+	cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::type> bm(flag1);
 	return bm | flag2;
 }
 
-cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator&(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2)
+cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::type> operator&(const PhWidgets::Basic::Flags::Basic::type &flag1, const PhWidgets::Basic::Flags::Basic::type &flag2)
 {
-	cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> bm(flag1);
+	cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::type> bm(flag1);
 	return bm & flag2;
 }
 
-cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator^(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2)
+cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::type> operator^(const PhWidgets::Basic::Flags::Basic::type &flag1, const PhWidgets::Basic::Flags::Basic::type &flag2)
 {
-	cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> bm(flag1);
+	cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::type> bm(flag1);
 	return bm ^ flag2;
 }

@@ -42,28 +42,26 @@ namespace PhWidgets
     public:
 
         //! Contains resource IDs for Basic arguments. @ingroup Resources
-        template<class T = void, class Disabled = Widget::ResourceTypeTag<0>, bool Dummy = false>
+        template<class T = void, class Disabled = Widget::ResourceTypeTag<-1>, bool Dummy = false>
         struct Arguments
-			: Widget::Arguments<T>
         {
             typedef void type;
         };
 
 		template<class T, int TypeID>
         struct Arguments<T, Widget::ResourceTypeTag<TypeID> >
-            : Arguments<T, Widget::ResourceTag::Alloc>
-            , Arguments<T, Widget::ResourceTag::Callback>
-            , Arguments<T, Widget::ResourceTag::Color>
-            , Arguments<T, Widget::ResourceTag::Flag>
-            , Arguments<T, Widget::ResourceTag::Scalar>
-            , Arguments<T, Widget::ResourceTag::String>
-            , Arguments<T, Widget::ResourceTag::Struct>
-			, Widget::Arguments<T>
+            : Basic::Arguments<T, Widget::ResourceTag::Alloc>
+            , Basic::Arguments<T, Widget::ResourceTag::Callback>
+            , Basic::Arguments<T, Widget::ResourceTag::Color>
+            , Basic::Arguments<T, Widget::ResourceTag::Flag>
+            , Basic::Arguments<T, Widget::ResourceTag::Scalar>
+            , Basic::Arguments<T, Widget::ResourceTag::String>
+            , Basic::Arguments<T, Widget::ResourceTag::Struct>
         { };
 
         template<class T>
         struct Arguments<Basic, T, false>
-            : Arguments<T>
+            : Basic::Arguments<T>
         { };
 
         //! Contains resource IDs for Basic arguments of type **unsigned short**.
@@ -130,7 +128,9 @@ namespace PhWidgets
                 LightBevelColor = Pt_ARG_LIGHT_BEVEL_COLOR, //!< This resource, with \link Basic::Arguments<>::DarkBevelColor DarkBevelColor\endlink, specifies the outermost colors used when applying a bevel to a widget.
                 LightFillColor = Pt_ARG_LIGHT_FILL_COLOR, //!< This resource, with \link Basic::Arguments<>::DarkFillColor DarkFillColor\endlink, specifies the colors with which a gradient (if applied) starts and ends.
                 OutlineColor = Pt_ARG_OUTLINE_COLOR //!< The color of the outline of the border.
-            } type;
+
+				, DrawingColor = Color //!< @see Color
+            } type, ColorResource;
         };
 
         //! Contains resource IDs for Basic arguments of type **char**.
@@ -262,7 +262,6 @@ namespace PhWidgets
 										//!< These events occur when you hold down the left pointer button (or the right pointer button if the widget has Widget::Flags::AllButtons set in its Widget::Arguments<>::Flags resource).
 			} type;
 		};
-        };
 
         //! Contains flags for all Basic resources. @ingroup Resources
         struct Flags
@@ -338,22 +337,23 @@ namespace PhWidgets
                     StaticBevels = Pt_STATIC_BEVELS //!<  If set, the rendered bevels don't change when the widget is set or unset. 
                 };
             };
+		};
 
-		template<int TypeID, bool Dummy>
-        struct Arguments<void, Widget::ResourceTypeTag<TypeID>, Dummy>
-            : Arguments<unsigned short, Widget::ResourceTypeTag<__LINE__>/**/>,
-            , Arguments<unsigned long, Widget::ResourceTypeTag<__LINE__>/**/>
-            , Arguments<PgColor_t, Widget::ResourceTypeTag<__LINE__>/**/>
-            , Arguments<char, Widget::ResourceTypeTag<__LINE__>/**/>
-            , Arguments<PgPattern_t, Widget::ResourceTypeTag<__LINE__>/**/>
-            , Arguments<unsigned char, Widget::ResourceTypeTag<__LINE__>/**/>
-            , Arguments<char*, Widget::ResourceTypeTag<__LINE__>/**/>
+		template<int TypeID>
+        struct Arguments<void, Widget::ResourceTypeTag<TypeID> >
+            : Basic::Arguments<unsigned short, Widget::ResourceTypeTag<__LINE__>/**/>
+            , Basic::Arguments<unsigned long, Widget::ResourceTypeTag<__LINE__>/**/>
+            , Basic::Arguments<PgColor_t, Widget::ResourceTypeTag<__LINE__>/**/>
+            , Basic::Arguments<char, Widget::ResourceTypeTag<__LINE__>/**/>
+            , Basic::Arguments<PgPattern_t, Widget::ResourceTypeTag<__LINE__>/**/>
+            , Basic::Arguments<unsigned char, Widget::ResourceTypeTag<__LINE__>/**/>
+            , Basic::Arguments<char*, Widget::ResourceTypeTag<__LINE__>/**/>
             , Widget::Arguments<>
         { };
 
         template<bool Dummy>
         struct Callbacks<void, void, Dummy>
-            : Callbacks<PtCallback_t>
+            : Basic::Callbacks<PtCallback_t, ResourceTag::Callback>
             , Widget::Callbacks<>
         { };
 
@@ -361,7 +361,7 @@ namespace PhWidgets
 
         typedef ResourceFrom<Widget::WidgetResourcesSingleton>::
             Define::String<Arguments<char*>::String>::
-            Define::Color<Arguments<PgColor_t>::Color>::
+            Define::Color<Arguments<PgColor_t>::ColorResource>::
             Define::Scalar<Arguments<unsigned short>::Scalar, unsigned short>::
             Define::Scalar<Arguments<char>::Scalar, char>::
             //Define::Flag<ThisArgs::ArgLong::eArgLong, long>::
@@ -425,7 +425,7 @@ namespace PhWidgets
             - Drawing::Colors
             - Drawing::Color
         */
-        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::Color, Arguments<>::BevelColor> BevelColor;
+        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::ColorResource, Arguments<>::BevelColor> BevelColor;
         
         //! Gets or sets the foreground or drawing color for the widget.
         /*!
@@ -457,7 +457,7 @@ namespace PhWidgets
             - Drawing::Colors
             - Drawing::Color
         */
-        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::Color, Arguments<>::Color> Color;
+        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::ColorResource, Arguments<>::DrawingColor> Color;
 
         //! Gets or sets the dark outermost color used when applying a bevel to a widget.
         /*!
@@ -483,7 +483,7 @@ namespace PhWidgets
             - LightFillColor
             - LightBevelColor
         */
-        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::Color, Arguments<>::DarkBevelColor> DarkBevelColor;
+        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::ColorResource, Arguments<>::DarkBevelColor> DarkBevelColor;
 
         //! Gets or sets the dark color with which a gradient (if applied) goes.
         /*!
@@ -511,7 +511,7 @@ namespace PhWidgets
             - LightBevelColor
             - DarkBevelColor
         */
-        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::Color, Arguments<>::DarkFillColor> DarkFillColor;
+        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::ColorResource, Arguments<>::DarkFillColor> DarkFillColor;
 
         //! Gets or sets the fill color for the widget.
         /*!
@@ -552,7 +552,7 @@ namespace PhWidgets
             - LightBevelColor
             - DarkBevelColor
         */
-        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::Color, Arguments<>::FillColor> FillColor;
+        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::ColorResource, Arguments<>::FillColor> FillColor;
 
         //! Gets or sets the color of the inline of the border.
         /*!
@@ -570,7 +570,7 @@ namespace PhWidgets
             - Drawing::Colors
             - BasicFlags
         */
-        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::Color, Arguments<>::InlineColor> InlineColor;
+        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::ColorResource, Arguments<>::InlineColor> InlineColor;
 
         //! Gets or sets the light outermost color used when applying a bevel to a widget.
         /*!
@@ -596,7 +596,7 @@ namespace PhWidgets
             - LightFillColor
             - DarkBevelColor
         */
-        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::Color, Arguments<>::LightBevelColor> LightBevelColor;
+        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::ColorResource, Arguments<>::LightBevelColor> LightBevelColor;
 
         //! Gets or sets the light color with which a gradient (if applied) goes.
         /*!
@@ -624,7 +624,7 @@ namespace PhWidgets
             - LightBevelColor
             - DarkBevelColor
         */
-        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::Color, Arguments<>::LightFillColor> LightFillColor;
+        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::ColorResource, Arguments<>::LightFillColor> LightFillColor;
 
         //! Gets or sets the amount of vertical space between the widget's canvas and the widget's border.
         /*!
@@ -666,10 +666,10 @@ namespace PhWidgets
             - Drawing::Colors
             - BasicFlags
         */
-        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::Color, Arguments<>::OutlineColor> OutlineColor;
+        phproperty<Drawing::Color>::bind<Basic, Arguments<PgColor_t>::ColorResource, Arguments<>::OutlineColor> OutlineColor;
 
         phbitmask<unsigned long, Flags::Basic::type>::
-			bind<Basic, Arguments<unsigned long>::Scalar, Arguments<>::BasicFlags>    BasicFlags; //!< Gets or sets basic flags inherited by all widgets. See Flags::Basic::eBasic.
+			bind<Basic, Arguments<unsigned long>::Scalar, Arguments<>::BasicFlags>    BasicFlags; //!< Gets or sets basic flags inherited by all widgets. See Flags::Basic::type.
 
         //! @}
 
@@ -702,9 +702,9 @@ namespace PhWidgets
     
 } // namespace PhWidgets
 
-cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator|(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2);
-cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator&(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2);
-cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::eBasic> operator^(const PhWidgets::Basic::Flags::Basic::eBasic &flag1, const PhWidgets::Basic::Flags::Basic::eBasic &flag2);
+cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::type> operator|(const PhWidgets::Basic::Flags::Basic::type &flag1, const PhWidgets::Basic::Flags::Basic::type &flag2);
+cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::type> operator&(const PhWidgets::Basic::Flags::Basic::type &flag1, const PhWidgets::Basic::Flags::Basic::type &flag2);
+cppbitmasks::bitmask<unsigned long, PhWidgets::Basic::Flags::Basic::type> operator^(const PhWidgets::Basic::Flags::Basic::type &flag1, const PhWidgets::Basic::Flags::Basic::type &flag2);
 
 
 #endif // PHWIDGETS_BASIC_H
