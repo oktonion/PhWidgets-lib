@@ -6,7 +6,7 @@
 //
 // Copyright (c) 2016-2021 Viktor Kirilov
 //
-// Ported to C++ 98 by Aleksandr Gubanov 2019-2021
+// Ported to C++ 98 by Aleksandr Gubanov 2019-2022
 //
 // Distributed under the MIT Software License
 // See accompanying file LICENSE.txt or copy at
