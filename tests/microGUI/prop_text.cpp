@@ -4,6 +4,7 @@
 
 #include <Label.h>
 #include <Text.h>
+#include <Window.h>
 
 #ifndef PH_WIDGETS_INIT_COMPLETED
 static const int PhWidgetsPtInit = PtInit(NULL);
@@ -61,4 +62,48 @@ TEST_CASE("Testing Label::Text property"){
         CHECK(std::string("Missisipi 4") == text.Text());
     }
 
+    SUBCASE("Text Label::TextClippedAlign test"){
+
+        if (!PhWidgetsGetWidget<&PtWindow>())
+            PhWidgetsCreateWidget<&PtWindow>(Pt_NO_PARENT, 0, NULL);
+        if (!PhWidgetsGetWidget<&PtLabel>())
+            PhWidgetsCreateWidget<&PtLabel>(PhWidgetsGetWidget<&PtWindow>(), 0, NULL);
+            
+        REQUIRE(PhWidgetsGetWidget<&PtLabel>());
+
+        using namespace PhWidgets;
+
+        Label label(PhWidgetsGetWidget<&PtLabel>());
+
+        label.TextClippedAlign = Drawing::ContentAlignment::TopRight;
+        CHECK(label.TextClippedAlign == Drawing::ContentAlignment::TopRight);
+        CHECK(Drawing::ContentAlignment::TopRight == label.TextClippedAlign);
+
+        label.TextClippedAlign = Drawing::ContentAlignment::MiddleRight;
+        CHECK(label.TextClippedAlign == Drawing::ContentAlignment::MiddleRight);
+        CHECK(Drawing::ContentAlignment::MiddleRight == label.TextClippedAlign);
+
+        label.TextClippedAlign = Drawing::ContentAlignment::BottomRight;
+        CHECK(label.TextClippedAlign == Drawing::ContentAlignment::BottomRight);
+        CHECK(Drawing::ContentAlignment::BottomRight == label.TextClippedAlign);
+    }
+
+}
+
+TEST_CASE("Testing Window::Title property"){
+    REQUIRE_MESSAGE(0 == PhWidgetsPtInit, "Photon App requires connection to Photon server.");
+    
+    using namespace PhWidgets;
+
+    if (!PhWidgetsGetWidget<&PtWindow>())
+        PhWidgetsCreateWidget<&PtWindow>(Pt_NO_PARENT, 0, NULL);
+    if (!PhWidgetsGetWidget<&PtWindow>())
+        PhWidgetsCreateWidget<&PtWindow>(PhWidgetsGetWidget<&PtWindow>(), 0, NULL);
+    
+    REQUIRE(PhWidgetsGetWidget<&PtWindow>());
+    
+    Window window(PhWidgetsGetWidget<&PtWindow>());    
+
+    window.Title("title");
+    CHECK("title" == window.Title());
 }
