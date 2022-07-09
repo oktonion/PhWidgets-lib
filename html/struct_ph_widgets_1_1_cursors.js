@@ -28,7 +28,6 @@ var struct_ph_widgets_1_1_cursors =
       [ "LongWait", "struct_ph_widgets_1_1_cursors.html#a10c30c978a8ca9d3926446052931629ca61fdbf318728313c5f18d3ca23854aac", null ],
       [ "QuestionPoint", "struct_ph_widgets_1_1_cursors.html#a10c30c978a8ca9d3926446052931629ca0fb44672d2595669b945286df5e241b0", null ],
       [ "Paste", "struct_ph_widgets_1_1_cursors.html#a10c30c978a8ca9d3926446052931629ca698fb5f5be8945b6c5fc58536125e32c", null ],
-      [ "AppStarting", "struct_ph_widgets_1_1_cursors.html#a10c30c978a8ca9d3926446052931629cad9aa1d9fca18112d42cf77d12214b6a7", null ],
       [ "Default", "struct_ph_widgets_1_1_cursors.html#a10c30c978a8ca9d3926446052931629ca2e456ff50e36b791707418eb28c55a84", null ],
       [ "Arrow", "struct_ph_widgets_1_1_cursors.html#a10c30c978a8ca9d3926446052931629cab3bbc49595e29b8ffcb0f6836150f8e5", null ],
       [ "Cross", "struct_ph_widgets_1_1_cursors.html#a10c30c978a8ca9d3926446052931629ca9c706b5193681b9f3f085da9bb1cdcd7", null ],

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['outbound_4180',['Outbound',['../class_ph_widgets_1_1_widget.html#a59e2041a2aa676a17182766438ab67a3',1,'PhWidgets::Widget']]],
-  ['outlinecolor_4181',['OutlineColor',['../class_ph_widgets_1_1_basic.html#a6c9e217b2a8c6956e146eaa4f4659937',1,'PhWidgets::Basic']]]
+  ['outbound_0',['Outbound',['../class_ph_widgets_1_1_widget.html#a9a0b52b0231b4dca1cbd7106714dad3c',1,'PhWidgets::Widget']]],
+  ['outlinecolor_1',['OutlineColor',['../class_ph_widgets_1_1_basic.html#a74e36635fea081c43ebd83687916cd67',1,'PhWidgets::Basic']]]
 ];

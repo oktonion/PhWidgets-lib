@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "PhWidgets library", "index.html", [
+  [ "Photon microDUI widgets library", "index.html", [
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -46,18 +46,26 @@ var NAVTREE =
         [ "Enumerations", "functions_enum.html", null ],
         [ "Enumerator", "functions_eval.html", "functions_eval" ]
       ] ]
+    ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"class_ph_widgets_1_1_text.html#abba2e3590f6bb1ae92428633a65ccb49",
-"struct_ph_widgets_1_1_balloon_position.html#a1df6882e36dc9bcd5b218ed058a4f26ea0d96501a18c43ad5f32ea7695f0c0415",
-"struct_ph_widgets_1_1_cursors.html#a10c30c978a8ca9d3926446052931629cacafa3230afca932468ca866da47519d9",
-"struct_ph_widgets_1_1_graphic_1_1_this_args_1_1_arg_unsigned_short.html#a64ac1a1600b42e792e81769c1ffe27d8",
-"struct_ph_widgets_1_1_widget_1_1_this_args_1_1_arg_area.html"
+"_basic_8h_source.html",
+"class_ph_widgets_1_1_drawing_1_1_font_family.html#a819ed174f557a23cbccde056157211b4",
+"class_ph_widgets_1_1_widget.html#a2d4f1e9cdf411621fb062e3e6b35c2da",
+"namespace_ph_widgets.html#ac36a6b3c54001ba68bd5ed3d7d39c416",
+"struct_ph_widgets_1_1_button_1_1_arg_unsigned_char.html",
+"struct_ph_widgets_1_1_disjoint_1_1_arg_p_sys_info.html",
+"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689bacbd7e4301e5ea47374006aaf37b7cc60",
+"struct_ph_widgets_1_1_gauge_1_1_this_flags_1_1_gauge.html#afad7f44d3b8a8698ee96f14c838cef8ba8c00cb2db617fbfd9c16a31e3fbd0156",
+"struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_short.html#aba91b368ceec08ccb1705c3406b0056a",
+"struct_ph_widgets_1_1_widget_1_1_arguments_3_01_ph_cursor_def__t_00_01_resource_tag_1_1_struct_00_01_dummy_01_4.html#a15aab338e27a4472b6f4376325e72caa",
+"struct_ph_widgets_1_1_window_1_1_arg_p_char.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

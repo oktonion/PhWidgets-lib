@@ -12,6 +12,7 @@ var namespace_ph_widgets =
     [ "Cursor", "class_ph_widgets_1_1_cursor.html", "class_ph_widgets_1_1_cursor" ],
     [ "Cursors", "struct_ph_widgets_1_1_cursors.html", "struct_ph_widgets_1_1_cursors" ],
     [ "Disjoint", "class_ph_widgets_1_1_disjoint.html", "class_ph_widgets_1_1_disjoint" ],
+    [ "Gauge", "class_ph_widgets_1_1_gauge.html", "class_ph_widgets_1_1_gauge" ],
     [ "Graphic", "class_ph_widgets_1_1_graphic.html", "class_ph_widgets_1_1_graphic" ],
     [ "ImageArea", "class_ph_widgets_1_1_image_area.html", "class_ph_widgets_1_1_image_area" ],
     [ "Label", "class_ph_widgets_1_1_label.html", "class_ph_widgets_1_1_label" ],
@@ -21,11 +22,13 @@ var namespace_ph_widgets =
     [ "NumericInteger", "class_ph_widgets_1_1_numeric_integer.html", "class_ph_widgets_1_1_numeric_integer" ],
     [ "OnOffButton", "class_ph_widgets_1_1_on_off_button.html", "class_ph_widgets_1_1_on_off_button" ],
     [ "Pane", "class_ph_widgets_1_1_pane.html", "class_ph_widgets_1_1_pane" ],
-    [ "Text", "class_ph_widgets_1_1_text.html", "class_ph_widgets_1_1_text" ],
+    [ "TextWidget", "class_ph_widgets_1_1_text_widget.html", "class_ph_widgets_1_1_text_widget" ],
     [ "Timer", "class_ph_widgets_1_1_timer.html", "class_ph_widgets_1_1_timer" ],
     [ "ToggleButton", "class_ph_widgets_1_1_toggle_button.html", "class_ph_widgets_1_1_toggle_button" ],
     [ "ToggleIndicatorType", "struct_ph_widgets_1_1_toggle_indicator_type.html", "struct_ph_widgets_1_1_toggle_indicator_type" ],
     [ "UnderlineType", "struct_ph_widgets_1_1_underline_type.html", "struct_ph_widgets_1_1_underline_type" ],
     [ "Widget", "class_ph_widgets_1_1_widget.html", "class_ph_widgets_1_1_widget" ],
-    [ "Window", "class_ph_widgets_1_1_window.html", "class_ph_widgets_1_1_window" ]
+    [ "Window", "class_ph_widgets_1_1_window.html", "class_ph_widgets_1_1_window" ],
+    [ "Text", "namespace_ph_widgets.html#a579c5f480a051d61af681ede7107958a", null ],
+    [ "dynamic_widget_cast", "namespace_ph_widgets.html#ac36a6b3c54001ba68bd5ed3d7d39c416", null ]
 ];

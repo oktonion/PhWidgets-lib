@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['queue_2641',['queue',['http://en.cppreference.com/w/cpp/container/queue.html',1,'std']]]
+  ['underlinetype_0',['UnderlineType',['../struct_ph_widgets_1_1_underline_type.html',1,'PhWidgets']]]
 ];

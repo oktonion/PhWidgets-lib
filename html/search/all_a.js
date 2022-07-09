@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['jmp_5fbuf_1015',['jmp_buf',['http://en.cppreference.com/w/namespacestd.html#cpp/utility/program/jmp_buf',1,'std']]],
-  ['join_1016',['join',['http://en.cppreference.com/w/cpp/thread/thread/join.html',1,'std::thread']]],
-  ['joinable_1017',['joinable',['http://en.cppreference.com/w/cpp/thread/thread/joinable.html',1,'std::thread']]]
+  ['khaki_0',['Khaki',['../struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba8d428fe46b8cb0a77a175374c90a2701',1,'PhWidgets::Drawing::Colors']]]
 ];

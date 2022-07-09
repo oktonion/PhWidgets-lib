@@ -1,19 +1,6 @@
 var searchData=
 [
-  ['deca_2339',['deca',['http://en.cppreference.com/w/namespacestd.html#cpp/numeric/ratio/ratio',1,'std']]],
-  ['decay_2340',['decay',['http://en.cppreference.com/w/namespacestd.html#cpp/types/decay',1,'std']]],
-  ['deci_2341',['deci',['http://en.cppreference.com/w/namespacestd.html#cpp/numeric/ratio/ratio',1,'std']]],
-  ['default_5fdelete_2342',['default_delete',['http://en.cppreference.com/w/cpp/memory/default_delete.html',1,'std']]],
-  ['default_5frandom_5fengine_2343',['default_random_engine',['http://en.cppreference.com/w/namespacestd.html#cpp/numeric/random',1,'std']]],
-  ['defer_5flock_5ft_2344',['defer_lock_t',['http://en.cppreference.com/w/namespacestd.html#cpp/thread/lock_tag_t',1,'std']]],
-  ['deque_2345',['deque',['http://en.cppreference.com/w/cpp/container/deque.html',1,'std']]],
-  ['directimagetype_2346',['DirectImageType',['../struct_ph_widgets_1_1_drawing_1_1_direct_image_type.html',1,'PhWidgets::Drawing']]],
-  ['discard_5fblock_5fengine_2347',['discard_block_engine',['http://en.cppreference.com/w/cpp/numeric/random/discard_block_engine.html',1,'std']]],
-  ['discrete_5fdistribution_2348',['discrete_distribution',['http://en.cppreference.com/w/cpp/numeric/random/discrete_distribution.html',1,'std']]],
-  ['disjoint_2349',['Disjoint',['../class_ph_widgets_1_1_disjoint.html',1,'PhWidgets']]],
-  ['divides_2350',['divides',['http://en.cppreference.com/w/cpp/utility/functional/divides.html',1,'std']]],
-  ['domain_5ferror_2351',['domain_error',['http://en.cppreference.com/w/cpp/error/domain_error.html',1,'std']]],
-  ['duration_2352',['duration',['http://en.cppreference.com/w/cpp/chrono/duration.html',1,'std::chrono']]],
-  ['duration_5fvalues_2353',['duration_values',['http://en.cppreference.com/w/cpp/chrono/duration_values.html',1,'std::chrono']]],
-  ['dynarray_2354',['dynarray',['http://en.cppreference.com/w/cpp/container/dynarray.html',1,'std']]]
+  ['directimagetype_0',['DirectImageType',['../struct_ph_widgets_1_1_drawing_1_1_direct_image_type.html',1,'PhWidgets::Drawing']]],
+  ['disjoint_1',['Disjoint',['../class_ph_widgets_1_1_disjoint.html',1,'PhWidgets']]],
+  ['duration_2',['duration',['../classstdex_1_1chrono_1_1duration.html',1,'stdex::chrono']]]
 ];
