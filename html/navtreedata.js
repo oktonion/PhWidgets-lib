@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "Photon microDUI widgets library", "index.html", [
+  [ "Photon microGUI widgets library", "index.html", [
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
