@@ -46,26 +46,23 @@ var NAVTREE =
         [ "Enumerations", "functions_enum.html", null ],
         [ "Enumerator", "functions_eval.html", "functions_eval" ]
       ] ]
-    ] ],
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_basic_8h_source.html",
-"class_ph_widgets_1_1_drawing_1_1_font_family.html#a819ed174f557a23cbccde056157211b4",
-"class_ph_widgets_1_1_widget.html#a2d4f1e9cdf411621fb062e3e6b35c2da",
-"namespace_ph_widgets.html#ac36a6b3c54001ba68bd5ed3d7d39c416",
-"struct_ph_widgets_1_1_button_1_1_arg_unsigned_char.html",
-"struct_ph_widgets_1_1_disjoint_1_1_arg_p_sys_info.html",
-"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689bacbd7e4301e5ea47374006aaf37b7cc60",
-"struct_ph_widgets_1_1_gauge_1_1_this_flags_1_1_gauge.html#afad7f44d3b8a8698ee96f14c838cef8ba8c00cb2db617fbfd9c16a31e3fbd0156",
-"struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_short.html#aba91b368ceec08ccb1705c3406b0056a",
-"struct_ph_widgets_1_1_widget_1_1_arguments_3_01_ph_cursor_def__t_00_01_resource_tag_1_1_struct_00_01_dummy_01_4.html#a15aab338e27a4472b6f4376325e72caa",
-"struct_ph_widgets_1_1_window_1_1_arg_p_char.html"
+"annotated.html",
+"class_ph_widgets_1_1_gauge.html#a23ff5f8772ba85b0ab5fed7bb699a8ba",
+"class_ph_widgets_1_1_widget.html#a5b824c05363bb391317659813f2dadc2",
+"struct_ph_widgets_1_1_anchor_styles.html#a630296c292367032cc08d854c0f199cba9c5fb3903c0f6ffdff613cbd5b7e2082",
+"struct_ph_widgets_1_1_combo_box_1_1_this_args_1_1_arg_unsigned_short.html#ac7509d213d76c060a2062102c2cfb55aaf62cd5af4d8252a02334ecc509072886",
+"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba12c9b6d3aaf8ed05301e6be262ac13ca",
+"struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689bafbe5d59b48ef7204c7d50b9d508b8a11",
+"struct_ph_widgets_1_1_graphic_1_1_this_args_1_1_arg_pattern.html",
+"struct_ph_widgets_1_1_numeric_1_1_this_args_1_1_arg_p_char.html",
+"struct_ph_widgets_1_1_widget_1_1_arguments_3_01char_01_5_00_01_resource_tag_1_1_string_00_01_dummy_01_4.html#af2dc2d85225997868cab0757085c610a",
+"struct_pt_callback_info__t.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
