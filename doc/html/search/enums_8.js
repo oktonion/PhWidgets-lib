@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['type_0',['type',['../struct_ph_widgets_1_1_basic_1_1_flags_1_1_basic.html#a8003c6b4b5ec7c786cbc908a266a9c93',1,'PhWidgets::Basic::Flags::Basic::type()'],['../struct_ph_widgets_1_1_anchor_styles.html#a630296c292367032cc08d854c0f199cb',1,'PhWidgets::AnchorStyles::type()'],['../struct_ph_widgets_1_1_widget_1_1_flags_1_1_cursor.html#a36e991aa652441342e998a82748eb830',1,'PhWidgets::Widget::Flags::Cursor::type()'],['../struct_ph_widgets_1_1_widget_1_1_flags_1_1_extended.html#ab8018073ffe4e0a3c6ce11e16a7081e8',1,'PhWidgets::Widget::Flags::Extended::type()'],['../struct_ph_widgets_1_1_widget_1_1_flags_1_1_resize.html#a5d48a267776d87abaf9e4c6decd5df12',1,'PhWidgets::Widget::Flags::Resize::type()'],['../struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58',1,'PhWidgets::Widget::Flags::type()']]]
+];

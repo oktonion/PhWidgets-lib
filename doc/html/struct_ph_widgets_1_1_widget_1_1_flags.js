@@ -1,0 +1,38 @@
+var struct_ph_widgets_1_1_widget_1_1_flags =
+[
+    [ "Anchor", "struct_ph_widgets_1_1_widget_1_1_flags_1_1_anchor.html", null ],
+    [ "Cursor", "struct_ph_widgets_1_1_widget_1_1_flags_1_1_cursor.html", "struct_ph_widgets_1_1_widget_1_1_flags_1_1_cursor" ],
+    [ "Extended", "struct_ph_widgets_1_1_widget_1_1_flags_1_1_extended.html", "struct_ph_widgets_1_1_widget_1_1_flags_1_1_extended" ],
+    [ "Resize", "struct_ph_widgets_1_1_widget_1_1_flags_1_1_resize.html", "struct_ph_widgets_1_1_widget_1_1_flags_1_1_resize" ],
+    [ "type", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58", [
+      [ "AllButtons", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58a3047a6a8d68801ca64d7ee3615ae7e2d", null ],
+      [ "Autohighlight", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58a4ea5e653956f2b045544666fb0c90db9", null ],
+      [ "Blocked", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58aa750e5e4c45dd3ff31bfb46aba78099a", null ],
+      [ "CallbacksActive", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58a2c79631f2fec79f1b0afb679e8b07fe6", null ],
+      [ "Clear", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58a3197efaac461c81177079c50b9b6fef3", null ],
+      [ "ClipHighlight", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58a05941d342d424666b1e3ed3547e4153e", null ],
+      [ "Damaged", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58a6da25bc1c200798d9d451a903d45a5fa", null ],
+      [ "DamageFamily", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58a45fa6e28dcd3c1b70fa23babbc4f99cb", null ],
+      [ "DelayRealize", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58ac50d6ec9f0f0c90a235446c4a0fba1bf", null ],
+      [ "Destroyed", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58a3d4336d01060e353370bd40debd00183", null ],
+      [ "FocusRender", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58ab26ccf7e3afdcfd2c462e40e595353b7", null ],
+      [ "GetsFocus", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58ad61c501f8dc067994ab16d0334238b35", null ],
+      [ "Ghost", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58a6f7f0ec833369c316780f083980777fd", null ],
+      [ "Highlighted", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58a484e817d0a5249fad15b037fefa61da9", null ],
+      [ "InFlux", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58aa1922d9af9ed36bda81df6b99de1afee", null ],
+      [ "Menuable", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58af5152775d3e7b0fe6a45e7cb7157d176", null ],
+      [ "MenuButton", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58af172fbeb29f6cb11d2c50d1e8156908a", null ],
+      [ "Obscured", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58a0f15add8ba21fa483689aeb44451d525", null ],
+      [ "Opaque", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58adb839619fbd813809574c85f0135da44", null ],
+      [ "Procreated", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58af15a905a06ecdb30475c8aec6cbd6ff8", null ],
+      [ "Realized", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58a2b60f9270957b88af07346ac3ccd2c0e", null ],
+      [ "Realizing", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58ae7d70eba24c23378076d088c84684ec5", null ],
+      [ "Region", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58ab1bc3f434c2712f9c130371cad32f63e", null ],
+      [ "Selectable", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58aa1d3b4c235eaf538e7bc00cbcbe3ac1a", null ],
+      [ "SelectNoredraw", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58abba4ec7e95a269b72822125e23183373", null ],
+      [ "Set", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58aabdff8a400f0df0f9ef48ac12b4d6650", null ],
+      [ "Toggle", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58a92dc3bb151180bda262ef2d8a3949c95", null ],
+      [ "WidgetRebuild", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58a060926f425354ba39d54ba8db1dfc2f0", null ],
+      [ "WidgetResize", "struct_ph_widgets_1_1_widget_1_1_flags.html#a9bc4c3cb76baf5294296a8eff4911e58ad996320571bccef42c2cbea03221bd5a", null ]
+    ] ]
+];

@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['callback_0',['Callback',['../struct_ph_widgets_1_1_basic_1_1_callbacks_3_01_pt_callback__t_00_01_resource_tag_1_1_callback_00_01_dummy_01_4.html#a00a20c293d87431c4ff40306902a7ad9',1,'PhWidgets::Basic::Callbacks&lt; PtCallback_t, ResourceTag::Callback, Dummy &gt;::Callback()'],['../struct_ph_widgets_1_1_widget_1_1_callbacks_3_01_pt_callback__t_00_01_resource_tag_1_1_callback_00_01_dummy_01_4.html#a3a1c1f4119b9d8bce551a872ac957f38',1,'PhWidgets::Widget::Callbacks&lt; PtCallback_t, ResourceTag::Callback, Dummy &gt;::Callback()']]],
+  ['color_1',['Color',['../struct_ph_widgets_1_1_basic_1_1_arguments_3_01_pg_color__t_00_01_resource_tag_1_1_color_00_01_dummy_01_4.html#a1bc3b691fe823ea8d5196c2c170568f2',1,'PhWidgets::Basic::Arguments&lt; PgColor_t, ResourceTag::Color, Dummy &gt;::Color()'],['../struct_ph_widgets_1_1_widget_1_1_arguments_3_01_pg_color__t_00_01_resource_tag_1_1_color_00_01_dummy_01_4.html#a65b7495dd4082bb17074d85a2e5e0a6c',1,'PhWidgets::Widget::Arguments&lt; PgColor_t, ResourceTag::Color, Dummy &gt;::Color()']]]
+];
