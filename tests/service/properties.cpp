@@ -237,36 +237,32 @@ TEST_CASE("Testing properties for simple types"){
         property<int, property<>::wo> prop_int(10);
 
         prop_int.set(10);
-        CHECK(prop_int == prop_int);
         //CHECK_EQ(10, property);
-        CHECK(prop_int == 10);
-        CHECK_EQ(prop_int, 10);
         prop_int.set(convertable<int>());
-        CHECK(prop_int != 10);
     }
 
     SUBCASE("Testing mixed property"){
 
-        property<int, property<>::wo> prop_wo(10);
+        //property<int, property<>::wo> prop_wo(10);
         property<int, property<>::ro> prop_ro(10);
         property<int, property<>::rw> prop_rw(10);
 
-        CHECK(prop_wo == prop_ro);
-        CHECK(prop_wo == prop_rw);
+        //CHECK(prop_wo == prop_ro);
+        //CHECK(prop_wo == prop_rw);
         //CHECK(prop_ro == prop_wo);
         CHECK(prop_ro == prop_rw);
         CHECK(prop_rw == prop_ro);
         //CHECK(prop_rw == prop_wo);
 
-        CHECK_FALSE(prop_wo != prop_ro);
-        CHECK_FALSE(prop_wo != prop_rw);
+        //CHECK_FALSE(prop_wo != prop_ro);
+        //CHECK_FALSE(prop_wo != prop_rw);
         //CHECK_FALSE(prop_ro != prop_wo);
         CHECK_FALSE(prop_ro != prop_rw);
         CHECK_FALSE(prop_rw != prop_ro);
         //CHECK_FALSE(prop_rw != prop_wo);
 
-        CHECK_FALSE(prop_wo < prop_ro);
-        CHECK_FALSE(prop_wo < prop_rw);
+        //CHECK_FALSE(prop_wo < prop_ro);
+        //CHECK_FALSE(prop_wo < prop_rw);
         //CHECK_FALSE(prop_ro < prop_wo);
         CHECK_FALSE(prop_ro < prop_rw);
         CHECK_FALSE(prop_rw < prop_ro);
@@ -275,47 +271,47 @@ TEST_CASE("Testing properties for simple types"){
 
     SUBCASE("Testing mixed types properties"){
 
-        property<int, property<>::wo> prop_wo(10);
+        //property<int, property<>::wo> prop_wo(10);
         property<float, property<>::ro> prop_ro(10.0f);
         property<short, property<>::rw> prop_rw(10);
 
-        CHECK(prop_wo == prop_ro);
-        CHECK(prop_wo == prop_rw);
+        //CHECK(prop_wo == prop_ro);
+        //CHECK(prop_wo == prop_rw);
         //CHECK(prop_ro == prop_wo);
         CHECK(prop_ro == prop_rw);
         CHECK(prop_rw == prop_ro);
         //CHECK(prop_rw == prop_wo);
 
-        CHECK_FALSE(prop_wo != prop_ro);
-        CHECK_FALSE(prop_wo != prop_rw);
+        //CHECK_FALSE(prop_wo != prop_ro);
+        //CHECK_FALSE(prop_wo != prop_rw);
         //CHECK_FALSE(prop_ro != prop_wo);
         CHECK_FALSE(prop_ro != prop_rw);
         CHECK_FALSE(prop_rw != prop_ro);
         //CHECK_FALSE(prop_rw != prop_wo);
 
-        CHECK_FALSE(prop_wo < prop_ro);
-        CHECK_FALSE(prop_wo < prop_rw);
+        //CHECK_FALSE(prop_wo < prop_ro);
+        //CHECK_FALSE(prop_wo < prop_rw);
         //CHECK_FALSE(prop_ro < prop_wo);
         CHECK_FALSE(prop_ro < prop_rw);
         CHECK_FALSE(prop_rw < prop_ro);
         //CHECK_FALSE(prop_rw < prop_wo);
 
         CHECK(convertable<float>(10.f) == prop_ro);
-        CHECK(prop_wo == convertable<double>(10.));
+        //CHECK(prop_wo == convertable<double>(10.));
         //CHECK(prop_ro == prop_wo);
         CHECK(convertable<float>(10.f) == prop_rw);
         CHECK(prop_rw == convertable<char>(10));
         //CHECK(prop_rw == prop_wo);
 
         CHECK(convertable<float>(42.f) != prop_ro);
-        CHECK(prop_wo != convertable<double>(42.));
+        //CHECK(prop_wo != convertable<double>(42.));
         //CHECK(prop_ro != prop_wo);
         CHECK(convertable<double>(42.) != prop_rw);
         CHECK(prop_rw != convertable<double>(42.));
         //CHECK(prop_rw != prop_wo);
 
         CHECK_FALSE(convertable<int>(42) < prop_ro);
-        CHECK(prop_wo < convertable<double>(42.));
+        //CHECK(prop_wo < convertable<double>(42.));
         //CHECK(prop_ro < prop_wo);
         CHECK_FALSE(convertable<unsigned int>(42) < prop_rw);
         CHECK(prop_rw < convertable<float>(42.f));
