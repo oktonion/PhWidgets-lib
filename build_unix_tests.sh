@@ -71,8 +71,8 @@ for file in ./tests/$testgroup/*.cpp; do
   filename="${filename%.*}"
   foldername=$(dirname -- "$file")
   foldername=$(basename -- "$foldername")
-  echo "$(date): compiling test c++98 $foldername:$filename"
-  if ! $COMPILER -std=c++98 -pedantic $exclude_warn $file -I./src/ $build_libs -o "./tests/bin/$foldername:$filename"; then
+  echo "$(date): compiling test c++98 $foldername-$filename"
+  if ! $COMPILER -std=c++98 -pedantic $exclude_warn $file -I./src/ $build_libs -o "./tests/bin/$foldername-$filename"; then
     build_ok=0
   fi
 done
