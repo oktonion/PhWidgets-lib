@@ -3,11 +3,28 @@ mkdir ./tests/bin
 build_ok=1
 exclude_warn=""
 build_libs="-lrt"
-testgroup=$1
+testgroup="**"
 
-if [[ $testgroup = "" ]]; then
-	print "Error: test group is not specified!"
-  exit 13
+if [ "$1" == "debug" ]
+	then
+	coption=-g
+	print "	Warning: DEBUG compile configuration!"
+  if [ "$2" != "" ]
+  then
+    testgroup=$2
+  fi
+elif [ "$1" == "clear" ]
+  then
+  rm -rf ./tests/bin
+  exit
+elif [ "$1" != "" ]
+  then
+  testgroup=$1
+  if [ "$2" == "debug" ]
+    then
+    coption=-g
+    print "	Warning: DEBUG compile configuration!"
+  fi
 fi
 
 $COMPILER -v
