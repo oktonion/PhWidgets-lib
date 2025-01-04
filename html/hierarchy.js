@@ -249,64 +249,141 @@ var hierarchy =
       [ "PhWidgets::Graphic::Arguments", "struct_ph_widgets_1_1_graphic_1_1_arguments.html", null ],
       [ "PhWidgets::Label::Arguments", "struct_ph_widgets_1_1_label_1_1_arguments.html", null ]
     ] ],
-    [ "PhWidgets::Widget::Arguments< T, Disabled, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< char *, ResourceTag::String, Dummy >", "struct_ph_widgets_1_1_basic_1_1_arguments_3_01char_01_5_00_01_resource_tag_1_1_string_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< char *, ResourceTag::String, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments_3_01char_01_5_00_01_resource_tag_1_1_string_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< char *, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< char *, Widget::ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< char, ResourceTag::Scalar, Dummy >", "struct_ph_widgets_1_1_basic_1_1_arguments_3_01char_00_01_resource_tag_1_1_scalar_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Basic::Arguments< char, Widget::ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< long, ResourceTag::Flag, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments_3_01long_00_01_resource_tag_1_1_flag_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< long, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< PgColor_t, ResourceTag::Color, Dummy >", "struct_ph_widgets_1_1_basic_1_1_arguments_3_01_pg_color__t_00_01_resource_tag_1_1_color_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< PgColor_t, ResourceTag::Color, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments_3_01_pg_color__t_00_01_resource_tag_1_1_color_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< PgColor_t, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< PgColor_t, Widget::ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< PgPattern_t, ResourceTag::Struct, Dummy >", "struct_ph_widgets_1_1_basic_1_1_arguments_3_01_pg_pattern__t_00_01_resource_tag_1_1_struct_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Basic::Arguments< PgPattern_t, Widget::ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< PhArea_t, ResourceTag::Struct, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments_3_01_ph_area__t_00_01_resource_tag_1_1_struct_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< PhArea_t, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< PhCursorDef_t, ResourceTag::Struct, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments_3_01_ph_cursor_def__t_00_01_resource_tag_1_1_struct_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< PhCursorDef_t, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< PhDim_t, ResourceTag::Struct, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments_3_01_ph_dim__t_00_01_resource_tag_1_1_struct_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< PhDim_t, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< PhPoint_t, ResourceTag::Struct, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments_3_01_ph_point__t_00_01_resource_tag_1_1_struct_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< PhPoint_t, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< PhRect_t, ResourceTag::Struct, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments_3_01_ph_rect__t_00_01_resource_tag_1_1_struct_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< PhRect_t, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< PtGridLayoutData_t, ResourceTag::Struct, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments_3_01_pt_grid_layout_data__t_00_01_resource_tag_1_1_struct_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< PtGridLayoutData_t, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< PtRowLayoutData_t, ResourceTag::Struct, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments_3_01_pt_row_layout_data__t_00_01_resource_tag_1_1_struct_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< PtRowLayoutData_t, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< T >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< T, ResourceTag::Alloc >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< T, ResourceTag::Callback >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< T, ResourceTag::Color >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< T, ResourceTag::Flag >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< T, ResourceTag::Scalar >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< T, ResourceTag::String >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< T, ResourceTag::Struct >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTag::Alloc >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTag::Callback >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTag::Color >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTag::Flag >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTag::Scalar >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTag::String >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTag::Struct >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< unsigned char, ResourceTag::Scalar, Dummy >", "struct_ph_widgets_1_1_basic_1_1_arguments_3_01unsigned_01char_00_01_resource_tag_1_1_scalar_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Basic::Arguments< unsigned char, Widget::ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< unsigned long, ResourceTag::Flag, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments_3_01unsigned_01long_00_01_resource_tag_1_1_flag_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Basic::Arguments< unsigned long, ResourceTag::Scalar, Dummy >", "struct_ph_widgets_1_1_basic_1_1_arguments_3_01unsigned_01long_00_01_resource_tag_1_1_scalar_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< unsigned long, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< unsigned long, Widget::ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< unsigned short, ResourceTag::Scalar, Dummy >", "struct_ph_widgets_1_1_basic_1_1_arguments_3_01unsigned_01short_00_01_resource_tag_1_1_scalar_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< unsigned short, ResourceTag::Scalar, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments_3_01unsigned_01short_00_01_resource_tag_1_1_scalar_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< unsigned short, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Basic::Arguments< unsigned short, Widget::ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< unsigned, ResourceTag::Flag, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments_3_01unsigned_00_01_resource_tag_1_1_flag_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< unsigned, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
-    [ "PhWidgets::Widget::Arguments< void *, ResourceTag::Alloc, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments_3_01void_01_5_00_01_resource_tag_1_1_alloc_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Arguments< void *, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< T, Disabled, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Basic::Arguments< void, Widget::ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< char *, ResourceTag::String, Dummy >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< char *, ResourceTag::String, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< char *, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< void, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< char *, Widget::ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", [
+      [ "PhWidgets::Basic::Arguments< void, Widget::ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< char, ResourceTag::Scalar, Dummy >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
+    [ "PhWidgets::Basic::Arguments< char, Widget::ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", [
+      [ "PhWidgets::Basic::Arguments< void, Widget::ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< long, ResourceTag::Flag, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< long, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< void, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< PgColor_t, ResourceTag::Color, Dummy >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< PgColor_t, ResourceTag::Color, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< PgColor_t, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< void, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< PgColor_t, Widget::ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", [
+      [ "PhWidgets::Basic::Arguments< void, Widget::ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< PgPattern_t, ResourceTag::Struct, Dummy >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
+    [ "PhWidgets::Basic::Arguments< PgPattern_t, Widget::ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", [
+      [ "PhWidgets::Basic::Arguments< void, Widget::ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< PhArea_t, ResourceTag::Struct, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< PhArea_t, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< void, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< PhCursorDef_t, ResourceTag::Struct, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< PhCursorDef_t, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< void, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< PhDim_t, ResourceTag::Struct, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< PhDim_t, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< void, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< PhPoint_t, ResourceTag::Struct, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< PhPoint_t, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< void, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< PhRect_t, ResourceTag::Struct, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< PhRect_t, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< void, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< PtGridLayoutData_t, ResourceTag::Struct, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< PtGridLayoutData_t, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< void, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< PtRowLayoutData_t, ResourceTag::Struct, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< PtRowLayoutData_t, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< void, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< T >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", [
+      [ "PhWidgets::Basic::Arguments< Basic, T, false >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< T >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< Widget, T, false >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< T, ResourceTag::Alloc >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< T, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< T, ResourceTag::Callback >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< T, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< T, ResourceTag::Color >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< T, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< T, ResourceTag::Flag >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< T, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< T, ResourceTag::Scalar >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< T, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< T, ResourceTag::String >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< T, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< T, ResourceTag::Struct >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< T, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTag::Alloc >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", [
+      [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTag::Callback >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", [
+      [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTag::Color >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", [
+      [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTag::Flag >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", [
+      [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTag::Scalar >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", [
+      [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTag::String >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", [
+      [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTag::Struct >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", [
+      [ "PhWidgets::Basic::Arguments< T, Widget::ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< unsigned char, ResourceTag::Scalar, Dummy >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
+    [ "PhWidgets::Basic::Arguments< unsigned char, Widget::ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", [
+      [ "PhWidgets::Basic::Arguments< void, Widget::ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< unsigned long, ResourceTag::Flag, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
+    [ "PhWidgets::Basic::Arguments< unsigned long, ResourceTag::Scalar, Dummy >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< unsigned long, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< void, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< unsigned long, Widget::ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", [
+      [ "PhWidgets::Basic::Arguments< void, Widget::ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< unsigned short, ResourceTag::Scalar, Dummy >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< unsigned short, ResourceTag::Scalar, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< unsigned short, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< void, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Arguments< unsigned short, Widget::ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", [
+      [ "PhWidgets::Basic::Arguments< void, Widget::ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_basic_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< unsigned, ResourceTag::Flag, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< unsigned, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< void, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Arguments< void *, ResourceTag::Alloc, Dummy >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ],
+    [ "PhWidgets::Widget::Arguments< void *, ResourceTypeTag< __LINE__ > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", [
+      [ "PhWidgets::Widget::Arguments< void, ResourceTypeTag< TypeID > >", "struct_ph_widgets_1_1_widget_1_1_arguments.html", null ]
+    ] ],
     [ "PhWidgets::Button::ThisArgs::ArgUnsignedChar", "struct_ph_widgets_1_1_button_1_1_this_args_1_1_arg_unsigned_char.html", [
       [ "PhWidgets::Button::ArgUnsignedChar", "struct_ph_widgets_1_1_button_1_1_arg_unsigned_char.html", [
         [ "PhWidgets::Button::Arguments", "struct_ph_widgets_1_1_button_1_1_arguments.html", null ]
@@ -424,18 +501,37 @@ var hierarchy =
       [ "PhWidgets::TextWidget::Callbacks", "struct_ph_widgets_1_1_text_widget_1_1_callbacks.html", null ]
     ] ],
     [ "PhWidgets::Widget::Callbacks< T, Disabled, Dummy >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", [
+      [ "PhWidgets::Basic::Callbacks< void, void, Dummy >", "struct_ph_widgets_1_1_basic_1_1_callbacks.html", null ],
       [ "PhWidgets::Timer::Callbacks", "struct_ph_widgets_1_1_timer_1_1_callbacks.html", null ]
     ] ],
-    [ "PhWidgets::Widget::Callbacks< PtCallback_t >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", null ],
-    [ "PhWidgets::Basic::Callbacks< PtCallback_t, ResourceTag::Callback >", "struct_ph_widgets_1_1_basic_1_1_callbacks.html", null ],
-    [ "PhWidgets::Basic::Callbacks< PtCallback_t, ResourceTag::Callback, Dummy >", "struct_ph_widgets_1_1_basic_1_1_callbacks_3_01_pt_callback__t_00_01_resource_tag_1_1_callback_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Callbacks< PtCallback_t, ResourceTag::Callback, Dummy >", "struct_ph_widgets_1_1_widget_1_1_callbacks_3_01_pt_callback__t_00_01_resource_tag_1_1_callback_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Callbacks< PtHotkeyCallback_t >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", null ],
-    [ "PhWidgets::Widget::Callbacks< PtHotkeyCallback_t, ResourceTag::Callback, Dummy >", "struct_ph_widgets_1_1_widget_1_1_callbacks_3_01_pt_hotkey_callback__t_00_01_resource_tag_1_1_callback_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Widget::Callbacks< PtRawCallback_t >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", null ],
-    [ "PhWidgets::Widget::Callbacks< PtRawCallback_t, ResourceTag::Callback, Dummy >", "struct_ph_widgets_1_1_widget_1_1_callbacks_3_01_pt_raw_callback__t_00_01_resource_tag_1_1_callback_00_01_dummy_01_4.html", null ],
-    [ "PhWidgets::Basic::Callbacks< T >", "struct_ph_widgets_1_1_basic_1_1_callbacks.html", null ],
-    [ "PhWidgets::Basic::Callbacks< T, ResourceTag::Callback, Dummy >", "struct_ph_widgets_1_1_basic_1_1_callbacks.html", null ],
+    [ "PhWidgets::Widget::Callbacks< PtCallback_t >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", [
+      [ "PhWidgets::Widget::Callbacks< void, void, Dummy >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Callbacks< PtCallback_t, ResourceTag::Callback >", "struct_ph_widgets_1_1_basic_1_1_callbacks.html", [
+      [ "PhWidgets::Basic::Callbacks< void, void, Dummy >", "struct_ph_widgets_1_1_basic_1_1_callbacks.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Callbacks< PtCallback_t, ResourceTag::Callback, Dummy >", "struct_ph_widgets_1_1_basic_1_1_callbacks.html", null ],
+    [ "PhWidgets::Widget::Callbacks< PtCallback_t, ResourceTag::Callback, Dummy >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", null ],
+    [ "PhWidgets::Widget::Callbacks< PtHotkeyCallback_t >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", [
+      [ "PhWidgets::Widget::Callbacks< void, void, Dummy >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Callbacks< PtHotkeyCallback_t, ResourceTag::Callback, Dummy >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", null ],
+    [ "PhWidgets::Widget::Callbacks< PtRawCallback_t >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", [
+      [ "PhWidgets::Widget::Callbacks< void, void, Dummy >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Callbacks< PtRawCallback_t, ResourceTag::Callback, Dummy >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", null ],
+    [ "PhWidgets::Basic::Callbacks< T >", "struct_ph_widgets_1_1_basic_1_1_callbacks.html", [
+      [ "PhWidgets::Basic::Callbacks< Basic, T >", "struct_ph_widgets_1_1_basic_1_1_callbacks.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Callbacks< T >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", [
+      [ "PhWidgets::Widget::Callbacks< Widget, T >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", null ]
+    ] ],
+    [ "PhWidgets::Basic::Callbacks< T, ResourceTag::Callback, Dummy >", "struct_ph_widgets_1_1_basic_1_1_callbacks.html", [
+      [ "PhWidgets::Basic::Callbacks< T, void, Dummy >", "struct_ph_widgets_1_1_basic_1_1_callbacks.html", null ]
+    ] ],
+    [ "PhWidgets::Widget::Callbacks< T, ResourceTag::Callback, Dummy >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", [
+      [ "PhWidgets::Widget::Callbacks< T, void, Dummy >", "struct_ph_widgets_1_1_widget_1_1_callbacks.html", null ]
+    ] ],
     [ "PhWidgets::Drawing::Colors", "struct_ph_widgets_1_1_drawing_1_1_colors.html", [
       [ "PhWidgets::Drawing::Color", "class_ph_widgets_1_1_drawing_1_1_color.html", null ]
     ] ],
@@ -449,6 +545,10 @@ var hierarchy =
       [ "PhWidgets::Drawing::ImageType", "struct_ph_widgets_1_1_drawing_1_1_image_type.html", null ]
     ] ],
     [ "stdex::chrono::duration< _Rep, _Period >", "classstdex_1_1chrono_1_1duration.html", null ],
+    [ "stdex::chrono::duration< _cr, _r >", "classstdex_1_1chrono_1_1duration.html", null ],
+    [ "stdex::chrono::duration< stdex::intmax_t >", "classstdex_1_1chrono_1_1duration.html", null ],
+    [ "stdex::chrono::duration< stdex::intmax_t, ratio< 3600 > >", "classstdex_1_1chrono_1_1duration.html", null ],
+    [ "stdex::chrono::duration< stdex::intmax_t, ratio< 60 > >", "classstdex_1_1chrono_1_1duration.html", null ],
     [ "PhWidgets::Widget::Flags::Extended", "struct_ph_widgets_1_1_widget_1_1_flags_1_1_extended.html", null ],
     [ "PhWidgets::Widget::Flags", "struct_ph_widgets_1_1_widget_1_1_flags.html", [
       [ "PhWidgets::Basic::Flags", "struct_ph_widgets_1_1_basic_1_1_flags.html", [
@@ -475,6 +575,8 @@ var hierarchy =
     [ "PhWidgets::Gauge::ThisFlags::Alignment::Horizontal", "struct_ph_widgets_1_1_gauge_1_1_this_flags_1_1_alignment_1_1_horizontal.html", null ],
     [ "PhWidgets::Drawing::Image", "class_ph_widgets_1_1_drawing_1_1_image.html", null ],
     [ "stdex::is_volatile< class >", "structstdex_1_1is__volatile.html", null ],
+    [ "stdex::is_volatile< const volatile _Tp >", "structstdex_1_1is__volatile.html", null ],
+    [ "stdex::is_volatile< volatile _Tp >", "structstdex_1_1is__volatile.html", null ],
     [ "PhWidgets::LabelType", "struct_ph_widgets_1_1_label_type.html", null ],
     [ "PhWidgets::Gauge::ThisFlags::Orientation", "struct_ph_widgets_1_1_gauge_1_1_this_flags_1_1_orientation.html", null ],
     [ "PhWidgets::Drawing::PaletteImageType", "struct_ph_widgets_1_1_drawing_1_1_palette_image_type.html", [

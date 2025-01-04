@@ -6,7 +6,5 @@ var searchData=
   ['underline_3',['Underline',['../struct_ph_widgets_1_1_drawing_1_1_font_style.html#a34c81ce9f0eb4ce0730e14e52fbd51aea379357bc48626bc8f0a1facb8d12e5f4',1,'PhWidgets::Drawing::FontStyle']]],
   ['underline1_4',['underline1',['../struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_color.html#af5edcd00f96477d52ebb4131b5d50849a49862d799eb339e505d572156169992b',1,'PhWidgets::Label::ThisArgs::ArgColor']]],
   ['underline2_5',['underline2',['../struct_ph_widgets_1_1_label_1_1_this_args_1_1_arg_color.html#af5edcd00f96477d52ebb4131b5d50849adfd3f0de0a79e04553b52eb19916787b',1,'PhWidgets::Label::ThisArgs::ArgColor']]],
-  ['unrealized_6',['Unrealized',['../struct_ph_widgets_1_1_widget_1_1_callbacks_3_01_pt_callback__t_00_01_resource_tag_1_1_callback_00_01_dummy_01_4.html#a3a1c1f4119b9d8bce551a872ac957f38a24b27cfe5a5418daae5a58bea3bb3695',1,'PhWidgets::Widget::Callbacks&lt; PtCallback_t, ResourceTag::Callback, Dummy &gt;']]],
-  ['userdata_7',['UserData',['../struct_ph_widgets_1_1_widget_1_1_arguments_3_01void_01_5_00_01_resource_tag_1_1_alloc_00_01_dummy_01_4.html#acad2143dc1a613cf4f327411d35cef0faede43b47b0d1c2650f44c3e655b09cce',1,'PhWidgets::Widget::Arguments&lt; void *, ResourceTag::Alloc, Dummy &gt;']]],
-  ['useseparators_8',['UseSeparators',['../struct_ph_widgets_1_1_numeric_1_1_this_flags.html#aabb6a784347add4f6869bf2e9083fc88a51998ad5add05fefba58891097f461d8',1,'PhWidgets::Numeric::ThisFlags']]]
+  ['useseparators_6',['UseSeparators',['../struct_ph_widgets_1_1_numeric_1_1_this_flags.html#aabb6a784347add4f6869bf2e9083fc88a51998ad5add05fefba58891097f461d8',1,'PhWidgets::Numeric::ThisFlags']]]
 ];

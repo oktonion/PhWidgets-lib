@@ -55,6 +55,8 @@ var annotated_dup =
       ] ],
       [ "cv_status", "structstdex_1_1cv__status.html", null ],
       [ "is_volatile", "structstdex_1_1is__volatile.html", null ],
+      [ "is_volatile< const volatile _Tp >", "structstdex_1_1is__volatile.html", null ],
+      [ "is_volatile< volatile _Tp >", "structstdex_1_1is__volatile.html", null ],
       [ "thread", "classstdex_1_1thread.html", "classstdex_1_1thread" ]
     ] ],
     [ "ApInfo_t", "struct_ap_info__t.html", null ],

@@ -12,12 +12,10 @@ var searchData=
   ['ghostwhite_9',['GhostWhite',['../struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689baa497111a3f02f2aac950458f5c1ff7b8',1,'PhWidgets::Drawing::Colors']]],
   ['gold_10',['Gold',['../struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba2c02efd3755885ebc151dc0a7f8a5e37',1,'PhWidgets::Drawing::Colors']]],
   ['goldenrod_11',['Goldenrod',['../struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba05918cf4d90d073bc59a86f17cc2476e',1,'PhWidgets::Drawing::Colors']]],
-  ['gotfocus_12',['GotFocus',['../struct_ph_widgets_1_1_basic_1_1_callbacks_3_01_pt_callback__t_00_01_resource_tag_1_1_callback_00_01_dummy_01_4.html#a00a20c293d87431c4ff40306902a7ad9a91d7e0c03d18799873fc0c49edaa7ac6',1,'PhWidgets::Basic::Callbacks&lt; PtCallback_t, ResourceTag::Callback, Dummy &gt;']]],
-  ['graphic_5fflags_13',['graphic_flags',['../struct_ph_widgets_1_1_graphic_1_1_this_args_1_1_arg_char.html#a19af9755eb13d256984e9c77dcabcb27a1d416e9a0826e00b61e1fe7f296fb613',1,'PhWidgets::Graphic::ThisArgs::ArgChar']]],
-  ['gray_14',['Gray',['../struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba2795031a107edf41577f02875d760e90',1,'PhWidgets::Drawing::Colors']]],
-  ['green_15',['Green',['../struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba8e3e1040ddf8eb7a626d5e4fc17d3500',1,'PhWidgets::Drawing::Colors']]],
-  ['greenyellow_16',['GreenYellow',['../struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba89f700110717322c26d433b2356896c9',1,'PhWidgets::Drawing::Colors']]],
-  ['grid_5fcolor_17',['grid_color',['../struct_ph_widgets_1_1_image_area_1_1_this_args_1_1_arg_color.html#a07f6c99925e602afdafbf707ed4cfad8a12032602fa844374d0904bdd792fc457',1,'PhWidgets::ImageArea::ThisArgs::ArgColor']]],
-  ['grid_5fthreshold_18',['grid_threshold',['../struct_ph_widgets_1_1_image_area_1_1_this_args_1_1_arg_long.html#ae49c3009e7899218314d54fc7bd55aa5a24ae4b4560d7f3e8cb7e5e7c467c0f00',1,'PhWidgets::ImageArea::ThisArgs::ArgLong']]],
-  ['gridlayoutdata_19',['GridLayoutData',['../struct_ph_widgets_1_1_widget_1_1_arguments_3_01_pt_grid_layout_data__t_00_01_resource_tag_1_1_struct_00_01_dummy_01_4.html#ae7e6a87c46ea317ac6a3b02006f02400a6e69fa9ce4485f792d30d2a571903f41',1,'PhWidgets::Widget::Arguments&lt; PtGridLayoutData_t, ResourceTag::Struct, Dummy &gt;']]]
+  ['graphic_5fflags_12',['graphic_flags',['../struct_ph_widgets_1_1_graphic_1_1_this_args_1_1_arg_char.html#a19af9755eb13d256984e9c77dcabcb27a1d416e9a0826e00b61e1fe7f296fb613',1,'PhWidgets::Graphic::ThisArgs::ArgChar']]],
+  ['gray_13',['Gray',['../struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba2795031a107edf41577f02875d760e90',1,'PhWidgets::Drawing::Colors']]],
+  ['green_14',['Green',['../struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba8e3e1040ddf8eb7a626d5e4fc17d3500',1,'PhWidgets::Drawing::Colors']]],
+  ['greenyellow_15',['GreenYellow',['../struct_ph_widgets_1_1_drawing_1_1_colors.html#a66e11e2ba9a553e16d0051918f07689ba89f700110717322c26d433b2356896c9',1,'PhWidgets::Drawing::Colors']]],
+  ['grid_5fcolor_16',['grid_color',['../struct_ph_widgets_1_1_image_area_1_1_this_args_1_1_arg_color.html#a07f6c99925e602afdafbf707ed4cfad8a12032602fa844374d0904bdd792fc457',1,'PhWidgets::ImageArea::ThisArgs::ArgColor']]],
+  ['grid_5fthreshold_17',['grid_threshold',['../struct_ph_widgets_1_1_image_area_1_1_this_args_1_1_arg_long.html#ae49c3009e7899218314d54fc7bd55aa5a24ae4b4560d7f3e8cb7e5e7c467c0f00',1,'PhWidgets::ImageArea::ThisArgs::ArgLong']]]
 ];
